@@ -1,0 +1,15 @@
+.. Crossroads documentation master file, created by
+   sphinx-quickstart on Tue Feb 25 16:23:47 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Crossroads
+==========
+
+..
+   .. toctree::
+      :maxdepth: 1
+      :caption: Contenidos
+
+- `Curso de Python IB-2020 <https://fiolj.github.io/intro-python-IB/>`_
+- `Clases en formato pdf <data/ClasesdePython.pdf>`_
