@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>surf_modify command &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>surf_modify command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/surf_modify.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="surf-modify-command">
+<span id="command-surf-modify"></span><h1>surf_modify command<a class="headerlink" href="#surf-modify-command" title="Permalink to this headline">¶</a></h1>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">surf_modify</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">keyword</span> <span class="n">args</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>group-ID = ID of the surface group to operate on</p>
+<ul>
+<li><p>one or more keyword/arg pairs may be listed</p></li>
+<li><p>keyword = <em>collide</em> or (react)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">collide</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">sc</span><span class="o">-</span><span class="n">ID</span>
+  <span class="n">sc</span><span class="o">-</span><span class="n">ID</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">a</span> <span class="n">surface</span> <span class="n">collision</span> <span class="n">model</span>
+<span class="n">react</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">sr</span><span class="o">-</span><span class="n">ID</span>
+  <span class="n">sr</span><span class="o">-</span><span class="n">ID</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">a</span> <span class="n">surface</span> <span class="n">reaction</span> <span class="n">model</span> <span class="ow">or</span> <span class="n">none</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">surf_modify</span> <span class="n">sphere</span> <span class="n">collide</span> <span class="mi">1</span>
+<span class="n">surf_modify</span> <span class="nb">all</span> <span class="n">collide</span> <span class="n">sphere</span> <span class="n">react</span> <span class="n">sphere</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Set parameters for a group of surface elements in the specified
+group-ID. Surface elements are read in by the
+<a class="reference external" href="read_surf.html">read_surf</a> command. They can be assigned to groups
+by that command or via the <a class="reference external" href="group.html">group</a> command.</p>
+<p>The <em>collide</em> keyword is used to assign a surface collision model.
+Surface collision models are defined by the
+<a class="reference external" href="surf_collide.html">surf_collide</a> command, which assigns each a
+surface collision ID, specified here as <em>sc-ID</em>.</p>
+<p>The effect of this keyword is that particle collisions with surface
+elements in group-ID will be computed by the surface collision model
+with <em>sc-ID</em>.</p>
+<p>The <em>react</em> keyword is used to assign a surface reaction model. Surface
+reaction models are defined by the <a class="reference external" href="surf_react.html">surf_react</a>
+command, which assigns each a surface reaction ID, specified here as
+<em>sr-ID</em> or the word “none”. The latter means no reaction model.</p>
+<p>The effect of this keyword is that particle collisions with surface
+elements in group-ID will induce reactions which are computed by the
+surface reaction model with <em>sr-ID</em>. If “none” is used, no surface
+reactions occur.</p>
+<p>Note that if the same surface element is assigned to multiple groups,
+using this command multiple times may override the effect of a previous
+command that assigned a different collision or reaction model to a
+particular surface element.</p>
+<p><strong>Restrictions:</strong></p>
+<p>All surface elements must be assigned to a surface collision model via
+the <em>collide</em> keyword before a simlulation can be performed. Using a
+surface reaction model is optional.</p>
+<p>This command cannot be used before surfaces exist.</p>
+<p><strong>Related commands:</strong></p>
+<p><a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf command</span></a>,
+<a class="reference internal" href="bound_modify.html#command-bound-modify"><span class="std std-ref">bound_modify command</span></a></p>
+<p><strong>Default:</strong></p>
+<p>The default for surface reactions is none.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

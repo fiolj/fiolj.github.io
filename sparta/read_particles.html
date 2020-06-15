@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>read_particles command &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>read_particles command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/read_particles.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="read-particles-command">
+<span id="command-read-particles"></span><h1>read_particles command<a class="headerlink" href="#read-particles-command" title="Permalink to this headline">¶</a></h1>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_particles</span> <span class="n">file</span> <span class="n">Nstep</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>file = dump file to read snapshot from</p></li>
+<li><p>Nstep = timestep to read</p></li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_particles</span> <span class="n">dump</span><span class="o">.</span><span class="n">sphere</span> <span class="mi">10500</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Read a snapshot of particles from a previously created dump file and add
+them to the simulation domain. This is a means of reading in particles
+from a previous SPARTA simulation or created as output by another code.
+The <a class="reference external" href="create_particles.html">create_particles</a>, <a class="reference external" href="fix_emit_face.html">fix
+emit/face</a>, and
+<a class="reference external" href="read_restart.html">read_restart</a> commands are alternate ways to
+generate particles for a simulation.</p>
+<p>The dump file must be in the SPARTA format created by the <a class="reference external" href="dump.html">dump
+particles</a> command which is described on its doc page.</p>
+<p>Currently, each line of particle data in the file must have 8 fields in
+the following order. At some point we may generalize this format.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">,</span> <span class="n">vz</span>
+</pre></div>
+</div>
+<p>The <em>id</em> is any positive integer, which can simply be set to values from
+1 to Nparticles if desired. The type is the species ID from 1 to
+Nspecies. The value corresponds to the order in which species are
+defined in the current input script via the <a class="reference external" href="species.html">species</a>
+command. The x,y,z values are the particle coordinates which must be
+inside (or on the surface of) the simulation box. If a particle is
+outside the box it will be skipped when the file is read. For 2d or
+axisymmetric simulations z = 0.0 should be used, though SPARTA does not
+check for this. The vx,vy,vz values are the particle velocity. The
+rotational and vibrational energies for the new particles are set to
+0.0.</p>
+<p>When the reading of particles is complete, the number of particles read
+is printed to the screen. If the number is smaller than the particles in
+the file, it is because some were outside the simulation box.</p>
+<p>A check is made for any particle inside a surface object which triggers
+an error. However the check is only for grid cells entirely inside a
+surface object. Particles in grid cells which are cut by surfaces are
+not checked. It is your responsibility to insure particles close to
+surfaces are actually outside the surface object. If this is not the
+case, errors may be triggered once particles begin to move.</p>
+<hr class="docutils" />
+<p><strong>Restrictions:</strong> none</p>
+<p><strong>Related commands:</strong></p>
+<p><a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles command</span></a>,
+<a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">fix emit/face command</span></a></p>
+<p><strong>Default:</strong> none</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

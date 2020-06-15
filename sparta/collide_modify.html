@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>collide_modify command &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>collide_modify command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/collide_modify.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="collide-modify-command">
+<span id="command-collide-modify"></span><h1>collide_modify command<a class="headerlink" href="#collide-modify-command" title="Permalink to this headline">¶</a></h1>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">collide_modify</span> <span class="n">keyword</span> <span class="n">values</span> <span class="o">...</span>
+</pre></div>
+</div>
+<ul>
+<li><p>one or more keyword/value pairs may be listed</p></li>
+<li><p>keywords = <em>vremax</em> or <em>remain</em> or <em>ambipolar</em> or <em>nearcp</em> or
+<em>rotate</em> or <em>vibrate</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vremax</span> <span class="n">values</span> <span class="o">=</span> <span class="n">Nevery</span> <span class="n">startflag</span>
+  <span class="n">Nevery</span> <span class="o">=</span> <span class="n">zero</span> <span class="n">vremax</span> <span class="n">every</span> <span class="n">this</span> <span class="n">many</span> <span class="n">timesteps</span>
+  <span class="n">startflag</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span> <span class="o">=</span> <span class="n">zero</span> <span class="n">vremax</span> <span class="n">at</span> <span class="n">start</span> <span class="n">of</span> <span class="n">every</span> <span class="n">run</span>
+<span class="n">remain</span> <span class="n">value</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span> <span class="o">=</span> <span class="n">hold</span> <span class="n">remaining</span> <span class="n">fraction</span> <span class="n">of</span> <span class="n">collisions</span> <span class="n">over</span> <span class="n">to</span> <span class="nb">next</span> <span class="n">timestep</span>
+<span class="n">nearcp</span> <span class="n">values</span> <span class="o">=</span> <span class="n">choice</span> <span class="n">Nlimit</span>
+  <span class="n">choice</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span> <span class="n">to</span> <span class="n">turn</span> <span class="n">on</span><span class="o">/</span><span class="n">off</span> <span class="n">near</span> <span class="n">collision</span> <span class="n">partners</span>
+  <span class="n">Nlimit</span> <span class="o">=</span> <span class="nb">max</span> <span class="c1"># of attempts made to find a collision partner</span>
+<span class="n">ambipolar</span> <span class="n">value</span> <span class="o">=</span> <span class="n">no</span> <span class="ow">or</span> <span class="n">yes</span>
+<span class="n">rotate</span> <span class="n">value</span> <span class="o">=</span> <span class="n">no</span> <span class="ow">or</span> <span class="n">smooth</span>
+<span class="n">vibrate</span> <span class="n">value</span> <span class="o">=</span> <span class="n">no</span> <span class="ow">or</span> <span class="n">smooth</span> <span class="ow">or</span> <span class="n">discrete</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">collide_modify</span> <span class="n">vremax</span> <span class="mi">1000</span> <span class="n">yes</span>
+<span class="n">collide_modify</span> <span class="n">vremax</span> <span class="mi">0</span> <span class="n">no</span> <span class="n">remain</span> <span class="n">no</span>
+<span class="n">collide_modify</span> <span class="n">ambipolar</span> <span class="n">yes</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Set parameters that affect how collisions are performed.</p>
+<p>The <em>vremax</em> keyword affects how often the Vremax parameter, for
+collision frequency is re-zeroed during the simulation. This parameter
+is stored for each grid cell and each pair of collision groups (groups
+are described by the <a class="reference external" href="collide.html">collide</a> command).</p>
+<p>The value of Vremax affects how many events are attempted in each grid
+cell for a pair of groups, and thus the overall time spent performing
+collisions. Vremax is continuously set to the largest difference in
+velocity between a pair of colliding particles. The larger Vremax grows,
+the more collisions are attempted for the grid cell on each timestep,
+though this does not affect the number of collisions actually performed.
+Thus if Vremax grows large, collisions become less efficient, though
+still accurate.</p>
+<p>For non-equilibrium flows, it is typically desirable to reset Vremax to
+zero fairly frequently (e.g. every 1000 steps) so that it does not
+become large, due to anomolously fast moving particles. In contrast,
+when a system is at equilibrium, it is typically desirable to not reset
+Vremax to zero since it will also stay roughly constant.</p>
+<p>If <em>Nevery</em> is specified as 0, Vremax is not zeroed during a run.
+Otherwise Vremax is zeroed on timesteps that are a multiple of <em>Nevery</em>.
+Additionally, if <em>startflag</em> is set to <em>yes</em>, Vremax is zeroed at the
+start of every run. If it is set to <em>no</em>, it is not.</p>
+<p>The <em>remain</em> keyword affects how the number of attempted collisions for
+each grid cell is calculated each timestep. If the value is set to
+<em>yes</em>, then any fractional collision count (for each grid cell and pair
+of grgroups) is carried over to the next timestep. E.g. if the computed
+collision count is 7.3, then 7 attempts are made on this timestep, and
+0.3 are carried over to the next timestep, to be added to the computed
+collision count for that step. If the value is set to <em>no</em>, then no
+carry-over is made. Instead, in this example, 7 attempts are made and an
+8th attempt is made conditionally with a probability of 0.3, using a
+random number.</p>
+<p>The <em>nearcp</em> keyword stands for “near collision partner” and affects how
+collision partners are selected. If <em>no</em> is specified, which is the
+default, then collision partner pairs are selected randomly from all
+particles in the grid cell. In this case the <em>Nlimit</em> parameter is
+ignored, though it must still be specfied.</p>
+<p>If <em>yes</em> is specified, then up to <em>Nlimit</em> collision partners are
+considered for each collision. The first partner I is chosen randomly
+from all particles in the grid cell. A distance R that particle I moves
+in that timestep is calculated, based on its velocity. <em>Nlimit</em> possible
+collision partners J are examined, starting at a random J. If one of
+them is within a distance R of particle I, it is immediately selected as
+the collision partner. If none of the <em>Nlimit</em> particles are within a
+distance R, the closest J particle to I is selected. An exception to
+these rules is that a particle J is not considered for a collision if
+the I,J pair were the most recent collision partners (in the current
+timestep) for each other. The convergence properties of this
+near-neighbor algorithm are described in <a class="reference internal" href="#gallis11" id="id1"><span>[Gallis11]</span></a>.
+Note that choosing <em>Nlimit</em> judiciously will avoid costly searches when
+there are large numbers of particles in some or all grid cells.</p>
+<p>If the <em>ambipolar</em> keyword is set to <em>yes</em>, then collisions within a
+grid cell with use the ambipolar approximation. This requires use of the
+<a class="reference external" href="fix_ambipolar.html">fix ambipolar</a> command to define which species
+is an electron and which species are ions. There can be many of the
+latter. When collisions within a single grid cell are performed, each
+ambipolar ion is split into two particles, the ion and an associated
+electron. Collisions between the augmented set of particles are
+calculated. Ion/electron chemistry can also occur if the
+<a class="reference external" href="react.html">react</a> command has been used to read a file of reactions
+that include such reactions. See the <a class="reference external" href="react.html">react</a> command doc
+page. After all collisions in the grid cell have been computed, there is
+still a one-to-one correspondence between ambipolar ions and electron,
+and each pair is recombined into a single ambipolar particle.</p>
+<p>The <em>rotate</em> keyword determines how rotational energy is treated in
+particle collisions and stored by particles. If the value is set to
+<em>no</em>, then rotational energy is not tracked; every particle’s rotational
+energy is 0.0. If the value is set to <em>smooth</em>, a particle’s rotational
+energy is a single continuous value.</p>
+<p>The <em>vibrate</em> keyword determines how vibrational energy is treated in
+particle collisions and stored by particles. If the value is set to
+<em>no</em>, then vibrational energy is not tracked; every particle’s
+vibrational energy is 0.0. If the value is set to <em>smooth</em>, a particle’s
+vibrational energy is a single continuous value. If the value is set to
+<em>discrete</em>, each particle’s vibrational energy is set to discrete
+values, namely multiples of kT where k = the Boltzmann constant and T is
+one or more characteristic vibrational temperatures set for the particle
+species.</p>
+<p>Note that in the <em>discrete</em> case, if any species are defined that have
+4,6,8 vibrational degrees of freedom, which correspond to 2,3,4
+vibrational modes, then the <a class="reference external" href="species.html">species</a> command must be
+used with its optional <em>vibfile</em> keyword to set the vibrational info
+(temperature, relaxation number, degeneracy) for those species.</p>
+<p>Also note that if any such species are defined (with more than one
+vibrational mode, then use of the <em>discrete</em> option also requires the
+<a class="reference external" href="fix_vibmode.html">fix vibmode</a> command be used to allocate storage
+for the per-particle mode values.</p>
+<hr class="docutils" />
+<p><strong>Restrictions:</strong> none</p>
+<p><strong>Related commands:</strong></p>
+<p><a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide command</span></a></p>
+<p><strong>Default:</strong></p>
+<p>The option defaults are vremax = (0,yes), remain = yes, ambipolar no,
+nearcp no, rotate smooth, and vibrate = no.</p>
+<hr class="docutils" />
+<dl class="citation">
+<dt class="label" id="gallis11"><span class="brackets"><a class="fn-backref" href="#id1">Gallis11</a></span></dt>
+<dd><ol class="upperalpha simple" start="13">
+<li><ol class="upperalpha simple">
+<li><p>Gallis, J. R. Torczynski, “Effect of Collision-Partner Selection Schemes on the Accuracy and Efficiency of the Direct Simulation Monte Carlo Method,” International Journal for Numerical Methods in Fluids, 67(8):1057-1072. DOI:10.1002/fld.2409 (2011).</p></li>
+</ol>
+</li>
+</ol>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

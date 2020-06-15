@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>fix vibmode command &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>fix vibmode command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/fix_vibmode.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fix-vibmode-command">
+<span id="command-fix-vibmode"></span><h1>fix vibmode command<a class="headerlink" href="#fix-vibmode-command" title="Permalink to this headline">¶</a></h1>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">vibmode</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>ID is documented in <a class="reference external" href="fix.html">fix</a> command</p></li>
+<li><p>vibmode = style name of this fix command</p></li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="mi">1</span> <span class="n">vibmode</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Enable multiple vibrational energy levels, defined on a per-species
+basis, to be used in a simulation. This fix is meant to be used with the
+<a class="reference external" href="collide_modify.html">collide_modify vibrate discrete</a> setting which
+means that the vibrational energy of each (non-monoatomic) particle is
+discretized across one or more energy modes, each with its own
+characteristic vibrational temperature. This fix allocates per-particle
+storage for the mode indices and also has code to populate the multiple
+levels appropriately when particles are created. Collisions between
+pairs of particles will then transfer energy between the different modes
+of the two particles.</p>
+<p>An overview of how to run simulations with multiple vibrational energy
+modes is given in the <a class="reference external" href="Section_howto.html#howto_12">Section 4.12</a>.
+This includes use of the <a class="reference external" href="species.html">species</a> command with its
+<em>vibfile</em> option, and the use of the <a class="reference external" href="collide_modify.html">collide_modify vibrate
+discrete</a> command. The section also lists all
+the commands that can be used in an input script to invoke various
+options associated with the vibrational energy modes. All of them depend
+on this fix vibmode command being defined.</p>
+<p>Internally, this fix defines a custom particle attribute named
+“vibmode”. It is an integer array with N values per particle. N is the
+maximum number of energy modes for any species defined in the
+simulation. The number of energy modes is half the vibrational degrees
+of freedom defined for each species. See the “species” command for how
+the degrees of freedom and associated vibrational temperatures and other
+properties are defined for each mode for each species.</p>
+<p>Each of the N values is an integer count for the</p>
+<hr class="docutils" />
+<p><strong>Restart, output info:</strong></p>
+<p>No information about this fix is written to <a class="reference external" href="restart.html">binary restart
+files</a>.</p>
+<p>However, the values of the custom particle attribute defined by this fix
+are written to the restart file. Namely the integer values stored in
+“vibmode” for each particle. As explained on the
+<a class="reference external" href="read_restart.html">read_restart</a> doc page these values can be
+re-assigned to particles when a restart file is read, if a new fix
+vibmode command is specified in the restart script before the first
+<a class="reference external" href="run.html">run</a> command is used.</p>
+<p>No global or per-particle or per-grid quantities are stored by this fix
+for access by various output commands.</p>
+<p>However, the custom particle attributes defined by this fix can be
+accessed by the <a class="reference external" href="dump.html">dump particle</a> command, as p_vibmode.
+That means those per-particle values can be written to particle dump
+files.</p>
+<p><strong>Restrictions:</strong></p>
+<p>This fix is required if “collide_modify vibrate discrete” is used and
+there is one or more species defined which haave multiple vibrational
+energy modes (2 or more). In this scenario, if it is not defined, an
+error will occur when a “create_particles” or <a class="reference external" href="run.html">run</a> command
+is issued. Conversely, if no species has multiple vibrational modes,
+this fix cannot be used.</p>
+<p>Defining this fix after particles have been created will not populate
+the vibrational energy modes of particles that already exist. An
+exception is if the <a class="reference external" href="read_restart.html">read_restart</a> command is used
+to read in particles from a previous simulation where this fix was used.
+In that case, defining this fix after reading the restart file will
+enable the particles to keep their previous vibrational energy mode
+values.</p>
+<p><strong>Related commands:</strong></p>
+<p><a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide modify vibrate discrete</span></a></p>
+<p><strong>Default:</strong> none</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

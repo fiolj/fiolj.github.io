@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>next command &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>next command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/next.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="next-command">
+<span id="command-next"></span><h1>next command<a class="headerlink" href="#next-command" title="Permalink to this headline">¶</a></h1>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span> <span class="n">variables</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>variables = one or more variable names</p></li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span> <span class="n">x</span>
+<span class="nb">next</span> <span class="n">a</span> <span class="n">t</span> <span class="n">x</span> <span class="n">myTemp</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>This command is used with variables defined by the
+<a class="reference external" href="variable.html">variable</a> command. It assigns the next value to the
+variable from the list of values defined for that variable by the
+<a class="reference external" href="variable.html">variable</a> command. Thus when that variable is
+subsequently substituted for in an input script command, the new value
+is used.</p>
+<p>See the <a class="reference external" href="variable.html">variable</a> command for info on how to define
+and use different kinds of variables in SPARTA input scripts. If a
+variable name is a single lower-case character from “a” to “z”, it can
+be used in an input script command as $a or $z. If it is multiple
+letters, it can be used as ${myTemp}.</p>
+<p>If multiple variables are used as arguments to the <em>next</em> command, then
+all must be of the same variable style: <em>index</em>, <em>loop</em>, <em>file</em>,
+<em>universe</em>, or <em>uloop</em>. An exception is that <em>universe</em>- and
+<em>uloop</em>-style variables can be mixed in the same <em>next</em> command.</p>
+<p>All the variables specified with the next command are incremented by one
+value from their respective list of values. A <em>file</em>-style variable
+reads the next line from its associated file. <em>String-</em> or <em>particle</em>-
+or <em>equal</em>- or <em>world</em>-style variables cannot be used with the the next
+command, since they only store a single value.</p>
+<p>When any of the variables in the next command has no more values, a flag
+is set that causes the input script to skip the next
+<a class="reference external" href="jump.html">jump</a> command encountered. This enables a loop containing
+a next command to exit. As explained in the <a class="reference external" href="variable.html">variable</a>
+command, the variable that has exhausted its values is also deleted.
+This allows it to be used and re-defined later in the input script.
+<em>File</em>-style variables are exhausted when the end-of-file is reached.</p>
+<p>When the next command is used with <em>index</em>- or <em>loop</em>-style variables,
+the next value is assigned to the variable for all processors. When the
+next command is used with <em>file</em>-style variables, the next line is read
+from its file and the string assigned to the variable.</p>
+<p>When the next command is used with <em>universe</em>- or <em>uloop</em>-style
+variables, all <em>universe</em>- or <em>uloop</em>-style variables must be listed in
+the next command. This is because of the manner in which the
+incrementing is done, using a single lock file for all variables. The
+next value (for each variable) is assigned to whichever processor
+partition executes the command first. All processors in the partition
+are assigned the same value(s). Running SPARTA on multiple partitions of
+processors via the “-partition” command-line switch is described in
+<a class="reference external" href="Section_start.html#start_6">Section 2.6</a> of the manual. <em>Universe</em>-
+and <em>uloop</em>-style variables are incremented using the files
+“tmp.sparta.variable” and “tmp.sparta.variable.lock” which you will see
+in your directory during and after such a SPARTA run.</p>
+<p>Here is an example of running a series of simulations using the next
+command with an <em>index</em>-style variable. If this input script is named
+in.flow, 8 simulations would be run using surface data files from
+directories run1 thru run8.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>variable d index run1 run2 run3 run4 run5 run6 run7 run8
+shell cd $d
+create_box 0 10 0 10 0 10
+create_grid 100 100 100
+read_surf data.surf 1
+...
+run 10000
+shell cd ..
+clear
+next d
+jump in.flow
+</pre></div>
+</div>
+<p>If the variable “d” were of style <em>universe</em>, and the same in.flow input
+script were run on 3 partitions of processors, then the first 3
+simulations would begin, one on each set of processors. Whichever
+partition finished first, it would assign variable “d” the 4th value and
+run another simulation, and so forth until all 8 simulations were
+finished.</p>
+<p>Jump and next commands can also be nested to enable multi-level loops.
+For example, this script will run 15 simulations in a double loop.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>variable i loop 3
+  variable j loop 5
+  clear
+  ...
+  read_surf data.surf.$i$j 1
+  print Running simulation $i.$j
+  run 10000
+  next j
+  jump in.script
+next i
+jump in.script
+</pre></div>
+</div>
+<p>Here is an example of a double loop which uses the <a class="reference external" href="if.html">if</a> and
+<a class="reference external" href="jump.html">jump</a> commands to break out of the inner loop when a
+condition is met, then continues iterating thru the outer loop.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>label      loopa
+variable    a loop 5
+  label     loopb
+  variable  b loop 5
+  print     &quot;A,B = $a,$b&quot;
+  run       10000
+  if        $b &gt; 2 then &quot;jump in.script break&quot;
+  next      b
+  jump      in.script loopb
+label       break
+variable    b delete
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span>       <span class="n">a</span>
+<span class="n">jump</span>        <span class="ow">in</span><span class="o">.</span><span class="n">script</span> <span class="n">loopa</span>
+</pre></div>
+</div>
+<p><strong>Restrictions:</strong> none</p>
+<p><strong>Related commands:</strong></p>
+<p><a class="reference internal" href="jump.html#command-jump"><span class="std std-ref">jump command</span></a>,
+<a class="reference internal" href="include.html#command-include"><span class="std std-ref">include command</span></a>,
+<a class="reference internal" href="shell.html#command-shell"><span class="std std-ref">shell command</span></a>,
+<a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable command</span></a></p>
+<p><strong>Default:</strong> none</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

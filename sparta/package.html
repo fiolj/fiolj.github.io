@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>package command &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>package command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/package.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="package-command">
+<span id="command-package"></span><h1>package command<a class="headerlink" href="#package-command" title="Permalink to this headline">¶</a></h1>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">style</span> <span class="n">args</span>
+</pre></div>
+</div>
+<ul>
+<li><p>style = <em>kokkos</em></p></li>
+<li><p>args = arguments specific to the style</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kokkos</span> <span class="n">args</span> <span class="o">=</span> <span class="n">keyword</span> <span class="n">value</span> <span class="o">...</span>
+  <span class="n">zero</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">keyword</span><span class="o">/</span><span class="n">value</span> <span class="n">pairs</span> <span class="n">may</span> <span class="n">be</span> <span class="n">appended</span>
+  <span class="n">keywords</span> <span class="o">=</span> <span class="n">comm</span> <span class="ow">or</span> <span class="n">reduction</span>
+    <span class="n">comm</span> <span class="n">value</span> <span class="o">=</span> <span class="n">threaded</span> <span class="ow">or</span> <span class="n">classic</span>
+      <span class="n">threaded</span> <span class="o">=</span> <span class="n">perform</span> <span class="n">pack</span><span class="o">/</span><span class="n">unpack</span> <span class="n">using</span> <span class="n">KOKKOS</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">on</span> <span class="n">GPU</span> <span class="ow">or</span> <span class="n">using</span> <span class="n">OpenMP</span><span class="p">)</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
+      <span class="n">classic</span> <span class="o">=</span> <span class="n">perform</span> <span class="n">communication</span> <span class="n">pack</span><span class="o">/</span><span class="n">unpack</span> <span class="ow">in</span> <span class="n">non</span><span class="o">-</span><span class="n">KOKKOS</span> <span class="n">mode</span>
+    <span class="n">reduction</span> <span class="o">=</span> <span class="n">parallel</span><span class="o">/</span><span class="n">reduce</span> <span class="ow">or</span> <span class="n">atomic</span>
+      <span class="n">parallel</span><span class="o">/</span><span class="n">reduce</span> <span class="o">=</span> <span class="n">use</span> <span class="n">parallel</span> <span class="n">reduction</span> <span class="k">for</span> <span class="n">statistics</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
+      <span class="n">atomic</span> <span class="o">=</span> <span class="n">use</span> <span class="n">atomic</span> <span class="n">reduction</span> <span class="k">for</span> <span class="n">statistics</span>
+    <span class="n">collide</span><span class="o">/</span><span class="n">extra</span> <span class="o">=</span> <span class="n">factor</span>
+      <span class="n">factor</span> <span class="o">=</span> <span class="n">increase</span> <span class="n">memory</span> <span class="n">used</span> <span class="k">for</span> <span class="n">collisions</span> <span class="n">by</span> <span class="n">this</span> <span class="n">factor</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
+    <span class="n">collide</span><span class="o">/</span><span class="n">retry</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
+      <span class="n">yes</span> <span class="o">=</span> <span class="n">retry</span> <span class="n">collision</span> <span class="n">algorithm</span> <span class="n">until</span> <span class="n">successful</span>
+      <span class="n">no</span> <span class="o">=</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">retry</span> <span class="n">collision</span> <span class="n">algorithm</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
+    <span class="n">gpu</span><span class="o">/</span><span class="n">direct</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
+      <span class="n">yes</span> <span class="o">=</span> <span class="n">use</span> <span class="n">GPU</span><span class="o">-</span><span class="n">direct</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span> <span class="n">CUDA</span><span class="o">-</span><span class="n">aware</span> <span class="n">MPI</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
+      <span class="n">no</span> <span class="o">=</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">use</span> <span class="n">GPU</span><span class="o">-</span><span class="n">direct</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">kokkos</span> <span class="n">comm</span> <span class="n">classic</span>
+<span class="n">package</span> <span class="n">kokkos</span> <span class="n">comm</span> <span class="n">threaded</span> <span class="n">reduction</span> <span class="n">atomic</span>
+<span class="n">package</span> <span class="n">kokkos</span> <span class="n">gpu</span><span class="o">/</span><span class="n">direct</span> <span class="n">no</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>This command invokes package-specific settings for the KOKKOS
+accelerator package available in SPARTA.</p>
+<p>If this command is specified in an input script, it must be near the top
+of the script, before the simulation box has been created. This is
+because it specifies settings that the accelerator package used in its
+initialization, before a simulation is defined.</p>
+<p>This command can also be specified from the command-line when launching
+SPARTA, using the “-pk” <a class="reference external" href="Section_start.html#start_6">command-line
+switch</a>. The syntax is exactly the same
+as when used in an input script.</p>
+<p>Note that the KOKKOS accelerator package requires the package command to
+be specified, if the package is to be used in a simulation (SPARTA can
+be built with the accelerator package without using it in a particular
+simulation). However, a default version of the command is typically
+invoked by other accelerator settings. For example, the KOKKOS package
+requires a “-k on” <a class="reference external" href="Section_start.html#start_6">command-line switch</a>
+respectively, which invokes a “package kokkos” command with default
+settings.</p>
+<p>NOTE: A package command for a particular style can be invoked multiple
+times when a simulation is setup, e.g. by the “-k on”, “-sf”, and “-pk”
+<a class="reference external" href="Section_start.html#start_6">command-line switches</a>, and by using
+this command in an input script. Each time it is used all of the style
+options are set, either to default values or to specified settings. I.e.
+settings from previous invocations do not persist across multiple
+invocations.</p>
+<p>See the the <a class="reference external" href="Section_accelerate.html#acc_3">Accelerating SPARTA</a>
+section of the manual for more details about using the various
+accelerator packages for speeding up SPARTA simulations.</p>
+<hr class="docutils" />
+<p>The <em>kokkos</em> style invokes settings associated with the use of the
+KOKKOS package.</p>
+<p>All of the settings are optional keyword/value pairs. Each has a default
+value as listed below.</p>
+<p>The <em>reduction</em> keyword sets the type of reduction used to gather
+statistics. The <em>parallel/reduce</em> option uses a parallel reduction and
+is typically the preferred method when running on CPUs and Xeon Phis.
+The <em>atomic</em> option uses thread atomics and is typically faster when
+running on GPUs.</p>
+<p>Chemical reactions can increase the number of particles in the
+simulation, which requires extra memory storage. It is not possible to
+resize Kokkos data structures during the collide routine, so two
+workarounds are provided. The default is to use the <em>collide/extra</em>
+keyword, which ensures there is extra memory allocated to store new
+particles. For example, if <em>collide/extra</em> is set to 1.1, then the
+memory is over-allocated by 10%. If this space is still not sufficient
+to hold new particles, the code will error out and the simulation must
+be restarted using a larger value for <em>collide/extra</em>. Alternatively, if
+the <em>collide/retry</em> option is set to <em>yes</em>, backup copies of the Kokkos
+data structures are created. If space is exceeded during the collide
+routine, the Kokkos data structures are restored from backup, their size
+is increased, and the collide routine is started over from the
+beginning. This guarantees that the collide routine will eventually
+succeed without producing an error, but increased memory by a factor of
+2 and also has overhead from making a backup copy of the data. If the
+<em>collide/retry</em> option is set to <em>yes</em>, the <em>collide/extra</em> keyword will
+be ignored. If reactions are not defined, both these options will be
+ignored.</p>
+<p>The <em>comm</em> keyword determines whether the host or device performs the
+packing and unpacking of data when communicating per-atom data between
+processors. The value options are <em>threaded</em> or <em>classic</em>.</p>
+<p>The optimal choice for this keyword depends on the hardware used. When
+running on CPUs or Xeon Phi, the <em>classic</em> option is typically fastest.
+When using GPUs, the <em>threaded</em> value will typically be optimal. In this
+case data can stay on the GPU for many timesteps without being moved
+between the host and GPU. This requires that your MPI is able to access
+GPU memory directly. Currently that is true for OpenMPI 1.8 (or later
+versions), Mvapich2 1.9 (or later), and CrayMPI.</p>
+<p>The <em>gpu/direct</em> keyword chooses whether GPU-direct will be used. When
+this keyword is set to <em>on</em>, buffers in GPU memory are passed directly
+through MPI send/receive calls. This can reduce overhead of first
+copying the data to the host CPU. However GPU-direct is not supported on
+all systems, which can lead to segmentation faults and would require
+using a value of <em>off</em>.</p>
+<hr class="docutils" />
+<p><strong>Restrictions:</strong></p>
+<p>This command cannot be used after the simulation box is defined by a
+<a class="reference external" href="create_box.html">create_box</a> command.</p>
+<p>The kk style of this command can only be invoked if SPARTA was built
+with the KOKKOS package. See the <a class="reference external" href="Section_start.html#start_3">Making
+SPARTA</a> section for more info.</p>
+<p><strong>Related commands:</strong></p>
+<p><a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix command</span></a>,
+“-pk” <cite>command-line setting &lt;start-command-line-options</cite></p>
+<p><strong>Default:</strong></p>
+<p>For the KOKKOS package, the option defaults are comm = threaded,
+reduction = parallel/reduce, collide/extra = 1.1, and collide/retry =
+no, gpu/direct yes. These settings are made automatically by the
+required “-k on” <a class="reference external" href="Section_start.html#start_6">command-line switch</a>.
+You can change them by using the package kokkos command in your input
+script or via the “-pk kokkos” <a class="reference external" href="Section_start.html#start_6">command-line
+switch</a>.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

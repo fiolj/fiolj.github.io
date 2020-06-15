@@ -1,0 +1,488 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>compute surf command &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>compute surf command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/compute_surf.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="compute-surf-command">
+<span id="command-compute-surf"></span><h1>compute surf command<a class="headerlink" href="#compute-surf-command" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="compute-surf-kk-command">
+<h1>compute surf/kk command<a class="headerlink" href="#compute-surf-kk-command" title="Permalink to this headline">¶</a></h1>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">surf</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">value1</span> <span class="n">value2</span> <span class="o">...</span>
+</pre></div>
+</div>
+<ul>
+<li><p>ID is documented in <a class="reference external" href="compute.html">compute</a> command</p></li>
+<li><p>surf = style name of this compute command</p></li>
+<li><p>group-ID = group ID for which surface elements to perform calculation
+on</p></li>
+<li><p>mix-ID = mixture ID for particles to perform calculation on</p></li>
+<li><p>one or more values can be appended</p></li>
+<li><p>value = <em>n</em> or <em>nwt</em> or <em>mflux</em> or <em>fx</em> or <em>fy</em> or <em>fz</em> or <em>press</em> or
+<em>px</em> or <em>py</em> or <em>pz</em> or <em>shx</em> or <em>shy</em> or <em>shz</em> or <em>ke</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">count</span> <span class="n">of</span> <span class="n">particles</span> <span class="n">hitting</span> <span class="n">surface</span> <span class="n">element</span>
+<span class="n">nwt</span> <span class="o">=</span> <span class="n">weighted</span> <span class="n">count</span> <span class="n">of</span> <span class="n">particles</span> <span class="n">hitting</span> <span class="n">surface</span> <span class="n">element</span>
+<span class="n">mflux</span> <span class="o">=</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">mass</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">element</span>
+<span class="n">fx</span><span class="p">,</span><span class="n">fy</span><span class="p">,</span><span class="n">fz</span> <span class="o">=</span> <span class="n">components</span> <span class="n">of</span> <span class="n">force</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">element</span>
+<span class="n">press</span> <span class="o">=</span> <span class="n">magnitude</span> <span class="n">of</span> <span class="n">normal</span> <span class="n">pressure</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">element</span>
+<span class="n">px</span><span class="p">,</span><span class="n">py</span><span class="p">,</span><span class="n">pz</span> <span class="o">=</span> <span class="n">components</span> <span class="n">of</span> <span class="n">normal</span> <span class="n">pressure</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">element</span>
+<span class="n">shx</span><span class="p">,</span><span class="n">shy</span><span class="p">,</span><span class="n">shz</span> <span class="o">=</span> <span class="n">components</span> <span class="n">of</span> <span class="n">shear</span> <span class="n">stress</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">element</span>
+<span class="n">ke</span> <span class="o">=</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">particle</span> <span class="n">kinetic</span> <span class="n">energy</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">element</span>
+<span class="n">erot</span> <span class="o">=</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">particle</span> <span class="n">rotational</span> <span class="n">energy</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">element</span>
+<span class="n">evib</span> <span class="o">=</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">particle</span> <span class="n">vibrational</span> <span class="n">energy</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">element</span>
+<span class="n">etot</span> <span class="o">=</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">particle</span> <span class="n">total</span> <span class="n">energy</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">element</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">surf</span> <span class="nb">all</span> <span class="nb">all</span> <span class="n">n</span> <span class="n">press</span> <span class="n">eng</span>
+<span class="n">compute</span> <span class="n">mine</span> <span class="n">surf</span> <span class="n">sphere</span> <span class="n">species</span> <span class="n">press</span> <span class="n">shx</span> <span class="n">shy</span> <span class="n">shz</span>
+</pre></div>
+</div>
+<p>These commands will dump time averages for each species and each surface
+element to a dump file every 1000 steps:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">surf</span> <span class="nb">all</span> <span class="n">species</span> <span class="n">n</span> <span class="n">press</span> <span class="n">shx</span> <span class="n">shy</span> <span class="n">shz</span>
+<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">surf</span> <span class="nb">all</span> <span class="mi">10</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="n">c_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
+<span class="n">dump</span> <span class="mi">1</span> <span class="n">surf</span> <span class="nb">all</span> <span class="mi">1000</span> <span class="n">tmp</span><span class="o">.</span><span class="n">surf</span> <span class="nb">id</span> <span class="n">f_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>These commands will time-average the force on each surface element then
+sum them across element to compute drag (fx) and lift (fy) on the body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">surf</span> <span class="nb">all</span> <span class="nb">all</span> <span class="n">fx</span> <span class="n">fy</span>
+<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">surf</span> <span class="nb">all</span> <span class="mi">10</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="n">c_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
+<span class="n">compute</span> <span class="mi">2</span> <span class="n">reduce</span> <span class="nb">sum</span> <span class="n">f_1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">f_1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">stats</span> <span class="mi">1000</span>
+<span class="n">stats_style</span> <span class="n">step</span> <span class="n">cpu</span> <span class="n">np</span> <span class="n">c_2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">c_2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Define a computation that calculates one or more values for each
+explicit surface element in a surface element group, based on the
+particles that collide with that element. The values are summed for each
+group of species in the specified mixture. See the
+<a class="reference external" href="mixture.html">mixture</a> command for how a set of species can be
+partitioned into groups. Only surface elements in the surface group
+specified by <em>group-ID</em> are included in the calculations. See the <a class="reference external" href="group.html">group
+surf</a> command for info on how surface elements can be
+assigned to surface groups.</p>
+<p>Explicit surface elements are triangles for 3d simulations and line
+segments for 2d simulations. Unlike implicit surface elements, each
+explicit triangle or line segment may span multiple grid cells. See the
+<a class="reference external" href="read_surf.html">read_surf</a> command for details.</p>
+<p>This command can only be used for simulations with explicit surface
+elements. See the similar <a class="reference external" href="compute_isurf_grid.html">compute
+isurf/grid</a> command for use with simulations
+with implicit surface elements.</p>
+<p>Note that when a particle collides with a surface element, it can bounce
+off (possibly as a different species), be captured by the surface
+(vanish), or a 2nd particle can also be emitted. The formulas below
+account for all the possible outcomes. For example, the kinetic energy
+flux <em>ke</em> onto a suface element for a single collision includes a
+positive contribution from the incoming particle and negative
+contributions from 0, 1, or 2 outgoing particles. The exception is the
+<em>n</em> and <em>nwt</em> values which simply tally counts of particles colliding
+with the surface element.</p>
+<p>If the surface element is transparent, the particle will pass through
+the surface unaltered. The flux of particle count, mass, or energy to
+the surface can still be tallied by this compute. See details on
+transparent surface elements below.</p>
+<p>Also note that all values for a collision are tallied based on the
+species group of the incident particle. Quantities associated with
+outgoing particles are part of the same tally, even if they are in
+different species groups.</p>
+<p>The results of this compute can be used by different commands in
+different ways. The values for a single timestep can be output by the
+<a class="reference external" href="dump.html">dump surf</a> command.</p>
+<p>The values over many sampling timesteps can be averaged by the <a class="reference external" href="fix_ave_surf.html">fix
+ave/surf</a> command. It does its averaging as if the
+particles striking the surface element at each sampling timestep were
+combined together into one large set to compute the formulas below. The
+answer is then divided by the number of sampling timesteps if it is not
+otherwise normalized by the number of particles. Note that in general
+this is a different normalization than taking the values produced by the
+formulas below for a single timestep, summing them over the sampling
+timesteps, and then dividing by the number of sampling steps. However
+for the current values listed below, the two normalization methods are
+the same.</p>
+<p>NOTE: If particle weighting is enabled via the <a class="reference external" href="global.html">global
+weight</a> command, then all of the values below are scaled
+by the weight assigned to the grid cell in which the particle collision
+with the surface element occurs. The only exception is the the <em>n</em>
+value, which is NOT scaled by the weight; it is a simple count of
+particle collisions with the surface element.</p>
+<hr class="docutils" />
+<p>The <em>n</em> value counts the number of particles in the group striking the
+surface element.</p>
+<p>The <em>nwt</em> value counts the number of particles in the group striking the
+surface element and weights the count by the weight assigned to the grid
+cell in which the particle collision with the surface element occurs.
+The <em>nwt</em> quantity will only be different than <em>n</em> if particle weighting
+is enabled via the <a class="reference external" href="global.html">global weight</a> command.</p>
+<p>The <em>mflux</em> value calculates the mass flux imparted to the surface
+element by particles in the group. This is computed as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mflux</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where the sum is over all contributing particle masses, normalized by A
+= the area of the surface element, dt = the timestep, and fnum = the
+real/simulated particle ratio set by the <a class="reference external" href="global.html">global fnum</a>
+command.</p>
+<p>The <em>fx</em>, <em>fy</em>, <em>fz</em> values calculate the components of force extered on
+the surface element by particles in the group, with respect to the x, y,
+z coordinate axes. These are computed as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p_delta</span> <span class="o">=</span> <span class="n">mass</span> <span class="o">*</span> <span class="p">(</span><span class="n">V_post</span> <span class="o">-</span> <span class="n">V_pre</span><span class="p">)</span>
+<span class="n">Px</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
+<span class="n">Py</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_y</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
+<span class="n">Pz</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where p_delta is the change in momentum of a particle, whose velocity
+changes from V_pre to V_post when colliding with the surface element.
+The force exerted on the surface element is the sum over all
+contributing p_delta, normalized by dt and fnum as defined before.</p>
+<p>The <em>press</em> value calculates the pressure <em>P</em> exerted on the surface
+element in the normal direction by particles in the group, such that
+outward pressure is positive. This is computed as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p_delta</span> <span class="o">=</span> <span class="n">mass</span> <span class="o">*</span> <span class="p">(</span><span class="n">V_post</span> <span class="o">-</span> <span class="n">V_pre</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_i</span> <span class="n">dot</span> <span class="n">N</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where p_delta, V_pre, V_post, dt, fnum are defined as before. The
+pressure exerted on the surface element is the sum over all contributing
+p_delta dotted into the outward normal N of the surface element, also
+normalized by A = the area of the surface element.</p>
+<p>The <em>px</em>, <em>py</em>, <em>pz</em> values calculate the normal pressure Px, Py, Pz
+extered on the surface element in the direction of its normal by
+particles in the group, with respect to the x, y, z coordinate axes.
+These are computed as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p_delta</span> <span class="o">=</span> <span class="n">mass</span> <span class="o">*</span> <span class="p">(</span><span class="n">V_post</span> <span class="o">-</span> <span class="n">V_pre</span><span class="p">)</span>
+<span class="n">p_delta_n</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_delta</span> <span class="n">dot</span> <span class="n">N</span><span class="p">)</span> <span class="n">N</span>
+<span class="n">Px</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_n_x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
+<span class="n">Py</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_n_y</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
+<span class="n">Pz</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_n_z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where p_delta, V_pre, V_post, N, A, and dt are defined as before.
+P_delta_n is the normal component of the change in momentum vector
+p_delta of a particle. P_delta_n_x (and y,z) are its x, y, z components.</p>
+<p>The <em>shx</em>, <em>shy</em>, <em>shz</em> values calculate the shear pressure Sx, Sy, Sz
+extered on the surface element in the tangential direction to its normal
+by particles in the group, with respect to the x, y, z coordinate axes.
+These are computed as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p_delta</span> <span class="o">=</span> <span class="n">mass</span> <span class="o">*</span> <span class="p">(</span><span class="n">V_post</span> <span class="o">-</span> <span class="n">V_pre</span><span class="p">)</span>
+<span class="n">p_delta_t</span> <span class="o">=</span> <span class="n">p_delta</span> <span class="o">-</span> <span class="p">(</span><span class="n">p_delta</span> <span class="n">dot</span> <span class="n">N</span><span class="p">)</span> <span class="n">N</span>
+<span class="n">Sx</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_t_x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
+<span class="n">Sy</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_t_y</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
+<span class="n">Sz</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_t_z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where p_delta, V_pre, V_post, N, A, and dt are defined as before.
+P_delta_t is the tangential component of the change in momentum vector
+p_delta of a particle. P_delta_t_x (and y,z) are its x, y, z components.</p>
+<p>The <em>ke</em> value calculates the kinetic energy flux <em>Eflux</em> imparted to
+the surface element by particles in the group, such that energy lost by
+a particle is a positive flux. This is computed as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e_delta</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="n">mass</span> <span class="p">(</span><span class="n">V_post</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="n">V_pre</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Eflux</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">e_delta</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where e_delta is the kinetic energy change in a particle, whose velocity
+changes from V_pre to V_post when colliding with the surface element.
+The energy flux imparted to the surface element is the sum over all
+contributing e_delta, normalized by A = the area of the surface element
+and dt = the timestep and fnum = the real/simulated particle ratio set
+by the <a class="reference external" href="global.html">global fnum</a> command.</p>
+<p>The <em>erot</em> value calculates the rotational energy flux <em>Eflux</em> imparted
+to the surface element by particles in the group, such that energy lost
+by a particle is a positive flux. This is computed as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e_delta</span> <span class="o">=</span> <span class="n">Erot_post</span> <span class="o">-</span> <span class="n">Erot_pre</span>
+<span class="n">Eflux</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">e_delta</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where e_delta is the rotational energy change in a particle, whose
+internal rotational energy changes from Erot_pre to Erot_post when
+colliding with the surface element. The flux equation is the same as for
+the <em>ke</em> value.</p>
+<p>The <em>evib</em> value calculates the vibrational energy flux <em>Eflux</em> imparted
+to the surface element by particles in the group, such that energy lost
+by a particle is a positive flux. This is computed as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e_delta</span> <span class="o">=</span> <span class="n">Evib_post</span> <span class="o">-</span> <span class="n">Evib_pre</span>
+<span class="n">Eflux</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">e_delta</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where e_delta is the vibrational energy change in a particle, whose
+internal vibrational energy changes from Evib_pre to Evib_post when
+colliding with the surface element. The flux equation is the same as for
+the <em>ke</em> value.</p>
+<p>The <em>etot</em> value calculates the total energy flux imparted to the
+surface element by particles in the group, such that energy lost by a
+particle is a positive flux. This is simply the sum of kinetic,
+rotational, and vibrational energies. Thus the total energy flux is the
+sum of what is computed by the <em>ke</em>, <em>erot</em>, and <em>evib</em> values.</p>
+<hr class="docutils" />
+<p><strong>Transparent surface elements:</strong></p>
+<p>This compute will tally information on particles that pass through
+transparent surface elements. The <a class="reference external" href="Section_howto.html#howto_15">Section
+6.15</a> doc page provides an overview of
+transparent surfaces and how to create them.</p>
+<p>The <em>n</em> and <em>nwt</em> value are calculated the same for transparent
+surfaces. I.e. they are the count and weighted count of particles
+passing through the surface.</p>
+<p>The <em>mflux</em>, <em>ke</em>, <em>erot</em>. <em>evib</em>, and <em>etot</em> values are fluxes. For
+transparent surfaces, they are calculated for the incident particle as
+if they had struck the surface. The outgoing particle is ignored. This
+means the tally quantity is the flux of particles onto the outward face
+of the surface. No tallying is done for particles hitting the inward
+face of the surface. See <a class="reference external" href="Section_howto.html#howto_15">Section 6.15</a>
+for how to do tallying in both directions.</p>
+<p>All the other values are calculated as described above. This means they
+will be zero, since the incident particle and outgoing particle have the
+same mass and velocity.</p>
+<hr class="docutils" />
+<p><strong>Output info:</strong></p>
+<p>This compute calculates a per-surf array, with the number of columns
+equal to the number of values times the number of groups. The ordering
+of columns is first by values, then by groups. I.e. if the <em>n</em> and <em>u</em>
+values were specified as keywords, then the first two columns would be
+<em>n</em> and <em>u</em> for the first group, the 3rd and 4th columns would be <em>n</em>
+and <em>u</em> for the second group, etc.</p>
+<p>Surface elements not in the specified <em>group-ID</em> will output zeroes for
+all their values.</p>
+<p>The array can be accessed by any command that uses per-surf values from
+a compute as input. See <a class="reference external" href="Section_howto.html#howto_4">Section 6.4</a> for
+an overview of SPARTA output options.</p>
+<p>The per-surf array values will be in the <a class="reference external" href="units.html">units</a>
+appropriate to the individual values as described above. <em>N</em> is
+unitless. <em>Press</em>, <em>px</em>, <em>py</em>, <em>pz</em>, <em>shx</em>, <em>shy</em>, <em>shz</em> are in in
+pressure units. <em>Ke</em>, <em>erot</em>, <em>evib</em>, and <em>etot</em> are in energy/area-time
+units for 3d simulations and energy/length-time units for 2d
+simulations.</p>
+<hr class="docutils" />
+<p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding
+style without the suffix. They have been optimized to run faster,
+depending on your available hardware, as discussed in the <a class="reference external" href="Section_accelerate.html">Accelerating
+SPARTA</a> section of the manual. The
+accelerated styles take the same arguments and should produce the same
+results, except for different random number, round-off and precision
+issues.</p>
+<p>These accelerated styles are part of the KOKKOS package. They are only
+enabled if SPARTA was built with that package. See the <a class="reference external" href="Section_start.html#start_3">Making
+SPARTA</a> section for more info.</p>
+<p>You can specify the accelerated styles explicitly in your input script
+by including their suffix, or you can use the <a class="reference external" href="Section_start.html#start_6">-suffix command-line
+switch</a> when you invoke SPARTA, or you
+can use the <a class="reference external" href="suffix.html">suffix</a> command in your input script.</p>
+<p>See the <a class="reference external" href="Section_accelerate.html">Accelerating SPARTA</a> section of the
+manual for more instructions on how to use the accelerated styles
+effectively.</p>
+<hr class="docutils" />
+<p><strong>Restrictions:</strong> none</p>
+<p><strong>Related commands:</strong></p>
+<p><a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">fix ave/surf command</span></a>,
+<a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump surf</span></a>,
+<a class="reference internal" href="compute_isurf_grid.html#command-compute-isurf-grid"><span class="std std-ref">compute isurf/grid command</span></a></p>
+<p><strong>Default:</strong> none</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

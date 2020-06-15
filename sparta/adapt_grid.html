@@ -1,0 +1,494 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>adapt_grid command &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>adapt_grid command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/adapt_grid.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="adapt-grid-command">
+<span id="command-adapt-grid"></span><h1>adapt_grid command<a class="headerlink" href="#adapt-grid-command" title="Permalink to this headline">¶</a></h1>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adapt_grid</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">action1</span> <span class="n">action2</span> <span class="n">style</span> <span class="n">args</span> <span class="o">...</span> <span class="n">keyword</span> <span class="n">args</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>group-ID = group ID for which grid cell adaptation will be attempted</p>
+<p>action1 = <em>refine</em> or <em>coarsen</em></p>
+<p>action2 = <em>coarsen</em> or <em>refine</em>, optional</p>
+<p>style = <em>particle</em> or <em>surf</em> or <em>value</em> or <em>random</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">particle</span> <span class="n">args</span> <span class="o">=</span> <span class="n">rthresh</span> <span class="n">cthresh</span>
+  <span class="n">rcount</span> <span class="o">=</span> <span class="n">threshold</span> <span class="ow">in</span> <span class="n">particle</span> <span class="n">count</span> <span class="k">for</span> <span class="n">refinment</span>
+  <span class="n">ccount</span> <span class="o">=</span> <span class="n">threshold</span> <span class="ow">in</span> <span class="n">particle</span> <span class="n">count</span> <span class="k">for</span> <span class="n">coarsening</span>
+<span class="n">surf</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">surfID</span> <span class="n">ssize</span>
+  <span class="n">surfID</span> <span class="o">=</span> <span class="n">group</span> <span class="n">ID</span> <span class="k">for</span> <span class="n">which</span> <span class="n">surface</span> <span class="n">elements</span> <span class="n">to</span> <span class="n">consider</span>
+  <span class="n">ssize</span> <span class="o">=</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">refine</span> <span class="n">to</span> <span class="n">create</span> <span class="n">cells</span> <span class="n">smaller</span> <span class="n">than</span> <span class="n">ssize</span> <span class="p">(</span><span class="n">dist</span> <span class="n">units</span><span class="p">)</span>
+          <span class="n">coarsen</span> <span class="n">only</span> <span class="k">if</span> <span class="n">child</span> <span class="n">cells</span> <span class="n">are</span> <span class="n">smaller</span> <span class="n">than</span> <span class="n">ssize</span> <span class="p">(</span><span class="n">dist</span> <span class="n">units</span><span class="p">)</span>
+<span class="n">value</span> <span class="n">args</span> <span class="o">=</span> <span class="n">c_ID</span><span class="o">/</span><span class="n">c_ID</span><span class="p">[</span><span class="n">N</span><span class="p">]</span><span class="o">/</span><span class="n">f_ID</span><span class="o">/</span><span class="n">f_ID</span><span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="n">rthresh</span> <span class="n">cthresh</span>
+  <span class="n">c_ID</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">a</span> <span class="n">compute</span> <span class="n">that</span> <span class="n">calculates</span> <span class="n">a</span> <span class="n">per</span> <span class="n">grid</span> <span class="n">vector</span><span class="p">,</span> <span class="n">use</span> <span class="n">values</span> <span class="kn">from</span> <span class="nn">vector</span>
+  <span class="n">c_ID</span><span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">a</span> <span class="n">compute</span> <span class="n">that</span> <span class="n">calculates</span> <span class="n">a</span> <span class="n">per</span> <span class="n">grid</span> <span class="n">array</span><span class="p">,</span> <span class="n">use</span> <span class="n">values</span> <span class="kn">from</span> <span class="nn">Nth</span> <span class="n">column</span> <span class="n">of</span> <span class="n">array</span>
+  <span class="n">f_ID</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">a</span> <span class="n">fix</span> <span class="n">that</span> <span class="n">calculates</span> <span class="n">a</span> <span class="n">per</span> <span class="n">grid</span> <span class="n">vector</span><span class="p">,</span> <span class="n">use</span> <span class="n">vector</span>
+  <span class="n">f_ID</span><span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">a</span> <span class="n">fix</span> <span class="n">that</span> <span class="n">calculates</span> <span class="n">a</span> <span class="n">per</span> <span class="n">grid</span> <span class="n">array</span><span class="p">,</span> <span class="n">use</span> <span class="n">Nth</span> <span class="n">column</span> <span class="n">of</span> <span class="n">array</span>
+  <span class="n">rvalue</span> <span class="o">=</span> <span class="n">threshold</span> <span class="ow">in</span> <span class="n">value</span> <span class="k">for</span> <span class="n">refinement</span>
+  <span class="n">cvalue</span> <span class="o">=</span> <span class="n">threshold</span> <span class="ow">in</span> <span class="n">value</span> <span class="k">for</span> <span class="n">coarsening</span>
+<span class="n">random</span> <span class="n">args</span> <span class="o">=</span> <span class="n">rfrac</span> <span class="n">cfrac</span>
+  <span class="n">rfrac</span> <span class="o">=</span> <span class="n">fraction</span> <span class="n">of</span> <span class="n">child</span> <span class="n">cells</span> <span class="n">to</span> <span class="n">refine</span>
+  <span class="n">cfrac</span> <span class="o">=</span> <span class="n">fraction</span> <span class="n">of</span> <span class="n">parent</span> <span class="n">cells</span> <span class="n">to</span> <span class="n">coarsen</span>
+</pre></div>
+</div>
+<p>zero or more keyword/args pairs may be appended</p>
+<p>keyword = <em>iterate</em> or <em>maxlevel</em> or <em>minlevel</em> or <em>thresh</em> or <em>combine</em>
+or <em>cells</em> or <em>region</em> or <em>dir</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iterate</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">niterate</span>
+  <span class="n">niterate</span> <span class="o">=</span> <span class="n">number</span> <span class="n">of</span> <span class="n">iterations</span> <span class="n">of</span> <span class="n">action</span> <span class="n">loop</span>
+<span class="n">maxlevel</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">Nmax</span>
+  <span class="n">Nmax</span> <span class="o">=</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">refine</span> <span class="n">to</span> <span class="n">create</span> <span class="n">child</span> <span class="n">cells</span> <span class="n">at</span> <span class="n">a</span> <span class="n">level</span> <span class="o">&gt;</span> <span class="n">Nmax</span>
+<span class="n">minlevel</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">Nmin</span>
+  <span class="n">Nmin</span> <span class="o">=</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">coarsen</span> <span class="n">to</span> <span class="n">create</span> <span class="n">child</span> <span class="n">cells</span> <span class="n">at</span> <span class="n">a</span> <span class="n">level</span> <span class="o">&lt;</span> <span class="n">Nmin</span>
+<span class="n">thresh</span> <span class="n">args</span> <span class="o">=</span> <span class="n">rdecide</span> <span class="n">cdecide</span>
+  <span class="n">rdecide</span> <span class="o">=</span> <span class="n">less</span> <span class="ow">or</span> <span class="n">more</span> <span class="o">=</span> <span class="n">refine</span> <span class="n">when</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">less</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">than</span> <span class="n">rvalue</span>
+  <span class="n">cdecide</span> <span class="o">=</span> <span class="n">less</span> <span class="ow">or</span> <span class="n">more</span> <span class="o">=</span> <span class="n">coarsen</span> <span class="n">when</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">less</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">than</span> <span class="n">cvalue</span>
+<span class="n">combine</span> <span class="n">arg</span> <span class="o">=</span> <span class="nb">sum</span> <span class="ow">or</span> <span class="nb">min</span> <span class="ow">or</span> <span class="nb">max</span> <span class="o">=</span> <span class="n">how</span> <span class="n">to</span> <span class="n">combine</span> <span class="n">child</span> <span class="n">values</span> <span class="n">into</span> <span class="n">parent</span> <span class="n">value</span>
+<span class="n">cells</span> <span class="n">args</span> <span class="o">=</span> <span class="n">Nx</span> <span class="n">Ny</span> <span class="n">Nz</span>
+  <span class="n">Nx</span><span class="p">,</span><span class="n">Ny</span><span class="p">,</span><span class="n">Nz</span> <span class="o">=</span> <span class="n">refine</span> <span class="n">a</span> <span class="n">cell</span> <span class="n">into</span> <span class="n">Nx</span> <span class="n">by</span> <span class="n">Ny</span> <span class="n">by</span> <span class="n">Nz</span> <span class="n">child</span> <span class="n">cells</span>
+<span class="n">region</span> <span class="n">args</span> <span class="o">=</span> <span class="n">regID</span> <span class="n">rflag</span>
+  <span class="n">regID</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">region</span> <span class="n">that</span> <span class="n">cells</span> <span class="n">must</span> <span class="n">be</span> <span class="n">inside</span> <span class="n">to</span> <span class="n">be</span> <span class="n">eligible</span> <span class="k">for</span> <span class="n">adaptation</span>
+  <span class="n">rflag</span> <span class="o">=</span> <span class="nb">all</span> <span class="ow">or</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">center</span> <span class="o">=</span> <span class="n">what</span> <span class="n">portion</span> <span class="n">of</span> <span class="n">grid</span> <span class="n">cell</span> <span class="n">must</span> <span class="n">be</span> <span class="n">inside</span>
+<span class="nb">dir</span> <span class="n">args</span> <span class="o">=</span> <span class="n">Sx</span> <span class="n">Sy</span> <span class="n">Sz</span>
+  <span class="n">Sx</span><span class="p">,</span><span class="n">Sy</span><span class="p">,</span><span class="n">Sz</span> <span class="o">=</span> <span class="n">vector</span> <span class="n">components</span> <span class="n">used</span> <span class="k">with</span> <span class="n">style</span> <span class="n">surf</span> <span class="n">to</span> <span class="n">test</span> <span class="n">surf</span> <span class="n">elements</span>
+<span class="n">file</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">filename</span>
+  <span class="n">filename</span> <span class="o">=</span> <span class="n">name</span> <span class="n">of</span> <span class="n">file</span> <span class="n">to</span> <span class="n">write</span> <span class="n">out</span> <span class="k">with</span> <span class="n">new</span> <span class="n">parent</span> <span class="n">grid</span> <span class="n">info</span>
+</pre></div>
+</div>
+<p><strong>Examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adapt_grid</span> <span class="nb">all</span> <span class="n">refine</span> <span class="n">particle</span> <span class="mi">10</span> <span class="mi">50</span>
+<span class="n">adapt_grid</span> <span class="nb">all</span> <span class="n">coarsen</span> <span class="n">particle</span> <span class="mi">10</span> <span class="mi">50</span>
+<span class="n">adapt_grid</span> <span class="nb">all</span> <span class="n">refine</span> <span class="n">coarsen</span> <span class="n">particle</span> <span class="mi">10</span> <span class="mi">50</span>
+<span class="n">adapt_grid</span> <span class="nb">all</span> <span class="n">refine</span> <span class="n">surf</span> <span class="nb">all</span> <span class="mf">0.15</span> <span class="n">iterate</span> <span class="mi">1</span> <span class="nb">dir</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="n">adapt_grid</span> <span class="nb">all</span> <span class="n">refine</span> <span class="n">coarsen</span> <span class="n">value</span> <span class="n">c_11</span> <span class="mf">5.0</span> <span class="mf">10.0</span> <span class="n">iterate</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>This command perform a one-time adaptation of grid cells within a grid
+cell group, either by refinement or coarsening or both. This command can
+be invoked as many times as desired, before or between simulation runs.
+Grid adaptation can also be performed on-the-fly during a simulation by
+using the <a class="reference external" href="fix_adapt.html">fix adapt</a> command.</p>
+<p>Refinement means splitting one child cell into multiple new child cells;
+the original child cell becomes a parent cell. Coarsening means
+combining all the child cells of a parent cell, so that the child cells
+are deleted and the parent cell becomes a single new child cell. See
+<a class="reference external" href="Section_howto.html#howto_8">Section howto 4.8</a> for a description of
+the hierarchical grid used by SPARTA and a defintion of child and parent
+cells.</p>
+<p>Grid adaptation can be useful for adjusting the grid cell sizes to the
+current density distribution, or mean-free-path of particles, or to
+other simulation attributes such as the presence of surface elements. A
+well-adapted grid can improve accuracy of the simulation and/or reduce a
+simulation’s computational cost.</p>
+<p>Only grid cells in the grid group specified by <em>group-ID</em> are eligible
+for refinement. A parent grid cell is only eligible for coarsening if
+all its child cells are in the specified grid group. See the <a class="reference external" href="group.html">group
+grid</a> command for info on how grid cells can be assigned
+to grid groups. Note that the grid group assignment is transferred to
+new refined or coarsened cells, so that new cells remain eligible for
+adaptation if the adapt_grid command is invoked again or successive
+adaptations are performed via the <a class="reference external" href="fix_adapt.html">fix adapt</a>
+command.</p>
+<p>The <em>action1</em> and <em>action2</em> parameters determine whether refinement or
+coarsening is performed and in what order. <em>Action2</em> is optional. If not
+specified, only <em>action1</em> is performed. Note that cells which are
+refined by <em>action1</em> are not eligible for subsequent coarsening by
+<em>action2</em>, during a single invocation of this command. Likewise cells
+that are coarsened by <em>action1</em> are not eligible for subsequent
+refinement by <em>action2</em>. This is also true if the <em>iterate</em> keyword is
+used to loop over the two actions multiple times. Cells can be
+successivly refined on each iteration, but will never be coarsened.
+Likewise cells can be successivly coarsensed, but will never be refined.
+Of course any cell may be refined or coarsened later if the adapt_grid
+command is used again, including on later timesteps via the <a class="reference external" href="fix_adapt.html">fix
+adapt</a> command.</p>
+<p>Examples of 2d and 3d refined grids are shown here. The 3d simulation
+shows 2d planar cuts through the 3d grid. Click on either image for a
+larger version.</p>
+<p><a class="reference external" href="JPG/adapt_2d.jpg"><img alt="image0" src="_images/adapt_2d_small.jpg" /></a><a class="reference external" href="JPG/adapt_3d.jpg"><img alt="image1" src="_images/adapt_3d_small.jpg" /></a></p>
+<hr class="docutils" />
+<p>The first step in a refinement action is to determine what child cells
+are eligible for refinement. Child cells that are wholly inside a closed
+surface are not eligible. The <em>maxlevel</em> and <em>region</em> keywords also
+affect eligibility. They are described below.</p>
+<p>The first step in a coarsening action is to determine what parent cells
+are eligible for coarsening. Only parent cells whose children are all
+child cells are eligible. If one or more of their children are also
+parent cells, then the parent cell is a “grandparent” and is not
+eligible for coarsening. The <em>minlevel</em> and <em>region</em> keywords also
+affect eligibility. They are described below.</p>
+<p>The <em>style</em> parameter is then used to decide whether to refine or
+coarsen each eligible grid cell. The operation of the differnt styles is
+described in the next section. Note that for refinement, the number of
+new child cells created withing a single cell is set by the <em>cells</em>
+keyword which defaults to 2x2x2 for 3d models and 2x2x1 for 2d models.</p>
+<p>Note that many of the style take an argument for both refinement and
+coarsening, e.g. <em>rcount</em> and <em>ccount</em> for style <em>particle</em>. Both
+arguments must be specified, though one or the other will be ignored if
+the specified actions do not include refinement or coarsening.</p>
+<hr class="docutils" />
+<p>The <em>particle</em> style adapts based on the number of particles in a grid
+cell. For refinement, if the current number (on this timestep) is more
+than <em>rcount</em>, the cell is refined. For coarsening, if the sum of the
+current number of particles in all child cells of the parent cell is
+less than <em>ccount</em>, the parent cell is coarsened. Note that if you wish
+to use time-averaged counts of particles in each cell you should use the
+<em>value</em> style with the ID of a <a class="reference external" href="fix_ave_grid.html">fix ave/grid</a>
+command that time-averages particle counts from the <a class="reference external" href="compute_grid.html">compute
+grid</a> command.</p>
+<p>The <em>surf</em> style adapts only if a grid cell contains one or more surface
+elements in the specified <em>surfID</em> group. The <em>dir</em> keyword can be used
+to exclude additional surface elements. For refinement, the cell is
+refined unless the refinement will create child cells with any of their
+dimensions smaller than the specified <em>ssize</em>. For coarsening, the
+parent cell is coarsened only if any of the child cell dimensions is
+smaller than the specified <em>ssize</em>.</p>
+<p>The <em>value</em> style uses values calculated by a <a class="reference external" href="compute.html">compute</a>
+or <a class="reference external" href="fix.html">fix</a> to decide whether to adapt each cell. The fix or
+compute must calculate per-grid values as described in <a class="reference external" href="Section_howto.html#howto_4">Section howto
+4.4</a>. If the compute or fix calculates a
+vector of such values, it is specified as c_ID or f_ID. If it calculates
+an array of such values, it is specified as c_ID[N] or f_ID[N] when N is
+the column of values to use, from 1 to Ncolumns.</p>
+<p>For refinement, if the compute or fix value for the grid cell is “more”
+than <em>rvalue</em>, the cell is refined. For coarsening, if the “sum” of the
+compute or fix values in all child cells of the parent cell is “less”
+than <em>cvalue</em>, the parent cell is coarsened. The <em>thresh</em> keyword can be
+used to change the refinment or coarsening criteria to “less” versus
+“more”. Likewise the <em>combine</em> keyword can be used to change the “sum”
+of child cell values to be a “min” or “max” operation.</p>
+<p>Here is an example using particle count as calculated by the <a class="reference external" href="compute_grid.html">compute
+grid</a> command as an adaptation criterion. A cell
+will be refined if its count &gt; 25, and a parent cell coarsened if the
+sum of its children cell counts &lt; 10.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">grid</span> <span class="nb">all</span> <span class="n">n</span> <span class="n">nrho</span>
+<span class="n">adapt_grid</span> <span class="n">refine</span> <span class="n">coarsen</span> <span class="n">value</span> <span class="n">c_11</span> <span class="mi">25</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>The same thing could be accomplished with this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adapt_grid</span> <span class="n">refine</span> <span class="n">coarsen</span> <span class="n">particle</span> <span class="mi">25</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>These commands use a time-averaged particle count as an adaptation
+criterion in the same manner:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">grid</span> <span class="nb">all</span> <span class="n">n</span> <span class="n">nrho</span>
+<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="mi">10</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="n">c_11</span>
+<span class="n">run</span> <span class="mi">1000</span>    <span class="c1"># run to accumulate time averages</span>
+<span class="n">adapt_grid</span> <span class="n">refine</span> <span class="n">coarsen</span> <span class="n">value</span> <span class="n">f_11</span> <span class="mi">25</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>Here is an example using mean-free path (MFP) as calculated by the
+<a class="reference external" href="compute_lambda_grid.html">compute lambda/grid</a> command as an
+adaptation criterion. Note the use of “thresh less more” to refine when
+MFP is less than the specified threshold (0.05).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="k">lambda</span><span class="o">/</span><span class="n">grid</span> <span class="n">c_12</span> <span class="n">NULL</span> <span class="n">N2</span> <span class="n">kall</span>
+<span class="n">adapt_grid</span> <span class="n">refine</span> <span class="n">coarsen</span> <span class="n">value</span> <span class="n">c_12</span> <span class="mf">0.05</span> <span class="mf">0.1</span> <span class="o">&amp;</span>
+           <span class="n">combine</span> <span class="nb">min</span> <span class="n">thresh</span> <span class="n">less</span> <span class="n">more</span>
+</pre></div>
+</div>
+<p>The <em>random</em> style is provided for test and debugging purposes. For each
+cell eligible for adaptation, a uniform random number RN bewteen 0.0 and
+1.0 is generated. For refinement, the cell is refined if RN &lt; <em>rfrac</em>,
+so that approximately an <em>rfrac</em> fraction of the child cells are
+refined. Similarly, for coarsening, the parent cell is coarsened if RN &lt;
+<em>cfrac</em>, so that approximately a <em>cfrac</em> fraction of the parent cells
+are coarsened.</p>
+<hr class="docutils" />
+<p>Various optional keywords can also be specified.</p>
+<p>The <em>iterate</em> keyword determines how many times the <em>action1</em> and
+<em>action2</em> operations are looped over. The default is once. If multiple
+iterations are used, cells can be recursively refined or coarsened. If
+no further refinement or coarsening occurs on an iteration, the loop
+ends. Note that the compute used with style <em>value</em> will be recalculated
+at each iteration to accurately reflect per grid values for the current
+grid.</p>
+<p>The <em>maxlevel</em> keyword limits how far a grid cell can be refined. See
+<a class="reference external" href="Section_howto.html#howto_8">Section howto 4.8</a> for a definition of
+the level assigned to each parent and child cell. Child cells with a
+level &gt;= <em>Nmax</em> are not eligible for refinement. The default setting of
+<em>Nmax</em> = 0 means there is no limit on refinement.</p>
+<p>The <em>minlevel</em> keyword limits how far a grid cell can be coarsened. See
+<a class="reference external" href="Section_howto.html#howto_8">Section howto 4.8</a> for a definition of
+the level assigned to each parent and child cell. Parent cells with a
+level &lt; <em>Nmin</em> are not eligible for coarsening. The default setting of
+<em>Nmin</em> = 1 means the only limit on coarsening is that the first level
+grid is preserved (never coarsened to a single root cell). The specified
+<em>Nmin</em> must be &gt;= 1.</p>
+<p>The <em>thresh</em> keyword is only used by style <em>value</em>. It sets the
+comparison criterion for refinement as <em>rdecide</em> = <em>less</em> or <em>more</em>.
+This means a child cell is refined if its compute or fix value is <em>less</em>
+or <em>more</em> than <em>rvalue</em>. Similarly, it sets the comparison criterion for
+coarsening as <em>cdecide</em> = <em>less</em> or <em>more</em>. This means a parent cell is
+coarsened if the compute or fix value accumulated from the compute or
+fix values of its children is <em>less</em> or <em>more</em> than <em>cvalue</em>.</p>
+<p>The <em>combine</em> keyword is only used by style <em>value</em>. It determines how
+the compute or fix value for a parent cell is accumulated from the
+compute or fix values of all its children. If the setting is <em>sum</em>, the
+child values are summed. If it is <em>min</em> or <em>max</em>, the parent value is
+the minimum or maximum of all the child values.</p>
+<p>The <em>cells</em> keyword determines how many new child cells are created when
+a single grid cell is refined. Nx by Ny by Nz new child cells are
+created. Nz must be 1 for 2d simulations. In the future we plan to allow
+for variable refinement by allowing wild cards to be used for Nx, Ny,
+and Nz.</p>
+<p>The <em>region</em> keyword can be used to limit which grid cells are eligible
+for adapation. It applies to both child cells for refinment and parent
+cells for coarsening. The ID of the geometric region is speficied as
+<em>regID</em>. See the <a class="reference external" href="region.html">region</a> command for details on what
+kind of geometric regions can be defined. Note that the <em>side</em> option
+for the <a class="reference external" href="region.html">region</a> command can be used to define whether
+the inside or outside of the geometric region is considered to be “in”
+the region.</p>
+<p>The grid cell must be in the region to be eligible for adaptation. The
+<em>rflag</em> setting determines how a grid cell is judged to be in the region
+or not. For <em>rflag</em> = <em>one</em>, it is in the region if any of its corner
+points (4 for 2d, 8 for 3d) is in the region. For <em>rflag</em> = <em>all</em>, all
+its corner points must be in the region. For <em>rflag</em> = <em>center</em>, the
+center point of the grid cell must be in the region.</p>
+<p>The <em>dir</em> keyword is only used by the style <em>surf</em>. The Sx,Sy,Sz
+settings are components of a vector. It’s length does not matter, just
+its direction. Only surface elements whose normal is opposed to the
+vector direction (in a dot product sense) are eligible surfaces for the
+adapation procedure described above for the <em>surf</em> style. This can be
+useful to exclude refinement around surface elements that are not facing
+“upwind” with respect to the flow direction of the particles. This is
+accomplished by setting Sx,Sy,Sz to the flow direction. If Sy,Sy,Sz =
+(0,0,0), which is the default, then no surface elements are excluded.</p>
+<p>The <em>file</em> keyword triggers output of the adapted grid to the specified
+<em>filename</em>. The format of the file is the same as that created by the
+<a class="reference external" href="write_grid.html">write_grid</a> command, which is a list of parent
+cells. The file can be read in by a subsequent simulation to define a
+grid, or used by visualization or other post-procesing tools. Note that
+no file is written if no grid cells are refined or coarsened.</p>
+<p>If the filename contains a “*” wildcard character, then the “*” is
+replaced by the current timestep. This is useful for the <a class="reference external" href="fix_adapt.html">fix
+adapt</a> command, if you wish to write out multiple
+grid files, each time the grid iadapts.</p>
+<hr class="docutils" />
+<p>If the grid is partitioned across processors in a “clumped” manner
+before this command is invoked, it will still be clumped by processor
+after the adaptation. Likewise if it is not clumped before, it will
+remain un-clumped after adaptation. You can use the
+<a class="reference external" href="balance_grid.html">balance_grid</a> command after this command to
+re-balance the new adapted grid cells and their particles across
+processors. See <a class="reference external" href="Section_howto.html#howto_8">Section howto 4.8</a> for a
+description clumped and unclumped grids.</p>
+<p><strong>Restrictions:</strong></p>
+<p>This command can only be used after the grid has been created by the
+<a class="reference external" href="create_grid.html">create_grid</a>, <a class="reference external" href="read_grid">read_grid</a>, or
+<a class="reference external" href="read_restart.html">read_restart</a> commands.</p>
+<p>Currently a fix cannot be used with style <em>value</em> for <em>iterate</em> &gt; 1.
+This is because the per-grid cell values accumulated by the fix are not
+interpolated to new grid cells so that the fix can be re-evaluated
+multiple times. In the future we may revove this restriction.</p>
+<p><strong>Related commands:</strong></p>
+<p><a class="reference internal" href="fix_adapt.html#command-fix-adapt"><span class="std std-ref">fix adapt command</span></a>,
+<a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid command</span></a></p>
+<p><strong>Default:</strong></p>
+<p>The keyword defaults are iterate = 1, minlevel = 1, maxlevel = 0, thresh
+= more for rdecide and less for cdecide, combine = sum, cells = 2 2 2
+for 3d and 2 2 1 for 2d, no region, dir = 0 0 0, and no file.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

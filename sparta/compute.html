@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>compute command &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>compute command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/compute.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="compute-command">
+<span id="command-compute"></span><h1>compute command<a class="headerlink" href="#compute-command" title="Permalink to this headline">¶</a></h1>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">style</span> <span class="n">args</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>ID = user-assigned name for the computation</p></li>
+<li><p>style = one of a list of possible style names (see below)</p></li>
+<li><p>args = arguments used by a particular style</p></li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">ke</span><span class="o">/</span><span class="n">particle</span>
+<span class="n">compute</span> <span class="n">myGrid</span> <span class="nb">all</span> <span class="n">n</span> <span class="n">mass</span> <span class="n">u</span> <span class="n">usq</span> <span class="n">temp</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Define a computation that will be performed on a collection of particles
+or grid cells or surface elements. Quantities calculated by a compute
+are instantaneous values, meaning they are calculated from information
+about the current timestep. Examples include calculation of the system
+temperature or counting collisions of particles with surface elements.
+Code for new computes can be added to SPARTA; see <a class="reference external" href="Section_modify.html">Section
+10</a> of the manual for details.</p>
+<p>Note that defining a compute does not perform a computation. Instead
+computes are invoked by other SPARTA commands as needed, e.g. to
+generate statistics or dump file output. See <a class="reference external" href="Section_howto.html#howto_4">Section
+4.4</a> for a summary of various SPARTA
+output options, many of which involve computes.</p>
+<p>The ID for a compute is used to identify the compute in other commands.
+Each compute ID must be unique. The ID can only contain alphanumeric
+characters and underscores. You can specify multiple computees of the
+same style so long as they have different IDs. A compute can be deleted
+with the <a class="reference external" href="uncompute.html">uncompute</a> command, after which its ID can
+be re-used.</p>
+<hr class="docutils" />
+<p>Each compute style has its own doc page which describes its arguments
+and what it does. Here is an alphabetic list of compute styles available
+in SPARTA:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="compute_boundary.html">boundary</a> - various quantities on each
+global boundary</p></li>
+<li><p><a class="reference external" href="compute_count.html">count</a> - particle counts for species and
+mixtures and mixture groups</p></li>
+<li><p><a class="reference external" href="compute_distsurf_grid.html">distsurf/grid</a> - distance from grid
+cells to surface</p></li>
+<li><p><a class="reference external" href="compute_eflux_grid.html">eflux/grid</a> - energy flux density per
+grid cell</p></li>
+<li><p><a class="reference external" href="compute_fft_grid.html">fft/grid</a> - FFTs across grid cells</p></li>
+<li><p><a class="reference external" href="compute_grid.html">grid</a> - various per grid cell quantities</p></li>
+<li><p><a class="reference external" href="compute_isurf_grid.html">isurf/grid</a> - various implicit surface
+element quantities</p></li>
+<li><p><a class="reference external" href="compute_ke_particle.html">ke/particle</a> - temperature per particle</p></li>
+<li><p><a class="reference external" href="compute_lambda_grid.html">lambda/grid</a> - mean-free path per grid
+cell</p></li>
+<li><p><a class="reference external" href="compute_pflux_grid.html">pflux/grid</a> - momentum flux density per
+grid cell</p></li>
+<li><p><a class="reference external" href="compute_property_grid.html">property/grid</a> - per grid cell
+properties</p></li>
+<li><p><a class="reference external" href="compute_react_boundary.html">react/boundary</a> - reaction stats on
+global boundary</p></li>
+<li><p><a class="reference external" href="compute_react_surf.html">react/surf</a> = reaction stats for
+explicit surfs</p></li>
+<li><p><a class="reference external" href="compute_react_isurf_grid.html">react/isurf/grid</a> - reactions
+stats for implicit surfs</p></li>
+<li><p><a class="reference external" href="compute_reduce.html">reduce</a> - reduce vectors to scalars</p></li>
+<li><p><a class="reference external" href="compute_sonine_grid.html">sonine/grid</a> - Sonine moments per grid
+cell</p></li>
+<li><p><a class="reference external" href="compute_surf.html">surf</a> - various explicit surface element
+quantities</p></li>
+<li><p><a class="reference external" href="compute_thermal_grid.html">thermal/grid</a> - thermal temperature
+per grid cell</p></li>
+<li><p><a class="reference external" href="compute_temp.html">temp</a> - temperature of particles</p></li>
+<li><p><a class="reference external" href="compute_tvib_grid.html">tvib/grid</a> - vibrational temperature per
+grid cell</p></li>
+</ul>
+<p>There are also additional accelerated compute styles included in the
+SPARTA distribution for faster performance on specific hardware. The
+list of these with links to the individual styles are given in the pair
+section of <a class="reference external" href="Section_commands.html#cmd_5">this page</a>.</p>
+<hr class="docutils" />
+<p>Computes calculate one of four styles of quantities: global,
+per-particle, per-grid, or per-surf. A global quantity is one or more
+system-wide values, e.g. the temperature of the system. A per-particle
+quantity is one or more values per particle, e.g. the kinetic energy of
+each particle. A per-grid quantity is one or more values per grid cell.
+A per-surf quantity is one or more values per surface element.</p>
+<p>Global, per-particle, per-grid, and per-surf quantities each come in two
+forms: a single scalar value or a vector of values. Additionaly, global
+quantities can also be a 2d array of values. The doc page for each
+compute describes the style and kind of values it produces, e.g. a
+per-particle vector. Some computes can produce more than one form of a
+single style, e.g. a global scalar and a global vector.</p>
+<p>When a compute quantity is accessed, as in many of the output commands
+discussed below, it can be referenced via the following bracket
+notation, where ID is the ID of the compute:</p>
+<div class="docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>c_ID</p></td>
+<td><p>entire scalar, vector, or array</p></td>
+</tr>
+<tr class="row-even"><td><p>c_ID[I]</p></td>
+<td><p>one element of vector, one column of array</p></td>
+</tr>
+<tr class="row-odd"><td><p>c_ID[I][J]</p></td>
+<td><p>one element of array</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In other words, using one bracket reduces the dimension of the quantity
+once (vector -&gt; scalar, array -&gt; vector). Using two brackets reduces the
+dimension twice (array -&gt; scalar). Thus a command that uses scalar
+compute values as input can also process elements of a vector or array.</p>
+<p>Note that commands and <a class="reference external" href="variable.html">variables</a> which use compute
+quantities typically do not allow for all kinds, e.g. a command may
+require a vector of values, not a scalar. This means there is no
+ambiguity about referring to a compute quantity as f_ID even if it
+produces, for example, both a scalar and vector. The doc pages for
+various commands explain the details.</p>
+<hr class="docutils" />
+<p>The values generated by a compute can be used in several ways:</p>
+<ul class="simple">
+<li><p>Global values can be output via the
+<a class="reference external" href="stats_style.html">stats_style</a> command. Or the values can be
+referenced in a <a class="reference external" href="variable.html">variable equal</a> or <a class="reference external" href="variable.html">variable
+atom</a> command.</p></li>
+<li><p>Per-particle values can be output via the <a class="reference external" href="dump.html">dump
+particle</a> command. Or the values can be referenced in a
+<a class="reference external" href="variable.html">particle-style variable</a>.</p></li>
+<li><p>Per-grid values can be output via the <a class="reference external" href="dump.html">dump grid</a>
+command. They can be time-averaged via the <a class="reference external" href="fix_ave_grid.html">fix
+ave/grid</a> command.</p></li>
+<li><p>Per-surf values can be output via the <a class="reference external" href="dump.html">dump surf</a>
+command. They can be time-averaged via the <a class="reference external" href="fix_ave_surf.html">fix
+ave/surf</a> command.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Restrictions:</strong> none</p>
+<p><strong>Related commands:</strong></p>
+<p><a class="reference internal" href="uncompute.html#command-uncompute"><span class="std std-ref">uncompute command</span></a></p>
+<p><strong>Default:</strong> none</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

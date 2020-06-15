@@ -1,0 +1,390 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>fix balance command - fix balance/kk command &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>fix balance command - fix balance/kk command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/fix_balance.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fix-balance-command-fix-balance-kk-command">
+<span id="command-fix-balance"></span><h1>fix balance command - fix balance/kk command<a class="headerlink" href="#fix-balance-command-fix-balance-kk-command" title="Permalink to this headline">¶</a></h1>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">balance</span> <span class="n">Nfreq</span> <span class="n">thresh</span> <span class="n">bstyle</span> <span class="n">args</span>
+</pre></div>
+</div>
+<ul>
+<li><p>ID is documented in <a class="reference external" href="fix.html">fix</a> command</p></li>
+<li><p>balance = style name of this fix command</p></li>
+<li><p>Nfreq = perform dynamic load balancing every this many steps</p></li>
+<li><p>thresh = rebalance if imbalance factor is above this threshhold</p></li>
+<li><p>bstyle = <em>random</em> or <em>proc</em> or <em>rcb</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">random</span> <span class="n">args</span> <span class="o">=</span> <span class="n">none</span>
+<span class="n">proc</span> <span class="n">args</span> <span class="o">=</span> <span class="n">none</span>
+<span class="n">rcb</span> <span class="n">args</span> <span class="o">=</span> <span class="n">weight</span>
+  <span class="n">weight</span> <span class="o">=</span> <span class="n">cell</span> <span class="ow">or</span> <span class="n">part</span> <span class="ow">or</span> <span class="n">time</span>
+</pre></div>
+</div>
+</li>
+<li><p>zero or more keyword/value(s) pairs may be appended</p></li>
+<li><p>keyword = <em>axes</em> or <em>flip</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">axes</span> <span class="n">value</span> <span class="o">=</span> <span class="n">dims</span>
+  <span class="n">dims</span> <span class="o">=</span> <span class="n">string</span> <span class="k">with</span> <span class="nb">any</span> <span class="n">of</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="ow">or</span> <span class="s2">&quot;z&quot;</span> <span class="n">characters</span> <span class="ow">in</span> <span class="n">it</span>
+<span class="n">flip</span> <span class="n">value</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="mi">1</span> <span class="n">balance</span> <span class="mi">1000</span> <span class="mf">1.1</span> <span class="n">rcb</span> <span class="n">cell</span>
+<span class="n">fix</span> <span class="mi">2</span> <span class="n">balance</span> <span class="mi">10000</span> <span class="mf">1.0</span> <span class="n">random</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>This command dynamically adjusts the assignment of grid cells and their
+particles to processors as a simulation runs, to attempt to balance the
+computational cost (load) evenly across processors. The load balancing
+is “dynamic” in the sense that rebalancing is performed periodically
+during the simulation. To perform “static” balancing, before or between
+runs, see the <a class="reference external" href="balance_grid.html">balance_grid</a> command.</p>
+<p>This command is useful to use during simulations where the spatial
+distribution of particles varies with time, leading to load imbalance.</p>
+<p>After grid cells have been assigned, they are migrated to new owning
+processors, along with any particles they own or other per-cell
+attributes stored by fixes. The internal data structures within SPARTA
+for grid cells and particles are re-initialized with the new
+decomposition.</p>
+<p>The details of how child cells are assigned to processors by the various
+options of this command are described below. The cells assigned to each
+processor will either be “clumped” or “dispersed”.</p>
+<p>The <em>rcb</em> keyword will produce clumped assignments of child cells to
+each processor. This means each processor’s cells will be geometrically
+compact. The <em>random</em> and <em>proc</em> keywords will produce dispersed
+assignments of child cells to each processor.</p>
+<p>IMPORTANT NOTE: See <a class="reference external" href="Section_howto.html#howto_8">Section 6.8</a> of the
+manual for an explanation of clumped and dispersed grid cell assignments
+and their relative performance trade-offs.</p>
+<hr class="docutils" />
+<p>Rebalancing is attempted by this command once every <em>Nfreq</em> timesteps,
+but only if the current imbalance factor exceeds the specified <em>thresh</em>.
+This factor is defined as the maximum number of particles owned by any
+processor, divided by the average number of particles per processor.
+Thus an imbalance factor of 1.0 is perfect balance. For 10000 particles
+running on 10 processors, if the most heavily loaded processor has 1200
+particles, then the factor is 1.2, meaning there is a 20% imbalance. The
+<em>thresh</em> setting must be &gt;= 1.0.</p>
+<p>IMPORTANT NOTE: This command attempts to minimize the imbalance factor,
+as defined above. But computational cost is not strictly proportional to
+particle count, depending on the <a class="reference external" href="collide.html">collision</a> and
+<a class="reference external" href="react.html">chemistry</a> models being used. Also, changing the
+assignment of grid cells and particles to processors may lead to
+additional communication overheads, e.g. when migrating particles
+between processors. Thus you should benchmark the run times of your
+simulation to judge how often balancing should be performed, and how
+aggressively to set the <em>thresh</em> value.</p>
+<hr class="docutils" />
+<p>The <em>random</em> keyword means that each grid cell will be assigned randomly
+to one of the processors. In this case every processor will typically
+not be assigned exactly the same number of grid cells.</p>
+<p>The <em>proc</em> keyword means that each processor will choose a random
+processor to assign its first grid cell to. It will then loop over its
+grid cells and assign each to consecutive processors, wrapping around
+the collection of processors if necessary. In this case every processor
+will typically not be assigned exactly the same number of grid cells.</p>
+<p>The <em>rcb</em> keyword uses a recurvise coordinate bisectioning (RCB)
+algorithm to assign spatially-compact clumps of grid cells to
+processors. Each grid cell has a “weight” in this algorithm so that each
+processor is assigned an equal total weight of grid cells, as nearly as
+possible.</p>
+<p>If the <em>weight</em> argument is specified as <em>cell</em>, then the weight for
+each grid cell is 1.0, so that each processor will end up with an equal
+number of grid cells.</p>
+<p>If the <em>weight</em> argument is specified as <em>part</em>, than the weight for
+each grid cell is the number of particles it currently owns, so that
+each processor will end up with an equal number of particles.</p>
+<p>If the <em>weight</em> argument is specified as <em>time</em>, then timers are used to
+estimate the cost of each grid cell. The cost from the timers is given
+on a per processor basis, and then assigned to grid cells by weighting
+by the relative number of particles in the grid cells. If no timing data
+has yet been collected at the point in a script where this command is
+issued, a <em>cell</em> style weight will be used instead of <em>time</em>. A small
+warmup run (for example 100 timesteps) can be used before the balance
+command so that timer data is available. The timers used for balancing
+tally time from the move, sort, collide, and modify portions of each
+timestep.</p>
+<p>If the <em>weight</em> argument is specified as <em>time</em>, then timers are used to
+estimate the cost of each grid cell. The cost from the timers is given
+on a per processor basis, and then assigned to grid cells by weighting
+by the relative number of particles in the grid cells. If no timing data
+has yet been collected on a given timestep, a <em>cell</em> style weight will
+be used instead of <em>time</em>. The number of timesteps <em>Nfreq</em> between
+balancing steps should be large enough to give eliable timings. For
+example, re-balancing every timestep will likely not give accurate
+timings for small problems. The timers used for balancing tally time
+from the move, sort, collide, and modify portions of each timestep.</p>
+<p>Here is an example of an RCB partitioning for 24 processors, of a 2d
+hierarchical grid with 5 levels, refined around a tilted ellipsoidal
+surface object (outlined in pink). This is for a <em>weight cell</em> setting,
+yielding an equal number of grid cells per processor. Each processor is
+assigned a different color of grid cells. (Note that less colors than
+processors were used, so the disjoint yellow cells actually belong to
+three different processors). This is an example of a clumped
+distribution where each processor’s assigned cells can be compactly
+bounded by a rectangle. Click for a larger version of the image.</p>
+<p><a class="reference external" href="JPG/partition.jpg"><img alt="image0" src="_images/partition_small.jpg" /></a></p>
+<hr class="docutils" />
+<p>The optional keywords <em>axes</em> and <em>flip</em> only apply to the <em>rcb</em> style.
+Otherwise they are ignored.</p>
+<p>The <em>axes</em> keyword allows limiting the partitioning created by the RCB
+algorithm to a subset of dimensions. The default is to allow cuts in all
+dimension, e.g. x,y,z for 3d simulations. The dims value is a string
+with 1, 2, or 3 characters. The characters must be one of “x”, “y”, or
+“z”. They can be in any order and must be unique. For example, in 3d, a
+dims = xz would only partition the 3d grid only in the x and z
+dimensions.</p>
+<p>The <em>flip</em> keyword is useful for debugging. If it is set to <em>yes</em> then
+each time an RCB partitioning is done, the coordinates of grid cells
+will (internally only) undergo a sign flip to insure that the new owner
+of each grid cell is a different processor than the previous owner, at
+least when more than a few processors are used. This will insure all
+particle and grid data moves to new processors, fully exercising the
+rebalancing code.</p>
+<hr class="docutils" />
+<p><strong>Restart, output info:</strong></p>
+<p>No information about this fix is written to <a class="reference external" href="restart.html">binary restart
+files</a>.</p>
+<p>This fix computes a global scalar which is the imbalance factor after
+the most recent rebalance and a global vector of length 2 with
+additional information about the most recent rebalancing. The 2 values
+in the vector are as follows:</p>
+<ul class="simple">
+<li><p>1 = max # of particles per processor</p></li>
+<li><p>2 = imbalance factor before the last rebalance was performed</p></li>
+</ul>
+<p>As explained above, the imbalance factor is the ratio of the maximum
+number of particles on any processor to the average number of particles
+per processor. For the <em>rcb</em> style’s <em>time</em> option, the imbalance factor
+after the most recent rebalance cannot be computed and 0.0 is returned
+for the global scalar value.</p>
+<hr class="docutils" />
+<p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding
+style without the suffix. They have been optimized to run faster,
+depending on your available hardware, as discussed in the <a class="reference external" href="Section_accelerate.html">Accelerating
+SPARTA</a> section of the manual. The
+accelerated styles take the same arguments and should produce the same
+results, except for different random number, round-off and precision
+issues.</p>
+<p>These accelerated styles are part of the KOKKOS package. They are only
+enabled if SPARTA was built with that package. See the <a class="reference external" href="Section_start.html#start_3">Making
+SPARTA</a> section for more info.</p>
+<p>You can specify the accelerated styles explicitly in your input script
+by including their suffix, or you can use the <a class="reference external" href="Section_start.html#start_6">-suffix command-line
+switch</a> when you invoke SPARTA, or you
+can use the <a class="reference external" href="suffix.html">suffix</a> command in your input script.</p>
+<p>See the <a class="reference external" href="Section_accelerate.html">Accelerating SPARTA</a> section of the
+manual for more instructions on how to use the accelerated styles
+effectively.</p>
+<hr class="docutils" />
+<p><strong>Restrictions:</strong> none</p>
+<p><strong>Related commands:</strong></p>
+<p><a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid command</span></a>,
+<a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid command</span></a></p>
+<p><strong>Default:</strong> none</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

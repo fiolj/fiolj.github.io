@@ -1,0 +1,612 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dump command &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>dump command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/dump.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dump-command">
+<span id="command-dump"></span><h1>dump command<a class="headerlink" href="#dump-command" title="Permalink to this headline">¶</a></h1>
+<p><strong>`dump image &lt;dump_image.html&gt;`__ command</strong></p>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="n">ID</span> <span class="n">style</span> <span class="n">select</span><span class="o">-</span><span class="n">ID</span> <span class="n">N</span> <span class="n">file</span> <span class="n">args</span>
+</pre></div>
+</div>
+<ul>
+<li><p>ID = user-assigned name for the dump</p></li>
+<li><p>style = <em>particle</em> or <em>grid</em> or <em>surf</em> or <em>image</em></p></li>
+<li><p>select-ID = which particles, grid cells, surface elements to dump</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">dump</span> <span class="n">style</span> <span class="o">=</span> <span class="n">particle</span> <span class="ow">or</span> <span class="n">image</span><span class="p">,</span> <span class="n">use</span> <span class="n">a</span> <span class="n">mixture</span> <span class="n">ID</span>
+<span class="k">for</span> <span class="n">style</span> <span class="o">=</span> <span class="n">grid</span><span class="p">,</span> <span class="n">use</span> <span class="n">a</span> <span class="n">grid</span> <span class="n">group</span> <span class="n">ID</span>
+<span class="k">for</span> <span class="n">style</span> <span class="o">=</span> <span class="n">surf</span><span class="p">,</span> <span class="n">use</span> <span class="n">a</span> <span class="n">surface</span> <span class="n">group</span> <span class="n">ID</span>
+</pre></div>
+</div>
+</li>
+<li><p>N = dump every this many timesteps</p></li>
+<li><p>file = name of file to write dump info to</p></li>
+<li><p>args = list of arguments for a particular style</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">particle</span> <span class="n">args</span> <span class="o">=</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">particle</span> <span class="n">attributes</span>
+  <span class="n">possible</span> <span class="n">attributes</span> <span class="o">=</span> <span class="nb">id</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">proc</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">zs</span><span class="p">,</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">,</span> <span class="n">vz</span><span class="p">,</span>
+                        <span class="n">ke</span><span class="p">,</span> <span class="n">erot</span><span class="p">,</span> <span class="n">evib</span><span class="p">,</span>
+                        <span class="n">p_ID</span><span class="p">,</span> <span class="n">p_ID</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">c_ID</span><span class="p">,</span> <span class="n">c_ID</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">f_ID</span><span class="p">,</span> <span class="n">f_ID</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">v_name</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">particle</span> <span class="n">ID</span>
+<span class="nb">type</span> <span class="o">=</span> <span class="n">particle</span> <span class="n">species</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">owning</span> <span class="n">processor</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">unscaled</span> <span class="n">particle</span> <span class="n">coordinates</span>
+<span class="n">xs</span><span class="p">,</span><span class="n">ys</span><span class="p">,</span><span class="n">zs</span> <span class="o">=</span> <span class="n">scaled</span> <span class="n">particle</span> <span class="n">coordinates</span>
+<span class="n">vx</span><span class="p">,</span><span class="n">vy</span><span class="p">,</span><span class="n">vz</span> <span class="o">=</span> <span class="n">particle</span> <span class="n">velocities</span>
+<span class="n">ke</span><span class="p">,</span><span class="n">erot</span><span class="p">,</span><span class="n">evib</span> <span class="o">=</span> <span class="n">translational</span><span class="p">,</span> <span class="n">rotational</span><span class="p">,</span> <span class="ow">and</span> <span class="n">vibrational</span> <span class="n">energy</span>
+<span class="n">p_ID</span> <span class="o">=</span> <span class="n">custom</span> <span class="n">per</span><span class="o">-</span><span class="n">particle</span> <span class="n">vector</span> <span class="k">with</span> <span class="n">ID</span>
+<span class="n">p_ID</span><span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="o">=</span> <span class="n">Nth</span> <span class="n">column</span> <span class="n">of</span> <span class="n">custom</span> <span class="n">per</span><span class="o">-</span><span class="n">particle</span> <span class="n">array</span> <span class="k">with</span> <span class="n">ID</span>
+<span class="n">c_ID</span> <span class="o">=</span> <span class="n">per</span><span class="o">-</span><span class="n">particle</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">compute</span> <span class="k">with</span> <span class="n">ID</span>
+<span class="n">c_ID</span><span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="o">=</span> <span class="n">Nth</span> <span class="n">column</span> <span class="n">of</span> <span class="n">per</span><span class="o">-</span><span class="n">particle</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">compute</span> <span class="k">with</span> <span class="n">ID</span><span class="p">,</span> <span class="n">I</span> <span class="n">can</span> <span class="n">include</span> <span class="n">wildcard</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
+<span class="n">f_ID</span> <span class="o">=</span> <span class="n">per</span><span class="o">-</span><span class="n">particle</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">fix</span> <span class="k">with</span> <span class="n">ID</span>
+<span class="n">f_ID</span><span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="o">=</span> <span class="n">Nth</span> <span class="n">column</span> <span class="n">of</span> <span class="n">per</span><span class="o">-</span><span class="n">particle</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">fix</span> <span class="k">with</span> <span class="n">ID</span><span class="p">,</span> <span class="n">I</span> <span class="n">can</span> <span class="n">include</span> <span class="n">wildcard</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
+<span class="n">v_name</span> <span class="o">=</span> <span class="n">per</span><span class="o">-</span><span class="n">particle</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">particle</span><span class="o">-</span><span class="n">style</span> <span class="n">variable</span> <span class="k">with</span> <span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="n">args</span> <span class="o">=</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">grid</span> <span class="n">attributes</span>
+  <span class="n">possible</span> <span class="n">attributes</span> <span class="o">=</span> <span class="nb">id</span><span class="p">,</span> <span class="n">idstr</span><span class="p">,</span> <span class="n">proc</span><span class="p">,</span> <span class="n">xlo</span><span class="p">,</span> <span class="n">ylo</span><span class="p">,</span> <span class="n">zlo</span><span class="p">,</span> <span class="n">xhi</span><span class="p">,</span> <span class="n">yhi</span><span class="p">,</span> <span class="n">zhi</span><span class="p">,</span>
+                        <span class="n">c_ID</span><span class="p">,</span> <span class="n">c_ID</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">f_ID</span><span class="p">,</span> <span class="n">f_ID</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">v_name</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">integer</span> <span class="n">form</span> <span class="n">of</span> <span class="n">grid</span> <span class="n">cell</span> <span class="n">ID</span>
+<span class="n">idstr</span> <span class="o">=</span> <span class="n">string</span> <span class="n">form</span> <span class="n">of</span> <span class="n">grid</span> <span class="n">cell</span> <span class="n">ID</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">processor</span> <span class="n">that</span> <span class="n">owns</span> <span class="n">grid</span> <span class="n">cell</span>
+<span class="n">xlo</span><span class="p">,</span><span class="n">ylo</span><span class="p">,</span><span class="n">zlo</span> <span class="o">=</span> <span class="n">coords</span> <span class="n">of</span> <span class="n">lower</span> <span class="n">left</span> <span class="n">corner</span> <span class="n">of</span> <span class="n">grid</span> <span class="n">cell</span>
+<span class="n">xhi</span><span class="p">,</span><span class="n">yhi</span><span class="p">,</span><span class="n">zhi</span> <span class="o">=</span> <span class="n">coords</span> <span class="n">of</span> <span class="n">lower</span> <span class="n">left</span> <span class="n">corner</span> <span class="n">of</span> <span class="n">grid</span> <span class="n">cell</span>
+<span class="n">xc</span><span class="p">,</span><span class="n">yc</span><span class="p">,</span><span class="n">zc</span> <span class="o">=</span> <span class="n">coords</span> <span class="n">of</span> <span class="n">center</span> <span class="n">of</span> <span class="n">grid</span> <span class="n">cell</span>
+<span class="n">vol</span> <span class="o">=</span> <span class="n">flow</span> <span class="n">volume</span> <span class="n">of</span> <span class="n">grid</span> <span class="n">cell</span> <span class="p">(</span><span class="n">area</span> <span class="ow">in</span> <span class="mi">2</span><span class="n">d</span><span class="p">)</span>
+<span class="n">c_ID</span> <span class="o">=</span> <span class="n">per</span><span class="o">-</span><span class="n">grid</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">compute</span> <span class="k">with</span> <span class="n">ID</span>
+<span class="n">c_ID</span><span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="o">=</span> <span class="n">Nth</span> <span class="n">column</span> <span class="n">of</span> <span class="n">per</span><span class="o">-</span><span class="n">grid</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">compute</span> <span class="k">with</span> <span class="n">ID</span><span class="p">,</span> <span class="n">I</span> <span class="n">can</span> <span class="n">include</span> <span class="n">wildcard</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
+<span class="n">f_ID</span> <span class="o">=</span> <span class="n">per</span><span class="o">-</span><span class="n">grid</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">fix</span> <span class="k">with</span> <span class="n">ID</span>
+<span class="n">f_ID</span><span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="o">=</span> <span class="n">Nth</span> <span class="n">column</span> <span class="n">of</span> <span class="n">per</span><span class="o">-</span><span class="n">grid</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">fix</span> <span class="k">with</span> <span class="n">ID</span><span class="p">,</span> <span class="n">I</span> <span class="n">can</span> <span class="n">include</span> <span class="n">wildcard</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
+<span class="n">v_name</span> <span class="o">=</span> <span class="n">per</span><span class="o">-</span><span class="n">grid</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">grid</span><span class="o">-</span><span class="n">style</span> <span class="n">variable</span> <span class="k">with</span> <span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">surf</span> <span class="n">args</span> <span class="o">=</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">surf</span> <span class="n">attributes</span>
+  <span class="n">possible</span> <span class="n">attributes</span> <span class="o">=</span> <span class="nb">id</span><span class="p">,</span> <span class="n">v1x</span><span class="p">,</span> <span class="n">v1y</span><span class="p">,</span> <span class="n">v1z</span><span class="p">,</span> <span class="n">v2x</span><span class="p">,</span> <span class="n">v2y</span><span class="p">,</span> <span class="n">v2z</span><span class="p">,</span> <span class="n">v3x</span><span class="p">,</span> <span class="n">v3y</span><span class="p">,</span> <span class="n">v3z</span><span class="p">,</span>
+                        <span class="n">c_ID</span><span class="p">,</span> <span class="n">c_ID</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">f_ID</span><span class="p">,</span> <span class="n">f_ID</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">v_name</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">surface</span> <span class="n">element</span> <span class="n">ID</span>
+<span class="n">v1x</span><span class="p">,</span><span class="n">v1y</span><span class="p">,</span><span class="n">v1z</span> <span class="o">=</span> <span class="n">coords</span> <span class="n">of</span> <span class="mi">1</span><span class="n">st</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">surface</span> <span class="n">element</span>
+<span class="n">v1x</span><span class="p">,</span><span class="n">v1y</span><span class="p">,</span><span class="n">v1z</span> <span class="o">=</span> <span class="n">coords</span> <span class="n">of</span> <span class="mi">2</span><span class="n">nd</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">surface</span> <span class="n">element</span>
+<span class="n">v1x</span><span class="p">,</span><span class="n">v1y</span><span class="p">,</span><span class="n">v1z</span> <span class="o">=</span> <span class="n">coords</span> <span class="n">of</span> <span class="mi">3</span><span class="n">rd</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">surface</span> <span class="n">element</span>
+<span class="n">c_ID</span> <span class="o">=</span> <span class="n">per</span><span class="o">-</span><span class="n">surf</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">compute</span> <span class="k">with</span> <span class="n">ID</span>
+<span class="n">c_ID</span><span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="o">=</span> <span class="n">Nth</span> <span class="n">column</span> <span class="n">of</span> <span class="n">per</span><span class="o">-</span><span class="n">surf</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">compute</span> <span class="k">with</span> <span class="n">ID</span><span class="p">,</span> <span class="n">I</span> <span class="n">can</span> <span class="n">include</span> <span class="n">wildcard</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
+<span class="n">f_ID</span> <span class="o">=</span> <span class="n">per</span><span class="o">-</span><span class="n">surf</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">fix</span> <span class="k">with</span> <span class="n">ID</span>
+<span class="n">f_ID</span><span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="o">=</span> <span class="n">Nth</span> <span class="n">column</span> <span class="n">of</span> <span class="n">per</span><span class="o">-</span><span class="n">surf</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">fix</span> <span class="k">with</span> <span class="n">ID</span><span class="p">,</span> <span class="n">I</span> <span class="n">can</span> <span class="n">include</span> <span class="n">wildcard</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
+<span class="n">v_name</span> <span class="o">=</span> <span class="n">per</span><span class="o">-</span><span class="n">surf</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">surf</span><span class="o">-</span><span class="n">style</span> <span class="n">variable</span> <span class="k">with</span> <span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="n">args</span> <span class="o">=</span> <span class="n">discussed</span> <span class="n">on</span> <span class="n">dump</span> <span class="n">image</span> <span class="n">doc</span> <span class="n">page</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="mi">1</span> <span class="n">particle</span> <span class="nb">all</span> <span class="mi">100</span> <span class="n">dump</span><span class="o">.</span><span class="n">myforce</span><span class="o">.*</span> <span class="nb">id</span> <span class="nb">type</span> <span class="n">x</span> <span class="n">y</span> <span class="n">vx</span> <span class="n">fx</span>
+<span class="n">dump</span> <span class="mi">2</span> <span class="n">particle</span> <span class="n">inflow</span> <span class="mi">100</span> <span class="n">dump</span><span class="o">.%.</span><span class="n">myforce</span> <span class="nb">id</span> <span class="nb">type</span> <span class="n">c_myF</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">v_ke</span>
+<span class="n">dump</span> <span class="mi">3</span> <span class="n">grid</span> <span class="nb">all</span> <span class="mi">1000</span> <span class="n">tmp</span><span class="o">.</span><span class="n">grid</span> <span class="nb">id</span> <span class="n">proc</span> <span class="n">xlo</span> <span class="n">ylo</span> <span class="n">zlo</span> <span class="n">xhi</span> <span class="n">yhi</span> <span class="n">zhi</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Dump a snapshot of simulation quantities to one or more files every N
+timesteps in one of several styles. The <em>image</em> style is the exception;
+it creates a JPG or PPM image file of the simulation configuration every
+N timesteps, as discussed on the <a class="reference external" href="dump_image.html">dump image</a> doc
+page.</p>
+<p>The ID for a dump is used to identify the dump in other commands. Each
+dump ID must be unique. The ID can only contain alphanumeric characters
+and underscores. You can specify multiple dumpes of the same style so
+long as they have different IDs. A dump can be deleted with the
+<a class="reference external" href="undump.html">undump</a> command, after which its ID can be re-used.</p>
+<p>The <em>style</em> setting determines what quantities are written to the file
+and in what format. The <em>particle</em>, <em>grid</em>, <em>surf</em> options are for
+particles, grid cells, or surface elements. Settings made via the
+<a class="reference external" href="dump_modify.html">dump_modify</a> command can also alter what info is
+included in the file and the format of individual values.</p>
+<p>The <em>select-ID</em> setting determines which particles, grid cells, or
+surface elements are output. For <em>style</em> = <em>particle</em>, the <em>select-ID</em>
+is a mixture ID as defined by the <a class="reference external" href="mixture.html">mixture</a> command.
+Only particles whose species are part of the mixture are output. For
+<em>style</em> = <em>grid</em>, the <em>select-ID</em> is for a grid group, as defined by the
+<a class="reference external" href="group.html">group grid</a> command. Only grid cells in the group are
+output. For <em>style</em> = <em>surf</em>, the <em>select-ID</em> is for a surface eleemnt
+group, as defined by the <a class="reference external" href="group.html">group surf</a> command. Only
+surface elements in the group are output.</p>
+<p>As described below, the filename determines the kind of output (text or
+binary or gzipped, one big file or one per timestep, one big file or one
+per processor).</p>
+<p>The precision of values output to text-based dump files can be
+controlled by the <a class="reference external" href="dump_modify.html">dump_modify format</a> command and
+its options.</p>
+<hr class="docutils" />
+<p>The <em>particle</em> and <em>grid</em> and <em>surf</em> styles create files in a simple
+text format that is self-explanatory when viewing a dump file. Many of
+the SPARTA <a class="reference external" href="Section_tools.html">post-processing tools</a>, including
+<a class="reference external" href="http://pizza.sandia.gov">Pizza.py</a>, work with this format.</p>
+<p>For post-processing purposes the text files are self-describing in the
+following sense.</p>
+<p>The dimensions of the simulation box are included in each snapshot. This
+information is formatted as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ITEM</span><span class="p">:</span> <span class="n">BOX</span> <span class="n">BOUNDS</span> <span class="n">xx</span> <span class="n">yy</span> <span class="n">zz</span>
+<span class="n">xlo</span> <span class="n">xhi</span>
+<span class="n">ylo</span> <span class="n">yhi</span>
+<span class="n">zlo</span> <span class="n">zhi</span>
+</pre></div>
+</div>
+<p>where xlo,xhi are the maximum extents of the simulation box in the
+x-dimension, and similarly for y and z. The “xx yy zz” represent 6
+characters that encode the style of boundary for each of the 6
+simulation box boundaries (xlo,xhi and ylo,yhi and zlo,zhi). Each of the
+6 characters is either o = outflow, p = periodic, or s = specular. See
+the <a class="reference external" href="doc/boundary.html">boundary</a> command for details.</p>
+<p>The “ITEM: NUMBER OF ATOMS” or “ITEM: NUMBER OF CELLS” or “ITEM: NUMBER
+OF SURFS” entry in each snapshot gives the number of particles, grid
+cells, surfaces to follow.</p>
+<p>The “ITEM: ATOMS” or “ITEM: CELLS” or “ITEM: SURFS” entry in each
+snapshot lists column descriptors for the per-particle or per-grid or
+per-surf lines that follow. The descriptors are the attributes specied
+in the dump command for the style. Possible attributes are listed above
+and will appear in the order specified. An explanation of the possible
+attributes is given below.</p>
+<hr class="docutils" />
+<p>Dumps are performed on timesteps that are a multiple of N (including
+timestep 0). Note that this means a dump will not be performed on the
+initial timestep after the dump command is invoked, if the current
+timestep is not a multiple of N. This behavior can be changed via the
+<a class="reference external" href="dump_modify.html">dump_modify first</a> command. N can be changed
+between runs by using the <a class="reference external" href="dump_modify.html">dump_modify every</a>
+command.</p>
+<p>The specified filename determines how the dump file(s) is written. The
+default is to write one large text file, which is opened when the dump
+command is invoked and closed when an <a class="reference external" href="undump.html">undump</a> command
+is used or when SPARTA exits.</p>
+<p>Dump filenames can contain two wildcard characters. If a “*” character
+appears in the filename, then one file per snapshot is written and the
+“*” character is replaced with the timestep value. For example,
+tmp.dump.* becomes tmp.dump.0, tmp.dump.10000, tmp.dump.20000, etc.
+Note that the <a class="reference external" href="dump_modify.html">dump_modify pad</a> command can be used
+to insure all timestep numbers are the same length (e.g. 00010), which
+can make it easier to read a series of dump files in order by some
+post-processing tools.</p>
+<p>If a “%” character appears in the filename, then one file is written for
+each processor and the “%” character is replaced with the processor ID
+from 0 to P-1. For example, tmp.dump.% becomes tmp.dump.0, tmp.dump.1,
+… tmp.dump.P-1, etc. This creates smaller files and can be a fast mode
+of output on parallel machines that support parallel I/O for output.</p>
+<p>Note that the “*” and “%” characters can be used together to produce a
+large number of small dump files!</p>
+<p>If the filename ends with “.bin”, the dump file (or files, if “*” or “%”
+is also used) is written in binary format. A binary dump file will be
+about the same size as a text version, but will typically write out much
+faster. Of course, when post-processing, you will need to convert it
+back to text format (see the <a class="reference external" href="Section_tools.html#binary">binary2txt
+tool</a>) or write your own code to read the
+binary file. The format of the binary file can be understood by looking
+at the tools/binary2txt.cpp file.</p>
+<p>If the filename ends with “.gz”, the dump file (or files, if “*” or “%”
+is also used) is written in gzipped format. A gzipped dump file will be
+about 3x smaller than the text version, but will also take longer to
+write.</p>
+<hr class="docutils" />
+<p>Note that in the discussion which follows, for styles which can
+reference values from a compute or fix, like the <em>particle</em>, <em>grid</em>, or
+<em>surf</em> styles, the bracketed index I can be specified using a wildcard
+asterisk with the index to effectively specify multiple values. This
+takes the form “*” or “<em>n” or “n</em>” or “m*n”. If N = the size of the
+vector (for <em>mode</em> = scalar) or the number of columns in the array (for
+<em>mode</em> = vector), then an asterisk with no numeric values means all
+indices from 1 to N. A leading asterisk means all indices from 1 to n
+(inclusive). A trailing asterisk means all indices from n to N
+(inclusive). A middle asterisk means all indices from m to n
+(inclusive).</p>
+<p>Using a wildcard is the same as if the individual columns of the array
+had been listed one by one. E.g. these 2 dump commands are equivalent,
+since the <a class="reference external" href="compute_grid.html">compute grid</a> command creates a
+per-grid array with 3 columns:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">myGrid</span> <span class="nb">all</span> <span class="nb">all</span> <span class="n">u</span> <span class="n">v</span> <span class="n">w</span>
+<span class="n">dump</span> <span class="mi">2</span> <span class="n">grid</span> <span class="nb">all</span> <span class="mi">100</span> <span class="n">tmp</span><span class="o">.</span><span class="n">dump</span> <span class="nb">id</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
+<span class="n">dump</span> <span class="mi">2</span> <span class="n">grid</span> <span class="nb">all</span> <span class="mi">100</span> <span class="n">tmp</span><span class="o">.</span><span class="n">dump</span> <span class="nb">id</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>This section explains the particle attributes that can be specified as
+part of the <em>particle</em> style.</p>
+<p><em>Id</em> is the particle ID. <em>Type</em> is an integer index representing the
+particle species. It is a value from 1 to Nspecies, The value
+corresponds to the order in which species were defined via the
+<a class="reference external" href="species.html">species</a> command. <em>Proc</em> is the ID of the processor
+which currently owns the particle.</p>
+<p>The <em>x</em>, <em>y</em>, <em>z</em> attributes write particle coordinates “unscaled”, in
+the appropriate distance <a class="reference external" href="units.html">units</a>. Use <em>xs</em>, <em>ys</em>, <em>zs</em> to
+“scale” the coordinates to the box size, so that each value is 0.0 to
+1.0.</p>
+<p><em>Vx</em>, <em>vy</em>, <em>vz</em> are components of particle velocity. The <em>ke</em>, <em>erot</em>,
+and <em>evib</em> attributes are the kinetic, rotational, and vibrational
+energies of the particle. A particle’s kinetic energy is given by 1/2 m
+(vx^2 + vy^2 + vz^2). The way that rotational and vibrational energy is
+treated in collisions and stored by particles is affected by the
+<a class="reference external" href="collid_modify.html">collide_modify</a> command.</p>
+<p>The <em>p_ID</em> and <em>p_ID[N]</em> attributes allow custom per-particle vectors or
+arrays defined by a <a class="reference external" href="fix.html">fix</a> command to be output. The ID in
+the attribute should be replaced by the actual ID of the custom particle
+attribute that the fix defines. See individal fix commands for details,
+e.g. the <a class="reference external" href="fix_ambipolar.html">fix ambipolar</a> command which defines
+the custom vector “ionambi” and the custom array “velambi”.</p>
+<p>If <em>p_ID</em> is used as a attribute, the custom attribute must be a vector,
+and it is output. If <em>p_ID[N]</em> is used, the custom attribute must be an
+array, and N must be in the range from 1-M, which will output the Nth
+column of the M-column array.</p>
+<p>The <em>c_ID</em> and <em>c_ID[I]</em> attributes allow per-particle vectors or arrays
+calculated by a <a class="reference external" href="compute.html">compute</a> to be output. The ID in the
+attribute should be replaced by the actual ID of the compute that has
+been defined previously in the input script. See the
+<a class="reference external" href="compute.html">compute</a> command for details.</p>
+<p>If <em>c_ID</em> is used as a attribute, the compute must calculate a
+per-particle vector, and it is output. If <em>c_ID[I]</em> is used, the compute
+must calculate a per-particle array, and I must be in the range from
+1-M, which will output the Ith column of the M-column array. See the
+discussion above for how I can be specified with a wildcard asterisk to
+effectively specify multiple values.</p>
+<p>The <em>f_ID</em> and <em>f_ID[I]</em> attributes allow vector or array per-particle
+quantities calculated by a <a class="reference external" href="fix.html">fix</a> to be output. The ID in
+the attribute should be replaced by the actual ID of the fix that has
+been defined previously in the input script.</p>
+<p>If <em>f_ID</em> is used as a attribute, the fix must calculate a per-particle
+vector, and it is output. If <em>f_ID[I]</em> is used, the fix must calculate a
+per-particle array, and I must be in the range from 1-M, which will
+output the Ith column of the M-column array. See the discussion above
+for how I can be specified with a wildcard asterisk to effectively
+specify multiple values.</p>
+<p>The <em>v_name</em> attribute allows per-particle vectors calculated by a
+<a class="reference external" href="variable.html">variable</a> to be output. The name in the attribute
+should be replaced by the actual name of the variable that has been
+defined previously in the input script. Only a particle-style variable
+can be referenced, since it is the only style that generates
+per-particle values. Variables of style <em>particle</em> can reference
+per-particle attributes, stats keywords, or invoke other computes,
+fixes, or variables when they are evaluated, so this is a very general
+means of creating quantities to output to a dump file.</p>
+<p>See <a class="reference external" href="Section_modify.html">Section 10</a> of the manual for information
+on how to add new compute and fix styles to SPARTA to calculate
+per-particle quantities which could then be output into dump files.</p>
+<hr class="docutils" />
+<p>This section explains the grid cell attributes that can be specified as
+part of the <em>grid</em> style.</p>
+<p>Note that dump grid will output one line (per snapshot) for 3 kinds of
+child cells: unsplit cells, cut cells, and sub cells of split cells.
+<a class="reference external" href="Section_howto.html#howto_8">Section 6.8</a> of the manual gives details
+of how SPARTA defines child, unsplit, cut, split, and sub cells. This is
+different than <a class="reference external" href="compute.html">compute</a> or <a class="reference external" href="fix.html">fix</a> commands
+that produce per grid information, which also include split cells in
+their output. The dump grid command discards that output since the sub
+cells of a split cell provide the needed information for further
+processing and visualization. Note that unsplit cells can be outside (in
+the flow) or inside surface objects, if they exist.</p>
+<p><em>Id</em> and <em>idstr</em> are two different forms of the grid cell ID. In SPARTA
+each grid cell is assigned a unique ID which represents its location, in
+a topological sense, within the hierarchical grid. This ID is stored as
+an integer such as 5774983, but can also be decoded into a string such
+as 33-4-6, which makes it easier to understand the grid hierarchy. In
+this case it means the grid cell is at the 3rd level of the hierarchy.
+Its grandparent cell was 33 at the 1st level, its parent was cell 4 (at
+level 2) within cell 33, and the cell itself is cell 6 (at level 3)
+within cell 4 within cell 33. If you specify <em>id</em>, the ID is printed
+directly as an integer. If you specify <em>idstr</em>, it is printed as a
+string.</p>
+<p><em>Proc</em> is the ID of the processor which currently owns the grid cell.</p>
+<p>The <em>xlo</em>, <em>ylo</em>, <em>zlo</em> attributes write the coordinates of the
+lower-left corner of the grid cell in the appropriate distance
+<a class="reference external" href="units.html">units</a>. The <em>xhi</em>, <em>yhi</em>, <em>zhi</em> attributes write the
+coordinates of the upper-right corner of the grid cell. The <em>xc</em>, <em>yc</em>,
+<em>zc</em> attributes write the coordinates of the center point of the grid
+cell. The <em>zlo</em>, <em>zhi</em>, <em>zc</em> attributes cannot be used for a 2d
+simulation.</p>
+<p>The <em>vol</em> attribute is the flow volume of the grid cell (or area in 2d)
+for unsplit or cut or sub cells. <a class="reference external" href="Section_howto.html#howto_8">Section
+4.8</a> of the manual gives details of how
+SPARTA defines unsplit and sub cells. Flow volume is the portion of the
+grid cell that is accessible to particles, i.e. outside any closed
+surface that may intersect the cell. Note that unsplit cells which are
+inside a surface object will have a flow volume of 0.0. Likewise a cut
+cell which is inside a suface object but which is intersected by surface
+element(s) which only touch a face, edge, or corner point of the grid
+cell, will have a flow volume of 0.0.</p>
+<p>The <em>c_ID</em> and <em>c_ID[I]</em> attributes allow per-grid vectors or arrays
+calculated by a <a class="reference external" href="compute.html">compute</a> to be output. The ID in the
+attribute should be replaced by the actual ID of the compute that has
+been defined previously in the input script. See the
+<a class="reference external" href="compute.html">compute</a> command for details.</p>
+<p>If <em>c_ID</em> is used as a attribute, and the compute calculates a per-grid
+vector, then the per-grid vector is output. If <em>c_ID[I]</em> is used, then I
+must be in the range from 1-M, which will output the Ith column of the
+M-column per-grid array calculated by the compute. See the discussion
+above for how I can be specified with a wildcard asterisk to effectively
+specify multiple values.</p>
+<p>The <em>f_ID</em> and <em>f_ID[I]</em> attributes allow per-grid vectors or arrays
+calculated by a <a class="reference external" href="fix.html">fix</a> to be output. The ID in the attribute
+should be replaced by the actual ID of the fix that has been defined
+previously in the input script.</p>
+<p>If <em>f_ID</em> is used as a attribute, and the fix calculates a per-grid
+vector, then the per-grid vector is output. If <em>f_ID[I]</em> is used, then I
+must be in the range from 1-M, which will output the Ith column of the
+M-columne per-grid array calculated by the fix. See the discussion above
+for how I can be specified with a wildcard asterisk to effectively
+specify multiple values.</p>
+<p>The <em>v_name</em> attribute allows per-grid vectors calculated by a
+<a class="reference external" href="variable.html">variable</a> to be output. The name in the attribute
+should be replaced by the actual name of the variable that has been
+defined previously in the input script. Only a grid-style variable can
+be referenced, since it is the only style that generates per-grid
+values. Variables of style <em>grid</em> can reference per-grid attributes,
+stats keywords, or invoke other computes, fixes, or variables when they
+are evaluated, so this is a very general means of creating quantities to
+output to a dump file.</p>
+<p>See <a class="reference external" href="Section_modify.html">Section 10</a> of the manual for information
+on how to add new compute and fix styles to SPARTA to calculate per-grid
+quantities which could then be output into dump files.</p>
+<hr class="docutils" />
+<p>This section explains the surface element attributes that can be
+specified as part of the <em>surf</em> style. For 2d simulations, a surface
+element is a line segment with 2 end points. Crossing the unit +z vector
+into the vector (v2-v1) determines the outward normal of the line
+segment. For 3d simulations, a surface element is a triangle with 3
+corner points. Crossing (v2-v1) into (v3-v1) determines the outward
+normal of the triangle.</p>
+<p><em>Id</em> is the surface element ID.</p>
+<p>The <em>v1x</em>, <em>v1y</em>, <em>v1z</em>, <em>v2x</em>, <em>v2y</em>, <em>v2z</em>, <em>v3x</em>, <em>v3y</em>, <em>v3z</em>
+attributes write the coordinates of the vertices of the end or corner
+points of the surface element. The <em>v1z</em>, <em>v2z</em>, <em>v3x</em>, <em>v3y</em>, and <em>v3z</em>
+attributes cannot be used for a 2d simulation.</p>
+<p>The <em>c_ID</em> and <em>c_ID[I]</em> attributes allow per-surf vectors or arrays
+calculated by a <a class="reference external" href="compute.html">compute</a> to be output. The ID in the
+attribute should be replaced by the actual ID of the compute that has
+been defined previously in the input script. See the
+<a class="reference external" href="compute.html">compute</a> command for details.</p>
+<p>If <em>c_ID</em> is used as a attribute, and the compute calculates a per-srf
+vector, then the per-surf vector is output. If <em>c_ID[I]</em> is used, then I
+must be in the range from 1-M, which will output the Ith column of the
+M-column per-surf array calculated by the compute. See the discussion
+above for how I can be specified with a wildcard asterisk to effectively
+specify multiple values.</p>
+<p>The <em>f_ID</em> and <em>f_ID[I]</em> attributes allow per-surf vectors or arrays
+calculated by a <a class="reference external" href="fix.html">fix</a> to be output. The ID in the attribute
+should be replaced by the actual ID of the fix that has been defined
+previously in the input script.</p>
+<p>If <em>f_ID</em> is used as a attribute, and the fix calculates a per-surf
+vector, then the per-surf vector is output. If <em>f_ID[I]</em> is used, then I
+must be in the range from 1-M, which will output the Ith column of the
+M-column per-surf array calculated by the fix. See the discussion above
+for how I can be specified with a wildcard asterisk to effectively
+specify multiple values.</p>
+<p>The <em>v_name</em> attribute allows per-surf vectors calculated by a
+<a class="reference external" href="variable.html">variable</a> to be output. The name in the attribute
+should be replaced by the actual name of the variable that has been
+defined previously in the input script. Only a surf-style variable can
+be referenced, since it is the only style that generates per-surf
+values. Variables of style <em>surf</em> can reference per-surf attributes,
+stats keywords, or invoke other computes, fixes, or variables when they
+are evaluated, so this is a very general means of creating quantities to
+output to a dump file.</p>
+<p>IMPORTANT NOTE: Surf-style variables have not yet been implemented in
+SPARTA.</p>
+<p>See <a class="reference external" href="Section_modify.html">Section 10</a> of the manual for information
+on how to add new compute and fix styles to SPARTA to calculate per-surf
+quantities which could then be output into dump files.</p>
+<hr class="docutils" />
+<p><strong>Restrictions:</strong></p>
+<p>To write gzipped dump files, you must compile SPARTA with the
+-DSPARTA_GZIP option - see the <a class="reference external" href="Section_start.html#start_2">Making
+SPARTA</a> section of the documentation.</p>
+<p><strong>Related commands:</strong></p>
+<p><a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a>,
+<a class="reference internal" href="dump_modify.html#command-dump-modify"><span class="std std-ref">dump_modify command</span></a>,
+<a class="reference internal" href="undump.html#command-undump"><span class="std std-ref">undump command</span></a></p>
+<p><strong>Default:</strong></p>
+<p>The defaults for the image style are listed on the <a class="reference external" href="dump_image.html">dump
+image</a> doc page.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

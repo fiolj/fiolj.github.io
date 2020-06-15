@@ -3,8 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Crossroads
-==========
+============
+ Crossroads
+============
 
 ..
    .. toctree::
@@ -21,3 +22,8 @@ Fortran-related
 ===============
 
 - `NumFor <https://numericfor.github.io/numfor/>`_ Numerical (modern) Fortran is a library to ease the use of modern fortran in scientific computations
+
+Others
+======
+
+- `SPARTA Documentation <sparta/index.html>`_ is an alternative formatting for the Manual of `SPARTA <http://sparta.sandia.gov/>`_ program.

@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>react command &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>react command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/react.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="react-command">
+<span id="command-react"></span><h1>react command<a class="headerlink" href="#react-command" title="Permalink to this headline">¶</a></h1>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">react</span> <span class="n">style</span> <span class="n">args</span>
+</pre></div>
+</div>
+<ul>
+<li><p>style = <em>none</em> or <em>tce</em> or <em>qk</em> or <em>tce/qk</em></p></li>
+<li><p>args = arguments for that style</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">none</span> <span class="n">args</span> <span class="o">=</span> <span class="n">none</span>
+<span class="n">tce</span> <span class="n">args</span> <span class="o">=</span> <span class="n">infile</span>
+  <span class="n">infile</span> <span class="o">=</span> <span class="n">file</span> <span class="k">with</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">gas</span><span class="o">-</span><span class="n">phase</span> <span class="n">chemistry</span> <span class="n">reactions</span>
+<span class="n">qk</span> <span class="n">args</span> <span class="o">=</span> <span class="n">infile</span>
+  <span class="n">infile</span> <span class="o">=</span> <span class="n">file</span> <span class="k">with</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">gas</span><span class="o">-</span><span class="n">phase</span> <span class="n">chemistry</span> <span class="n">reactions</span>
+<span class="n">tce</span><span class="o">/</span><span class="n">qk</span> <span class="n">args</span> <span class="o">=</span> <span class="n">infile</span>
+  <span class="n">infile</span> <span class="o">=</span> <span class="n">file</span> <span class="k">with</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">gas</span><span class="o">-</span><span class="n">phase</span> <span class="n">chemistry</span> <span class="n">reactions</span>
+<span class="n">tce</span><span class="o">/</span><span class="n">kk</span> <span class="n">args</span> <span class="o">=</span> <span class="n">infile</span>
+  <span class="n">infile</span> <span class="o">=</span> <span class="n">file</span> <span class="k">with</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">gas</span><span class="o">-</span><span class="n">phase</span> <span class="n">chemistry</span> <span class="n">reactions</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">react</span> <span class="n">none</span>
+<span class="n">react</span> <span class="n">tce</span> <span class="n">air</span><span class="o">.</span><span class="n">tce</span>
+<span class="n">react</span> <span class="n">qk</span> <span class="n">air</span><span class="o">.</span><span class="n">tce</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Define chemical reactions to perform in the gas phase when
+particle-particle collisions occur. See the
+<a class="reference external" href="surf_react.html">surf_react</a> command for specification of surface
+chemistry reactions.</p>
+<p>The <em>none</em> style means that no chemistry will be performed, which is the
+default.</p>
+<p>For other styles, a file is specified which contains a list of chemical
+reactions, with their associated parameters. The reactions are read into
+SPARTA and stored in a list. Each time a simulation is run via the
+<a class="reference external" href="run.html">run</a> command, the list is scanned. Only reactions for
+which all the reactants and all the products are currently defined as
+species-IDs will be active for the simulation. Thus the file can contain
+more reactions than are used in a particular simulation. See the
+<a class="reference external" href="species.html">species</a> command for how species IDs are defined.</p>
+<p>The reaction models for the various styles are described below. When a
+pair of particles collide, the list of all reactions with those two
+species as reactants is looped over. A probability for each reaction is
+calculated, using the formulas discussed below, and a random number is
+used to decide which reaction (if any) takes place. No check is made
+that the sum of probabilities for all possible reactions is &lt;= 1.0, but
+that should normally be the case if reasonable reaction coefficients are
+defined.</p>
+<p>The format of the reaction file is the same for all three of the
+currently defined styles, and is also described below. The various
+styles interpret and compute the specified reactions in different ways.
+The data directory in the SPARTA distribution contains reaction files
+for these reaction models, all with the suffix “.tce”.</p>
+<hr class="docutils" />
+<p>The <em>tce</em> style is Bird’s Total Collision Energy (TCE) model. When this
+style is specified, all computed reactions will use the TCE model.</p>
+<p>Using kinetic theory, the TCE model allows for reaction probabilities to
+be defined based on known, measured, reaction rates. The model is
+described in detail in <a class="reference internal" href="surf_collide.html#bird94" id="id1"><span>[Bird94]</span></a>; see chapter 6. The
+required input parameters for each reaction (discussed below) are values
+that permit its effective Arrhenius rate to be calculated, namely</p>
+<p><img alt="image0" src="_images/arrhenius.jpg" /></p>
+<p>where K(T) is the forward reaction rate, T is the temperature of the
+participating molecules which is a function of their velocities and
+internal energy states, k the Boltzmann constant, and A,b,Ea are input
+parameters as discussed below.</p>
+<p>All 5 reactions coefficients read from the reaction file (described
+below) are used to calculate terms in equation 6.10 of
+<a class="reference internal" href="surf_collide.html#bird94" id="id2"><span>[Bird94]</span></a> for the probability that a reaction takes place.</p>
+<p>The C2, C3, C4 values are the Arrhenius activation energy Ea, prefactor
+A, and exponent b, used in the rate formula above.</p>
+<hr class="docutils" />
+<p>The <em>qk</em> style is Bird’s Quantum-Kinetic model (QK). When this style is
+specified, all computed reactions will use the QK model.</p>
+<p>The QK model implemented is that of <a class="reference internal" href="#bird09" id="id3"><span>[Bird09]</span></a> as validated
+<a class="reference internal" href="#gallis09" id="id4"><span>[Gallis09]</span></a> and modified <a class="reference internal" href="#gallis10" id="id5"><span>[Gallis10]</span></a>.</p>
+<p>The QK model depends solely on properties of the colliding molecules and
+unlike the TCE model makes no use of measured reaction rates or
+adjustable parameters. The macroscopic properties used in the QK model
+are the available collision energy, activation energies, and quantized
+vibrational energy levels.</p>
+<p>According to the QK model dissociation reactions take place when the
+maximum obtainable vibrational energy after an inelastic energy exchange
+is higher than the dissociation level <a class="reference internal" href="#bird09" id="id6"><span>[Bird09]</span></a>.</p>
+<p><img alt="image1" src="_images/qk_dissociation.jpg" /></p>
+<p>Exchange reactions take place when the vibrational energy after a trial
+energy exchange is above the activation energy of the exchange reaction
+<a class="reference internal" href="#gallis10" id="id7"><span>[Gallis10]</span></a>.</p>
+<p><img alt="image2" src="_images/qk_exchange.jpg" /></p>
+<p>A new version of the QK model for exchange reactions has been proposed
+by <a class="reference internal" href="#bird11" id="id8"><span>[Bird11]</span></a>. This will be implemented in future releases
+of SPARTA.</p>
+<p>For the QK model, SPARTA reads the same 5 coefficients per reaction from
+the reaction file (described below) as for the TCE model. Three of the
+coefficients (C1,C2,C5) are used to calculate terms in equation 6.10 of
+<a class="reference internal" href="surf_collide.html#bird94" id="id9"><span>[Bird94]</span></a> for the probability that a reaction takes place.
+The Arrhenius rate parameters C3 and C4 are ignored by the QK model.</p>
+<hr class="docutils" />
+<p>The <em>tce/qk</em> style is a hybrid model which can be used to compute
+reactions using both the TCE and QK models. When this style is
+specified, reactions from the input file that are flagged with an A =
+Arrhenius style will be computed using the TCE model. Reactions from the
+input file that are flagged with a Q = Quantum style will be computed
+using the QK model.</p>
+<hr class="docutils" />
+<p>The format of the input reaction file is as follows. Comments or blank
+lines are allowed in the file. Comment lines start with a “#” character.
+All other entries must come in 2-line pairs with values separated by
+whitespace in the following format</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span> <span class="o">+</span> <span class="n">R2</span> <span class="o">+</span> <span class="o">...</span> <span class="o">--&gt;</span> <span class="n">P1</span> <span class="o">+</span> <span class="n">P2</span> <span class="o">+</span> <span class="o">...</span>
+<span class="nb">type</span> <span class="n">style</span> <span class="n">C1</span> <span class="n">C2</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>The first line is a text-based description of a single reaction. R1, R2,
+etc are one or more reactants, listed as <a class="reference external" href="species.html">species</a> IDs.
+P1, P2, etc are one or more products, also listed as
+<a class="reference external" href="species.html">species</a> IDs. The number of allowed reactants and
+products depends on the reaction type, as discussed below. In most cases
+there is no restriction on the order or listed reactants or products on
+what species are listed. Exceptions are detailed below. Note that
+individual reactants and products must be separated by whitespace and a
+“+” sign. The left-hand and right-hand sides of the equation must be
+separated by whitespace and “–&gt;”.</p>
+<p>The <em>type</em> of each reaction is a single character (upper or lower case)
+with the following meaning. The type determines how many reactants and
+products can be specified in the first line.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">dissociation</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">reactants</span> <span class="ow">and</span> <span class="mi">3</span> <span class="n">products</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">exchange</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">reactants</span> <span class="ow">and</span> <span class="mi">2</span> <span class="n">products</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">ionization</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">reactants</span> <span class="ow">and</span> <span class="mi">2</span> <span class="ow">or</span> <span class="mi">3</span> <span class="n">products</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">recombination</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">reactants</span> <span class="ow">and</span> <span class="mi">1</span> <span class="n">product</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A dissociation reaction means that R1 dissociates into P1 and P2 when it
+collides with R2. R2 is preserved in the collision, so P3 = R2 is
+required.</p>
+<p>An exchange reaction is a collision between R1 and R2 that results in
+new products P1 and P2. There is no restriction on the species involved
+in the reaction.</p>
+<p>An ionization reaction with 2 products is typically a collision between
+R1 and R2 that results in a positively charged ion and an election.
+However, SPARTA does not check for this, so there is no restriction on
+the species involved in the reaction.</p>
+<p>An ionization reaction with 3 products is typically a collision between
+a neutral R1 and an electon R2 which ejects an electron from the neutral
+species, resulting in P1 and P2. Again, SPARTA does not check for this,
+so there is no restriction on the species involved in the reaction. R2
+is preserved in the collision, so P3 = R2 is required.</p>
+<p>A recombination reaction is a collision between R1 and R2 that results
+in P1. There is no restriction on the species involved in the reaction.</p>
+<p>Note that recombination reactions actually involve a 3rd particle whose
+species is not altered by the reaction but whose velocity is, in order
+to balance energy and momentum. So conceptually it can be thought of as
+both a reactant and a product. There are 3 ways you can specify
+recombination reactions, to include information about which species of
+3rd particles are eligible to participate:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span> <span class="o">+</span> <span class="n">R2</span> <span class="o">-&gt;</span> <span class="n">P1</span>
+<span class="n">R1</span> <span class="o">+</span> <span class="n">R2</span> <span class="o">-&gt;</span> <span class="n">P1</span> <span class="o">+</span> <span class="n">atom</span><span class="o">/</span><span class="n">mol</span>
+<span class="n">R1</span> <span class="o">+</span> <span class="n">R2</span> <span class="o">-&gt;</span> <span class="n">P1</span> <span class="o">+</span> <span class="n">P2</span>
+</pre></div>
+</div>
+<p>In the first case, no info for a 3rd particle is listed. This means any
+species of 3rd particle can be used. In the second case, a non-species
+keyword is used, either “atom” or “mol”. This means the 3rd particle
+must be either an atomic species, or a molecular species. This is based
+on the vibrational degrees of freedom listed in the <a class="reference external" href="species.html">species
+file</a>. A non-zero DOF is molecular; zero DOF is atomic.
+In the third case, a specific species P2 is listed. This means the 3rd
+particle must be that species.</p>
+<p>Note that for the same R1 and R2, multiple recombination reactions can
+be listed in the reaction file. When two particles R1 and R2 are
+selected for collision and a possible reaction, if any recombination
+reaction is defined for R1 and R2, then a 3rd particle in the same grid
+cell is randomly selected. Its species P2 is used to match at most one
+of the possibly multiple recombination reactions for R1 and R2. Only
+that recombination reaction is checked for a reaction as a possible
+outcome of the collision.</p>
+<p>This matching is done from most-specific to least-specific, i.e. the
+reverse ordering of the 3 cases above. If there is a defined reaction
+that lists P2 (third case, most specific), it is used. If not, and there
+is a defined reaction for “atom” or “mol” that corresponds to P2 (second
+case, intermediate specificity), then it is used. If not, and there is a
+defined reaction with no P2 (first case, least specific), then it is
+used. If none of these matches occur, no recombination reaction is
+possible for that collision between R1 and R2. Note that these matching
+rules means that for the same R1 and R2, you can list two reactions, one
+with P2 = “atom”, and one with P2 = “mol”. And/or you can list multiple
+reactions of the third kind, each with a unique P2.</p>
+<p>IMPORTANT NOTE: If the ambipolar approximation is being used, via the
+<a class="reference external" href="fix_ambipolar.hmtl">fix ambipolar</a> and <a class="reference external" href="collide_modify.html">collide_modify ambipolar
+yes</a> commands, then reactions which involve
+either ambipolar ions or the ambipolar electron have more restricitve
+rules about the ordering of reactants and products. See the next section
+for a discussion of these requirements.</p>
+<p>The <em>style</em> of each reaction is a single character (upper or lower case)
+with the following meaning:</p>
+<ul class="simple">
+<li><p>A = Arrhenius</p></li>
+<li><p>Q = Quantum</p></li>
+</ul>
+<p>The style determines how many reaction coefficients are listed as C1,
+C2, etc, and how they are interpreted by SPARTA.</p>
+<p>For both the A = Arrhenius style and Q = Quantum style, there are 5
+coefficients:</p>
+<ul class="simple">
+<li><p>C1 = number of internal degrees of freedom (as defined by the TCE
+model)</p></li>
+<li><p>C2 = Arrhenius activation energy Ea</p></li>
+<li><p>C3 = Arrhenius prefactor A</p></li>
+<li><p>C4 = Arrhenius exponent b</p></li>
+<li><p>C5 = overall reaction energy (positive for exothermic)</p></li>
+</ul>
+<p>The different reaction styles use these values in different ways, as
+explained above.</p>
+<hr class="docutils" />
+<p>If the ambipolar approximation is being used, via the <a class="reference external" href="fix_ambipolar.html">fix
+ambipolar</a> command, then reactions which involve
+either ambipolar ions or the ambipolar electron have more restricitve
+rules about the ordering of reactants and products, than those described
+in the preceeding section.</p>
+<p>Note that ambipolar collisions are turned on via the <a class="reference external" href="collide_modify.html">collide_modify
+ambipolar yes</a> commands, which in turn requries
+that the <a class="reference external" href="fix_ambipolar.hmtl">fix ambipolar</a> is defined in your input
+script. This fix defines a particular species as an ambipolar electron,
+written as “e” in the reactions that follow. It also defines a list of
+ambipolar ions, which are written as species with a trailing “+” sign in
+the rules that follow. Other written species (without “+”) can be any
+non-ambipolar species.</p>
+<p>These rules only apply to reactions that involve ambipolar species (ions
+or electrons) as a reactant or product.</p>
+<p>Ambipolar dissociation reactions must list their reactants and products
+in one of the following orders:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AB</span> <span class="o">+</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="n">A</span> <span class="o">+</span> <span class="n">e</span> <span class="o">+</span> <span class="n">B</span>
+<span class="n">AB</span><span class="o">+</span> <span class="o">+</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="n">A</span><span class="o">+</span> <span class="o">+</span> <span class="n">e</span> <span class="o">+</span> <span class="n">B</span>
+</pre></div>
+</div>
+<p>Ambipolar ionization reactions with 2 or 3 products must be in one of
+the following orders:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">+</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="n">A</span><span class="o">+</span> <span class="o">+</span> <span class="n">e</span> <span class="o">+</span> <span class="n">e</span>
+<span class="n">A</span> <span class="o">+</span> <span class="n">B</span> <span class="o">-&gt;</span> <span class="n">AB</span><span class="o">+</span> <span class="o">+</span> <span class="n">e</span>
+</pre></div>
+</div>
+<p>Ambipolar exchange reactions must be one of the following orders:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AB</span><span class="o">+</span> <span class="o">+</span> <span class="n">C</span> <span class="o">-&gt;</span> <span class="n">A</span> <span class="o">+</span> <span class="n">BC</span><span class="o">+</span>
+<span class="n">C</span> <span class="o">+</span> <span class="n">AB</span><span class="o">+</span> <span class="o">-&gt;</span> <span class="n">A</span> <span class="o">+</span> <span class="n">BC</span><span class="o">+</span>
+</pre></div>
+</div>
+<p>Ambipolar recombination reactions must be in the following order:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">+</span> <span class="o">+</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="n">A</span>
+</pre></div>
+</div>
+<p>IMPORTANT NOTE: Ambipolar recombination reactions are not yet supported
+in SPARTA.</p>
+<hr class="docutils" />
+<p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding
+style without the suffix. They have been optimized to run faster,
+depending on your available hardware, as discussed in the <a class="reference external" href="Section_accelerate.html">Accelerating
+SPARTA</a> section of the manual. The
+accelerated styles take the same arguments and should produce the same
+results, except for different random number, round-off and precision
+issues.</p>
+<p>These accelerated styles are part of the KOKKOS package. They are only
+enabled if SPARTA was built with that package. See the <a class="reference external" href="Section_start.html#start_3">Making
+SPARTA</a> section for more info.</p>
+<p>You can specify the accelerated styles explicitly in your input script
+by including their suffix, or you can use the <a class="reference external" href="Section_start.html#start_6">-suffix command-line
+switch</a> when you invoke SPARTA, or you
+can use the <a class="reference external" href="suffix.html">suffix</a> command in your input script.</p>
+<p>See the <a class="reference external" href="Section_accelerate.html">Accelerating SPARTA</a> section of the
+manual for more instructions on how to use the accelerated styles
+effectively.</p>
+<hr class="docutils" />
+<p><strong>Restrictions:</strong> none</p>
+<p><strong>Related commands:</strong></p>
+<p><a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide command</span></a>
+<a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a></p>
+<p><strong>Default:</strong></p>
+<p>style = none</p>
+<hr class="docutils" />
+<dl class="citation">
+<dt class="label" id="bird09"><span class="brackets">Bird09</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id6">2</a>)</span></dt>
+<dd><ol class="upperalpha simple" start="7">
+<li><ol class="upperalpha simple">
+<li><p>Bird, Chemical Reactions in DSMC Rarefied Gas Dynamics, Editor T Abe, AIP Conference Proceedings (2009).</p></li>
+</ol>
+</li>
+</ol>
+</dd>
+<dt class="label" id="bird11"><span class="brackets"><a class="fn-backref" href="#id8">Bird11</a></span></dt>
+<dd><ol class="upperalpha simple" start="7">
+<li><ol class="upperalpha simple">
+<li><p>Bird, “The Q-K model for gas-phase chemical reaction rates”, Physics of Fluids, 23, 106101, (2011).</p></li>
+</ol>
+</li>
+</ol>
+</dd>
+<dt class="label" id="gallis09"><span class="brackets"><a class="fn-backref" href="#id4">Gallis09</a></span></dt>
+<dd><ol class="upperalpha simple" start="13">
+<li><ol class="upperalpha simple">
+<li><p>Gallis, R. B. Bond, and J. R. Torczynski, “A Kinetic-Theory Approach for Computing Chemical-Reaction Rates in Upper-Atmosphere Hypersonic Flows”, J Chem Phys, 131, 124311, (2009).</p></li>
+</ol>
+</li>
+</ol>
+</dd>
+<dt class="label" id="gallis10"><span class="brackets">Gallis10</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id7">2</a>)</span></dt>
+<dd><ol class="upperalpha simple" start="13">
+<li><ol class="upperalpha simple">
+<li><p>Gallis, R. B. Bond, and J. R.Torczynski, “Assessment of Collision-Energy-Based Models for Atmospheric-Species Reactions in Hypersonic Flows”, J Thermophysics and Heat Transfer, (2010).</p></li>
+</ol>
+</li>
+</ol>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

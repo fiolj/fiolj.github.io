@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>collide command &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>collide command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/collide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="collide-command">
+<span id="command-collide"></span><h1>collide command<a class="headerlink" href="#collide-command" title="Permalink to this headline">¶</a></h1>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">collide</span> <span class="n">style</span> <span class="n">args</span> <span class="n">keyword</span> <span class="n">value</span> <span class="o">...</span>
+</pre></div>
+</div>
+<ul>
+<li><p>style = <em>none</em> or <em>vss</em></p></li>
+<li><p>args = arguments for that style</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">none</span> <span class="n">args</span> <span class="o">=</span> <span class="n">none</span>
+<span class="n">vss</span> <span class="n">args</span> <span class="o">=</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">file</span>
+  <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">mixture</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">group</span> <span class="n">definitions</span>
+  <span class="n">file</span> <span class="o">=</span> <span class="n">filename</span> <span class="n">that</span> <span class="n">lists</span> <span class="n">species</span> <span class="k">with</span> <span class="n">their</span> <span class="n">VSS</span> <span class="n">model</span> <span class="n">parameters</span>
+<span class="n">vss</span><span class="o">/</span><span class="n">kk</span> <span class="n">args</span> <span class="o">=</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">file</span>
+  <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">mixture</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">group</span> <span class="n">definitions</span>
+  <span class="n">file</span> <span class="o">=</span> <span class="n">filename</span> <span class="n">that</span> <span class="n">lists</span> <span class="n">species</span> <span class="k">with</span> <span class="n">their</span> <span class="n">VSS</span> <span class="n">model</span> <span class="n">parameters</span>
+</pre></div>
+</div>
+</li>
+<li><p>zero or more keyword/value pairs may be appended</p></li>
+<li><p>keyword = <em>relax</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">relax</span> <span class="n">value</span> <span class="o">=</span> <span class="n">constant</span> <span class="ow">or</span> <span class="n">variable</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">collide</span> <span class="n">none</span>
+<span class="n">collide</span> <span class="n">vss</span> <span class="nb">all</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">air</span><span class="o">.</span><span class="n">vss</span>
+<span class="n">collide</span> <span class="n">vss</span> <span class="n">species</span> <span class="nb">all</span><span class="o">.</span><span class="n">vss</span> <span class="n">relax</span> <span class="n">variable</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Define what style of particle-particle collisions will be performed by
+SPARTA each timestep. If collisions are performed, particles are sorted
+into grid cells every timestep and the appropriate collision model is
+invoked on a per-grid-cell basis. Collisions alter the velocity of
+participating particles as well as their rotational and vibrational
+energies. The rotational and vibrational properties of each species are
+set in the file read by the <a class="reference external" href="species.html">species</a> command.</p>
+<p>The collision style determines how many pairs of particles are
+considered for collisions, the criteria for which collisions actually
+occurs, and the outcome of individual collision, which alters the
+velocities of the two particles. If chemistry is enabled, via the
+<a class="reference external" href="react.html">react</a> command, particles involved in collisions may
+also change species, or a particle may be deleted, or a new particle
+created. The <a class="reference external" href="collide_modify.html">collide_modify</a> command can also
+be used to alter aspects of how collisions are performed. For example,
+it can be used to turn on/off the tracking of vibrational energy and its
+exchange in collisions.</p>
+<p>A <em>mix-ID</em> argument is specified for each collision style. It must
+contain all the species defined for use by the simulation, via the
+<a class="reference external" href="species.html">species</a> command. The group definitions in the mixture
+assign one or more particle species to each group. These groupings are
+used to determine how pairs of particles are chosen to collide with each
+other, in the following manner.</p>
+<p>Consider a cell with N particles and a mixture with M groups. Based on
+its species, each particle is assigned to one of the M groups. Each
+unique pair of groups is considered, including each group paired with
+itself. For each pair of groups a value <em>Nattempt</em> (see equation 11.3 in
+<a class="reference internal" href="surf_collide.html#bird94" id="id1"><span>[Bird94]</span></a>) is calcualted which is the number of collisions
+to attempt. This is a function of N1 and N2 (the number of particles in
+each group), the grid cell volume, and other parameters of the collision
+style.</p>
+<p>For each collision attempt, a random pair of particles is selected, with
+one particle from each group. Whether the collision occurs or not is a
+function of the relative velocities of the two particles, their
+respectives species, and other parameters of the collision style; see
+equation 11.4 in <a class="reference internal" href="surf_collide.html#bird94" id="id2"><span>[Bird94]</span></a>.</p>
+<hr class="docutils" />
+<p>The <em>none</em> style means that no particle-particle collisions will be
+performed, i.e. the simulation models free-molecular flow.</p>
+<hr class="docutils" />
+<p>The <em>vss</em> style implements the Variable Soft Sphere (VSS) model for
+collisions. As discussed below, with appropriate parameter choices, it
+can also compute the Variable Hard Sphere (VHS) model and the Hard
+Sphere (HS) model. See chapters 2.6 and 2.7 in <a class="reference internal" href="surf_collide.html#bird94" id="id3"><span>[Bird94]</span></a>
+for details.</p>
+<p>In DSMC, the variable-soft-sphere (VSS) interaction of Koura and
+Matsumoto <a class="reference internal" href="#koura92" id="id4"><span>[Koura92]</span></a> and the variable-hard-sphere (VHS) interaction
+of <a class="reference internal" href="surf_collide.html#bird94" id="id5"><span>[Bird94]</span></a> are used to approximate molecular interactions.
+Both models yield transport properties proportional to a power (omega)
+of the gas temperature. This temperature dependence of the transport
+properties is similar to the Inverse Power Law model (IPL) for which
+Chapman-Enskog theory provides closed form solutions for the transport
+properties.</p>
+<p>Both VSS and VHS interactions define parameters <em>diam</em> = molecular
+diameter, which is a function of the molecular speed, and <em>alpha</em> =
+angular-scattering parameter, which relates the scattering angle to the
+impact parameter. Setting <em>alpha</em> = 1 produces isotropic (hard sphere)
+interactions, which converts the VSS model into a VHS model.</p>
+<p>The <em>file</em> argument is for a collision data file which contains
+definitions of VSS model parameters for some number of species. Example
+files are included in the data directory of the SPARTA distribution,
+with a “*.css” suffix. The file can contain species not used by this
+simulation; they will simply be ignored. All species currently defined
+by the simulation must be present in the file.</p>
+<p>The format of the file depends of the setting of the optional <em>relax</em>
+keyword, as explained below. Comments or blank lines are allowed in the
+file. Comment lines start with a “#” character. All other lines must
+have the following format with parameters separated by whitespace.</p>
+<p>If the <em>relax</em> keyword is specified as <em>constant</em>, which is the default,
+then each line has 4 parameters following the species ID:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">species</span><span class="o">-</span><span class="n">ID</span> <span class="n">diam</span> <span class="n">omega</span> <span class="n">tref</span> <span class="n">alpha</span>
+</pre></div>
+</div>
+<p>The species-ID is a string that will be matched to one of the species
+defined by the simulation, via the <a class="reference external" href="species.html">species</a> command.
+The meaning of additional properties is as follows:</p>
+<ul class="simple">
+<li><p>diam = VHS or VSS diameter of particle (distance units)</p></li>
+<li><p>omega = temperature-dependence of viscosity (unitless)</p></li>
+<li><p>tref = reference temperature (temperature units)</p></li>
+<li><p>alpha = angular scattering parameter (unitless)</p></li>
+</ul>
+<p>The methodolgy for deriving VSS/VHS parameters from these properties is
+explained in Chapter 3 of <a class="reference internal" href="surf_collide.html#bird94" id="id6"><span>[Bird94]</span></a>. Parameter values for
+the most common gases are given in Appendix A of the same book. These
+values are based on the first-order approximation of the Chapman-Enskog
+theory. Infinite-order parameters are described in
+<a class="reference internal" href="#gallis04" id="id7"><span>[Gallis04]</span></a>.</p>
+<p>In the <em>constant</em> case rotational and vibrational relaxation during a
+collision is treated in the same constant manner for every collision,
+using the rotational and vibrational relaxation numbers from the species
+data file, as read by the <a class="reference external" href="species.html">species</a> command.</p>
+<p>If the <em>relax</em> keyword is specified as <em>variable</em>, then each line has 8
+parameters following the species ID:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">species</span><span class="o">-</span><span class="n">ID</span> <span class="n">diam</span> <span class="n">omega</span> <span class="n">tref</span> <span class="n">alpha</span> <span class="n">Zrotinf</span> <span class="n">T</span><span class="o">*</span> <span class="n">C1</span> <span class="n">C2</span>
+</pre></div>
+</div>
+<p>The first 4 parameters are the same as above. Parameters 5 and 6 affect
+rotational relaxation; parameters 7 and 8 affect vibrational relaxation.
+In this case the rotational and vibrational relaxation during a
+collision is treated as a variable and is computed for each collision.
+This calculation is only performed for polyatomic species, using
+equations A5 and A6 on pages 413 and 414 in <a class="reference internal" href="surf_collide.html#bird94" id="id8"><span>[Bird94]</span></a>.
+Zrotinf and T* are parameters in the numerator and denominator of eq
+A5. C1 and C2 are in eq A6. The units of these parameters is as follows:</p>
+<ul class="simple">
+<li><p>Zrotinf (unitless)</p></li>
+<li><p>T* (temperature units)</p></li>
+<li><p>C1 (temperature units)</p></li>
+<li><p>C2 (temperature^(1/3) units)</p></li>
+</ul>
+<p>Note that a collision data file with the 4 extra relaxation parameters
+(per species) can be used when the <em>relax</em> keyword is specified as
+<em>constant</em>. In that case, the extra parameters are simply ignored.</p>
+<hr class="docutils" />
+<p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding
+style without the suffix. They have been optimized to run faster,
+depending on your available hardware, as discussed in the <a class="reference external" href="Section_accelerate.html">Accelerating
+SPARTA</a> section of the manual. The
+accelerated styles take the same arguments and should produce the same
+results, except for different random number, round-off and precision
+issues.</p>
+<p>These accelerated styles are part of the KOKKOS package. They are only
+enabled if SPARTA was built with that package. See the <a class="reference external" href="Section_start.html#start_3">Making
+SPARTA</a> section for more info.</p>
+<p>You can specify the accelerated styles explicitly in your input script
+by including their suffix, or you can use the <a class="reference external" href="Section_start.html#start_6">-suffix command-line
+switch</a> when you invoke SPARTA, or you
+can use the <a class="reference external" href="suffix.html">suffix</a> command in your input script.</p>
+<p>See the <a class="reference external" href="Section_accelerate.html">Accelerating SPARTA</a> section of the
+manual for more instructions on how to use the accelerated styles
+effectively.</p>
+<hr class="docutils" />
+<p><strong>Restrictions:</strong> none</p>
+<p><strong>Related commands:</strong></p>
+<p><a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify command</span></a>,
+<a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture command</span></a>,
+<a class="reference internal" href="react.html#command-react"><span class="std std-ref">react command</span></a></p>
+<p><strong>Default:</strong></p>
+<p>Style = none is the default (no collisions). If the vss style is specified, then relax = constant is the default.</p>
+<hr class="docutils" />
+<dl class="citation">
+<dt class="label" id="koura92"><span class="brackets"><a class="fn-backref" href="#id4">Koura92</a></span></dt>
+<dd><ol class="upperalpha simple" start="11">
+<li><p>Koura and H. Matsumoto, “Variable soft sphere molecular model for air species,” Phys Fluids A, 4, 1083 (1992).</p></li>
+</ol>
+</dd>
+<dt class="label" id="gallis04"><span class="brackets"><a class="fn-backref" href="#id7">Gallis04</a></span></dt>
+<dd><ol class="upperalpha simple" start="13">
+<li><ol class="upperalpha simple">
+<li><p>Gallis, J. R. Torczynski, and D. J. Rader, “Molecular gas dynamics observations of Chapman-Enskog behavior and departures therefrom in nonequilibrium gases,” Phys Rev E, 69, 042201 (2004).</p></li>
+</ol>
+</li>
+</ol>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

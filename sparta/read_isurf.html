@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>read_isurf command &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>read_isurf command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/read_isurf.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="read-isurf-command">
+<span id="command-read-isurf"></span><h1>read_isurf command<a class="headerlink" href="#read-isurf-command" title="Permalink to this headline">¶</a></h1>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_isurf</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">Nx</span> <span class="n">Ny</span> <span class="n">Nz</span> <span class="n">filename</span> <span class="n">thresh</span> <span class="n">ablateID</span> <span class="n">keyword</span> <span class="n">args</span> <span class="o">...</span>
+</pre></div>
+</div>
+<ul>
+<li><p>group-ID = group ID for which grid cells to perform calculation on</p></li>
+<li><p>Nx,Ny,Nz = grid cell extent for adding implicit surfs</p></li>
+<li><p>filename = binary file with grid corner point values</p></li>
+<li><p>thresh = threshold for surface definition, value &gt; 0.0 and &lt; 255.0</p></li>
+<li><p>ablateID = ID of a <a class="reference internal" href="fix_ablate.html#command-fix-ablate"><span class="std std-ref">fix ablate command</span></a></p></li>
+<li><p>zero or more keyword/args pairs may be appended</p></li>
+<li><p>keyword = <em>group</em> or <em>type</em> or <em>push</em> or <em>precision</em> or <em>read</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">group</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span>
+  <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="o">=</span> <span class="n">new</span> <span class="ow">or</span> <span class="n">existing</span> <span class="n">surface</span> <span class="n">group</span> <span class="n">to</span> <span class="n">assign</span> <span class="n">the</span> <span class="n">surface</span> <span class="n">elements</span> <span class="n">to</span>
+<span class="nb">type</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">tfile</span>
+  <span class="n">tfile</span> <span class="o">=</span> <span class="n">binary</span> <span class="n">file</span> <span class="k">with</span> <span class="n">per</span> <span class="n">grid</span> <span class="n">cell</span> <span class="n">surface</span> <span class="nb">type</span> <span class="n">values</span>
+<span class="n">push</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span> <span class="o">=</span> <span class="n">whether</span> <span class="n">to</span> <span class="n">push</span> <span class="n">corner</span> <span class="n">point</span> <span class="n">values</span> <span class="n">to</span> <span class="mi">0</span><span class="o">/</span><span class="mi">255</span>
+<span class="n">precision</span> <span class="n">arg</span> <span class="o">=</span> <span class="nb">int</span> <span class="ow">or</span> <span class="n">double</span>
+<span class="n">read</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">serial</span> <span class="ow">or</span> <span class="n">parallel</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_isurf</span> <span class="n">portion</span> <span class="mi">100</span> <span class="mi">100</span> <span class="mi">1</span> <span class="n">isurf</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="mi">2</span><span class="n">d</span> <span class="mf">180.5</span> <span class="n">group</span> <span class="n">mesh</span>
+<span class="n">read_isurf</span> <span class="n">subset</span> <span class="mi">150</span> <span class="mi">100</span> <span class="mi">50</span> <span class="n">isurf</span><span class="o">.</span><span class="n">materials</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mf">120.5</span> <span class="nb">type</span> <span class="n">isurf</span><span class="o">.</span><span class="n">type</span>
+<span class="n">read_isurf</span> <span class="n">subset</span> <span class="mi">150</span> <span class="mi">100</span> <span class="mi">50</span> <span class="n">isurf</span><span class="o">.</span><span class="n">materials</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mf">120.5</span> <span class="n">read</span> <span class="n">parallel</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Read the geometry of a surface from the specified file. In SPARTA, a “surface” is a collection of surface elements that represent the surface of one or more physical objects which will be embedded in the global simulation box. Surfaces can be explicit or implicit.</p>
+<p>This command reads implicit surfaces from a file containing grid corner point values which implicitly define the surface elements. See the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf command</span></a> to read explicit surfaces from a different kind of file. See the <a class="reference internal" href="Section_howto.html#howto-surface-elements"><span class="std std-ref">Surface elements: explicit, implicit, distributed</span></a> section of the manual for an explantion of explicit versus implicit surfaces as well as distributed versus non-distributed storage. You cannot mix explicit and implicit surfaces in the same simulation.</p>
+<p>Surface elements are triangles in 3d or line segments in 2d. Surface elements for each physical object are required to be a complete, connected set that tile the entire surface of the object. See the discussion of watertight surfaces below. Implicit surfaces will always be watertight, due to the algorithm that defines them.</p>
+<p>Here are simulation snapshots of 2d and 3d implicit surface models through which particles could flow. Click on either image for a larger image. In the 2d case, the colorings are by processor for sub-domains each owns. The implicit triangles for the 3d case were created via Marching Cubes (discussed below) from a tomographic image of a sample of NASA FiberForm (TM) material, used as a heat shield material on spacecraft.</p>
+<p><a class="reference external" href="JPG/porous2d_initial.png"><img alt="image0" src="_images/porous2d_initial_small.png" /></a><a class="reference external" href="JPG/porous3d_initial.png"><img alt="image1" src="_images/porous3d_initial_small.png" /></a></p>
+<p>Particles collide with surface elements as they advect. Each surface element is assigned to a collision model, specified by the <a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide command</span></a> which affects how a particle bounces off the surface. Each surface element can optionally be assigned to a reaction model, specified by the <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a> which determines if any surface chemistry occurs during a collision. Statistics for each surface element due to their interactions with particles can be tallied via the <a class="reference internal" href="compute_isurf_grid.html#command-compute-isurf-grid"><span class="std std-ref">compute isurf/grid command</span></a>, time-averaged via the <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid command</span></a>, and ouput via the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump surface</span></a> command.</p>
+<p>Surface elememts can be assigned to surface groups via the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command. Surface group IDs are used by other commands to operate on selected sets of elements. This command has a <em>type</em> keyword which can be used to help assign different elements to different groups.</p>
+<p>Note that at some point, it will be possible to use the read_isurf command multiple times to read surfaces from multiple files and add them to the simulation domain, so long as the grid extent of the different commands does not overlap. However currently, that is not yet possible.</p>
+<p>The format of a surface file for implicit surfaces is discussed below.</p>
+<p>The tools directory contains a <a class="reference internal" href="Section_tools.html#tools-implicitgrid"><span class="std std-ref">implicit_grid.py tool</span></a> which can create implicit surface files in a randomized manner for different grid extents.</p>
+<hr class="docutils" />
+<p>The specified <em>group-ID</em> must be the name of a grid cell group, as defined by the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group grid</span></a> command, which contains a set of grid cells, all of which are the same size, and which comprise a contiguous 3d array, with specified extent <em>Nx</em> by <em>Ny</em> by <em>Nz</em>. For 2d simulations, <em>Nz</em> must be specified as 1, and the group must comprise a 2d array of cells that is <em>Nx</em> by <em>Ny</em>. These are the grid cells in which implicit surfaces will be created.</p>
+<p>The specified <em>filename</em> is for a binary file in the following format:</p>
+<ul class="simple">
+<li><p>first 4 bytes = Nxfile (integer)</p></li>
+<li><p>next 4 bytes = Nyfile (integer)</p></li>
+<li><p>next 4 bytes = Nzfile (integer), only for 3d simulations</p></li>
+<li><p>final N bytes = Nxfile by Nyfile by Nzfile grid corner point values
+(integer)</p></li>
+</ul>
+<p>For 2d simulations, the first 8 bytes store 2 integers in binary format: Nxfile and Nyfile. For 3d simulations, the first 12 bytes store 3 integers in binary format: Nxfile, Nyfile, and Nzfile. These are the dimensions of the grid of corner point values in the remainder of the file.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The Nxfile, Nyfile, Nzfile values are for a 2d or 3d grid of corner points, which overlay the Nx by Ny by Nz grid of cells.  In each dimension there is one more corner point than cells. Thus Nxfile = Nx+1, Nyfile = Ny+1, Nzfile = Nz+1 is required. SPARTA will give an error if the read_isurf Nx,Ny,Nz arguments do not match the first 2 or 3 integers in the file.</p>
+</div>
+<p>The remaining N bytes of the file are a series of corner point values.  There are N = Nxfile * Nyfile values in 2d, and N = Nxfile * Nyfile * Nzfile values in 3d.</p>
+<p>If the <em>precision</em> keyword is set to <em>int</em>, which is the default, then the values are one-byte integers, from 0 to 255 inclusive. If the <em>precision</em> keyword is set to <em>double</em>, then they are double-precision floating point values, from 0.0 to 255.0 inclusive. The one-byte integer format is what is typically used for tomographic images. The double-precision format is what is written by the <a class="reference internal" href="write_isurf.html#command-write-isurf"><span class="std std-ref">write_isurf command</span></a>. The latter is typically used when running an ablation model via the <a class="reference internal" href="fix_ablate.html#command-fix-ablate"><span class="std std-ref">fix ablate command</span></a>, where material is removed incrementally (from the corner point values) due to collisions of particles with the implicit surfaces.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The corner point values are a 2d or 3d regular array which must be ordered as follows.
+The x indices (1 to Nxfile) vary fastest, then the y indices (1 to Nyfile), and the z indices slowest (1 to Nzfile).
+These will be assigned as corner points to each child grid cell in the Nx by Ny by Nz simulation domain.
+For mapping corner points to grid cells, the ordering of the regular array of grid cells in the simulation domain is the same: their x indices vary fastest, then y, and their z indices very slowest.</p>
+</div>
+<p>The 8 corner point values (4 in 2d) for each grid cell are used with a marching cubes algorithm (marching squares in 2d) to infer a set of triangles (line segments in 2d) which are created in the grid cell.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>All triangles (line segments in 2d) created within the same grid cell are assigned the same surface ID, which is the grid cell ID.</p>
+</div>
+<p>A good description of the two algorithms is given on these Wikipedia webpages:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Marching_cubes">https://en.wikipedia.org/wiki/Marching_cubes</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Marching_squares">https://en.wikipedia.org/wiki/Marching_squares</a></p></li>
+</ul>
+<p>The algorithms require a threshold value as input, which is the <em>thresh</em> value in the read_isurf command. For corner point values that bracket the threshold, it determines precisely where in the grid cell the corner points of the inferred implicit surface(s) will be.</p>
+<p>The threshold must be specified as a floating point value such that 0 &lt; thresh &lt; 255. An integer value for thresh (e.g. 128 or 128.0) is not allowed, because that could induce implicit surfaces with zero length (2d line) or area (3d triangle).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The aggregate set of implicit surfaces created by this procedure must represent a watertight object(s), the same as explained for the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf command</span></a>, otherwise SPARTA will generate an error. The marching cube and square algorithms guarantee this.
+However, if the Nx by Ny by Nz array of grid cells is interior to the simulation box, the entire outer boundary of the Nxfile by Nyfile by Nzfile grid of corner points should have values = 0.
+This will insure no surface element touches the outer boundary (which would induce a non-watertight surface).
+If the array of grid cells touches the simulation box face, then this is not a requirement (the same as if a set of explicit surfs were clipped at the box boundary).
+However, if a boundary is periodic in a particular dimension and the array of grid cells touches that boundary, then you must insure the Nxfile by Nyfile by Nzfile grid of corner points spans that entire dimension, and its values are periodic in the same sense the simulation box is. E.g. if the y dimension is periodic, then the corner point values at the y = 1 and y = Nyfile lines or planes of the 2d or 3d corner point array must be identical.
+Otherwise the aggregate set of implicit surfaces will not be consistent across the y periodic boundary.</p>
+</div>
+<p>The specified <em>ablateID</em> is the fix ID of a <a class="reference internal" href="fix_ablate.html#command-fix-ablate"><span class="std std-ref">fix ablate command</span></a> which has been previously specified in the input script. It stores the grid corner point values for each grid cell. It also has the code logic for converting grid corner point values to surface elements (line segments or triangles) and also optinally allows for the surface to be ablated during a simulation due to particles colliding with the surface elements.</p>
+<hr class="docutils" />
+<p>The following optional keywords affect attributes of the read-in surface elements and how they are read.</p>
+<p>Surface groups are collections of surface elements. Each surface element belongs to one or more surface groups; all elements belong to the “all” group, which is created by default. Surface group IDs are used by other commands to identify a group of suface elements to operate on. See the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command for more details.</p>
+<p>Every surface element also stores a <em>type</em> which is a positive integer.  <em>Type</em> values are useful for flagging subsets of elements. For example, implicit surface elemnts in different regions of the simulation box.  Surface element types can be used to define surface groups. See the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command for details.</p>
+<p>The <em>group</em> keyword specifies an extra surface <em>group-ID</em> to which all the implicit surface elements are assigned when created by the read-in corner points. All the created implicit elements are also assigned to the “all” group and to <em>group-ID</em>. If <em>group-ID</em> does not exist, a new surface group is created. If it does exist the create implicit surface elements are added to that group.</p>
+<p>The <em>type</em> keyword triggers the reading of a per grid cell type file with the specified name <em>tfile</em>.</p>
+<p>The specified <em>filename</em> is for a binary file in the following format:</p>
+<ul class="simple">
+<li><p>first 4 bytes = Nxfile (integer)</p></li>
+<li><p>next 4 bytes = Nyfile (integer)</p></li>
+<li><p>next 4 bytes = Nzfile (integer), only for 3d simulations</p></li>
+<li><p>final N bytes = Nxfile by Nyfile by Nzfile grid corner point values
+(integer)</p></li>
+</ul>
+<p>For 2d simulations, the first 8 bytes store 2 integers in binary format: Nxfile and Nyfile. For 3d simulations, the first 12 bytes store 3 integers in binary format: Nxfile, Nyfile, and Nzfile. These are the dimensions of the grid of corner point values in the remainder of the file.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The Nxfile, Nyfile, Nzfile values are for a 2d or 3d grid of per-cell values, which overlay the Nx by Ny by Nz grid of cells.  Thus Nxfile = Nx, Nyfile = Ny, Nzfile = Nz is required. SPARTA will give an error if the read_isurf Nx,Ny,Nz arguments do not match the first 2 or 3 integers in the file.</p>
+</div>
+<p>The remaining N bytes of the file are a series of one-byte integer values. There are N = Nxfile * Nyfile values in 2d, and N = Nxfile * Nyfile * Nzfile values in 3d. Each value is a single byte integer from 1 to 255 inclusive, since surface element type values must be &gt; 0.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The corner point values are a 2d or 3d regular array which must be ordered as follows. The x indices (1 to Nxfile) vary fastest, then the y indices (1 to Nyfile), and the z indices slowest (1 to Nzfile). These will be assigned to each grid cell in the Nx by Ny by Nz simulation domain. For mapping type values to grid cells, the ordering of the regular array of grid cells in the simulation domain is the same: their x indices vary fastest, then y, and their z indices very slowest.</p>
+</div>
+<p>The type value for each grid cell is used to assign a type value to each surface element created in that grid cell by the marching cubes or squares algorithm.</p>
+<p>The <em>push</em> keyword specifies whether or not (<em>yes</em> or <em>no</em>) to “push” grid corner points values to their minimum/maximum possible values, i.e.  0 or 255 respectively. Each corner point value which is below (above) the specified <em>thresh</em> value is and is also entirely surrounded by neighbor corner point values which are also below (above) the <em>thresh</em> value is reset to 0 (255). In 2d, there are 8 corner points surrouding each interior corner point, i.e. all corner points on the face of the 2x2 set of grid cells which surround the interior point. In 3d, there are 26 corner points surrouding each interior corner point, i.e. all corner points on the face of the 2x2x2 set of grid cells which surround the interior point. The purpose of this operation is to reset corner point values to 0 if they are fully exterior to the surface object(s), and likewise to 255 if they are fully interior to the surface object(s).</p>
+<p>Note that the push is a one-time operation, performed when the corner point values are read in, before the first set of surface elements are created by the marching cubes or marching squares algorithms.</p>
+<p>The default for the <em>push</em> keyword is <em>yes</em>.</p>
+<p>The <em>read</em> keyword specifies how the input file of grid corner point values is read. If the value is <em>serial</em>, which is the default, then only a single proc reads the file, a chunk of values at at time. They are broadcast to other processors, and each scans them for corner point values that correspond to grid cells it owns. If the value is <em>parallel</em>, then each proc opens the input file and reads a N/P portion of the corner point values, where N is the # of corner point values, and P is the # of procs. Additional communication is then performed to communicate the corner point values where they are needed by each grid cell that owns one of the corner point values. The <em>parallel</em> option can be faster for simulations with large grid corner point files and large numbers of processors.</p>
+<hr class="docutils" />
+<p><strong>Restrictions:</strong></p>
+<p>This command can only be used after the simulation box is defined by the <a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box command</span></a>, and after a grid has been created by the <a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid command</span></a>. If particles already exist in the simulation, you must insure particles do not end up inside the set of implicit surfaces.</p>
+<p><strong>Related commands:</strong></p>
+<p><a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf command</span></a>
+<a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf command</span></a>
+<a class="reference internal" href="fix_ablate.html#command-fix-ablate"><span class="std std-ref">fix ablate command</span></a></p>
+<p><strong>Default:</strong></p>
+<p>The optional keyword defaults are group = all, type = no, push = yes, precision int, and read serial.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

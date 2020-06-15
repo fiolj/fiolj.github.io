@@ -1,0 +1,1593 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>12. Errors &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="13. Future and history" href="Section_history.html" />
+    <link rel="prev" title="11. Python interface to SPARTA" href="Section_python.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">12. Errors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#common-problems">12.1. Common problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reporting-bugs">12.2. Reporting bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-warning-messages">12.3. Error &amp; warning messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#errors-list">12.3.1. Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#warnings">12.3.2. Warnings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>12. Errors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Section_errors.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="errors">
+<span id="id1"></span><h1>12. Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h1>
+<p>This section describes the various kinds of errors you can encounter
+when using SPARTA.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#common-problems" id="id3">Common problems</a></p></li>
+<li><p><a class="reference internal" href="#reporting-bugs" id="id4">Reporting bugs</a></p></li>
+<li><p><a class="reference internal" href="#error-warning-messages" id="id5">Error &amp; warning messages</a></p></li>
+</ul>
+</div>
+<div class="section" id="common-problems">
+<span id="error-common"></span><h2><a class="toc-backref" href="#id3">12.1. Common problems</a><a class="headerlink" href="#common-problems" title="Permalink to this headline">¶</a></h2>
+<p>If two SPARTA runs do not produce the same answer on different machines or different numbers of processors, this is typically not a bug. On different machines, there can be numerical round-off in the computations which causes slight differences in particle trajectories or the number of particles, which will lead to numerical divergence of the particle trajectores and averaged statistical quantities within a few 100s or few 1000s of timesteps. When running on different numbers of processors, random numbers are used in different ways, so two simulations can be immediately different.
+However, the statistical properties (e.g. overall particle temperature or per grid cell temperature or surface energy flux) for the two runs on different machines or on different numbers of processors should still be similar.</p>
+<p>A SPARTA simulation typically has two stages, setup and run. Most SPARTA errors are detected at setup time; others like running out of memory may not occur until the middle of a run.</p>
+<p>SPARTA tries to flag errors and print informative error messages so you can fix the problem. Of course, SPARTA cannot figure out physics or numerical mistakes, like choosing too big a timestep or specifying erroneous collision parameters. If you run into errors that SPARTA doesn’t catch that you think it should flag, please send an email to the <a class="reference external" href="http://sparta.sandia.gov/authors.html">developers</a>.</p>
+<p>If you get an error message about an invalid command in your input script, you can determine what command is causing the problem by looking in the log.sparta file, or using the <a class="reference internal" href="echo.html#command-echo"><span class="std std-ref">echo command</span></a> in your script or “-echo screen” as a <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line argument</span></a> to see it on the screen.
+For a given command, SPARTA expects certain arguments in a specified order. If you mess this up, SPARTA will often flag the error, but it may read a bogus argument and assign a value that is valid, but not what you wanted.</p>
+<p>Generally, SPARTA will print a message to the screen and logfile and exit gracefully when it encounters a fatal error. Sometimes it will print a WARNING to the screen and logfile and continue on; you can decide if the WARNING is important or not. A WARNING message that is generated in the middle of a run is only printed to the screen, not to the logfile, to avoid cluttering up statistical output. If SPARTA crashes or hangs without spitting out an error message first then it could be a bug (see the <a class="reference internal" href="#errors-reporting"><span class="std std-ref">next section</span></a>) or one of the following cases:</p>
+<p>SPARTA runs in the available memory a processor allows to be allocated.  Most reasonable runs are compute limited, not memory limited, so this shouldn’t be a bottleneck on most platforms. Almost all large memory allocations in the code are done via C-style malloc’s which will generate an error message if you run out of memory. Smaller chunks of memory are allocated via C++ “new” statements. If you are unlucky, you could run out of memory just when one of these small requests is made, in which case the code will crash or hang (in parallel), since SPARTA doesn’t trap on those errors.</p>
+<p>Illegal arithmetic can cause SPARTA to run slow or crash. This is typically due to invalid physics and numerics that your simulation is computing. If you see wild statistical values or NaN values in your SPARTA output, something is wrong with your simulation. If you suspect this is happening, it is a good idea to print out statistical info frequently (e.g. every timestep) via the <a class="reference internal" href="stats.html#command-stats"><span class="std std-ref">stats command</span></a> so you can monitor what is happening. Visualizing the particle motion is also a good idea to insure your model is behaving as you expect.</p>
+<p>In parallel, one way SPARTA can hang is due to how different MPI implementations handle buffering of messages. If the code hangs without an error message, it may be that you need to specify an MPI setting or two (usually via an environment variable) to enable buffering or boost the sizes of messages that can be buffered.</p>
+</div>
+<div class="section" id="reporting-bugs">
+<span id="errors-reporting"></span><h2><a class="toc-backref" href="#id4">12.2. Reporting bugs</a><a class="headerlink" href="#reporting-bugs" title="Permalink to this headline">¶</a></h2>
+<p>If you are confident that you have found a bug in SPARTA, please follow these steps.</p>
+<p>Check the <a class="reference external" href="http://sparta.sandia.gov/bug.html">New features and bug fixes</a> section of the <a class="reference external" href="http://sparta.sandia.gov">SPARTA web site</a> to see if the bug has already been fixed.</p>
+<p>If not, please email a description of the problem to the <a class="reference external" href="http://sparta.sandia.gov/authors.html">developers</a>.</p>
+<p>The most useful thing you can do to help us fix the bug is to isolate the problem. Run it on the smallest number of particles and grid cells and fewest number of processors and with the simplest and quick-to-run input script that reproduces the bug. And try to identify what command or combination of commands is causing the problem.</p>
+</div>
+<div class="section" id="error-warning-messages">
+<h2><a class="toc-backref" href="#id5">12.3. Error &amp; warning messages</a><a class="headerlink" href="#error-warning-messages" title="Permalink to this headline">¶</a></h2>
+<p>These are two alphabetic lists of the <a class="reference internal" href="#errors-list"><span class="std std-ref">Errors</span></a> and
+<a class="reference internal" href="#errors-warnings"><span class="std std-ref">Warnings</span></a> messages SPARTA prints out and the reason why. If
+the explanation here is not sufficient, the documentation for the
+offending command may help. Error and warning messages also list the
+source file and line number where the error was generated. For example,
+this message</p>
+<p>ERROR: Illegal create_particles command (create_particles.cpp:68)</p>
+<p>means that line #68 in the file src/create_particles.cpp generated the
+error. Looking in the source code may help you figure out what went
+wrong.</p>
+<div class="section" id="errors-list">
+<span id="id2"></span><h3>12.3.1. Errors<a class="headerlink" href="#errors-list" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt><em>%d read_surf point pairs are too close</em></dt><dd><p>A pair of points is very close together, relative to grid size,
+inidicating the grid is too large, or an ill-formed surface.</p>
+</dd>
+<dt><em>%d read_surf points are not inside simulation box</em></dt><dd><p>If clipping was not performed, all points in surf file must be inside
+(or on surface of) simulation box.</p>
+</dd>
+<dt><em>%d surface elements not assigned to a collision model</em></dt><dd><p>All surface elements must be assigned to a surface collision model
+via the surf_modify command before a simulation is perforemd.</p>
+</dd>
+<dt><em>All universe/uloop variables must have same # of values</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>All variables in next command must be same style</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Arccos of invalid value in variable formula</em></dt><dd><p>Argument of arccos() must be between -1 and 1.</p>
+</dd>
+<dt><em>Arcsin of invalid value in variable formula</em></dt><dd><p>Argument of arcsin() must be between -1 and 1.</p>
+</dd>
+<dt><em>Axi-symmetry is not yet supported in SPARTA</em></dt><dd><p>This error condition will be removed after axi-symmetry is fully
+implemented.</p>
+</dd>
+<dt><em>Axi-symmetry only allowed for 2d simulation</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>BPG edge on more than 2 faces</em></dt><dd><p>This is an error when calculating how a 3d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Bad grid of processors for balance_grid block</em></dt><dd><p>Product of Px,Py,Pz must equal total number of processors.</p>
+</dd>
+<dt><em>Bad grid of processors for create_grid</em></dt><dd><p>For block style, product of Px,Py,Pz must equal total number of
+processors.</p>
+</dd>
+<dt><em>Bigint setting in spatype.h is invalid</em></dt><dd><p>Size of bigint is less than size of smallint.</p>
+</dd>
+<dt><em>Bigint setting in spatype.h is not compatible</em></dt><dd><p>Bigint size stored in restart file is not consistent with SPARTA
+version you are running.</p>
+</dd>
+<dt><em>Both restart files must use % or neither</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Both sides of boundary must be periodic</em></dt><dd><p>Cannot specify a boundary as periodic only on the lo or hi side. Must
+be periodic on both sides.</p>
+</dd>
+<dt><em>Bound_modify surf requires wall be a surface</em></dt><dd><p>The box boundary must be of style “s” to be assigned a surface
+collision model.</p>
+</dd>
+<dt><em>Bound_modify surf_collide ID is unknown</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Boundary command after simulation box is defined</em></dt><dd><p>The boundary command cannot be used after a read_data, read_restart,
+or create_box command.</p>
+</dd>
+<dt><em>Box boundary not assigned a surf_collide ID</em></dt><dd><p>Any box boundary of style “s” must be assigned to a surface collision
+model via the bound_modify command, before a simulation is performed.</p>
+</dd>
+<dt><em>Box bounds are invalid</em></dt><dd><p>The box boundaries specified in the read_data file are invalid. The
+lo value must be less than the hi value for all 3 dimensions.</p>
+</dd>
+<dt><em>Box ylo must be 0.0 for axi-symmetric model</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Can only use -plog with multiple partitions</em></dt><dd><p>Self-explanatory. See doc page discussion of command-line switches.</p>
+</dd>
+<dt><em>Can only use -pscreen with multiple partitions</em></dt><dd><p>Self-explanatory. See doc page discussion of command-line switches.</p>
+</dd>
+<dt><em>Cannot add new species to mixture all or species</em></dt><dd><p>This is done automatically for these 2 mixtures when each species is
+defined by the species command.</p>
+</dd>
+<dt><em>Cannot balance grid before grid is defined</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot create grid before simulation box is defined</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot create grid when grid is already defined</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot create particles before grid is defined</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot create particles before simulation box is defined</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot create/grow a vector/array of pointers for %s</em></dt><dd><p>SPARTA code is making an illegal call to the templated memory
+allocaters, to create a vector or array of pointers.</p>
+</dd>
+<dt><em>Cannot create_box after simulation box is defined</em></dt><dd><p>A simulation box can only be defined once.</p>
+</dd>
+<dt><em>Cannot open VSS parameter file %s</em></dt><dd><p>Self-explantory.</p>
+</dd>
+<dt><em>Cannot open dir to search for restart file</em></dt><dd><p>Using a “*” in the name of the restart file will open the current
+directory to search for matching file names.</p>
+</dd>
+<dt><em>Cannot open dump file</em></dt><dd><p>The output file for the dump command cannot be opened. Check that the
+path and name are correct.</p>
+</dd>
+<dt><em>Cannot open file %s</em></dt><dd><p>The specified file cannot be opened. Check that the path and name are
+correct. If the file is a compressed file, also check that the gzip
+executable can be found and run.</p>
+</dd>
+<dt><em>Cannot open file variable file %s</em></dt><dd><p>The specified file cannot be opened. Check that the path and name are
+correct.</p>
+</dd>
+<dt><em>Cannot open fix ave/time file %s</em></dt><dd><p>The specified file cannot be opened. Check that the path and name are
+correct.</p>
+</dd>
+<dt><em>Cannot open fix print file %s</em></dt><dd><p>The output file generated by the fix print command cannot be opened</p>
+</dd>
+<dt><em>Cannot open gzipped file</em></dt><dd><p>SPARTA was compiled without support for reading and writing gzipped
+files through a pipeline to the gzip program with -DSPARTA_GZIP.</p>
+</dd>
+<dt><em>Cannot open input script %s</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot open log.sparta</em></dt><dd><p>The default SPARTA log file cannot be opened. Check that the
+directory you are running in allows for files to be created.</p>
+</dd>
+<dt><em>Cannot open logfile</em></dt><dd><p>The SPARTA log file named in a command-line argument cannot be
+opened. Check that the path and name are correct.</p>
+</dd>
+<dt><em>Cannot open logfile %s</em></dt><dd><p>The SPARTA log file specified in the input script cannot be opened.
+Check that the path and name are correct.</p>
+</dd>
+<dt><em>Cannot open print file %s</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot open reaction file %s</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot open restart file %s</em></dt><dd><p>The specified file cannot be opened. Check that the path and name are
+correct. If the file is a compressed file, also check that the gzip
+executable can be found and run.</p>
+</dd>
+<dt><em>Cannot open screen file</em></dt><dd><p>The screen file specified as a command-line argument cannot be
+opened. Check that the directory you are running in allows for files
+to be created.</p>
+</dd>
+<dt><em>Cannot open species file %s</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot open universe log file</em></dt><dd><p>For a multi-partition run, the master log file cannot be opened.
+Check that the directory you are running in allows for files to be
+created.</p>
+</dd>
+<dt><em>Cannot open universe screen file</em></dt><dd><p>For a multi-partition run, the master screen file cannot be opened.
+Check that the directory you are running in allows for files to be
+created.</p>
+</dd>
+<dt><em>Cannot read grid before simulation box is defined</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot read grid when grid is already defined</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot read_restart after simulation box is defined</em></dt><dd><p>The read_restart command cannot be used after a read_data,
+read_restart, or create_box command.</p>
+</dd>
+<dt><em>Cannot read_surf after particles are defined</em></dt><dd><p>This is because the newly read surface objects may enclose particles.</p>
+</dd>
+<dt><em>Cannot read_surf before grid ghost cells are defined</em></dt><dd><p>This needs to be documented if keep this restriction.</p>
+</dd>
+<dt><em>Cannot read_surf before grid is defined</em></dt><dd><p>Self-explantory.</p>
+</dd>
+<dt><em>Cannot redefine variable as a different style</em></dt><dd><p>An equal-style variable can be re-defined but only if it was
+originally an equal-style variable.</p>
+</dd>
+<dt><em>Cannot reset timestep with a time-dependent fix defined</em></dt><dd><p>The timestep cannot be reset when a fix that keeps track of elapsed
+time is in place.</p>
+</dd>
+<dt><em>Cannot run 2d simulation with nonperiodic Z dimension</em></dt><dd><p>Use the boundary command to make the z dimension periodic in order to
+run a 2d simulation.</p>
+</dd>
+<dt><em>Cannot set global surfmax when surfaces already exist</em></dt><dd><p>This setting must be made before any surfac elements are read via the
+read_surf command.</p>
+</dd>
+<dt><em>Cannot use collide_modify with no collisions defined</em></dt><dd><p>A collision style must be specified first.</p>
+</dd>
+<dt><em>Cannot use cwiggle in variable formula between runs</em></dt><dd><p>This is a function of elapsed time.</p>
+</dd>
+<dt><em>Cannot use dump_modify fileper without % in dump file name</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot use dump_modify nfile without % in dump file name</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot use fix inflow in y dimension for axisymmetric</em></dt><dd><p>This is because the y dimension boundaries cannot be inflow
+boundaries for an axisymmetric model.</p>
+</dd>
+<dt><em>Cannot use fix inflow in z dimension for 2d simulation</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot use fix inflow n &gt; 0 with perspecies yes</em></dt><dd><p>This is because the perspecies option calculates the number of
+particles to insert itself.</p>
+</dd>
+<dt><em>Cannot use fix inflow on periodic boundary</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot use group keyword with mixture all or species</em></dt><dd><p>This is because the groups for these 2 mixtures are pre-defined.</p>
+</dd>
+<dt><em>Cannot use include command within an if command</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot use non-rcb fix balance with a grid cutoff</em></dt><dd><p>This is because the load-balancing will generate a partitioning of
+cells to processors that is dispersed and which will not work with a
+grid cutoff &gt;= 0.0.</p>
+</dd>
+<dt><em>Cannot use ramp in variable formula between runs</em></dt><dd><p>This is because the ramp() function is time dependent.</p>
+</dd>
+<dt><em>Cannot use specified create_grid options with more than one level</em></dt><dd><p>When defining a grid with more than one level, the other create_grid
+keywords (stride, clump, block, etc) cannot be used. The child grid
+cells will be assigned to processors in round-robin order as
+explained on the create_grid doc page.</p>
+</dd>
+<dt><em>Cannot use swiggle in variable formula between runs</em></dt><dd><p>This is a function of elapsed time.</p>
+</dd>
+<dt><em>Cannot use vdisplace in variable formula between runs</em></dt><dd><p>This is a function of elapsed time.</p>
+</dd>
+<dt><em>Cannot use weight cell radius unless axisymmetric</em></dt><dd><p>An axisymmetric model is required for this style of cell weighting.</p>
+</dd>
+<dt><em>Cannot use write_restart fileper without % in restart file name</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot use write_restart nfile without % in restart file name</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot weight cells before grid is defined</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot write grid when grid is not defined</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cannot write restart file before grid is defined</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Cell ID has too many bits</em></dt><dd><p>Cell IDs must fit in 32 bits (SPARTA small integer) or 64 bits
+(SPARTA big integer), as specified by the -DSPARTA_SMALL,
+-DSPARTA_BIG, or -DSPARTA_BIGBIG options in the low-level Makefile
+used to build SPARTA. See Section 2.2 of the manual for details. And
+see Section 4.8 for details on how cell IDs are formatted.</p>
+</dd>
+<dt><em>Cell type mis-match when marking on neigh proc</em></dt><dd><p>Grid cell marking as inside, outside, or overlapping with surface
+elements failed. Please report the issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Cell type mis-match when marking on self</em></dt><dd><p>Grid cell marking as inside, outside, or overlapping with surface
+elements failed. Please report the issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Cellint setting in spatype.h is not compatible</em></dt><dd><p>Cellint size stored in restart file is not consistent with SPARTA
+version you are running.</p>
+</dd>
+<dt><em>Collision mixture does not contain all species</em></dt><dd><p>The specified mixture must contain all species in the simulation so
+that they can be assigned to collision groups.</p>
+</dd>
+<dt><em>Collision mixture does not exist</em></dt><dd><p>Self-explantory.</p>
+</dd>
+<dt><em>Compute ID for compute reduce does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Compute ID for fix ave/grid does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Compute ID for fix ave/surf does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Compute ID for fix ave/time does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Compute ID must be alphanumeric or underscore characters</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Compute boundary mixture ID does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Compute grid mixture ID does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Compute reduce compute array is accessed out-of-range</em></dt><dd><p>An index for the array is out of bounds.</p>
+</dd>
+<dt><em>Compute reduce compute calculates global or surf values</em></dt><dd><p>The compute reduce command does not operate on this kind of values.
+The variable command has special functions that can reduce global
+values.</p>
+</dd>
+<dt><em>Compute reduce compute does not calculate a per-grid array</em></dt><dd><p>This is necessary if a column index is used to specify the compute.</p>
+</dd>
+<dt><em>Compute reduce compute does not calculate a per-grid vector</em></dt><dd><p>This is necessary if no column index is used to specify the compute.</p>
+</dd>
+<dt><em>Compute reduce compute does not calculate a per-particle array</em></dt><dd><p>This is necessary if a column index is used to specify the compute.</p>
+</dd>
+<dt><em>Compute reduce compute does not calculate a per-particle vector</em></dt><dd><p>This is necessary if no column index is used to specify the compute.</p>
+</dd>
+<dt><em>Compute reduce fix array is accessed out-of-range</em></dt><dd><p>An index for the array is out of bounds.</p>
+</dd>
+<dt><em>Compute reduce fix calculates global values</em></dt><dd><p>A fix that calculates peratom or local values is required.</p>
+</dd>
+<dt><em>Compute reduce fix does not calculate a per-grid array</em></dt><dd><p>This is necessary if a column index is used to specify the fix.</p>
+</dd>
+<dt><em>Compute reduce fix does not calculate a per-grid vector</em></dt><dd><p>This is necessary if no column index is used to specify the fix.</p>
+</dd>
+<dt><em>Compute reduce fix does not calculate a per-particle array</em></dt><dd><p>This is necessary if a column index is used to specify the fix.</p>
+</dd>
+<dt><em>Compute reduce fix does not calculate a per-particle vector</em></dt><dd><p>This is necessary if no column index is used to specify the fix.</p>
+</dd>
+<dt><em>Compute reduce fix does not calculate a per-surf array</em></dt><dd><p>This is necessary if a column index is used to specify the fix.</p>
+</dd>
+<dt><em>Compute reduce fix does not calculate a per-surf vector</em></dt><dd><p>This is necessary if no column index is used to specify the fix.</p>
+</dd>
+<dt><em>Compute reduce replace requires min or max mode</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Compute reduce variable is not particle-style variable</em></dt><dd><p>This is the only style of variable that can be reduced.</p>
+</dd>
+<dt><em>Compute sonine/grid mixture ID does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Compute surf mixture ID does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Compute used in variable between runs is not current</em></dt><dd><p>Computes cannot be invoked by a variable in between runs. Thus they
+must have been evaluated on the last timestep of the previous run in
+order for their value(s) to be accessed. See the doc page for the
+variable command for more info.</p>
+</dd>
+<dt><em>Could not create a single particle</em></dt><dd><p>The specified position was either not inside the simulation domain or
+not inside a grid cell with no intersections with any defined surface
+elements.</p>
+</dd>
+<dt><em>Could not find compute ID to delete</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find dump grid compute ID</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find dump grid fix ID</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find dump grid variable name</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find dump image compute ID</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find dump image fix ID</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find dump modify compute ID</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find dump modify fix ID</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find dump modify variable name</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find dump particle compute ID</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find dump particle fix ID</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find dump particle variable name</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find dump surf compute ID</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find dump surf fix ID</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find dump surf variable name</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find fix ID to delete</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find split point in split cell</em></dt><dd><p>This is an error when calculating how a grid cell is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Could not find stats compute ID</em></dt><dd><p>Compute ID specified in stats_style command does not exist.</p>
+</dd>
+<dt><em>Could not find stats fix ID</em></dt><dd><p>Fix ID specified in stats_style command does not exist.</p>
+</dd>
+<dt><em>Could not find stats variable name</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find surf_modify sc-ID</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find surf_modify surf-ID</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Could not find undump ID</em></dt><dd><p>A dump ID used in the undump command does not exist.</p>
+</dd>
+<dt><em>Cound not find dump_modify ID</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Create_box z box bounds must straddle 0.0 for 2d simulations</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Create_grid nz value must be 1 for a 2d simulation</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Create_particles global option not yet implemented</em></dt><dd><p>Self-explantory.</p>
+</dd>
+<dt><em>Create_particles mixture ID does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Create_particles single requires z = 0 for 2d simulation</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Create_particles species ID does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Created incorrect # of particles: %ld versus %ld</em></dt><dd><p>The create_particles command did not function properly.</p>
+</dd>
+<dt><em>Delete region ID does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Did not assign all restart particles correctly</em></dt><dd><p>One or more particles in the restart file were not assigned to a
+processor. Please report the issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Did not assign all restart split grid cells correctly</em></dt><dd><p>One or more split grid cells in the restart file were not assigned to
+a processor. Please report the issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Did not assign all restart sub grid cells correctly</em></dt><dd><p>One or more sub grid cells in the restart file were not assigned to a
+processor. Please report the issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Did not assign all restart unsplit grid cells correctly</em></dt><dd><p>One or more unsplit grid cells in the restart file were not assigned
+to a processor. Please report the issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Dimension command after simulation box is defined</em></dt><dd><p>The dimension command cannot be used after a read_data, read_restart,
+or create_box command.</p>
+</dd>
+<dt><em>Divide by 0 in variable formula</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump every variable returned a bad timestep</em></dt><dd><p>The variable must return a timestep greater than the current
+timestep.</p>
+</dd>
+<dt><em>Dump grid and fix not computed at compatible times</em></dt><dd><p>Fixes generate values on specific timesteps. The dump grid output
+does not match these timesteps.</p>
+</dd>
+<dt><em>Dump grid compute does not calculate per-grid array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump grid compute does not compute per-grid info</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump grid compute vector is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump grid fix does not compute per-grid array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump grid fix does not compute per-grid info</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump grid fix vector is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump grid variable is not grid-style variable</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump image and fix not computed at compatible times</em></dt><dd><p>Fixes generate values on specific timesteps. The dump image output
+does not match these timesteps.</p>
+</dd>
+<dt><em>Dump image cannot use grid and gridx/gridy/gridz</em></dt><dd><p>Can only use grid option or one or more of grid x,y,z options by
+themselves, not together.</p>
+</dd>
+<dt><em>Dump image compute does not have requested column</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump image compute does not produce a vector</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump image compute is not a per-grid compute</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump image compute is not a per-surf compute</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump image fix does not have requested column</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump image fix does not produce a vector</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump image fix does not produce per-grid values</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump image fix does not produce per-surf values</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump image persp option is not yet supported</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump image requires one snapshot per file</em></dt><dd><p>Use a “*” in the filename.</p>
+</dd>
+<dt><em>Dump modify compute ID does not compute per-particle array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump modify compute ID does not compute per-particle info</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump modify compute ID does not compute per-particle vector</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump modify compute ID vector is not large enough</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump modify fix ID does not compute per-particle array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump modify fix ID does not compute per-particle info</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump modify fix ID does not compute per-particle vector</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump modify fix ID vector is not large enough</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump modify variable is not particle-style variable</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump particle and fix not computed at compatible times</em></dt><dd><p>Fixes generate values on specific timesteps. The dump particle output
+does not match these timesteps.</p>
+</dd>
+<dt><em>Dump particle compute does not calculate per-particle array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump particle compute does not calculate per-particle vector</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump particle compute does not compute per-particle info</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump particle compute vector is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump particle fix does not compute per-particle array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump particle fix does not compute per-particle info</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump particle fix does not compute per-particle vector</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump particle fix vector is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump particle variable is not particle-style variable</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump surf and fix not computed at compatible times</em></dt><dd><p>Fixes generate values on specific timesteps. The dump surf output
+does not match these timesteps.</p>
+</dd>
+<dt><em>Dump surf compute does not calculate per-surf array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump surf compute does not compute per-surf info</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump surf compute vector is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump surf fix does not compute per-surf array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump surf fix does not compute per-surf info</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump surf fix vector is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump surf variable is not surf-style variable</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Dump_modify buffer yes not allowed for this style</em></dt><dd><p>Not all dump styles allow dump_modify buffer yes. See the dump_modify
+doc page.</p>
+</dd>
+<dt><em>Dump_modify region ID does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Duplicate cell ID in grid file</em></dt><dd><p>Parent cell IDs must be unique.</p>
+</dd>
+<dt><em>Edge not part of 2 vertices</em></dt><dd><p>This is an error when calculating how a 3d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Edge part of invalid vertex</em></dt><dd><p>This is an error when calculating how a 3d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Edge part of same vertex twice</em></dt><dd><p>This is an error when calculating how a 3d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Empty brackets in variable</em></dt><dd><p>There is no variable syntax that uses empty brackets. Check the
+variable doc page.</p>
+</dd>
+<dt><em>Failed to allocate %ld bytes for array %s</em></dt><dd><p>The SPARTA simulation has run out of memory. You need to run a
+smaller simulation or on more processors.</p>
+</dd>
+<dt><em>Failed to open FFmpeg pipeline to file %s</em></dt><dd><p>The specified file cannot be opened. Check that the path and name are
+correct and writable and that the FFmpeg executable can be found and
+run.</p>
+</dd>
+<dt><em>Failed to reallocate %ld bytes for array %s</em></dt><dd><p>The SPARTA simulation has run out of memory. You need to run a
+smaller simulation or on more processors.</p>
+</dd>
+<dt><em>File variable could not read value</em></dt><dd><p>Check the file assigned to the variable.</p>
+</dd>
+<dt><em>Fix ID for compute reduce does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ID for fix ave/grid does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ID for fix ave/surf does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ID for fix ave/time does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ID must be alphanumeric or underscore characters</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/grid compute array is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/grid compute does not calculate a per-grid array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/grid compute does not calculate a per-grid vector</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/grid compute does not calculate per-grid values</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/grid fix array is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/grid fix does not calculate a per-grid array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/grid fix does not calculate a per-grid vector</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/grid fix does not calculate per-grid values</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/grid variable is not grid-style variable</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/surf compute array is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/surf compute does not calculate a per-surf array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/surf compute does not calculate a per-surf vector</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/surf compute does not calculate per-surf values</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/surf fix array is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/surf fix does not calculate a per-surf array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/surf fix does not calculate a per-surf vector</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/surf fix does not calculate per-surf values</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/surf variable is not surf-style variable</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/time cannot use variable with vector mode</em></dt><dd><p>Variables produce scalar values.</p>
+</dd>
+<dt><em>Fix ave/time columns are inconsistent lengths</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/time compute array is accessed out-of-range</em></dt><dd><p>An index for the array is out of bounds.</p>
+</dd>
+<dt><em>Fix ave/time compute does not calculate a scalar</em></dt><dd><p>Self-explantory.</p>
+</dd>
+<dt><em>Fix ave/time compute does not calculate a vector</em></dt><dd><p>Self-explantory.</p>
+</dd>
+<dt><em>Fix ave/time compute does not calculate an array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/time compute vector is accessed out-of-range</em></dt><dd><p>The index for the vector is out of bounds.</p>
+</dd>
+<dt><em>Fix ave/time fix array is accessed out-of-range</em></dt><dd><p>An index for the array is out of bounds.</p>
+</dd>
+<dt><em>Fix ave/time fix does not calculate a scalar</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/time fix does not calculate a vector</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/time fix does not calculate an array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix ave/time fix vector is accessed out-of-range</em></dt><dd><p>The index for the vector is out of bounds.</p>
+</dd>
+<dt><em>Fix ave/time variable is not equal-style variable</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix command before simulation box is defined</em></dt><dd><p>The fix command cannot be used before a read_data, read_restart, or
+create_box command.</p>
+</dd>
+<dt><em>Fix for fix ave/grid not computed at compatible time</em></dt><dd><p>Fixes generate values on specific timesteps. Fix ave/grid is
+requesting a value on a non-allowed timestep.</p>
+</dd>
+<dt><em>Fix for fix ave/surf not computed at compatible time</em></dt><dd><p>Fixes generate their values on specific timesteps. Fix ave/surf is
+requesting a value on a non-allowed timestep.</p>
+</dd>
+<dt><em>Fix for fix ave/time not computed at compatible time</em></dt><dd><p>Fixes generate their values on specific timesteps. Fix ave/time is
+requesting a value on a non-allowed timestep.</p>
+</dd>
+<dt><em>Fix in variable not computed at compatible time</em></dt><dd><p>Fixes generate their values on specific timesteps. The variable is
+requesting the values on a non-allowed timestep.</p>
+</dd>
+<dt><em>Fix inflow mixture ID does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix inflow used on outflow boundary</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Fix used in compute reduce not computed at compatible time</em></dt><dd><p>Fixes generate their values on specific timesteps. Compute reduce is
+requesting a value on a non-allowed timestep.</p>
+</dd>
+<dt><em>Found edge in same direction</em></dt><dd><p>This is an error when calculating how a 3d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Found no restart file matching pattern</em></dt><dd><p>When using a “*” in the restart file name, no matching file was
+found.</p>
+</dd>
+<dt><em>Gravity in y not allowed for axi-symmetric model</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Gravity in z not allowed for 2d</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Grid cell corner points on boundary marked as unknown = %d</em></dt><dd><p>Corner points of grid cells on the boundary of the simulation domain
+were not all marked successfully as inside, outside, or overlapping
+with surface elements. Please report the issue to the SPARTA
+developers.</p>
+</dd>
+<dt><em>Grid cells marked as unknown = %d</em></dt><dd><p>Grid cell marking as inside, outside, or overlapping with surface
+elements did not successfully mark all cells. Please report the issue
+to the SPARTA developers.</p>
+</dd>
+<dt><em>Grid cutoff is longer than box length in a periodic dimension</em></dt><dd><p>This is not allowed. Reduce the size of the cutoff specified by the
+global gridcut command.</p>
+</dd>
+<dt><em>Grid file does not contain parents</em></dt><dd><p>No parent cells appeared in the grid file.</p>
+</dd>
+<dt><em>Grid in/out other-mark error %dn</em></dt><dd><p>Grid cell marking as inside, outside, or overlapping with surface
+elements failed. Please report the issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Grid in/out self-mark error %d for icell %d, icorner %d, connect %d %d, other cell %d, other corner %d, values %d %dn</em></dt><dd><p>A grid cell was incorrectly marked as inside, outside, or overlapping
+with surface elements. Please report the issue to the SPARTA
+developers.</p>
+</dd>
+<dt><em>Grid-style variables are not yet implemented</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Illegal … command</em></dt><dd><p>Self-explanatory. Check the input script syntax and compare to the
+documentation for the command. You can use -echo screen as a
+command-line option when running SPARTA to see the offending line.</p>
+</dd>
+<dt><em>Inconsistent surface to grid mapping in read_restart</em></dt><dd><p>When surface elements were mapped to grid cells after reading a
+restart file, an inconsitent count of elements in a grid cell was
+found, as compared to the original simulation, which should not
+happen. Please report the issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Incorrect format of parent cell in grid file</em></dt><dd><p>Number of words in a parent cell line was not the expected number.</p>
+</dd>
+<dt><em>Incorrect line format in VSS parameter file</em></dt><dd><p>Number of parameters in a line read from file is not valid.</p>
+</dd>
+<dt><em>Incorrect line format in species file</em></dt><dd><p>Line read did not have expected number of fields.</p>
+</dd>
+<dt><em>Incorrect line format in surf file</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Incorrect point format in surf file</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Incorrect triangle format in surf file</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Index between variable brackets must be positive</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Input line quote not followed by whitespace</em></dt><dd><p>An end quote must be followed by whitespace.</p>
+</dd>
+<dt><em>Invalid Boolean syntax in if command</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid Nx,Ny,Nz values in grid file</em></dt><dd><p>A Nx or Ny or Nz value for a parent cell is &lt;= 0.</p>
+</dd>
+<dt><em>Invalid SPARTA restart file</em></dt><dd><p>The file does not appear to be a SPARTA restart file since it does
+not have the expected magic string at the beginning.</p>
+</dd>
+<dt><em>Invalid attribute in dump grid command</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid attribute in dump modify command</em></dt><dd><p>Self-explantory.</p>
+</dd>
+<dt><em>Invalid attribute in dump particle command</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid attribute in dump surf command</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid balance_grid style for non-uniform grid</em></dt><dd><p>Some balance styles can only be used when the grid is uniform. See
+the command doc page for details.</p>
+</dd>
+<dt><em>Invalid call to ComputeGrid::post_process_grid()</em></dt><dd><p>This indicates a coding error. Please report the issue to the SPARTA
+developers.</p>
+</dd>
+<dt><em>Invalid call to ComputeSonineGrid::post_process_grid()</em></dt><dd><p>This indicates a coding error. Please report the issue to the SPARTA
+developers.</p>
+</dd>
+<dt><em>Invalid cell ID in grid file</em></dt><dd><p>A cell ID could not be converted into numeric format.</p>
+</dd>
+<dt><em>Invalid character in species ID</em></dt><dd><p>The only allowed characters are alphanumeric, an underscore, a plus
+sign, or a minus sign.</p>
+</dd>
+<dt><em>Invalid collide style</em></dt><dd><p>The choice of collision style is unknown.</p>
+</dd>
+<dt><em>Invalid color in dump_modify command</em></dt><dd><p>The specified color name was not in the list of recognized colors.
+See the dump_modify doc page.</p>
+</dd>
+<dt><em>Invalid color map min/max values</em></dt><dd><p>The min/max values are not consistent with either each other or with
+values in the color map.</p>
+</dd>
+<dt><em>Invalid command-line argument</em></dt><dd><p>One or more command-line arguments is invalid. Check the syntax of
+the command you are using to launch SPARTA.</p>
+</dd>
+<dt><em>Invalid compute ID in variable formula</em></dt><dd><p>The compute is not recognized.</p>
+</dd>
+<dt><em>Invalid compute property/grid field for 2d simulation</em></dt><dd><p>Fields that reference z-dimension properties cannot be used in a 2d
+simulation.</p>
+</dd>
+<dt><em>Invalid compute style</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid dump frequency</em></dt><dd><p>Dump frequency must be 1 or greater.</p>
+</dd>
+<dt><em>Invalid dump grid field for 2d simulation</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid dump image filename</em></dt><dd><p>The file produced by dump image cannot be binary and must be for a
+single processor.</p>
+</dd>
+<dt><em>Invalid dump image persp value</em></dt><dd><p>Persp value must be &gt;= 0.0.</p>
+</dd>
+<dt><em>Invalid dump image theta value</em></dt><dd><p>Theta must be between 0.0 and 180.0 inclusive.</p>
+</dd>
+<dt><em>Invalid dump image zoom value</em></dt><dd><p>Zoom value must be &gt; 0.0.</p>
+</dd>
+<dt><em>Invalid dump movie filename</em></dt><dd><p>The file produced by dump movie cannot be binary or compressed and
+must be a single file for a single processor.</p>
+</dd>
+<dt><em>Invalid dump style</em></dt><dd><p>The choice of dump style is unknown.</p>
+</dd>
+<dt><em>Invalid dump surf field for 2d simulation</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid dump_modify threshhold operator</em></dt><dd><p>Operator keyword used for threshold specification in not recognized.</p>
+</dd>
+<dt><em>Invalid fix ID in variable formula</em></dt><dd><p>The fix is not recognized.</p>
+</dd>
+<dt><em>Invalid fix ave/time off column</em></dt><dd><p>Self-explantory.</p>
+</dd>
+<dt><em>Invalid fix style</em></dt><dd><p>The choice of fix style is unknown.</p>
+</dd>
+<dt><em>Invalid flag in grid section of restart file</em></dt><dd><p>Unrecognized entry in restart file.</p>
+</dd>
+<dt><em>Invalid flag in header section of restart file</em></dt><dd><p>Unrecognized entry in restart file.</p>
+</dd>
+<dt><em>Invalid flag in layout section of restart file</em></dt><dd><p>Unrecognized entry in restart file.</p>
+</dd>
+<dt><em>Invalid flag in particle section of restart file</em></dt><dd><p>Unrecognized entry in restart file.</p>
+</dd>
+<dt><em>Invalid flag in peratom section of restart file</em></dt><dd><p>The format of this section of the file is not correct.</p>
+</dd>
+<dt><em>Invalid flag in surf section of restart file</em></dt><dd><p>Unrecognized entry in restart file.</p>
+</dd>
+<dt><em>Invalid image up vector</em></dt><dd><p>Up vector cannot be (0,0,0).</p>
+</dd>
+<dt><em>Invalid immediate variable</em></dt><dd><p>Syntax of immediate value is incorrect.</p>
+</dd>
+<dt><em>Invalid keyword in compute property/grid command</em></dt><dd><p>Self-explantory.</p>
+</dd>
+<dt><em>Invalid keyword in stats_style command</em></dt><dd><p>One or more specified keywords are not recognized.</p>
+</dd>
+<dt><em>Invalid math function in variable formula</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid math/special function in variable formula</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid point index in line</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid point index in triangle</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid react style</em></dt><dd><p>The choice of reaction style is unknown.</p>
+</dd>
+<dt><em>Invalid reaction coefficients in file</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid reaction formula in file</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid reaction style in file</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid reaction type in file</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid read_surf command</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid read_surf geometry transformation for 2d simulation</em></dt><dd><p>Cannot perform a transformation that changes z cooridinates of points
+for a 2d simulation.</p>
+</dd>
+<dt><em>Invalid region style</em></dt><dd><p>The choice of region style is unknown.</p>
+</dd>
+<dt><em>Invalid replace values in compute reduce</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid reuse of surface ID in read_surf command</em></dt><dd><p>Surface IDs must be unique.</p>
+</dd>
+<dt><em>Invalid run command N value</em></dt><dd><p>The number of timesteps must fit in a 32-bit integer. If you want to
+run for more steps than this, perform multiple shorter runs.</p>
+</dd>
+<dt><em>Invalid run command start/stop value</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid run command upto value</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid special function in variable formula</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid species ID in species file</em></dt><dd><p>Species IDs are limited to 15 characters.</p>
+</dd>
+<dt><em>Invalid stats keyword in variable formula</em></dt><dd><p>The keyword is not recognized.</p>
+</dd>
+<dt><em>Invalid surf_collide style</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid syntax in variable formula</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid use of library file() function</em></dt><dd><p>This function is called thru the library interface. This error should
+not occur. Contact the developers if it does.</p>
+</dd>
+<dt><em>Invalid variable evaluation in variable formula</em></dt><dd><p>A variable used in a formula could not be evaluated.</p>
+</dd>
+<dt><em>Invalid variable in next command</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Invalid variable name</em></dt><dd><p>Variable name used in an input script line is invalid.</p>
+</dd>
+<dt><em>Invalid variable name in variable formula</em></dt><dd><p>Variable name is not recognized.</p>
+</dd>
+<dt><em>Invalid variable style in special function next</em></dt><dd><p>Only file-style or atomfile-style variables can be used with next().</p>
+</dd>
+<dt><em>Invalid variable style with next command</em></dt><dd><p>Variable styles <em>equal</em> and <em>world</em> cannot be used in a next command.</p>
+</dd>
+<dt><em>Ionization and recombination reactions are not yet implemented</em></dt><dd><p>This error conditions will be removed after those reaction styles are
+fully implemented.</p>
+</dd>
+<dt><em>Irregular comm recv buffer exceeds 2 GB</em></dt><dd><p>MPI does not support a communication buffer that exceeds a 4-byte
+integer in size.</p>
+</dd>
+<dt><em>Label wasn’t found in input script</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Log of zero/negative value in variable formula</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>MPI_SPARTA_BIGINT and bigint in spatype.h are not compatible</em></dt><dd><p>The size of the MPI datatype does not match the size of a bigint.</p>
+</dd>
+<dt><em>Migrate cells send buffer exceeds 2 GB</em></dt><dd><p>MPI does not support a communication buffer that exceeds a 4-byte
+integer in size.</p>
+</dd>
+<dt><em>Mismatched brackets in variable</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Mismatched compute in variable formula</em></dt><dd><p>A compute is referenced incorrectly or a compute that produces
+per-atom values is used in an equal-style variable formula.</p>
+</dd>
+<dt><em>Mismatched fix in variable formula</em></dt><dd><p>A fix is referenced incorrectly or a fix that produces per-atom
+values is used in an equal-style variable formula.</p>
+</dd>
+<dt><em>Mismatched variable in variable formula</em></dt><dd><p>A variable is referenced incorrectly or an atom-style variable that
+produces per-atom values is used in an equal-style variable formula.</p>
+</dd>
+<dt><em>Mixture %s fractions exceed 1.0</em></dt><dd><p>The sum of fractions must not be &gt; 1.0.</p>
+</dd>
+<dt><em>Mixture ID must be alphanumeric or underscore characters</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Mixture group ID must be alphanumeric or underscore characters</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Mixture species is not defined</em></dt><dd><p>One or more of the species ID is unknown.</p>
+</dd>
+<dt><em>Modulo 0 in variable formula</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>More than one positive area with a negative area</em></dt><dd><p>SPARTA cannot determine which positive area the negative area is
+inside of, if a cell is so large that it includes both positive and
+negative areas.</p>
+</dd>
+<dt><em>More than one positive volume with a negative volume</em></dt><dd><p>SPARTA cannot determine which positive volume the negative volume is
+inside of, if a cell is so large that it includes both positive and
+negative volumes.</p>
+</dd>
+<dt><em>Must use -in switch with multiple partitions</em></dt><dd><p>A multi-partition simulation cannot read the input script from stdin.
+The -in command-line option must be used to specify a file.</p>
+</dd>
+<dt><em>Next command must list all universe and uloop variables</em></dt><dd><p>This is to insure they stay in sync.</p>
+</dd>
+<dt><em>No dump grid attributes specified</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>No dump particle attributes specified</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>No dump surf attributes specified</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>No positive areas in cell</em></dt><dd><p>This is an error when calculating how a 2d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>No positive volumes in cell</em></dt><dd><p>This is an error when calculating how a 3d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Non digit character between brackets in variable</em></dt><dd><p>Self-explantory.</p>
+</dd>
+<dt><em>Number of groups in compute boundary mixture has changed</em></dt><dd><p>This mixture property cannot be changed after this compute command is
+issued.</p>
+</dd>
+<dt><em>Number of groups in compute grid mixture has changed</em></dt><dd><p>This mixture property cannot be changed after this compute command is
+issued.</p>
+</dd>
+<dt><em>Number of groups in compute sonine/grid mixture has changed</em></dt><dd><p>This mixture property cannot be changed after this compute command is
+issued.</p>
+</dd>
+<dt><em>Number of groups in compute surf mixture has changed</em></dt><dd><p>This mixture property cannot be changed after this compute command is
+issued.</p>
+</dd>
+<dt><em>Number of groups in compute tvib/grid mixture has changed</em></dt><dd><p>This mixture property cannot be changed after this compute command is
+issued.</p>
+</dd>
+<dt><em>Number of species in compute tvib/grid mixture has changed</em></dt><dd><p>This mixture property cannot be changed after this compute command is
+issued.</p>
+</dd>
+<dt><em>Numeric index is out of bounds</em></dt><dd><p>A command with an argument that specifies an integer or range of
+integers is using a value that is less than 1 or greater than the
+maximum allowed limit.</p>
+</dd>
+<dt><em>Nz value in read_grid file must be 1 for a 2d simulation</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Only ylo boundary can be axi-symmetric</em></dt><dd><p>Self-explanatory. See the boundary doc page for more details.</p>
+</dd>
+<dt><em>Owned cells with unknown neighbors = %d</em></dt><dd><p>One or more grid cells have unknown neighbors which will prevent
+particles from moving correctly. Please report the issue to the
+SPARTA developers.</p>
+</dd>
+<dt><em>Parent cell child missing</em></dt><dd><p>Hierarchical grid traversal failed. Please report the issue to the
+SPARTA developers.</p>
+</dd>
+<dt><em>Parent cell’s parent does not exist in grid file</em></dt><dd><p>Parent cells must be listed in order such that each cell’s parents
+have already appeared in the list.</p>
+</dd>
+<dt><em>Particle %d on proc %d hit inside of surf %d on step %ld</em></dt><dd><p>This error should not happen if particles start outside of physical
+objects. Please report the issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Particle %d,%d on proc %d is in invalid cell on timestep %ld</em></dt><dd><p>The particle is in a cell indexed by a value that is out-of-bounds
+for the cells owned by this processor.</p>
+</dd>
+<dt><em>Particle %d,%d on proc %d is in split cell on timestep %ld</em></dt><dd><p>This should not happend. The particle should be in one of the
+sub-cells of the split cell.</p>
+</dd>
+<dt><em>Particle %d,%d on proc %d is outside cell on timestep %ld</em></dt><dd><p>The particle’s coordinates are not within the grid cell it is
+supposed to be in.</p>
+</dd>
+<dt><em>Particle vector in equal-style variable formula</em></dt><dd><p>Equal-style variables cannot use per-particle quantities.</p>
+</dd>
+<dt><em>Particle-style variable in equal-style variable formula</em></dt><dd><p>Equal-style variables cannot use per-particle quantities.</p>
+</dd>
+<dt><em>Partition numeric index is out of bounds</em></dt><dd><p>It must be an integer from 1 to the number of partitions.</p>
+</dd>
+<dt><em>Per-particle compute in equal-style variable formula</em></dt><dd><p>Equal-style variables cannot use per-particle quantities.</p>
+</dd>
+<dt><em>Per-particle fix in equal-style variable formula</em></dt><dd><p>Equal-style variables cannot use per-particle quantities.</p>
+</dd>
+<dt><em>Per-processor particle count is too big</em></dt><dd><p>No processor can have more particle than fit in a 32-bit integer,
+approximately 2 billion.</p>
+</dd>
+<dt><em>Point appears first in more than one CLINE</em></dt><dd><p>This is an error when calculating how a 2d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Point appears last in more than one CLINE</em></dt><dd><p>This is an error when calculating how a 2d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Power by 0 in variable formula</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Processor partitions are inconsistent</em></dt><dd><p>The total number of processors in all partitions must match the
+number of processors SPARTA is running on.</p>
+</dd>
+<dt><em>React tce can only be used with collide vss</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Read_grid did not find parents section of grid file</em></dt><dd><p>Expected Parents section but did not find keyword.</p>
+</dd>
+<dt><em>Read_surf did not find lines section of surf file</em></dt><dd><p>Expected Lines section but did not find keyword.</p>
+</dd>
+<dt><em>Read_surf did not find points section of surf file</em></dt><dd><p>Expected Parents section but did not find keyword.</p>
+</dd>
+<dt><em>Read_surf did not find triangles section of surf file</em></dt><dd><p>Expected Triangles section but did not find keyword.</p>
+</dd>
+<dt><em>Region ID for dump custom does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Region intersect region ID does not exist</em></dt><dd><p>One or more of the region IDs specified by the region intersect
+command does not exist.</p>
+</dd>
+<dt><em>Region union region ID does not exist</em></dt><dd><p>One or more of the region IDs specified by the region union command
+does not exist.</p>
+</dd>
+<dt><em>Replacing a fix, but new style != old style</em></dt><dd><p>A fix ID can be used a 2nd time, but only if the style matches the
+previous fix. In this case it is assumed you with to reset a fix’s
+parameters. This error may mean you are mistakenly re-using a fix ID
+when you do not intend to.</p>
+</dd>
+<dt><em>Request for unknown parameter from collide</em></dt><dd><p>VSS model does not have the parameter being requested.</p>
+</dd>
+<dt><em>Restart file byte ordering is not recognized</em></dt><dd><p>The file does not appear to be a SPARTA restart file since it doesn’t
+contain a recognized byte-ordering flag at the beginning.</p>
+</dd>
+<dt><em>Restart file byte ordering is swapped</em></dt><dd><p>The file was written on a machine with different byte-ordering than
+the machine you are reading it on.</p>
+</dd>
+<dt><em>Restart file incompatible with current version</em></dt><dd><p>This is probably because you are trying to read a file created with a
+version of SPARTA that is too old compared to the current version.</p>
+</dd>
+<dt><em>Restart file is a multi-proc file</em></dt><dd><p>The file is inconsistent with the filename specified for it.</p>
+</dd>
+<dt><em>Restart file is not a multi-proc file</em></dt><dd><p>The file is inconsistent with the filename specified for it.</p>
+</dd>
+<dt><em>Restart variable returned a bad timestep</em></dt><dd><p>The variable must return a timestep greater than the current
+timestep.</p>
+</dd>
+<dt><em>Reuse of compute ID</em></dt><dd><p>A compute ID cannot be used twice.</p>
+</dd>
+<dt><em>Reuse of dump ID</em></dt><dd><p>A dump ID cannot be used twice.</p>
+</dd>
+<dt><em>Reuse of region ID</em></dt><dd><p>A region ID cannot be used twice.</p>
+</dd>
+<dt><em>Reuse of surf_collide ID</em></dt><dd><p>A surface collision model ID cannot be used more than once.</p>
+</dd>
+<dt><em>Run command before grid ghost cells are defined</em></dt><dd><p>Normally, ghost cells will be defined when the grid is created via
+the create_grid or read_grid commands. However, if the global gridcut
+cutoff is set to a value &gt;= 0.0, then ghost cells can only be defined
+if the partiioning of cells to processors is clumped, not dispersed.
+See the fix balance command for an explanation. Invoking the fix
+balance command with a clumped option will trigger ghost cells to be
+defined.</p>
+</dd>
+<dt><em>Run command before grid is defined</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Run command start value is after start of run</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Run command stop value is before end of run</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Seed command has not been used</em></dt><dd><p>This command should appear near the beginning of your input script,
+before any random numbers are needed by other commands.</p>
+</dd>
+<dt><em>Sending particle to self</em></dt><dd><p>This error should not occur. Please report the issue to the SPARTA
+developers.</p>
+</dd>
+<dt><em>Single area is negative, inverse donut</em></dt><dd><p>An inverse donut is a surface with a flow region interior to the
+donut hole and also exterior to the entire donut. This means the flow
+regions are disconnected. SPARTA cannot correctly compute the flow
+area of this kind of object.</p>
+</dd>
+<dt><em>Single volume is negative, inverse donut</em></dt><dd><p>An inverse donut is a surface with a flow region interior to the
+donut hole and also exterior to the entire donut. This means the flow
+regions are disconnected. SPARTA cannot correctly compute the flow
+volume of this kind of object.</p>
+</dd>
+<dt><em>Singlet BPG edge not on cell face</em></dt><dd><p>This is an error when calculating how a 3d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Singlet CLINES point not on cell border</em></dt><dd><p>This is an error when calculating how a 2d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Small,big integers are not sized correctly</em></dt><dd><p>This error occurs whenthe sizes of smallint and bigint as defined in
+src/spatype.h are not what is expected. Please report the issue to
+the SPARTA developers.</p>
+</dd>
+<dt><em>Smallint setting in spatype.h is invalid</em></dt><dd><p>It has to be the size of an integer.</p>
+</dd>
+<dt><em>Smallint setting in spatype.h is not compatible</em></dt><dd><p>Smallint size stored in restart file is not consistent with SPARTA
+version you are running.</p>
+</dd>
+<dt><em>Species %s did not appear in VSS parameter file</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Species ID does not appear in species file</em></dt><dd><p>Could not find the requested species in the specified file.</p>
+</dd>
+<dt><em>Species ID is already defined</em></dt><dd><p>Species IDs must be unique.</p>
+</dd>
+<dt><em>Sqrt of negative value in variable formula</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Stats and fix not computed at compatible times</em></dt><dd><p>Fixes generate values on specific timesteps. The stats output does
+not match these timesteps.</p>
+</dd>
+<dt><em>Stats compute array is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Stats compute does not compute array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Stats compute does not compute scalar</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Stats compute does not compute vector</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Stats compute vector is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Stats every variable returned a bad timestep</em></dt><dd><p>The variable must return a timestep greater than the current
+timestep.</p>
+</dd>
+<dt><em>Stats fix array is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Stats fix does not compute array</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Stats fix does not compute scalar</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Stats fix does not compute vector</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Stats fix vector is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Stats variable cannot be indexed</em></dt><dd><p>A variable used as a stats keyword cannot be indexed. E.g. v_foo must
+be used, not v_foo<strong>100</strong>.</p>
+</dd>
+<dt><em>Stats variable is not equal-style variable</em></dt><dd><p>Only equal-style variables can be output with stats output, not
+particle-style or grid-style or surf-style variables.</p>
+</dd>
+<dt><em>Stats_modify every variable returned a bad timestep</em></dt><dd><p>The variable must return a timestep greater than the current
+timestep.</p>
+</dd>
+<dt><em>Stats_modify int format does not contain d character</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Substitution for illegal variable</em></dt><dd><p>Input script line contained a variable that could not be substituted
+for.</p>
+</dd>
+<dt><em>Support for writing images in JPEG format not included</em></dt><dd><p>SPARTA was not built with the -DSPARTA_JPEG switch in the Makefile.</p>
+</dd>
+<dt><em>Support for writing images in PNG format not included</em></dt><dd><p>SPARTA was not built with the -DSPARTA_PNG switch in the Makefile.</p>
+</dd>
+<dt><em>Support for writing movies not included</em></dt><dd><p>SPARTA was not built with the -DSPARTA_FFMPEG switch in the Makefile</p>
+</dd>
+<dt><em>Surf file cannot contain lines for 3d simulation</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Surf file cannot contain triangles for 2d simulation</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Surf file does not contain lines</em></dt><dd><p>Required for a 2d simulation.</p>
+</dd>
+<dt><em>Surf file does not contain points</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Surf file does not contain triangles</em></dt><dd><p>Required for a 3d simulation.</p>
+</dd>
+<dt><em>Surf-style variables are not yet implemented</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Surf_collide ID must be alphanumeric or underscore characters</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Surf_collide diffuse rotation invalid for 2d</em></dt><dd><p>Specified rotation vector must be in z-direction.</p>
+</dd>
+<dt><em>Surf_collide diffuse variable is invalid style</em></dt><dd><p>It must be an equal-style variable.</p>
+</dd>
+<dt><em>Surf_collide diffuse variable name does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Surface check failed with %d duplicate edges</em></dt><dd><p>One or more edges appeared in more than 2 triangles.</p>
+</dd>
+<dt><em>Surface check failed with %d duplicate points</em></dt><dd><p>One or more points appeared in more than 2 lines.</p>
+</dd>
+<dt><em>Surface check failed with %d infinitely thin line pairs</em></dt><dd><p>Two adjacent lines have normals in opposite directions indicating the
+lines overlay each other.</p>
+</dd>
+<dt><em>Surface check failed with %d infinitely thin triangle pairs</em></dt><dd><p>Two adjacent triangles have normals in opposite directions indicating
+the triangles overlay each other.</p>
+</dd>
+<dt><em>Surface check failed with %d points on lines</em></dt><dd><p>One or more points are on a line they are not an end point of, which
+indicates an ill-formed surface.</p>
+</dd>
+<dt><em>Surface check failed with %d points on triangles</em></dt><dd><p>One or more points are on a triangle they are not an end point of,
+which indicates an ill-formed surface.</p>
+</dd>
+<dt><em>Surface check failed with %d unmatched edges</em></dt><dd><p>One or more edges did not appear in a triangle, or appeared only once
+and edge is not on surface of simulation box.</p>
+</dd>
+<dt><em>Surface check failed with %d unmatched points</em></dt><dd><p>One or more points did not appear in a line, or appeared only once
+and point is not on surface of simulation box.</p>
+</dd>
+<dt><em>Timestep must be &gt;= 0</em></dt><dd><p>Reset_timestep cannot be used to set a negative timestep.</p>
+</dd>
+<dt><em>Too big a timestep</em></dt><dd><p>Reset_timestep timestep value must fit in a SPARTA big integer, as
+specified by the -DSPARTA_SMALL, -DSPARTA_BIG, or -DSPARTA_BIGBIG
+options in the low-level Makefile used to build SPARTA. See Section
+2.2 of the manual for details.</p>
+</dd>
+<dt><em>Too many surfs in one cell</em></dt><dd><p>Use the global surfmax command to increase this max allowed number of
+surfs per grid cell.</p>
+</dd>
+<dt><em>Too many timesteps</em></dt><dd><p>The cummulative timesteps must fit in a SPARTA big integer, as as
+specified by the -DSPARTA_SMALL, -DSPARTA_BIG, or -DSPARTA_BIGBIG
+options in the low-level Makefile used to build SPARTA. See Section
+2.2 of the manual for details.</p>
+</dd>
+<dt><em>Too much buffered per-proc info for dump</em></dt><dd><p>Number of dumped values per processor cannot exceed a small integer
+(~2 billion values).</p>
+</dd>
+<dt><em>Too much per-proc info for dump</em></dt><dd><p>Number of local atoms times number of columns must fit in a 32-bit
+integer for dump.</p>
+</dd>
+<dt><em>Unbalanced quotes in input line</em></dt><dd><p>No matching end double quote was found following a leading double
+quote.</p>
+</dd>
+<dt><em>Unexpected end of data file</em></dt><dd><p>SPARTA hit the end of the data file while attempting to read a
+section. Something is wrong with the format of the data file.</p>
+</dd>
+<dt><em>Unexpected end of grid file</em></dt><dd><p>Self-explantory.</p>
+</dd>
+<dt><em>Unexpected end of surf file</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Units command after simulation box is defined</em></dt><dd><p>The units command cannot be used after a read_data, read_restart, or
+create_box command.</p>
+</dd>
+<dt><em>Universe/uloop variable count &lt; # of partitions</em></dt><dd><p>A universe or uloop style variable must specify a number of values &gt;=
+to the number of processor partitions.</p>
+</dd>
+<dt><em>Unknown command: %s</em></dt><dd><p>The command is not known to SPARTA. Check the input script.</p>
+</dd>
+<dt><em>Unknown outcome in reaction</em></dt><dd><p>The specified type of the reaction is not encoded in the reaction
+style.</p>
+</dd>
+<dt><em>VSS parameters do not match current species</em></dt><dd><p>Species cannot be added after VSS colision file is read.</p>
+</dd>
+<dt><em>Variable ID in variable formula does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable evaluation before simulation box is defined</em></dt><dd><p>Cannot evaluate a compute or fix or atom-based value in a variable
+before the simulation has been setup.</p>
+</dd>
+<dt><em>Variable for dump every is invalid style</em></dt><dd><p>Only equal-style variables can be used.</p>
+</dd>
+<dt><em>Variable for dump image center is invalid style</em></dt><dd><p>Must be an equal-style variable.</p>
+</dd>
+<dt><em>Variable for dump image persp is invalid style</em></dt><dd><p>Must be an equal-style variable.</p>
+</dd>
+<dt><em>Variable for dump image phi is invalid style</em></dt><dd><p>Must be an equal-style variable.</p>
+</dd>
+<dt><em>Variable for dump image theta is invalid style</em></dt><dd><p>Must be an equal-style variable.</p>
+</dd>
+<dt><em>Variable for dump image zoom is invalid style</em></dt><dd><p>Must be an equal-style variable.</p>
+</dd>
+<dt><em>Variable for restart is invalid style</em></dt><dd><p>It must be an equal-style variable.</p>
+</dd>
+<dt><em>Variable for stats every is invalid style</em></dt><dd><p>It must be an equal-style variable.</p>
+</dd>
+<dt><em>Variable formula compute array is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable formula compute vector is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable formula fix array is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable formula fix vector is accessed out-of-range</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable has circular dependency</em></dt><dd><p>A circular dependency is when variable “a” in used by variable “b”
+and variable “b” is also used by varaible “a”. Circular dependencies
+with longer chains of dependence are also not allowed.</p>
+</dd>
+<dt><em>Variable name between brackets must be alphanumeric or underscore characters</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable name for compute reduce does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable name for dump every does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable name for dump image center does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable name for dump image persp does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable name for dump image phi does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable name for dump image theta does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable name for dump image zoom does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable name for fix ave/grid does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable name for fix ave/surf does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable name for fix ave/time does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable name for restart does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable name for stats every does not exist</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable name must be alphanumeric or underscore characters</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+<dt><em>Variable stats keyword cannot be used between runs</em></dt><dd><p>Stats keywords that refer to time (such as cpu, elapsed) do not make
+sense in between runs.</p>
+</dd>
+<dt><em>Vertex contains duplicate edge</em></dt><dd><p>This is an error when calculating how a 3d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Vertex contains edge that doesn’t point to it</em></dt><dd><p>This is an error when calculating how a 3d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Vertex contains invalid edge</em></dt><dd><p>This is an error when calculating how a 3d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Vertex has less than 3 edges</em></dt><dd><p>This is an error when calculating how a 3d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>Vertex pointers to last edge are invalid</em></dt><dd><p>This is an error when calculating how a 3d grid is cut or split by
+surface elements. It should not normally occur. Please report the
+issue to the SPARTA developers.</p>
+</dd>
+<dt><em>World variable count doesn’t match # of partitions</em></dt><dd><p>A world-style variable must specify a number of values equal to the
+number of processor partitions.</p>
+</dd>
+<dt><em>Y cannot be periodic for axi-symmetric</em></dt><dd><p>Self-explanatory. See the boundary doc page for more details.</p>
+</dd>
+<dt><em>Z dimension must be periodic for 2d simulation</em></dt><dd><p>Self-explanatory.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="warnings">
+<span id="errors-warnings"></span><h3>12.3.2. Warnings<a class="headerlink" href="#warnings" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt><em>%d particles were in wrong cells on timestep %ld</em></dt><dd><p>This is the total number of particles that are incorrectly matched to
+their grid cell.</p>
+</dd>
+<dt><em>Grid cell interior corner points marked as unknown = %d</em></dt><dd><p>Corner points of grid cells interior to the simulation domain were
+not all marked successfully as inside, outside, or overlapping with
+surface elements. This should normally not happen, but does not
+affect simulations.</p>
+</dd>
+<dt><em>More than one compute ke/particle</em></dt><dd><p>This may be inefficient since each such compute stores a vector of
+length equal to the number of particles.</p>
+</dd>
+<dt><em>Restart file used different # of processors</em></dt><dd><p>The restart file was written out by a SPARTA simulation running on a
+different number of processors. This means you will likely want to
+re-balance the grid cells and particles across processors. This can
+be done using the balance or fix balance commands.</p>
+</dd>
+<dt><em>Surface check found %d nearly infinitely thin line pairs</em></dt><dd><p>Two adjacent lines have normals in nearly opposite directions
+indicating the lines nearly overlay each other.</p>
+</dd>
+<dt><em>Surface check found %d nearly infinitely thin triangle pairs</em></dt><dd><p>Two adjacent triangles have normals in nearly opposite directions
+indicating the triangles nearly overlay each other.</p>
+</dd>
+<dt><em>Surface check found %d points nearly on lines</em></dt><dd><p>One or more points are nearly on a line they are not an end point of,
+which indicates an ill-formed surface.</p>
+</dd>
+<dt><em>Surface check found %d points nearly on triangles</em></dt><dd><p>One or more points are nearly on a triangle they are not an end point
+of, which indicates an ill-formed surface.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Section_history.html" class="btn btn-neutral float-right" title="13. Future and history" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Section_python.html" class="btn btn-neutral float-left" title="11. Python interface to SPARTA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

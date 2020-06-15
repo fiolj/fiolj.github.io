@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8. Performance &amp; scalability &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="9. Additional tools" href="Section_tools.html" />
+    <link rel="prev" title="7. Example problems" href="Section_example.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>8. Performance &amp; scalability</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Section_perf.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="performance-scalability">
+<span id="performance"></span><h1>8. Performance &amp; scalability<a class="headerlink" href="#performance-scalability" title="Permalink to this headline">¶</a></h1>
+<p>The SPARTA distribution includes a bench sub-directory with several sample problems. The Benchmarks page of the <a class="reference external" href="http://sparta.sandia.gov">SPARTA WWW Site</a> gives timing data for these problems run on different machines, for both strong and weak scaling scenarioes:</p>
+<ul class="simple">
+<li><p>free = free molecular flow in a box</p></li>
+<li><p>collide = collisional molecular flow in a box</p></li>
+<li><p>sphere = flow around a sphere</p></li>
+</ul>
+<p>For each problem there is an input script and sample log file outputs on different machines and different numbers of processors. E.g. a log file like log.free.foo.1M.P means the the free molecular problem with 1 million grid cells ran on P processors of machine “foo”.</p>
+<p>Each can be run as a serial benchmark (on one processor) or in parallel.  In parallel, all the benchmarks can be run as a fixed-size problem, meaning the same problem is run on various numbers of processors (strong scaling). They can also be run as scaled-size problem, if the problem size is increased with the number of processors (weak scaling).</p>
+<p>Here is an example of how to run the benchmark problems. See the bench/README file for more details.</p>
+<ul>
+<li><p>1-processor runs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">v</span> <span class="n">x</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">y</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">z</span> <span class="mi">100</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">free</span>
+<span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">v</span> <span class="n">x</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">y</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">z</span> <span class="mi">100</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>
+<span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">v</span> <span class="n">x</span> <span class="mi">50</span> <span class="o">-</span><span class="n">v</span> <span class="n">y</span> <span class="mi">50</span> <span class="o">-</span><span class="n">v</span> <span class="n">z</span> <span class="mi">50</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">sphere</span>
+</pre></div>
+</div>
+</li>
+<li><p>32-processor runs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">32</span> <span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">v</span> <span class="n">x</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">y</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">z</span> <span class="mi">100</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">free</span>
+<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">32</span> <span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">v</span> <span class="n">x</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">y</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">z</span> <span class="mi">100</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>
+<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">32</span> <span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">v</span> <span class="n">x</span> <span class="mi">50</span> <span class="o">-</span><span class="n">v</span> <span class="n">y</span> <span class="mi">50</span> <span class="o">-</span><span class="n">v</span> <span class="n">z</span> <span class="mi">50</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">sphere</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Note that the benchmark scripts define variables that can be set from
+the command line that determine the size of problem that is run.
+Specifically, the x,y,z variables specify the grid size (e.g.
+100x100x100) that is used, and variable n specifies the number of
+particles (10 per grid cell in this case).</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Section_tools.html" class="btn btn-neutral float-right" title="9. Additional tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Section_example.html" class="btn btn-neutral float-left" title="7. Example problems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>print command &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>print command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/print.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="print-command">
+<span id="command-print"></span><h1>print command<a class="headerlink" href="#print-command" title="Permalink to this headline">¶</a></h1>
+<p><strong>Syntax:</strong></p>
+<p>print string keyword value:pre</p>
+<ul>
+<li><p>string = text string to print, which may contain variables</p></li>
+<li><p>zero or more keyword/value pairs may be appended</p></li>
+<li><p>keyword = <em>file</em> or <em>append</em> or <em>screen</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="n">value</span> <span class="o">=</span> <span class="n">filename</span>
+<span class="n">append</span> <span class="n">value</span> <span class="o">=</span> <span class="n">filename</span>
+<span class="n">screen</span> <span class="n">value</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s2">&quot;Done with equilibration&quot;</span>
+<span class="nb">print</span> <span class="s1">&#39;Done with equilibration&#39;</span>
+<span class="nb">print</span> <span class="s2">&quot;Done with equilibration&quot;</span> <span class="n">file</span> <span class="n">info</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">myTemp</span> <span class="n">temp</span>
+<span class="n">variable</span> <span class="n">t</span> <span class="n">equal</span> <span class="n">c_myTemp</span>
+<span class="nb">print</span> <span class="s2">&quot;The system temperature is now $t&quot;</span>
+</pre></div>
+</div>
+<p><strong>Description:</strong></p>
+<p>Print a text string to the screen and logfile. One line of output is
+generated. The text string must be a single argument, so it should be
+enclosed in quotes if it is more than one word. If it contains
+variables, they will be evaluated and their current values printed.</p>
+<p>If the <em>file</em> or <em>append</em> keyword is used, a filename is specified to
+which the output will be written. If <em>file</em> is used, then the filename
+is overwritten if it already exists. If <em>append</em> is used, then the
+filename is appended to if it already exists, or created if it does not
+exist.</p>
+<p>If the <em>screen</em> keyword is used, output to the screen and logfile can be
+turned on or off as desired.</p>
+<p>If you want the print command to be executed multiple times (e.g. with
+changing variable values), there are 3 options. First, consider using
+the <a class="reference external" href="fix_print.html">fix print</a> command, which will print a string
+periodically during a simulation. Second, the print command can be used
+as an argument to the <em>every</em> option of the <a class="reference external" href="run.html">run</a> command.
+Third, the print command could appear in a section of the input script
+that is looped over (see the <a class="reference external" href="jump.html">jump</a> and
+<a class="reference external" href="next.html">next</a> commands).</p>
+<p>See the <a class="reference external" href="variable.html">variable</a> command for a description of
+<em>equal</em> style variables which are typically the most useful ones to use
+with the print command. Equal-style variables can calculate formulas
+involving mathematical operations, global values calculated by a
+<a class="reference external" href="compute.html">compute</a> or <a class="reference external" href="fix.html">fix</a>, or references to other
+<a class="reference external" href="variable.html">variables</a>.</p>
+<p><strong>Restrictions:</strong> none</p>
+<p><strong>Related commands:</strong></p>
+<p><a class="reference internal" href="fix_print.html#command-fix-print"><span class="std std-ref">fix print command</span></a>,
+<a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable command</span></a></p>
+<p><strong>Default:</strong></p>
+<p>The option defaults are no file output and screen = yes.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

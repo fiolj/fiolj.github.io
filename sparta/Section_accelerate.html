@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. Accelerating SPARTA performance &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. How-to discussions" href="Section_howto.html" />
+    <link rel="prev" title="4. Packages" href="Section_packages.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Accelerating SPARTA performance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#measuring-performance">5.1. Measuring performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packages-with-optimized-styles">5.2. Packages with optimized styles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>5. Accelerating SPARTA performance</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Section_accelerate.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="accelerating-sparta-performance">
+<span id="accelerating"></span><h1>5. Accelerating SPARTA performance<a class="headerlink" href="#accelerating-sparta-performance" title="Permalink to this headline">¶</a></h1>
+<p>This section describes various methods for improving SPARTA performance
+for different classes of problems running on different kinds of
+machines.</p>
+<p>Currently the only option is to use the KOKKOS accelerator packages
+provided with SPARTA that contains code optimized for certain kinds of
+hardware, including multi-core CPUs, GPUs, and Intel Xeon Phi
+coprocessors.</p>
+<ul class="simple">
+<li><p>5.1 <cite>Measuring performance &lt;accelerating-measuring&gt;</cite></p></li>
+<li><p>5.2 <cite>Accelerator packages with optimized styles &lt;accelerating-measuring&gt;</cite></p></li>
+<li><p>5.2.1 <cite>KOKKOS package &lt;accelerate-kokkos&gt;</cite></p></li>
+</ul>
+<p>The <a class="reference external" href="http://sparta.sandia.gov/bench.html">Benchmark page</a> of the
+SPARTA web site gives performance results for the various accelerator
+packages discussed in Section 5.2, for several of the standard SPARTA
+benchmark problems, as a function of problem size and number of compute
+nodes, on different hardware platforms.</p>
+<div class="section" id="measuring-performance">
+<span id="accelerating-measuring"></span><h2>5.1. Measuring performance<a class="headerlink" href="#measuring-performance" title="Permalink to this headline">¶</a></h2>
+<p>Before trying to make your simulation run faster, you should understand
+how it currently performs and where the bottlenecks are.</p>
+<p>The best way to do this is run the your system (actual number of
+particles) for a modest number of timesteps (say 100 steps) on several
+different processor counts, including a single processor if possible. Do
+this for an equilibrium version of your system, so that the 100-step
+timings are representative of a much longer run. There is typically no
+need to run for 1000s of timesteps to get accurate timings; you can
+simply extrapolate from short runs.</p>
+<p>For the set of runs, look at the timing data printed to the screen and log file at the end of each SPARTA run.
+<a class="reference internal" href="Section_start.html#start-screen"><span class="std std-ref">This section</span></a> of the manual has an overview.</p>
+<p>Running on one (or a few processors) should give a good estimate of the
+serial performance and what portions of the timestep are taking the most
+time. Running the same problem on a few different processor counts
+should give an estimate of parallel scalability. I.e. if the simulation
+runs 16x faster on 16 processors, its 100% parallel efficient; if it
+runs 8x faster on 16 processors, it’s 50% efficient.</p>
+<p>The most important data to look at in the timing info is the timing
+breakdown and relative percentages. For example, trying different
+options for speeding up the FFTs will have little impact if they only
+consume 10% of the run time. If the collide time is dominating, you may
+want to look at the KOKKOS package, as discussed below. Comparing how
+the percentages change as you increase the processor count gives you a
+sense of how different operations within the timestep are scaling.</p>
+<p>Another important detail in the timing info are the histograms of
+particles counts and neighbor counts. If these vary widely across
+processors, you have a load-imbalance issue. This often results in
+inaccurate relative timing data, because processors have to wait when
+communication occurs for other processors to catch up. Thus the reported
+times for “Communication” or “Other” may be higher than they really are,
+due to load-imbalance. If this is an issue, you can uncomment the
+MPI_Barrier() lines in src/timer.cpp, and recompile SPARTA, to obtain
+synchronized timings.</p>
+</div>
+<div class="section" id="packages-with-optimized-styles">
+<span id="accelerating-optimized"></span><h2>5.2. Packages with optimized styles<a class="headerlink" href="#packages-with-optimized-styles" title="Permalink to this headline">¶</a></h2>
+<p>Accelerated versions of various <a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide_style</span></a>,
+<a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fixes</span></a>, <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">computes</span></a>, and other commands
+have been added to SPARTA via the KOKKOS package, which may run faster
+than the standard non-accelerated versions.</p>
+<p>All of these commands are in the KOKKOS package provided with SPARTA. An
+overview of packages is give in Section <a class="reference internal" href="Section_packages.html#packages"><span class="std std-ref">Packages</span></a></p>
+<p>SPARTA currently has acceleration support for three kinds of hardware,
+via the KOKKOS package: Many-core CPUs, NVIDIA GPUs, and Intel Xeon Phi.</p>
+<p>Whether you will see speedup for your hardware may depend on the size
+problem you are running and what commands (accelerated and
+non-accelerated) are invoked by your input script. While these doc pages
+include performance guidelines, there is no substitute for trying out
+the KOKKOS package.</p>
+<p>Any accelerated style has the same name as the corresponding standard
+style, except that a suffix is appended. Otherwise, the syntax for the
+command that uses the style is identical, their functionality is the
+same, and the numerical results it produces should also be the same,
+except for precision and round-off effects, and differences in random
+numbers.</p>
+<p>For example, the KOKKOS package provides an accelerated variant of the
+Temperature Compute <a class="reference internal" href="compute_temp.html#command-compute-temp"><span class="std std-ref">compute temp command</span></a>, namely
+<a class="reference internal" href="compute_temp.html#command-compute-temp"><span class="std std-ref">compute temp/kk</span></a></p>
+<p>To see what accelerate styles are currently available, see Section
+<a class="reference internal" href="Section_commands.html#individual-commands"><span class="std std-ref">Individual commands</span></a> of the manual. The doc pages for
+individual commands (e.g. <a class="reference internal" href="compute_temp.html#command-compute-temp"><span class="std std-ref">compute temp command</span></a>) also
+list any accelerated variants available for that style.</p>
+<p>To use an accelerator package in SPARTA, and one or more of the styles
+it provides, follow these general steps:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Action</p></th>
+<th class="head"><p>Steps</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>install the accelerator package</p></td>
+<td><p>make yes-fft, make yes-kokkos, etc</p></td>
+</tr>
+<tr class="row-odd"><td><p>add compile/link flags to Makefile.machine in src/MAKE</p></td>
+<td><p>KOKKOS_ARCH=Pascal60</p></td>
+</tr>
+<tr class="row-even"><td><p>re-build SPARTA</p></td>
+<td><p>make kokkos_cuda</p></td>
+</tr>
+<tr class="row-odd"><td><p>prepare and test a regular SPARTA simulation</p></td>
+<td><p>lmp_kokkos_cuda -in in.script; mpirun -np 32 lmp_kokkos_cuda -in in.script</p></td>
+</tr>
+<tr class="row-even"><td><p>enable specific accelerator support via ‘-k on’ <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line switch</span></a></p></td>
+<td><p>k on g 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>set any needed options for the package via “-pk” <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line switch</span></a> or <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package command</span></a></p></td>
+<td><p>only if defaults need to be changed, -pk kokkos reduction atomic</p></td>
+</tr>
+<tr class="row-even"><td><p>use accelerated styles in your input via “-sf” <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line switch</span></a> or <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix command</span></a></p></td>
+<td><p>lmp_kokkos_cuda -in in.script -sf kk</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note that the first 3 steps can be done as a single command with
+suitable make command invocations. This is discussed in <a class="reference internal" href="Section_packages.html#packages"><span class="std std-ref">Packages</span></a> of the manual, and its use is illustrated in the individual accelerator sections.
+Typically these steps only need to be done once, to create an executable that uses one or more accelerator packages.</p>
+<p>The last 4 steps can all be done from the command-line when SPARTA is
+launched, without changing your input script, as illustrated in the
+individual accelerator sections. Or you can add
+<a class="reference internal" href="package.html#command-package"><span class="std std-ref">package command</span></a> and <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix command</span></a> to your input script.</p>
+<p>The <a class="reference external" href="http://sparta.sandia.gov/bench.html">Benchmark page</a> of the
+SPARTA web site gives performance results for the various accelerator
+packages for several of the standard SPARTA benchmark problems, as a
+function of problem size and number of compute nodes, on different
+hardware platforms.</p>
+<p>Here is a brief summary of what the KOKKOS package provides.</p>
+<p>Styles with a “kk” suffix are part of the KOKKOS package, and can be run
+using OpenMP on multicore CPUs, on an NVIDIA GPU, or on an Intel Xeon
+Phi in “native” mode. The speed-up depends on a variety of factors, as
+discussed on the KOKKOS accelerator page.</p>
+<p>The KOKKOS accelerator package doc page explains:</p>
+<ul class="simple">
+<li><p>what hardware and software the accelerated package requires</p></li>
+<li><p>how to build SPARTA with the accelerated package</p></li>
+<li><p>how to run with the accelerated package either via command-line
+switches or modifying the input script</p></li>
+<li><p>speed-ups to expect</p></li>
+<li><p>guidelines for best performance</p></li>
+<li><p>restrictions</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Section_howto.html" class="btn btn-neutral float-right" title="6. How-to discussions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Section_packages.html" class="btn btn-neutral float-left" title="4. Packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

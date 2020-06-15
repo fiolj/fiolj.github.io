@@ -1,0 +1,486 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>10. Modifying &amp; extending SPARTA &mdash; SPARTA 7 May 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="11. Python interface to SPARTA" href="Section_python.html" />
+    <link rel="prev" title="9. Additional tools" href="Section_tools.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">10. Modifying &amp; extending SPARTA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#compute-styles">10.1. Compute styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fix-styles">10.2. Fix styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#region-styles">10.3. Region styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#collision-styles">10.4. Collision styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#surface-collision-styles">10.5. Surface collision styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chemistry-styles">10.6. Chemistry styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dump-styles">10.7. Dump styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-script-commands">10.8. Input script commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>10. Modifying &amp; extending SPARTA</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Section_modify.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="modifying-extending-sparta">
+<span id="modify"></span><h1>10. Modifying &amp; extending SPARTA<a class="headerlink" href="#modifying-extending-sparta" title="Permalink to this headline">¶</a></h1>
+<p>This section describes how to extend SPARTA by modifying its source
+code.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#compute-styles" id="id1">Compute styles</a></p></li>
+<li><p><a class="reference internal" href="#fix-styles" id="id2">Fix styles</a></p></li>
+<li><p><a class="reference internal" href="#region-styles" id="id3">Region styles</a></p></li>
+<li><p><a class="reference internal" href="#collision-styles" id="id4">Collision styles</a></p></li>
+<li><p><a class="reference internal" href="#surface-collision-styles" id="id5">Surface collision styles</a></p></li>
+<li><p><a class="reference internal" href="#chemistry-styles" id="id6">Chemistry styles</a></p></li>
+<li><p><a class="reference internal" href="#dump-styles" id="id7">Dump styles</a></p></li>
+<li><p><a class="reference internal" href="#input-script-commands" id="id8">Input script commands</a></p></li>
+</ul>
+</div>
+<p>SPARTA is designed in a modular fashion so as to be easy to modify and extend with new functionality.</p>
+<p>In this section, changes and additions users can make are listed along with minimal instructions. If you add a new feature to SPARTA and think it will be of general interest to users, please submit it to the <a class="reference external" href="http://sparta.sandia.gov/authors.html">developers</a> for inclusion in the released version of SPARTA.</p>
+<p>The best way to add a new feature is to find a similar feature in SPARTA and look at the corresponding source and header files to figure out what it does. You will need some knowledge of C++ to be able to understand the hi-level structure of SPARTA and its class organization, but functions (class methods) that do actual computations are written in vanilla C-style code and operate on simple C-style data structures (vectors, arrays, structs).</p>
+<p>The new features described in this section require you to write a new C++ derived class. Creating a new class requires 2 files, a source code file (<em>.cpp) and a header file (</em>.h). The derived class must provide certain methods to work as a new option. Depending on how different your new feature is compared to existing features, you can either derive from the base class itself, or from a derived class that already exists.  Enabling SPARTA to invoke the new class is as simple as putting the two source files in the src dir and re-building SPARTA.</p>
+<p>The advantage of C++ and its object-orientation is that all the code and variables needed to define the new feature are in the 2 files you write, and thus shouldn’t make the rest of SPARTA more complex or cause side-effect bugs.</p>
+<p>Here is a concrete example. Suppose you write 2 files collide_foo.cpp and collide_foo.h that define a new class CollideFoo that computes inter-particle collisions described in the classic 1997 paper by Foo, et al. If you wish to invoke those potentials in a SPARTA input script with a command like</p>
+<p>collide foo mix-ID params.foo 3.0</p>
+<p>then your collide_foo.h file should be structured as follows:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#ifdef COLLIDE_CLASS</span>
+  <span class="n">CollideStyle</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span><span class="n">CollideFoo</span><span class="p">)</span>
+<span class="c1">#else</span>
+  <span class="o">...</span> <span class="p">(</span><span class="k">class</span> <span class="nc">definition</span> <span class="k">for</span> <span class="n">CollideFoo</span><span class="p">)</span> <span class="o">...</span>
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>where “foo” is the style keyword in the collid command, and CollideFoo is the class name defined in your collide_foo.cpp and collide_foo.h files.</p>
+<p>When you re-build SPARTA, your new collision model becomes part of the executable and can be invoked with a <a class="reference external" href="collide.html">collide</a> command like the example above. Arguments like a mixture ID, params.foo (a file with collision parameters), and 3.0 can be defined and processed by your new class.</p>
+<p>As illustrated by this example, many kinds of options are referred to in the SPARTA documentation as the “style” of a particular command.</p>
+<p>The instructions below give the header file for the base class that these styles are derived from. Public variables in that file are ones used and set by the derived classes which are also used by the base class. Sometimes they are also used by the rest of SPARTA. Virtual functions in the base class header file which are set = 0 are ones that must be defined in the new derived class to give it the functionality SPARTA expects. Virtual functions that are not set to 0 are functions that can be optionally defined.</p>
+<p>Here are additional guidelines for modifying SPARTA and adding new functionality:</p>
+<ul>
+<li><p>Think about whether what you want to do would be better as a pre- or post-processing step. Many computations are more easily and more quickly done that way.</p></li>
+<li><p>Don’t do anything within the timestepping of a run that isn’t parallel. E.g. don’t accumulate a large volume of data on a single processor and analyze it. This runs the risk of seriously degrading the parallel efficiency.</p>
+<p>If you have a question about how to compute something or about internal SPARTA data structures or algorithms, feel free to send an email to the <a class="reference external" href="http://sparta.sandia.gov/authors.html">developers</a>.</p>
+</li>
+<li><p>If you add something you think is generally useful, also send an email to the <a class="reference external" href="http://sparta.sandia.gov/authors.html">developers</a> so we can consider adding it to the SPARTA distribution.</p></li>
+</ul>
+<div class="section" id="compute-styles">
+<h2><a class="toc-backref" href="#id1">10.1. Compute styles</a><a class="headerlink" href="#compute-styles" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">Compute style commands</span></a> calculate instantaneous properties of the simulated system. They can be global properties, or per particle or per grid cell or per surface element properties. The result can be single value or multiple values (global or per particle or per grid or per surf).</p>
+<p>Here is a brief description of methods to define in a new derived class.  See compute.h for details. All of these methods are optional.</p>
+<table class="colwidths-auto docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>init</p></td>
+<td><p>initialization before a run</p></td>
+</tr>
+<tr class="row-even"><td><p>compute_scalar</p></td>
+<td><p>compute a global scalar quantity</p></td>
+</tr>
+<tr class="row-odd"><td><p>compute_vector</p></td>
+<td><p>compute a global vector of quantities</p></td>
+</tr>
+<tr class="row-even"><td><p>compute_per_particle</p></td>
+<td><p>compute one or more quantities per particle</p></td>
+</tr>
+<tr class="row-odd"><td><p>compute_per_grid</p></td>
+<td><p>compute one or more quantities per grid cell</p></td>
+</tr>
+<tr class="row-even"><td><p>compute_per_surf</p></td>
+<td><p>compute one or more quantities per surface element</p></td>
+</tr>
+<tr class="row-odd"><td><p>surf_tally</p></td>
+<td><p>call when a particle hits a surface element</p></td>
+</tr>
+<tr class="row-even"><td><p>boundary_tally</p></td>
+<td><p>call when a particle hits a simulation box boundary</p></td>
+</tr>
+<tr class="row-odd"><td><p>memory_usage</p></td>
+<td><p>tally memory usage</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note that computes with “/particle” in their style name calculate per
+particle quantities, with “/grid” in their name calculate per grid cell
+quantities, and with “/surf” in their name calculate per surface element
+properties. All others calcuulate global quantities.</p>
+<p>Flags may also need to be set by a compute to enable specific
+properties. See the compute.h header file for one-line descriptions.</p>
+</div>
+<div class="section" id="fix-styles">
+<h2><a class="toc-backref" href="#id2">10.2. Fix styles</a><a class="headerlink" href="#fix-styles" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">Fix style commands</span></a> perform operations during the timestepping loop of a simulation. They can define methods which are invoked at different points within the timestep. They can be used to insert particles, perform load-balancing, or perform time-averaging of various quantities. They can also define and maintain new per-particle vectors and arrays that define quantities that move with particles when they migrate from processor to processor or when the grid is rebalanced or adapated. They can also produce output of various kinds, similar to <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute command</span></a>.</p>
+<p>Here is a brief description of methods to define in a new derived class.  See fix.h for details. All of these methods are optional, except <code class="docutils literal notranslate"><span class="pre">setmask()</span></code>.</p>
+<table class="colwidths-auto docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>setmask</p></td>
+<td><p>set flags that determine when the fix is called within a timestep</p></td>
+</tr>
+<tr class="row-even"><td><p>init</p></td>
+<td><p>initialization before a run</p></td>
+</tr>
+<tr class="row-odd"><td><p>start_of_step</p></td>
+<td><p>called at beginning of timestep</p></td>
+</tr>
+<tr class="row-even"><td><p>end_of_step</p></td>
+<td><p>called at end of timestep</p></td>
+</tr>
+<tr class="row-odd"><td><p>add_particle</p></td>
+<td><p>called when a particle is created</p></td>
+</tr>
+<tr class="row-even"><td><p>surf_react</p></td>
+<td><p>called when a surface reaction occurs</p></td>
+</tr>
+<tr class="row-odd"><td><p>memory_usage</p></td>
+<td><p>tally memory usage</p></td>
+</tr>
+</tbody>
+</table>
+<p>Flags may also need to be set by a fix to enable specific properties.
+See the fix.h header file for one-line descriptions.</p>
+<p>Fixes can interact with the Particle class to create new per-particle
+vectors and arrays and access and update their values. These are the
+relevant Particle class methods:</p>
+<table class="colwidths-auto docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>add_custom</p></td>
+<td><p>add a new custom vector or array</p></td>
+</tr>
+<tr class="row-even"><td><p>find_custom</p></td>
+<td><p>find a previously defined custom vector or array</p></td>
+</tr>
+<tr class="row-odd"><td><p>remove_custom</p></td>
+<td><p>remove a custom vector or array</p></td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="fix_ambipolar.html#command-fix-ambipolar"><span class="std std-ref">fix ambipolar</span></a> for an example of how these are used. It defines an integer vector called “ionambi” to flag particles as ambipolar ions, and a floatin-point array called “velambi” to store the velocity vector for the associated electron.</p>
+</div>
+<div class="section" id="region-styles">
+<h2><a class="toc-backref" href="#id3">10.3. Region styles</a><a class="headerlink" href="#region-styles" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="region.html#command-region"><span class="std std-ref">Region style commands</span></a> define geometric regions within the simulation box. Other commands use regions to limit their computational scope.</p>
+<p>Here is a brief description of methods to define in a new derived class.  See region.h for details. The <code class="docutils literal notranslate"><span class="pre">inside()</span></code> method is required.</p>
+<dl class="simple">
+<dt>inside:</dt><dd><p>determine whether a point is inside/outside the region</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="collision-styles">
+<h2><a class="toc-backref" href="#id4">10.4. Collision styles</a><a class="headerlink" href="#collision-styles" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">Collision style commands</span></a> define collision models that calculate interactions between particles in the same grid cell.</p>
+<p>Here is a brief description of methods to define in a new derived class.  See collide.h for details. All of these methods are required except <code class="docutils literal notranslate"><span class="pre">init()</span></code> and <code class="docutils literal notranslate"><span class="pre">modify_params()</span></code>.</p>
+<table class="colwidths-auto docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>init</p></td>
+<td><p>initialization before a run</p></td>
+</tr>
+<tr class="row-even"><td><p>modify_params</p></td>
+<td><p>process style-specific options of the <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify command</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>vremax_init</p></td>
+<td><p>estimate vremax settings</p></td>
+</tr>
+<tr class="row-even"><td><p>attempt_collision</p></td>
+<td><p>compute # of collisions to attempt for entire cell</p></td>
+</tr>
+<tr class="row-odd"><td><p>attempt_collision</p></td>
+<td><p>compute # of collisions to attempt between 2 species groups</p></td>
+</tr>
+<tr class="row-even"><td><p>test_collision</p></td>
+<td><p>determine if a collision bewteen 2 particles occurs</p></td>
+</tr>
+<tr class="row-odd"><td><p>setup_collision</p></td>
+<td><p>pre-computation before a 2-particle collision</p></td>
+</tr>
+<tr class="row-even"><td><p>perform_collision</p></td>
+<td><p>calculate the outcome of a 2-particle collision</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="surface-collision-styles">
+<h2><a class="toc-backref" href="#id5">10.5. Surface collision styles</a><a class="headerlink" href="#surface-collision-styles" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">Surface collision style commands</span></a> define collision models that calculate interactions between a particle and surface element.</p>
+<p>Here is a brief description of methods to define in a new derived class.  See surf_collide.h for details. All of these methods are required except dynamic().</p>
+<table class="colwidths-auto docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>init</p></td>
+<td><p>initialization before a run</p></td>
+</tr>
+<tr class="row-even"><td><p>collide</p></td>
+<td><p>perform a particle/surface-element collision</p></td>
+</tr>
+<tr class="row-odd"><td><p>dynamic</p></td>
+<td><p>allow surface property to change during a simulation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="chemistry-styles">
+<h2><a class="toc-backref" href="#id6">10.6. Chemistry styles</a><a class="headerlink" href="#chemistry-styles" title="Permalink to this headline">¶</a></h2>
+<p>Particle/particle chemistry models in SPARTA are specified by <a class="reference external" href="react.html">reaction
+style commands</a> which define lists of possible reactions
+and their parameters.</p>
+<p>Here is a brief description of methods to define in a new derived class.
+See react.h for details. The init() method is optional; the attempt()
+method is required.</p>
+<table class="colwidths-auto docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>init</p></td>
+<td><p>initialization before a run</p></td>
+</tr>
+<tr class="row-even"><td><p>attempt</p></td>
+<td><p>attempt a chemical reaction between two particles</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dump-styles">
+<h2><a class="toc-backref" href="#id7">10.7. Dump styles</a><a class="headerlink" href="#dump-styles" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">Dump commands</span></a> output snapshots of simulation data to a file periodically during a simulation, in a particular file format. Per particle, per grid cell, or per surface element data can be output.</p>
+<p>Here is a brief description of methods to define in a new derived class.  See dump.h for details. The <code class="docutils literal notranslate"><span class="pre">init_style()</span></code>, <code class="docutils literal notranslate"><span class="pre">modify_param()</span></code>, and <code class="docutils literal notranslate"><span class="pre">memory_usage()</span></code> methods are optional; all the others are required.</p>
+<table class="colwidths-auto docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>init_style</p></td>
+<td><p>style-specific initialization before a run</p></td>
+</tr>
+<tr class="row-even"><td><p>modify_param</p></td>
+<td><p>process style-specific options of the <a class="reference internal" href="dump_modify.html#command-dump-modify"><span class="std std-ref">dump_modify command</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>write_header</p></td>
+<td><p>write the header of a snapshot to a file</p></td>
+</tr>
+<tr class="row-even"><td><p>count</p></td>
+<td><p># of entities this processor will output</p></td>
+</tr>
+<tr class="row-odd"><td><p>pack</p></td>
+<td><p>pack a processor’s data into a buffer</p></td>
+</tr>
+<tr class="row-even"><td><p>write_data</p></td>
+<td><p>write a buffer of data to a file</p></td>
+</tr>
+<tr class="row-odd"><td><p>memory_usage</p></td>
+<td><p>tally memory usage</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="input-script-commands">
+<h2><a class="toc-backref" href="#id8">10.8. Input script commands</a><a class="headerlink" href="#input-script-commands" title="Permalink to this headline">¶</a></h2>
+<p>New commands can be added to SPARTA that will be recognized in input scripts. For example, the <a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles command</span></a> <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf command</span></a>, and <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run command</span></a> are all implemented in this fashion. When such a command is encountered in an input script, SPARTA simply creates a class with the corresponding name, invokes the “command” method of the class, and passes it the arguments from the input script. The <code class="docutils literal notranslate"><span class="pre">command()</span></code> method can perform whatever operations it wishes on SPARTA data structures.</p>
+<p>The single method the new class must define is as follows:</p>
+<table class="colwidths-auto docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>command</p></td>
+<td><p>operations performed by the input script command</p></td>
+</tr>
+</tbody>
+</table>
+<p>Of course, the new class can define other methods and variables as needed.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Section_python.html" class="btn btn-neutral float-right" title="11. Python interface to SPARTA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Section_tools.html" class="btn btn-neutral float-left" title="9. Additional tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, JF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
