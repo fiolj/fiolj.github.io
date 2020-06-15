@@ -26,4 +26,4 @@ Fortran-related
 Others
 ======
 
-- `SPARTA Documentation <sparta/index.html>`_ is an alternative formatting for the Manual of `SPARTA <http://sparta.sandia.gov/>`_ program.
+- `SPARTA Documentation <sparta/>`_ is an alternative formatting for the Manual of `SPARTA <http://sparta.sandia.gov/>`_ program.
