@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                3
+                7 May 2020
               </div>
             
           
@@ -652,16 +652,16 @@ This is because it requires 11 bits to represent 2000 cells (1 to 2000) at level
 </div>
 <p>added to it, it would produce 2 binary restart files (tmp.restart.50 and tmp.restart.100) as it ran for 130 steps, one at step 50, and one at step 100.</p>
 <p>This script could be used to read the first restart file and re-run the last 80 timesteps:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_restart</span>       <span class="n">tmp</span><span class="o">.</span><span class="n">restart</span><span class="o">.</span><span class="mi">50</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_restart</span>   <span class="n">tmp</span><span class="o">.</span><span class="n">restart</span><span class="o">.</span><span class="mi">50</span>
 
-<span class="n">seed</span>               <span class="mi">12345</span>
-<span class="n">collide</span>         <span class="n">vss</span> <span class="n">air</span> <span class="n">ar</span><span class="o">.</span><span class="n">vss</span>
+<span class="n">seed</span>           <span class="mi">12345</span>
+<span class="n">collide</span>        <span class="n">vss</span> <span class="n">air</span> <span class="n">ar</span><span class="o">.</span><span class="n">vss</span>
 
 <span class="n">stats</span>          <span class="mi">10</span>
-<span class="n">compute</span>             <span class="n">temp</span> <span class="n">temp</span>
-<span class="n">stats_style</span>     <span class="n">step</span> <span class="n">cpu</span> <span class="n">np</span> <span class="n">nattempt</span> <span class="n">ncoll</span> <span class="n">c_temp</span>
+<span class="n">compute</span>        <span class="n">temp</span> <span class="n">temp</span>
+<span class="n">stats_style</span>    <span class="n">step</span> <span class="n">cpu</span> <span class="n">np</span> <span class="n">nattempt</span> <span class="n">ncoll</span> <span class="n">c_temp</span>
 
-<span class="n">timestep</span>       <span class="mf">7.00E-9</span>
+<span class="n">timestep</span>        <span class="mf">7.00E-9</span>
 <span class="n">run</span>             <span class="mi">80</span>
 </pre></div>
 </div>

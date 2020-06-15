@@ -560,16 +560,16 @@ This script could be used to read the first restart file and re-run the last 80 
 
 ::
 
-   read_restart       tmp.restart.50 
+   read_restart   tmp.restart.50 
 
-   seed               12345
-   collide         vss air ar.vss 
+   seed           12345
+   collide        vss air ar.vss 
 
    stats          10
-   compute             temp temp
-   stats_style     step cpu np nattempt ncoll c_temp 
+   compute        temp temp
+   stats_style    step cpu np nattempt ncoll c_temp 
 
-   timestep       7.00E-9
+   timestep        7.00E-9
    run             80 
 
 
