@@ -114,6 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">14. List of Commands</a></li>
 </ul>
 
             
@@ -341,8 +342,8 @@ commands need only be used if a non-default value is desired.</p>
 <li><p>Initialization
 Set parameters that need to be defined before the simulation domain,
 particles, grid cells, and surfaces are defined.</p>
-<p>Relevant commands include <a class="reference external" href="dimension.html">dimension</a>,
-<a class="reference external" href="units.html">units</a>, and <a class="reference external" href="seed.html">seed</a>.</p>
+<p>Relevant commands include <a class="reference internal" href="dimension.html#command-dimension"><span class="std std-ref">dimension command</span></a>
+<a class="reference internal" href="units.html#command-units"><span class="std std-ref">units command</span></a>, and <a class="reference internal" href="seed.html#command-seed"><span class="std std-ref">seed command</span></a>.</p>
 </li>
 <li><p>Problem definition</p>
 <p>These items must be defined before running a SPARTA calculation, and
@@ -522,10 +523,10 @@ category.</p>
 </div>
 <div class="section" id="fix-styles">
 <h3>3.5.1. Fix styles<a class="headerlink" href="#fix-styles" title="Permalink to this headline">¶</a></h3>
-<p>See the <a class="reference external" href="fix.html">fix</a> command for one-line descriptions of each
+<p>See the <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix command</span></a> for one-line descriptions of each
 style or click on the style itself for a full description. Some of the
 styles have accelerated versions, which can be used if SPARTA is built
-with the <a class="reference external" href="Section_accelerate.html">appropriate accelerated package</a>.
+with the <a class="reference internal" href="Section_accelerate.html#accelerating"><span class="std std-ref">appropriate accelerated package</span></a>.
 This is indicated by additional letters in parenthesis: k = KOKKOS.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -563,12 +564,10 @@ This is indicated by additional letters in parenthesis: k = KOKKOS.</p>
 </div>
 <div class="section" id="compute-styles">
 <h3>3.5.2. Compute styles<a class="headerlink" href="#compute-styles" title="Permalink to this headline">¶</a></h3>
-<p>See the <a class="reference external" href="compute.html">compute</a> command for one-line descriptions of
+<p>See the <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute command</span></a> for one-line descriptions of
 each style or click on the style itself for a full description. Some of
 the styles have accelerated versions, which can be used if SPARTA is
-built with the <a class="reference external" href="Section_accelerate.html">appropriate accelerated
-package</a>. This is indicated by additional
-letters in parenthesis: k = KOKKOS.</p>
+built with the <a class="reference internal" href="Section_accelerate.html#accelerating"><span class="std std-ref">appropriate accelerated package</span></a>. This is indicated by additional letters in parenthesis: k = KOKKOS.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 17%" />
@@ -612,11 +611,9 @@ letters in parenthesis: k = KOKKOS.</p>
 </div>
 <div class="section" id="collide-styles">
 <h3>3.5.3. Collide styles<a class="headerlink" href="#collide-styles" title="Permalink to this headline">¶</a></h3>
-<p>See the <a class="reference external" href="collide.html">collide</a> command for details of each style.
+<p>See the <a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide command</span></a> for details of each style.
 Some of the styles have accelerated versions, which can be used if
-SPARTA is built with the <a class="reference external" href="Section_accelerate.html">appropriate accelerated
-package</a>. This is indicated by additional
-letters in parenthesis: k = KOKKOS.</p>
+SPARTA is built with the <a class="reference internal" href="Section_accelerate.html#accelerating"><span class="std std-ref">appropriate accelerated package</span></a>. This is indicated by additional letters in parenthesis: k = KOKKOS.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 100%" />
@@ -629,11 +626,10 @@ letters in parenthesis: k = KOKKOS.</p>
 </div>
 <div class="section" id="surface-collide-styles">
 <h3>3.5.4. Surface collide styles<a class="headerlink" href="#surface-collide-styles" title="Permalink to this headline">¶</a></h3>
-<p>See the <a class="reference external" href="surf_collide.html">surf_collide</a> command for details of each
-style. Some of the styles have accelerated versions, which can be used
-if SPARTA is built with the <a class="reference external" href="Section_accelerate.html">appropriate accelerated
-package</a>. This is indicated by additional
-letters in parenthesis: k = KOKKOS.</p>
+<p>See the <a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide command</span></a> for details of each style. Some of the
+styles have accelerated versions, which can be used if SPARTA is built
+with the <a class="reference internal" href="Section_accelerate.html#accelerating"><span class="std std-ref">appropriate accelerated package</span></a>.  This
+is indicated by additional letters in parenthesis: k = KOKKOS.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 33%" />
@@ -658,7 +654,7 @@ letters in parenthesis: k = KOKKOS.</p>
 </div>
 <div class="section" id="surface-reaction-styles">
 <h3>3.5.5. Surface reaction styles<a class="headerlink" href="#surface-reaction-styles" title="Permalink to this headline">¶</a></h3>
-<p>See the <a class="reference external" href="surf_react.html">surf_react</a> command for details of each
+<p>See the <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a> for details of each
 style.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -695,7 +691,7 @@ style.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, JF
+        &copy; Copyright 2020
 
     </p>
   </div>

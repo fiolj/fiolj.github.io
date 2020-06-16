@@ -23,7 +23,12 @@ Fortran-related
 
 - `NumFor <https://numericfor.github.io/numfor/>`_ Numerical (modern) Fortran is a library to ease the use of modern fortran in scientific computations
 
-Others
-======
+SPARTA Documentation
+====================
 
-- `SPARTA Documentation <sparta/>`_ is an alternative formatting for the Manual of `SPARTA <http://sparta.sandia.gov/>`_ program.
+Documentation for the Manual of `SPARTA <http://sparta.sandia.gov/>`_ program, formatted with `sphinx-doc <https://www.sphinx-doc.org>`__.
+
+- `Html Documentation <sparta/>`_ 
+- `PDF Version <data/sparta-manual.pdf>`_ 
+- `EPUB Version <data/sparta-manual.epub>`_ 
+

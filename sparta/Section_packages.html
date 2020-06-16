@@ -114,6 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">14. List of Commands</a></li>
 </ul>
 
             
@@ -314,8 +315,8 @@ settings. See the src/MAKE/OPTIONS/Makefile.kokkos* files for examples.</p>
 </div>
 <p>For NVIDIA GPUs using CUDA:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KOKKOS_DEVICES</span> <span class="o">=</span> <span class="n">Cuda</span>
-<span class="n">KOKKOS_ARCH</span> <span class="o">=</span> <span class="n">Pascal60</span><span class="p">,</span><span class="n">Power8</span>     <span class="c1"># P100 hosted by an IBM Power8, etc</span>
-<span class="n">KOKKOS_ARCH</span> <span class="o">=</span> <span class="n">Kepler37</span><span class="p">,</span><span class="n">Power8</span>     <span class="c1"># K80 hosted by an IBM Power8, etc</span>
+<span class="n">KOKKOS_ARCH</span> <span class="o">=</span> <span class="n">Pascal60</span><span class="p">,</span><span class="n">POWER8</span>     <span class="c1"># P100 hosted by an IBM Power8, etc</span>
+<span class="n">KOKKOS_ARCH</span> <span class="o">=</span> <span class="n">Kepler37</span><span class="p">,</span><span class="n">POWER8</span>     <span class="c1"># K80 hosted by an IBM Power8, etc</span>
 </pre></div>
 </div>
 <p>For GPUs, you also need these 2 lines in your Makefile.machine before
@@ -379,7 +380,7 @@ hardware target, to produce a separate executable.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, JF
+        &copy; Copyright 2020
 
     </p>
   </div>
