@@ -25,6 +25,7 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -80,6 +81,7 @@
 
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
+  
             
             
               
@@ -139,11 +141,12 @@
 <li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
-<li class="toctree-l1"><a class="reference internal" href="commands.html">14. List of Commands</a></li>
 </ul>
 
             
           
+  <a href= "genindex.html">Index</a>
+
         </div>
       </div>
     </nav>
@@ -1097,7 +1100,7 @@ input script. Defining an index variable as a command-line argument
 overrides any setting for the same index variable in the input script,
 since index variables cannot be re-defined. See the
 <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable command</span></a> for more info on defining index and
-other kinds of variables and Section <a class="reference internal" href="Section_commands.html#parsing-rules"><span class="std std-ref">Parsing rules</span></a> for more info on using variables in input scripts.</p>
+other kinds of variables and Section <a class="reference internal" href="Section_commands.html#commands-parsing-rules"><span class="std std-ref">Parsing rules</span></a> for more info on using variables in input scripts.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Currently, the command-line parser looks for arguments that start with “-” to indicate new switches. Thus you cannot specify multiple variable values if any of they start with a “-“, e.g. a negative numeric value. It is OK if the first value1 starts with a “-“, since it is automatically skipped.</p>
