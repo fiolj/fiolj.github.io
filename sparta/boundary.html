@@ -195,7 +195,7 @@ x, y, z dimensions. A single letter assigns the same style to both the
 lower and upper face of the box in that dimension. Two letters assigns
 the first style to the lower face and the second style to the upper
 face. The size of the simulation box is set by the
-<a class="reference external" href="create_box.html">create_box</a> command.</p>
+<a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a> command.</p>
 <p>The boundary style determines how particles exiting the box are handled.</p>
 <p>Style <em>o</em> means an outflow boundary, so that particles freely exit the
 simulation.</p>
@@ -209,22 +209,22 @@ timestep following the collision.</p>
 <p>Style <em>a</em> means an axi-symmetric boundary, which can only be used for
 the lower y-dimension boundary in a 2d simulation. The simulation box
 must also have a value of 0.0 for <em>ylo</em>; see the
-<a class="reference external" href="create_box.html">create_box</a> command. This effectively means that
+<a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a> command. This effectively means that
 the x-axis is the axis of symmetry. The upper y-dimension boundary
 cannot be periodic.</p>
 <p>Style <em>s</em> means the boundary is treated as a surface which allows the
 particle-surface interaction to be treated in a variety of ways via the
-options provided by the <a class="reference external" href="surf_collide.html">surf_collide</a> command.
+options provided by the <a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide</span></a> command.
 This is effectively the same as when a particle collides with a
 triangulated surface read in and setup by the
-<a class="reference external" href="read_surf.html">read_surf</a> command.</p>
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command.</p>
 <p>For style <em>s</em>, the boundary face must also be assigned to a surface
-collision model defined by the <a class="reference external" href="surf_collide.html">surf_collide</a>
+collision model defined by the <a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide</span></a>
 command. The assignment of the boundary to the model is done via the
-<a class="reference external" href="bound_modify.html">bound_modify</a> command.</p>
+<a class="reference internal" href="bound_modify.html#command-bound-modify"><span class="std std-ref">bound_modify</span></a> command.</p>
 <p><strong>Restrictions:</strong></p>
 <p>This command must be used before the grid is defined, e.g. by a
-<a class="reference external" href="create_grid.html">create_grid</a> command.</p>
+<a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a> command.</p>
 <p>For 2d simulations, the z dimension must be periodic.</p>
 <p><strong>Related commands:</strong></p>
 <p><a class="reference internal" href="bound_modify.html#command-bound-modify"><span class="std std-ref">bound_modify command</span></a>

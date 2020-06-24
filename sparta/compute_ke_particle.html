@@ -170,7 +170,7 @@
 <span id="command-compute-ke-particle"></span><span id="index-1"></span><h1>compute ke/particle command<a class="headerlink" href="#compute-ke-particle-command" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="section" id="compute-ke-particle-kk-command">
-<h1>compute ke/particle/kk command<a class="headerlink" href="#compute-ke-particle-kk-command" title="Permalink to this headline">¶</a></h1>
+<span id="command-compute-ke-particle-compute-keparticlekk"></span><h1>compute ke/particle/kk command<a class="headerlink" href="#compute-ke-particle-kk-command" title="Permalink to this headline">¶</a></h1>
 <p><strong>Syntax:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">ke</span><span class="o">/</span><span class="n">particle</span>
 </pre></div>
@@ -200,14 +200,13 @@ different ways. The values for a single timestep can be output by the
 <p>The vector can be accessed by any command that uses per-particle values from a compute as input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Output from SPARTA (stats, dumps, computes, fixes, variables)</span></a> for an overview of SPARTA output options.</p>
 <p>The per-particle vector values will be in energy <a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a>.</p>
 <hr class="docutils" />
-<p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding style without the suffix. They have been optimized to run faster, depending on your available hardware, as discussed in the <a class="reference internal" href="Section_accelerate.html#accelerating"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual. The accelerated styles take the same arguments and should produce the same results, except for different random number, round-off and precision issues.</p>
+<p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding style without the suffix. They have been optimized to run faster, depending on your available hardware, as discussed in the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual. The accelerated styles take the same arguments and should produce the same results, except for different random number, round-off and precision issues.</p>
 <p>These accelerated styles are part of the KOKKOS package. They are only
 enabled if SPARTA was built with that package. See the <a class="reference internal" href="Section_start.html#start-optional-packages"><span class="std std-ref">Making SPARTA with optional packages</span></a> section for more info.</p>
 <p>You can specify the accelerated styles explicitly in your input script
-by including their suffix, or you can use the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-suffix command-line
-switch</span></a> when you invoke SPARTA, or you
+by including their suffix, or you can use the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-suffix command-line switch</span></a> when you invoke SPARTA, or you
 can use the <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix command</span></a> in your input script.</p>
-<p>See the <a class="reference internal" href="Section_accelerate.html#accelerating"><span class="std std-ref">Accelerating SPARTA performance</span></a> section of the manual for more instructions on how to use the accelerated styles effectively.</p>
+<p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA performance</span></a> section of the manual for more instructions on how to use the accelerated styles effectively.</p>
 <hr class="docutils" />
 <p><strong>Restrictions:</strong> none</p>
 <p><strong>Related commands:</strong></p>

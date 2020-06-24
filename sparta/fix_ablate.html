@@ -173,7 +173,7 @@
 </pre></div>
 </div>
 <ul>
-<li><p>ID is documented in <a class="reference external" href="fix.html">fix</a> command</p></li>
+<li><p>ID is documented in <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> command</p></li>
 <li><p>ablate = style name of this fix command</p></li>
 <li><p>group-ID = ID of group of grid cells that contain implicit surfaces</p></li>
 <li><p>Nevery = perform ablation once every Nevery steps</p></li>
@@ -198,7 +198,7 @@ specified if source = random)</p></li>
 <p>Perform ablation once every Nevery steps on a set of grid cell corner
 points to induce new implicit surface elements in those grid cells. This
 command is also used as an argument to the
-<a class="reference external" href="read_isurf.html">read_isurf</a> command so that the grid corner point
+<a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command so that the grid corner point
 values it reads from a file can be assigned to and stored by each grid
 cell.</p>
 <p>Here are simulation snapshots of 2d and 3d implicit surface models
@@ -208,16 +208,16 @@ and 4th images are snapshots midway through an ablation simulation. In
 the 2d case, the colorings are by processor for sub-domains each owns.
 Particles flow from left to right. The implicit triangles for the 3d
 case were created via Marching Cubes (discussed on the
-<a class="reference external" href="read_isurf.html">read_isurf</a> command doc page) from a tomographic
+<a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command doc page) from a tomographic
 image of a sample of NASA FiberForm (TM) material, used as a heat shield
 material on spacecraft. Particles flow from top to bottom.</p>
 <p><a class="reference external" href="JPG/porous2d_initial.png"><img alt="image0" src="_images/porous2d_initial_small.png" /></a><a class="reference external" href="JPG/porous2d_ablated.png"><img alt="image1" src="_images/porous2d_ablated_small.png" /></a><a class="reference external" href="JPG/porous3d_initial.png"><img alt="image2" src="_images/porous3d_initial_small.png" /></a><a class="reference external" href="JPG/porous3d_ablated.png"><img alt="image3" src="_images/porous3d_ablated_small.png" /></a></p>
 <p>The specified <em>group-ID</em> must be the name of a grid cell group, as
-defined by the <a class="reference external" href="group.html">group grid</a> command, which contains a set
+defined by the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group grid</span></a> command, which contains a set
 of grid cells, all of which are the same size, and which comprise a
 contiguous 3d array. It must be the same as group-ID used with the
-<a class="reference external" href="read_isurf.html">read_isurf</a> command, which specifies its <em>Nx</em> by
-<em>Ny</em> by <em>Nz</em> extent. See the <a class="reference external" href="read_isurf.html">read_isurf</a> command
+<a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command, which specifies its <em>Nx</em> by
+<em>Ny</em> by <em>Nz</em> extent. See the <a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command
 for more details. This command reads the initial values for grid cell
 corner points, which are stored by this fix.</p>
 <p>The specfied <em>Nevery</em> determines how often an ablation operation is
@@ -232,11 +232,11 @@ decrement value for the grid cell corner points, which range from 0 to
 is void (flow volume for particles). Values in between represent
 partially ablated material.</p>
 <p>The <em>source</em> can be specified as a per grid cell quantity calculated by
-a compute, such as <a class="reference external" href="compute_isurf_grid.html">compute isurf/grid</a>,
+a compute, such as <a class="reference internal" href="compute_isurf_grid.html#command-compute-isurf-grid"><span class="std std-ref">compute isurf/grid</span></a>,
 e.g. the number of collisions of particles with the surfaces in each
 grid cell or the amount of energy transferred to the surface by the
 collisions. It can also be specified a per grid cell quantity calculated
-by a fix, such as <a class="reference external" href="fix_ave_grid.html">fix ave/grid</a>. That fix could
+by a fix, such as <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a>. That fix could
 time average per-grid cell quantities from per grid cell computes. In
 that case the <em>scale</em> factor should account for applying a time-averaged
 quantity at an interval of <em>N</em> steps.</p>
@@ -272,31 +272,29 @@ examples/ablation/in.ablation.3d.reactions input script:</p>
 </pre></div>
 </div>
 <p>The order of these commands matter, so here is the explanation.</p>
-<p>The <a class="reference external" href="surf_modify.html">surf_modify</a> command must come after the
-<a class="reference external" href="read_isurf.html">read_isurf</a> command, because surfaces must exist
-before assigning collision and reaction models to them. The <a class="reference external" href="fix_ablate.html">fix
-ablate</a> command must come before the
-<a class="reference external" href="read_isurf.html">read_isurf</a> command, since it uses the ID of the
-<a class="reference external" href="fix_ablate">fix ablate</a> command as an argument to create implicit
-surfaces. The <a class="reference external" href="fix_ablate.html">fix ablate</a> command takes a compute
-or fix as an argument, in this case the ID of the <a class="reference external" href="compute_react_isurf_grid.html">compute
-react/isurf/grid</a> command. This is to
+<p>The <a class="reference internal" href="surf_modify.html#command-surf-modify"><span class="std std-ref">surf_modify</span></a> command must come after the
+<a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command, because surfaces must exist
+before assigning collision and reaction models to them. The <a class="reference internal" href="#command-fix-ablate"><span class="std std-ref">fix ablate</span></a> command must come before the
+<a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command, since it uses the ID of the
+<a class="reference internal" href="#command-fix-ablate"><span class="std std-ref">fix ablate command</span></a> as an argument to create implicit
+surfaces. The <a class="reference internal" href="#command-fix-ablate"><span class="std std-ref">fix ablate command</span></a> takes a compute
+or fix as an argument, in this case the ID of the <a class="reference internal" href="compute_react_isurf_grid.html#command-compute-react-isurf-grid"><span class="std std-ref">compute react/isurf/grid</span></a> command. This is to
 specify what calculation drives the ablation. In this case, it is the
-<a class="reference external" href="compute_react_isurf_grid.html">compute react/isurf/grid</a> command (or
-could be the <a class="reference external" href="fix_ave_grid.html">fix ave/grid</a> command) which tallies
+<a class="reference internal" href="compute_react_isurf_grid.html#command-compute-react-isurf-grid"><span class="std std-ref">compute react/isurf/grid</span></a> command (or
+could be the <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a> command) which tallies
 counts of surface reactions for implicit triangles in each grid cell.
-The <a class="reference external" href="compute">compute react/isurf/grid</a> react/isurf/grid command
+The <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute react/isurf/grid</span></a> react/isurf/grid command
 requires the ID of a surface reaction model, so that it knows the list
 of possible reactions to tally. In this case the reaction is set by the
-<a class="reference external" href="surf_react.html">surf_react</a> command, which must therefore comes
+<a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react</span></a> command, which must therefore comes
 near the beginning of this list of commands.</p>
 <hr class="docutils" />
-<p>As explained on the <a class="reference external" href="read_isurf.html">read_isurf</a> doc page, the
+<p>As explained on the <a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> doc page, the
 marching cubes (3d) or marching squares (2d) algorithm is used to
 convert a set of grid corner point values to a set of implicit triangles
 in each grid cell which represent the current surface of porous material
 which is undergoing dynamic ablation. This uses a threshold value,
-defined by the <a class="reference external" href="read_isurf.html">read_isurf</a> command, to set the
+defined by the <a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command, to set the
 boundary between solid material and void.</p>
 <p>The ablation operation decrements the corner point values of each grid
 cell containing porous material. The marching cubes or squares algorithm
@@ -323,13 +321,12 @@ corner point value are now identical.</p>
 cubes/squares threshold value, else line segments or triangles of zero
 or epsilon size will result. So corner points with values X where
 thresh-epsilon &lt; X &lt; thresh+epsilon are reset to thresh-epsilon. Thresh
-is defined by the <a class="reference external" href="read_isurf.html">read_isurf</a> command. Epsilon is
+is defined by the <a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command. Epsilon is
 set to 1.0e-4 in src/fix_ablate.cpp. Note that this is on the scale of
 corner point values from 0 to 255.</p>
 <hr class="docutils" />
 <p><strong>Restart, output info:</strong></p>
-<p>No information about this fix is written to <a class="reference external" href="restart.html">binary restart
-files</a>.</p>
+<p>No information about this fix is written to <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">binary restart files</span></a>.</p>
 <p>This fix computes a global scalar and a global vector of length 2. The
 global scalar is the current sum of unique corner point values across
 the entire grid (not counting duplicate values). This sum assumes that
@@ -342,7 +339,7 @@ the newly ablated surface. The latter quantity should be 0. A non-zero
 value indicates a corner case in the marching cubes or marching squares
 algorithm the developers still need to address.</p>
 <p>These values can be accessed by any command that uses global values from
-a fix as input. See <a class="reference external" href="Section_howto.html#howto_4">Section 6.4</a> for an
+a fix as input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Section 6.4</span></a> for an
 overview of SPARTA output options.</p>
 <p>The scalar and vector values are unitless.</p>
 <p><strong>Restrictions:</strong></p>

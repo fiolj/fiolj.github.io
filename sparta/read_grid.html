@@ -181,9 +181,9 @@
 </div>
 <p><strong>Description:</strong></p>
 <p>Read in a grid description from a file, which will overlay the
-simulation domain defined by the <a class="reference external" href="create_box.html">create_box</a>
+simulation domain defined by the <a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a>
 command. The grid can also be defined by the
-<a class="reference external" href="create_grid.html">create_grid</a> command.</p>
+<a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a> command.</p>
 <p>The grid in SPARTA is hierarchical. The entire simulation box is a
 single parent grid cell at level 0. It is subdivided into Nx by Ny by Nz
 cells at level 1. Each of those cells can be a child cell (no further
@@ -198,13 +198,12 @@ parent cells. Each child cell is owned by a unique processor. They are
 assigned by this command to processors in a round-robin fashion, as they
 are created at each level when the file is read. This is a “dispersed”
 assignment of child cells to each processor.</p>
-<p>IMPORTANT NOTE: See <a class="reference external" href="Section_howto.html#howto_8">Section 6.8</a> of the
-manual for an explanation of clumped and dispersed grid cell assignments
-and their relative performance trade-offs. The
-<a class="reference external" href="balance_grid.html">balance_grid</a> command can be used after the grid
-is created, to assign child cells to processors in different ways. The
-“fix balance” command can be used to re-assign them in a load-balanced
-manner periodically during a running simulation.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual for an explanation of clumped and dispersed grid cell assignments and their relative performance trade-offs.
+The <a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid</span></a> command can be used after the grid is created, to assign child cells to processors in different ways.
+The “fix balance” command can be used to re-assign them in a load-balanced manner periodically during a running simulation.</p>
+</div>
 <hr class="docutils" />
 <p>The specified file can be a text file or a gzipped text file (detected
 by a .gz suffix).</p>
@@ -289,14 +288,13 @@ simulation domain. Its specification in the grid file defines the level
 <p>which means the level 1 grid has 10x10x20 cells.</p>
 <p><strong>Restrictions:</strong></p>
 <p>This command can only be used after the simulation box is defined by the
-<a class="reference external" href="create_box.html">create_box</a> command.</p>
+<a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a> command.</p>
 <p>To read gzipped grid files, you must compile SPARTA with the
--DSPARTA_GZIP option - see <a class="reference external" href="Section_start.html#start_2">Section 2.2</a>
+-DSPARTA_GZIP option - see <a class="reference internal" href="Section_start.html#start-steps-build"><span class="std std-ref">Section 2.2</span></a>
 of the manual for details.</p>
 <p>The hierarchical grid used by SPARTA is encoded in a 32-bit or 64-bit
 integer ID. The precision is set by the -DSPARTA_BIG or -DSPARTA_SMALL
-or -DSPARTA_BIGBIG compiler switch, as described in <a class="reference external" href="Section_start.html#start2_2">Section
-2.2</a>. The number of grid levels that can
+or -DSPARTA_BIGBIG compiler switch, as described in <a class="reference external" href="Section_start.html#start2_2">Section 2.2</a>. The number of grid levels that can
 be used depends on the resolution of the grid at each level. For a
 minimal refinement of 2x2x2, a level uses 4 bits of the integer ID. Thus
 a maximum of 7 levels can be used for 32-bit IDs and 15 levels for

@@ -218,28 +218,27 @@ useful, for example, in calculating the energy spectrum of a turbulent
 flow.</p>
 <p>The defined grid must be a regular one-level grid (not hierarchical)
 with an even number of grid cells in each dimension. Depending on the
-<a class="reference external" href="dimension.html">dimension</a> of the simulation, either 2d or 3d FFTs
+<a class="reference internal" href="dimension.html#command-dimension"><span class="std std-ref">dimension</span></a> of the simulation, either 2d or 3d FFTs
 will be performed. Because FFTs assume a periodic field, the simulation
 domain should be periodic in all dimensions, as set by the
-<a class="reference external" href="boundary.html">boundary</a> command, though SPARTA does not check for
+<a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">boundary</span></a> command, though SPARTA does not check for
 that.</p>
 <p>The results of this compute can be used by different commands in
 different ways. The values for a single timestep can be output by the
-<a class="reference external" href="dump.html">dump grid</a> command. The values over many sampling
-timesteps can be averaged by the <a class="reference external" href="fix_ave_grid.html">fix ave/grid</a>
+<a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a> command. The values over many sampling
+timesteps can be averaged by the <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a>
 command.</p>
 <p>An FFT is performed on each input value independently.</p>
-<p>Each listed input can be the result of a <a class="reference external" href="compute.html">compute</a> or
-<a class="reference external" href="fix.html">fix</a> or the evaluation of a <a class="reference external" href="variable.html">variable</a>,
+<p>Each listed input can be the result of a <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> or
+<a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> or the evaluation of a <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a>,
 all of which must generate per-grid quantities.</p>
 <p>If a value begins with <code class="docutils literal notranslate"><span class="pre">c_</span></code>, a compute ID must follow which has been
 previously defined in the input script. The compute must generate a
-per-grid vector or array. See the individual <a class="reference external" href="compute.html">compute</a>
+per-grid vector or array. See the individual <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a>
 doc page for details. If no bracketed integer is appended, the vector
 calculated by the compute is used. If a bracketed integer is appended,
 the Ith column of the array calculated by the compute is used. Users can
-also write code for their own compute styles and <a class="reference external" href="Section_modify.html">add them to
-SPARTA</a>.</p>
+also write code for their own compute styles and <a class="reference internal" href="Section_modify.html#modify"><span class="std std-ref">add them to SPARTA</span></a>.</p>
 <p>If a value begins with <code class="docutils literal notranslate"><span class="pre">f_</span></code>, a fix ID must follow which has been
 previously defined in the input script. The fix must generate a per-grid
 vector or array. See the individual <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix command</span></a> doc page for
@@ -248,11 +247,9 @@ timesteps, which must be compatible with when this compute references
 the values, else an error results. If no bracketed integer is appended,
 the vector calculated by the fix is used. If a bracketed integer is
 appended, the Ith column of the array calculated by the fix is used.
-Users can also write code for their own fix style and <a class="reference internal" href="Section_modify.html#modify"><span class="std std-ref">add them to
-SPARTA</span></a>.</p>
+Users can also write code for their own fix style and <a class="reference internal" href="Section_modify.html#modify"><span class="std std-ref">add them to SPARTA</span></a>.</p>
 <p>If a value begins with <code class="docutils literal notranslate"><span class="pre">v_</span></code>, a variable name must follow which has been
-previously defined in the input script. It must be a <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">grid-style
-variable</span></a>. Such a variable defines a formula which can
+previously defined in the input script. It must be a <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">grid-style variable</span></a>. Such a variable defines a formula which can
 reference stats keywords or invoke other computes, fixes, or variables
 when they are evaluated. So this is a very general means of creating a
 per-grid input to perform an FFT on.</p>

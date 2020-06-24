@@ -173,7 +173,7 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>ID is documented in <a class="reference external" href="fix.html">fix</a> command</p></li>
+<li><p>ID is documented in <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> command</p></li>
 <li><p>vibmode = style name of this fix command</p></li>
 </ul>
 <p><strong>Examples:</strong></p>
@@ -183,7 +183,7 @@
 <p><strong>Description:</strong></p>
 <p>Enable multiple vibrational energy levels, defined on a per-species
 basis, to be used in a simulation. This fix is meant to be used with the
-<a class="reference external" href="collide_modify.html">collide_modify vibrate discrete</a> setting which
+<a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify vibrate discrete</span></a> setting which
 means that the vibrational energy of each (non-monoatomic) particle is
 discretized across one or more energy modes, each with its own
 characteristic vibrational temperature. This fix allocates per-particle
@@ -192,10 +192,9 @@ levels appropriately when particles are created. Collisions between
 pairs of particles will then transfer energy between the different modes
 of the two particles.</p>
 <p>An overview of how to run simulations with multiple vibrational energy
-modes is given in the <a class="reference external" href="Section_howto.html#howto_12">Section 4.12</a>.
-This includes use of the <a class="reference external" href="species.html">species</a> command with its
-<em>vibfile</em> option, and the use of the <a class="reference external" href="collide_modify.html">collide_modify vibrate
-discrete</a> command. The section also lists all
+modes is given in the <a class="reference internal" href="Section_howto.html#howto-multiple-vibrational"><span class="std std-ref">Section 4.12</span></a>.
+This includes use of the <a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a> command with its
+<em>vibfile</em> option, and the use of the <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify vibrate discrete</span></a> command. The section also lists all
 the commands that can be used in an input script to invoke various
 options associated with the vibrational energy modes. All of them depend
 on this fix vibmode command being defined.</p>
@@ -209,31 +208,30 @@ properties are defined for each mode for each species.</p>
 <p>Each of the N values is an integer count for the</p>
 <hr class="docutils" />
 <p><strong>Restart, output info:</strong></p>
-<p>No information about this fix is written to <a class="reference external" href="restart.html">binary restart
-files</a>.</p>
+<p>No information about this fix is written to <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">binary restart files</span></a>.</p>
 <p>However, the values of the custom particle attribute defined by this fix
 are written to the restart file. Namely the integer values stored in
 “vibmode” for each particle. As explained on the
-<a class="reference external" href="read_restart.html">read_restart</a> doc page these values can be
+<a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> doc page these values can be
 re-assigned to particles when a restart file is read, if a new fix
 vibmode command is specified in the restart script before the first
-<a class="reference external" href="run.html">run</a> command is used.</p>
+<a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command is used.</p>
 <p>No global or per-particle or per-grid quantities are stored by this fix
 for access by various output commands.</p>
 <p>However, the custom particle attributes defined by this fix can be
-accessed by the <a class="reference external" href="dump.html">dump particle</a> command, as p_vibmode.
+accessed by the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump particle</span></a> command, as p_vibmode.
 That means those per-particle values can be written to particle dump
 files.</p>
 <p><strong>Restrictions:</strong></p>
 <p>This fix is required if “collide_modify vibrate discrete” is used and
 there is one or more species defined which haave multiple vibrational
 energy modes (2 or more). In this scenario, if it is not defined, an
-error will occur when a “create_particles” or <a class="reference external" href="run.html">run</a> command
+error will occur when a “create_particles” or <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command
 is issued. Conversely, if no species has multiple vibrational modes,
 this fix cannot be used.</p>
 <p>Defining this fix after particles have been created will not populate
 the vibrational energy modes of particles that already exist. An
-exception is if the <a class="reference external" href="read_restart.html">read_restart</a> command is used
+exception is if the <a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> command is used
 to read in particles from a previous simulation where this fix was used.
 In that case, defining this fix after reading the restart file will
 enable the particles to keep their previous vibrational energy mode

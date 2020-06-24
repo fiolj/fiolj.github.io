@@ -222,10 +222,7 @@ In SPARTA, a “grid group” is a collection of one or more grid cells. A
 “surface” group is a collection of one or more surface elements (line
 segements in 2d, triangles in 3d). Other commands take group IDs as
 arguments so that they act on a set of grid cells or surface elements.
-For example, see the <a class="reference external" href="compute_grid.html">compute grid</a>, <a class="reference external" href="compute_surf.html">compute
-surf</a>, <a class="reference external" href="fix_ave_grid.html">fix ave/grid</a>, <a class="reference external" href="fix_ave_surf.html">fix
-ave/surf</a>, <a class="reference external" href="dump.html">dump grid</a>, or <a class="reference external" href="dump.html">dump
-surf</a> commands.</p>
+For example, see the <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid</span></a>, <a class="reference internal" href="compute_surf.html#command-compute-surf"><span class="std std-ref">compute surf</span></a>, <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a>, <a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">fix ave/surf</span></a>, <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a>, or <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump surf</span></a> commands.</p>
 <p>An individual grid cell can belong to multiple grid groups. An
 individual surface element can belong to multiple surface groups. Each
 grid or surface group has a name which is specified as the <em>ID</em> in this
@@ -243,15 +240,14 @@ All surface elements belong to this group.</p>
 assignments, statistics about the group are printed to the screen, so
 that you can check if the command operated as you expect.</p>
 <p>Note that this command assigns all flavors of child grid cells to
-groups, which includes unsplit, cut, split, and sub cells. See <a class="reference external" href="Section_howto.html#howto_8">Section
-6.8</a> of the manual gives details of how
+groups, which includes unsplit, cut, split, and sub cells. See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual gives details of how
 SPARTA defines child, unsplit, split, and sub cells.</p>
 <hr class="docutils" />
 <p>The following styles can be used for grid groups.</p>
 <p>The <em>region</em> style puts all grid cells in the region volume associated
-with the <em>region-ID</em> into the group. See the <a class="reference external" href="region.html">region</a>
+with the <em>region-ID</em> into the group. See the <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a>
 command for details on what kind of geometric regions can be defined.
-Note that the <em>side</em> option for the <a class="reference external" href="region.html">region</a> command can
+Note that the <em>side</em> option for the <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command can
 be used to define whether the inside or outside of the geometric region
 is considered to be “in” the region.</p>
 <p>The <em>rflag</em> setting determines how a grid cell is judged to be in the
@@ -266,13 +262,13 @@ types or surface element IDs into the group. These two styles can use
 arguments specified in one of two formats.</p>
 <p>For surface elements, the “type” of each element is defined when the
 elements are read from a surface file, via the
-<a class="reference external" href="read_surf.html">read_surf</a> command. In the file, a positive integer
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command. In the file, a positive integer
 type value can be optionally defined for each element (default = 1). The
 specified type values can also be incremented using the <em>typeadd</em>
-keyword of the <a class="reference external" href="read_surf.html">read_surf</a> commmand.</p>
+keyword of the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> commmand.</p>
 <p>For surface elements, the “ID” of each element is simply its index from
 1 to N, for all N surface elements that have been read in via the
-<a class="reference external" href="read_surf.html">read_surf</a> command. The ordering of IDs is
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command. The ordering of IDs is
 determined by the order the elements appear in the read-in surface file.
 If multiple files are read (or the same file multiple times), IDs
 increase monotonically each time new surface elements are added.</p>
@@ -293,9 +289,9 @@ above adds all surface elements IDs from 50 to 250 (inclusive) to the
 group named sphere.</p>
 <p>The <em>region</em> style puts all surface elements in the region volume
 associated with the <em>region-ID</em> into the group. See the
-<a class="reference external" href="region.html">region</a> command for details on what kind of geometric
+<a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command for details on what kind of geometric
 regions can be defined. Note that the <em>side</em> option for the
-<a class="reference external" href="region.html">region</a> command can be used to define whether the
+<a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command can be used to define whether the
 inside or outside of the geometric region is considered to be “in” the
 region.</p>
 <p>The <em>rflag</em> setting determines how a surface element is judged to be in

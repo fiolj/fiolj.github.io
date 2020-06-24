@@ -170,13 +170,13 @@
 <span id="command-compute-count"></span><span id="index-1"></span><h1>compute count command<a class="headerlink" href="#compute-count-command" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="section" id="compute-count-kk-command">
-<h1>compute count/kk command<a class="headerlink" href="#compute-count-kk-command" title="Permalink to this headline">¶</a></h1>
+<span id="command-compute-count-compute-countkk"></span><h1>compute count/kk command<a class="headerlink" href="#compute-count-kk-command" title="Permalink to this headline">¶</a></h1>
 <p><strong>Syntax:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">count</span> <span class="n">id1</span> <span class="n">id2</span> <span class="o">...</span>
 </pre></div>
 </div>
 <ul>
-<li><p>ID is documented in <a class="reference external" href="compute.html">compute</a> command</p></li>
+<li><p>ID is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
 <li><p>count = style name of this compute command</p></li>
 <li><p>id1,id2,… = species ID or mixture ID or mixture/group</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">species</span> <span class="n">ID</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">used</span> <span class="k">with</span> <span class="n">the</span> <span class="n">species</span> <span class="n">command</span>
@@ -219,25 +219,22 @@ and name is the name of a group in that mixture.</p>
 scalar. If there are multiple counts accumulated, it calculates a global
 vector with a length = number of counts. These results can be used by
 any command that uses global scalar or vector values from a compute as
-input. See <a class="reference external" href="Section_howto.html#howto_4">Section 4.4</a> for an overview
+input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Section 4.4</span></a> for an overview
 of SPARTA output options.</p>
 <p>The values will all be unitless counts.</p>
 <hr class="docutils" />
 <p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding
 style without the suffix. They have been optimized to run faster,
-depending on your available hardware, as discussed in the <a class="reference external" href="Section_accelerate.html">Accelerating
-SPARTA</a> section of the manual. The
+depending on your available hardware, as discussed in the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual. The
 accelerated styles take the same arguments and should produce the same
 results, except for different random number, round-off and precision
 issues.</p>
 <p>These accelerated styles are part of the KOKKOS package. They are only
-enabled if SPARTA was built with that package. See the <a class="reference external" href="Section_start.html#start_3">Making
-SPARTA</a> section for more info.</p>
+enabled if SPARTA was built with that package. See the <a class="reference internal" href="Section_start.html#start-making-sparta"><span class="std std-ref">Making SPARTA</span></a> section for more info.</p>
 <p>You can specify the accelerated styles explicitly in your input script
-by including their suffix, or you can use the <a class="reference external" href="Section_start.html#start_6">-suffix command-line
-switch</a> when you invoke SPARTA, or you
-can use the <a class="reference external" href="suffix.html">suffix</a> command in your input script.</p>
-<p>See the <a class="reference external" href="Section_accelerate.html">Accelerating SPARTA</a> section of the
+by including their suffix, or you can use the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-suffix command-line switch</span></a> when you invoke SPARTA, or you
+can use the <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix</span></a> command in your input script.</p>
+<p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the
 manual for more instructions on how to use the accelerated styles
 effectively.</p>
 <hr class="docutils" />

@@ -252,8 +252,7 @@ simulations the units are #/volume. For 2d, the units are effectively
 <p>Assuming your simulation is populated by particles from the background
 gas, the <em>fnum</em> and <em>nrho</em> settings can determine how many particles
 will be present in your simulation, when using the
-<a class="reference external" href="create_particles.html">create_particles</a> or <a class="reference external" href="fix_emit_face.html">fix
-emit</a> command variants.</p>
+<a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles</span></a> or <a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">fix emit</span></a> command variants.</p>
 <p>The <em>vstream</em> keyword sets the streaming velocity of the background gas.</p>
 <p>The <em>temp</em> keyword sets the thermal temperature of the background gas.
 This is a Gaussian velocity distribution superposed on top of the
@@ -266,8 +265,7 @@ acceleration term is included, which is the default.</p>
 <hr class="docutils" />
 <p>The <em>surfs</em> keyword determines what kind of surface elements SPARTA uses
 and how they are distributed across processors. Possible values are
-<em>explicit</em>, <em>explicit/distributed</em>, and <em>implicit</em>. See the <a class="reference external" href="Section_howto.html#howto_13">Howto
-6.13</a> section of the manual for an
+<em>explicit</em>, <em>explicit/distributed</em>, and <em>implicit</em>. See the <a class="reference internal" href="Section_howto.html#howto-implicit-surface"><span class="std std-ref">Howto 6.13</span></a> section of the manual for an
 explantion of explicit versus implicit surfaces. The distributed option
 can be important for models with huge numbers of surface elements. Each
 processor stores copies of only the surfaces that overlap grid cells it
@@ -325,7 +323,7 @@ which owns the element as one of its N/P elements.</p>
 <hr class="docutils" />
 <p>The <em>surfpush</em> keyword is only useful to use when SPARTA is having
 problems embedding a surface in the simulation grid, which occurs when
-when surface elements are defined via the <a class="reference external" href="read_surf.html">read_surf</a>
+when surface elements are defined via the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a>
 command. Or for debugging purposes.</p>
 <p>In rare cases, if a surface element point is just slightly inside or
 outside a grid cell, but within an epsilon distance from the surface of
@@ -390,17 +388,16 @@ processor’s grid cells are “dispersed”, then ghost cells cannot be
 created with a <em>gridcut</em> cutoff &gt;= 0.0. Whenever ghost cells are
 generated, a warning to this effect will be triggered. At a later point
 when surfaces are read in or a simulation is performed, an error will
-result. The solution is to use the <a class="reference external" href="balance_grid.html">balance_grid</a>
-command to change to a clumped grid cell assignment. See <a class="reference external" href="Section_howto.html#howto_8">Section
-6.8</a> of the manual for an explanation of
+result. The solution is to use the <a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid</span></a>
+command to change to a clumped grid cell assignment. See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual for an explanation of
 clumped and dispersed grid cell assignments and their relative
 performance trade-offs.</p>
 <p>IMPORTANT NOTE: If grid cells have already been defined via the
-<a class="reference external" href="create_grid.html">create_grid</a>, <a class="reference external" href="read_grid.html">read_grid</a>, or
-<a class="reference external" href="read_restart.html">read_restart</a> commands, when the <em>gridcut</em> cutoff
+<a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a>, <a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid</span></a>, or
+<a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> commands, when the <em>gridcut</em> cutoff
 is specified, then any ghost cell information that is currently stored
 will be erased. As discussed in the preceeding paragraph, a
-<a class="reference external" href="balance_grid.html">balance_grid</a> command must then be invoked to
+<a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid</span></a> command must then be invoked to
 regenerate ghost cell information. If this is not done before surfaces
 are read in or a simulation is performed, an error will result.</p>
 <p>The <em>comm/sort</em> keyword determines whether the messages a proc receives
@@ -424,8 +421,8 @@ streaming in one dominant direction, there may be no particle migration
 needed to upwind processors, so the <em>all</em> method can generate smaller
 counts of neighboring processors.</p>
 <p>Note that the <em>neigh</em> style only has an effect (at run time) when the
-grid is decomposed by the RCB option of the <a class="reference external" href="balance.html">balance</a>
-or <a class="reference external" href="fix_balance.html">fix balance</a> commands. If that is not the case,
+grid is decomposed by the RCB option of the <a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance</span></a>
+or <a class="reference internal" href="fix_balance.html#command-fix-balance"><span class="std std-ref">fix balance</span></a> commands. If that is not the case,
 SPARTA performs the particle communication as if the <em>all</em> setting were
 in place.</p>
 <p>The <em>weight</em> keyword determines whether particle weighting is used.
@@ -435,8 +432,7 @@ contain roughly the same number of particles (even if cells are of
 varying size), so as to minimize the total number of particles used in a
 simulation while preserving accurate time and spatial averages of flow
 quantities. The cell weights also affect how many particles per cell are
-created by the <a class="reference external" href="create_particles.html">create_particles</a> and <a class="reference external" href="fix_emit_face.html">fix
-emit</a> command variants.</p>
+created by the <a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles</span></a> and <a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">fix emit</span></a> command variants.</p>
 <p>If the mode is set to <em>none</em>, per-cell weighting is turned off if it was
 previously enabled. For mode = <em>volume</em> or <em>radius</em>, per-cell weighting
 is enabled, which triggers two computations. First, at the time this
@@ -448,8 +444,7 @@ model. For an axi-symmetric model, the weight is the 3d volume of the 2d
 axi-symmetric cell, i.e. the volume the area sweeps out when rotated
 around the y=0 axis of symmetry. The <em>radius</em> setting is only allowed
 for axisymmetric systems. The weight in this case is the distance the
-cell’s midpoint is from the y=0 axis of symmetry. See <a class="reference external" href="Section_howto.html#howto_2">Section
-6.2</a> for more details on axi-symmetric
+cell’s midpoint is from the y=0 axis of symmetry. See <a class="reference internal" href="Section_howto.html#howto-axisymmetric"><span class="std std-ref">Section 6.2</span></a> for more details on axi-symmetric
 models.</p>
 <p>Second, when a particle moves from an initial cell to a final cell, the
 initial/final ratio of the two cell weights is calculated. If the ratio
@@ -510,7 +505,7 @@ performance will suffer due to the large number of multiple passes
 required.</p>
 <p><strong>Restrictions:</strong></p>
 <p>The global surfmax command must be used before surface elements are
-defined, e.g. via the <a class="reference external" href="read_surf.html">read_surf</a> command.</p>
+defined, e.g. via the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command.</p>
 <p><strong>Related commands:</strong></p>
 <p><a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture command</span></a></p>
 <p><strong>Default:</strong></p>

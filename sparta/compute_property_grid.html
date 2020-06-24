@@ -173,7 +173,7 @@
 </pre></div>
 </div>
 <ul>
-<li><p>ID is documented in <a class="reference external" href="compute.html">compute</a> command</p></li>
+<li><p>ID is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
 <li><p>property/grid = style name of this compute command</p></li>
 <li><p>group-ID = group ID for which grid cells to perform calculation on</p></li>
 <li><p>input = one or more grid attributes</p>
@@ -197,12 +197,11 @@
 <p><strong>Description:</strong></p>
 <p>Define a computation that simply stores grid attributes for each grid
 cell in a grid cell group. This is useful so that the values can be used
-by other <a class="reference external" href="Section_howto.html#howto_4">output commands</a> that take
-computes as inputs. See for example, the <a class="reference external" href="compute_reduce.html">compute
-reduce</a>, <a class="reference external" href="fix_ave_atom.html">fix ave/grid</a>,
-and <a class="reference external" href="dump.html">dump grid</a> commands.</p>
+by other <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">output commands</span></a> that take
+computes as inputs. See for example, the <a class="reference internal" href="compute_reduce.html#command-compute-reduce"><span class="std std-ref">compute reduce</span></a>, <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a>,
+and <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a> commands.</p>
 <p>Only grid cells in the grid group specified by <em>group-ID</em> are included
-in the calculation. See the <a class="reference external" href="group.html">group grid</a> command for info
+in the calculation. See the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group grid</span></a> command for info
 on how grid cells can be assigned to grid groups.</p>
 <p>The values are stored in a per-grid vector or array as discussed below.</p>
 <p><em>Id</em> is the grid cell ID. In SPARTA each grid cell is assigned a unique
@@ -214,12 +213,12 @@ at the 3rd level of the hierarchy. Its grandparent cell was 33 at the
 1st level, its parent was cell 4 (at level 2) within cell 33, and the
 cell itself is cell 6 (at level 3) within cell 4 within cell 33. If you
 specify <em>id</em>, the ID is printed directly as an integer. The ID in string
-format can be accessed by the <a class="reference external" href="dump.html">dump grid</a> command and its
+format can be accessed by the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a> command and its
 <em>idstr</em> argument.</p>
 <p><em>Proc</em> is the ID of the processor which currently owns the grid cell.</p>
 <p>The <em>xlo</em>, <em>ylo</em>, <em>zlo</em> attributes are the coordinates of the lower-left
 corner of the grid cell in the appropriate distance
-<a class="reference external" href="units.html">units</a>. The <em>xhi</em>, <em>yhi</em>, <em>zhi</em> are the coordinates of
+<a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a>. The <em>xhi</em>, <em>yhi</em>, <em>zhi</em> are the coordinates of
 the upper-right corner of the grid cell. The <em>xc</em>, <em>yc</em>, <em>zc</em> attributes
 are the coordinates of the center point of the grid cell. The <em>zlo</em>,
 <em>zhi</em>, <em>zc</em> attributes cannot be used for a 2d simulation.</p>
@@ -234,7 +233,7 @@ vector is produced. If two or more inputs are specified, a per-grid
 array is produced where the number of columns = the number of inputs.</p>
 <p>This compute performs calculations for all flavors of child grid cells
 in the simulation, which includes unsplit, cut, split, and sub cells.
-See <a class="reference external" href="Section_howto.html#howto_8">Section 6.8</a> of the manual gives
+See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual gives
 details of how SPARTA defines child, unsplit, split, and sub cells. The
 <em>id</em> and <em>xlo,ylo,zlo</em> and <em>xhi,yhi,zhi</em> values for a split cell and its
 sub cells are all the same. The <em>vol</em> of a cut cell is the portion of
@@ -244,10 +243,9 @@ portion of the flow volume.</p>
 <p>Grid cells not in the specified <em>group-ID</em> will output zeroes for all
 their values.</p>
 <p>The vector or array can be accessed by any command that uses per-atom
-values from a compute as input. See <a class="reference external" href="Section_howto.html#howto_4">Section
-4.4</a> for an overview of SPARTA output
+values from a compute as input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Section 4.4</span></a> for an overview of SPARTA output
 options.</p>
-<p>The vector or array values will be in whatever <a class="reference external" href="units.html">units</a>
+<p>The vector or array values will be in whatever <a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a>
 the corresponding attribute is in, e.g. distance units for xlo or xc.</p>
 <p><strong>Restrictions:</strong> none</p>
 <p><strong>Related commands:</strong></p>

@@ -231,7 +231,7 @@ directories. A directory must be empty to be successfully removed.</p>
 <p>The <em>putenv</em> cmd defines or updates an environment variable directly.
 Since this command does not pass through the shell, no shell variable
 expansion or globbing is performed, only the usual substitution for
-SPARTA variables defined with the <a class="reference external" href="variable.html">variable</a> command
+SPARTA variables defined with the <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a> command
 is performed. The resulting string is then used literally.</p>
 <p>Any other cmd is passed as-is to the shell along with its arguments as
 one string, invoked by the C-library system() call. For example, these

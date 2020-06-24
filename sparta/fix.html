@@ -186,8 +186,7 @@
 <p>Set a fix that will be applied to the system. In SPARTA, a “fix” is an
 operation that is applied to the system during timestepping. Examples
 include adding particles via inlet boundary conditions or computing
-diagnostics. Code for new fixes can be added to SPARTA; see <a class="reference external" href="Section_modify.html">Section
-10</a> of the manual for details.</p>
+diagnostics. Code for new fixes can be added to SPARTA; see <a class="reference internal" href="Section_modify.html#modify"><span class="std std-ref">Section 10</span></a> of the manual for details.</p>
 <p>Fixes perform their operations at different stages of the timestep. If 2
 or more fixes operate at the same stage of the timestep, they are
 invoked in the order they were specified in the input script.</p>
@@ -195,21 +194,22 @@ invoked in the order they were specified in the input script.</p>
 ID must be unique; see an exception below. The ID can only contain
 alphanumeric characters and underscores. You can specify multiple fixes
 of the same style so long as they have different IDs. A fix can be
-deleted with the <a class="reference external" href="unfix.html">unfix</a> command, after which its ID can
+deleted with the <a class="reference internal" href="unfix.html#command-unfix"><span class="std std-ref">unfix</span></a> command, after which its ID can
 be re-used.</p>
-<p>IMPORTANT NOTE: The <a class="reference external" href="unfix.html">unfix</a> command is the only way to
-turn off a fix; simply specifying a new fix with the same style and a
-different ID will not turn off the first one.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <a class="reference internal" href="unfix.html#command-unfix"><span class="std std-ref">unfix</span></a> command is the only way to turn off a fix; simply specifying a new fix with the same style and a different ID will not turn off the first one.</p>
+</div>
 <p>If you specify a new fix with the same ID and style as an existing fix,
 the old fix is deleted and the new one is created (presumably with new
 settings). This is the same as if an “unfix” command were first
 performed on the old fix, except that the new fix is kept in the same
 order relative to the existing fixes as the old one originally was.</p>
 <p>Some fixes store an internal “state” which is written to binary restart
-files via the <a class="reference external" href="restart.html">restart</a> or
-<a class="reference external" href="write_restart.html">write_restart</a> commands. This allows the fix to
+files via the <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart</span></a> or
+<a class="reference internal" href="write_restart.html#command-write-restart"><span class="std std-ref">write_restart</span></a> commands. This allows the fix to
 continue on with its calculations in a restarted simulation. See the
-<a class="reference external" href="read_restart.html">read_restart</a> command for info on how to
+<a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> command for info on how to
 re-specify a fix in an input script that reads a restart file. See the
 doc pages for individual fixes for info on which ones can be restarted.</p>
 <hr class="docutils" />
@@ -217,41 +217,41 @@ doc pages for individual fixes for info on which ones can be restarted.</p>
 what it does, as listed below. Here is an alphabetic list of fix styles
 available in SPARTA:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="fix_adapt.html">adapt</a> - on-the-fly grid adaptation</p></li>
-<li><p><a class="reference external" href="fix_adapt.html">adapt/kk</a> - Kokkos version of fix adapt</p></li>
-<li><p><a class="reference external" href="fix_ambipolar.html">ambipolar</a> - ambipolar approximation for
+<li><p><a class="reference internal" href="fix_adapt.html#command-fix-adapt"><span class="std std-ref">adapt</span></a> - on-the-fly grid adaptation</p></li>
+<li><p><a class="reference internal" href="fix_adapt.html#command-fix-adapt"><span class="std std-ref">adapt/kk</span></a> - Kokkos version of fix adapt</p></li>
+<li><p><a class="reference internal" href="fix_ambipolar.html#command-fix-ambipolar"><span class="std std-ref">ambipolar</span></a> - ambipolar approximation for
 ionized plasmas</p></li>
-<li><p><a class="reference external" href="fix_ave_grid.html">ave/grid</a> - compute per grid cell
+<li><p><a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">ave/grid</span></a> - compute per grid cell
 time-averaged quantities</p></li>
-<li><p><a class="reference external" href="fix_ave_grid.html">ave/grid/kk</a> - Kokkos version of fix ave/grid</p></li>
-<li><p><a class="reference external" href="fix_ave_histo.html">ave/histo</a> - compute/output time averaged
+<li><p><a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">ave/grid/kk</span></a> - Kokkos version of fix ave/grid</p></li>
+<li><p><a class="reference internal" href="fix_ave_histo.html#command-fix-ave-histo"><span class="std std-ref">ave/histo</span></a> - compute/output time averaged
 histograms</p></li>
-<li><p><a class="reference external" href="fix_ave_histo.html">ave/histo/weight</a> - compute/output weighted
+<li><p><a class="reference internal" href="fix_ave_histo.html#command-fix-ave-histo"><span class="std std-ref">ave/histo/weight</span></a> - compute/output weighted
 histograms</p></li>
-<li><p><a class="reference external" href="fix_ave_surf.html">ave/surf</a> - compute per surface element
+<li><p><a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">ave/surf</span></a> - compute per surface element
 time-averaged quantities</p></li>
-<li><p><a class="reference external" href="fix_ave_time.html">ave/time</a> - compute/output global
+<li><p><a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">ave/time</span></a> - compute/output global
 time-averaged quantities</p></li>
-<li><p><a class="reference external" href="fix_balance.html">balance</a> - perform dynamic load-balancing</p></li>
-<li><p><a class="reference external" href="fix_balance.html">balance/kk</a> - Kokkos version of fix balance</p></li>
-<li><p><a class="reference external" href="fix_emit_face.html">emit/face</a> - emit particles at global
+<li><p><a class="reference internal" href="fix_balance.html#command-fix-balance"><span class="std std-ref">balance</span></a> - perform dynamic load-balancing</p></li>
+<li><p><a class="reference internal" href="fix_balance.html#command-fix-balance"><span class="std std-ref">balance/kk</span></a> - Kokkos version of fix balance</p></li>
+<li><p><a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">emit/face</span></a> - emit particles at global
 boundaries</p></li>
-<li><p><a class="reference external" href="fix_emit_face.html">emit/face/kk</a> - Kokkos version of fix
+<li><p><a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">emit/face/kk</span></a> - Kokkos version of fix
 emit/face</p></li>
-<li><p><a class="reference external" href="fix_emit_face_file.html">emit/face/file</a> - emit particles at
+<li><p><a class="reference internal" href="fix_emit_face_file.html#command-fix-emit-face-file"><span class="std std-ref">emit/face/file</span></a> - emit particles at
 global boundaries using a distribution defined in a file</p></li>
-<li><p><a class="reference external" href="fix_emit_surf.html">emit/surf</a> - emit particles at surfaces</p></li>
-<li><p><a class="reference external" href="fix_grid_check.html">grid/check</a> - check if particles are in the
+<li><p><a class="reference internal" href="fix_emit_surf.html#command-fix-emit-surf"><span class="std std-ref">emit/surf</span></a> - emit particles at surfaces</p></li>
+<li><p><a class="reference internal" href="fix_grid_check.html#command-fix-grid-check"><span class="std std-ref">grid/check</span></a> - check if particles are in the
 correct grid cell</p></li>
-<li><p><a class="reference external" href="fix_grid_check.html">grid/check/kk</a> - Kokkos version of fix
+<li><p><a class="reference internal" href="fix_grid_check.html#command-fix-grid-check"><span class="std std-ref">grid/check/kk</span></a> - Kokkos version of fix
 grid/check</p></li>
-<li><p><a class="reference external" href="fix_move_surf.html">move/surf</a> - move surfaces dynamically during
+<li><p><a class="reference internal" href="fix_move_surf.html#command-fix-move-surf"><span class="std std-ref">move/surf</span></a> - move surfaces dynamically during
 a simulation</p></li>
-<li><p><a class="reference external" href="fix_move_surf.html">move/surf/kk</a> - Kokkos version of fix
+<li><p><a class="reference internal" href="fix_move_surf.html#command-fix-move-surf"><span class="std std-ref">move/surf/kk</span></a> - Kokkos version of fix
 move/surf</p></li>
-<li><p><a class="reference external" href="fix_print.html">print</a> - print text and variables during a
+<li><p><a class="reference internal" href="fix_print.html#command-fix-print"><span class="std std-ref">print</span></a> - print text and variables during a
 simulation</p></li>
-<li><p><a class="reference external" href="fix_vibmode.html">vibmode</a> - discrete vibrational energy modes</p></li>
+<li><p><a class="reference internal" href="fix_vibmode.html#command-fix-vibmode"><span class="std std-ref">vibmode</span></a> - discrete vibrational energy modes</p></li>
 </ul>
 <p>There are also additional accelerated compute styles included in the
 SPARTA distribution for faster performance on specific hardware. The
@@ -298,7 +298,7 @@ notation, where ID is the ID of the fix:</p>
 once (vector -&gt; scalar, array -&gt; vector). Using two brackets reduces the
 dimension twice (array -&gt; scalar). Thus a command that uses scalar fix
 values as input can also process elements of a vector or array.</p>
-<p>Note that commands and <a class="reference external" href="variable.html">variables</a> which use fix
+<p>Note that commands and <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variables</span></a> which use fix
 quantities typically do not allow for all kinds, e.g. a command may
 require a vector of values, not a scalar. This means there is no
 ambiguity about referring to a fix quantity as f_ID even if it produces,
@@ -308,15 +308,12 @@ commands explain the details.</p>
 <p>Any values generated by a fix can be used in several ways:</p>
 <ul class="simple">
 <li><p>Global values can be output via the
-<a class="reference external" href="stats_style.html">stats_style</a> command. Or the values can be
-referenced in a <a class="reference external" href="variable.html">variable equal</a> or <a class="reference external" href="variable.html">variable
-atom</a> command.</p></li>
-<li><p>Per-particle values can be output via the <a class="reference external" href="dump.html">dump
-particle</a> command. Or the per-particle values can be
-referenced in an <a class="reference external" href="variable.html">particle-style variable</a>.</p></li>
-<li><p>Per-grid values can be output via the <a class="reference external" href="dump.html">dump grid</a>
-command. Or the per-grid values can be referenced in a <a class="reference external" href="variable.html">grid-style
-variable</a>.</p></li>
+<a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style</span></a> command. Or the values can be
+referenced in a <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable equal</span></a> or <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable    atom</span></a> command.</p></li>
+<li><p>Per-particle values can be output via the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump    particle</span></a> command. Or the per-particle values can be
+referenced in an <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">particle-style variable</span></a>.</p></li>
+<li><p>Per-grid values can be output via the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a>
+command. Or the per-grid values can be referenced in a <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">grid-style    variable</span></a>.</p></li>
 </ul>
 <hr class="docutils" />
 <p><strong>Restrictions:</strong> none</p>

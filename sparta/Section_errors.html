@@ -189,7 +189,7 @@ when using SPARTA.</p>
 </ul>
 </div>
 <div class="section" id="common-problems">
-<span id="error-common"></span><h2><a class="toc-backref" href="#id3">12.1. Common problems</a><a class="headerlink" href="#common-problems" title="Permalink to this headline">¶</a></h2>
+<span id="errors-error-common"></span><h2><a class="toc-backref" href="#id3">12.1. Common problems</a><a class="headerlink" href="#common-problems" title="Permalink to this headline">¶</a></h2>
 <p>If two SPARTA runs do not produce the same answer on different machines or different numbers of processors, this is typically not a bug. On different machines, there can be numerical round-off in the computations which causes slight differences in particle trajectories or the number of particles, which will lead to numerical divergence of the particle trajectores and averaged statistical quantities within a few 100s or few 1000s of timesteps. When running on different numbers of processors, random numbers are used in different ways, so two simulations can be immediately different.
 However, the statistical properties (e.g. overall particle temperature or per grid cell temperature or surface energy flux) for the two runs on different machines or on different numbers of processors should still be similar.</p>
 <p>A SPARTA simulation typically has two stages, setup and run. Most SPARTA errors are detected at setup time; others like running out of memory may not occur until the middle of a run.</p>
@@ -209,7 +209,7 @@ For a given command, SPARTA expects certain arguments in a specified order. If y
 <p>The most useful thing you can do to help us fix the bug is to isolate the problem. Run it on the smallest number of particles and grid cells and fewest number of processors and with the simplest and quick-to-run input script that reproduces the bug. And try to identify what command or combination of commands is causing the problem.</p>
 </div>
 <div class="section" id="error-warning-messages">
-<h2><a class="toc-backref" href="#id5">12.3. Error &amp; warning messages</a><a class="headerlink" href="#error-warning-messages" title="Permalink to this headline">¶</a></h2>
+<span id="errors-error-warning"></span><h2><a class="toc-backref" href="#id5">12.3. Error &amp; warning messages</a><a class="headerlink" href="#error-warning-messages" title="Permalink to this headline">¶</a></h2>
 <p>These are two alphabetic lists of the <a class="reference internal" href="#errors-list"><span class="std std-ref">Errors</span></a> and
 <a class="reference internal" href="#errors-warnings"><span class="std std-ref">Warnings</span></a> messages SPARTA prints out and the reason why. If
 the explanation here is not sufficient, the documentation for the

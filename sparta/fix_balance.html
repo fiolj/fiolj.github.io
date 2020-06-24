@@ -173,7 +173,7 @@
 </pre></div>
 </div>
 <ul>
-<li><p>ID is documented in <a class="reference external" href="fix.html">fix</a> command</p></li>
+<li><p>ID is documented in <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> command</p></li>
 <li><p>balance = style name of this fix command</p></li>
 <li><p>Nfreq = perform dynamic load balancing every this many steps</p></li>
 <li><p>thresh = rebalance if imbalance factor is above this threshhold</p></li>
@@ -205,7 +205,7 @@ particles to processors as a simulation runs, to attempt to balance the
 computational cost (load) evenly across processors. The load balancing
 is “dynamic” in the sense that rebalancing is performed periodically
 during the simulation. To perform “static” balancing, before or between
-runs, see the <a class="reference external" href="balance_grid.html">balance_grid</a> command.</p>
+runs, see the <a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid</span></a> command.</p>
 <p>This command is useful to use during simulations where the spatial
 distribution of particles varies with time, leading to load imbalance.</p>
 <p>After grid cells have been assigned, they are migrated to new owning
@@ -220,7 +220,7 @@ processor will either be “clumped” or “dispersed”.</p>
 each processor. This means each processor’s cells will be geometrically
 compact. The <em>random</em> and <em>proc</em> keywords will produce dispersed
 assignments of child cells to each processor.</p>
-<p>IMPORTANT NOTE: See <a class="reference external" href="Section_howto.html#howto_8">Section 6.8</a> of the
+<p>IMPORTANT NOTE: See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the
 manual for an explanation of clumped and dispersed grid cell assignments
 and their relative performance trade-offs.</p>
 <hr class="docutils" />
@@ -234,8 +234,8 @@ particles, then the factor is 1.2, meaning there is a 20% imbalance. The
 <em>thresh</em> setting must be &gt;= 1.0.</p>
 <p>IMPORTANT NOTE: This command attempts to minimize the imbalance factor,
 as defined above. But computational cost is not strictly proportional to
-particle count, depending on the <a class="reference external" href="collide.html">collision</a> and
-<a class="reference external" href="react.html">chemistry</a> models being used. Also, changing the
+particle count, depending on the <a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collision</span></a> and
+<a class="reference internal" href="react.html#command-react"><span class="std std-ref">chemistry</span></a> models being used. Also, changing the
 assignment of grid cells and particles to processors may lead to
 additional communication overheads, e.g. when migrating particles
 between processors. Thus you should benchmark the run times of your
@@ -310,8 +310,7 @@ particle and grid data moves to new processors, fully exercising the
 rebalancing code.</p>
 <hr class="docutils" />
 <p><strong>Restart, output info:</strong></p>
-<p>No information about this fix is written to <a class="reference external" href="restart.html">binary restart
-files</a>.</p>
+<p>No information about this fix is written to <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">binary restart files</span></a>.</p>
 <p>This fix computes a global scalar which is the imbalance factor after
 the most recent rebalance and a global vector of length 2 with
 additional information about the most recent rebalancing. The 2 values
@@ -328,19 +327,16 @@ for the global scalar value.</p>
 <hr class="docutils" />
 <p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding
 style without the suffix. They have been optimized to run faster,
-depending on your available hardware, as discussed in the <a class="reference external" href="Section_accelerate.html">Accelerating
-SPARTA</a> section of the manual. The
+depending on your available hardware, as discussed in the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual. The
 accelerated styles take the same arguments and should produce the same
 results, except for different random number, round-off and precision
 issues.</p>
 <p>These accelerated styles are part of the KOKKOS package. They are only
-enabled if SPARTA was built with that package. See the <a class="reference external" href="Section_start.html#start_3">Making
-SPARTA</a> section for more info.</p>
+enabled if SPARTA was built with that package. See the <a class="reference internal" href="Section_start.html#start-making-sparta"><span class="std std-ref">Making SPARTA</span></a> section for more info.</p>
 <p>You can specify the accelerated styles explicitly in your input script
-by including their suffix, or you can use the <a class="reference external" href="Section_start.html#start_6">-suffix command-line
-switch</a> when you invoke SPARTA, or you
-can use the <a class="reference external" href="suffix.html">suffix</a> command in your input script.</p>
-<p>See the <a class="reference external" href="Section_accelerate.html">Accelerating SPARTA</a> section of the
+by including their suffix, or you can use the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-suffix command-line switch</span></a> when you invoke SPARTA, or you
+can use the <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix</span></a> command in your input script.</p>
+<p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the
 manual for more instructions on how to use the accelerated styles
 effectively.</p>
 <hr class="docutils" />

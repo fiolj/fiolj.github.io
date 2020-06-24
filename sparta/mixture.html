@@ -214,11 +214,10 @@ mixture</p></li>
 <p><strong>Description:</strong></p>
 <p>Define a gas mixture and its properties. A mixture can be referenced by
 its ID in several other SPARTA commands such as
-<a class="reference external" href="create_particles.html">create_particles</a> or <a class="reference external" href="compute.html">per-grid
-computes</a>. Any number of mixtures can be defined and
+<a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles</span></a> or <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">per-grid computes</span></a>. Any number of mixtures can be defined and
 used in a simulation.</p>
 <p>A mixture is a collection of one or more particle species as defined by
-the <a class="reference external" href="species.html">species</a> command. Each species belongs to a named
+the <a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a> command. Each species belongs to a named
 group within the mixture so that particles of all species in the group
 can be acted on together by other commands. The mixture has both global
 attributes and per-species attributes. All attributes have default
@@ -292,10 +291,10 @@ N-M assigned species.</p>
 <p>Each species in a mixture is assigned to exactly one group. The <em>group</em>
 keyword can be used to set or change these assignments. Every mixture
 has one or more named groups.</p>
-<p>As described by the <a class="reference external" href="collide.html">collide</a> command, mixture groups
+<p>As described by the <a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide</span></a> command, mixture groups
 are used when performing collisions so that collisions attempts,
 partners, and parameters can be treated on a per-group basis for
-accuracy and efficiency. <a class="reference external" href="compute.html">Per-grid computes</a> also use
+accuracy and efficiency. <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">Per-grid computes</span></a> also use
 mixture groups to calculate per-grid quantities on a per-grid-cell,
 per-group basis, i.e. on subsets of particles within each grid cell.</p>
 <p>If the <em>group</em> keyword is not used in a mixture command, no changes to
@@ -356,7 +355,7 @@ both be zero. A zero streaming velocity means a zero vector = (0,0,0).</p>
 <a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles command</span></a></p>
 <p><strong>Default:</strong></p>
 <p>The <em>nrho</em>, <em>vstream</em>, and <em>temp</em> defaults are those defined for the
-background gas density, as set by the <a class="reference external" href="global.html">global</a> command.
+background gas density, as set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global</span></a> command.
 The <em>trot</em> and <em>tvib</em> defaults are to use the thermal temperature
 <em>temp</em>, either its default or the value specified by this command. The
 <em>frac</em> default is described above. The <em>group</em> keyword has no default;

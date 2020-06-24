@@ -185,30 +185,26 @@
 <p><strong>Description:</strong></p>
 <p>This command closes the current input script file, opens the file with
 the specified name, and begins reading SPARTA commands from that file.
-Unlike the <a class="reference external" href="include.html">include</a> command, the original file is not
+Unlike the <a class="reference internal" href="include.html#command-include"><span class="std std-ref">include</span></a> command, the original file is not
 returned to, although by using multiple jump commands it is possible to
 chain from file to file or back to the original file.</p>
 <p>If the word “SELF” is used for the filename, then the current input
 script is re-opened and read again.</p>
-<p>IMPORTANT NOTE: The SELF option is not guaranteed to work when the
-current input script is being read through stdin (standard input), e.g.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The SELF option is not guaranteed to work when the current input script is being read through stdin (standard input), e.g.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa_g</span><span class="o">++</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">script</span>
 </pre></div>
 </div>
-<p>since the SELF option invokes the C-library rewind() call, which may not
-be supported for stdin on some systems or by some MPI implementations.
-This can be worked around by using the <a class="reference external" href="Section_start.html#start_6">-in command-line
-argument</a>, e.g.</p>
+<p>since the SELF option invokes the C-library rewind() call, which may not be supported for stdin on some systems or by some MPI implementations.
+This can be worked around by using the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-in command-line argument</span></a>, e.g.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">script</span>
 </pre></div>
 </div>
-<p>or by using the <a class="reference external" href="Section_start.html#start_6">-var command-line
-argument</a> to pass the script name as a
-variable to the input script. In the latter case, a
-<a class="reference external" href="variable.html">variable</a> called “fname” could be used in place of
-SELF, e.g.</p>
+<p>or by using the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-var command-line argument</span></a> to pass the script name as a variable to the input script. In the latter case, a <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a> called “fname” could be used in place of SELF, e.g.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">var</span> <span class="n">fname</span> <span class="ow">in</span><span class="o">.</span><span class="n">script</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">script</span>
 </pre></div>
+</div>
 </div>
 <p>The 2nd argument to the jump command is optional. If specified, it is
 treated as a label and the new file is scanned (without executing
@@ -216,7 +212,7 @@ commands) until the label is found, and commands are executed from that
 point forward. This can be used to loop over a portion of the input
 script, as in this example. These commands perform 10 runs, each of
 10000 steps, and create 10 dump files named file.1, file.2, etc. The
-<a class="reference external" href="next.html">next</a> command is used to exit the loop after 10
+<a class="reference internal" href="next.html#command-next"><span class="std std-ref">next</span></a> command is used to exit the loop after 10
 iterations. When the “a” variable has been incremented for the tenth
 time, it will cause the next jump command to be skipped.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>variable a loop 10
@@ -240,7 +236,7 @@ will cause each partition to run a different simulation.</p>
 jump $f
 </pre></div>
 </div>
-<p>Here is an example of a double loop which uses the <a class="reference external" href="if.html">if</a> and
+<p>Here is an example of a double loop which uses the <a class="reference internal" href="if.html#command-if"><span class="std std-ref">if</span></a> and
 jump commands to break out of the inner loop when a condition is met,
 then continues iterating thru the outer loop.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>label      loopa

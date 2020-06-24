@@ -183,22 +183,20 @@
 <p><strong>Description:</strong></p>
 <p>Set the timestep counter to the specified value. This command normally
 comes after the timestep has been set by reading a restart file via the
-<a class="reference external" href="read_restart.html">read_restart</a> command, or a previous simulation
+<a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> command, or a previous simulation
 advanced the timestep.</p>
-<p>The <a class="reference external" href="create_box.html">create_box</a> command sets the timestep to 0; the
-<a class="reference external" href="read_restart.html">read_restart</a> command sets the timestep to the
+<p>The <a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a> command sets the timestep to 0; the
+<a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> command sets the timestep to the
 value it had when the restart file was written.</p>
 <p><strong>Restrictions:</strong> none</p>
 <p>This command cannot be used when any fixes are defined that keep track
 of elapsed time to perform certain kinds of time-dependent operations.
-Examples are the <a class="reference external" href="fix_ave_time.html">fix ave/time</a>, <a class="reference external" href="fix_ave_grid.html">fix
-ave/grid</a>, and <a class="reference external" href="fix_ave_surf.html">fix
-ave/surf</a> commands. Thus these fixes should be
+Examples are the <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time</span></a>, <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a>, and <a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">fix ave/surf</span></a> commands. Thus these fixes should be
 specified after the timestep has been reset.</p>
-<p>Resetting the timestep clears flags for <a class="reference external" href="compute.html">computes</a> that
+<p>Resetting the timestep clears flags for <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">computes</span></a> that
 may have calculated some quantity from a previous run. This means these
 quantity cannot be accessed by a variable in between runs until a new
-run is performed. See the <a class="reference external" href="variable.html">variable</a> command for more
+run is performed. See the <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a> command for more
 details.</p>
 <p><strong>Related commands:</strong> none</p>
 <p><strong>Default:</strong> none</p>

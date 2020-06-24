@@ -232,12 +232,12 @@ or <em>cells</em> or <em>region</em> or <em>dir</em></p>
 cell group, either by refinement or coarsening or both. This command can
 be invoked as many times as desired, before or between simulation runs.
 Grid adaptation can also be performed on-the-fly during a simulation by
-using the <a class="reference external" href="fix_adapt.html">fix adapt</a> command.</p>
+using the <a class="reference internal" href="fix_adapt.html#command-fix-adapt"><span class="std std-ref">fix adapt</span></a> command.</p>
 <p>Refinement means splitting one child cell into multiple new child cells;
 the original child cell becomes a parent cell. Coarsening means
 combining all the child cells of a parent cell, so that the child cells
 are deleted and the parent cell becomes a single new child cell. See
-<a class="reference external" href="Section_howto.html#howto_8">Section howto 4.8</a> for a description of
+<a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section howto 4.8</span></a> for a description of
 the hierarchical grid used by SPARTA and a defintion of child and parent
 cells.</p>
 <p>Grid adaptation can be useful for adjusting the grid cell sizes to the
@@ -247,12 +247,11 @@ well-adapted grid can improve accuracy of the simulation and/or reduce a
 simulation’s computational cost.</p>
 <p>Only grid cells in the grid group specified by <em>group-ID</em> are eligible
 for refinement. A parent grid cell is only eligible for coarsening if
-all its child cells are in the specified grid group. See the <a class="reference external" href="group.html">group
-grid</a> command for info on how grid cells can be assigned
+all its child cells are in the specified grid group. See the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group grid</span></a> command for info on how grid cells can be assigned
 to grid groups. Note that the grid group assignment is transferred to
 new refined or coarsened cells, so that new cells remain eligible for
 adaptation if the adapt_grid command is invoked again or successive
-adaptations are performed via the <a class="reference external" href="fix_adapt.html">fix adapt</a>
+adaptations are performed via the <a class="reference internal" href="fix_adapt.html#command-fix-adapt"><span class="std std-ref">fix adapt</span></a>
 command.</p>
 <p>The <em>action1</em> and <em>action2</em> parameters determine whether refinement or
 coarsening is performed and in what order. <em>Action2</em> is optional. If not
@@ -265,8 +264,7 @@ used to loop over the two actions multiple times. Cells can be
 successivly refined on each iteration, but will never be coarsened.
 Likewise cells can be successivly coarsensed, but will never be refined.
 Of course any cell may be refined or coarsened later if the adapt_grid
-command is used again, including on later timesteps via the <a class="reference external" href="fix_adapt.html">fix
-adapt</a> command.</p>
+command is used again, including on later timesteps via the <a class="reference internal" href="fix_adapt.html#command-fix-adapt"><span class="std std-ref">fix adapt</span></a> command.</p>
 <p>Examples of 2d and 3d refined grids are shown here. The 3d simulation
 shows 2d planar cuts through the 3d grid. Click on either image for a
 larger version.</p>
@@ -298,9 +296,8 @@ than <em>rcount</em>, the cell is refined. For coarsening, if the sum of the
 current number of particles in all child cells of the parent cell is
 less than <em>ccount</em>, the parent cell is coarsened. Note that if you wish
 to use time-averaged counts of particles in each cell you should use the
-<em>value</em> style with the ID of a <a class="reference external" href="fix_ave_grid.html">fix ave/grid</a>
-command that time-averages particle counts from the <a class="reference external" href="compute_grid.html">compute
-grid</a> command.</p>
+<em>value</em> style with the ID of a <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a>
+command that time-averages particle counts from the <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid</span></a> command.</p>
 <p>The <em>surf</em> style adapts only if a grid cell contains one or more surface
 elements in the specified <em>surfID</em> group. The <em>dir</em> keyword can be used
 to exclude additional surface elements. For refinement, the cell is
@@ -308,10 +305,9 @@ refined unless the refinement will create child cells with any of their
 dimensions smaller than the specified <em>ssize</em>. For coarsening, the
 parent cell is coarsened only if any of the child cell dimensions is
 smaller than the specified <em>ssize</em>.</p>
-<p>The <em>value</em> style uses values calculated by a <a class="reference external" href="compute.html">compute</a>
-or <a class="reference external" href="fix.html">fix</a> to decide whether to adapt each cell. The fix or
-compute must calculate per-grid values as described in <a class="reference external" href="Section_howto.html#howto_4">Section howto
-4.4</a>. If the compute or fix calculates a
+<p>The <em>value</em> style uses values calculated by a <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a>
+or <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> to decide whether to adapt each cell. The fix or
+compute must calculate per-grid values as described in <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Section howto 4.4</span></a>. If the compute or fix calculates a
 vector of such values, it is specified as c_ID or f_ID. If it calculates
 an array of such values, it is specified as c_ID[N] or f_ID[N] when N is
 the column of values to use, from 1 to Ncolumns.</p>
@@ -322,8 +318,7 @@ than <em>cvalue</em>, the parent cell is coarsened. The <em>thresh</em> keyword 
 used to change the refinment or coarsening criteria to “less” versus
 “more”. Likewise the <em>combine</em> keyword can be used to change the “sum”
 of child cell values to be a “min” or “max” operation.</p>
-<p>Here is an example using particle count as calculated by the <a class="reference external" href="compute_grid.html">compute
-grid</a> command as an adaptation criterion. A cell
+<p>Here is an example using particle count as calculated by the <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid</span></a> command as an adaptation criterion. A cell
 will be refined if its count &gt; 25, and a parent cell coarsened if the
 sum of its children cell counts &lt; 10.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">grid</span> <span class="nb">all</span> <span class="n">n</span> <span class="n">nrho</span>
@@ -343,7 +338,7 @@ criterion in the same manner:</p>
 </pre></div>
 </div>
 <p>Here is an example using mean-free path (MFP) as calculated by the
-<a class="reference external" href="compute_lambda_grid.html">compute lambda/grid</a> command as an
+<a class="reference internal" href="compute_lambda_grid.html#command-compute-lambda-grid"><span class="std std-ref">compute lambda/grid</span></a> command as an
 adaptation criterion. Note the use of “thresh less more” to refine when
 MFP is less than the specified threshold (0.05).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="k">lambda</span><span class="o">/</span><span class="n">grid</span> <span class="n">c_12</span> <span class="n">NULL</span> <span class="n">N2</span> <span class="n">kall</span>
@@ -368,12 +363,12 @@ ends. Note that the compute used with style <em>value</em> will be recalculated
 at each iteration to accurately reflect per grid values for the current
 grid.</p>
 <p>The <em>maxlevel</em> keyword limits how far a grid cell can be refined. See
-<a class="reference external" href="Section_howto.html#howto_8">Section howto 4.8</a> for a definition of
+<a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section howto 4.8</span></a> for a definition of
 the level assigned to each parent and child cell. Child cells with a
 level &gt;= <em>Nmax</em> are not eligible for refinement. The default setting of
 <em>Nmax</em> = 0 means there is no limit on refinement.</p>
 <p>The <em>minlevel</em> keyword limits how far a grid cell can be coarsened. See
-<a class="reference external" href="Section_howto.html#howto_8">Section howto 4.8</a> for a definition of
+<a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section howto 4.8</span></a> for a definition of
 the level assigned to each parent and child cell. Parent cells with a
 level &lt; <em>Nmin</em> are not eligible for coarsening. The default setting of
 <em>Nmin</em> = 1 means the only limit on coarsening is that the first level
@@ -399,9 +394,9 @@ and Nz.</p>
 <p>The <em>region</em> keyword can be used to limit which grid cells are eligible
 for adapation. It applies to both child cells for refinment and parent
 cells for coarsening. The ID of the geometric region is speficied as
-<em>regID</em>. See the <a class="reference external" href="region.html">region</a> command for details on what
+<em>regID</em>. See the <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command for details on what
 kind of geometric regions can be defined. Note that the <em>side</em> option
-for the <a class="reference external" href="region.html">region</a> command can be used to define whether
+for the <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command can be used to define whether
 the inside or outside of the geometric region is considered to be “in”
 the region.</p>
 <p>The grid cell must be in the region to be eligible for adaptation. The
@@ -421,27 +416,26 @@ accomplished by setting Sx,Sy,Sz to the flow direction. If Sy,Sy,Sz =
 (0,0,0), which is the default, then no surface elements are excluded.</p>
 <p>The <em>file</em> keyword triggers output of the adapted grid to the specified
 <em>filename</em>. The format of the file is the same as that created by the
-<a class="reference external" href="write_grid.html">write_grid</a> command, which is a list of parent
+<a class="reference internal" href="write_grid.html#command-write-grid"><span class="std std-ref">write_grid</span></a> command, which is a list of parent
 cells. The file can be read in by a subsequent simulation to define a
 grid, or used by visualization or other post-procesing tools. Note that
 no file is written if no grid cells are refined or coarsened.</p>
 <p>If the filename contains a “*” wildcard character, then the “*” is
-replaced by the current timestep. This is useful for the <a class="reference external" href="fix_adapt.html">fix
-adapt</a> command, if you wish to write out multiple
+replaced by the current timestep. This is useful for the <a class="reference internal" href="fix_adapt.html#command-fix-adapt"><span class="std std-ref">fix adapt</span></a> command, if you wish to write out multiple
 grid files, each time the grid iadapts.</p>
 <hr class="docutils" />
 <p>If the grid is partitioned across processors in a “clumped” manner
 before this command is invoked, it will still be clumped by processor
 after the adaptation. Likewise if it is not clumped before, it will
 remain un-clumped after adaptation. You can use the
-<a class="reference external" href="balance_grid.html">balance_grid</a> command after this command to
+<a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid</span></a> command after this command to
 re-balance the new adapted grid cells and their particles across
-processors. See <a class="reference external" href="Section_howto.html#howto_8">Section howto 4.8</a> for a
+processors. See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section howto 4.8</span></a> for a
 description clumped and unclumped grids.</p>
 <p><strong>Restrictions:</strong></p>
 <p>This command can only be used after the grid has been created by the
-<a class="reference external" href="create_grid.html">create_grid</a>, <a class="reference external" href="read_grid">read_grid</a>, or
-<a class="reference external" href="read_restart.html">read_restart</a> commands.</p>
+<a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a>, <a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid</span></a>, or
+<a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> commands.</p>
 <p>Currently a fix cannot be used with style <em>value</em> for <em>iterate</em> &gt; 1.
 This is because the per-grid cell values accumulated by the fix are not
 interpolated to new grid cells so that the fix can be re-evaluated

@@ -182,12 +182,12 @@
 </div>
 <p><strong>Description:</strong></p>
 <p>This command is used with variables defined by the
-<a class="reference external" href="variable.html">variable</a> command. It assigns the next value to the
+<a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a> command. It assigns the next value to the
 variable from the list of values defined for that variable by the
-<a class="reference external" href="variable.html">variable</a> command. Thus when that variable is
+<a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a> command. Thus when that variable is
 subsequently substituted for in an input script command, the new value
 is used.</p>
-<p>See the <a class="reference external" href="variable.html">variable</a> command for info on how to define
+<p>See the <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a> command for info on how to define
 and use different kinds of variables in SPARTA input scripts. If a
 variable name is a single lower-case character from “a” to “z”, it can
 be used in an input script command as $a or $z. If it is multiple
@@ -203,8 +203,8 @@ or <em>equal</em>- or <em>world</em>-style variables cannot be used with the the
 command, since they only store a single value.</p>
 <p>When any of the variables in the next command has no more values, a flag
 is set that causes the input script to skip the next
-<a class="reference external" href="jump.html">jump</a> command encountered. This enables a loop containing
-a next command to exit. As explained in the <a class="reference external" href="variable.html">variable</a>
+<a class="reference internal" href="jump.html#command-jump"><span class="std std-ref">jump</span></a> command encountered. This enables a loop containing
+a next command to exit. As explained in the <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a>
 command, the variable that has exhausted its values is also deleted.
 This allows it to be used and re-defined later in the input script.
 <em>File</em>-style variables are exhausted when the end-of-file is reached.</p>
@@ -220,7 +220,7 @@ next value (for each variable) is assigned to whichever processor
 partition executes the command first. All processors in the partition
 are assigned the same value(s). Running SPARTA on multiple partitions of
 processors via the “-partition” command-line switch is described in
-<a class="reference external" href="Section_start.html#start_6">Section 2.6</a> of the manual. <em>Universe</em>-
+<a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">Section 2.6</span></a> of the manual. <em>Universe</em>-
 and <em>uloop</em>-style variables are incremented using the files
 “tmp.sparta.variable” and “tmp.sparta.variable.lock” which you will see
 in your directory during and after such a SPARTA run.</p>
@@ -262,8 +262,8 @@ next i
 jump in.script
 </pre></div>
 </div>
-<p>Here is an example of a double loop which uses the <a class="reference external" href="if.html">if</a> and
-<a class="reference external" href="jump.html">jump</a> commands to break out of the inner loop when a
+<p>Here is an example of a double loop which uses the <a class="reference internal" href="if.html#command-if"><span class="std std-ref">if</span></a> and
+<a class="reference internal" href="jump.html#command-jump"><span class="std std-ref">jump</span></a> commands to break out of the inner loop when a
 condition is met, then continues iterating thru the outer loop.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>label      loopa
 variable    a loop 5

@@ -211,7 +211,7 @@ processors, to attempt to balance the computational cost (load) evenly
 across processors. The load balancing is “static” in the sense that this
 command performs the balancing once, before or between simulations. The
 assignments will remain static during the subsequent run. To perform
-“dynamic” balancing, see the <a class="reference external" href="fix_balance.html">fix balance</a> command,
+“dynamic” balancing, see the <a class="reference internal" href="fix_balance.html#command-fix-balance"><span class="std std-ref">fix balance</span></a> command,
 which can adjust the assignemt of grid cells to processors on-the-fly
 during a run.</p>
 <p>After grid cells have been assigned, they are migrated to new owning
@@ -220,8 +220,8 @@ attributes stored by fixes. The internal data structures within SPARTA
 for grid cells and particles are re-initialized with the new
 decomposition.</p>
 <p>This command can be used immediately after the grid is created, via the
-<a class="reference external" href="create_grid.html">create_grid</a> or
-<a class="reference external" href="read_restart.html">read_restart</a> commands. In the former case
+<a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a> or
+<a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> commands. In the former case
 balance_grid can be used to partition the grid in a more desirable
 manner than the default creation options allow for. In the latter case,
 balance grid can be used to change the somewhat random assignment of
@@ -239,30 +239,30 @@ assignments of child cells to each processor. This means each
 processor’s cells will be geometrically compact. The <em>stride</em> and
 <em>random</em> and <em>proc</em> styles will produce dispersed assignments of child
 cells to each processor.</p>
-<p>IMPORTANT NOTE: See <a class="reference external" href="Section_howto.html#howto_8">Section 6.8</a> of the
-manual for an explanation of clumped and dispersed grid cell assignments
-and their relative performance trade-offs.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual for an explanation of clumped and dispersed grid cell assignments and their relative performance trade-offs.</p>
+</div>
 <hr class="docutils" />
 <p>The <em>none</em> style will not change the assignment of grid cells to
 processors. However it will update the internal data structures within
 SPARTA that store ghost cell information on each processor for cells
-owned by other processors. This is useful if the <a class="reference external" href="global.html">global
-gridcut</a> command was used after grid cells were already
+owned by other processors. This is useful if the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global gridcut</span></a> command was used after grid cells were already
 defined. That command erases ghost cell information stored by
 processors, which then needs to be re-generated before a simulation is
 run. Using the balance_grid none command will re-generate the ghost cell
 information.</p>
 <p>The <em>stride</em>, <em>clump</em>, and <em>block</em> styles can only be used if the grid
 is “uniform”. The grid in SPARTA is hierarchical with one or more
-levels, as defined by the <a class="reference external" href="create_grid.html">create_grid</a> or
-<a class="reference external" href="read_grid.html">read_grid</a> commlands. If the parent cell of every
+levels, as defined by the <a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a> or
+<a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid</span></a> commlands. If the parent cell of every
 grid cell is at the same level of the hierarchy, then for puposed os
 this command the grid is uniform, meaning the collection of grid cells
 effectively form a uniform fine grid overlaying the entire simulation
 domain.</p>
 <p>The meaning of the <em>stride</em>, <em>clump</em>, and <em>block</em> styles is exactly the
 same as when they are used as keywords with the
-<a class="reference external" href="create_grid.html">create_grid</a> command. See its doc page for
+<a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a> command. See its doc page for
 details.</p>
 <p>The <em>random</em> style means that each grid cell will be assigned randomly
 to one of the processors. Note that in this case every processor will
@@ -323,8 +323,8 @@ rebalancing code.</p>
 <hr class="docutils" />
 <p><strong>Restrictions:</strong></p>
 <p>This command can only be used after the grid has been created by the
-<a class="reference external" href="create_grid.html">create_grid</a>, <a class="reference external" href="read_grid">read_grid</a>, or
-<a class="reference external" href="read_restart.html">read_restart</a> commands.</p>
+<a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a>, <a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid</span></a>, or
+<cite>read_restart &lt;command-read-restart&gt;</cite> commands.</p>
 <p>This command also initializes various options in SPARTA before
 performing the balancing. This is so that grid cells are ready to
 migrate to new processors. Thus if an error is flagged, e.g. that a

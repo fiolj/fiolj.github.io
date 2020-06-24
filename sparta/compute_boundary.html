@@ -176,7 +176,7 @@
 </pre></div>
 </div>
 <ul>
-<li><p>ID is documented in <a class="reference external" href="compute.html">compute</a> command</p></li>
+<li><p>ID is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
 <li><p>boundary = style name of this compute command</p></li>
 <li><p>mix-ID = mixture ID to perform calculation on</p></li>
 <li><p>one or more values can be appended</p></li>
@@ -216,9 +216,9 @@ boundary to a file every 1000 steps:</p>
 <p>Define a computation that calculates one or more values for each
 boundary (i.e. face) of the simulation box, based on the particles that
 cross or collide with the boundary. The values are summed for each group
-of species in the specified mixture. See the <a class="reference external" href="mixture.html">mixture</a>
+of species in the specified mixture. See the <a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture</span></a>
 command for how a set of species can be partitioned into groups.</p>
-<p>Note that depending on the settings for the <a class="reference external" href="boundary.html">boundary</a>
+<p>Note that depending on the settings for the <a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">boundary</span></a>
 command, when a particle collides with a boundary, it can exit the
 simulation box (outflow), re-enter from the other side (periodic),
 reflect specularly from the boundary, or interact with it as if it were
@@ -235,9 +235,8 @@ outgoing particles are part of the same tally, even if they are in
 different species groups.</p>
 <p>The results of this compute can be used by different commands in
 different ways. The values for a single timestep can be output by the
-<a class="reference external" href="stats_style.html">stats_style</a> command.</p>
-<p>The values over many sampling timesteps can be averaged by the <a class="reference external" href="fix_ave_time.html">fix
-ave/time</a> command. It does its averaging as if the
+<a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style</span></a> command.</p>
+<p>The values over many sampling timesteps can be averaged by the <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time</span></a> command. It does its averaging as if the
 particles striking the boundary at each sampling timestep were combined
 together into one large set to compute the formulas below. The answer is
 then divided by the number of sampling timesteps if it is not otherwise
@@ -246,12 +245,10 @@ different normalization than taking the values produced by the formulas
 below for a single timestep, summing them over the sampling timesteps,
 and then dividing by the number of sampling steps. However for the
 current values listed below, the two normalization methods are the same.</p>
-<p>NOTE: If particle weighting is enabled via the <a class="reference external" href="global.html">global
-weight</a> command, then all of the values below are scaled
-by the weight assigned to the grid cell in which the particle collision
-with the boundary occurs. The only exception is the the <em>n</em> value, which
-is NOT scaled by the weight; it is a simple count of particle crossings
-or collisions with the boundary.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If particle weighting is enabled via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command, then all of the values below are scaled by the weight assigned to the grid cell in which the particle collision with the boundary occurs. The only exception is the the <em>n</em> value, which is NOT scaled by the weight; it is a simple count of particle crossings or collisions with the boundary.</p>
+</div>
 <hr class="docutils" />
 <p>The <em>n</em> value counts the number of particles in the group crossing or
 colliding with the boundary.</p>
@@ -259,7 +256,7 @@ colliding with the boundary.</p>
 colliding with the boundary and weights the count by the weight assigned
 to the grid cell in which the particle collision with the boundary
 occurs. The <em>nwt</em> quantity will only be different than <em>n</em> if particle
-weighting is enabled via the <a class="reference external" href="global.html">global weight</a> command.</p>
+weighting is enabled via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command.</p>
 <p>The <em>mflux</em> value calculates the mass flux imparted to the boundary by
 particles in the group. This is computed as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mflux</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
@@ -267,7 +264,7 @@ particles in the group. This is computed as</p>
 </div>
 <p>where the sum is over all contributing particle masses, normalized by A
 = the area of the surface element, dt = the timestep, and fnum = the
-real/simulated particle ratio set by the <a class="reference external" href="global.html">global fnum</a>
+real/simulated particle ratio set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global fnum</span></a>
 command.</p>
 <p>The <em>press</em> value calculates the pressure <em>P</em> exerted on the boundary in
 the normal direction by particles in the group, such that outward
@@ -282,7 +279,7 @@ colliding with the boundary. The pressure exerted on the boundary is the
 sum over all contributing p_delta dotted into the normal N of the
 boundary which is directed into the box, normalized by A = the area of
 the boundary face and dt = the timestep and fnum = the real/simulated
-particle ratio set by the <a class="reference external" href="global.html">global fnum</a> command.</p>
+particle ratio set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global fnum</span></a> command.</p>
 <p>The <em>shx</em>, <em>shy</em>, <em>shz</em> values calculate the shear pressure components
 Sx, Sy, Sz extered on the boundary in the tangential direction to its
 normal by particles in the group, with respect to the x, y, z coordinate
@@ -308,8 +305,7 @@ particle is a positive flux. This is computed as</p>
 changes from V_pre to V_post when colliding with the boundary. The
 energy flux imparted to the boundary is the sum over all contributing
 e_delta, normalized by A = the area of the boundary face and dt = the
-timestep and fnum = the real/simulated particle ratio set by the <a class="reference external" href="global.html">global
-fnum</a> command.</p>
+timestep and fnum = the real/simulated particle ratio set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global fnum</span></a> command.</p>
 <p>The <em>erot</em> value calculates the rotational energy flux <em>Eflux</em> imparted
 to the boundary by particles in the group, such that energy lost by a
 particle is a positive flux. This is computed as</p>
@@ -348,10 +344,9 @@ and <em>u</em> for the second group, etc. The number of rows is 4 for a 2d
 simulation for the 4 faces (xlo, xhi, ylo, yhi), and it is 6 for a 3d
 simulation (xlo, xhi, ylo, yhi, zlo, zhi).</p>
 <p>The array can be accessed by any command that uses global array values
-from a compute as input. See <a class="reference external" href="Section_howto.html#howto_4">Section
-6.4</a> for an overview of SPARTA output
+from a compute as input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Section 6.4</span></a> for an overview of SPARTA output
 options.</p>
-<p>The array values will be in the <a class="reference external" href="units.html">units</a> appropriate to
+<p>The array values will be in the <a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a> appropriate to
 the individual values as described above. <em>N</em> is unitless. <em>Press</em>,
 <em>shx</em>, <em>shy</em>, <em>shz</em> are in pressure units. <em>Ke</em>, <em>erot</em>, <em>evib</em>, and
 <em>etot</em> are in energy/area-time units for 3d simulations and
@@ -359,19 +354,16 @@ energy/length-time units for 2d simulations.</p>
 <hr class="docutils" />
 <p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding
 style without the suffix. They have been optimized to run faster,
-depending on your available hardware, as discussed in the <a class="reference external" href="Section_accelerate.html">Accelerating
-SPARTA</a> section of the manual. The
+depending on your available hardware, as discussed in the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual. The
 accelerated styles take the same arguments and should produce the same
 results, except for different random number, round-off and precision
 issues.</p>
 <p>These accelerated styles are part of the KOKKOS package. They are only
-enabled if SPARTA was built with that package. See the <a class="reference external" href="Section_start.html#start_3">Making
-SPARTA</a> section for more info.</p>
+enabled if SPARTA was built with that package. See the <a class="reference internal" href="Section_start.html#start-making-sparta"><span class="std std-ref">Making SPARTA</span></a> section for more info.</p>
 <p>You can specify the accelerated styles explicitly in your input script
-by including their suffix, or you can use the <a class="reference external" href="Section_start.html#start_6">-suffix command-line
-switch</a> when you invoke SPARTA, or you
-can use the <a class="reference external" href="suffix.html">suffix</a> command in your input script.</p>
-<p>See the <a class="reference external" href="Section_accelerate.html">Accelerating SPARTA</a> section of the
+by including their suffix, or you can use the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-suffix command-line switch</span></a> when you invoke SPARTA, or you
+can use the <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix</span></a> command in your input script.</p>
+<p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the
 manual for more instructions on how to use the accelerated styles
 effectively.</p>
 <hr class="docutils" />

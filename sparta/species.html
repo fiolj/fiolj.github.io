@@ -246,24 +246,21 @@ SPARTA, they can simply be specified as 0.0. Whether or not the values
 are used for a species depends on the value of rotdof and vibdof.
 Whether the values are used in a simulation also depends on the settings
 specified for the <em>rotation</em> and <em>vibration</em> keywords of the
-<a class="reference external" href="collide_modify.html">collide_modify</a> command.</p>
+<a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify</span></a> command.</p>
 <p>Specifically, if prop3 for rotdof = 0, then prop4 is ignored. If prop5
 for vibdof = 0, then prop6 and prop7 are ignored.</p>
 <p>If vibdof = 4,6,8, then information for 2,3,4 vibrational modes can be
 specified for the species in a separate file using the optional
-<em>vibfile</em> keyword, as discussed below. If the <a class="reference external" href="collide_modify.html">collide_modify
-vibration</a> command is used with a setting of
+<em>vibfile</em> keyword, as discussed below. If the <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify vibration</span></a> command is used with a setting of
 <em>discrete</em>, then this vibrational mode info must be specified for each
-species with a vibdof = 4,6,8. Note that the <a class="reference external" href="fix_vibmode.html">fix
-vibmode</a> command must also be used to allocate
+species with a vibdof = 4,6,8. Note that the <a class="reference internal" href="fix_vibmode.html#command-fix-vibmode"><span class="std std-ref">fix vibmode</span></a> command must also be used to allocate
 per-particle storage for these additional modes.</p>
 <hr class="docutils" />
 <p>The optional <em>vibfile</em> keyword can be used to specify additional
 vibrational information in the specified <em>vfile</em>. If this option is
 used, then an entry must appear in <em>vfile</em> for every species in this
 command with a vibdof value = 4,6,8. Note that even if this vibrational
-info is read, it is ignored by SPARTA unless the <a class="reference external" href="collide_modify.html">collide_modify
-vibrate</a> setting is specified as <em>discrete</em>.</p>
+info is read, it is ignored by SPARTA unless the <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify vibrate</span></a> setting is specified as <em>discrete</em>.</p>
 <p>The format of a species vibrational file is as follows. See
 data/co2.species.vib for an example. Comments or blank lines are allowed
 in the file. Comment lines start with a “#” character. All other lines

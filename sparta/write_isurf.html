@@ -176,7 +176,7 @@
 <li><p>group-ID = group ID for which grid cells store the implicit surfs</p></li>
 <li><p>Nx,Ny,Nz = grid cell extent of the grid cell group</p></li>
 <li><p>filename = name of file to write grid corner point info to</p></li>
-<li><p>ablateID = ID of the <a class="reference external" href="fix_ablate.html">fix ablate</a> command which
+<li><p>ablateID = ID of the <a class="reference internal" href="fix_ablate.html#command-fix-ablate"><span class="std std-ref">fix ablate</span></a> command which
 stores the corner points</p></li>
 <li><p>zero or more keyword/args pairs may be appended</p></li>
 <li><p>keyword = <em>precision</em></p>
@@ -192,30 +192,29 @@ stores the corner points</p></li>
 <p><strong>Description:</strong></p>
 <p>Write a grid corner point file in binary format describing the current
 corner point values which define the current set of implicit surface
-elements. See the <a class="reference external" href="read_surf.html">read_isurf</a> command for a
+elements. See the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_isurf</span></a> command for a
 definition of implicit surface elements and how they are defined from
 grid conner point values. The surface file can be used for later input
 to a new simulation or for post-processing and visualization.</p>
 <p>The specified <em>group-ID</em> is the name of a grid cell group, as defined by
-the <a class="reference external" href="group.html">group grid</a> command, which contains a set of grid
+the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group grid</span></a> command, which contains a set of grid
 cells, all of which are the same size, and which comprise a contiguous
 3d array, with specified extent <em>Nx</em> by <em>Ny</em> by <em>Nz</em>. These should be
 the same parameters that were used by the
-<a class="reference external" href="read_isurf.html">read_isurf</a> command, when the original grid corner
+<a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command, when the original grid corner
 point values were read in and used to define a set of implicit surface
 elements. For 2d simulations, <em>Nz</em> must be specified as 1, and the group
 must comprise a 2d array of cells that is <em>Nx</em> by <em>Ny</em>. These are the
 grid cells that contain implicit surfaces.</p>
-<p>Similar to <a class="reference external" href="dump.html">dump</a> files, the <em>filename</em> can contain a “*”
+<p>Similar to <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump</span></a> files, the <em>filename</em> can contain a “*”
 wildcard character. The “*” character is replaced with the current
 timestep value. For example isurf.material.0 or isurf.material.100000.</p>
-<p>The specified <em>ablateID</em> is the fix ID of a <a class="reference external" href="fix_ablate.html">fix
-ablate</a> command which has been previously specified
-in the input script for use with the <a class="reference external" href="read_isurf.html">read_isurf</a>
+<p>The specified <em>ablateID</em> is the fix ID of a <a class="reference internal" href="fix_ablate.html#command-fix-ablate"><span class="std std-ref">fix ablate</span></a> command which has been previously specified
+in the input script for use with the <a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a>
 command and (optionally) to perform ablation during a simulation. It
 stores the grid corner point values for each grid cell.</p>
 <p>The output file is written in the same binary format as the
-<a class="reference external" href="read_isurf.html">read_isurf</a> command reads in.</p>
+<a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command reads in.</p>
 <p><strong>Restrictions:</strong> none</p>
 <p><strong>Related commands:</strong></p>
 <p><a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf command</span></a></p>

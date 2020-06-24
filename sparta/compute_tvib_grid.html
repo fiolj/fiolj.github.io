@@ -173,7 +173,7 @@
 </pre></div>
 </div>
 <ul>
-<li><p>ID is documented in <a class="reference external" href="compute.html">compute</a> command</p></li>
+<li><p>ID is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
 <li><p>tvib/grid = style name of this compute command</p></li>
 <li><p>group-ID = group ID for which grid cells to perform calculation on</p></li>
 <li><p>mix-ID = mixture ID to perform calculation on</p></li>
@@ -198,13 +198,12 @@ temperature is calculated separately for each group of species in the
 specified mixture, as described in the Output section below. See the
 mixture command for how a set of species can be partitioned into groups.</p>
 <p>Only grid cells in the grid group specified by <em>group-ID</em> are included
-in the calculations. See the <a class="reference external" href="group.html">group grid</a> command for
+in the calculations. See the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group grid</span></a> command for
 info on how grid cells can be assigned to grid groups.</p>
 <p>The results of this compute can be used by different commands in
 different ways. The values for a single timestep can be output by the
-<a class="reference external" href="dump.html">dump grid</a> command.</p>
-<p>The values over many sampling timesteps can be averaged by the <a class="reference external" href="fix_ave_grid.html">fix
-ave/grid</a> command. It does its averaging as if the
+<a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a> command.</p>
+<p>The values over many sampling timesteps can be averaged by the <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a> command. It does its averaging as if the
 particles in the cell at each sampling timestep were combined together
 into one large set to compute the formulas below. Note that this is a
 different normalization than taking the values produced by the formulas
@@ -212,8 +211,7 @@ below for a single timestep, summing them over the sampling timesteps,
 and then dividing by the number of sampling steps.</p>
 <p>If the <em>mode</em> keyword is specified, then temperatures for each
 vibrational mode of each polyatomic species are calculated and output as
-explained below. To use this option, the <a class="reference external" href="collide_modify.html">collide_modify vibrate
-discrete</a> option must be set, and the “fix
+explained below. To use this option, the <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify vibrate discrete</span></a> option must be set, and the “fix
 vibmode” command must be used to store info about individual vibrational
 modes with each particle.</p>
 <hr class="docutils" />
@@ -225,10 +223,10 @@ modes is defined as a weighted average as follows:</p>
 </div>
 <p>What is summed over in the numerator and denominator depends on several
 settings.</p>
-<p>If the <a class="reference external" href="collide_modify.html">collide_modify vibrate</a> setting is <em>no</em>,
+<p>If the <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify vibrate</span></a> setting is <em>no</em>,
 then no vibrational energy is assigned to particles. All the output
 temperatures will be 0.0.</p>
-<p>If the <a class="reference external" href="collide_modify.html">collide_modify vibrate</a> setting is
+<p>If the <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify vibrate</span></a> setting is
 <em>smooth</em>, then the sums in the numerator and denominator are over the
 different species in the group. T1, T2, … are the vibrational
 temperatures of each species. N1, N2, … are the counts of particles of
@@ -243,18 +241,17 @@ defined as follows:</p>
 particle I, N is the total # of particles of that species, and <em>kB</em> is
 the Boltzmann factor. Theta is the characteristic vibrational
 temperature for the species, as defined in the file read by the
-<a class="reference external" href="species.html">species</a> command.</p>
-<p>If the <a class="reference external" href="collide_modify.html">collide_modify vibrate</a> setting is
+<a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a> command.</p>
+<p>If the <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify vibrate</span></a> setting is
 <em>discrete</em>, but no species has a vibrational DOF setting that implies
 multiple vibrational modes (vibdof = 4,6,8), then the calulation of
-vibrational temeperatures is the same as for <a class="reference external" href="collide_modify.html">collide_modify vibrate
-smooth</a>. See the <a class="reference external" href="species.html">species</a>
+vibrational temeperatures is the same as for <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify vibrate smooth</span></a>. See the <a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a>
 command and its description of the per-species “vibdof” setting in the
 species file.</p>
-<p>If the <a class="reference external" href="collide_modify.html">collide_modify vibrate</a> setting is
+<p>If the <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify vibrate</span></a> setting is
 <em>discrete</em>, and one or more species have vibrational DOF settings that
 imply multiple vibrational modes (vibdof = 4,6,8), as defined by the
-<a class="reference external" href="species.html">species</a> command, then the sums in the numerator and
+<a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a> command, then the sums in the numerator and
 denominator are over the different species in the group and the modes
 for each species. For example if species CO2 has vibdof=6, then it has 3
 modes. Three terms in the numerator and demoninator are included when
@@ -268,7 +265,7 @@ single mode M is defined as follows:</p>
 <p>where level_im is the integer level for mode M of a single particle I,
 and N is the total # of particles of that species. Theta_m is the
 characteristic vibrational temperature for the species and its mode M,
-as defined in the vibfile read by the <a class="reference external" href="species.html">species</a>
+as defined in the vibfile read by the <a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a>
 command.</p>
 <p>Finally, if the <em>mode</em> keyword is used, then the output of this compute
 is not Ngroup vibrational temperatures, but rather Ngroup*Nmode
@@ -296,7 +293,7 @@ group from 1 to N, and the second index is the vibrational mode (1 to 3
 in this example).</p>
 <p>This compute performs calculations for all flavors of child grid cells
 in the simulation, which includes unsplit, cut, split, and sub cells.
-See <a class="reference external" href="Section_howto.html#howto_8">Section 4.8</a> of the manual gives
+See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 4.8</span></a> of the manual gives
 details of how SPARTA defines child, unsplit, split, and sub cells. Note
 that cells inside closed surfaces contain no particles. These could be
 unsplit or cut cells (if they have zero flow volume). Both of these
@@ -307,9 +304,9 @@ geometrically inside the split cell.</p>
 <p>Grid cells not in the specified <em>group-ID</em> will output zeroes for all
 their values.</p>
 <p>The array can be accessed by any command that uses per-grid values from
-a compute as input. See <a class="reference external" href="Section_howto.html#howto_4">Section 4.4</a> for
+a compute as input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Section 4.4</span></a> for
 an overview of SPARTA output options.</p>
-<p>The per-grid array values will be in temperature <a class="reference external" href="units.html">units</a>.</p>
+<p>The per-grid array values will be in temperature <a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a>.</p>
 <p><strong>Restrictions:</strong> none</p>
 <p><strong>Related commands:</strong></p>
 <p><a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid command</span></a></p>

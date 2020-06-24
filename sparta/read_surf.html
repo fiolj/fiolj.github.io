@@ -224,9 +224,8 @@
 surface(s) of one or more physical objects which will be embedded in the
 global simulation box. Surfaces can be explicit or implicit. This
 command reads explicit surfaces from a file containing a list of
-explicit surfaces. See the <a class="reference external" href="read_isurf.html">read_isurf</a> command to
-read implicit surfaces from a different kind of file. See the <a class="reference external" href="Section_howto.html#howto_13">Howto
-6.13</a> section of the manual for an
+explicit surfaces. See the <a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command to
+read implicit surfaces from a different kind of file. See the <a class="reference internal" href="Section_howto.html#howto-implicit-surface"><span class="std std-ref">Howto 6.13</span></a> section of the manual for an
 explantion of explicit versus implicit surfaces as well as distributed
 versus non-distributed storage. You cannot mix explicit and implicit
 surfaces in the same simulation.</p>
@@ -236,24 +235,20 @@ connected set that tile the entire surface of the object. See the
 discussion of watertight objects below.</p>
 <p>Particles collide with surface elements as they advect. Each surface
 element is assigned to a collision model, specified by the
-<a class="reference external" href="surf_collide.html">surf_collide</a> command which affects how a
+<a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide</span></a> command which affects how a
 particle bounces off the surface. Each surface element can optionally be
 assigned to a reaction model, specified by the
-<a class="reference external" href="surf_react.html">surf_react</a> command which determines if any surface
+<a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react</span></a> command which determines if any surface
 chemistry occurs during a collision. Statistics for each surface element
-due to their interactions with particles can be tallied via the <a class="reference external" href="compute_surf.html">compute
-surf</a> command, time-averaged via the <a class="reference external" href="fix_ave_surf.html">fix
-ave/surf</a> command, and ouput via the <a class="reference external" href="dump.html">dump
-surface</a> command.</p>
-<p>Surface elememts can be assigned to surface groups via the <a class="reference external" href="group.html">group
-surf</a> command. Surface group IDs are used by other
+due to their interactions with particles can be tallied via the <a class="reference internal" href="compute_surf.html#command-compute-surf"><span class="std std-ref">compute surf</span></a> command, time-averaged via the <a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">fix ave/surf</span></a> command, and ouput via the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump surface</span></a> command.</p>
+<p>Surface elememts can be assigned to surface groups via the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command. Surface group IDs are used by other
 commands to operate on selected sets of elements. This command has
 <em>group</em> and <em>typeadd</em> keywords which can be used to help assign
 different elements or different objects to different groups.</p>
 <p>Explicit surface elements can be stored in a distributed fashion (each
 processor only stores elements which overlap grid cells it owns or has a
 ghost cell copy of). Or each processor can store a copy of all surface
-elements (the default). See the <a class="reference external" href="global.html">global surfs</a> command
+elements (the default). See the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global surfs</span></a> command
 to change this setting.</p>
 <p>Note that the read_surf command can be used multiple times to read
 multiple objects from multiple files and add them to the simulation
@@ -271,7 +266,7 @@ explicit surfaces, e.g. for files created by a mesh-generation program.</p>
 specified file can be a text file or a gzipped text file (detected by a
 .gz suffix).</p>
 <p>If a “%” character appears in the surface filename, SPARTA expects a set
-of multiple files to exist. The <a class="reference external" href="write_surf.html">write_surf</a> command
+of multiple files to exist. The <a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf</span></a> command
 explains how such sets are created. Read_surf will first read a filename
 where “%” is replaced by “base”. This file tells SPARTA how many total
 surfaces and files are in the set (i.e. just the header information
@@ -283,7 +278,7 @@ file.</p>
 <p>Note that P could be the total number of processors in the previous
 simulation, or some subset of those processors, if the <em>fileper</em> or
 <em>nfile</em> options were used when the surface file was written; see the
-<a class="reference external" href="write_surf.html">write_surf</a> command for details. The processors in
+<a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf</span></a> command for details. The processors in
 the current SPARTA simulation share the work of reading these files;
 each reads a roughly equal subset of the files. The number of processors
 which created the set can be different than the number of processors in
@@ -345,18 +340,15 @@ file. When lines and triangles reference point indices they are simply
 ordered from 1 to N, regardless of the actual value of the index in the
 file. <em>X,y,z</em> are the coordinates of the point in distance units. Note
 that for 2d simulations, <em>z</em> should be omitted.</p>
-<p>IMPORTANT NOTE: Unless points are on the surface of the simulation box,
-they will be part of multiple lines or triangles. However, there is no
-requirement that each point appear exactly once in the <em>Points</em> list.
-For example, a point that is the common corner point of M triangles,
-could appear 1 or 2 or up to M times. However, if the same point appears
-multiple times in the <em>Points</em> list, the coordinates of all copies must
-be numerically identical, in order for SPARTA to verify the surface is a
-watertight object, as discussed below.</p>
-<p>IMPORTANT NOTE: The <em>points</em> keyword and <em>Points</em> section are not
-required. You must either use both or neither. As explained next, an
-optional format for the <em>Lines</em> or <em>Triangles</em> sections includes point
-coordinates directly with each line or triangle.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Unless points are on the surface of the simulation box, they will be part of multiple lines or triangles. However, there is no requirement that each point appear exactly once in the <em>Points</em> list.
+For example, a point that is the common corner point of M triangles, could appear 1 or 2 or up to M times. However, if the same point appears multiple times in the <em>Points</em> list, the coordinates of all copies must be numerically identical, in order for SPARTA to verify the surface is a watertight object, as discussed below.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <em>points</em> keyword and <em>Points</em> section are not required. You must either use both or neither. As explained next, an optional format for the <em>Lines</em> or <em>Triangles</em> sections includes point coordinates directly with each line or triangle.</p>
+</div>
 <p>The <em>Lines</em> section is only allowed for 2d simulations and consists of N
 entries, where N = # of lines. All entries must be in the same format,
 either A or B. If a Points section was included, use format A. If it was
@@ -374,14 +366,15 @@ where N is the number of lines specified in the base file. SPARTA does
 not check line-IDs for uniqueness. Note that lines in an individual file
 (single or multiple) do not need to be listed by ID order; they can be
 in any order.</p>
-<p>IMPORTANT NOTE: If the read_surf command is used when lines already
-exist, i.e. to add new lines, then each line-ID is incremented by
-Nprevious = the # of lines that already exist.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If the read_surf command is used when lines already exist, i.e. to add new lines, then each line-ID is incremented by Nprevious = the # of lines that already exist.</p>
+</div>
 <p><em>Type</em> is an optional integer value which must be specified for all or
 none of the lines in the file. If used, it must be a positive integer
 value for each line. If not specified, the type of each line is set to
 1. Line IDs and types can be used to assign lines to surface groups via
-the <a class="reference external" href="group.html">group surf</a> command.</p>
+the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command.</p>
 <p>For format A, <em>p1</em> and <em>p2</em> are the indices of the 2 end points of the
 line segment, as found in the Points section. Each is a value from 1 to
 the # of points, as described above. For format B, (p1x,p1y) and
@@ -409,14 +402,15 @@ where N is the number of triangles specified in the base file. SPARTA
 does not check tri-IDs for uniqueness. Note that triangles in an
 individual file (single or multiple) do not need to be listed by ID
 order; they can be in any order.</p>
-<p>IMPORTANT NOTE: If the read_surf command is used when triangles already
-exist, i.e. to add new triangles, then each tri-ID is incremented by
-Nprevious = the # of triangles that already exist.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If the read_surf command is used when triangles already exist, i.e. to add new triangles, then each tri-ID is incremented by Nprevious = the # of triangles that already exist.</p>
+</div>
 <p><em>Type</em> is an optional integer value which must be specified for all or
 none of the triangles in the file. If used, it must be a positive
 integer value for each triangle. If not specified, the type of each
 triangle is set to 1. Triangle IDs and types can be used to assign
-triangles to surface groups via the <a class="reference external" href="group.html">group surf</a> command.</p>
+triangles to surface groups via the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command.</p>
 <p>For format A, <em>p1</em>, <em>p2</em>, and <em>p3</em> are the indices of the 3 corner
 points of the triangle, as found in the Points section. Each is a value
 from 1 to the # of points, as described above. For format B,
@@ -464,12 +458,9 @@ direction <em>Rx,Ry,Rz</em>. Any rotation can be represented by an appropriate
 choice of origin, <em>theta</em> and (Rx,Ry,Rz).</p>
 <p>The <em>transparent</em> keyword flags all the read in surface elements as
 transparent, meaning particles pass through them. This is useful for
-tallying flow statistics. The <a class="reference external" href="surf_collide.html">surf_collide
-transparent</a> command must also be used to assign a
-transparent collision model to those the surface elements. The <a class="reference external" href="compute_surf.html">compute
-surf</a> command will tally fluxes differently for
-transparent surf elements. The <a class="reference external" href="Section_howto.html#howto_15">Section
-6.15</a> doc page provides an overview of
+tallying flow statistics. The <a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide transparent</span></a> command must also be used to assign a
+transparent collision model to those the surface elements. The <a class="reference internal" href="compute_surf.html#command-compute-surf"><span class="std std-ref">compute surf</span></a> command will tally fluxes differently for
+transparent surf elements. The <a class="reference internal" href="Section_howto.html#howto-transparent-surface"><span class="std std-ref">Section 6.15</span></a> doc page provides an overview of
 transparent surfaces. See those doc pages for details.</p>
 <p>The <em>invert</em> keyword does not change the origin or any vertex
 coordinates. It flips the direction of the outward surface normal of
@@ -493,17 +484,11 @@ for all 6 faces, the remaining surface is entirely inside the simulation
 box, though some of its triangles may include points on the faces of the
 simulation box. A similar operation is performed in 2d with the 4 clip
 edges represented by the edges of the global simulation box.</p>
-<p>IMPORTANT NOTE: If a surface you clip crosses a periodic boundary, as
-specified by the <a class="reference external" href="boundary.html">boundary</a> command, then the clipping
-that takes place must be consistent on both the low and high end of the
-box (in the periodic dimension). This means any point on the boundary
-that is generated by the clip operation should be generated twice, once
-on the low side of the box and once on the high side. And those two
-points must be periodic images of each other, as implied by periodicity.
-If the surface you are reading does not clip in this manner, then SPARTA
-will likely generate an error about mis-matched or inconsistent cells
-when it attempts to mark all the grid cells and their corner points as
-inside vs outside the surface.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If a surface you clip crosses a periodic boundary, as specified by the <a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">boundary</span></a> command, then the clipping that takes place must be consistent on both the low and high end of the box (in the periodic dimension). This means any point on the boundary that is generated by the clip operation should be generated twice, once on the low side of the box and once on the high side. And those two points must be periodic images of each other, as implied by periodicity.
+If the surface you are reading does not clip in this manner, then SPARTA will likely generate an error about mis-matched or inconsistent cells when it attempts to mark all the grid cells and their corner points as inside vs outside the surface.</p>
+</div>
 <p>If you use the <em>clip</em> keyword, you should check the resulting statistics
 of the clipped surface printed out by this command, including the
 minimum size of line and triangle edge lengths. It is possible that very
@@ -523,12 +508,12 @@ must be a value between 0.0 and 0.5.</p>
 create new ones. Likewise for the points that define the end points or
 corner points of surface element lines (2d) or triangles (3d). The
 resulting altered set of surface elements can be written out to a file
-by the <a class="reference external" href="write_surf.html">write_surf</a> command, which can then be used
+by the <a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf</span></a> command, which can then be used
 an input to a new simulation or for post-processing and visualization.</p>
-<p>IMPORTANT NOTE: When the <em>clip</em> operation deletes or adds surface
-elements, the line-IDs or tri-IDs will be renumbered to produce IDs that
-are consective values from 1 to the # of surface elements. The ID of a
-surface element that is unclipped may change due to this reordering.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When the <em>clip</em> operation deletes or adds surface elements, the line-IDs or tri-IDs will be renumbered to produce IDs that are consective values from 1 to the # of surface elements. The ID of a surface element that is unclipped may change due to this reordering.</p>
+</div>
 <hr class="docutils" />
 <p>The following optional keywords affect group and type settings for the
 read-in surface elements and output of the elements. Also how particles
@@ -537,13 +522,12 @@ are treated when surface elements are added.</p>
 belongs to one or more surface groups; all elements belong to the “all”
 group, which is created by default. Surface group IDs are used by other
 commands to identify a group of suface elements to operate on. See the
-<a class="reference external" href="group.html">group surf</a> command for more details.</p>
+<a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command for more details.</p>
 <p>Every surface element also stores a <em>type</em> which is a positive integer.
 <em>Type</em> values are useful for flagging subsets of elements or different
 objects in the surface file. For example, a patch of triangles on a
 sphere. Or one sphere out of several that the file contains. Surface
-element types can be used to define surface groups. See the <a class="reference external" href="group.html">group
-surf</a> command for details.</p>
+element types can be used to define surface groups. See the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command for details.</p>
 <p>The <em>group</em> keyword specifies an extra surface <em>group-ID</em> to assign all
 the read-in surface elements to. All the read-in elements are assigned
 to the “all” group and to <em>group-ID</em>. If <em>group-ID</em> does not exist, a
@@ -568,21 +552,22 @@ inside a surface object, which will typically generate errors when
 particles move. If the setting is <em>keep</em> then no particles are deleted.
 It is up to you to insure that no particles are inside surface
 object(s), else an error may occur later. This setting can be useful if
-a <a class="reference external" href="remove_surf.html">remove_surf</a> was used to remove a surface
+a <a class="reference internal" href="remove_surf.html#command-remove-surf"><span class="std std-ref">remove_surf</span></a> was used to remove a surface
 object, and a new object is being read in, and you know the new object
 is smaller than the one it replaced. E.g. for a model of a shrinking or
 ablating object.</p>
 <p>If the <em>file</em> keyword is used, the surfaces will be written out to the
 specified <em>filename</em> immediately after they are read in. The arguments
 for this keyword are identical to those used for the
-<a class="reference external" href="write_surf.html">write_surf</a> command. This includes a file name with
+<a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf</span></a> command. This includes a file name with
 optional “*” and “%” wildcard characters, as well as its optional
 keywords.</p>
-<p>IMPORTANT NOTE: The <em>file</em> keyword must be the last keyword specified
-with the read_isurf command. This is because all the remaining arguments
-are passed to the <a class="reference external" href="write_surf.html">write_surf</a> command.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <em>file</em> keyword must be the last keyword specified with the read_isurf command. This is because all the remaining arguments are passed to the <a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf</span></a> command.</p>
+</div>
 <p>The format for the output file is the same as the one written by the
-<a class="reference external" href="write_surf.html">write_surf</a> command, or read by this command. Note
+<a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf</span></a> command, or read by this command. Note
 that it can be useful to write out a new surface file after reading one
 if clipping was performed; the new file will contain the surface element
 altered by clipping and will not contain any surface elements removed by
@@ -590,16 +575,15 @@ clipping.</p>
 <hr class="docutils" />
 <p><strong>Restrictions:</strong></p>
 <p>This command can only be used after the simulation box is defined by the
-<a class="reference external" href="create_box.html">create_box</a> command, and after a grid has been
-created by the <a class="reference external" href="create_grid.html">create_grid</a> command. If particles
+<a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a> command, and after a grid has been
+created by the <a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a> command. If particles
 already exist in the simulation, you must insure particles do not end up
 inside the added surfaces. See the <em>particle</em> keyword for options with
 regard to particles.</p>
 <p>To read gzipped surface files, you must compile SPARTA with the
--DSPARTA_GZIP option - see <a class="reference external" href="Section_start.html#start_2">Section 2.2</a>
+-DSPARTA_GZIP option - see <a class="reference internal" href="Section_start.html#start-steps-build"><span class="std std-ref">Section 2.2</span></a>
 of the manual for details.</p>
-<p>The <em>clip</em> keyword cannot be used when the <a class="reference external" href="global.html">global surfs
-explicit/distributed</a> command has been used. This is
+<p>The <em>clip</em> keyword cannot be used when the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global surfs explicit/distributed</span></a> command has been used. This is
 because we have not yet figured out how to clip distributed surfaces.</p>
 <p>Every vertex in the final surface (after translation, rotation, scaling,
 etc) must be inside or on the surface of the global simulation box. Note

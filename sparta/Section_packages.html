@@ -100,9 +100,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#kokkos-package">4.2. KOKKOS package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">4.2.1. Contents:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">4.2.2. Install or un-install:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">4.2.3. Supporting info:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#packages-package-kokkos-contents">4.2.1. Contents:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#packages-package-kokkos-install">4.2.2. Install or un-install:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#packages-package-kokkos-supporting">4.2.3. Supporting info:</a></li>
 </ul>
 </li>
 </ul>
@@ -237,13 +237,13 @@ your machine</p></li>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="#package-fft"><span class="std std-ref">FFT package</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#packages-package-fft"><span class="std std-ref">package-fft</span></a></p></td>
 <td><p>fast Fourier transforms</p></td>
 <td><p><a class="reference internal" href="compute_fft_grid.html#command-compute-fft-grid"><span class="std std-ref">compute_style compute/fft/grid</span></a></p></td>
 <td><p>fft</p></td>
 <td><p>int or ext</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#package-kokkos"><span class="std std-ref">KOKKOS package</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#packages-package-kokkos"><span class="std std-ref">package-kokkos</span></a></p></td>
 <td><p>Kokkos-enabled styles</p></td>
 <td><p><a class="reference internal" href="accelerate_kokkos.html#accelerate-kokkos"><span class="std std-ref">Section 5.3.3</span></a></p></td>
 <td><p><a class="reference external" href="http://sparta.sandia.gov/bench.html">Benchmarks</a></p></td>
@@ -255,9 +255,9 @@ your machine</p></li>
 </tbody>
 </table>
 <div class="section" id="fft-package">
-<span id="package-fft"></span><h2>4.1. FFT package<a class="headerlink" href="#fft-package" title="Permalink to this headline">¶</a></h2>
+<span id="packages-package-fft"></span><h2>4.1. FFT package<a class="headerlink" href="#fft-package" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="contents">
-<h3>4.1.1. Contents:<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h3>
+<span id="packages-package-fft-contents"></span><h3>4.1.1. Contents:<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h3>
 <p>Apply Fast Fourier Transforms (FFTs) to simulation data. The FFT library
 is specified in the Makefile.machine using the FFT_INC, FFT_PATH, and
 FFT_LIB variables. Supported external FFT libraries that can be
@@ -267,7 +267,7 @@ included with SPARTA. See the see discussion in
 doc/Section_start.html#2_2 (step 6).</p>
 </div>
 <div class="section" id="install-or-un-install">
-<h3>4.1.2. Install or un-install:<a class="headerlink" href="#install-or-un-install" title="Permalink to this headline">¶</a></h3>
+<span id="packages-package-fft-install"></span><h3>4.1.2. Install or un-install:<a class="headerlink" href="#install-or-un-install" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">yes</span><span class="o">-</span><span class="n">fft</span>
 <span class="n">make</span> <span class="n">machine</span>
 </pre></div>
@@ -278,7 +278,7 @@ doc/Section_start.html#2_2 (step 6).</p>
 </div>
 </div>
 <div class="section" id="supporting-info">
-<h3>4.1.3. Supporting info:<a class="headerlink" href="#supporting-info" title="Permalink to this headline">¶</a></h3>
+<span id="packages-package-fft-supporting"></span><h3>4.1.3. Supporting info:<a class="headerlink" href="#supporting-info" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="compute_fft_grid.html#command-compute-fft-grid"><span class="std std-ref">compute fft/grid</span></a></p></li>
 <li><p>examples/fft</p></li>
@@ -287,9 +287,9 @@ doc/Section_start.html#2_2 (step 6).</p>
 </div>
 </div>
 <div class="section" id="kokkos-package">
-<span id="package-kokkos"></span><h2>4.2. KOKKOS package<a class="headerlink" href="#kokkos-package" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id2">
-<h3>4.2.1. Contents:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<span id="packages-package-kokkos"></span><h2>4.2. KOKKOS package<a class="headerlink" href="#kokkos-package" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="packages-package-kokkos-contents">
+<span id="id2"></span><h3>4.2.1. Contents:<a class="headerlink" href="#packages-package-kokkos-contents" title="Permalink to this headline">¶</a></h3>
 <p>Styles adapted to compile using the Kokkos library which can convert
 them to OpenMP or CUDA code so that they run efficiently on multicore
 CPUs, KNLs, or GPUs. All the styles have a “kk” as a suffix in their
@@ -300,8 +300,8 @@ kk” or “-suffix kk” <a class="reference internal" href="Section_start.html
 <p>You must have a C++11 compatible compiler to use this package.</p>
 <p><strong>Authors:</strong> The KOKKOS package was created primarily by Stan Moore (Sandia), with contributions from other folks as well. It uses the open-source <a class="reference external" href="https://github.com/kokkos">Kokkos library</a> which was developed by Carter Edwards, Christian Trott, and others at Sandia, and which is included in the SPARTA distribution in lib/kokkos.</p>
 </div>
-<div class="section" id="id3">
-<h3>4.2.2. Install or un-install:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="packages-package-kokkos-install">
+<span id="id3"></span><h3>4.2.2. Install or un-install:<a class="headerlink" href="#packages-package-kokkos-install" title="Permalink to this headline">¶</a></h3>
 <p>For the KOKKOS package, you have 3 choices when building. You can build
 with either CPU or KNL or GPU support. Each choice requires additional
 settings in your Makefile.machine for the KOKKOS_DEVICES and KOKKOS_ARCH
@@ -345,13 +345,13 @@ hardware target, to produce a separate executable.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h3>4.2.3. Supporting info:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="packages-package-kokkos-supporting">
+<span id="id4"></span><h3>4.2.3. Supporting info:<a class="headerlink" href="#packages-package-kokkos-supporting" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>src/KOKKOS: filenames -&gt; commands</p></li>
 <li><p>src/KOKKOS/README</p></li>
 <li><p>lib/kokkos/README</p></li>
-<li><p>the <cite>Accelerating SPARTA &lt;accelerating&gt;</cite> section</p></li>
+<li><p>the <cite>Accelerating SPARTA &lt;accelerate&gt;</cite> section</p></li>
 <li><p><cite>Section 5.3.3 &lt;accelerate-kokkos&gt;</cite></p></li>
 <li><p><cite>Section 2.6 -k on … &lt;start-command-line-options&gt;</cite></p></li>
 <li><p><cite>Section 2.6 -sf kk &lt;start-command-line-options&gt;</cite></p></li>

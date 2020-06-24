@@ -173,7 +173,7 @@
 </pre></div>
 </div>
 <ul>
-<li><p>ID is documented in <a class="reference external" href="compute.html">compute</a> command</p></li>
+<li><p>ID is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
 <li><p>react/isurf/grid = style name of this compute command</p></li>
 <li><p>group-ID = group ID for which grid cells to perform calculation on</p></li>
 <li><p>reaction-ID = surface reaction ID which defines surface reactions</p></li>
@@ -203,25 +203,24 @@ dump file every 1000 steps:</p>
 containing implicit surface elements in a grid group, based on the
 particles that collide with those elements. Only grid cells elements in
 the grid group specified by <em>group-ID</em> are included in the tallying. See
-the <a class="reference external" href="group.html">group grid</a> command for info on how grid cells can
+the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group grid</span></a> command for info on how grid cells can
 be assigned to grid groups. Likewise only grid cells with surface
 elements assigned to the surface reaction model specified by
 <em>reaction-ID</em> are included in the tallying.</p>
 <p>Implicit surface elements are triangles for 3d simulations and line
 segments for 2d simulations. Unlike explicit surface elements, each
 triangle or line segment is wholly contained within a single grid cell.
-See the <a class="reference external" href="read_isurf.html">read_isurf</a> command for details.</p>
+See the <a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command for details.</p>
 <p>This command can only be used for simulations with implicit surface
-elements. See the similar <a class="reference external" href="compute_react_surf.html">compute
-react/surf</a> command for use with simulations
+elements. See the similar <a class="reference internal" href="compute_react_surf.html#command-compute-react-surf"><span class="std std-ref">compute react/surf</span></a> command for use with simulations
 with explicit surface elements.</p>
 <p>Note that when a particle collides with a surface element, it can bounce
 off (possibly as a different species), be captured by the surface
 (vanish), or a 2nd particle can also be emitted.</p>
-<p>The doc page for the <a class="reference external" href="surf_react.html">surf_react</a> command explains
+<p>The doc page for the <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react</span></a> command explains
 the different reactions that can occur for each specified style.</p>
 <p>If no values are specified each reaction specified by the
-<a class="reference external" href="surf_react.html">surf_react</a> style is tallied individually for each
+<a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react</span></a> style is tallied individually for each
 grid cell.</p>
 <p>If M values are specified, then M tallies are made for each grid cell,
 one per value. If the value starts with “r:” then any reaction which
@@ -233,20 +232,19 @@ reaction may be tallied multiple times depending on which values it
 matches.</p>
 <p>The results of this compute can be used by different commands in
 different ways. The values for a single timestep can be output by the
-<a class="reference external" href="dump.html">dump grid</a> command.</p>
-<p>The values over many sampling timesteps can be averaged by the <a class="reference external" href="fix_ave_grid.html">fix
-ave/grid</a> command.</p>
+<a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a> command.</p>
+<p>The values over many sampling timesteps can be averaged by the <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a> command.</p>
 <hr class="docutils" />
 <p><strong>Output info:</strong></p>
 <p>This compute calculates a per-grid array, with the number of columns
 either equal to the number of reactions defined by the
-<a class="reference external" href="surf_react">surf_react</a> style (if no values are specified) or equal
+<a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react</span></a> style (if no values are specified) or equal
 to M = the # of values specified.</p>
 <p>Grid cells not in the specified <em>group-ID</em> or whose implicit surfaces
 are not assigned to the specified <em>reaction-ID</em> will output zeroes for
 all their values.</p>
 <p>The array can be accessed by any command that uses per-grid values from
-a compute as input. See <a class="reference external" href="Section_howto.html#howto_4">Section 6.4</a> for
+a compute as input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Section 6.4</span></a> for
 an overview of SPARTA output options.</p>
 <p>The per-grid array values are counts of the number of reactions that
 occurred on surface elements in that grid cell.</p>

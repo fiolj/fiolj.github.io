@@ -213,18 +213,16 @@ processors will be the same as in the original simulation. If the
 processor count changes, then the assignment will necessarily be
 different. In particular, even if the original assignment was “clumped”,
 meaning each processor’s cells were geometrically compact, the new
-assignment will not be clumped; it will be “dispersed”. See <a class="reference external" href="Section_howto.html#howto_8">Section
-6.8</a> of the manual for an explanation of
+assignment will not be clumped; it will be “dispersed”. See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual for an explanation of
 clumped and dispersed grid cell assignments and their relative
 performance trade-offs.</p>
-<p>Note that the restart file contains the setting for the <a class="reference external" href="global.html">global
-gridcut</a> command. If it is &gt;= 0.0 and the assignment of
+<p>Note that the restart file contains the setting for the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global gridcut</span></a> command. If it is &gt;= 0.0 and the assignment of
 grid cells to processors is “dispersed” (as described in the preceeding
 paragraph), and there are surface elements defined in the restart file,
 an error will be triggered. This is because the read_restart command
 needs to mark all the grid cells as inside vs outside the defined
 surface and cannot do this without ghost cell information. As explained
-on the doc page for the <a class="reference external" href="global.html">global gridcut</a> command, ghost
+on the doc page for the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global gridcut</span></a> command, ghost
 cells cannot be setup with gridcut &gt;= 0.0 and “dispersed” grid cells.</p>
 <p>The solution is to use one of the two keywords listed above, either
 <em>gridcut</em> or <em>balance</em>. The former allows you to reset the grid cutoff
@@ -235,23 +233,23 @@ problems if it requires too much memory. The other solution is to use
 the <em>balance</em> keyword to trigger a re-balance of the grid cells to
 processors as soon as the read_restart command reads them in. The
 arguments for the <em>balance</em> keyword are identical to those for the
-<a class="reference external" href="balance_grid.html">balance_grid</a> command. If you choose a balancing
+<a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid</span></a> command. If you choose a balancing
 style that results in a “clumped” assignment, then ghost cells will be
 setup successfully.</p>
 <hr class="docutils" />
 <p>Similar to how restart files are written (see the
-<a class="reference external" href="write_restart.html">write_restart</a> and <a class="reference external" href="restart.html">restart</a>
+<a class="reference internal" href="write_restart.html#command-write-restart"><span class="std std-ref">write_restart</span></a> and <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart</span></a>
 commands), the restart filename can contain two wild-card characters. If
 a “*” appears in the filename, the directory is searched for all
 filenames that match the pattern where “*” is replaced with a timestep
 value. The file with the largest timestep value is read in. Thus, this
 effectively means, read the latest restart file. It’s useful if you want
 your script to continue a run from where it left off. See the
-<a class="reference external" href="run.html">run</a> command and its “upto” option for how to specify the
+<a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command and its “upto” option for how to specify the
 run command so it doesn’t need to be changed either.</p>
 <p>If a “%” character appears in the restart filename, SPARTA expects a set
-of multiple files to exist. The <a class="reference external" href="restart.html">restart</a> and
-<a class="reference external" href="write_restart.html">write_restart</a> commands explain how such sets
+of multiple files to exist. The <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart</span></a> and
+<a class="reference internal" href="write_restart.html#command-write-restart"><span class="std std-ref">write_restart</span></a> commands explain how such sets
 are created. Read_restart will first read a filename where “%” is
 replaced by “base”. This file tells SPARTA how many processors created
 the set and how many files are in it. Read_restart then reads the
@@ -262,7 +260,7 @@ created the restart file.</p>
 <p>Note that P could be the total number of processors in the previous
 simulation, or some subset of those processors, if the <em>fileper</em> or
 <em>nfile</em> options were used when the restart file was written; see the
-<a class="reference external" href="restart.html">restart</a> and <a class="reference external" href="write_restart.html">write_restart</a>
+<a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart</span></a> and <a class="reference internal" href="write_restart.html#command-write-restart"><span class="std std-ref">write_restart</span></a>
 commands for details. The processors in the current SPARTA simulation
 share the work of reading these files; each reads a roughly equal subset
 of the files. The number of processors which created the set can be
@@ -273,20 +271,18 @@ support parallel I/O.</p>
 <p>A restart file stores only the following information about a simulation,
 as specified by the associated commands:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="units.html">units</a></p></li>
-<li><p><a class="reference external" href="dimension.html">dimension</a></p></li>
-<li><p><a class="reference external" href="create_box.html">simulation box size</a> and <a class="reference external" href="boundary.html">boundary
-conditions</a></p></li>
-<li><p><a class="reference external" href="global.html">global settings</a></p></li>
+<li><p><a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a></p></li>
+<li><p><a class="reference internal" href="dimension.html#command-dimension"><span class="std std-ref">dimension</span></a></p></li>
+<li><p><a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">simulation box size</span></a> and <a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">boundary    conditions</span></a></p></li>
+<li><p><a class="reference internal" href="global.html#command-global"><span class="std std-ref">global settings</span></a></p></li>
 <li><p>particles with their individual attributes and custom attributes
 defined by fixes</p></li>
-<li><p><a class="reference external" href="species.html">particle species info</a></p></li>
-<li><p><a class="reference external" href="mixture.html">mixtures</a></p></li>
+<li><p><a class="reference internal" href="species.html#command-species"><span class="std std-ref">particle species info</span></a></p></li>
+<li><p><a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixtures</span></a></p></li>
 <li><p>geometry of the hierarchical grid that overlays the simulation domain
-as <a class="reference external" href="create_grid.html">created</a> or <a class="reference external" href="read_grid.html">read from a
-file</a></p></li>
-<li><p>geometry of all defined <a class="reference external" href="read_surf.html">surface elements</a></p></li>
-<li><p><a class="reference external" href="group.html">group definitions</a> for grid cells and surface
+as <a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">created</span></a> or <a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read from a    file</span></a></p></li>
+<li><p>geometry of all defined <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">surface elements</span></a></p></li>
+<li><p><a class="reference internal" href="group.html#command-group"><span class="std std-ref">group definitions</span></a> for grid cells and surface
 elements</p></li>
 <li><p>current timestep number</p></li>
 </ul>
@@ -294,52 +290,50 @@ elements</p></li>
 information about these simulation entities and their associated
 commands is NOT stored:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="seed,html">random number seed</a></p></li>
-<li><p><a class="reference external" href="compute.html">computes</a></p></li>
-<li><p><a class="reference external" href="fix.html">fixes</a></p></li>
-<li><p><a class="reference external" href="collide.html">collision model</a></p></li>
-<li><p><a class="reference external" href="react.html">chemistry (reaction) model</a></p></li>
-<li><p><a class="reference external" href="surf_collide.html">surface collision models</a></p></li>
-<li><p><a class="reference external" href="surf_react.html">surface reaction models</a></p></li>
+<li><p><a class="reference internal" href="seed.html#command-seed"><span class="std std-ref">random number seed</span></a></p></li>
+<li><p><a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">computes</span></a></p></li>
+<li><p><a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fixes</span></a></p></li>
+<li><p><a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collision model</span></a></p></li>
+<li><p><a class="reference internal" href="react.html#command-react"><span class="std std-ref">chemistry (reaction) model</span></a></p></li>
+<li><p><a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surface collision models</span></a></p></li>
+<li><p><a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surface reaction models</span></a></p></li>
 <li><p>assignment of surfaces/boundaries to surface models</p></li>
-<li><p><a class="reference external" href="variable.html">variables</a></p></li>
-<li><p><a class="reference external" href="region.html">regions</a></p></li>
-<li><p>output options for <a class="reference external" href="stats_style.html">stats</a>,
-<a class="reference external" href="dump.html">dump</a>, <a class="reference external" href="restart.html">restart</a> files</p></li>
-<li><p><a class="reference external" href="timestep.html">timestep size</a></p></li>
+<li><p><a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variables</span></a></p></li>
+<li><p><a class="reference internal" href="region.html#command-region"><span class="std std-ref">regions</span></a></p></li>
+<li><p>output options for <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats</span></a>,
+<a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump</span></a>, <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart</span></a> files</p></li>
+<li><p><a class="reference internal" href="timestep.html#command-timestep"><span class="std std-ref">timestep size</span></a></p></li>
 </ul>
 <p>This means any information specified in the original input script by
 these commands needs to be re-specified in the restart input script,
 assuming the continued simulation needs the information.</p>
 <p>Also note that many commands can be used after a restart file is read,
 to override a setting that was stored in the restart file. For example,
-the <a class="reference external" href="global.html">global</a> command can be used to reset the values of
+the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global</span></a> command can be used to reset the values of
 its specified keywords.</p>
 <p>In particular, take note of the following issues:</p>
-<p>The status of time-averaging fixes, such as <a class="reference external" href="fix_ave_time.html">fix
-ave/time</a>, <a class="reference external" href="fix_ave_grid.html">fix ave/grid</a>,
-<a class="reference external" href="fix_ave_surf.html">fix ave/surf</a>, does not carry over into the
+<p>The status of time-averaging fixes, such as <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time</span></a>, <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a>,
+<a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">fix ave/surf</span></a>, does not carry over into the
 restarted run. E.g. if the <em>ave running</em> option is used with those
 commands in the original script and again specified in the restart
 script, the running averaged quantities do not persist into the new run.</p>
-<p>The <a class="reference external" href="surf_modify.html">surf_modify</a> command must be used in the
+<p>The <a class="reference internal" href="surf_modify.html#command-surf-modify"><span class="std std-ref">surf_modify</span></a> command must be used in the
 restart script to assign surface collision models, specified by the
-<a class="reference external" href="surf_collide.html">surf_collide</a> command, to all <a class="reference external" href="boundary.html">global
-boundaries</a> of type “s”, and to any surfaces contained
-in the restart file, as read in by the <a class="reference external" href="read_surf.html">read_surf</a>
+<a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide</span></a> command, to all <a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">global boundaries</span></a> of type “s”, and to any surfaces contained
+in the restart file, as read in by the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a>
 command.</p>
 <p>If a collision model is specified in the restart script, and the
-<a class="reference external" href="collide_modify.html">collide_modify vremax or remain</a> command is
+<a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify vremax or remain</span></a> command is
 used to enable Vremax and fractional collision count to persist for many
 timesteps, no information about these quantities persists from the
 original simulation to the restarted simulation. The initial run in the
 restart script will re-initialize these data structures.</p>
 <p>If a fix is used which defines custom attributes of particles, the
 vectors or arrays for these attributes are stored in the restart file.
-See the <a class="reference external" href="fix_ambipolar">fix ambipolar</a> command as an example; it
+See the <a class="reference internal" href="fix_ambipolar.html#command-fix-ambipolar"><span class="std std-ref">fix ambipolar command</span></a> as an example; it
 creates a custom vector called “ionambi” and a custom array called
 “velambi”. However, the restart script must specify the same fix before
-the first <a class="reference external" href="run.html">run</a> command it uses, so that the same custom
+the first <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command it uses, so that the same custom
 attributes are re-created, otherwise the custom attribute info from the
 restart file will be deleted.</p>
 <hr class="docutils" />

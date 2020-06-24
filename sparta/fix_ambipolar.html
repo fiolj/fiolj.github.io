@@ -173,7 +173,7 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>ID is documented in <a class="reference external" href="fix.html">fix</a> command</p></li>
+<li><p>ID is documented in <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> command</p></li>
 <li><p>ambipolar = style name of this fix command</p></li>
 <li><p>especies = species ID for ambipolar electrons</p></li>
 <li><p>ion1,ion2,… = species IDs for one or more ambipolar ions</p></li>
@@ -196,7 +196,7 @@ of particles thus moves together through the simulation domain, as if
 they were a single particle, which is how they are stored within SPARTA.
 This means a normal timestep can be used.</p>
 <p>An overview of how to run simulations with the ambipolar approximation
-is given in the <a class="reference external" href="Section_howto.html#howto_11">Section 6.11</a>. This
+is given in the <a class="reference internal" href="Section_howto.html#howto-ambipolar"><span class="std std-ref">Section 6.11</span></a>. This
 includes gas-phase collisions and chemistry as well as surface chemistry
 when particles collide with surface elements or the global boundary of
 the simulation box. The section also lists all the commands that can be
@@ -206,7 +206,7 @@ command being defined.</p>
 <p>This command defines <em>especies</em> which is the species ID associated with
 the ambipolar electrons. It also specifies one or more species IDs as
 <em>ion1</em>, <em>ion2</em>, etc for ambipolar ions. SPARTA checks that the especies
-has a negative charge (as read in by the <a class="reference external" href="species.html">species</a>
+has a negative charge (as read in by the <a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a>
 command), and the ions have positive charges. An error is flagged if
 that is not the case.</p>
 <p>Internally, this fix defines two custom particle attributes. The first
@@ -217,19 +217,18 @@ It stores the velocity of the ambipolar electron associated with the
 ambipolar ion, or zeroes otherwise.</p>
 <hr class="docutils" />
 <p><strong>Restart, output info:</strong></p>
-<p>No information about this fix is written to <a class="reference external" href="restart.html">binary restart
-files</a>.</p>
+<p>No information about this fix is written to <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">binary restart files</span></a>.</p>
 <p>However, the values of the two custom particle attributes defined by
 this fix are written to the restart file. Namely the integer value
 “ionambi” and floating-point velocity values “velambi” for each
-particle. As explained on the <a class="reference external" href="read_restart.html">read_restart</a> doc
+particle. As explained on the <a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> doc
 page these values can be re-assigned to particles when a restart file is
 read, if a new fix ambipolar command is specified in the restart script
-before the first <a class="reference external" href="run.html">run</a> command is used.</p>
+before the first <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command is used.</p>
 <p>No global or per-particle or per-grid quantities are stored by this fix
 for access by various output commands.</p>
 <p>However, the two custom particle attributes defined by this fix can be
-accessed by the <a class="reference external" href="dump.html">dump particle</a> command, as p_ionambi and
+accessed by the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump particle</span></a> command, as p_ionambi and
 p_velambi. That means those per-particle values can be written to
 particle dump files.</p>
 <p><strong>Restrictions:</strong> none</p>

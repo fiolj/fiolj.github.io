@@ -194,26 +194,26 @@
 <p><strong>Description:</strong></p>
 <p>Write a surface file in text format describing the currently defined
 surface elements, whether they be explicit or implicit surfaces. See the
-<a class="reference external" href="read_surf.html">read_surf</a> and <a class="reference external" href="read_isurf.html">read_isurf</a>
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> and <a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a>
 commands for a definition of surface elements and how they are defined
 and used be SPARTA. The surface file can be used for later input to a
 new simulation or for post-processing and visualization.</p>
 <p>Note that if surface objects were clipped when read in by the
-<a class="reference external" href="read_surf.html">read_surf</a> command then some surface elements may
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command then some surface elements may
 have been deleted and new ones created. Likewise for the points that
 define the end points or corner points of surface element lines (2d) or
 triangles (3d). Similarly, if surface elements have been removed by the
-<a class="reference external" href="remove_surf.html">remove_surf</a> command, then points may have also
+<a class="reference internal" href="remove_surf.html#command-remove-surf"><span class="std std-ref">remove_surf</span></a> command, then points may have also
 been deleted. In either case, surface points and elements are renumbered
 by these operations to create compressed, contiguous lists. These lists
 are what is output by this command.</p>
 <p>The file is written as a text file in the same format as the
-<a class="reference external" href="read_surf.html">read_surf</a> command reads in. Note that a Points
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command reads in. Note that a Points
 section is optional. If the <em>points</em> keyword is specified with a value
 of <em>yes</em>, then a Points section is included in the file. If the value is
 <em>no</em>, then point coordinates are included with individual lines or
 triangles.</p>
-<p>Similar to <a class="reference external" href="dump.html">dump</a> files, the surface filename can contain
+<p>Similar to <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump</span></a> files, the surface filename can contain
 two wild-card characters. If a “*” appears in the filename, it is
 replaced with the current timestep value. If a “%” character appears in
 the filename, then one file is written by each processor and the “%”
@@ -221,18 +221,18 @@ character is replaced with the processor ID from 0 to P-1. An additional
 file with the “%” replaced by “base” is also written, which contains
 global information, i.e. just the header information for the number of
 points and lines or triangles, as described on the
-<a class="reference external" href="read_surf.html">read_surf</a> doc page.</p>
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> doc page.</p>
 <p>For example, the files written for filename data.% would be data.base,
 data.0, data.1, …, data.P-1. This creates smaller files and can be a
 fast mode of output and subsequent input on parallel machines that
 support parallel I/O. The optional <em>fileper</em> and <em>nfile</em> keywords
 discussed below can alter the number of files written.</p>
 <p>Note that implicit surfaces read in by the
-<a class="reference external" href="read_isurf.html">read_isurf</a> command can be written out by the
+<a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command can be written out by the
 write_surf command, e.g. for visualization purposes. But they cannot be
-read back in to SPARTA via the <a class="reference external" href="read_isurf.html">read_isurf</a> command,
+read back in to SPARTA via the <a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command,
 because write_surf creates files in an explicit surface format. See the
-<a class="reference external" href="Section_howto.html#howto_13">Howto 6.13</a> section of the manual for a
+<a class="reference internal" href="Section_howto.html#howto-implicit-surface"><span class="std std-ref">Howto 6.13</span></a> section of the manual for a
 discussion of explicit and implicit surfaces for an explantion of
 explicit versus implicit surfaces as well as distributed versus
 non-distributed storage. You cannot mix explicit and implicit surfaces

@@ -203,7 +203,7 @@
 </div>
 </li>
 <li><p>these keywords apply only to the (image and <em>movie</em>
-<a class="reference external" href="dump_image.html">styles</a></p></li>
+<a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">styles</span></a></p></li>
 <li><p>keyword = <em>bcolor</em> or <em>bdiam</em> or <em>backcolor</em> or <em>bitrate</em> or
 <em>boxcolor</em> or <em>cmap</em> or <em>color</em> or <em>framerate</em> or <em>gcolor</em> or
 <em>glinecolor</em> or <em>pcolor</em> or <em>pdiam</em> or <em>scolor</em> or <em>slinecolor</em></p>
@@ -281,9 +281,9 @@ gzipped files. If specified as <em>yes</em>, then dump snapshots are appended
 to the end of an existing dump file. If specified as <em>no</em>, then a new
 dump file will be created which will overwrite an existing file with the
 same name. This keyword can only take effect if the dump_modify command
-is used after the <a class="reference external" href="dump.html">dump</a> command, but before the first
+is used after the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump</span></a> command, but before the first
 command that causes dump snapshots to be output, e.g. a
-<a class="reference external" href="run.html">run</a> command. Once the dump file has been opened, this
+<a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command. Once the dump file has been opened, this
 keyword has no further effect.</p>
 <hr class="docutils" />
 <p>The <em>buffer</em> keyword applies only all dump styles except <em>image</em> and
@@ -311,8 +311,7 @@ evaluated again to determine the next timestep, etc. Thus the variable
 should return timestep values. See the stagger() and logfreq() math
 functions for <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">equal-style variable</span></a>, as
 examples of useful functions to use in this context. Other similar
-math functions could easily be added as options for <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">equal-style
-variable</span></a>. When using the variable option with the
+math functions could easily be added as options for <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">equal-style variable</span></a>. When using the variable option with the
 <em>every</em> keyword, you also need to use the <em>first</em> option if you want
 an initial snapshot written to the dump file.</p>
 <p>For example, the following commands will write snapshots at timesteps
@@ -372,7 +371,7 @@ signed integer, e.g. one with “%ld”, if SPARTA was compiled with the
 <p>The <em>nfile</em> or <em>fileper</em> keywords apply to all dump styles except
 <em>image</em> and <em>movie</em>. They can be used in conjunction with the “%”
 wildcard character in the specified dump file name. As explained on the
-<a class="reference external" href="dump.html">dump</a> command doc page, the “%” character causes the dump
+<a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump</span></a> command doc page, the “%” character causes the dump
 file to be written in pieces, one piece for each of P processors. By
 default P = the number of processors the simulation is running on. The
 <em>nfile</em> or <em>fileper</em> keyword can be used to set P to a smaller value,
@@ -399,7 +398,7 @@ can easily read the files in ascending timestep order.</p>
 <p>The <em>region</em> keyword only applies to the dump <em>particle</em> and <em>image</em>
 styles. If specified, only particles in the region will be written to
 the dump file or included in the image. Only one region can be applied
-as a filter (the last one specified). See the <a class="reference external" href="region.html">region</a>
+as a filter (the last one specified). See the <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a>
 command for more details. Note that a region can be defined as the
 “inside” or “outside” of a geometric shape, and it can be the “union” or
 “intersection” of a series of simpler regions.</p>
@@ -407,13 +406,13 @@ command for more details. Note that a region can be defined as the
 <p>The <em>thresh</em> keyword only applies to the dump <em>particle</em> and <em>image</em> styles. Multiple thresholds can be specified. Specifying “none” turns off all threshold criteria. If thresholds are specified, only particles whose attributes meet all the threshold criteria are written to the dump file or included in the image. The possible attributes that can be tested for are the same as those that can be specified in the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump particle</span></a> command. Note that different attributes can be output by the dump particle command than are used as threshold criteria by the dump_modify command. E.g. you can output the coordinates of particles whose velocity components are above some threshold.</p>
 <hr class="docutils" />
 <p>These keywords apply only to the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> and
-<a class="reference internal" href="dump_image.html#command-dump-movie"><span class="std std-ref">dump movie command</span></a> styles. Any keyword that affects an
+<a class="reference internal" href="dump_image.html#command-dump-image-command-dump-movie"><span class="std std-ref">command-dump-movie</span></a> styles. Any keyword that affects an
 image, also affects a movie, since the movie is simply a collection of
-images. Some of the keywords only affect the <a class="reference internal" href="dump_image.html#command-dump-movie"><span class="std std-ref">dump movie command</span></a> style. The descriptions give details.</p>
+images. Some of the keywords only affect the <a class="reference internal" href="dump_image.html#command-dump-image-command-dump-movie"><span class="std std-ref">command-dump-movie</span></a> style. The descriptions give details.</p>
 <hr class="docutils" />
 <p>The <em>backcolor</em> keyword can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> to set the background color of the images. The color name can be any of the 140 pre-defined colors (see below) or a color name defined by the <code class="docutils literal notranslate"><span class="pre">dump_modify</span></code> color option.</p>
 <hr class="docutils" />
-<p>The <em>bitrate</em> keyword can be used with the <a class="reference internal" href="dump_image.html#command-dump-movie"><span class="std std-ref">dump movie command</span></a> to define the size of the resulting movie file and its quality via setting how many kbits per second are to be used for the movie file. Higher bitrates require less compression and will result in higher quality movies. The quality is also determined by the compression format and encoder. The default setting is 2000 kbit/s, which will result in average quality with older compression formats.</p>
+<p>The <em>bitrate</em> keyword can be used with the <a class="reference internal" href="dump_image.html#command-dump-image-command-dump-movie"><span class="std std-ref">command-dump-movie</span></a> to define the size of the resulting movie file and its quality via setting how many kbits per second are to be used for the movie file. Higher bitrates require less compression and will result in higher quality movies. The quality is also determined by the compression format and encoder. The default setting is 2000 kbit/s, which will result in average quality with older compression formats.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Not all movie file formats supported by dump movie allow the bitrate to be set.
@@ -441,7 +440,7 @@ If not, the setting is silently ignored.</p>
 <p>The <em>color</em> keyword can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> to define a new color name, in addition to the 140-predefined colors (see below), and associates 3 red/green/blue RGB values with that color name. The color name can then be used with any other dump_modify keyword that takes a color name as a value. The RGB values should each be floating point values between 0.0 and 1.0 inclusive.</p>
 <p>When a color name is converted to RGB values, the user-defined color names are searched first, then the 140 pre-defined color names. This means you can also use the <em>color</em> keyword to overwrite one of the pre-defined color names with new RBG values.</p>
 <hr class="docutils" />
-<p>The <em>framerate</em> keyword can be used with the <a class="reference internal" href="dump_image.html#command-dump-movie"><span class="std std-ref">dump movie command</span></a> to define the duration of the resulting movie file. Movie files written by the dump <em>movie</em> command have a default frame rate of 24 frames per second and the images generated will be converted at that rate. Thus a sequence of 1000 dump images will result in a movie of about 42 seconds. To make a movie run longer you can either generate images more frequently or lower the frame rate. To speed a movie up, you can do the inverse. Using a frame rate higher than 24 is not recommended, as it will result in simply dropping the rendered images. It is more efficient to dump images less frequently.</p>
+<p>The <em>framerate</em> keyword can be used with the <a class="reference internal" href="dump_image.html#command-dump-image-command-dump-movie"><span class="std std-ref">command-dump-movie</span></a> to define the duration of the resulting movie file. Movie files written by the dump <em>movie</em> command have a default frame rate of 24 frames per second and the images generated will be converted at that rate. Thus a sequence of 1000 dump images will result in a movie of about 42 seconds. To make a movie run longer you can either generate images more frequently or lower the frame rate. To speed a movie up, you can do the inverse. Using a frame rate higher than 24 is not recommended, as it will result in simply dropping the rendered images. It is more efficient to dump images less frequently.</p>
 <hr class="docutils" />
 <p>The <em>gcolor</em> keyword can be used one or more times with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a>, only when its grid color setting is <em>proc</em>, to set the color that grid cells will be drawn in the image.</p>
 <p>The <em>proc</em> setting should be an integer from 1 to Nprocs = the number of processors. A wildcard asterisk can be used in place of or in conjunction with the <em>proc</em> argument to specify a range of processor IDs. This takes the form “*” or “<em>n” or “n</em>” or “m*n”. If N = the number of processors, then an asterisk with no numeric values means all procs from 1 to N. A leading asterisk means all procs from 1 to n (inclusive).  A trailing asterisk means all procs from n to N (inclusive). A middle asterisk means all procs from m to n (inclusive). Note that for this command, processor IDs range from 1 to Nprocs inclusive, instead of the more customary 0 to Nprocs-1.</p>

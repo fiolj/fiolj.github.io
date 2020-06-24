@@ -202,7 +202,7 @@ if &quot;${eng} &gt; ${eng_previous}&quot; then &quot;jump file1&quot; else &quo
 <p>This command provides an in-then-else capability within an input script.
 A Boolean expression is evaluted and the result is TRUE or FALSE. Note
 that as in the examples above, the expression can contain variables, as
-defined by the <a class="reference external" href="variable.html">variable</a> command, which will be
+defined by the <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a> command, which will be
 evaluated as part of the expression. Thus a user-defined formula that
 reflects the current state of the simulation can be used to issue one or
 more new commands.</p>
@@ -217,14 +217,14 @@ optional. If they aren’t specified and the initial Boolean expression is
 FALSE, then no commands are executed.</p>
 <p>The syntax for Boolean expressions is described below.</p>
 <p>Each command (t1, f1, e1, etc) can be any valid SPARTA input script
-command, except an <a class="reference external" href="include.html">include</a> command, which is not
+command, except an <a class="reference internal" href="include.html#command-include"><span class="std std-ref">include</span></a> command, which is not
 allowed. If the command is more than one word, it must enclosed in
 quotes, so it will be treated as a single argument, as in the examples
 above.</p>
 <p>IMPORTANT NOTE: If a command itself requires a quoted argument (e.g. a
-<a class="reference external" href="print.html">print</a> command), then double and single quotes can be
+<a class="reference internal" href="print.html#command-print"><span class="std std-ref">print</span></a> command), then double and single quotes can be
 used and nested in the usual manner, as in the examples above and below.
-See <a class="reference external" href="Section_commands.html#cmd_2">Section commands 2</a> of the manual
+See <a class="reference internal" href="Section_commands.html#commands-parsing-rules"><span class="std std-ref">Section commands 2</span></a> of the manual
 for more details on using quotes in arguments. Only one of level of
 nesting is allowed, but that should be sufficient for most use cases.</p>
 <p>Note that by using the line continuation character “&amp;”, the if command
@@ -237,16 +237,15 @@ can be spread across many lines, though it is still a single command:</p>
   <span class="s2">&quot;run 50000&quot;</span>
 </pre></div>
 </div>
-<p>Note that if one of the commands to execute is <a class="reference external" href="quit.html">quit</a>, as
+<p>Note that if one of the commands to execute is <a class="reference internal" href="quit.html#command-quit"><span class="std std-ref">quit</span></a>, as
 in the first example above, then executing the command will cause SPARTA
 to halt.</p>
 <p>Note that by jumping to a label in the same input script, the if command
-can be used to break out of a loop. See the <a class="reference external" href="variable.html">variable
-delete</a> command for info on how to delete the
+can be used to break out of a loop. See the <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable delete</span></a> command for info on how to delete the
 associated loop variable, so that it can be re-used later in the input
 script.</p>
 <p>Here is an example of a double loop which uses the if and
-<a class="reference external" href="jump.html">jump</a> commands to break out of the inner loop when a
+<a class="reference internal" href="jump.html#command-jump"><span class="std std-ref">jump</span></a> commands to break out of the inner loop when a
 condition is met, then continues iterating thru the outer loop.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">label</span>      <span class="n">loopa</span>
 <span class="n">variable</span>    <span class="n">a</span> <span class="n">loop</span> <span class="mi">5</span>
@@ -284,8 +283,8 @@ contain alphanumeric characters or underscores):</p>
 <p>Each A and B is a number or string or a variable reference like $a or
 ${abc}, or A or B can be another Boolean expression.</p>
 <p>If a variable is used it can produce a number when evaluated, like an
-<a class="reference external" href="variable.html">equal-style variable</a>. Or it can produce a string,
-like an <a class="reference external" href="variable.html">index-style variable</a>. For an individual
+<a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">equal-style variable</span></a>. Or it can produce a string,
+like an <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">index-style variable</span></a>. For an individual
 Boolean operator, A and B must both be numbers or must both be strings.
 You cannot compare a number to a string.</p>
 <p>Expressions are evaluated left to right and have the usual C-style

@@ -184,12 +184,10 @@
 <p>Read a snapshot of particles from a previously created dump file and add
 them to the simulation domain. This is a means of reading in particles
 from a previous SPARTA simulation or created as output by another code.
-The <a class="reference external" href="create_particles.html">create_particles</a>, <a class="reference external" href="fix_emit_face.html">fix
-emit/face</a>, and
-<a class="reference external" href="read_restart.html">read_restart</a> commands are alternate ways to
+The <a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles</span></a>, <a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">fix emit/face</span></a>, and
+<a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> commands are alternate ways to
 generate particles for a simulation.</p>
-<p>The dump file must be in the SPARTA format created by the <a class="reference external" href="dump.html">dump
-particles</a> command which is described on its doc page.</p>
+<p>The dump file must be in the SPARTA format created by the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump particles</span></a> command which is described on its doc page.</p>
 <p>Currently, each line of particle data in the file must have 8 fields in
 the following order. At some point we may generalize this format.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">,</span> <span class="n">vz</span>
@@ -198,7 +196,7 @@ the following order. At some point we may generalize this format.</p>
 <p>The <em>id</em> is any positive integer, which can simply be set to values from
 1 to Nparticles if desired. The type is the species ID from 1 to
 Nspecies. The value corresponds to the order in which species are
-defined in the current input script via the <a class="reference external" href="species.html">species</a>
+defined in the current input script via the <a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a>
 command. The x,y,z values are the particle coordinates which must be
 inside (or on the surface of) the simulation box. If a particle is
 outside the box it will be skipped when the file is read. For 2d or

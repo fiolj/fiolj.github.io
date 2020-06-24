@@ -170,13 +170,13 @@
 <span id="command-compute-lambda-grid"></span><span id="index-1"></span><h1>compute lambda/grid command<a class="headerlink" href="#compute-lambda-grid-command" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="section" id="compute-lambda-grid-kk-command">
-<h1>compute lambda/grid/kk command<a class="headerlink" href="#compute-lambda-grid-kk-command" title="Permalink to this headline">¶</a></h1>
+<span id="command-compute-lambda-grid-compute-lambdagridkk"></span><h1>compute lambda/grid/kk command<a class="headerlink" href="#compute-lambda-grid-kk-command" title="Permalink to this headline">¶</a></h1>
 <p><strong>Syntax:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="k">lambda</span><span class="o">/</span><span class="n">grid</span> <span class="n">nrho</span> <span class="n">temp</span> <span class="n">species</span> <span class="n">extra</span>
 </pre></div>
 </div>
 <ul>
-<li><p>ID is documented in <a class="reference external" href="compute.html">compute</a> command</p></li>
+<li><p>ID is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
 <li><p>lambda/grid = style name of this compute command</p></li>
 <li><p>nrho = compute or fix column for number density, prefaced by <code class="docutils literal notranslate"><span class="pre">c_</span></code> or
 <code class="docutils literal notranslate"><span class="pre">f_</span></code></p></li>
@@ -211,17 +211,15 @@ molecular collisions for each grid cell, based on the particles in that
 cell. Optionally, a Knudsen number for each cell can also be calculated,
 which is the mean free path divided by the cell size. These quantities
 can be useful for estimating the optimal grid cell size when adapting
-the grid, e.g. via the <a class="reference external" href="adapt_grid.html">adapt_grid</a> or <a class="reference external" href="fix_adapt_grid.html">fix
-adapt/grid</a> commands.</p>
+the grid, e.g. via the <a class="reference internal" href="adapt_grid.html#command-adapt-grid"><span class="std std-ref">adapt_grid</span></a> or <a class="reference internal" href="fix_adapt.html#command-fix-adapt"><span class="std std-ref">fix adapt/grid</span></a> commands.</p>
 <p>Unlike other computes that calculate per grid cell values, this compute
 does not take a “group-ID” for a grid cell group as an argument, nor a
-particle <a class="reference external" href="mixture.html">mixture</a> ID as an argument. This is because
+particle <a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture</span></a> ID as an argument. This is because
 it uses the number density and temperature calculated by other computes
 or fixes as input, and those computes or fixes use grid group IDs or
 mixture IDs as part of their computations.</p>
 <p>The results of this compute can be used by different commands in
-different ways. For example, the values can be output by the <a class="reference external" href="dump.html">dump
-grid</a> command.</p>
+different ways. For example, the values can be output by the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a> command.</p>
 <hr class="docutils" />
 <p>The formula used to calculate the mean free path (lambda) is given in
 <a class="reference internal" href="surf_collide.html#bird94" id="id1"><span>[Bird94]</span></a> as equation 4.65:</p>
@@ -232,9 +230,9 @@ suitable for estimating optimal grid cell sizes as explained above. It
 is a simplied version of formulas 4.76 and 4.77 from the same reference.</p>
 <p>Dref and Tref and omega are collision properties for a reference species
 in the flow. The reference species is specified by the <em>species</em>
-argument. It must be a species defined by the <a class="reference external" href="species.html">species</a>
+argument. It must be a species defined by the <a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a>
 command and listed in the file of per-species collision properties read
-in by the <a class="reference external" href="collide.html">collide</a> command.</p>
+in by the <a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide</span></a> command.</p>
 <p>Specifically, Dref is the diameter of molecules of the species, Tref is
 the reference temperature, and omega is the viscosity
 temperature-dependence for the species.</p>
@@ -258,32 +256,31 @@ case if the reference species defines omega = 1/2. In that case, the
 <em>temp</em> argument is ignored, whether it is NULL or not.</p>
 <p>Note that if the value of <em>n</em> is 0.0 for a grid cell, its mean-free-path
 will be set to 1.0e20 (infinite length).</p>
-<p>The <a class="reference external" href="compute_grid.html">compute_grid</a> command can calculate a number
+<p>The <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute_grid</span></a> command can calculate a number
 density, using its <em>nrho</em> value. It can also calculate a temperature
 using its <em>temp</em> value. Note that this temperature is inferred from the
 translational kinetic energy of the particles, which is only appopriate
 for a mean free path calculation for systems with zero or small
 streaming velocities. For systems with streaming flow, an appropriate
-temperature can be calculated by the <a class="reference external" href="compute_thermal_grid.html">compute
-thermal/grid</a> command. The formulas on its
+temperature can be calculated by the <a class="reference internal" href="compute_thermal_grid.html#command-compute-thermal-grid"><span class="std std-ref">compute thermal/grid</span></a> command. The formulas on its
 doc page show that the the center-of-mass velocity from the particles in
 each grid cell is subtracted from each particle’s velocity to yield a
 translational thermal velocity, from which a thermal temperature is
 calculated.</p>
-<p>The <a class="reference external" href="fix_ave_grid.html">fix ave/grid</a> command can calculate the same
+<p>The <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a> command can calculate the same
 values in a time-averaged sense, assuming it uses these same computes as
 input. Using this fix as input to this compute will thus yield less
 noisy values, due to the time averaging.</p>
 <p>Note that the compute or fix (via the compute(s) it uses as input) can
 perform its number density or temperature calculation for a subset of
 the particles based on the “mixture” it uses. See the
-<a class="reference external" href="mixture.html">mixture</a> command for how a set of species can be
+<a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture</span></a> command for how a set of species can be
 partitioned into groups.</p>
-<p>IMPORTANT NOTE: If the ID of a <a class="reference external" href="fix_ave_grid.html">fix ave/grid</a>
+<p>IMPORTANT NOTE: If the ID of a <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a>
 command is used as the <em>nrho</em> or <em>temp</em> argument, it only produces
 output on timesteps that are multiples of its <em>Nfreq</em> argument. Thus
 this compute can only be invoked on those timesteps. For example, if a
-<a class="reference external" href="dump.html">dump grid</a> command invokes this compute to write values
+<a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a> command invokes this compute to write values
 to a dump file, it must do so on timesteps that are multiples of
 <em>Nfreq</em>.</p>
 <p>One of the <em>kall</em> or <em>kx</em> or <em>ky</em> or <em>kz</em> extra arguments can be
@@ -303,7 +300,7 @@ first column of the array is the mean free path; the second column is
 the Knudsen number.</p>
 <p>This compute performs calculations for all flavors of child grid cells
 in the simulation, which includes unsplit, cut, split, and sub cells.
-See <a class="reference external" href="Section_howto.html#howto_8">Section 6.8</a> of the manual gives
+See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual gives
 details of how SPARTA defines child, unsplit, split, and sub cells. Note
 that cells inside closed surfaces contain no particles. These could be
 unsplit or cut cells (if they have zero flow volume). Both of these
@@ -312,37 +309,33 @@ Likewise, split cells store no particles and will produce a zero result.
 This is because their sub-cells actually contain the particles that are
 geometrically inside the split cell.</p>
 <p>The vector or array can be accessed by any command that uses per-grid
-values from a compute as input. See <a class="reference external" href="Section_howto.html#howto_4">Section
-4.4</a> for an overview of SPARTA output
+values from a compute as input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Section 4.4</span></a> for an overview of SPARTA output
 options.</p>
 <p>The per-grid array values for the vector or first column of the array
-will be in distance <a class="reference external" href="units.html">units</a>. The second column of the
+will be in distance <a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a>. The second column of the
 array will be dimensionless.</p>
 <hr class="docutils" />
 <p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding
 style without the suffix. They have been optimized to run faster,
-depending on your available hardware, as discussed in the <a class="reference external" href="Section_accelerate.html">Accelerating
-SPARTA</a> section of the manual. The
+depending on your available hardware, as discussed in the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual. The
 accelerated styles take the same arguments and should produce the same
 results, except for different random number, round-off and precision
 issues.</p>
 <p>These accelerated styles are part of the KOKKOS package. They are only
-enabled if SPARTA was built with that package. See the <a class="reference external" href="Section_start.html#start_3">Making
-SPARTA</a> section for more info.</p>
+enabled if SPARTA was built with that package. See the <a class="reference internal" href="Section_start.html#start-making-sparta"><span class="std std-ref">Making SPARTA</span></a> section for more info.</p>
 <p>You can specify the accelerated styles explicitly in your input script
-by including their suffix, or you can use the <a class="reference external" href="Section_start.html#start_6">-suffix command-line
-switch</a> when you invoke SPARTA, or you
-can use the <a class="reference external" href="suffix.html">suffix</a> command in your input script.</p>
-<p>See the <a class="reference external" href="Section_accelerate.html">Accelerating SPARTA</a> section of the
+by including their suffix, or you can use the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-suffix command-line switch</span></a> when you invoke SPARTA, or you
+can use the <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix</span></a> command in your input script.</p>
+<p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the
 manual for more instructions on how to use the accelerated styles
 effectively.</p>
 <hr class="docutils" />
 <p><strong>Restrictions:</strong></p>
 <p>To use this compute, a collision style must be defined via the
-<a class="reference external" href="collide.html">collide</a> command, which defines properties for the
+<a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide</span></a> command, which defines properties for the
 reference <em>species</em>.</p>
 <p>As explained above, to use this compute with <em>nrho</em> or <em>temp</em> defined as
-input from a <a class="reference external" href="fix_ave_grid.html">fix ave/grid</a> command, this compute
+input from a <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a> command, this compute
 must only be invoked on timesteps that are multiples of the <em>Nfreq</em>
 argument used by the fix, since those are the steps when it produces
 output.</p>

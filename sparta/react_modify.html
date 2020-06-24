@@ -191,7 +191,7 @@
 <p>Set parameters that affect how reactions are performed.</p>
 <p>The <em>recomb</em> keyword turns on or off recombination reactions. It is only
 relevant if recombination reactions were defined in the reaction file
-read in by the <a class="reference external" href="react.html">react</a> command. If the setting is <em>no</em>
+read in by the <a class="reference internal" href="react.html#command-react"><span class="std std-ref">react</span></a> command. If the setting is <em>no</em>
 then they will be disabled even if they were listed in the reaction
 file. This is useful to turn recombination reactions off, to see if they
 affect simulation results.</p>
@@ -209,10 +209,10 @@ recombination reaction is actually tested for occurrence, its rate is
 boosted by a factor of N, making it N times more likely to occur.</p>
 <p>The smallest value <em>rboost</em> can be set to is 1.0, which effectively
 applies no boost factor.</p>
-<p>IMPORTANT NOTE: Setting <em>rboost</em> too large could meant the probability
-of a recombination reaction becomes &gt; 1.0, when it is does occur. SPARTA
-does not check for this, so you should estimate the largest boost factor
-that is safe to use for your model.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Setting <em>rboost</em> too large could meant the probability of a recombination reaction becomes &gt; 1.0, when it is does occur. SPARTA does not check for this, so you should estimate the largest boost factor that is safe to use for your model.</p>
+</div>
 <hr class="docutils" />
 <p><strong>Restrictions:</strong> none</p>
 <p><strong>Related commands:</strong></p>

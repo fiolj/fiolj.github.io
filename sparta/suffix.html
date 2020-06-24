@@ -183,22 +183,19 @@
 </div>
 <p><strong>Description:</strong></p>
 <p>This command allows you to use variants of various styles if they exist.
-In that respect it operates the same as the <a class="reference external" href="Section_start.html#start_6">-suffix command-line
-switch</a>. It also has options to turn off
+In that respect it operates the same as the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-suffix command-line switch</span></a>. It also has options to turn off
 or back on any suffix setting made via the command line.</p>
 <p>The specified style <em>kk</em> refers to the optional KOKKOS package that
-SPARTA can be built with, as described in <a class="reference external" href="Section_start.html#start_3">this section of the
-manual</a>. The KOKKOS package is a
+SPARTA can be built with, as described in <a class="reference internal" href="Section_start.html#start-making-sparta"><span class="std std-ref">this section of the manual</span></a>. The KOKKOS package is a
 collection of styles optimized to run using the Kokkos library on
 various kinds of hardware, including GPUs via CUDA and many-core chips
 via OpenMP multi-threading.</p>
-<p>As an example, the KOKKOS package provides a <a class="reference external" href="compute_temp.html">compute_style
-temp</a> variant, with style name temp/kk. A variant
+<p>As an example, the KOKKOS package provides a <a class="reference internal" href="compute_temp.html#command-compute-temp"><span class="std std-ref">compute_style temp</span></a> variant, with style name temp/kk. A variant
 style can be specified explicitly in your input script, e.g. compute
 temp/kk. If the suffix command is used with the appropriate style, you
 do not need to modify your input script. The specified suffix (kk) is
 automatically appended whenever your input script command creates a new
-<a class="reference external" href="fix.html">fix</a>, <a class="reference external" href="compute.html">compute</a>, etc. If the variant
+<a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a>, <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a>, etc. If the variant
 version does not exist, the standard version is created.</p>
 <p>If the specified style is <em>off</em>, then any previously specified suffix is
 temporarily disabled, whether it was specified by a command-line switch

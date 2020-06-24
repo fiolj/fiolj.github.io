@@ -173,7 +173,7 @@
 </pre></div>
 </div>
 <ul>
-<li><p>ID is documented in <a class="reference external" href="compute.html">compute</a> command</p></li>
+<li><p>ID is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
 <li><p>react/boundary = style name of this compute command</p></li>
 <li><p>reaction-ID = surface reaction ID which defines surface reactions</p></li>
 <li><p>zero or more values can be appended</p></li>
@@ -207,10 +207,10 @@ specified by <em>reaction-ID</em> are included in the tallying.</p>
 <p>Note that when a particle collides with a face, it can bounce off
 (possibly as a different species), be captured by the surface (vanish),
 or a 2nd particle can also be emitted.</p>
-<p>The doc page for the <a class="reference external" href="surf_react.html">surf_react</a> command explains
+<p>The doc page for the <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react</span></a> command explains
 the different reactions that can occur for each specified style.</p>
 <p>If no values are specified each reaction specified by the
-<a class="reference external" href="surf_react.html">surf_react</a> style is tallied individually for each
+<a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react</span></a> style is tallied individually for each
 boundary.</p>
 <p>If M values are specified, then M tallies are made for each face, one
 per value. If the value starts with “r:” then any reaction which occurs
@@ -222,20 +222,18 @@ reaction may be tallied multiple times depending on which values it
 matches.</p>
 <p>The results of this compute can be used by different commands in
 different ways. The values for a single timestep can be output by the
-<a class="reference external" href="stats_style.html">stats_style</a> command. The values over many
-sampling timesteps can be averaged by the <a class="reference external" href="fix_ave_time.html">fix
-ave/time</a> command.</p>
+<a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style</span></a> command. The values over many
+sampling timesteps can be averaged by the <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time</span></a> command.</p>
 <hr class="docutils" />
 <p><strong>Output info:</strong></p>
 <p>This compute calculates a global array, with the number of columns
 either equal to the number of reactions defined by the
-<a class="reference external" href="surf_react">surf_react</a> style (if no values are specified) or equal
+<a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react</span></a> style (if no values are specified) or equal
 to M = the # of values specified. The number of rows is 4 for a 2d
 simulation for the 4 faces (xlo, xhi, ylo, yhi), and it is 6 for a 3d
 simulation (xlo, xhi, ylo, yhi, zlo, zhi).</p>
 <p>The array can be accessed by any command that uses global array values
-from a compute as input. See <a class="reference external" href="Section_howto.html#howto_4">Section
-6.4</a> for an overview of SPARTA output
+from a compute as input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Section 6.4</span></a> for an overview of SPARTA output
 options.</p>
 <p>The array values are counts of the number of reactions that occurred on
 each face.</p>

@@ -216,8 +216,7 @@
 </div>
 <p><strong>Description:</strong></p>
 <p>This command defines a geometric region of space. Various other commands
-use regions. See the <a class="reference external" href="group.html">group grid</a>, <a class="reference external" href="group.html">group
-surf</a>, and <a class="reference external" href="dump_modify.html">dump_modify</a> commands
+use regions. See the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group grid</span></a>, <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a>, and <a class="reference internal" href="dump_modify.html#command-dump-modify"><span class="std std-ref">dump_modify</span></a> commands
 for examples.</p>
 <p>Commands which use regions typically test whether a point is contained
 in the region or not. For this purpose, coordinates exactly on the
@@ -237,12 +236,10 @@ the y-direction from -5.0 to infinity.</p>
 <p>The <em>union</em> style creates a region consisting of the volume of all the
 listed regions combined. The <em>intersect</em> style creates a region
 consisting of the volume that is common to all the listed regions.</p>
-<p>IMPORTANT NOTE: Regions in SPARTA are always 3d geometric objects,
-regardless of whether the <a class="reference external" href="dimension.html">dimension</a> of the
-simulation 2d or 3d. Thus when using regions in a 2d simulation, for
-example, you should be careful to define the region so that its
-intersection with the 2d x-y plane of the simulation has the 2d
-geometric extent you want.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Regions in SPARTA are always 3d geometric objects, regardless of whether the <a class="reference internal" href="dimension.html#command-dimension"><span class="std std-ref">dimension</span></a> of the simulation 2d or 3d. Thus when using regions in a 2d simulation, for example, you should be careful to define the region so that its intersection with the 2d x-y plane of the simulation has the 2d geometric extent you want.</p>
+</div>
 <p>The <em>side</em> keyword determines whether the region is considered to be
 inside or outside of the specified geometry. Using this keyword in
 conjunction with <em>union</em> and <em>intersect</em> regions, complex geometries can

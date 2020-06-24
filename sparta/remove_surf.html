@@ -181,19 +181,18 @@
 </div>
 <p><strong>Description:</strong></p>
 <p>Remove a group of surface elements that have previously been read-in via
-the <a class="reference external" href="read_surf.html">read_surf</a> command. The <a class="reference external" href="group.html">group
-surf</a> or <a class="reference external" href="read_surf.html">read_surf</a> can be used to
+the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command. The <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> or <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> can be used to
 assign each surface element to one or more groups. This command removes
 all surface elements in the specified <em>surfID</em> group.</p>
 <p>Note that the remaining surface elements must still constitute a
 “watertight” surface or an error will be generated. The definition of
 watertight is explained in the Restrictions section of the
-<a class="reference external" href="read_surf.html">read_surf</a> doc page.</p>
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> doc page.</p>
 <p>After surface elements have been deleted, any surface points that are no
 longer part of a surface element are also deleted. The remaining surface
 points and elements are renumbered to create compressed, contiguous
 lists. The new list of surface elements can be output via the
-<a class="reference external" href="write_surf.html">write_surf</a> command.</p>
+<a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf</span></a> command.</p>
 <p><strong>Restrictions:</strong> none</p>
 <p><strong>Related commands:</strong></p>
 <p><a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf command</span></a></p>

@@ -170,13 +170,13 @@
 <span id="command-fix-ave-grid"></span><span id="index-1"></span><h1>fix ave/grid command<a class="headerlink" href="#fix-ave-grid-command" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="section" id="fix-ave-grid-kk-command">
-<h1>fix ave/grid/kk command<a class="headerlink" href="#fix-ave-grid-kk-command" title="Permalink to this headline">¶</a></h1>
+<span id="command-fix-ave-grid-fix-avegridkk"></span><h1>fix ave/grid/kk command<a class="headerlink" href="#fix-ave-grid-kk-command" title="Permalink to this headline">¶</a></h1>
 <p><strong>Syntax:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">Nevery</span> <span class="n">Nrepeat</span> <span class="n">Nfreq</span> <span class="n">value1</span> <span class="n">value2</span> <span class="o">...</span> <span class="n">keyword</span> <span class="n">args</span> <span class="o">...</span>
 </pre></div>
 </div>
 <ul>
-<li><p>ID is documented in <a class="reference external" href="fix.html">fix</a> command</p></li>
+<li><p>ID is documented in <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> command</p></li>
 <li><p>ave/grid = style name of this fix command</p></li>
 <li><p>group-ID = group ID for which grid cells to perform calculation on</p></li>
 <li><p>Nevery = use input values every this many timesteps</p></li>
@@ -219,21 +219,20 @@ a file every 1000 steps:</p>
 <p>Use one or more per-grid vectors as inputs every few timesteps, and
 average by grid cell over longer timescales, applying appropriate
 normalization factors. The resulting per grid cell averages can be used
-by other output commands such as the <a class="reference external" href="dump.html">dump grid</a> command.
+by other output commands such as the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a> command.
 Only grid cells in the grid group specified by <em>group-ID</em> are included
-in the averaging. See the <a class="reference external" href="group.html">group grid</a> command for info
+in the averaging. See the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group grid</span></a> command for info
 on how grid cells can be assigned to grid groups.</p>
-<p>Each input value can be the result of a <a class="reference external" href="compute.html">compute</a> or
-<a class="reference external" href="fix.html">fix</a> or <a class="reference external" href="variable.html">grid-style variable</a>. The
+<p>Each input value can be the result of a <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> or
+<a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> or <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">grid-style variable</span></a>. The
 compute or fix must produce a per-grid vector or array, not a global or
 per-particle or per-surf quantity. If you wish to time-average global
-quantities from a compute, fix, or variable, then see the <a class="reference external" href="fix_ave_time.html">fix
-ave/time</a> command. To time-average per-surf
-quantities, see the <a class="reference external" href="fix_ave_surf.html">fix ave/surf</a> command.</p>
+quantities from a compute, fix, or variable, then see the <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time</span></a> command. To time-average per-surf
+quantities, see the <a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">fix ave/surf</span></a> command.</p>
 <p>Each per-grid value of each input vector is averaged independently.</p>
-<p><a class="reference external" href="compute.html">Computes</a> that produce per-grid vectors or arrays are
+<p><a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">Computes</span></a> that produce per-grid vectors or arrays are
 those which have the word <em>grid</em> in their style name. See the doc pages
-for individual <a class="reference external" href="fix.html">fixes</a> to determine which ones produce
+for individual <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fixes</span></a> to determine which ones produce
 per-grid vectors or arrays.</p>
 <p>Note that for values from a compute or fix, the bracketed index I can be
 specified using a wildcard asterisk with the index to effectively
@@ -246,7 +245,7 @@ indices from n to N (inclusive). A middle asterisk means all indices
 from m to n (inclusive).</p>
 <p>Using a wildcard is the same as if the individual columns of the array
 had been listed one by one. E.g. these 2 fix ave/grid commands are
-equivalent, since the <a class="reference external" href="compute_grid.html">compute grid</a> command
+equivalent, since the <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid</span></a> command
 creates a per-grid array with 3 columns:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">myGrid</span> <span class="nb">all</span> <span class="nb">all</span> <span class="n">u</span> <span class="n">v</span> <span class="n">w</span>
 <span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="mi">10</span> <span class="mi">20</span> <span class="mi">1000</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
@@ -275,8 +274,7 @@ range from 1-M, which will use the Ith column of the M-column per-grid
 array calculated by the compute. See the discussion above for how I can
 be specified with a wildcard asterisk to effectively specify multiple
 values.</p>
-<p>Users can also write code for their own compute styles and <a class="reference external" href="Section_modify.html">add them to
-SPARTA</a>.</p>
+<p>Users can also write code for their own compute styles and <a class="reference internal" href="Section_modify.html#modify"><span class="std std-ref">add them to SPARTA</span></a>.</p>
 <p>If a value begins with <code class="docutils literal notranslate"><span class="pre">f_</span></code>, a fix ID must follow which has been
 previously defined in the input script. If no bracketed term is
 appended, and the fix calculates a per-grid vector, then the per-grid
@@ -287,13 +285,12 @@ specified with a wildcard asterisk to effectively specify multiple
 values.</p>
 <p>Note that some fixes only produce their values on certain timesteps,
 which must be compatible with <em>Nevery</em>, else an error will result. Users
-can also write code for their own fix styles and <a class="reference external" href="Section_modify.html">add them to
-SPARTA</a>.</p>
+can also write code for their own fix styles and <a class="reference internal" href="Section_modify.html#modify"><span class="std std-ref">add them to SPARTA</span></a>.</p>
 <p>If a value begins with <code class="docutils literal notranslate"><span class="pre">v_</span></code>, a variable name must follow which has been
 previously defined in the input script. Only grid-style variables can be
-referenced. See the <a class="reference external" href="variable.html">variable</a> command for details.
+referenced. See the <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a> command for details.
 Note that grid-style variables define a formula which can reference
-<a class="reference external" href="stats_style.html">stats_style</a> keywords, or they can invoke other
+<a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style</span></a> keywords, or they can invoke other
 computes, fixes, or variables when they are evaluated, so this is a very
 general means of specifying quantities to time average.</p>
 <hr class="docutils" />
@@ -303,7 +300,7 @@ value produced by a grid-style variable.</p>
 <p>If the compute or fix is summing over particles in a grid cell to
 calculate a per-grid quantity (e.g. energy or temperature), this takes
 the form of a numerator divided by a denominator. For example, see the
-formulas discussed on the <a class="reference external" href="compute_grid.html">compute grid</a> doc page,
+formulas discussed on the <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid</span></a> doc page,
 where the denominator is 1 (for keyword n), or the number of particles
 (ke, mass, temp), or the sum of particle masses (u, usq, etc). When this
 command averages over a series of timesteps, the numerator and
@@ -311,7 +308,7 @@ denominator are summed separately. This means the numerator/denominator
 division only takes place when this fix produces output, every Nfreq
 timesteps.</p>
 <p>For example, say the Nfreq output is over 2 timesteps, and the value
-produced by <a class="reference external" href="compute_grid.html">compute grid mass</a> is being averaged.
+produced by <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid mass</span></a> is being averaged.
 Say a grid cell has 10 particles on the 1st timestep with a numerator
 value of 10.0, and 100 particles on the 2nd timestep with a numerator
 value of 50.0. The output of this fix will be (10+50) / (10+100) = 0.54,
@@ -331,8 +328,7 @@ zeroed by deleting the fix via the unfix command, or by re-defining the
 fix, or by re-specifying it.</p>
 <hr class="docutils" />
 <p><strong>Restart, output info:</strong></p>
-<p>No information about this fix is written to <a class="reference external" href="restart.html">binary restart
-files</a>.</p>
+<p>No information about this fix is written to <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">binary restart files</span></a>.</p>
 <p>This fix produces a per-grid vector or array which can be accessed by
 various output commands. A vector is produced if only a single quantity
 is averaged by this fix. If two or more quantities are averaged, then an
@@ -345,25 +341,22 @@ performed.</p>
 <hr class="docutils" />
 <p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding
 style without the suffix. They have been optimized to run faster,
-depending on your available hardware, as discussed in the <a class="reference external" href="Section_accelerate.html">Accelerating
-SPARTA</a> section of the manual. The
+depending on your available hardware, as discussed in the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual. The
 accelerated styles take the same arguments and should produce the same
 results, except for different random number, round-off and precision
 issues.</p>
 <p>These accelerated styles are part of the KOKKOS package. They are only
-enabled if SPARTA was built with that package. See the <a class="reference external" href="Section_start.html#start_3">Making
-SPARTA</a> section for more info.</p>
+enabled if SPARTA was built with that package. See the <a class="reference internal" href="Section_start.html#start-making-sparta"><span class="std std-ref">Making SPARTA</span></a> section for more info.</p>
 <p>You can specify the accelerated styles explicitly in your input script
-by including their suffix, or you can use the <a class="reference external" href="Section_start.html#start_6">-suffix command-line
-switch</a> when you invoke SPARTA, or you
-can use the <a class="reference external" href="suffix.html">suffix</a> command in your input script.</p>
-<p>See the <a class="reference external" href="Section_accelerate.html">Accelerating SPARTA</a> section of the
+by including their suffix, or you can use the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-suffix command-line switch</span></a> when you invoke SPARTA, or you
+can use the <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix</span></a> command in your input script.</p>
+<p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the
 manual for more instructions on how to use the accelerated styles
 effectively.</p>
 <hr class="docutils" />
 <p><strong>Restrictions:</strong></p>
 <p>If performing on-the-fly grid adaptation every N timesteps, using the
-<a class="reference external" href="fix_adapt.html">fix adapt</a> command, this fix cannot time-average
+<a class="reference internal" href="fix_adapt.html#command-fix-adapt"><span class="std std-ref">fix adapt</span></a> command, this fix cannot time-average
 across time windows &gt; N steps, since the grid may change. This means
 <em>Nfreq</em> cannot be &gt; N, and keyword <em>ave</em> = <em>running</em> is not allowed.</p>
 <p><strong>Related commands:</strong></p>

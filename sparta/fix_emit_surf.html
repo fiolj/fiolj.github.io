@@ -173,7 +173,7 @@
 </pre></div>
 </div>
 <ul>
-<li><p>ID is documented in <a class="reference external" href="fix.html">fix</a> command</p></li>
+<li><p>ID is documented in <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> command</p></li>
 <li><p>emit/surf = style name of this fix command</p></li>
 <li><p>mix-ID = ID of mixture to use when creating particles</p></li>
 <li><p>group-ID = ID of surface group that emits particles</p></li>
@@ -208,8 +208,7 @@ ID <em>mix-ID</em>. This sets the number and species of added particles, as
 well as their streaming velocity, thermal temperature, and internal
 energy modes. The details are explained below.</p>
 <p>Which surface elements emit particles is specified by the <em>group-ID</em> for
-a surface group, which defines a set of surface elements. The <a class="reference external" href="group.html">group
-surf</a> is used to define surface groups.</p>
+a surface group, which defines a set of surface elements. The <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> is used to define surface groups.</p>
 <p>On each insertion timestep, each grid cell that overlaps with one or
 more emitting surface elements performs the following computations to
 add particles for each grid cell/surface element pairing. The particles
@@ -221,7 +220,7 @@ grid cell is based on this flux and additional global, flow, and surface
 element properties:</p>
 <ul class="simple">
 <li><p>global property: <em>fnum</em> ratio as specified by the
-<a class="reference external" href="global.html">global</a> command</p></li>
+<a class="reference internal" href="global.html#command-global"><span class="std std-ref">global</span></a> command</p></li>
 <li><p>flow properties: number density, streaming velocity, and thermal
 temperature</p></li>
 <li><p>surface element properties: portion of surface element area that
@@ -229,22 +228,22 @@ overlaps with the grid cell and its orientation relative to the
 streaming velocity</p></li>
 </ul>
 <p>The flow properties are defined for the specified mixture via the
-<a class="reference external" href="mixture.html">mixture</a> command.</p>
+<a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture</span></a> command.</p>
 <p>If <em>M</em> has a fractional value, e.g. 12.5, then 12 particles are added,
 and a 13th depending on the value of a random number. Each particle is
 added at a random location within the portion of the surface element
 that overlaps with the grid cell. The particle species is chosen
 randomly in accord with the <em>frac</em> settings of the collection of species
-in the mixture, as set by the <a class="reference external" href="mixture.html">mixture</a> command.</p>
+in the mixture, as set by the <a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture</span></a> command.</p>
 <p>IMPORTANT NOTE: The preceeding calculation is actually done using
 surface element areas associated with <em>weighted</em> cell volumes. Grid
-cells can be weighted using the <a class="reference external" href="global.html">global weight</a> command.</p>
+cells can be weighted using the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command.</p>
 <p>The velocity of the particle is set to the sum of the streaming velocity
 and a thermal velocity sampled from the thermal temperature. The
 internal energy modes of the particle are determined by the <em>trot</em> and
 <em>tvib</em> settings of the mixture and the <em>rotate</em> and <em>vibrate</em> options of
-the <a class="reference external" href="collide_modify.html">collide_modify</a> command. Note that if the
-<a class="reference external" href="collide.html">collide</a> command has not been specified (free
+the <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify</span></a> command. Note that if the
+<a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide</span></a> command has not been specified (free
 molecular flow), then no rotational or vibrational energy will be
 assigned to created particles. See the discussion of the <em>normal</em>
 keyword below for a way to change the velocity assignment to be oriented
@@ -290,7 +289,7 @@ properties of added particles.</p>
 <p>If <em>perspecies</em> is set to <em>yes</em>, then a target insertion number <em>M</em> for
 a grid cell/surface element pair is calculated for each species, which
 is a function of the relative number fraction of the species, as set by
-the <a class="reference external" href="mixture.html">mixture nfrac</a> command. If <em>M</em> has a fractional
+the <a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture nfrac</span></a> command. If <em>M</em> has a fractional
 value, e.g. 12.5, then 12 particles of that species will always be
 added, and a 13th depending on the value of a random number.</p>
 <p>If <em>perspecies</em> is set to <em>no</em>, then a single target insertion number
@@ -314,7 +313,7 @@ the first and 7 of the second.</p>
 position is within the specified <em>region-ID</em>. This can be used to only
 allow particle insertion on a subset of the collective area of the
 specified group of surface elements. Note that the <em>side</em> option for the
-<a class="reference external" href="region.html">region</a> command can be used to define whether the
+<a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command can be used to define whether the
 inside or outside of the geometric region is considered to be “in” the
 region.</p>
 <p>IMPORTANT NOTE: If the <em>region</em> and <em>n</em> keywords are used together, less
@@ -349,15 +348,14 @@ condition is meant more for an outlet than an inlet boundary condition,
 and performs well in cases where the cells are adequately populated.</p>
 <p>IMPORTANT NOTE: When using this keyword, you should also use an
 appropriate surface collision or chemistry model via the
-<a class="reference external" href="surf_collide.html">surf_collide</a> or <a class="reference external" href="surf_react.html">surf_react</a>
+<a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide</span></a> or <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react</span></a>
 commands, so that particles hitting the surface disappear as if they
 were exiting the simulation domain. That is necessary to produce the
 correct subsonic conditions that the particle insertions due to this
 command are trying to achieve.</p>
 <hr class="docutils" />
 <p><strong>Restart, output info:</strong></p>
-<p>No information about this fix is written to <a class="reference external" href="restart.html">binary restart
-files</a>.</p>
+<p>No information about this fix is written to <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">binary restart files</span></a>.</p>
 <p>This fix computes a global vector of length 2 which can be accessed by
 various output commands. The first element of the vector is the total
 number of particles added on the most recent insertion step. The second
@@ -366,19 +364,18 @@ run. The 2nd value is initialized to zero each time a run is performed.</p>
 <p><strong>Restrictions:</strong></p>
 <p>A <em>n</em> setting of <em>Np</em> &gt; 0 can only be used with a <em>perspecies</em> setting
 of <em>no</em>.</p>
-<p>If <em>normal</em> is set to <em>no</em>, which is the default, then unlike the <a class="reference external" href="fix_emit/face.html">fix
-emit/face</a> command, no warning is issued if a
-surface element has an inward normal in a direction opposing the
-streaming velocity, as defined by the mixture.</p>
+<p>If <em>normal</em> is set to <em>no</em>, which is the default, then unlike the
+<a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">fix emit/face command</span></a>, no warning is issued if a surface
+element has an inward normal in a direction opposing the streaming
+velocity, as defined by the mixture.</p>
 <p>For that surface element, particles will still be emitted, so long as a
 small fraction have a thermal velocity large enough to overcome the
 outward streaming velocity, so that their net velocity is inward. The
 threshold for this is the thermal velocity for particles 3*sigma from
 the mean thermal velocity.</p>
 <p><strong>Related commands:</strong></p>
-<p><a class="reference external" href="mixture.html">mixture</a>,
-<a class="reference external" href="create_particles.html">create_particles</a>, <a class="reference external" href="fix_emit_face.html">fix
-emit/face</a></p>
+<p><a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture</span></a>,
+<a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles</span></a>, <a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">fix emit/face</span></a></p>
 <p><strong>Default:</strong></p>
 <p>The keyword defaults are n = 0, normal = no, nevery = 1, perspecies =
 yes, region = none, no subsonic settings.</p>

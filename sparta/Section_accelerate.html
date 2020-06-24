@@ -173,7 +173,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="accelerating-sparta-performance">
-<span id="accelerating"></span><h1>5. Accelerating SPARTA performance<a class="headerlink" href="#accelerating-sparta-performance" title="Permalink to this headline">¶</a></h1>
+<span id="accelerate"></span><h1>5. Accelerating SPARTA performance<a class="headerlink" href="#accelerating-sparta-performance" title="Permalink to this headline">¶</a></h1>
 <p>This section describes various methods for improving SPARTA performance
 for different classes of problems running on different kinds of
 machines.</p>
@@ -182,9 +182,9 @@ provided with SPARTA that contains code optimized for certain kinds of
 hardware, including multi-core CPUs, GPUs, and Intel Xeon Phi
 coprocessors.</p>
 <ul class="simple">
-<li><p>5.1 <cite>Measuring performance &lt;accelerating-measuring&gt;</cite></p></li>
-<li><p>5.2 <cite>Accelerator packages with optimized styles &lt;accelerating-measuring&gt;</cite></p></li>
-<li><p>5.2.1 <cite>KOKKOS package &lt;accelerate-kokkos&gt;</cite></p></li>
+<li><p>5.1 <a class="reference internal" href="#accelerate-measuring"><span class="std std-ref">Measuring performance</span></a></p></li>
+<li><p>5.2 <a class="reference internal" href="#accelerate-measuring"><span class="std std-ref">Accelerator packages with optimized styles</span></a></p></li>
+<li><p>5.2.1 <a class="reference internal" href="accelerate_kokkos.html#accelerate-kokkos"><span class="std std-ref">KOKKOS package</span></a></p></li>
 </ul>
 <p>The <a class="reference external" href="http://sparta.sandia.gov/bench.html">Benchmark page</a> of the
 SPARTA web site gives performance results for the various accelerator
@@ -192,7 +192,7 @@ packages discussed in Section 5.2, for several of the standard SPARTA
 benchmark problems, as a function of problem size and number of compute
 nodes, on different hardware platforms.</p>
 <div class="section" id="measuring-performance">
-<span id="accelerating-measuring"></span><h2>5.1. Measuring performance<a class="headerlink" href="#measuring-performance" title="Permalink to this headline">¶</a></h2>
+<span id="accelerate-measuring"></span><h2>5.1. Measuring performance<a class="headerlink" href="#measuring-performance" title="Permalink to this headline">¶</a></h2>
 <p>Before trying to make your simulation run faster, you should understand
 how it currently performs and where the bottlenecks are.</p>
 <p>The best way to do this is run the your system (actual number of
@@ -228,7 +228,7 @@ MPI_Barrier() lines in src/timer.cpp, and recompile SPARTA, to obtain
 synchronized timings.</p>
 </div>
 <div class="section" id="packages-with-optimized-styles">
-<span id="accelerating-optimized"></span><h2>5.2. Packages with optimized styles<a class="headerlink" href="#packages-with-optimized-styles" title="Permalink to this headline">¶</a></h2>
+<span id="accelerate-optimized"></span><h2>5.2. Packages with optimized styles<a class="headerlink" href="#packages-with-optimized-styles" title="Permalink to this headline">¶</a></h2>
 <p>Accelerated versions of various <a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide_style</span></a>,
 <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fixes</span></a>, <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">computes</span></a>, and other commands
 have been added to SPARTA via the KOKKOS package, which may run faster

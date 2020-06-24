@@ -212,7 +212,7 @@ code.</p>
 </div>
 </div></blockquote>
 <p>where “foo” is the style keyword in the collid command, and CollideFoo is the class name defined in your collide_foo.cpp and collide_foo.h files.</p>
-<p>When you re-build SPARTA, your new collision model becomes part of the executable and can be invoked with a <a class="reference external" href="collide.html">collide</a> command like the example above. Arguments like a mixture ID, params.foo (a file with collision parameters), and 3.0 can be defined and processed by your new class.</p>
+<p>When you re-build SPARTA, your new collision model becomes part of the executable and can be invoked with a <a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide</span></a> command like the example above. Arguments like a mixture ID, params.foo (a file with collision parameters), and 3.0 can be defined and processed by your new class.</p>
 <p>As illustrated by this example, many kinds of options are referred to in the SPARTA documentation as the “style” of a particular command.</p>
 <p>The instructions below give the header file for the base class that these styles are derived from. Public variables in that file are ones used and set by the derived classes which are also used by the base class. Sometimes they are also used by the rest of SPARTA. Virtual functions in the base class header file which are set = 0 are ones that must be defined in the new derived class to give it the functionality SPARTA expects. Virtual functions that are not set to 0 are functions that can be optionally defined.</p>
 <p>Here are additional guidelines for modifying SPARTA and adding new functionality:</p>
@@ -224,7 +224,7 @@ code.</p>
 <li><p>If you add something you think is generally useful, also send an email to the <a class="reference external" href="http://sparta.sandia.gov/authors.html">developers</a> so we can consider adding it to the SPARTA distribution.</p></li>
 </ul>
 <div class="section" id="compute-styles">
-<h2><a class="toc-backref" href="#id1">10.1. Compute styles</a><a class="headerlink" href="#compute-styles" title="Permalink to this headline">¶</a></h2>
+<span id="modify-compute-styles"></span><h2><a class="toc-backref" href="#id1">10.1. Compute styles</a><a class="headerlink" href="#compute-styles" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">Compute style commands</span></a> calculate instantaneous properties of the simulated system. They can be global properties, or per particle or per grid cell or per surface element properties. The result can be single value or multiple values (global or per particle or per grid or per surf).</p>
 <p>Here is a brief description of methods to define in a new derived class.  See compute.h for details. All of these methods are optional.</p>
 <table class="colwidths-auto docutils align-default">
@@ -266,7 +266,7 @@ properties. All others calcuulate global quantities.</p>
 properties. See the compute.h header file for one-line descriptions.</p>
 </div>
 <div class="section" id="fix-styles">
-<h2><a class="toc-backref" href="#id2">10.2. Fix styles</a><a class="headerlink" href="#fix-styles" title="Permalink to this headline">¶</a></h2>
+<span id="modify-fix-styles"></span><h2><a class="toc-backref" href="#id2">10.2. Fix styles</a><a class="headerlink" href="#fix-styles" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">Fix style commands</span></a> perform operations during the timestepping loop of a simulation. They can define methods which are invoked at different points within the timestep. They can be used to insert particles, perform load-balancing, or perform time-averaging of various quantities. They can also define and maintain new per-particle vectors and arrays that define quantities that move with particles when they migrate from processor to processor or when the grid is rebalanced or adapated. They can also produce output of various kinds, similar to <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute command</span></a>.</p>
 <p>Here is a brief description of methods to define in a new derived class.  See fix.h for details. All of these methods are optional, except <code class="docutils literal notranslate"><span class="pre">setmask()</span></code>.</p>
 <table class="colwidths-auto docutils align-default">
@@ -315,7 +315,7 @@ relevant Particle class methods:</p>
 <p>See <a class="reference internal" href="fix_ambipolar.html#command-fix-ambipolar"><span class="std std-ref">fix ambipolar</span></a> for an example of how these are used. It defines an integer vector called “ionambi” to flag particles as ambipolar ions, and a floatin-point array called “velambi” to store the velocity vector for the associated electron.</p>
 </div>
 <div class="section" id="region-styles">
-<h2><a class="toc-backref" href="#id3">10.3. Region styles</a><a class="headerlink" href="#region-styles" title="Permalink to this headline">¶</a></h2>
+<span id="modify-region-styles"></span><h2><a class="toc-backref" href="#id3">10.3. Region styles</a><a class="headerlink" href="#region-styles" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="region.html#command-region"><span class="std std-ref">Region style commands</span></a> define geometric regions within the simulation box. Other commands use regions to limit their computational scope.</p>
 <p>Here is a brief description of methods to define in a new derived class.  See region.h for details. The <code class="docutils literal notranslate"><span class="pre">inside()</span></code> method is required.</p>
 <dl class="simple">
@@ -324,7 +324,7 @@ relevant Particle class methods:</p>
 </dl>
 </div>
 <div class="section" id="collision-styles">
-<h2><a class="toc-backref" href="#id4">10.4. Collision styles</a><a class="headerlink" href="#collision-styles" title="Permalink to this headline">¶</a></h2>
+<span id="modify-collision-styles"></span><h2><a class="toc-backref" href="#id4">10.4. Collision styles</a><a class="headerlink" href="#collision-styles" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">Collision style commands</span></a> define collision models that calculate interactions between particles in the same grid cell.</p>
 <p>Here is a brief description of methods to define in a new derived class.  See collide.h for details. All of these methods are required except <code class="docutils literal notranslate"><span class="pre">init()</span></code> and <code class="docutils literal notranslate"><span class="pre">modify_params()</span></code>.</p>
 <table class="colwidths-auto docutils align-default">
@@ -357,7 +357,7 @@ relevant Particle class methods:</p>
 </table>
 </div>
 <div class="section" id="surface-collision-styles">
-<h2><a class="toc-backref" href="#id5">10.5. Surface collision styles</a><a class="headerlink" href="#surface-collision-styles" title="Permalink to this headline">¶</a></h2>
+<span id="modify-surface-collision"></span><h2><a class="toc-backref" href="#id5">10.5. Surface collision styles</a><a class="headerlink" href="#surface-collision-styles" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">Surface collision style commands</span></a> define collision models that calculate interactions between a particle and surface element.</p>
 <p>Here is a brief description of methods to define in a new derived class.  See surf_collide.h for details. All of these methods are required except dynamic().</p>
 <table class="colwidths-auto docutils align-default">
@@ -375,9 +375,8 @@ relevant Particle class methods:</p>
 </table>
 </div>
 <div class="section" id="chemistry-styles">
-<h2><a class="toc-backref" href="#id6">10.6. Chemistry styles</a><a class="headerlink" href="#chemistry-styles" title="Permalink to this headline">¶</a></h2>
-<p>Particle/particle chemistry models in SPARTA are specified by <a class="reference external" href="react.html">reaction
-style commands</a> which define lists of possible reactions
+<span id="modify-chemistry-styles"></span><h2><a class="toc-backref" href="#id6">10.6. Chemistry styles</a><a class="headerlink" href="#chemistry-styles" title="Permalink to this headline">¶</a></h2>
+<p>Particle/particle chemistry models in SPARTA are specified by <a class="reference internal" href="react.html#command-react"><span class="std std-ref">reaction style commands</span></a> which define lists of possible reactions
 and their parameters.</p>
 <p>Here is a brief description of methods to define in a new derived class.
 See react.h for details. The init() method is optional; the attempt()
@@ -394,7 +393,7 @@ method is required.</p>
 </table>
 </div>
 <div class="section" id="dump-styles">
-<h2><a class="toc-backref" href="#id7">10.7. Dump styles</a><a class="headerlink" href="#dump-styles" title="Permalink to this headline">¶</a></h2>
+<span id="modify-dump-styles"></span><h2><a class="toc-backref" href="#id7">10.7. Dump styles</a><a class="headerlink" href="#dump-styles" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">Dump commands</span></a> output snapshots of simulation data to a file periodically during a simulation, in a particular file format. Per particle, per grid cell, or per surface element data can be output.</p>
 <p>Here is a brief description of methods to define in a new derived class.  See dump.h for details. The <code class="docutils literal notranslate"><span class="pre">init_style()</span></code>, <code class="docutils literal notranslate"><span class="pre">modify_param()</span></code>, and <code class="docutils literal notranslate"><span class="pre">memory_usage()</span></code> methods are optional; all the others are required.</p>
 <table class="colwidths-auto docutils align-default">
@@ -424,7 +423,7 @@ method is required.</p>
 </table>
 </div>
 <div class="section" id="input-script-commands">
-<h2><a class="toc-backref" href="#id8">10.8. Input script commands</a><a class="headerlink" href="#input-script-commands" title="Permalink to this headline">¶</a></h2>
+<span id="modify-input-script"></span><h2><a class="toc-backref" href="#id8">10.8. Input script commands</a><a class="headerlink" href="#input-script-commands" title="Permalink to this headline">¶</a></h2>
 <p>New commands can be added to SPARTA that will be recognized in input scripts. For example, the <a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles command</span></a> <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf command</span></a>, and <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run command</span></a> are all implemented in this fashion. When such a command is encountered in an input script, SPARTA simply creates a class with the corresponding name, invokes the “command” method of the class, and passes it the arguments from the input script. The <code class="docutils literal notranslate"><span class="pre">command()</span></code> method can perform whatever operations it wishes on SPARTA data structures.</p>
 <p>The single method the new class must define is as follows:</p>
 <table class="colwidths-auto docutils align-default">

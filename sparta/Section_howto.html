@@ -222,10 +222,10 @@ works.</p>
 </ul>
 </div>
 <p>The example input scripts included in the SPARTA distribution and
-highlighted in <a class="reference internal" href="Section_example.html#examples"><span class="std std-ref">Example problems</span></a> of the manual also show how to setup
+highlighted in <a class="reference internal" href="Section_example.html#example"><span class="std std-ref">Example problems</span></a> of the manual also show how to setup
 and run various kinds of simulations.</p>
 <div class="section" id="d-simulations">
-<h2><a class="toc-backref" href="#id2">6.1. 2d simulations</a><a class="headerlink" href="#d-simulations" title="Permalink to this headline">¶</a></h2>
+<span id="howto-2d-simulations"></span><h2><a class="toc-backref" href="#id2">6.1. 2d simulations</a><a class="headerlink" href="#d-simulations" title="Permalink to this headline">¶</a></h2>
 <p>In SPARTA, as in other DSMC codes, a 2d simulation means that particles
 move only in the xy plane, but still have all 3 xyz components of
 velocity. Only the xy components of velocity are used to advect the
@@ -370,7 +370,7 @@ datum is one or more values per surface element, e.g. the count of
 particles that collided with the surface element.</p>
 </div>
 <div class="section" id="scalar-vector-array-data">
-<h3><a class="toc-backref" href="#id18">6.4.2. Scalar/vector/array data</a><a class="headerlink" href="#scalar-vector-array-data" title="Permalink to this headline">¶</a></h3>
+<span id="howto-scalarvectorarray"></span><h3><a class="toc-backref" href="#id18">6.4.2. Scalar/vector/array data</a><a class="headerlink" href="#scalar-vector-array-data" title="Permalink to this headline">¶</a></h3>
 <p>Global, per particle, per grid, and per surf datums can each come in
 three kinds: a single scalar value, a vector of values, or a 2d array of
 values. The doc page for a “compute” or “fix” or “variable” that
@@ -404,17 +404,17 @@ values as input can typically also process elements of a vector or
 array.</p>
 </div>
 <div class="section" id="statistical-output">
-<h3><a class="toc-backref" href="#id19">6.4.3. Statistical output</a><a class="headerlink" href="#statistical-output" title="Permalink to this headline">¶</a></h3>
+<span id="howto-statistical"></span><h3><a class="toc-backref" href="#id19">6.4.3. Statistical output</a><a class="headerlink" href="#statistical-output" title="Permalink to this headline">¶</a></h3>
 <p>The frequency and format of statistical output is set by the <a class="reference internal" href="stats.html#command-stats"><span class="std std-ref">stats</span></a>, <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style command</span></a>, and <a class="reference internal" href="stats_modify.html#command-stats-modify"><span class="std std-ref">stats_modify command</span></a>.  The <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style command</span></a> also specifies what values are calculated and written out. Pre-defined keywords can be specified (e.g. np, ncoll, etc).
 Three additional kinds of keywords can also be specified (c_ID, f_ID, v_name), where a <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute command</span></a> or <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix command</span></a> or <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable command</span></a> provides the value to be output. In each case, the compute, fix, or variable must generate global values to be used as an argument of the <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style command</span></a>.</p>
 </div>
 <div class="section" id="dump-file-output">
-<h3><a class="toc-backref" href="#id20">6.4.4. Dump file output</a><a class="headerlink" href="#dump-file-output" title="Permalink to this headline">¶</a></h3>
+<span id="howto-dump-file-output"></span><h3><a class="toc-backref" href="#id20">6.4.4. Dump file output</a><a class="headerlink" href="#dump-file-output" title="Permalink to this headline">¶</a></h3>
 <p>Dump file output is specified by the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump command</span></a> and <a class="reference internal" href="dump_modify.html#command-dump-modify"><span class="std std-ref">dump_modify command</span></a>. There are several pre-defined formats: dump particle, dump grid, dump surf, etc.</p>
 <p>Each of these allows specification of what values are output with each particle, grid cell, or surface element. Pre-defined attributes can be specified (e.g. id, x, y, z for particles or id, vol for grid cells, etc). Three additional kinds of keywords can also be specified (c_ID, f_ID, v_name), where a <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute command</span></a> or <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix command</span></a> or <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable command</span></a> provides the values to be output. In each case, the compute, fix, or variable must generate per particle, per grid, or per surf values for input to the corresponding <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump command</span></a>.</p>
 </div>
 <div class="section" id="fixes-that-write-output-files">
-<h3><a class="toc-backref" href="#id21">6.4.5. Fixes that write output files</a><a class="headerlink" href="#fixes-that-write-output-files" title="Permalink to this headline">¶</a></h3>
+<span id="howto-fixes-write-output"></span><h3><a class="toc-backref" href="#id21">6.4.5. Fixes that write output files</a><a class="headerlink" href="#fixes-that-write-output-files" title="Permalink to this headline">¶</a></h3>
 <p>Two fixes take various quantities as input and can write output files:
 <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time</span></a> and <a class="reference internal" href="fix_print.html#command-fix-print"><span class="std std-ref">fix print</span></a>.</p>
 <p>The <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time command</span></a> command enables direct output to a file and/or time-averaging of global scalars or vectors. The user specifies one or more quantities as input. These can be global <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> values, global <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> values, or <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variables</span></a> of any style except the particle style which does not produce single values. Since a variable can refer to keywords used by the <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style command</span></a> (like particle count), a wide variety of quantities can be time averaged and/or output in this way.
@@ -423,22 +423,22 @@ output of this fix can also be used as input to other output commands.</p>
 <p>The <a class="reference internal" href="fix_print.html#command-fix-print"><span class="std std-ref">fix print command</span></a> can generate a line of output written to the screen and log file or to a separate file, periodically during a running simulation. The line can contain one or more <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a> values for any style variable except the particle style. As explained above, variables themselves can contain references to global values generated by <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats keywords</span></a>, <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">computes</span></a>, <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fixes</span></a>, or other <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variables</span></a>. Thus the <a class="reference internal" href="fix_print.html#command-fix-print"><span class="std std-ref">fix print command</span></a> is a means to output a wide variety of quantities separate from normal statistical or dump file output.</p>
 </div>
 <div class="section" id="computes-that-process-output-quantities">
-<h3><a class="toc-backref" href="#id22">6.4.6. Computes that process output quantities</a><a class="headerlink" href="#computes-that-process-output-quantities" title="Permalink to this headline">¶</a></h3>
+<span id="howto-computes-process"></span><h3><a class="toc-backref" href="#id22">6.4.6. Computes that process output quantities</a><a class="headerlink" href="#computes-that-process-output-quantities" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="compute_reduce.html#command-compute-reduce"><span class="std std-ref">compute reduce command</span></a> takes one or more per particle or per grid or per surf vector quantities as inputs and “reduces” them (sum, min, max, ave) to scalar quantities. These are produced as output values which can be used as input to other output commands.</p>
 </div>
 <div class="section" id="computes-that-generate-values-to-output">
-<h3><a class="toc-backref" href="#id23">6.4.7. Computes that generate values to output</a><a class="headerlink" href="#computes-that-generate-values-to-output" title="Permalink to this headline">¶</a></h3>
+<span id="howto-computes-generate"></span><h3><a class="toc-backref" href="#id23">6.4.7. Computes that generate values to output</a><a class="headerlink" href="#computes-that-generate-values-to-output" title="Permalink to this headline">¶</a></h3>
 <p>Every <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> in SPARTA produces either global or per particle or per grid or per surf values. The values can be scalars or vectors or arrays of data. These values can be output using the other commands described in this section. The doc page for each compute command describes what it produces. Computes that produce per particle or per grid or per surf values have the word “particle” or “grid” or “surf” in their style name. Computes without those words produce global values.</p>
 </div>
 <div class="section" id="fixes-that-generate-values-to-output">
-<h3><a class="toc-backref" href="#id24">6.4.8. Fixes that generate values to output</a><a class="headerlink" href="#fixes-that-generate-values-to-output" title="Permalink to this headline">¶</a></h3>
+<span id="howto-fixes-generate"></span><h3><a class="toc-backref" href="#id24">6.4.8. Fixes that generate values to output</a><a class="headerlink" href="#fixes-that-generate-values-to-output" title="Permalink to this headline">¶</a></h3>
 <p>Some <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fixes</span></a> in SPARTA produces either global or per particle or per grid or per surf values which can be accessed by other commands. The values can be scalars or vectors or arrays of data. These values can be output using the other commands described in this section.  The doc page for each fix command tells whether it produces any output quantities and describes them.</p>
 <p>Two fixes of particular interest for output are the <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid command</span></a> and <a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">fix ave/surf command</span></a>.</p>
 <p>The <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid command</span></a> command enables time-averaging of per grid vectors. The user specifies one or more quantities as input.  These can be per grid vectors or arrays from <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute command</span></a> or <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix command</span></a>. If the input is a single vector, then the fix generates a per grid vector. If the input is multiple vectors or array, the fix generates a per grid array. The time-averaged output of this fix can also be used as input to other output commands.</p>
 <p>The <a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">fix ave/surf command</span></a> enables time-averaging of per surf vectors. The user specifies one or more quantities as input.  These can be per surf vectors or ararys from <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute command</span></a> or <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix command</span></a>. If the input is a single vector, then the fix generates a per surf vector. If the input is multiple vectors or array, the fix generates a per surf array. The time-averaged output of this fix can also be used as input to other output commands.</p>
 </div>
 <div class="section" id="variables-that-generate-values-to-output">
-<h3><a class="toc-backref" href="#id25">6.4.9. Variables that generate values to output</a><a class="headerlink" href="#variables-that-generate-values-to-output" title="Permalink to this headline">¶</a></h3>
+<span id="howto-variables-generate"></span><h3><a class="toc-backref" href="#id25">6.4.9. Variables that generate values to output</a><a class="headerlink" href="#variables-that-generate-values-to-output" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">Variables</span></a> defined in an input script generate either
 a global scalar value or a per particle vector (only particle-style
 variables) when it is accessed. The formulas used to define equal- and
@@ -449,7 +449,7 @@ values generated by variables can be output using the other commands
 described in this section.</p>
 </div>
 <div class="section" id="summary-table-of-output-options-and-data-flow-between-commands">
-<h3><a class="toc-backref" href="#id26">6.4.10. Summary table of output options and data flow between commands</a><a class="headerlink" href="#summary-table-of-output-options-and-data-flow-between-commands" title="Permalink to this headline">¶</a></h3>
+<span id="howto-summary-table"></span><h3><a class="toc-backref" href="#id26">6.4.10. Summary table of output options and data flow between commands</a><a class="headerlink" href="#summary-table-of-output-options-and-data-flow-between-commands" title="Permalink to this headline">¶</a></h3>
 <p>This table summarizes the various commands that can be used for generating output from SPARTA. Each command produces output data of some kind and/or writes data to a file. Most of the commands can take data from other commands as input. Thus you can link many of these commands together in pipeline form, where data produced by one command is used as input to another command and eventually written to the screen or to a file. Note that to hook two commands together the output and input data types must match, e.g. global/per atom/local data and scalar/vector/array data.</p>
 <p>Also note that, as described above, when a command takes a scalar as input, that could be an element of a vector or array. Likewise a vector input could be a column of an array.</p>
 <table class="docutils align-default">
@@ -520,7 +520,7 @@ described in this section.</p>
 </div>
 </div>
 <div class="section" id="visualizing-sparta-snapshots">
-<h2><a class="toc-backref" href="#id6">6.5. Visualizing SPARTA snapshots</a><a class="headerlink" href="#visualizing-sparta-snapshots" title="Permalink to this headline">¶</a></h2>
+<span id="howto-visualizing"></span><h2><a class="toc-backref" href="#id6">6.5. Visualizing SPARTA snapshots</a><a class="headerlink" href="#visualizing-sparta-snapshots" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> can be used to do
 on-the-fly visualization as a simulation proceeds. It works by creating
 a series of JPG or PNG or PPM files on specified timesteps, as well as
@@ -536,7 +536,7 @@ See the <a class="reference external" href="http://www.sandia.gov/~sjplimp/pizza
 </div>
 <div class="section" id="library-interface-to-sparta">
 <span id="howto-library"></span><h2><a class="toc-backref" href="#id7">6.6. Library interface to SPARTA</a><a class="headerlink" href="#library-interface-to-sparta" title="Permalink to this headline">¶</a></h2>
-<p>As described in <a class="reference internal" href="Section_start.html#build-library"><span class="std std-ref">Building SPARTA as a library</span></a>, SPARTA can be built as a library, so that it can be called by another code, used in a <a class="reference internal" href="#howto-other-code"><span class="std std-ref">coupled manner</span></a> with other codes, or driven through a <a class="reference internal" href="Section_python.html#python"><span class="std std-ref">Python interface</span></a>.</p>
+<p>As described in <a class="reference internal" href="Section_start.html#start-build-library"><span class="std std-ref">build-library</span></a>, SPARTA can be built as a library, so that it can be called by another code, used in a <a class="reference internal" href="#howto-other-code"><span class="std std-ref">coupled manner</span></a> with other codes, or driven through a <a class="reference internal" href="Section_python.html#python"><span class="std std-ref">Python interface</span></a>.</p>
 <p>All of these methodologies use a C-style interface to SPARTA that is provided in the files src/library.cpp and src/library.h. The functions therein have a C-style argument list, but contain C++ code you could write yourself in a C++ application that was invoking SPARTA directly.  The C++ code in the functions illustrates how to invoke internal SPARTA operations. Note that SPARTA classes are defined within a SPARTA namespace (SPARTA_NS) if you use them from another C++ application.</p>
 <p>Library.cpp contains these 4 functions:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">sparta_open</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="p">,</span> <span class="n">MPI_Comm</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="p">);</span>
@@ -712,7 +712,7 @@ of their associated ambipolar electrons.</p>
 <p>The <a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> doc page explains how to restart ambipolar simulations where a fix like <a class="reference internal" href="fix_ambipolar.html#command-fix-ambipolar"><span class="std std-ref">fix ambipolar</span></a> has been used to store extra per-particle properties.</p>
 </div>
 <div class="section" id="using-multiple-vibrational-energy-levels">
-<h2><a class="toc-backref" href="#id13">6.12. Using multiple vibrational energy levels</a><a class="headerlink" href="#using-multiple-vibrational-energy-levels" title="Permalink to this headline">¶</a></h2>
+<span id="howto-multiple-vibrational"></span><h2><a class="toc-backref" href="#id13">6.12. Using multiple vibrational energy levels</a><a class="headerlink" href="#using-multiple-vibrational-energy-levels" title="Permalink to this headline">¶</a></h2>
 <p>DSMC models for collisions between one or more polyatomic species can
 include the effect of multiple discrete vibrational levels, where a
 collision transfers vibrational energy not just between the two
@@ -777,7 +777,7 @@ populations for new particles to be set appropriately. The <a class="reference i
 </ul>
 </div>
 <div class="section" id="implicit-surface-ablation">
-<h2><a class="toc-backref" href="#id15">6.14. Implicit surface ablation</a><a class="headerlink" href="#implicit-surface-ablation" title="Permalink to this headline">¶</a></h2>
+<span id="howto-implicit-surface"></span><h2><a class="toc-backref" href="#id15">6.14. Implicit surface ablation</a><a class="headerlink" href="#implicit-surface-ablation" title="Permalink to this headline">¶</a></h2>
 <p>The implicit surfaces described in the previous section can be used to
 perform ablation simulations, where the set of implicit surface elements
 evolve over time to model a receding surface. These are the relevant

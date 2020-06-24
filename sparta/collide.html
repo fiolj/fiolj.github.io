@@ -205,20 +205,20 @@ into grid cells every timestep and the appropriate collision model is
 invoked on a per-grid-cell basis. Collisions alter the velocity of
 participating particles as well as their rotational and vibrational
 energies. The rotational and vibrational properties of each species are
-set in the file read by the <a class="reference external" href="species.html">species</a> command.</p>
+set in the file read by the <a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a> command.</p>
 <p>The collision style determines how many pairs of particles are
 considered for collisions, the criteria for which collisions actually
 occurs, and the outcome of individual collision, which alters the
 velocities of the two particles. If chemistry is enabled, via the
-<a class="reference external" href="react.html">react</a> command, particles involved in collisions may
+<a class="reference internal" href="react.html#command-react"><span class="std std-ref">react</span></a> command, particles involved in collisions may
 also change species, or a particle may be deleted, or a new particle
-created. The <a class="reference external" href="collide_modify.html">collide_modify</a> command can also
+created. The <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify</span></a> command can also
 be used to alter aspects of how collisions are performed. For example,
 it can be used to turn on/off the tracking of vibrational energy and its
 exchange in collisions.</p>
 <p>A <em>mix-ID</em> argument is specified for each collision style. It must
 contain all the species defined for use by the simulation, via the
-<a class="reference external" href="species.html">species</a> command. The group definitions in the mixture
+<a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a> command. The group definitions in the mixture
 assign one or more particle species to each group. These groupings are
 used to determine how pairs of particles are chosen to collide with each
 other, in the following manner.</p>
@@ -273,7 +273,7 @@ then each line has 4 parameters following the species ID:</p>
 </pre></div>
 </div>
 <p>The species-ID is a string that will be matched to one of the species
-defined by the simulation, via the <a class="reference external" href="species.html">species</a> command.
+defined by the simulation, via the <a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a> command.
 The meaning of additional properties is as follows:</p>
 <ul class="simple">
 <li><p>diam = VHS or VSS diameter of particle (distance units)</p></li>
@@ -290,7 +290,7 @@ theory. Infinite-order parameters are described in
 <p>In the <em>constant</em> case rotational and vibrational relaxation during a
 collision is treated in the same constant manner for every collision,
 using the rotational and vibrational relaxation numbers from the species
-data file, as read by the <a class="reference external" href="species.html">species</a> command.</p>
+data file, as read by the <a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a> command.</p>
 <p>If the <em>relax</em> keyword is specified as <em>variable</em>, then each line has 8
 parameters following the species ID:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">species</span><span class="o">-</span><span class="n">ID</span> <span class="n">diam</span> <span class="n">omega</span> <span class="n">tref</span> <span class="n">alpha</span> <span class="n">Zrotinf</span> <span class="n">T</span><span class="o">*</span> <span class="n">C1</span> <span class="n">C2</span>
@@ -316,19 +316,16 @@ A5. C1 and C2 are in eq A6. The units of these parameters is as follows:</p>
 <hr class="docutils" />
 <p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding
 style without the suffix. They have been optimized to run faster,
-depending on your available hardware, as discussed in the <a class="reference external" href="Section_accelerate.html">Accelerating
-SPARTA</a> section of the manual. The
+depending on your available hardware, as discussed in the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual. The
 accelerated styles take the same arguments and should produce the same
 results, except for different random number, round-off and precision
 issues.</p>
 <p>These accelerated styles are part of the KOKKOS package. They are only
-enabled if SPARTA was built with that package. See the <a class="reference external" href="Section_start.html#start_3">Making
-SPARTA</a> section for more info.</p>
+enabled if SPARTA was built with that package. See the <a class="reference internal" href="Section_start.html#start-making-sparta"><span class="std std-ref">Making SPARTA</span></a> section for more info.</p>
 <p>You can specify the accelerated styles explicitly in your input script
-by including their suffix, or you can use the <a class="reference external" href="Section_start.html#start_6">-suffix command-line
-switch</a> when you invoke SPARTA, or you
-can use the <a class="reference external" href="suffix.html">suffix</a> command in your input script.</p>
-<p>See the <a class="reference external" href="Section_accelerate.html">Accelerating SPARTA</a> section of the
+by including their suffix, or you can use the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-suffix command-line switch</span></a> when you invoke SPARTA, or you
+can use the <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix</span></a> command in your input script.</p>
+<p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the
 manual for more instructions on how to use the accelerated styles
 effectively.</p>
 <hr class="docutils" />

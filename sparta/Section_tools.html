@@ -240,8 +240,8 @@ Python, as well as instructions on various ways to run a Python script.</p>
 <span id="tools-gridrefine"></span><h2>9.3. grid_refine tool<a class="headerlink" href="#grid-refine-tool" title="Permalink to this headline">¶</a></h2>
 <p>This is a Python script that creates a SPARTA grid file adapted around
 the lines or triangles in a SPARTA surface file. The resulting grid file
-can be read by the <a class="reference external" href="read_grid.html">read_grid</a> command. The surface
-file can be read by the <a class="reference external" href="read_surf.html">read_surf</a> command.</p>
+can be read by the <a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid</span></a> command. The surface
+file can be read by the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command.</p>
 <p>See the header of the script for the various adaptivity options that are
 supported, and the syntax used to run it.</p>
 </div>
@@ -249,11 +249,11 @@ supported, and the syntax used to run it.</p>
 <span id="tools-implicitgrid"></span><h2>9.4. implicit_grid tool<a class="headerlink" href="#implicit-grid-tool" title="Permalink to this headline">¶</a></h2>
 <p>This is a Python script which can be used to generate binary files
 representing porous media samples, as read by the
-<a class="reference external" href="read_isurf.html">read_isurf</a> command. The output files contain
+<a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command. The output files contain
 randomized grid corner point values which induce implicit surfaces which
 can contain huge numbers of surface elements. They are useful for stress
 testing the implicit surface options in SPARTA, as selected by the
-<a class="reference external" href="global.html">global surfs</a> command.</p>
+<a class="reference internal" href="global.html#command-global"><span class="std std-ref">global surfs</span></a> command.</p>
 <p>See the header of the script for the syntax used to run it.</p>
 <p>The examples/implicit directory uses these files as input.</p>
 </div>
@@ -262,10 +262,9 @@ testing the implicit surface options in SPARTA, as selected by the
 <p>These are 2 Python scripts (jagged2d.py and jagged3d.py) which can be
 used to generate SPARTA surface files in a pattern that can be very
 jagged. The surfaces can contain huge numbers of surface elements and be
-read by the <a class="reference external" href="read_surf.html">read_surf</a> command. They are useful for
+read by the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command. They are useful for
 stress testing the explict surface options in SPARTA, including
-distributed or non-distributed storage, as selected by the <a class="reference external" href="global.html">global
-surfs</a> command.</p>
+distributed or non-distributed storage, as selected by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global surfs</span></a> command.</p>
 <p>See the header of the scripts for the syntax used to run them.</p>
 <p>The examples/jagged directory uses these files as input.</p>
 </div>
@@ -319,14 +318,14 @@ to use the Python scripts. See tools/paraview/README for more details.</p>
 and converts it to a SPARTA surface file. STL files contain a collection
 of triangles and can be created by various mesh-generation programs. The
 format for SPARTA surface files is described on the
-<a class="reference external" href="read_surf.html">read_surf</a> command doc page.</p>
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command doc page.</p>
 <p>See the header of the script for the syntax used to run it, e.g.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">python</span> <span class="n">stl2surf</span><span class="o">.</span><span class="n">py</span> <span class="n">stlfile</span> <span class="n">surffile</span>
 </pre></div>
 </div>
 <p>The script also checks the triangulated object to see if it is
 “watertight” and issues a warning if it is not, since SPARTA will
-perform the same check. The <a class="reference external" href="read_surf.html">read_surf</a> command doc
+perform the same check. The <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command doc
 page explains what watertight means for 3d objects.</p>
 </div>
 <div class="section" id="surf-create-tool">
@@ -334,7 +333,7 @@ page explains what watertight means for 3d objects.</p>
 <p>This is a Python script that creates a SPARTA surface file containing
 one or more simple objects whose surface is represented as triangules
 (3d) or line segments (2d). Such files can be read by the
-<a class="reference external" href="read_surf.html">read_surf</a> command. The 3d objects it supports are a
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command. The 3d objects it supports are a
 sphere, box, and spikysphere (randomized radius at each point). The 2d
 objects it supports are a circle, rectangle, triangle, and spikycircly
 (randomized radius at each point).</p>
@@ -344,7 +343,7 @@ objects it supports are a circle, rectangle, triangle, and spikycircly
 <span id="tools-surftransform"></span><h2>9.11. surf_transform tool<a class="headerlink" href="#surf-transform-tool" title="Permalink to this headline">¶</a></h2>
 <p>This is a Python script that transforms a SPARTA surface file into a new
 surface file using various operations supported by the
-<a class="reference external" href="read_surf.html">read_surf</a> command. These operations include
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command. These operations include
 translation, scaling, rotation, and inversion (changing which side of
 the surface is inside vs outside).</p>
 <p>See the header of the script for the syntax used to run it.</p>

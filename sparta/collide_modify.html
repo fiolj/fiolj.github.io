@@ -201,7 +201,7 @@
 <p>The <em>vremax</em> keyword affects how often the Vremax parameter, for
 collision frequency is re-zeroed during the simulation. This parameter
 is stored for each grid cell and each pair of collision groups (groups
-are described by the <a class="reference external" href="collide.html">collide</a> command).</p>
+are described by the <a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide</span></a> command).</p>
 <p>The value of Vremax affects how many events are attempted in each grid
 cell for a pair of groups, and thus the overall time spent performing
 collisions. Vremax is continuously set to the largest difference in
@@ -250,14 +250,14 @@ Note that choosing <em>Nlimit</em> judiciously will avoid costly searches when
 there are large numbers of particles in some or all grid cells.</p>
 <p>If the <em>ambipolar</em> keyword is set to <em>yes</em>, then collisions within a
 grid cell with use the ambipolar approximation. This requires use of the
-<a class="reference external" href="fix_ambipolar.html">fix ambipolar</a> command to define which species
+<a class="reference internal" href="fix_ambipolar.html#command-fix-ambipolar"><span class="std std-ref">fix ambipolar</span></a> command to define which species
 is an electron and which species are ions. There can be many of the
 latter. When collisions within a single grid cell are performed, each
 ambipolar ion is split into two particles, the ion and an associated
 electron. Collisions between the augmented set of particles are
 calculated. Ion/electron chemistry can also occur if the
-<a class="reference external" href="react.html">react</a> command has been used to read a file of reactions
-that include such reactions. See the <a class="reference external" href="react.html">react</a> command doc
+<a class="reference internal" href="react.html#command-react"><span class="std std-ref">react</span></a> command has been used to read a file of reactions
+that include such reactions. See the <a class="reference internal" href="react.html#command-react"><span class="std std-ref">react</span></a> command doc
 page. After all collisions in the grid cell have been computed, there is
 still a one-to-one correspondence between ambipolar ions and electron,
 and each pair is recombined into a single ambipolar particle.</p>
@@ -277,12 +277,12 @@ one or more characteristic vibrational temperatures set for the particle
 species.</p>
 <p>Note that in the <em>discrete</em> case, if any species are defined that have
 4,6,8 vibrational degrees of freedom, which correspond to 2,3,4
-vibrational modes, then the <a class="reference external" href="species.html">species</a> command must be
+vibrational modes, then the <a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a> command must be
 used with its optional <em>vibfile</em> keyword to set the vibrational info
 (temperature, relaxation number, degeneracy) for those species.</p>
 <p>Also note that if any such species are defined (with more than one
 vibrational mode, then use of the <em>discrete</em> option also requires the
-<a class="reference external" href="fix_vibmode.html">fix vibmode</a> command be used to allocate storage
+<a class="reference internal" href="fix_vibmode.html#command-fix-vibmode"><span class="std std-ref">fix vibmode</span></a> command be used to allocate storage
 for the per-particle mode values.</p>
 <hr class="docutils" />
 <p><strong>Restrictions:</strong> none</p>
