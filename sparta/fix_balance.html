@@ -261,26 +261,18 @@ number of grid cells.</p>
 <p>If the <em>weight</em> argument is specified as <em>part</em>, than the weight for
 each grid cell is the number of particles it currently owns, so that
 each processor will end up with an equal number of particles.</p>
-<p>If the <em>weight</em> argument is specified as <em>time</em>, then timers are used to
-estimate the cost of each grid cell. The cost from the timers is given
-on a per processor basis, and then assigned to grid cells by weighting
-by the relative number of particles in the grid cells. If no timing data
-has yet been collected at the point in a script where this command is
-issued, a <em>cell</em> style weight will be used instead of <em>time</em>. A small
-warmup run (for example 100 timesteps) can be used before the balance
-command so that timer data is available. The timers used for balancing
-tally time from the move, sort, collide, and modify portions of each
+<p>If the <em>weight</em> argument is specified as <em>time</em>, then timers are used
+to estimate the cost of each grid cell. The cost from the timers is
+given on a per processor basis, and then assigned to grid cells by
+weighting by the relative number of particles in the grid cells. If no
+timing data has yet been collected at the point in a script where this
+command is issued, a <em>cell</em> style weight will be used instead of
+<em>time</em>. A small warmup run (for example 100 timesteps) can be used
+before the balance command so that timer data is available. The number
+of timesteps {Nfreq} between balancing steps also needs to be large
+enough to give reliable timings. The timers used for balancing tally
+time from the move, sort, collide, and modify portions of each
 timestep.</p>
-<p>If the <em>weight</em> argument is specified as <em>time</em>, then timers are used to
-estimate the cost of each grid cell. The cost from the timers is given
-on a per processor basis, and then assigned to grid cells by weighting
-by the relative number of particles in the grid cells. If no timing data
-has yet been collected on a given timestep, a <em>cell</em> style weight will
-be used instead of <em>time</em>. The number of timesteps <em>Nfreq</em> between
-balancing steps should be large enough to give eliable timings. For
-example, re-balancing every timestep will likely not give accurate
-timings for small problems. The timers used for balancing tally time
-from the move, sort, collide, and modify portions of each timestep.</p>
 <p>Here is an example of an RCB partitioning for 24 processors, of a 2d
 hierarchical grid with 5 levels, refined around a tilted ellipsoidal
 surface object (outlined in pink). This is for a <em>weight cell</em> setting,

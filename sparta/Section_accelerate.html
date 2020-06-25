@@ -268,17 +268,35 @@ it provides, follow these general steps:</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>install the accelerator package</p></td>
-<td><p>make yes-fft, make yes-kokkos, etc</p></td>
+<tr class="row-even"><td><p><strong>Using make</strong>:</p></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td><p>add compile/link flags to Makefile.machine in src/MAKE</p></td>
-<td><p>KOKKOS_ARCH=Pascal60</p></td>
+<tr class="row-odd"><td><p>install the accelerator package</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">yes-fft,</span> <span class="pre">make</span> <span class="pre">yes-kokkos,</span> <span class="pre">etc</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>re-build SPARTA</p></td>
-<td><p>make kokkos_cuda</p></td>
+<tr class="row-even"><td><p>add compile/link flags to Makefile.machine in src/MAKE</p></td>
+<td><p>KOKKOS_ARCH=PASCAL60</p></td>
+</tr>
+<tr class="row-odd"><td><p>re-build SPARTA</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">kokkos_cuda</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>or using CMake</strong> from a build directory:</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>install the accelerator package</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-DPKG_FFT=ON</span> <span class="pre">-DPKG_KOKKOS=ON</span></code>, etc</p></td>
+</tr>
+<tr class="row-even"><td><p>add compile/link flags</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-C</span> <span class="pre">/path/to/sparta/cmake/presets/kokkos_cuda.cmake</span> <span class="pre">-DKokkos_ARCH_PASCAL60=ON</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>re-build SPARTA</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">make</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Then do the following:</strong></p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>prepare and test a regular SPARTA simulation</p></td>
-<td><p>lmp_kokkos_cuda -in in.script; mpirun -np 32 lmp_kokkos_cuda -in in.script</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lmp_kokkos_cuda</span> <span class="pre">-in</span> <span class="pre">in.script;</span> <span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">32</span> <span class="pre">lmp_kokkos_cuda</span> <span class="pre">-in</span> <span class="pre">in.script</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>enable specific accelerator support via ‘-k on’ <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line switch</span></a></p></td>
 <td><p>k on g 1</p></td>
@@ -287,7 +305,7 @@ it provides, follow these general steps:</p>
 <td><p>only if defaults need to be changed, -pk kokkos reduction atomic</p></td>
 </tr>
 <tr class="row-even"><td><p>use accelerated styles in your input via “-sf” <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line switch</span></a> or <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix command</span></a></p></td>
-<td><p>lmp_kokkos_cuda -in in.script -sf kk</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lmp_kokkos_cuda</span> <span class="pre">-in</span> <span class="pre">in.script</span> <span class="pre">-sf</span> <span class="pre">kk</span></code></p></td>
 </tr>
 </tbody>
 </table>
