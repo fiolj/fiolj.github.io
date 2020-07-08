@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,7 +168,8 @@
             
   <div class="section" id="boundary-command">
 <span id="command-boundary"></span><span id="index-0"></span><h1>boundary command<a class="headerlink" href="#boundary-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">boundary</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
@@ -183,13 +184,17 @@
 </div>
 </li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">boundary</span> <span class="n">o</span> <span class="n">p</span> <span class="n">p</span>
 <span class="n">boundary</span> <span class="n">os</span> <span class="n">o</span> <span class="n">o</span>
 <span class="n">boundary</span> <span class="n">r</span> <span class="n">p</span> <span class="n">rs</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Set the style of boundaries for the global simulation box in each of the
 x, y, z dimensions. A single letter assigns the same style to both the
 lower and upper face of the box in that dimension. Two letters assigns
@@ -222,16 +227,23 @@ triangulated surface read in and setup by the
 collision model defined by the <a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide</span></a>
 command. The assignment of the boundary to the model is done via the
 <a class="reference internal" href="bound_modify.html#command-bound-modify"><span class="std std-ref">bound_modify</span></a> command.</p>
-<p><strong>Restrictions:</strong></p>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
 <p>This command must be used before the grid is defined, e.g. by a
 <a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a> command.</p>
 <p>For 2d simulations, the z dimension must be periodic.</p>
-<p><strong>Related commands:</strong></p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="bound_modify.html#command-bound-modify"><span class="std std-ref">bound_modify command</span></a>
 <a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide command</span></a></p>
-<p><strong>Default:</strong></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">boundary</span> <span class="n">p</span> <span class="n">p</span> <span class="n">p</span>
 </pre></div>
+</div>
 </div>
 </div>
 

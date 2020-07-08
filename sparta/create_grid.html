@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,34 +168,46 @@
             
   <div class="section" id="create-grid-command">
 <span id="command-create-grid"></span><span id="index-0"></span><h1>create_grid command<a class="headerlink" href="#create-grid-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create_grid</span> <span class="n">Nx</span> <span class="n">Ny</span> <span class="n">Nz</span> <span class="n">keyword</span> <span class="n">args</span> <span class="o">...</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><p>Nx,Ny,Nz = size of 1st-level grid in each dimension</p></li>
 <li><p>zero or more keywords/args pairs may be appended</p></li>
 <li><p>keyword = <em>level</em> or <em>region</em> or <em>stride</em> or <em>clump</em> or <em>block</em> or
 <em>random</em> or <em>inside</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">level</span> <span class="n">args</span> <span class="o">=</span> <span class="n">Nlevel</span> <span class="n">Px</span> <span class="n">Py</span> <span class="n">Pz</span> <span class="n">Cx</span> <span class="n">Cy</span> <span class="n">Cz</span>
-  <span class="n">Nlevel</span> <span class="o">=</span> <span class="n">level</span> <span class="kn">from</span> <span class="mi">2</span> <span class="n">to</span> <span class="n">M</span><span class="p">,</span> <span class="n">must</span> <span class="n">be</span> <span class="ow">in</span> <span class="n">ascending</span> <span class="n">order</span>
-  <span class="n">Px</span> <span class="n">Py</span> <span class="n">Pz</span> <span class="o">=</span> <span class="nb">range</span> <span class="n">of</span> <span class="n">parent</span> <span class="n">cells</span> <span class="ow">in</span> <span class="n">each</span> <span class="n">dimension</span> <span class="ow">in</span> <span class="n">which</span> <span class="n">to</span> <span class="n">create</span> <span class="n">child</span> <span class="n">cells</span>
-  <span class="n">Cx</span> <span class="n">Cy</span> <span class="n">Cz</span> <span class="o">=</span> <span class="n">size</span> <span class="n">of</span> <span class="n">child</span> <span class="n">grid</span> <span class="ow">in</span> <span class="n">each</span> <span class="n">dimension</span> <span class="n">within</span> <span class="n">parent</span> <span class="n">cells</span>
-<span class="n">region</span> <span class="n">args</span> <span class="o">=</span> <span class="n">Nlevel</span> <span class="n">reg</span><span class="o">-</span><span class="n">ID</span> <span class="n">Cx</span> <span class="n">Cy</span> <span class="n">Cz</span>
-  <span class="n">Nlevel</span> <span class="o">=</span> <span class="n">level</span> <span class="kn">from</span> <span class="mi">2</span> <span class="n">to</span> <span class="n">M</span><span class="p">,</span> <span class="n">must</span> <span class="n">be</span> <span class="ow">in</span> <span class="n">ascending</span> <span class="n">order</span>
-  <span class="n">reg</span><span class="o">-</span><span class="n">ID</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">region</span> <span class="n">which</span> <span class="n">parent</span> <span class="n">cells</span> <span class="n">must</span> <span class="n">be</span> <span class="ow">in</span> <span class="n">to</span> <span class="n">create</span> <span class="n">child</span> <span class="n">cells</span>
-  <span class="n">Cx</span> <span class="n">Cy</span> <span class="n">Cz</span> <span class="o">=</span> <span class="n">size</span> <span class="n">of</span> <span class="n">child</span> <span class="n">grid</span> <span class="ow">in</span> <span class="n">each</span> <span class="n">dimension</span> <span class="n">within</span> <span class="n">parent</span> <span class="n">cells</span>
-<span class="n">stride</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">xyz</span> <span class="ow">or</span> <span class="n">xzy</span> <span class="ow">or</span> <span class="n">yxz</span> <span class="ow">or</span> <span class="n">yzx</span> <span class="ow">or</span> <span class="n">zxy</span> <span class="ow">or</span> <span class="n">zyx</span>
-<span class="n">clump</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">xyz</span> <span class="ow">or</span> <span class="n">xzy</span> <span class="ow">or</span> <span class="n">yxz</span> <span class="ow">or</span> <span class="n">yzx</span> <span class="ow">or</span> <span class="n">zxy</span> <span class="ow">or</span> <span class="n">zyx</span>
-<span class="n">block</span> <span class="n">args</span> <span class="o">=</span> <span class="n">Px</span> <span class="n">Py</span> <span class="n">Pz</span>
-  <span class="n">Px</span><span class="p">,</span><span class="n">Py</span><span class="p">,</span><span class="n">Pz</span> <span class="o">=</span> <span class="c1"># of processors in each dimension</span>
-<span class="n">random</span> <span class="n">args</span> <span class="o">=</span> <span class="n">none</span>
-<span class="n">inside</span> <span class="n">args</span> <span class="o">=</span> <span class="nb">any</span> <span class="ow">or</span> <span class="nb">all</span>
-</pre></div>
-</div>
+<ul>
+<li><p>level args = Nlevel Px Py Pz Cx Cy Cz</p>
+<ul>
+<li><p>Nlevel = level from 2 to M, must be in ascending order</p></li>
+<li><p>Px Py Pz = range of parent cells in each dimension in which to create child cells</p></li>
+<li><p>Cx Cy Cz = size of child grid in each dimension within parent cells</p></li>
+</ul>
+</li>
+<li><p>region args = Nlevel reg-ID Cx Cy Cz</p>
+<ul>
+<li><p>Nlevel = level from 2 to M, must be in ascending order</p></li>
+<li><p>reg-ID = ID of region which parent cells must be in to create child cells</p></li>
+<li><p>Cx Cy Cz = size of child grid in each dimension within parent cells</p></li>
+</ul>
+</li>
+<li><p>stride arg = xyz or xzy or yxz or yzx or zxy or zyx</p></li>
+<li><p>clump arg = xyz or xzy or yxz or yzx or zxy or zyx</p></li>
+<li><p>block args = Px Py Pz</p>
+<ul>
+<li><p>Px,Py,Pz = # of processors in each dimension</p></li>
+</ul>
+</li>
+<li><p>random args = none</p></li>
+<li><p>inside args = any or all</p></li>
+</ul>
 </li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create_grid</span> <span class="mi">10</span> <span class="mi">10</span> <span class="mi">10</span>
 <span class="n">create_grid</span> <span class="mi">10</span> <span class="mi">10</span> <span class="mi">10</span> <span class="n">block</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>
 <span class="n">create_grid</span> <span class="mi">10</span> <span class="mi">10</span> <span class="mi">10</span> <span class="n">block</span> <span class="mi">4</span> <span class="mi">2</span> <span class="mi">5</span>
@@ -206,19 +218,21 @@
 <span class="n">create_grid</span> <span class="mi">8</span> <span class="mi">8</span> <span class="mi">10</span> <span class="n">level</span> <span class="mi">2</span> <span class="mi">5</span><span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="mi">4</span> <span class="mi">4</span> <span class="mi">4</span> <span class="n">level</span> <span class="mi">3</span> <span class="mi">1</span> <span class="mi">2</span><span class="o">*</span><span class="mi">3</span> <span class="mi">3</span><span class="o">*</span> <span class="mi">2</span> <span class="mi">2</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Overlay a grid over the simulation domain defined by the
 <a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a> command. The grid can also be defined
 by the <a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid</span></a> command.</p>
-<p>The grid in SPARTA is hierarchical, as described in <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section howto 4.8</span></a>. The entire simulation box is a
-single parent grid cell at level 0. It is subdivided into Nx by Ny by Nz
-cells at level 1. Each of those cells can be a child cell (no further
-sub-division) or can be a parent cell which is further subdivided into
-Nx by Ny by Nz cells at level 2. This can recurse to as many levels as
-desired. Different cells can stop recursing at different levels. Each
-parent cell can define its own unique Nx, Ny, Nz values for subdivision.
-Note that a grid with a single level is simply a uniform grid with Nx by
-Ny by Nz cells in each dimension.</p>
+<p>The grid in SPARTA is hierarchical, as described in <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section
+howto</span></a>. The entire simulation box is a single parent grid cell at
+level 0. It is subdivided into Nx by Ny by Nz cells at level 1. Each of those
+cells can be a child cell (no further sub-division) or can be a parent cell
+which is further subdivided into Nx by Ny by Nz cells at level 2. This can
+recurse to as many levels as desired. Different cells can stop recursing at
+different levels. Each parent cell can define its own unique Nx, Ny, Nz values
+for subdivision.  Note that a grid with a single level is simply a uniform grid
+with Nx by Ny by Nz cells in each dimension.</p>
 <p>In the current SPARTA implementation, all processors own a copy of all
 parent cells. Each child cell is owned by a unique processor. The
 details of how child cells are assigned to processors by the various
@@ -364,8 +378,10 @@ considered to be “in” the region.</p>
 <p>If the grid cell is in the region, then it is refined using the Cx, Cy,
 Cz arguments in the same manner that the <em>level</em> keyword uses them.
 Examples for the use of the <em>region</em> keyword are given above.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restrictions:</strong></p>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
 <p>This command can only be used after the simulation box is defined by the
 <a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a> command.</p>
 <p>The hierarchical grid used by SPARTA is encoded in a 32-bit or 64-bit
@@ -375,11 +391,16 @@ be used depends on the resolution of the grid at each level. For a
 minimal refinement of 2x2x2, a level uses 4 bits of the integer ID. Thus
 for this style of refinement a maximum of 7 levels can be used for
 32-bit IDs and 15 levels for 64-bit IDs.</p>
-<p><strong>Related commands:</strong></p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box command</span></a>,
 <a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid command</span></a></p>
-<p><strong>Default:</strong></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
 <p>The only keyword with a default setting is inside = any.</p>
+</div>
 </div>
 
 

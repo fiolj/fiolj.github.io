@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,72 +168,102 @@
             
   <div class="section" id="global-command">
 <span id="command-global"></span><span id="index-0"></span><h1>global command<a class="headerlink" href="#global-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">global</span> <span class="n">keyword</span> <span class="n">values</span> <span class="o">...</span>
 </pre></div>
 </div>
-<ul>
-<li><p>one or more keyword/value pairs</p></li>
-<li><p>keyword = <em>fnum</em> or <em>nrho</em> or <em>vstream</em> or <em>temp</em> or <em>gravity</em> or
-<em>surfs</em> or <em>surfgrid</em> or <em>surfmax</em> or <em>cellmax</em> or <em>splitmax</em> or
-<em>surftally</em> or <em>surfpush</em> or <em>gridcut</em> or <em>comm/sort</em> or <em>comm/style</em>
-or <em>weight</em> or <em>particle/reorder</em> or <em>mem/limit</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fnum</span> <span class="n">value</span> <span class="o">=</span> <span class="n">ratio</span>
-  <span class="n">ratio</span> <span class="o">=</span> <span class="n">Fnum</span> <span class="n">ratio</span> <span class="n">of</span> <span class="n">physical</span> <span class="n">particles</span> <span class="n">to</span> <span class="n">simulation</span> <span class="n">particles</span>
-<span class="n">nrho</span> <span class="n">value</span> <span class="o">=</span> <span class="n">density</span>
-  <span class="n">density</span> <span class="o">=</span> <span class="n">number</span> <span class="n">density</span> <span class="n">of</span> <span class="n">background</span> <span class="n">gas</span> <span class="p">(</span><span class="c1"># per length^3 units)</span>
-<span class="n">vstream</span> <span class="n">values</span> <span class="o">=</span> <span class="n">Vx</span> <span class="n">Vy</span> <span class="n">Vz</span>
-  <span class="n">Vx</span><span class="p">,</span><span class="n">Vy</span><span class="p">,</span><span class="n">Vz</span> <span class="o">=</span> <span class="n">streaming</span> <span class="n">velocity</span> <span class="n">of</span> <span class="n">background</span> <span class="n">gas</span> <span class="p">(</span><span class="n">velocity</span> <span class="n">units</span><span class="p">)</span>
-<span class="n">temp</span> <span class="n">values</span> <span class="o">=</span> <span class="n">thermal</span>
-  <span class="n">thermal</span> <span class="o">=</span> <span class="n">temperature</span> <span class="n">of</span> <span class="n">background</span> <span class="n">gas</span> <span class="p">(</span><span class="n">temperature</span> <span class="n">units</span><span class="p">)</span>
-<span class="n">gravity</span> <span class="n">values</span> <span class="o">=</span> <span class="n">mag</span> <span class="n">ex</span> <span class="n">ey</span> <span class="n">ez</span>
-  <span class="n">mag</span> <span class="o">=</span> <span class="n">magnitude</span> <span class="n">of</span> <span class="n">acceleration</span> <span class="n">due</span> <span class="n">to</span> <span class="n">gravity</span> <span class="p">(</span><span class="n">acceleration</span> <span class="n">units</span><span class="p">)</span>
-  <span class="n">ex</span><span class="p">,</span><span class="n">ey</span><span class="p">,</span><span class="n">ez</span> <span class="o">=</span> <span class="n">direction</span> <span class="n">vector</span> <span class="n">that</span> <span class="n">gravity</span> <span class="n">acts</span> <span class="ow">in</span>
-<span class="n">surfs</span> <span class="n">value</span> <span class="o">=</span> <span class="n">explicit</span> <span class="ow">or</span> <span class="n">explicit</span><span class="o">/</span><span class="n">distributed</span> <span class="ow">or</span> <span class="n">implicit</span>
-  <span class="n">explicit</span> <span class="o">=</span> <span class="n">surfs</span> <span class="n">defined</span> <span class="ow">in</span> <span class="n">read_surf</span> <span class="n">file</span><span class="p">,</span> <span class="n">each</span> <span class="n">proc</span> <span class="n">owns</span> <span class="n">copy</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">surfs</span>
-  <span class="n">explicit</span><span class="o">/</span><span class="n">distributed</span> <span class="o">=</span> <span class="n">surfs</span> <span class="n">defined</span> <span class="ow">in</span> <span class="n">read_surf</span> <span class="n">file</span><span class="p">,</span> <span class="n">each</span> <span class="n">proc</span> <span class="n">owns</span>
-                         <span class="n">only</span> <span class="n">the</span> <span class="n">surfs</span> <span class="k">for</span> <span class="n">its</span> <span class="n">owned_ghost</span> <span class="n">grid</span> <span class="n">cells</span>
-  <span class="n">implicit</span> <span class="o">=</span> <span class="n">surfs</span> <span class="n">defined</span> <span class="ow">in</span> <span class="n">read_isurf</span> <span class="n">file</span><span class="p">,</span> <span class="n">each</span> <span class="n">proc</span> <span class="n">owns</span>
-                         <span class="n">only</span> <span class="n">the</span> <span class="n">surfs</span> <span class="k">for</span> <span class="n">its</span> <span class="n">owned</span><span class="o">+</span><span class="n">ghost</span> <span class="n">grid</span> <span class="n">cells</span>
-<span class="n">surfgrid</span> <span class="n">value</span> <span class="o">=</span> <span class="n">percell</span> <span class="ow">or</span> <span class="n">persurf</span> <span class="ow">or</span> <span class="n">auto</span>
-  <span class="n">percell</span> <span class="o">=</span> <span class="n">loop</span> <span class="n">over</span> <span class="n">my</span> <span class="n">cells</span> <span class="ow">and</span> <span class="n">check</span> <span class="n">every</span> <span class="n">surf</span>
-  <span class="n">persurf</span> <span class="o">=</span> <span class="n">loop</span> <span class="n">over</span> <span class="n">my</span> <span class="n">surfs</span> <span class="ow">and</span> <span class="n">cells</span> <span class="n">they</span> <span class="n">overlap</span>
-  <span class="n">auto</span> <span class="o">=</span> <span class="n">choose</span> <span class="n">percell</span> <span class="ow">or</span> <span class="n">persurf</span> <span class="n">based</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">element</span> <span class="ow">and</span> <span class="n">proc</span> <span class="n">count</span>
-<span class="n">surfmax</span> <span class="n">value</span> <span class="o">=</span> <span class="n">Nsurf</span>
-  <span class="n">Nsurf</span> <span class="o">=</span> <span class="nb">max</span> <span class="c1"># of surface elements allowed in single grid cell</span>
-<span class="n">cellmax</span> <span class="n">value</span> <span class="o">=</span> <span class="n">Ncell</span>
-  <span class="n">Ncell</span> <span class="o">=</span> <span class="nb">max</span> <span class="c1"># of grid cells a single surf can overlap</span>
-<span class="n">splitmax</span> <span class="n">value</span> <span class="o">=</span> <span class="n">Nsplit</span>
-  <span class="n">Nsplit</span> <span class="o">=</span> <span class="nb">max</span> <span class="c1"># of sub-cells one grid cell can be split into by surface elements</span>
-<span class="n">surftally</span> <span class="n">value</span> <span class="o">=</span> <span class="n">reduce</span> <span class="ow">or</span> <span class="n">rvous</span> <span class="ow">or</span> <span class="n">auto</span>
-  <span class="n">reduce</span> <span class="o">=</span> <span class="n">tally</span> <span class="n">surf</span> <span class="n">collision</span> <span class="n">info</span> <span class="n">via</span> <span class="n">MPI_Allreduce</span> <span class="n">operations</span>
-  <span class="n">rvous</span> <span class="o">=</span> <span class="n">tally</span> <span class="n">via</span> <span class="n">a</span> <span class="n">rendezvous</span> <span class="n">algorithm</span>
-  <span class="n">auto</span> <span class="o">=</span> <span class="n">choose</span> <span class="n">reduce</span> <span class="ow">or</span> <span class="n">rvous</span> <span class="n">based</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">element</span> <span class="ow">and</span> <span class="n">proc</span> <span class="n">count</span>
-<span class="n">surfpush</span> <span class="n">value</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">=</span> <span class="n">no</span><span class="o">/</span><span class="n">yes</span> <span class="ow">or</span> <span class="n">slo</span> <span class="n">shi</span> <span class="n">svalue</span>
-  <span class="n">no</span> <span class="o">=</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">push</span> <span class="n">surface</span> <span class="n">element</span> <span class="n">points</span> <span class="n">near</span> <span class="n">cell</span> <span class="n">surface</span>
-  <span class="n">yes</span> <span class="o">=</span> <span class="n">push</span> <span class="n">surface</span> <span class="n">element</span> <span class="n">points</span> <span class="n">near</span> <span class="n">cell</span> <span class="n">surface</span> <span class="k">if</span> <span class="n">necessary</span>
-  <span class="n">slo</span><span class="p">,</span><span class="n">shi</span> <span class="o">=</span> <span class="n">push</span> <span class="n">points</span> <span class="n">within</span> <span class="n">this</span> <span class="nb">range</span>
-  <span class="n">svalue</span> <span class="o">=</span> <span class="n">push</span> <span class="n">points</span> <span class="n">to</span> <span class="n">this</span> <span class="n">value</span>
-<span class="n">gridcut</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cutoff</span>
-  <span class="n">cutoff</span> <span class="o">=</span> <span class="n">acquire</span> <span class="n">ghost</span> <span class="n">cells</span> <span class="n">up</span> <span class="n">to</span> <span class="n">this</span> <span class="n">far</span> <span class="n">away</span> <span class="p">(</span><span class="n">distance</span> <span class="n">units</span><span class="p">)</span>
-<span class="n">comm</span><span class="o">/</span><span class="n">sort</span> <span class="n">value</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
-  <span class="n">yes</span><span class="o">/</span><span class="n">no</span> <span class="o">=</span> <span class="n">sort</span> <span class="n">incoming</span> <span class="n">messages</span> <span class="n">by</span> <span class="n">proc</span> <span class="n">ID</span> <span class="k">if</span> <span class="n">yes</span><span class="p">,</span> <span class="k">else</span> <span class="n">no</span> <span class="n">sort</span>
-<span class="n">comm</span><span class="o">/</span><span class="n">style</span> <span class="n">value</span> <span class="o">=</span> <span class="n">neigh</span> <span class="ow">or</span> <span class="nb">all</span>
-  <span class="n">neigh</span> <span class="o">=</span> <span class="n">setup</span> <span class="n">particle</span> <span class="n">comm</span> <span class="k">with</span> <span class="n">subset</span> <span class="n">of</span> <span class="n">near</span><span class="o">-</span><span class="n">neighbor</span> <span class="n">processor</span>
-  <span class="nb">all</span> <span class="o">=</span> <span class="n">allow</span> <span class="n">particle</span> <span class="n">comm</span> <span class="k">with</span> <span class="n">potentially</span> <span class="nb">any</span> <span class="n">processor</span>
-<span class="n">weight</span> <span class="n">value</span> <span class="o">=</span> <span class="n">wstyle</span> <span class="n">mode</span>
-  <span class="n">wstyle</span> <span class="o">=</span> <span class="n">cell</span>
-  <span class="n">mode</span> <span class="o">=</span> <span class="n">none</span> <span class="ow">or</span> <span class="n">volume</span> <span class="ow">or</span> <span class="n">radius</span>
-<span class="n">particle</span><span class="o">/</span><span class="n">reorder</span> <span class="n">value</span> <span class="o">=</span> <span class="n">nsteps</span>
-  <span class="n">nsteps</span> <span class="o">=</span> <span class="n">reorder</span> <span class="n">the</span> <span class="n">particles</span> <span class="n">every</span> <span class="n">this</span> <span class="n">many</span> <span class="n">timesteps</span>
-<span class="n">mem</span><span class="o">/</span><span class="n">limit</span> <span class="n">value</span> <span class="o">=</span> <span class="n">grid</span> <span class="ow">or</span> <span class="nb">bytes</span>
-  <span class="n">grid</span> <span class="o">=</span> <span class="n">limit</span> <span class="n">extra</span> <span class="n">memory</span> <span class="k">for</span> <span class="n">load</span><span class="o">-</span><span class="n">balancing</span><span class="p">,</span> <span class="n">particle</span> <span class="n">reordering</span><span class="p">,</span> <span class="ow">and</span> <span class="n">restart</span> <span class="n">file</span> <span class="n">read</span><span class="o">/</span><span class="n">write</span> <span class="n">to</span> <span class="n">grid</span> <span class="n">cell</span> <span class="n">memory</span>
-  <span class="nb">bytes</span> <span class="o">=</span> <span class="n">limit</span> <span class="n">extra</span> <span class="n">particle</span> <span class="n">memory</span> <span class="n">to</span> <span class="n">this</span> <span class="n">amount</span> <span class="p">(</span><span class="ow">in</span> <span class="n">MBytes</span><span class="p">)</span>
+<p>one or more keyword/value pairs</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">keyword</span> <span class="o">=</span> <span class="o">*</span><span class="n">fnum</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="n">nrho</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="n">vstream</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="n">temp</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="n">gravity</span><span class="o">*</span> <span class="ow">or</span>
+<span class="o">*</span><span class="n">surfs</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="n">surfgrid</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="n">surfmax</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="n">cellmax</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="n">splitmax</span><span class="o">*</span> <span class="ow">or</span>
+<span class="o">*</span><span class="n">surftally</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="n">surfpush</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="n">gridcut</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="n">comm</span><span class="o">/</span><span class="n">sort</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="n">comm</span><span class="o">/</span><span class="n">style</span><span class="o">*</span>
+<span class="ow">or</span> <span class="o">*</span><span class="n">weight</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="n">particle</span><span class="o">/</span><span class="n">reorder</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="n">mem</span><span class="o">/</span><span class="n">limit</span><span class="o">*</span>
 </pre></div>
 </div>
+<ul>
+<li><p>fnum value = ratio</p>
+<p>ratio = Fnum ratio of physical particles to simulation particles</p>
+</li>
+<li><p>nrho value = density</p>
+<p>density = number density of background gas (# per length^3 units)</p>
+</li>
+<li><p>vstream values = Vx Vy Vz</p>
+<p>Vx,Vy,Vz = streaming velocity of background gas (velocity units)</p>
+</li>
+<li><p>temp values = thermal</p>
+<p>thermal = temperature of background gas (temperature units)</p>
+</li>
+<li><p>gravity values = mag ex ey ez</p>
+<ul class="simple">
+<li><p>mag = magnitude of acceleration due to gravity (acceleration units)</p></li>
+<li><p>ex,ey,ez = direction vector that gravity acts in</p></li>
+</ul>
+</li>
+<li><p>surfs value = explicit or explicit/distributed or implicit</p>
+<ul class="simple">
+<li><p>explicit = surfs defined in read_surf file, each proc owns copy of all surfs</p></li>
+<li><p>explicit/distributed = surfs defined in read_surf file, each proc owns only the surfs for its owned_ghost grid cells</p></li>
+<li><p>implicit = surfs defined in read_isurf file, each proc owns only the surfs for its owned+ghost grid cells surfgrid value = percell or persurf or auto</p></li>
+<li><p>percell = loop over my cells and check every surf</p></li>
+<li><p>persurf = loop over my surfs and cells they overlap</p></li>
+<li><p>auto = choose percell or persurf based on surface element and proc count</p></li>
+</ul>
+</li>
+<li><p>surfmax value = Nsurf</p>
+<p>Nsurf = max # of surface elements allowed in single grid cell</p>
+</li>
+<li><p>cellmax value = Ncell</p>
+<p>Ncell = max # of grid cells a single surf can overlap</p>
+</li>
+<li><p>splitmax value = Nsplit</p>
+<p>Nsplit = max # of sub-cells one grid cell can be split into by surface elements</p>
+</li>
+<li><p>surftally value = reduce or rvous or auto</p>
+<ul class="simple">
+<li><p>reduce = tally surf collision info via MPI_Allreduce operations</p></li>
+<li><p>rvous = tally via a rendezvous algorithm</p></li>
+<li><p>auto = choose reduce or rvous based on surface element and proc count</p></li>
+</ul>
+</li>
+<li><p>surfpush value(s) = no/yes or slo shi svalue</p>
+<ul class="simple">
+<li><p>no = do not push surface element points near cell surface</p></li>
+<li><p>yes = push surface element points near cell surface if necessary</p></li>
+<li><p>slo,shi = push points within this range</p></li>
+<li><p>svalue = push points to this value</p></li>
+</ul>
+</li>
+<li><p>gridcut value = cutoff</p>
+<p>cutoff = acquire ghost cells up to this far away (distance units)</p>
+</li>
+<li><p>comm/sort value = yes or no</p>
+<p>yes/no = sort incoming messages by proc ID if yes, else no sort</p>
+</li>
+<li><p>comm/style value = neigh or all</p>
+<ul class="simple">
+<li><p>neigh = setup particle comm with subset of near-neighbor processor</p></li>
+<li><p>all = allow particle comm with potentially any processor</p></li>
+</ul>
+</li>
+<li><p>weight value = wstyle mode</p>
+<ul class="simple">
+<li><p>wstyle = cell</p></li>
+<li><p>mode = none or volume or radius</p></li>
+</ul>
+</li>
+<li><p>particle/reorder value = nsteps</p>
+<p>nsteps = reorder the particles every this many timesteps</p>
+</li>
+<li><p>mem/limit value = grid or bytes</p>
+<ul class="simple">
+<li><p>grid = limit extra memory for load-balancing, particle reordering, and restart file read/write to grid cell memory</p></li>
+<li><p>bytes = limit extra particle memory to this amount (in MBytes)</p></li>
+</ul>
 </li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">global</span> <span class="n">fnum</span> <span class="mf">1.0e20</span>
 <span class="k">global</span> <span class="n">vstream</span> <span class="mf">100.0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="n">fnum</span> <span class="mf">5.0e18</span>
 <span class="k">global</span> <span class="n">temp</span> <span class="mi">1000</span>
@@ -241,279 +271,123 @@ or <em>weight</em> or <em>particle/reorder</em> or <em>mem/limit</em></p>
 <span class="k">global</span> <span class="n">mem</span><span class="o">/</span><span class="n">limit</span> <span class="mi">100</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Define global properties of the system.</p>
-<p>The <em>fnum</em> keyword sets the ratio of real, physical molecules to
-simulation particles. E.g. a value of 1.0e20 means that one particle in
-the simulation represents 1.0e20 molecules of the particle species.</p>
-<p>The <em>nrho</em> keyword sets the number density of the background gas. For 3d
-simulations the units are #/volume. For 2d, the units are effectively
-#/area since the z dimension is treated as having a length of 1.0.</p>
-<p>Assuming your simulation is populated by particles from the background
-gas, the <em>fnum</em> and <em>nrho</em> settings can determine how many particles
-will be present in your simulation, when using the
-<a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles</span></a> or <a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">fix emit</span></a> command variants.</p>
-<p>The <em>vstream</em> keyword sets the streaming velocity of the background gas.</p>
-<p>The <em>temp</em> keyword sets the thermal temperature of the background gas.
-This is a Gaussian velocity distribution superposed on top of the
-streaming velocity.</p>
-<p>The <em>gravity</em> keyword sets an acceleration term which is included in the
-motion of particles. The magnitude of gravity is set by the <em>mag</em>
-keyword. Its direction of action is set as (ex,ex,ez). The direction
-does not have to be a unit vector. If the magnitude is set to 0.0, no
-acceleration term is included, which is the default.</p>
+<dl>
+<dt>The <em>fnum</em> keyword</dt><dd><p>sets the ratio of real, physical molecules to simulation particles. E.g. a value of 1.0e20 means that one particle in the simulation represents 1.0e20 molecules of the particle species.</p>
+</dd>
+<dt>The <em>nrho</em> keyword</dt><dd><p>sets the number density of the background gas. For 3d simulations the units are #/volume. For 2d, the units are effectively #/area since the z dimension is treated as having a length of 1.0.</p>
+<p>Assuming your simulation is populated by particles from the background gas, the <em>fnum</em> and <em>nrho</em> settings can determine how many particles will be present in your simulation, when using the <a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles</span></a> or <a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">fix emit</span></a> command variants.</p>
+</dd>
+<dt>The <em>vstream</em> keyword</dt><dd><p>sets the streaming velocity of the background gas.</p>
+</dd>
+<dt>The <em>temp</em> keyword</dt><dd><p>sets the thermal temperature of the background gas.  This is a Gaussian velocity distribution superposed on top of the streaming velocity.</p>
+</dd>
+<dt>The <em>gravity</em> keyword</dt><dd><p>sets an acceleration term which is included in the motion of particles. The magnitude of gravity is set by the <em>mag</em> keyword. Its direction of action is set as (ex,ex,ez). The direction does not have to be a unit vector. If the magnitude is set to 0.0, no acceleration term is included, which is the default.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>surfs</em> keyword determines what kind of surface elements SPARTA uses
-and how they are distributed across processors. Possible values are
-<em>explicit</em>, <em>explicit/distributed</em>, and <em>implicit</em>. See the <a class="reference internal" href="Section_howto.html#howto-implicit-surface"><span class="std std-ref">Howto 6.13</span></a> section of the manual for an
-explantion of explicit versus implicit surfaces. The distributed option
-can be important for models with huge numbers of surface elements. Each
-processor stores copies of only the surfaces that overlap grid cells it
-owns or has ghost copies of. Implicit surfaces are always distributed.
-The <em>explicit</em> setting is the default and means each processor stores a
-copy of all the defined surface elements. Note that a surface element
-requires about 100 bytes of storage, so storing a million on a single
-processor requires about 100 MBytes.</p>
-<p>The <em>surfgrid</em> keyword determines what algorithm is used to enumerate
-the overlaps (intersections) between grid cells and surface elements
-(lines in 2d, triangles in 3d). The possible settings are <em>percell</em>,
-<em>persurf</em>, and <em>auto</em>. The <em>auto</em> setting is the default and will choose
-between a <em>percell</em> or <em>persurf</em> algorithm based on the number of
-surface elements and processor count. If there are more processors than
-surface elements, the <em>percell</em> algorithm is used. Otherwise the
-<em>persurf</em> algorithm is used. The <em>percell</em> algorithm loops over the
-subset of grid cells each processor owns. All the surface elements are
-tested for overlap with each owned grid cell. The <em>persurf</em> algorithm
-loops over a 1/P fraction of surface elements on each processor. The
-bounding box around each surface is used to find all grid cells it
-possibly overlaps. For large numbers of surface elements or processors,
-the <em>persurf</em> algorithm is generally faster.</p>
-<p>The <em>surfmax</em> keyword determines the maximum number of surface elements
-(lines in 2d, triangles in 3d) that can overlap a single grid cell. The
-default is 100, which should be large enough for any simulation, unless
-you define very coarse grid cells relative to the size of surface
-elements they contain.</p>
-<p>The <em>cellmax</em> keyword determines the maximum number of grid cells that a
-single surface element (lines in 2d, tringles in 3d) can overlap. This
-keyword is only used if the <em>persurf</em> algorithm defined by the
-<em>surfgrid</em> keyword is invoked. The default is 100, which should be large
-enough for most simulations, unless you define one or more very large
-surface elements relative to the size of grid cells they intersect.</p>
-<p>The <em>splitmax</em> keyword determines the maximum number of sub-cells a
-single grid cell can be split into as a result of its intersection with
-multiple surface elements (lines in 2d, triangles in 3d). The default is
-10, which should be large enough for any simulation, unless you embed a
-complex-shaped surface object into one or a very few grid cells.</p>
-<p>The <em>surftally</em> keyword determines what algorithm is used to combine
-tallies of surface collisions across processors that own portions of the
-same surface element. The possible settings are <em>reduce</em>, <em>rvous</em>, and
-<em>auto</em>. The <em>auto</em> setting is the default and will choose between a
-<em>reduce</em> or <em>rvous</em> algorithm based on the number of surface elements
-and processor count. If there are more processors than surface elements,
-the <em>reduce</em> algorithm is used. Otherwise the <em>rvous</em> algorithm is used.
-The <em>reduce</em> algorithm is suitable for relatively small surface elememt
-counts. It creates a copy of a vector or array of length the global
-number of surface elements. Each processor sums its tally contributions
-into the vector or array. An MPI_Allreduce() is performed to sum it
-across all processors. Each processor than extracts values for the N/P
-surfaces it owns. The <em>rvous</em> algorithm is faster for large surface
-element counts. A rendezvous style of communication is performed where
-every processor sends its tally contributions directly to the processor
-which owns the element as one of its N/P elements.</p>
+<dl>
+<dt>The <em>surfs</em> keyword</dt><dd><p>determines what kind of surface elements SPARTA uses and how they are distributed across processors. Possible values are <em>explicit</em>, <em>explicit/distributed</em>, and <em>implicit</em>.</p>
+<p>See the <a class="reference internal" href="Section_howto.html#howto-implicit-surface"><span class="std std-ref">Howto 6.13</span></a> section of the manual for an explantion of explicit versus implicit surfaces. The distributed option can be important for models with huge numbers of surface elements. Each processor stores copies of only the surfaces that overlap grid cells it owns or has ghost copies of. Implicit surfaces are always distributed.</p>
+<p>The <em>explicit</em> setting is the default and means each processor stores a copy of all the defined surface elements. Note that a surface element requires about 100 bytes of storage, so storing a million on a single processor requires about 100 MBytes.</p>
+</dd>
+<dt>The <em>surfgrid</em> keyword</dt><dd><p>determines what algorithm is used to enumerate the overlaps (intersections) between grid cells and surface elements (lines in 2d, triangles in 3d).</p>
+<p>The possible settings are <em>percell</em>, <em>persurf</em>, and <em>auto</em>. The <em>auto</em> setting is the default and will choose between a <em>percell</em> or <em>persurf</em> algorithm based on the number of surface elements and processor count. If there are more processors than surface elements, the <em>percell</em> algorithm is used. Otherwise the <em>persurf</em> algorithm is used. The <em>percell</em> algorithm loops over the subset of grid cells each processor owns. All the surface elements are tested for overlap with each owned grid cell. The <em>persurf</em> algorithm loops over a 1/P fraction of surface elements on each processor. The bounding box around each surface is used to find all grid cells it possibly overlaps. For large numbers of surface elements or processors, the <em>persurf</em> algorithm is generally faster.</p>
+</dd>
+<dt>The <em>surfmax</em> keyword</dt><dd><p>determines the maximum number of surface elements (lines in 2d, triangles in 3d) that can overlap a single grid cell. The default is 100, which should be large enough for any simulation, unless you define very coarse grid cells relative to the size of surface elements they contain.</p>
+</dd>
+<dt>The <em>cellmax</em> keyword</dt><dd><p>determines the maximum number of grid cells that a single surface element (lines in 2d, tringles in 3d) can overlap. This keyword is only used if the <em>persurf</em> algorithm defined by the <em>surfgrid</em> keyword is invoked. The default is 100, which should be large enough for most simulations, unless you define one or more very large surface elements relative to the size of grid cells they intersect.</p>
+</dd>
+<dt>The <em>splitmax</em> keyword</dt><dd><p>determines the maximum number of sub-cells a single grid cell can be split into as a result of its intersection with multiple surface elements (lines in 2d, triangles in 3d). The default is 10, which should be large enough for any simulation, unless you embed a complex-shaped surface object into one or a very few grid cells.</p>
+</dd>
+<dt>The <em>surftally</em> keyword</dt><dd><p>determines what algorithm is used to combine tallies of surface collisions across processors that own portions of the same surface element. The possible settings are <em>reduce</em>, <em>rvous</em>, and <em>auto</em>. The <em>auto</em> setting is the default and will choose between a <em>reduce</em> or <em>rvous</em> algorithm based on the number of surface elements and processor count. If there are more processors than surface elements, the <em>reduce</em> algorithm is used. Otherwise the <em>rvous</em> algorithm is used.
+The <em>reduce</em> algorithm is suitable for relatively small surface elememt counts. It creates a copy of a vector or array of length the global number of surface elements. Each processor sums its tally contributions into the vector or array. An MPI_Allreduce() is performed to sum it across all processors. Each processor than extracts values for the N/P surfaces it owns. The <em>rvous</em> algorithm is faster for large surface element counts. A rendezvous style of communication is performed where every processor sends its tally contributions directly to the processor which owns the element as one of its N/P elements.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>surfpush</em> keyword is only useful to use when SPARTA is having
-problems embedding a surface in the simulation grid, which occurs when
-when surface elements are defined via the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a>
-command. Or for debugging purposes.</p>
-<p>In rare cases, if a surface element point is just slightly inside or
-outside a grid cell, but within an epsilon distance from the surface of
-the grid cell, a numerical round-off error can occur when computing the
-cut volume. The error can be avoided if such points are shifted (pushed)
-to a slightly different location, which only induces a tiny change in
-the computed cut volume. By default the <em>surfpush</em> keyword is set to
-<em>yes</em>, which will perform this “push” operation on a grid cell if the
-numerical issue is flagged. SPARTA prints out how many grid cells needed
-this push operation.</p>
-<p>If you set <em>surfpush</em> to <em>no</em>, then the push operation is not performed,
-which will result in an error if the numerical issue occurs.</p>
-<p>If the default <em>surfpush yes</em> still gives an error, then setting the
-<em>slo</em>, <em>shi</em>, and <em>svalue</em> allows experimentation with a different mode
-of pushing.</p>
-<p>These 3 values are all multipliers on an epsilon of 1.0e-6 which is set
-internally in the code. Epsilon refers to a fraction of the size of a
-grid cell in each of its dimensions. Negative values for any of the 3
-values distances inside a grid cell (inward from the cell face).
-Positive values are distances outside a grid cell (outward from the cell
-face). Zero values are exactly on the cell face. If any surface point
-(end points of 2d lines, corner points of 3d triangles) is between a
-<em>slo</em> to <em>shi</em> distance from any of the cell faces, then it is pushed to
-be a distance <em>svalue</em> from the face.</p>
-<p>When <em>surfpush</em> is set to <em>yes</em>, SPARTA tries 2 kinds of pushing first,
-if the numerical issue is encountered for a grid cell. The first is
-<em>slo</em> = -1, <em>shi</em> = 1, <em>svalue</em> = 1, which means any point within a
-fractional distance (in each dimension) of 1.0e-6 inside the cell to
-1.0e-6 outside the cell, is shifted to be a distance 1.0e-6 outside the
-cell. The second try is with <em>slo</em> = -1, <em>shi</em> = 1, <em>svalue</em> = 0, which
-puts the point on the face. If you set <em>slo</em>, <em>shi</em>, <em>svalue</em>
-explicitly, it will be the third option tried.</p>
-<p>If you cannot get a surface to embed properly in a grid, meaning you get
-errors with the default setting of <em>surfpush yes</em>, then please contact
-the SPARTA developers. We will want to figure out what is unusual about
-your surface file!</p>
+<dl>
+<dt>The <em>surfpush</em> keyword</dt><dd><p>is only useful to use when SPARTA is having problems embedding a surface in the simulation grid, which occurs when when surface elements are defined via the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command. Or for debugging purposes.</p>
+<p>In rare cases, if a surface element point is just slightly inside or outside a grid cell, but within an epsilon distance from the surface of the grid cell, a numerical round-off error can occur when computing the cut volume. The error can be avoided if such points are shifted (pushed) to a slightly different location, which only induces a tiny change in the computed cut volume. By default the <em>surfpush</em> keyword is set to <em>yes</em>, which will perform this “push” operation on a grid cell if the numerical issue is flagged. SPARTA prints out how many grid cells needed this push operation.</p>
+<p>If you set <em>surfpush</em> to <em>no</em>, then the push operation is not performed, which will result in an error if the numerical issue occurs.</p>
+<p>If the default <em>surfpush yes</em> still gives an error, then setting the <em>slo</em>, <em>shi</em>, and <em>svalue</em> allows experimentation with a different mode of pushing.</p>
+<p>These 3 values are all multipliers on an epsilon of 1.0e-6 which is set internally in the code. Epsilon refers to a fraction of the size of a grid cell in each of its dimensions. Negative values for any of the 3 values distances inside a grid cell (inward from the cell face).  Positive values are distances outside a grid cell (outward from the cell face). Zero values are exactly on the cell face. If any surface point (end points of 2d lines, corner points of 3d triangles) is between a <em>slo</em> to <em>shi</em> distance from any of the cell faces, then it is pushed to be a distance <em>svalue</em> from the face.</p>
+<p>When <em>surfpush</em> is set to <em>yes</em>, SPARTA tries 2 kinds of pushing first, if the numerical issue is encountered for a grid cell. The first is <em>slo</em> = -1, <em>shi</em> = 1, <em>svalue</em> = 1, which means any point within a fractional distance (in each dimension) of 1.0e-6 inside the cell to 1.0e-6 outside the cell, is shifted to be a distance 1.0e-6 outside the cell. The second try is with <em>slo</em> = -1, <em>shi</em> = 1, <em>svalue</em> = 0, which puts the point on the face. If you set <em>slo</em>, <em>shi</em>, <em>svalue</em> explicitly, it will be the third option tried.</p>
+<p>If you cannot get a surface to embed properly in a grid, meaning you get errors with the default setting of <em>surfpush yes</em>, then please contact the SPARTA developers. We will want to figure out what is unusual about your surface file!</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>gridcut</em> keyword determines the cutoff distance at which ghost grid
-cells will be stored by each processor. Assuming the processor owns a
-compact clump of grid cells (see below), it will also store ghost cell
-information from nearby grid cells, up to this distance away. If the
-setting is -1.0 (the default) then each processor owns a copy of ghost
-cells for all grid cells in the simulation. This can require too much
-memory for large models. If the cutoff is 0.0, processors own a minimal
-number of ghost cells. This saves memory but may require multiple passes
-of communication each timestep to move all the particles and migrate
-them to new owning processors. Typically a cutoff the size of 2-3 grid
-cell diameters is a good compromise that requires only modest memory to
-store ghost cells and allows all particle moves to complete in only one
-pass of communication.</p>
-<p>An example of the <em>gridcut</em> cutoff applied to a clumped assignment is
-shown in this zoom-in of a 2d hierarchical grid with 5 levels, refined
-around a tilted ellipsoidal surface object (outlined in pink). One
-processor owns the grid cells colored orange. A bounding rectangle
-around the orange cells, extended by a short cutoff distance, is drawn
-as a purple rectangle. The rectangle contains only a few ghost grid
-cells owned by other processors.</p>
+<dl>
+<dt>The <em>gridcut</em> keyword</dt><dd><p>determines the cutoff distance at which ghost grid cells will be stored by each processor. Assuming the processor owns a compact clump of grid cells (see below), it will also store ghost cell information from nearby grid cells, up to this distance away.
+If the setting is -1.0 (the default) then each processor owns a copy of ghost cells for all grid cells in the simulation. This can require too much memory for large models. If the cutoff is 0.0, processors own a minimal number of ghost cells. This saves memory but may require multiple passes of communication each timestep to move all the particles and migrate them to new owning processors. Typically a cutoff the size of 2-3 grid cell diameters is a good compromise that requires only modest memory to store ghost cells and allows all particle moves to complete in only one pass of communication.</p>
+<p>An example of the <em>gridcut</em> cutoff applied to a clumped assignment is shown in this zoom-in of a 2d hierarchical grid with 5 levels, refined around a tilted ellipsoidal surface object (outlined in pink). One processor owns the grid cells colored orange. A bounding rectangle around the orange cells, extended by a short cutoff distance, is drawn as a purple rectangle. The rectangle contains only a few ghost grid cells owned by other processors.</p>
 <p><img alt="image0" src="_images/partition_zoom_cutoff.jpg" /></p>
-<p>IMPORTANT NOTE: Using the <em>gridcut</em> keyword with a cutoff &gt;= 0.0 is only
-allowed if the grid cells owned by each processor are “clumped”. If each
-processor’s grid cells are “dispersed”, then ghost cells cannot be
-created with a <em>gridcut</em> cutoff &gt;= 0.0. Whenever ghost cells are
-generated, a warning to this effect will be triggered. At a later point
-when surfaces are read in or a simulation is performed, an error will
-result. The solution is to use the <a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid</span></a>
-command to change to a clumped grid cell assignment. See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual for an explanation of
-clumped and dispersed grid cell assignments and their relative
-performance trade-offs.</p>
-<p>IMPORTANT NOTE: If grid cells have already been defined via the
-<a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a>, <a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid</span></a>, or
-<a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> commands, when the <em>gridcut</em> cutoff
-is specified, then any ghost cell information that is currently stored
-will be erased. As discussed in the preceeding paragraph, a
-<a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid</span></a> command must then be invoked to
-regenerate ghost cell information. If this is not done before surfaces
-are read in or a simulation is performed, an error will result.</p>
-<p>The <em>comm/sort</em> keyword determines whether the messages a proc receives
-for migrating particles (every step) and ghost grid cells (at setup and
-after re-balance) are sorted by processor ID. Doing this requires a bit
-of overhead, but can make it easier to debug in parallel, because
-simulations should be reproducible when run on the same number of
-processors. Without sorting, messages may arrive in a randomized order,
-which means lists of particles and grid cells end up in a different
-order leading to statistical differences between runs.</p>
-<p>The <em>comm/style</em> keyword determines the style of particle communication
-that is performed to migrate particles every step. The most efficient
-method is typically for each processor to exchange messages with only
-the processors it has ghost cells for, which is the method used by the
-<em>neigh</em> setting. The <em>all</em> setting performs a relatively cheap, but
-global communication operation to determine the exact set of neighbors
-that need to be communicated with at each step. For small processor
-counts there is typically little difference. On large processor counts
-the <em>neigh</em> setting can be significantly faster. However, if the flow is
-streaming in one dominant direction, there may be no particle migration
-needed to upwind processors, so the <em>all</em> method can generate smaller
-counts of neighboring processors.</p>
-<p>Note that the <em>neigh</em> style only has an effect (at run time) when the
-grid is decomposed by the RCB option of the <a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance</span></a>
-or <a class="reference internal" href="fix_balance.html#command-fix-balance"><span class="std std-ref">fix balance</span></a> commands. If that is not the case,
-SPARTA performs the particle communication as if the <em>all</em> setting were
-in place.</p>
-<p>The <em>weight</em> keyword determines whether particle weighting is used.
-Currently the only style allowed, as specified by wstyle = <em>cell</em>, is
-per-cell weighting. This is a mechanism for inducing every grid cell to
-contain roughly the same number of particles (even if cells are of
-varying size), so as to minimize the total number of particles used in a
-simulation while preserving accurate time and spatial averages of flow
-quantities. The cell weights also affect how many particles per cell are
-created by the <a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles</span></a> and <a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">fix emit</span></a> command variants.</p>
-<p>If the mode is set to <em>none</em>, per-cell weighting is turned off if it was
-previously enabled. For mode = <em>volume</em> or <em>radius</em>, per-cell weighting
-is enabled, which triggers two computations. First, at the time this
-command is issued, each grid cell is assigned a “weight” which is
-calculated based either on the cell <em>volume</em> or <em>radius</em>, as specified
-by the <em>mode</em> setting. For the <em>volume</em> setting, the weight of a cell is
-its 3d volume for a 3d model, and the weight is its 2d area for a 2d
-model. For an axi-symmetric model, the weight is the 3d volume of the 2d
-axi-symmetric cell, i.e. the volume the area sweeps out when rotated
-around the y=0 axis of symmetry. The <em>radius</em> setting is only allowed
-for axisymmetric systems. The weight in this case is the distance the
-cell’s midpoint is from the y=0 axis of symmetry. See <a class="reference internal" href="Section_howto.html#howto-axisymmetric"><span class="std std-ref">Section 6.2</span></a> for more details on axi-symmetric
-models.</p>
-<p>Second, when a particle moves from an initial cell to a final cell, the
-initial/final ratio of the two cell weights is calculated. If the ratio
-&gt; 1, then additional particles may be created in the final cell, by
-cloning the attributes of the incoming particle. E.g. if the ratio =
-3.4, then two extra particle are created, and a 3rd is created with
-probability 0.4. If the ratio &lt; 1, then the incoming particle may be
-deleted. E.g. if the ratio is 0.7, then the incoming particle is deleted
-with probability 0.3.</p>
-<p>Note that the first calculation of weights is performed whenever the
-<em>global weight</em> command is issued. If particles already exist, they are
-not cloned or destroyed by the new weights. The second calculation only
-happens when a simulation is run.</p>
-<p>The <em>particle/reorder</em> keyword determines how often the list of
-particles on each processor is reordered to store particles in the same
-grid cell contiguously in memory. This operation is performed every
-<em>nsteps</em> as specified. A value of 0 means no reordering is ever done.
-This option is only available when using the KOKKOS package and can
-improve performance on certain hardware such as GPUs, but is typically
-slower on CPUs except when running on thousands of nodes.</p>
-<p>The <em>mem/limit</em> keyword limits the amount of memory allocated for
-several operations: load balancing, reordering of particles, and restart
-file read/write. This should only be necessary for very large
-simulations where the memory footprint for particles and grid cells is a
-significant fraction of available memory. In this case, these operations
-can trigger a memory error due to the additional memory they require.
-Setting a limit on the memory size will perform these operations more
-incrementally so that memory errors do not occur.</p>
-<p>A load-balance operation can use as much as 3x more memory than the
-memory used to store particles (reported by SPARTA when a simulation
-begins). Particle reordering temporarily doubles the memory needed to
-store particles because it is performed out-of-place by default. Reading
-and writing restart files also requires temporary buffers to hold grid
-cells and particles and can double the memory required.</p>
-<p>Specifying the value for <em>mem/limit</em> as <em>grid</em>, will allocate extra
-memory limited to the size of memory for storing grid cells on each
-processor. For most simulations this is typically much smaller than the
-memory used to store particles. Specifying a numeric value for <em>bytes</em>
-will allocate extra memory limited to that many MBytes on each
-processor. <em>Bytes</em> can be specified as a floating point value or an
-integer, e.g. 0.5 if you want to use 1/2 MByte of extra memory or 100
-for a 100 MByte buffer. Specifying a value of 0 (the default) means no
-limit is used. The value used for <em>mem/limit</em> must not exceed 2GB or an
-error will occur.</p>
-<p>For load-balancing, the communication of grid and particle data to new
-processors will then be performed in multiple passes (if necessary) so
-that only a portion of grid cells and their particles which fit into the
-extra memory are migrated in each pass. Similarly for particle
-reordering, multiple passes are performed using the extra memory to
-reorder the particles nearly in-place. For reading/writing restart
-files, multiple passes are used to read from or write to the restart
-file as well. For reading restart files, this option is ignored unless
-reading from multiple files (i.e. a “%” character was used in the
-command to write out the restart) and the number of MPI ranks is greater
-than the number of files.</p>
-<p>Note that for these operations if the extra memory is too small,
-performance will suffer due to the large number of multiple passes
-required.</p>
-<p><strong>Restrictions:</strong></p>
-<p>The global surfmax command must be used before surface elements are
-defined, e.g. via the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command.</p>
-<p><strong>Related commands:</strong></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Using the <em>gridcut</em> keyword with a cutoff &gt;= 0.0 is only allowed if the grid cells owned by each processor are “clumped”. If each processor’s grid cells are “dispersed”, then ghost cells cannot be created with a <em>gridcut</em> cutoff &gt;= 0.0.
+Whenever ghost cells are generated, a warning to this effect will be triggered. At a later point when surfaces are read in or a simulation is performed, an error will result. The solution is to use the <a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid</span></a> command to change to a clumped grid cell assignment. See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual for an explanation of clumped and dispersed grid cell assignments and their relative performance trade-offs.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If grid cells have already been defined via the <a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a>, <a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid</span></a>, or <a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> commands, when the <em>gridcut</em> cutoff is specified, then any ghost cell information that is currently stored will be erased. As discussed in the preceeding paragraph, a <a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid</span></a> command must then be invoked to regenerate ghost cell information. If this is not done before surfaces are read in or a simulation is performed, an error will result.</p>
+</div>
+</dd>
+<dt>The <em>comm/sort</em> keyword</dt><dd><p>determines whether the messages a proc receives for migrating particles (every step) and ghost grid cells (at setup and after re-balance) are sorted by processor ID. Doing this requires a bit of overhead, but can make it easier to debug in parallel, because simulations should be reproducible when run on the same number of processors. Without sorting, messages may arrive in a randomized order, which means lists of particles and grid cells end up in a different order leading to statistical differences between runs.</p>
+</dd>
+<dt>The <em>comm/style</em> keyword</dt><dd><p>determines the style of particle communication that is performed to migrate particles every step. The most efficient method is typically for each processor to exchange messages with only the processors it has ghost cells for, which is the method used by the <em>neigh</em> setting. The <em>all</em> setting performs a relatively cheap, but global communication operation to determine the exact set of neighbors that need to be communicated with at each step.</p>
+<p>For small processor counts there is typically little difference. On large processor counts the <em>neigh</em> setting can be significantly faster. However, if the flow is streaming in one dominant direction, there may be no particle migration needed to upwind processors, so the <em>all</em> method can generate smaller counts of neighboring processors.</p>
+<p>Note that the <em>neigh</em> style only has an effect (at run time) when the grid is decomposed by the RCB option of the <a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance</span></a> or <a class="reference internal" href="fix_balance.html#command-fix-balance"><span class="std std-ref">fix balance</span></a> commands. If that is not the case, SPARTA performs the particle communication as if the <em>all</em> setting were in place.</p>
+</dd>
+<dt>The <em>weight</em> keyword</dt><dd><p>determines whether particle weighting is used.  Currently the only style allowed, as specified by wstyle = <em>cell</em>, is per-cell weighting. This is a mechanism for inducing every grid cell to contain roughly the same number of particles (even if cells are of varying size), so as to minimize the total number of particles used in a simulation while preserving accurate time and spatial averages of flow quantities. The cell weights also affect how many particles per cell are created by the <a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles</span></a> and <a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">fix emit</span></a> command variants.</p>
+<p>If the mode is set to <em>none</em>, per-cell weighting is turned off if it was previously enabled. For mode = <em>volume</em> or <em>radius</em>, per-cell weighting is enabled, which triggers two computations. First, at the time this command is issued, each grid cell is assigned a “weight” which is calculated based either on the cell <em>volume</em> or <em>radius</em>, as specified by the <em>mode</em> setting.</p>
+<p>For the <em>volume</em> setting, the weight of a cell is its 3d volume for a 3d model, and the weight is its 2d area for a 2d model. For an axi-symmetric model, the weight is the 3d volume of the 2d axi-symmetric cell, i.e. the volume the area sweeps out when rotated around the y=0 axis of symmetry. The <em>radius</em> setting is only allowed for axisymmetric systems. The weight in this case is the distance the cell’s midpoint is from the y=0 axis of symmetry. See <a class="reference internal" href="Section_howto.html#howto-axisymmetric"><span class="std std-ref">Section 6.2</span></a> for more details on axi-symmetric models.</p>
+<p>Second, when a particle moves from an initial cell to a final cell, the initial/final ratio of the two cell weights is calculated. If the ratio &gt; 1, then additional particles may be created in the final cell, by cloning the attributes of the incoming particle. E.g. if the ratio = 3.4, then two extra particle are created, and a 3rd is created with probability 0.4. If the ratio &lt; 1, then the incoming particle may be deleted. E.g. if the ratio is 0.7, then the incoming particle is deleted with probability 0.3.</p>
+<p>Note that the first calculation of weights is performed whenever the <em>global weight</em> command is issued. If particles already exist, they are not cloned or destroyed by the new weights. The second calculation only happens when a simulation is run.</p>
+</dd>
+<dt>The <em>particle/reorder</em> keyword</dt><dd><p>determines how often the list of particles on each processor is reordered to store particles in the same grid cell contiguously in memory. This operation is performed every <em>nsteps</em> as specified. A value of 0 means no reordering is ever done.  This option is only available when using the KOKKOS package and can improve performance on certain hardware such as GPUs, but is typically slower on CPUs except when running on thousands of nodes.</p>
+</dd>
+<dt>The <em>mem/limit</em> keyword</dt><dd><p>limits the amount of memory allocated for several operations: load balancing, reordering of particles, and restart file read/write. This should only be necessary for very large simulations where the memory footprint for particles and grid cells is a significant fraction of available memory. In this case, these operations can trigger a memory error due to the additional memory they require.  Setting a limit on the memory size will perform these operations more incrementally so that memory errors do not occur.</p>
+<p>A load-balance operation can use as much as 3x more memory than the memory used to store particles (reported by SPARTA when a simulation begins). Particle reordering temporarily doubles the memory needed to store particles because it is performed out-of-place by default. Reading and writing restart files also requires temporary buffers to hold grid cells and particles and can double the memory required.</p>
+<p>Specifying the value for <em>mem/limit</em> as <em>grid</em>, will allocate extra memory limited to the size of memory for storing grid cells on each processor. For most simulations this is typically much smaller than the memory used to store particles. Specifying a numeric value for <em>bytes</em> will allocate extra memory limited to that many MBytes on each processor. <em>Bytes</em> can be specified as a floating point value or an integer, e.g. 0.5 if you want to use 1/2 MByte of extra memory or 100 for a 100 MByte buffer. Specifying a value of 0 (the default) means no limit is used. The value used for <em>mem/limit</em> must not exceed 2GB or an error will occur.</p>
+<p>For load-balancing, the communication of grid and particle data to new processors will then be performed in multiple passes (if necessary) so that only a portion of grid cells and their particles which fit into the extra memory are migrated in each pass. Similarly for particle reordering, multiple passes are performed using the extra memory to reorder the particles nearly in-place. For reading/writing restart files, multiple passes are used to read from or write to the restart file as well. For reading restart files, this option is ignored unless reading from multiple files (i.e. a “%” character was used in the command to write out the restart) and the number of MPI ranks is greater than the number of files.</p>
+<p>Note that for these operations if the extra memory is too small, performance will suffer due to the large number of multiple passes required.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<p>The global surfmax command must be used before surface elements are defined, e.g. via the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf command</span></a>.</p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture command</span></a></p>
-<p><strong>Default:</strong></p>
-<p>The keyword defaults are fnum = 1.0, nrho = 1.0, vstream = 0.0 0.0 0.0,
-temp = 273.15, gravity = 0.0 0.0 0.0 0.0, surfs = explicit, surfgrid =
-auto, surfmax = 100, cellmax = 100, splitmax = 10, surftally = auto,
-surfpush = yes, gridcut = -1.0, comm/sort = no, comm/style = neigh,
-weight = cell none, particle/reorder = 0, mem/limit = 0.</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<p>The keyword defaults are</p>
+<ul class="simple">
+<li><p>fnum = 1.0</p></li>
+<li><p>nrho = 1.0</p></li>
+<li><p>vstream = 0.0 0.0 0.0</p></li>
+<li><p>temp = 273.15</p></li>
+<li><p>gravity = 0.0 0.0 0.0 0.0</p></li>
+<li><p>surfs = explicit</p></li>
+<li><p>surfgrid = auto</p></li>
+<li><p>surfmax = 100</p></li>
+<li><p>cellmax = 100</p></li>
+<li><p>splitmax = 10</p></li>
+<li><p>surftally = auto</p></li>
+<li><p>surfpush = yes</p></li>
+<li><p>gridcut = -1.0</p></li>
+<li><p>comm/sort = no</p></li>
+<li><p>comm/style = neigh</p></li>
+<li><p>weight = cell none</p></li>
+<li><p>particle/reorder = 0</p></li>
+<li><p>mem/limit = 0.</p></li>
+</ul>
+</div>
 </div>
 
 

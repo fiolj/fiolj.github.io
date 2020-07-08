@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,7 +168,8 @@
             
   <div class="section" id="compute-boundary-command">
 <span id="command-compute-boundary"></span><span id="index-0"></span><h1>compute boundary command<a class="headerlink" href="#compute-boundary-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">boundary</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">value1</span> <span class="n">value2</span> <span class="o">...</span>
 </pre></div>
 </div>
@@ -176,32 +177,33 @@
 </pre></div>
 </div>
 <ul>
-<li><p>ID is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
-<li><p>boundary = style name of this compute command</p></li>
-<li><p>mix-ID = mixture ID to perform calculation on</p></li>
-<li><p>one or more values can be appended</p></li>
-<li><p>value = <em>n</em> or <em>nwt</em> or <em>mflux</em> or <em>press</em> or <em>shx</em> or <em>shy</em> or <em>shz</em>
-or <em>ke</em> or <em>erot</em> or <em>evib</em> or <em>etot</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">count</span> <span class="n">of</span> <span class="n">particles</span> <span class="n">hitting</span> <span class="n">boundary</span>
-<span class="n">nwt</span> <span class="o">=</span> <span class="n">weighted</span> <span class="n">count</span> <span class="n">of</span> <span class="n">particles</span> <span class="n">hitting</span> <span class="n">boundary</span>
-<span class="n">mflux</span> <span class="o">=</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">mass</span> <span class="n">on</span> <span class="n">boundary</span>
-<span class="n">press</span> <span class="o">=</span> <span class="n">magnitude</span> <span class="n">of</span> <span class="n">normal</span> <span class="n">pressure</span> <span class="n">on</span> <span class="n">boundary</span>
-<span class="n">shx</span><span class="p">,</span><span class="n">shy</span><span class="p">,</span><span class="n">shz</span> <span class="o">=</span> <span class="n">components</span> <span class="n">of</span> <span class="n">shear</span> <span class="n">stress</span> <span class="n">on</span> <span class="n">boundary</span>
-<span class="n">ke</span> <span class="o">=</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">particle</span> <span class="n">kinetic</span> <span class="n">energy</span> <span class="n">on</span> <span class="n">boundary</span>
-<span class="n">erot</span> <span class="o">=</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">particle</span> <span class="n">rotational</span> <span class="n">energy</span> <span class="n">on</span> <span class="n">boundary</span>
-<span class="n">evib</span> <span class="o">=</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">particle</span> <span class="n">vibrational</span> <span class="n">energy</span> <span class="n">on</span> <span class="n">boundary</span>
-<span class="n">etot</span> <span class="o">=</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">particle</span> <span class="n">total</span> <span class="n">energy</span> <span class="n">on</span> <span class="n">boundary</span>
-</pre></div>
-</div>
+<li><p><code class="docutils literal notranslate"><span class="pre">ID</span></code> is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">boundary</span></code> = style name of this compute command</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mix-ID</span></code> = mixture ID to perform calculation on</p></li>
+<li><p>one or more values can be appended</p>
+<p><code class="docutils literal notranslate"><span class="pre">value</span></code> = <code class="docutils literal notranslate"><span class="pre">n</span></code> or <code class="docutils literal notranslate"><span class="pre">nwt</span></code> or <code class="docutils literal notranslate"><span class="pre">mflux</span></code> or <code class="docutils literal notranslate"><span class="pre">press</span></code> or <code class="docutils literal notranslate"><span class="pre">shx</span></code> or <code class="docutils literal notranslate"><span class="pre">shy</span></code> or <code class="docutils literal notranslate"><span class="pre">shz</span></code>  or <code class="docutils literal notranslate"><span class="pre">ke</span></code> or <code class="docutils literal notranslate"><span class="pre">erot</span></code> or <code class="docutils literal notranslate"><span class="pre">evib</span></code> or <code class="docutils literal notranslate"><span class="pre">etot</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> = count of particles hitting boundary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nwt</span></code> = weighted count of particles hitting boundary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mflux</span></code> = flux of mass on boundary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">press</span></code> = magnitude of normal pressure on boundary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shx,shy,shz</span></code> = components of shear stress on boundary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ke</span></code> = flux of particle kinetic energy on boundary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">erot</span></code> = flux of particle rotational energy on boundary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">evib</span></code> = flux of particle vibrational energy on boundary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">etot</span></code> = flux of particle total energy on boundary</p></li>
+</ul>
 </li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">boundary</span> <span class="nb">all</span> <span class="n">n</span> <span class="n">press</span> <span class="n">eng</span>
 <span class="n">compute</span> <span class="n">mine</span> <span class="n">boundary</span> <span class="n">species</span> <span class="n">press</span> <span class="n">shx</span> <span class="n">shy</span> <span class="n">shz</span>
 </pre></div>
 </div>
 <p>These commands will print values for the current timestep for the xlo
-and xhi boundaryies, as part of statistical output:</p>
+and xhi boundaries, as part of statistical output:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">boundary</span> <span class="nb">all</span> <span class="n">n</span> <span class="n">press</span>
 <span class="n">stats_style</span> <span class="n">step</span> <span class="n">np</span> <span class="n">c_1</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="n">c_1</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="n">c_1</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="n">c_1</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
@@ -212,7 +214,9 @@ boundary to a file every 1000 steps:</p>
 <span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">time</span> <span class="mi">10</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="n">c_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">mode</span> <span class="n">vector</span> <span class="n">file</span> <span class="n">tmp</span><span class="o">.</span><span class="n">boundary</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Define a computation that calculates one or more values for each
 boundary (i.e. face) of the simulation box, based on the particles that
 cross or collide with the boundary. The values are summed for each group
@@ -250,40 +254,25 @@ current values listed below, the two normalization methods are the same.</p>
 <p>If particle weighting is enabled via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command, then all of the values below are scaled by the weight assigned to the grid cell in which the particle collision with the boundary occurs. The only exception is the the <em>n</em> value, which is NOT scaled by the weight; it is a simple count of particle crossings or collisions with the boundary.</p>
 </div>
 <hr class="docutils" />
-<p>The <em>n</em> value counts the number of particles in the group crossing or
-colliding with the boundary.</p>
-<p>The <em>nwt</em> value counts the number of particles in the group crossing or
-colliding with the boundary and weights the count by the weight assigned
-to the grid cell in which the particle collision with the boundary
-occurs. The <em>nwt</em> quantity will only be different than <em>n</em> if particle
-weighting is enabled via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command.</p>
-<p>The <em>mflux</em> value calculates the mass flux imparted to the boundary by
-particles in the group. This is computed as</p>
+<dl>
+<dt>The <em>n</em> value</dt><dd><p>counts the number of particles in the group crossing or colliding with the boundary.</p>
+</dd>
+<dt>The <em>nwt</em> value</dt><dd><p>counts the number of particles in the group crossing or colliding with the boundary and weights the count by the weight assigned to the grid cell in which the particle collision with the boundary occurs. The <em>nwt</em> quantity will only be different than <em>n</em> if particle weighting is enabled via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command.</p>
+</dd>
+<dt>The <em>mflux</em> value</dt><dd><p>calculates the mass flux imparted to the boundary by particles in the group. This is computed as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mflux</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where the sum is over all contributing particle masses, normalized by A
-= the area of the surface element, dt = the timestep, and fnum = the
-real/simulated particle ratio set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global fnum</span></a>
-command.</p>
-<p>The <em>press</em> value calculates the pressure <em>P</em> exerted on the boundary in
-the normal direction by particles in the group, such that outward
-pressure is positive. This is computed as</p>
+<p>where the sum is over all contributing particle masses, normalized by A = the area of the surface element, dt = the timestep, and fnum = the real/simulated particle ratio set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global fnum</span></a> command.</p>
+</dd>
+<dt>The <em>press</em> value</dt><dd><p>calculates the pressure <em>P</em> exerted on the boundary in the normal direction by particles in the group, such that outward pressure is positive. This is computed as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p_delta</span> <span class="o">=</span> <span class="n">mass</span> <span class="o">*</span> <span class="p">(</span><span class="n">V_post</span> <span class="o">-</span> <span class="n">V_pre</span><span class="p">)</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_i</span> <span class="n">dot</span> <span class="n">N</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where A, dt, fnum are defined as before. P_delta is the change in
-momentum of a particle, whose velocity changes from V_pre to V_post when
-colliding with the boundary. The pressure exerted on the boundary is the
-sum over all contributing p_delta dotted into the normal N of the
-boundary which is directed into the box, normalized by A = the area of
-the boundary face and dt = the timestep and fnum = the real/simulated
-particle ratio set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global fnum</span></a> command.</p>
-<p>The <em>shx</em>, <em>shy</em>, <em>shz</em> values calculate the shear pressure components
-Sx, Sy, Sz extered on the boundary in the tangential direction to its
-normal by particles in the group, with respect to the x, y, z coordinate
-axes. These are computed as</p>
+<p>where A, dt, fnum are defined as before. P_delta is the change in momentum of a particle, whose velocity changes from V_pre to V_post when colliding with the boundary. The pressure exerted on the boundary is the sum over all contributing p_delta dotted into the normal N of the boundary which is directed into the box, normalized by A = the area of the boundary face and dt = the timestep and fnum = the real/simulated particle ratio set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global fnum</span></a> command.</p>
+</dd>
+<dt>The <em>shx</em>, <em>shy</em>, <em>shz</em> values</dt><dd><p>calculate the shear pressure components Sx, Sy, Sz extered on the boundary in the tangential direction to its normal by particles in the group, with respect to the x, y, z coordinate axes. These are computed as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p_delta</span> <span class="o">=</span> <span class="n">mass</span> <span class="o">*</span> <span class="p">(</span><span class="n">V_post</span> <span class="o">-</span> <span class="n">V_pre</span><span class="p">)</span>
 <span class="n">p_delta_t</span> <span class="o">=</span> <span class="n">p_delta</span> <span class="o">-</span> <span class="p">(</span><span class="n">p_delta</span> <span class="n">dot</span> <span class="n">N</span><span class="p">)</span> <span class="n">N</span>
 <span class="n">Sx</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_t_x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
@@ -291,50 +280,34 @@ axes. These are computed as</p>
 <span class="n">Sz</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_t_z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where p_delta, V_pre, V_post, N, A, dt, and fnum are defined as before.
-P_delta_t is the tangential component of the change in momentum vector
-p_delta of a particle. P_delta_t_x (and y,z) are its x, y, z components.</p>
-<p>The <em>ke</em> value calculates the kinetic energy flux <em>Eflux</em> imparted to
-the boundary by particles in the group, such that energy lost by a
-particle is a positive flux. This is computed as</p>
+<p>where p_delta, V_pre, V_post, N, A, dt, and fnum are defined as before.  P_delta_t is the tangential component of the change in momentum vector p_delta of a particle. P_delta_t_x (and y,z) are its x, y, z components.</p>
+</dd>
+<dt>The <em>ke</em> value</dt><dd><p>calculates the kinetic energy flux <em>Eflux</em> imparted to the boundary by particles in the group, such that energy lost by a particle is a positive flux. This is computed as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e_delta</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="n">mass</span> <span class="p">(</span><span class="n">V_post</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="n">V_pre</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">Eflux</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">e_delta</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where e_delta is the kinetic energy change in a particle, whose velocity
-changes from V_pre to V_post when colliding with the boundary. The
-energy flux imparted to the boundary is the sum over all contributing
-e_delta, normalized by A = the area of the boundary face and dt = the
-timestep and fnum = the real/simulated particle ratio set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global fnum</span></a> command.</p>
-<p>The <em>erot</em> value calculates the rotational energy flux <em>Eflux</em> imparted
-to the boundary by particles in the group, such that energy lost by a
-particle is a positive flux. This is computed as</p>
+<p>where e_delta is the kinetic energy change in a particle, whose velocity changes from V_pre to V_post when colliding with the boundary. The energy flux imparted to the boundary is the sum over all contributing e_delta, normalized by A = the area of the boundary face and dt = the timestep and fnum = the real/simulated particle ratio set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global fnum</span></a> command.</p>
+</dd>
+<dt>The <em>erot</em> value</dt><dd><p>calculates the rotational energy flux <em>Eflux</em> imparted to the boundary by particles in the group, such that energy lost by a particle is a positive flux. This is computed as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e_delta</span> <span class="o">=</span> <span class="n">Erot_post</span> <span class="o">-</span> <span class="n">Erot_pre</span>
 <span class="n">Eflux</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">e_delta</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where e_delta is the rotational energy change in a particle, whose
-internal rotational energy changes from Erot_pre to Erot_post when
-colliding with the boundary. The flux equation is the same as for the
-<em>ke</em> value.</p>
-<p>The <em>evib</em> value calculates the vibrational energy flux <em>Eflux</em> imparted
-to the boundary by particles in the group, such that energy lost by a
-particle is a positive flux. This is computed as</p>
+<p>where e_delta is the rotational energy change in a particle, whose internal rotational energy changes from Erot_pre to Erot_post when colliding with the boundary. The flux equation is the same as for the <em>ke</em> value.</p>
+</dd>
+<dt>The <em>evib</em> value</dt><dd><p>calculates the vibrational energy flux <em>Eflux</em> imparted to the boundary by particles in the group, such that energy lost by a particle is a positive flux. This is computed as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e_delta</span> <span class="o">=</span> <span class="n">Evib_post</span> <span class="o">-</span> <span class="n">Evib_pre</span>
 <span class="n">Eflux</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">e_delta</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where e_delta is the vibrational energy change in a particle, whose
-internal vibrational energy changes from Evib_pre to Evib_post when
-colliding with the boundary. The flux equation is the same as for the
-<em>ke</em> value.</p>
-<p>The <em>etot</em> value calculates the total energy flux imparted to the
-boundary by particles in the group, such that energy lost by a particle
-is a positive flux. This is simply the sum of kinetic, rotational, and
-vibrational energies. Thus the total energy flux is the sum of what is
-computed by the <em>ke</em>, <em>erot</em>, and <em>evib</em> values.</p>
-<hr class="docutils" />
-<p><strong>Output info:</strong></p>
+<p>where e_delta is the vibrational energy change in a particle, whose internal vibrational energy changes from Evib_pre to Evib_post when colliding with the boundary. The flux equation is the same as for the <em>ke</em> value.</p>
+</dd>
+<dt>The <em>etot</em> value</dt><dd><p>calculates the total energy flux imparted to the boundary by particles in the group, such that energy lost by a particle is a positive flux. This is simply the sum of kinetic, rotational, and vibrational energies. Thus the total energy flux is the sum of what is computed by the <em>ke</em>, <em>erot</em>, and <em>evib</em> values.</p>
+</dd>
+</dl>
+<div class="section" id="output-info">
+<h3>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h3>
 <p>This compute calculates a global array, with the number of columns equal
 to the number of values times the number of groups. The ordering of
 columns is first by values, then by groups. I.e. if the <em>n</em> and <em>u</em>
@@ -344,20 +317,14 @@ and <em>u</em> for the second group, etc. The number of rows is 4 for a 2d
 simulation for the 4 faces (xlo, xhi, ylo, yhi), and it is 6 for a 3d
 simulation (xlo, xhi, ylo, yhi, zlo, zhi).</p>
 <p>The array can be accessed by any command that uses global array values
-from a compute as input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Section 6.4</span></a> for an overview of SPARTA output
-options.</p>
+from a compute as input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Section 6.4</span></a> for an overview of SPARTA output options.</p>
 <p>The array values will be in the <a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a> appropriate to
 the individual values as described above. <em>N</em> is unitless. <em>Press</em>,
 <em>shx</em>, <em>shy</em>, <em>shz</em> are in pressure units. <em>Ke</em>, <em>erot</em>, <em>evib</em>, and
 <em>etot</em> are in energy/area-time units for 3d simulations and
 energy/length-time units for 2d simulations.</p>
 <hr class="docutils" />
-<p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding
-style without the suffix. They have been optimized to run faster,
-depending on your available hardware, as discussed in the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual. The
-accelerated styles take the same arguments and should produce the same
-results, except for different random number, round-off and precision
-issues.</p>
+<p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding style without the suffix. They have been optimized to run faster, depending on your available hardware, as discussed in the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual. The accelerated styles take the same arguments and should produce the same results, except for different random number, round-off and precision issues.</p>
 <p>These accelerated styles are part of the KOKKOS package. They are only
 enabled if SPARTA was built with that package. See the <a class="reference internal" href="Section_start.html#start-making-sparta"><span class="std std-ref">Making SPARTA</span></a> section for more info.</p>
 <p>You can specify the accelerated styles explicitly in your input script
@@ -366,13 +333,24 @@ can use the <a class="reference internal" href="suffix.html#command-suffix"><spa
 <p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the
 manual for more instructions on how to use the accelerated styles
 effectively.</p>
+</div>
+</div>
 <hr class="docutils" />
-<p><strong>Restrictions:</strong></p>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
 <p>If specified with a <em>kk</em> suffix, this compute can be used no more than
 twice in the same input script (active at the same time).</p>
-<p><strong>Related commands:</strong></p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time command</span></a></p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
 </div>
 
 

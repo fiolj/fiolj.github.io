@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,7 +168,8 @@
             
   <div class="section" id="fix-command">
 <span id="command-fix"></span><span id="index-0"></span><h1>fix command<a class="headerlink" href="#fix-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">style</span> <span class="n">args</span>
 </pre></div>
 </div>
@@ -177,12 +178,16 @@
 <li><p>style = one of a long list of possible style names (see below)</p></li>
 <li><p>args = arguments used by a particular style</p></li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="mi">1</span> <span class="n">grid</span><span class="o">/</span><span class="n">check</span> <span class="mi">100</span> <span class="n">warn</span>
 <span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">time</span> <span class="nb">all</span> <span class="mi">100</span> <span class="mi">5</span> <span class="mi">1000</span> <span class="n">c_myTemp</span> <span class="n">c_thermo_temp</span> <span class="n">file</span> <span class="n">temp</span><span class="o">.</span><span class="n">profile</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Set a fix that will be applied to the system. In SPARTA, a “fix” is an
 operation that is applied to the system during timestepping. Examples
 include adding particles via inlet boundary conditions or computing
@@ -199,12 +204,8 @@ be re-used.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>The <a class="reference internal" href="unfix.html#command-unfix"><span class="std std-ref">unfix</span></a> command is the only way to turn off a fix; simply specifying a new fix with the same style and a different ID will not turn off the first one.</p>
+<p>If you specify a new fix with the same ID and style as an existing fix, the old fix is deleted and the new one is created (presumably with new settings). This is the same as if an “unfix” command were first performed on the old fix, except that the new fix is kept in the same order relative to the existing fixes as the old one originally was.</p>
 </div>
-<p>If you specify a new fix with the same ID and style as an existing fix,
-the old fix is deleted and the new one is created (presumably with new
-settings). This is the same as if an “unfix” command were first
-performed on the old fix, except that the new fix is kept in the same
-order relative to the existing fixes as the old one originally was.</p>
 <p>Some fixes store an internal “state” which is written to binary restart
 files via the <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart</span></a> or
 <a class="reference internal" href="write_restart.html#command-write-restart"><span class="std std-ref">write_restart</span></a> commands. This allows the fix to
@@ -315,11 +316,24 @@ referenced in an <a class="reference internal" href="variable.html#command-varia
 <li><p>Per-grid values can be output via the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a>
 command. Or the per-grid values can be referenced in a <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">grid-style    variable</span></a>.</p></li>
 </ul>
+</div>
 <hr class="docutils" />
-<p><strong>Restrictions:</strong> none</p>
-<p><strong>Related commands:</strong></p>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="unfix.html#command-unfix"><span class="std std-ref">unfix command</span></a></p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
 </div>
 
 

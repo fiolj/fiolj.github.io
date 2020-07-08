@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -177,7 +177,8 @@
 </div>
 <div class="section" id="fix-ave-histo-weight-kk-command">
 <span id="command-fix-ave-histo-fix-avehistoweightkk"></span><h1>fix ave/histo/weight/kk command<a class="headerlink" href="#fix-ave-histo-weight-kk-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">style</span> <span class="n">Nevery</span> <span class="n">Nrepeat</span> <span class="n">Nfreq</span> <span class="n">lo</span> <span class="n">hi</span> <span class="n">Nbin</span> <span class="n">value1</span> <span class="n">value2</span> <span class="o">...</span> <span class="n">keyword</span> <span class="n">args</span> <span class="o">...</span>
 </pre></div>
 </div>
@@ -235,13 +236,17 @@ or <em>start</em> or <em>beyond</em> or <em>overwrite</em> or <em>title1</em> or
 </div>
 </li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">histo</span> <span class="mi">100</span> <span class="mi">5</span> <span class="mi">1000</span> <span class="mf">0.5</span> <span class="mf">1.5</span> <span class="mi">50</span> <span class="n">c_myGrid</span><span class="o">*</span> <span class="n">file</span> <span class="n">temp</span><span class="o">.</span><span class="n">histo</span> <span class="n">ave</span> <span class="n">running</span>
 <span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">histo</span> <span class="mi">100</span> <span class="mi">5</span> <span class="mi">1000</span> <span class="mi">0</span> <span class="mi">5</span> <span class="mi">100</span> <span class="n">c_kePart</span> <span class="s2">&quot;My output values&quot;</span>
 <span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">histo</span><span class="o">/</span><span class="n">weight</span> <span class="mi">1</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="o">-</span><span class="mf">2.0</span> <span class="mf">2.0</span> <span class="mi">18</span> <span class="n">vx</span> <span class="n">vy</span> <span class="n">ave</span> <span class="n">running</span> <span class="n">beyond</span> <span class="n">extra</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Use one or more values as inputs every few timesteps to create a single
 histogram. The histogram can then be averaged over longer timescales.
 The resulting histogram can be used by other <a class="reference internal" href="Section_howto.html#howto-transparent-surface"><span class="std std-ref">output commands</span></a>, and can also be written to a
@@ -475,17 +480,30 @@ can use the <a class="reference internal" href="suffix.html#command-suffix"><spa
 <p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the
 manual for more instructions on how to use the accelerated styles
 effectively.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restrictions:</strong> none</p>
-<p><strong>Related commands:</strong></p>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute command</span></a>,
 <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time command</span></a>,
 <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable command</span></a></p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
 <p>The option defaults are mode = scalar, ave = one, start = 0, no file
 output, no region/mixture/group restriction on inclusion of particles or
 grid cells, beyond = ignore, and title 1,2,3 = strings as described
 above.</p>
+</div>
 </div>
 
 

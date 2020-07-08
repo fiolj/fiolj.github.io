@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,18 +168,23 @@
             
   <div class="section" id="read-grid-command">
 <span id="command-read-grid"></span><span id="index-0"></span><h1>read_grid command<a class="headerlink" href="#read-grid-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_grid</span> <span class="n">filename</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>filename = name of grid file</p></li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_grid</span> <span class="n">grid</span><span class="o">.</span><span class="n">overlay</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Read in a grid description from a file, which will overlay the
 simulation domain defined by the <a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a>
 command. The grid can also be defined by the
@@ -286,7 +291,9 @@ simulation domain. Its specification in the grid file defines the level
 </pre></div>
 </div>
 <p>which means the level 1 grid has 10x10x20 cells.</p>
-<p><strong>Restrictions:</strong></p>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
 <p>This command can only be used after the simulation box is defined by the
 <a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a> command.</p>
 <p>To read gzipped grid files, you must compile SPARTA with the
@@ -299,10 +306,18 @@ be used depends on the resolution of the grid at each level. For a
 minimal refinement of 2x2x2, a level uses 4 bits of the integer ID. Thus
 a maximum of 7 levels can be used for 32-bit IDs and 15 levels for
 64-bit IDs.</p>
-<p><strong>Related commands:</strong></p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box command</span></a>,
 <a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid command</span></a></p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
 </div>
 
 

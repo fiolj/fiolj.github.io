@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,7 +168,8 @@
             
   <div class="section" id="read-particles-command">
 <span id="command-read-particles"></span><span id="index-0"></span><h1>read_particles command<a class="headerlink" href="#read-particles-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_particles</span> <span class="n">file</span> <span class="n">Nstep</span>
 </pre></div>
 </div>
@@ -176,11 +177,15 @@
 <li><p>file = dump file to read snapshot from</p></li>
 <li><p>Nstep = timestep to read</p></li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_particles</span> <span class="n">dump</span><span class="o">.</span><span class="n">sphere</span> <span class="mi">10500</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Read a snapshot of particles from a previously created dump file and add
 them to the simulation domain. This is a means of reading in particles
 from a previous SPARTA simulation or created as output by another code.
@@ -213,12 +218,25 @@ surface object. Particles in grid cells which are cut by surfaces are
 not checked. It is your responsibility to insure particles close to
 surfaces are actually outside the surface object. If this is not the
 case, errors may be triggered once particles begin to move.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restrictions:</strong> none</p>
-<p><strong>Related commands:</strong></p>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles command</span></a>,
 <a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">fix emit/face command</span></a></p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
 </div>
 
 

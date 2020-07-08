@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,7 +168,8 @@
             
   <div class="section" id="fix-vibmode-command">
 <span id="command-fix-vibmode"></span><span id="index-0"></span><h1>fix vibmode command<a class="headerlink" href="#fix-vibmode-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">vibmode</span>
 </pre></div>
 </div>
@@ -176,11 +177,15 @@
 <li><p>ID is documented in <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> command</p></li>
 <li><p>vibmode = style name of this fix command</p></li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="mi">1</span> <span class="n">vibmode</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Enable multiple vibrational energy levels, defined on a per-species
 basis, to be used in a simulation. This fix is meant to be used with the
 <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify vibrate discrete</span></a> setting which
@@ -222,7 +227,9 @@ for access by various output commands.</p>
 accessed by the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump particle</span></a> command, as p_vibmode.
 That means those per-particle values can be written to particle dump
 files.</p>
-<p><strong>Restrictions:</strong></p>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
 <p>This fix is required if “collide_modify vibrate discrete” is used and
 there is one or more species defined which haave multiple vibrational
 energy modes (2 or more). In this scenario, if it is not defined, an
@@ -236,9 +243,17 @@ to read in particles from a previous simulation where this fix was used.
 In that case, defining this fix after reading the restart file will
 enable the particles to keep their previous vibrational energy mode
 values.</p>
-<p><strong>Related commands:</strong></p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide modify vibrate discrete</span></a></p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
 </div>
 
 

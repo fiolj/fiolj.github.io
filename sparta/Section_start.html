@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -427,7 +427,7 @@ MPI version does not recognize “long long” data types. In this case a
 will use that data type.</p>
 <p>Using one of the -DPACK_ARRAY, -DPACK_POINTER, and -DPACK_MEMCPY options
 can make for faster parallel FFTs on some platforms. The -DPACK_ARRAY
-setting is the default. See the <a class="reference internal" href="compute_fft_grid.html#command-compute-fft-grid"><span class="std std-ref">compute fft/grid command</span></a> command for info about FFTs. See
+setting is the default. See the <a class="reference internal" href="compute_fft_grid.html#command-compute-fft-grid"><span class="std std-ref">compute fft/grid command</span></a> for info about FFTs. See
 Step 6 below for info about building SPPARKS with an FFT library.</p>
 </div>
 <div class="section" id="step-5">
@@ -519,7 +519,7 @@ use and parallel communication costs for transposing 3d FFT data.</p>
 <div class="section" id="step-7">
 <span id="start-step-7"></span><h4>2.2.2.8. Step 7<a class="headerlink" href="#step-7" title="Permalink to this headline">¶</a></h4>
 <p>The 3 JPG variables allow you to specify a JPEG and/or PNG library which
-SPARTA uses when writing out JPEG or PNG files via the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> command. These can be left blank if you do
+SPARTA uses when writing out JPEG or PNG files via the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a>. These can be left blank if you do
 not use the -DSPARTA_JPEG or -DSPARTA_PNG switches discussed above in
 Step 4, since in that case JPEG/PNG output will be disabled.</p>
 <p>A standard JPEG library usually goes by the name libjpeg.a or libjpeg.so
@@ -586,18 +586,13 @@ using the -DSPARTA_LONGLONG_TO_LONG setting described above in Step 4.</p>
 </div>
 <div class="section" id="additional-build-tips">
 <span id="start-additional-build"></span><h3><a class="toc-backref" href="#id14">2.2.4. Additional build tips:</a><a class="headerlink" href="#additional-build-tips" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Building SPARTA for multiple platforms.</p></li>
-</ol>
-<p>You can make SPARTA for multiple platforms from the same src directory.
-Each target creates its own object sub-directory called Obj_name where
-it stores the system-specific *.o files.</p>
-<ol class="arabic simple" start="2">
-<li><p>Cleaning up.</p></li>
-</ol>
-<p>Typing “make clean-all” or “make clean-foo” will delete *.o object
-files created when SPARTA is built, for either all builds or for a
-particular machine.</p>
+<dl class="simple">
+<dt>Building SPARTA for multiple platforms.</dt><dd><p>You can make SPARTA for multiple platforms from the same src directory.
+Each target creates its own object sub-directory called Obj_name where it stores the system-specific *.o files.</p>
+</dd>
+<dt>Cleaning up.</dt><dd><p>Typing “make clean-all” or “make clean-foo” will delete *.o object files created when SPARTA is built, for either all builds or for a particular machine.</p>
+</dd>
+</dl>
 <hr class="docutils" />
 </div>
 <div class="section" id="building-for-a-mac">
@@ -891,7 +886,7 @@ letter abbreviation can be used:</p>
 input script will be echoed to the screen and/or logfile. This can be
 useful to figure out which line of your script is causing an input
 error. The default value is <em>log</em>. The echo style can also be set by
-using the <a class="reference internal" href="echo.html#command-echo"><span class="std std-ref">echo command</span></a> command in the input script itself.</p>
+using the <a class="reference internal" href="echo.html#command-echo"><span class="std std-ref">echo command</span></a> in the input script itself.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="ow">in</span> <span class="n">file</span>
 </pre></div>
 </div>
@@ -987,7 +982,7 @@ a log.sparta.N file where N is the partition ID. If the switch is
 specified in multi-partition mode, the hi-level logfile is named “file”
 and each partition also logs information to a file.N. For both
 one-partition and multi-partition mode, if the specified file is “none”,
-then no log files are created. Using a <a class="reference internal" href="log.html#command-log"><span class="std std-ref">log command</span></a> command in the
+then no log files are created. Using a <a class="reference internal" href="log.html#command-log"><span class="std std-ref">log command</span></a> in the
 input script will override this setting. Option -plog will override the
 name of the partition log files file.N.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">partition</span> <span class="mi">8</span><span class="n">x2</span> <span class="mi">4</span> <span class="mi">5</span> <span class="o">...</span>
@@ -1012,13 +1007,7 @@ context.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">package</span> <span class="n">style</span> <span class="n">args</span> <span class="o">....</span>
 </pre></div>
 </div>
-<p>Invoke the <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package command</span></a> command with style and args. The
-syntax is the same as if the command appeared at the top of the input
-script. For example “-package kokkos on gpus 2” or “-pk kokkos g 2” is
-the same as <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package kokkos g 2</span></a> in the input script.
-The possible styles and args are documented on the
-<a class="reference internal" href="package.html#command-package"><span class="std std-ref">package command</span></a> doc page. This switch can be used multiple
-times.</p>
+<p>Invoke the <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package command</span></a> with style and args. The syntax is the same as if the command appeared at the top of the input script. For example “-package kokkos on gpus 2” or “-pk kokkos g 2” is the same as <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package kokkos g 2</span></a> in the input script.  The possible styles and args are documented on the <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package command</span></a> doc page. This switch can be used multiple times.</p>
 <p>Along with the “-suffix” command-line switch, this is a convenient
 mechanism for invoking the KOKKOS accelerator package and its options
 without having to edit an input script.</p>
@@ -1027,7 +1016,7 @@ without having to edit an input script.</p>
 </div>
 <p>Specify the base name for the partition log files, so partition N writes
 log information to file.N. If file is none, then no partition log files
-are created. This overrides the filename specified in the -log
+are created. This overrides the filename specified in the <code class="docutils literal notranslate"><span class="pre">-log</span></code>
 command-line option. This option is useful when working with large
 numbers of partitions, allowing the partition log files to be suppressed
 (-plog none) or placed in a sub-directory (-plog
@@ -1040,10 +1029,10 @@ command-line option.</p>
 <p>Specify the base name for the partition screen file, so partition N
 writes screen information to file.N. If file is none, then no partition
 screen files are created. This overrides the filename specified in the
--screen command-line option. This option is useful when working with
+<code class="docutils literal notranslate"><span class="pre">-screen</span></code> command-line option. This option is useful when working with
 large numbers of partitions, allowing the partition screen files to be
-suppressed (-pscreen none) or placed in a sub-directory (-pscreen
-replica_files/screen) If this option is not used the screen file for
+suppressed (<code class="docutils literal notranslate"><span class="pre">-pscreen</span> <span class="pre">none</span></code>) or placed in a sub-directory (<code class="docutils literal notranslate"><span class="pre">-pscreen</span>
+<span class="pre">replica_files/screen</span></code>). If this option is not used the screen file for
 partition N is screen.N or whatever is specified by the -screen
 command-line option.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">screen</span> <span class="n">file</span>
@@ -1079,8 +1068,8 @@ The specified suffix (kk) is automatically appended whenever your input script c
 <p>For the KOKKOS package, using this command-line switch also invokes the
 default KOKKOS settings, as if the command “package kokkos” were used at
 the top of your input script. These settings can be changed by using the
-“-package kokkos” command-line switch or the <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package command</span></a> command in your script.</p>
-<p>The <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix command</span></a> command can also be used within an input
+“-package kokkos” command-line switch or the <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package command</span></a> in your script.</p>
+<p>The <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix command</span></a> can also be used within an input
 script to set a suffix, or to turn off or back on any suffix setting
 made via the command line.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">var</span> <span class="n">name</span> <span class="n">value1</span> <span class="n">value2</span> <span class="o">...</span>
@@ -1116,9 +1105,14 @@ concludes, SPARTA prints the final state and a total run time for the
 simulation. It then appends statistics about the CPU time and size of
 information stored for the simulation. An example set of statistics is
 shown here:</p>
+<ul>
+<li><p>The first line gives the total CPU run time for the simulation, in seconds.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Loop</span> <span class="n">time</span> <span class="n">of</span> <span class="mf">0.639973</span> <span class="n">on</span> <span class="mi">4</span> <span class="n">procs</span> <span class="k">for</span> <span class="mi">1000</span> <span class="n">steps</span> <span class="k">with</span> <span class="mi">45792</span> <span class="n">particles</span>
-
-<span class="n">MPI</span> <span class="n">task</span> <span class="n">timing</span> <span class="n">breakdown</span><span class="p">:</span>
+</pre></div>
+</div>
+</li>
+<li><p>The next section gives a breakdown of the CPU timing (in seconds) in 7 categories. The first four are timings for particles moves, which includes interaction with surface elements, then particle collisions, then sorting of particles (required to perform collisions), and communication of particles between processors. The Modify section is time for operations invoked by fixes and computes. The Output section is for dump command and statistical output. The Other category is typically for load-imbalance, as some MPI tasks wait for others MPI tasks to complete. In each category the min,ave,max time across processors is shown, as well as a variation, and the percentage of total time.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MPI</span> <span class="n">task</span> <span class="n">timing</span> <span class="n">breakdown</span><span class="p">:</span>
 <span class="n">Section</span> <span class="o">|</span>  <span class="nb">min</span> <span class="n">time</span>  <span class="o">|</span>  <span class="n">avg</span> <span class="n">time</span>  <span class="o">|</span>  <span class="nb">max</span> <span class="n">time</span>  <span class="o">|%</span><span class="n">varavg</span><span class="o">|</span> <span class="o">%</span><span class="n">total</span>
 <span class="o">---------------------------------------------------------------</span>
 <span class="n">Move</span>    <span class="o">|</span> <span class="mf">0.10948</span>    <span class="o">|</span> <span class="mf">0.26191</span>    <span class="o">|</span> <span class="mf">0.42049</span>    <span class="o">|</span>  <span class="mf">27.6</span> <span class="o">|</span> <span class="mf">40.92</span>
@@ -1130,6 +1124,8 @@ shown here:</p>
 <span class="n">Other</span>   <span class="o">|</span>            <span class="o">|</span> <span class="mf">0.2471</span>     <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span> <span class="mf">38.61</span>
 </pre></div>
 </div>
+</li>
+<li><p>The next section gives some statistics about the run. These are total counts of particle moves, grid cells touched by particles, the number of particles communicated between processors, collisions of particles with the global boundary and with surface elements (none in this problem), as well as collision and reaction statistics.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Particle</span> <span class="n">moves</span>    <span class="o">=</span> <span class="mi">38096354</span> <span class="p">(</span><span class="mf">38.1</span><span class="n">M</span><span class="p">)</span>
 <span class="n">Cells</span> <span class="n">touched</span>     <span class="o">=</span> <span class="mi">43236871</span> <span class="p">(</span><span class="mf">43.2</span><span class="n">M</span><span class="p">)</span>
 <span class="n">Particle</span> <span class="n">comms</span>    <span class="o">=</span> <span class="mi">146623</span> <span class="p">(</span><span class="mf">0.147</span><span class="n">M</span><span class="p">)</span>
@@ -1144,6 +1140,8 @@ shown here:</p>
 <span class="n">Particles</span> <span class="n">stuck</span>   <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
+</li>
+<li><p>The next section gives additional statistics, normalized by timestep or processor count.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Particle</span><span class="o">-</span><span class="n">moves</span><span class="o">/</span><span class="n">CPUsec</span><span class="o">/</span><span class="n">proc</span><span class="p">:</span> <span class="mf">1.4882e+07</span>
 <span class="n">Particle</span><span class="o">-</span><span class="n">moves</span><span class="o">/</span><span class="n">step</span><span class="p">:</span> <span class="mf">38096.4</span>
 <span class="n">Cell</span><span class="o">-</span><span class="n">touches</span><span class="o">/</span><span class="n">particle</span><span class="o">/</span><span class="n">step</span><span class="p">:</span> <span class="mf">1.13493</span>
@@ -1159,6 +1157,8 @@ shown here:</p>
 <span class="n">Gas</span><span class="o">-</span><span class="n">reactions</span><span class="o">/</span><span class="n">particle</span><span class="o">/</span><span class="n">step</span><span class="p">:</span> <span class="mf">0.023</span>
 </pre></div>
 </div>
+</li>
+<li><p>The next 2 sections are optional. The “Gas reaction tallies” section is only output if the <a class="reference internal" href="react.html#command-react"><span class="std std-ref">react command</span></a> is used. For each reaction with a non-zero tally, the number of those reactions that occurred during the run is printed. The “Surface reaction tallies” section is only output if the <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a> was used one or more times, to assign reaction models to individual surface elements or the box boundaries. For each of the commands, and each of its reactions with a non-zero tally, the number of those reactions that occurred during the run is printed. Note that this is effectively a summation over all the surface elements and/or box boundaries the <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a> was used to assign a reaction model to.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Gas</span> <span class="n">reaction</span> <span class="n">tallies</span><span class="p">:</span> <span class="n">style</span> <span class="n">tce</span> <span class="c1">#-of-reactions 45 \</span>
 <span class="n">reaction</span> <span class="n">O2</span> <span class="o">+</span> <span class="n">N</span> <span class="o">--&gt;</span> <span class="n">O</span> <span class="o">+</span> <span class="n">O</span> <span class="o">+</span> <span class="n">N</span><span class="p">:</span> <span class="mi">10</span> \
 <span class="n">reaction</span> <span class="n">O2</span> <span class="o">+</span> <span class="n">O</span> <span class="o">--&gt;</span> <span class="n">O</span> <span class="o">+</span> <span class="n">O</span> <span class="o">+</span> <span class="n">O</span><span class="p">:</span> <span class="mi">5</span> \
@@ -1170,6 +1170,9 @@ shown here:</p>
 <span class="n">reaction</span> <span class="n">create</span><span class="p">:</span> <span class="mi">70500</span>
 </pre></div>
 </div>
+</li>
+<li><p>The last section is a histogramming across processors of various per-processor statistics: particle count, owned grid cells, processor, ghost grid cells which are copies of cells owned by other processors, and empty cells which are ghost cells without surface information (only used to pass particles to neighboring processors).
+The ave value is the average across all processors. The max and min values are for any processor. The 10-bin histogram shows the distribution of the value across processors. The total number of histogram counts is equal to the number of processors.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Particles</span><span class="p">:</span> <span class="mi">11448</span> <span class="n">ave</span> <span class="mi">17655</span> <span class="nb">max</span> <span class="mi">5306</span> <span class="nb">min</span>
 <span class="n">Histogram</span><span class="p">:</span> <span class="mi">2</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">2</span>
 <span class="n">Cells</span><span class="p">:</span>     <span class="mi">100</span> <span class="n">ave</span> <span class="mi">100</span> <span class="nb">max</span> <span class="mi">100</span> <span class="nb">min</span>
@@ -1184,13 +1187,8 @@ shown here:</p>
 <span class="n">Histogram</span><span class="p">:</span> <span class="mi">4</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<p>The first line gives the total CPU run time for the simulation, in seconds.</p>
-<p>The next section gives a breakdown of the CPU timing (in seconds) in 7 categories. The first four are timings for particles moves, which includes interaction with surface elements, then particle collisions, then sorting of particles (required to perform collisions), and communication of particles between processors. The Modify section is time for operations invoked by fixes and computes. The Output section is for dump command and statistical output. The Other category is typically for load-imbalance, as some MPI tasks wait for others MPI tasks to complete. In each category the min,ave,max time across processors is shown, as well as a variation, and the percentage of total time.</p>
-<p>The next section gives some statistics about the run. These are total counts of particle moves, grid cells touched by particles, the number of particles communicated between processors, collisions of particles with the global boundary and with surface elements (none in this problem), as well as collision and reaction statistics.</p>
-<p>The next section gives additional statistics, normalized by timestep or processor count.</p>
-<p>The next 2 sections are optional. The “Gas reaction tallies” section is only output if the <a class="reference internal" href="react.html#command-react"><span class="std std-ref">react command</span></a> is used. For each reaction with a non-zero tally, the number of those reactions that occurred during the run is printed. The “Surface reaction tallies” section is only output if the <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a> was used one or more times, to assign reaction models to individual surface elements or the box boundaries. For each of the commands, and each of its reactions with a non-zero tally, the number of those reactions that occurred during the run is printed. Note that this is effectively a summation over all the surface elements and/or box boundaries the <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a> was used to assign a reaction model to.</p>
-<p>The last section is a histogramming across processors of various per-processor statistics: particle count, owned grid cells, processor, ghost grid cells which are copies of cells owned by other processors, and empty cells which are ghost cells without surface information (only used to pass particles to neighboring processors).</p>
-<p>The ave value is the average across all processors. The max and min values are for any processor. The 10-bin histogram shows the distribution of the value across processors. The total number of histogram counts is equal to the number of processors.</p>
+</li>
+</ul>
 </div>
 </div>
 

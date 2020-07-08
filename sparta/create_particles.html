@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -171,37 +171,46 @@
 </div>
 <div class="section" id="create-particles-kk-command">
 <span id="command-create-particles-createparticleskk"></span><h1>create_particles/kk command<a class="headerlink" href="#create-particles-kk-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create_particles</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">style</span> <span class="n">args</span> <span class="n">keyword</span> <span class="n">value</span> <span class="o">...</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><p>mix-ID = ID of mixture to use when creating particles</p></li>
 <li><p>style = <em>n</em> or <em>single</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="n">args</span> <span class="o">=</span> <span class="n">Np</span>
-  <span class="n">Np</span> <span class="o">=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">number</span> <span class="n">of</span> <span class="n">particles</span> <span class="n">to</span> <span class="n">create</span>
-<span class="n">single</span> <span class="n">args</span> <span class="o">=</span> <span class="n">species</span><span class="o">-</span><span class="n">ID</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="n">vx</span> <span class="n">vy</span> <span class="n">vz</span>
-  <span class="n">species</span><span class="o">-</span><span class="n">ID</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">species</span> <span class="n">of</span> <span class="n">single</span> <span class="n">particle</span>
-  <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">position</span> <span class="n">of</span> <span class="n">particle</span> <span class="p">(</span><span class="n">distance</span> <span class="n">units</span><span class="p">)</span>
-  <span class="n">vx</span><span class="p">,</span><span class="n">vy</span><span class="p">,</span><span class="n">vz</span> <span class="o">=</span> <span class="n">velocity</span> <span class="n">of</span> <span class="n">particle</span> <span class="p">(</span><span class="n">velocity</span> <span class="n">units</span><span class="p">)</span>
-</pre></div>
-</div>
+<ul>
+<li><p>n args = Np =</p>
+<ul>
+<li><p>Np = 0 or number of particles to create</p></li>
+</ul>
+</li>
+<li><p>single args = species-ID x y z vx vy vz</p>
+<ul>
+<li><p>species-ID = ID of species of single particle</p></li>
+<li><p>x,y,z = position of particle (distance units)</p></li>
+<li><p>vx,vy,vz = velocity of particle (velocity units)</p></li>
+</ul>
+</li>
+</ul>
 </li>
 <li><p>zero or more keyword/value pairs may be appended</p></li>
 <li><p>keyword = <em>global</em> or <em>region</em> or <em>species</em> or <em>density</em> or
 <em>temperature</em> or <em>velocity</em> or <em>twopass</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">global</span> <span class="n">value</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
-<span class="n">region</span> <span class="n">value</span> <span class="o">=</span> <span class="n">region</span><span class="o">-</span><span class="n">ID</span>
-<span class="n">species</span> <span class="n">values</span> <span class="o">=</span> <span class="n">svar</span> <span class="n">xvar</span> <span class="n">yvar</span> <span class="n">zvar</span>
-<span class="n">density</span> <span class="n">values</span> <span class="o">=</span> <span class="n">dvar</span> <span class="n">xvar</span> <span class="n">yvar</span> <span class="n">zvar</span>
-<span class="n">temperature</span> <span class="n">values</span> <span class="o">=</span> <span class="n">tvar</span> <span class="n">xvar</span> <span class="n">yvar</span> <span class="n">zvar</span>
-<span class="n">velocity</span> <span class="n">values</span> <span class="o">=</span> <span class="n">vxvar</span> <span class="n">vyvar</span> <span class="n">vzvar</span> <span class="n">xvar</span> <span class="n">yvar</span> <span class="n">zvar</span>
-<span class="n">twopass</span> <span class="n">values</span> <span class="o">=</span> <span class="n">none</span>
-</pre></div>
-</div>
+<ul>
+<li><p>global value = yes or no</p></li>
+<li><p>region value = region-ID</p></li>
+<li><p>species values = svar xvar yvar zvar</p></li>
+<li><p>density values = dvar xvar yvar zvar</p></li>
+<li><p>temperature values = tvar xvar yvar zvar</p></li>
+<li><p>velocity values = vxvar vyvar vzvar xvar yvar zvar</p></li>
+<li><p>twopass values = none</p></li>
+</ul>
 </li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create_particles</span> <span class="n">background</span> <span class="n">n</span> <span class="mi">0</span>
 <span class="n">create_particles</span> <span class="n">air</span> <span class="n">n</span> <span class="mi">100000</span> <span class="n">region</span> <span class="n">sphere</span>
 <span class="n">create_particles</span> <span class="n">air</span> <span class="n">n</span> <span class="mi">100000</span> <span class="k">global</span> <span class="n">yes</span>
@@ -212,7 +221,9 @@
 <span class="n">create_particles</span> <span class="n">air</span> <span class="n">n</span> <span class="mi">0</span> <span class="n">velocity</span> <span class="n">myVx</span> <span class="n">NULL</span> <span class="n">myVz</span> <span class="n">xpos</span> <span class="n">ypos</span> <span class="n">NULL</span> <span class="n">twopass</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Create particles and add them to the simulation domain. The attributes
 of individual particles, such as species and velocity, are determined by
 the mixture attributes, as specied by the <em>mix-ID</em>. In particular the
@@ -222,17 +233,11 @@ create particle velocities and internal energy modes. See the
 command can be used multiple times to add more and more particles.</p>
 <p>Particles are only created in grid cells which are entirely external to
 surfaces. Particles are not created in grid cells cut by surfaces.</p>
-<p>IMPORTANT NOTE: When a particle is created at a specified temperature
-(as set by the <a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture</span></a> command), it’s rotational and
-vibrational energy will also be initialized, consistent with the mixture
-temperatures. The <em>rotate</em> and <em>vibrate</em> options of the
-<a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify</span></a> command determine how internal
-energy modes are initialized. If the <a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide</span></a> command
-has not yet been specified, then no rotational or vibrational energy
-will be assigned to created particles. Thus if you wish to create
-particles with non-zero internal energy, the <a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide</span></a>
-and (optionally) <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify</span></a> commands must
-be used before this command.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When a particle is created at a specified temperature (as set by the <a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture</span></a> command), it’s rotational and vibrational energy will also be initialized, consistent with the mixture temperatures.
+The <em>rotate</em> and <em>vibrate</em> options of the <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify</span></a> command determine how internal energy modes are initialized. If the <a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide</span></a> command has not yet been specified, then no rotational or vibrational energy will be assigned to created particles. Thus if you wish to create particles with non-zero internal energy, the <a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide</span></a> and (optionally) <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify</span></a> commands must be used before this command.</p>
+</div>
 <p>If the <em>n</em> style is used with <em>Np</em> = 0, then the number of created
 particles is calculated by SPARTA as a function of the global <em>fnum</em>
 value, the mixture number density, and the flow volume of the simulation
@@ -258,8 +263,10 @@ e.g. 12.5, then 12 particles will be inserted, and a 13th depending on
 the outcome of a random number generation. As grid cells are looped
 over, the remainder fraction is accumulated, so that exactly <em>Np</em>
 particles are created across all the processors.</p>
-<p>IMPORTANT NOTE: The preceeding calculation is actually done using
-<em>weighted</em> cell volumes. Grid cells can be weighted using the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The preceeding calculation is actually done using <em>weighted</em> cell volumes. Grid cells can be weighted using the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command.</p>
+</div>
 <p>Each particle is inserted at a random location within the grid cell. The
 particle species is chosen randomly in accord with the <em>frac</em> settings
 of the collection of species in the mixture, as set by the
@@ -284,7 +291,10 @@ particles. As the coordinates of each is generated, each processor
 checks what grid cell it is in, and only stores the particle if it owns
 that grid cell. Thus an identical set of particles are created, no
 matter how many processors are running the simulation</p>
-<p>IMPORTANT NOTE: The <em>global</em> yes option is not yet implemented.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <em>global</em> yes option is not yet implemented.</p>
+</div>
 <p>If the value is <em>no</em>, then each of the <em>P</em> processors generates a <em>N/P</em>
 subset of particles, using its own random number generation. It only
 adds particles to grid cells that it owns, as described above. This is a
@@ -299,12 +309,12 @@ allow particle insertion within a subset of the simulation domain. Note
 that the <em>side</em> option for the <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command can be
 used to define whether the inside or outside of the geometric region is
 considered to be “in” the region.</p>
-<p>IMPORTANT NOTE: If the <em>region</em> and <em>n</em> keywords are used together, less
-than N particles may be added. This is because grid cells will be
-candidates for particle insertion, unless they are entirely outside the
-bounding box that encloses the region. Particles those grid cells
-attempt to add are included in the count for N, even if some or all of
-the particle insertions are rejected due to not being inside the region.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If the <em>region</em> and <em>n</em> keywords are used together, less than N particles may be added.
+This is because grid cells will be candidates for particle insertion, unless they are entirely outside the bounding box that encloses the region.
+Particles those grid cells attempt to add are included in the count for N, even if some or all of the particle insertions are rejected due to not being inside the region.</p>
+</div>
 <p>The <em>species</em> keyword can be used to create particles with a
 spatially-dependent separation of species. The specified <em>svar</em> is the
 name of an <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">equal-style variable</span></a> whose formula should
@@ -462,13 +472,23 @@ can use the <a class="reference internal" href="suffix.html#command-suffix"><spa
 <p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the
 manual for more instructions on how to use the accelerated styles
 effectively.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restrictions:</strong> none</p>
-<p><strong>Related commands:</strong></p>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture command</span></a>,
 <a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">fix emit/face command</span></a></p>
-<p><strong>Default:</strong></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
 <p>The option default is global = no.</p>
+</div>
 </div>
 
 

@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,7 +168,8 @@
             
   <div class="section" id="scale-particles-command">
 <span id="command-scale-particles"></span><span id="index-0"></span><h1>scale_particles command<a class="headerlink" href="#scale-particles-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scale_particles</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">factor</span>
 </pre></div>
 </div>
@@ -176,12 +177,16 @@
 <li><p>mix-ID = ID of mixture to use when scaling particles</p></li>
 <li><p>factor = scale factor</p></li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scale_particles</span> <span class="n">air</span> <span class="mf">0.5</span>
 <span class="n">scale_particles</span> <span class="n">air</span> <span class="mf">4.0</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Scale the number of particles in the simulation by cloning or deleting
 individual particles. This can be useful between runs, or after reading
 a restart file, to increase or decrease the particle count before a new
@@ -199,11 +204,24 @@ created, by cloning all attributes of the original particle, except for
 a new random particle ID assigned to each new particle. E.g. if <em>factor</em>
 = 3.4, then two extra particles are created, and a 3rd is created with
 probability 0.4.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restrictions:</strong> none</p>
-<p><strong>Related commands:</strong></p>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles command</span></a></p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
 </div>
 
 

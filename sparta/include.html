@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,32 +168,48 @@
             
   <div class="section" id="include-command">
 <span id="command-include"></span><span id="index-0"></span><h1>include command<a class="headerlink" href="#include-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">include</span> <span class="n">file</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>file = filename of new input script to switch to</p></li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">include</span> <span class="n">newfile</span>
 <span class="n">include</span> <span class="ow">in</span><span class="o">.</span><span class="n">run2</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>This command opens a new input script file and begins reading SPARTA
 commands from that file. When the new file is finished, the original
 file is returned to. Include files can be nested as deeply as desired.
 If input script A includes script B, and B includes A, then SPARTA could
 run for a long time.</p>
-<p>If the filename is a variable (see the <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a>
-command), different processor partitions can run different input
-scripts.</p>
-<p><strong>Restrictions:</strong> none</p>
-<p><strong>Related commands:</strong></p>
+<p>If the filename is a variable (see the <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable command</span></a>), different processor partitions can run different input scripts.</p>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable command</span></a>,
 <a class="reference internal" href="jump.html#command-jump"><span class="std std-ref">jump command</span></a></p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
 </div>
 
 

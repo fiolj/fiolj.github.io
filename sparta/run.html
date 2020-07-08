@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,7 +168,8 @@
             
   <div class="section" id="run-command">
 <span id="command-run"></span><span id="index-0"></span><h1>run command<a class="headerlink" href="#run-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">N</span> <span class="n">keyword</span> <span class="n">values</span> <span class="o">...</span>
 </pre></div>
 </div>
@@ -191,7 +192,9 @@
 </div>
 </li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="mi">10000</span>
 <span class="n">run</span> <span class="mi">1000000</span> <span class="n">upto</span>
 <span class="n">run</span> <span class="mi">100</span> <span class="n">start</span> <span class="mi">0</span> <span class="n">stop</span> <span class="mi">1000</span>
@@ -200,7 +203,9 @@
 <span class="n">run</span> <span class="mi">100000</span> <span class="n">every</span> <span class="mi">1000</span> <span class="n">NULL</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Run or continue a simulation for a specified number of timesteps.</p>
 <p>A value of N = 0 is acceptable; only the statistics of the system are
 computed and printed without taking a timestep.</p>
@@ -322,15 +327,23 @@ executes each command one at a time each time it pauses, then continues
 the run. You can replace the jump command with a simple
 <a class="reference internal" href="quit.html#command-quit"><span class="std std-ref">quit</span></a> command and cause SPARTA to exit during the middle
 of a run when the condition is met.</p>
-<p><strong>Restrictions:</strong></p>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
 <p>The number of specified timesteps N must fit in a signed 32-bit integer,
 so you are limited to slightly more than 2 billion steps (2^31) in a
 single run. However, you can perform successive runs to run a simulation
 for any number of steps (ok, up to 2^63 steps).</p>
-<p><strong>Related commands:</strong> none</p>
-<p><strong>Default:</strong></p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<p>none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
 <p>The option defaults are start = the current timestep, stop = current
 timestep + N, pre = yes, and post = yes.</p>
+</div>
 </div>
 
 

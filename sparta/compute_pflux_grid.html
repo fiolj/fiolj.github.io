@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -171,25 +171,28 @@
 </div>
 <div class="section" id="compute-pflux-grid-kk-command">
 <span id="command-compute-pflux-grid-compute-pfluxgridkk"></span><h1>compute pflux/grid/kk command<a class="headerlink" href="#compute-pflux-grid-kk-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">pflux</span><span class="o">/</span><span class="n">grid</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">value1</span> <span class="n">value2</span> <span class="o">...</span>
 </pre></div>
 </div>
 <ul>
-<li><p>ID is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
-<li><p>pflux/grid = style name of this compute command</p></li>
-<li><p>group-ID = group ID for which grid cells to perform calculation on</p></li>
-<li><p>mix-ID = mixture ID to perform calculation on</p></li>
-<li><p>one or more values can be appended</p></li>
-<li><p>values = <em>momxx</em> or <em>momyy</em> or <em>momzz</em> or <em>momxy</em> or <em>momyz</em> or
+<li><p><code class="docutils literal notranslate"><span class="pre">ID</span></code> is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pflux/grid</span></code> = style name of this compute command</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group-ID</span></code> = group ID for which grid cells to perform calculation on</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mix-ID</span></code> = mixture ID to perform calculation on</p></li>
+<li><p>one or more values can be appended</p>
+<p><code class="docutils literal notranslate"><span class="pre">values</span></code> = <em>momxx</em> or <em>momyy</em> or <em>momzz</em> or <em>momxy</em> or <em>momyz</em> or
 <em>momxz</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">momxx</span><span class="p">,</span><span class="n">momyy</span><span class="p">,</span><span class="n">momzz</span> <span class="o">=</span> <span class="n">diagonal</span> <span class="n">components</span> <span class="n">of</span> <span class="n">momentum</span> <span class="n">flux</span> <span class="n">density</span> <span class="n">tensor</span>
-<span class="n">momxy</span><span class="p">,</span><span class="n">momyz</span><span class="p">,</span><span class="n">momxz</span> <span class="o">=</span> <span class="n">off</span><span class="o">-</span><span class="n">diagonal</span> <span class="n">components</span> <span class="n">of</span> <span class="n">momentum</span> <span class="n">flux</span> <span class="n">density</span> <span class="n">tensor</span>
-</pre></div>
-</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">momxx,momyy,momzz</span></code> = diagonal components of momentum flux density tensor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">momxy,momyz,momxz</span></code> = off-diagonal components of momentum flux density tensor</p></li>
+</ul>
 </li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">pflux</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="n">species</span> <span class="n">momxx</span> <span class="n">momyy</span> <span class="n">momzz</span>
 <span class="n">compute</span> <span class="mi">1</span> <span class="n">pflux</span><span class="o">/</span><span class="n">grid</span> <span class="n">subset</span> <span class="n">species</span> <span class="n">momxx</span> <span class="n">momxy</span>
 </pre></div>
@@ -201,7 +204,9 @@ each species and each grid cell to a dump file every 1000 steps:</p>
 <span class="n">dump</span> <span class="mi">1</span> <span class="n">grid</span> <span class="nb">all</span> <span class="mi">1000</span> <span class="n">tmp</span><span class="o">.</span><span class="n">grid</span> <span class="nb">id</span> <span class="n">f_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Define a computation that calculates components of the momemtum flux
 density tensor for each grid cell in a grid cell group. This is
 equivalent to the kinetic energy density tensor, and is based on the
@@ -237,7 +242,7 @@ produced by the formulas below for a single timestep, summing those
 values over the sampling timesteps, and then dividing by the number of
 sampling steps.</p>
 <hr class="docutils" />
-<p>Calculation of the momentum flux density is done by first calcuating the
+<p>Calculation of the momentum flux density is done by first calculating the
 center-of-mass (COM) velocity of particles for each group within a grid
 cell. This is done as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">COMx</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vx_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
@@ -309,15 +314,28 @@ can use the <a class="reference internal" href="suffix.html#command-suffix"><spa
 <p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the
 manual for more instructions on how to use the accelerated styles
 effectively.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restrictions:</strong> none</p>
-<p><strong>Related commands:</strong></p>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid command</span></a>,
 <a class="reference internal" href="compute_thermal_grid.html#command-compute-thermal-grid"><span class="std std-ref">compute thermal/grid command</span></a>,
 <a class="reference internal" href="compute_eflux_grid.html#command-compute-eflux-grid"><span class="std std-ref">compute eflux/grid command</span></a>,
 <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid command</span></a>,
 <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a></p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
 </div>
 
 

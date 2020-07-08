@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,41 +168,61 @@
             
   <div class="section" id="package-command">
 <span id="command-package"></span><span id="index-0"></span><h1>package command<a class="headerlink" href="#package-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">style</span> <span class="n">args</span>
 </pre></div>
 </div>
 <ul>
 <li><p>style = <em>kokkos</em></p></li>
 <li><p>args = arguments specific to the style</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kokkos</span> <span class="n">args</span> <span class="o">=</span> <span class="n">keyword</span> <span class="n">value</span> <span class="o">...</span>
-  <span class="n">zero</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">keyword</span><span class="o">/</span><span class="n">value</span> <span class="n">pairs</span> <span class="n">may</span> <span class="n">be</span> <span class="n">appended</span>
-  <span class="n">keywords</span> <span class="o">=</span> <span class="n">comm</span> <span class="ow">or</span> <span class="n">reduction</span>
-    <span class="n">comm</span> <span class="n">value</span> <span class="o">=</span> <span class="n">threaded</span> <span class="ow">or</span> <span class="n">classic</span>
-      <span class="n">threaded</span> <span class="o">=</span> <span class="n">perform</span> <span class="n">pack</span><span class="o">/</span><span class="n">unpack</span> <span class="n">using</span> <span class="n">KOKKOS</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">on</span> <span class="n">GPU</span> <span class="ow">or</span> <span class="n">using</span> <span class="n">OpenMP</span><span class="p">)</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
-      <span class="n">classic</span> <span class="o">=</span> <span class="n">perform</span> <span class="n">communication</span> <span class="n">pack</span><span class="o">/</span><span class="n">unpack</span> <span class="ow">in</span> <span class="n">non</span><span class="o">-</span><span class="n">KOKKOS</span> <span class="n">mode</span>
-    <span class="n">reduction</span> <span class="o">=</span> <span class="n">parallel</span><span class="o">/</span><span class="n">reduce</span> <span class="ow">or</span> <span class="n">atomic</span>
-      <span class="n">parallel</span><span class="o">/</span><span class="n">reduce</span> <span class="o">=</span> <span class="n">use</span> <span class="n">parallel</span> <span class="n">reduction</span> <span class="k">for</span> <span class="n">statistics</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
-      <span class="n">atomic</span> <span class="o">=</span> <span class="n">use</span> <span class="n">atomic</span> <span class="n">reduction</span> <span class="k">for</span> <span class="n">statistics</span>
-    <span class="n">collide</span><span class="o">/</span><span class="n">extra</span> <span class="o">=</span> <span class="n">factor</span>
-      <span class="n">factor</span> <span class="o">=</span> <span class="n">increase</span> <span class="n">memory</span> <span class="n">used</span> <span class="k">for</span> <span class="n">collisions</span> <span class="n">by</span> <span class="n">this</span> <span class="n">factor</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
-    <span class="n">collide</span><span class="o">/</span><span class="n">retry</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
-      <span class="n">yes</span> <span class="o">=</span> <span class="n">retry</span> <span class="n">collision</span> <span class="n">algorithm</span> <span class="n">until</span> <span class="n">successful</span>
-      <span class="n">no</span> <span class="o">=</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">retry</span> <span class="n">collision</span> <span class="n">algorithm</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
-    <span class="n">gpu</span><span class="o">/</span><span class="n">direct</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
-      <span class="n">yes</span> <span class="o">=</span> <span class="n">use</span> <span class="n">GPU</span><span class="o">-</span><span class="n">direct</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span> <span class="n">CUDA</span><span class="o">-</span><span class="n">aware</span> <span class="n">MPI</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
-      <span class="n">no</span> <span class="o">=</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">use</span> <span class="n">GPU</span><span class="o">-</span><span class="n">direct</span>
-</pre></div>
-</div>
+<ul>
+<li><p>kokkos args = keyword value …</p>
+<p>zero or more keyword/value pairs may be appended</p>
+<p>keywords = comm or reduction</p>
+<ul class="simple">
+<li><p>comm value = threaded or classic</p>
+<ul>
+<li><p>threaded = perform pack/unpack using KOKKOS (e.g. on GPU or using OpenMP) (default)</p></li>
+<li><p>classic = perform communication pack/unpack in non-KOKKOS mode</p></li>
+</ul>
+</li>
+<li><p>reduction = parallel/reduce or atomic</p>
+<ul>
+<li><p>parallel/reduce = use parallel reduction for statistics (default)</p></li>
+<li><p>atomic = use atomic reduction for statistics</p></li>
+</ul>
+</li>
+<li><p>collide/extra = factor</p>
+<ul>
+<li><p>factor = increase memory used for collisions by this factor (default)</p></li>
+</ul>
+</li>
+<li><p>collide/retry = yes or no</p>
+<ul>
+<li><p>yes = retry collision algorithm until successful</p></li>
+<li><p>no = do not retry collision algorithm (default)</p></li>
+</ul>
+</li>
+<li><p>gpu/direct = yes or no
+- yes = use GPU-direct, i.e. CUDA-aware MPI (default)
+- no = do not use GPU-direct</p></li>
+</ul>
 </li>
 </ul>
-<p><strong>Examples:</strong></p>
+</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">kokkos</span> <span class="n">comm</span> <span class="n">classic</span>
 <span class="n">package</span> <span class="n">kokkos</span> <span class="n">comm</span> <span class="n">threaded</span> <span class="n">reduction</span> <span class="n">atomic</span>
 <span class="n">package</span> <span class="n">kokkos</span> <span class="n">gpu</span><span class="o">/</span><span class="n">direct</span> <span class="n">no</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>This command invokes package-specific settings for the KOKKOS
 accelerator package available in SPARTA.</p>
 <p>If this command is specified in an input script, it must be near the top
@@ -220,16 +240,11 @@ invoked by other accelerator settings. For example, the KOKKOS package
 requires a “-k on” <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line switch</span></a>
 respectively, which invokes a “package kokkos” command with default
 settings.</p>
-<p>NOTE: A package command for a particular style can be invoked multiple
-times when a simulation is setup, e.g. by the “-k on”, “-sf”, and “-pk”
-<a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line switches</span></a>, and by using
-this command in an input script. Each time it is used all of the style
-options are set, either to default values or to specified settings. I.e.
-settings from previous invocations do not persist across multiple
-invocations.</p>
-<p>See the the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a>
-section of the manual for more details about using the various
-accelerator packages for speeding up SPARTA simulations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A package command for a particular style can be invoked multiple times when a simulation is setup, e.g. by the “-k on”, “-sf”, and “-pk” <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line switches</span></a>, and by using this command in an input script. Each time it is used all of the style options are set, either to default values or to specified settings. I.e.  settings from previous invocations do not persist across multiple invocations.</p>
+</div>
+<p>See the the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual for more details about using the various accelerator packages for speeding up SPARTA simulations.</p>
 <hr class="docutils" />
 <p>The <em>kokkos</em> style invokes settings associated with the use of the
 KOKKOS package.</p>
@@ -275,22 +290,29 @@ through MPI send/receive calls. This can reduce overhead of first
 copying the data to the host CPU. However GPU-direct is not supported on
 all systems, which can lead to segmentation faults and would require
 using a value of <em>off</em>.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restrictions:</strong></p>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
 <p>This command cannot be used after the simulation box is defined by a
 <a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a> command.</p>
 <p>The kk style of this command can only be invoked if SPARTA was built
 with the KOKKOS package. See the <a class="reference internal" href="Section_start.html#start-making-sparta"><span class="std std-ref">Making SPARTA</span></a> section for more info.</p>
-<p><strong>Related commands:</strong></p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix command</span></a>,
 “-pk” <cite>command-line setting &lt;start-command-line-options</cite></p>
-<p><strong>Default:</strong></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
 <p>For the KOKKOS package, the option defaults are comm = threaded,
 reduction = parallel/reduce, collide/extra = 1.1, and collide/retry =
 no, gpu/direct yes. These settings are made automatically by the
 required “-k on” <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line switch</span></a>.
 You can change them by using the package kokkos command in your input
 script or via the “-pk kokkos” <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line switch</span></a>.</p>
+</div>
 </div>
 
 

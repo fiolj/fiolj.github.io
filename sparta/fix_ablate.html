@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,7 +168,8 @@
             
   <div class="section" id="fix-ablate-command">
 <span id="command-fix-ablate"></span><span id="index-0"></span><h1>fix ablate command<a class="headerlink" href="#fix-ablate-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">ablate</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">Nevery</span> <span class="n">scale</span> <span class="n">source</span> <span class="n">maxrandom</span>
 </pre></div>
 </div>
@@ -189,12 +190,16 @@ decrement</p></li>
 <li><p>maxrandom = maximum per grid cell decrement as an integer (only
 specified if source = random)</p></li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="mi">1</span> <span class="n">ablate</span> <span class="n">surfcells</span> <span class="mi">0</span> <span class="mf">0.0</span> <span class="n">random</span> <span class="mi">10</span>
 <span class="n">fix</span> <span class="mi">1</span> <span class="n">ablate</span> <span class="n">surfcells</span> <span class="mi">1000</span> <span class="mf">10.0</span> <span class="n">c_tally</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Perform ablation once every Nevery steps on a set of grid cell corner
 points to induce new implicit surface elements in those grid cells. This
 command is also used as an argument to the
@@ -342,11 +347,21 @@ algorithm the developers still need to address.</p>
 a fix as input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Section 6.4</span></a> for an
 overview of SPARTA output options.</p>
 <p>The scalar and vector values are unitless.</p>
-<p><strong>Restrictions:</strong></p>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
 <p>This fix can only be used in simulations that define implicit surfaces.</p>
-<p><strong>Related commands:</strong></p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf command</span></a></p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
 </div>
 
 

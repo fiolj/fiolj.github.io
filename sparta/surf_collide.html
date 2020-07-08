@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,86 +168,132 @@
             
   <div class="section" id="surf-collide-command">
 <span id="command-surf-collide"></span><span id="index-0"></span><h1>surf_collide command<a class="headerlink" href="#surf-collide-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">surf_collide</span> <span class="n">ID</span> <span class="n">style</span> <span class="n">args</span> <span class="n">keyword</span> <span class="n">values</span> <span class="o">...</span>
 </pre></div>
 </div>
 <ul>
-<li><p>ID = user-assigned name for the surface collision model</p></li>
-<li><p>style = <em>specular</em> or <em>diffuse</em> or <em>cll</em> or <em>impulsive</em> or <em>td</em> or
-<em>piston</em> or <em>transparent</em> or <em>vanish</em> or <em>specular/kk</em> or
-<em>diffuse/kk</em> or <em>piston/kk</em> or <em>vanish/kk</em></p></li>
-<li><p>args = arguments for specific style</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">specular</span> <span class="ow">or</span> <span class="n">specular</span><span class="o">/</span><span class="n">kk</span> <span class="n">args</span> <span class="o">=</span> <span class="n">none</span>
-<span class="n">diffuse</span> <span class="ow">or</span> <span class="n">diffuse</span><span class="o">/</span><span class="n">kk</span> <span class="n">args</span> <span class="o">=</span> <span class="n">Tsurf</span> <span class="n">acc</span>
-  <span class="n">Tsurf</span> <span class="o">=</span> <span class="n">temperature</span> <span class="n">of</span> <span class="n">surface</span> <span class="p">(</span><span class="n">temperature</span> <span class="n">units</span><span class="p">)</span>
-          <span class="n">Tsurf</span> <span class="n">can</span> <span class="n">be</span> <span class="n">a</span> <span class="n">variable</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
-  <span class="n">acc</span> <span class="o">=</span> <span class="n">accommodation</span> <span class="n">coefficient</span>
-<span class="n">cll</span> <span class="n">args</span> <span class="o">=</span> <span class="n">Tsurf</span> <span class="n">acc_n</span> <span class="n">acc_t</span> <span class="n">acc_rot</span> <span class="n">acc_vib</span>
-  <span class="n">Tsurf</span> <span class="o">=</span> <span class="n">temperature</span> <span class="n">of</span> <span class="n">surface</span> <span class="p">(</span><span class="n">temperature</span> <span class="n">units</span><span class="p">)</span>
-          <span class="n">Tsurf</span> <span class="n">can</span> <span class="n">be</span> <span class="n">a</span> <span class="n">variable</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
-  <span class="n">acc_n</span> <span class="o">=</span> <span class="n">accommodation</span> <span class="n">coefficient</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">surface</span> <span class="n">normal</span> <span class="n">direction</span>
-  <span class="n">acc_t</span> <span class="o">=</span> <span class="n">accommodation</span> <span class="n">coefficient</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">surface</span> <span class="n">tangential</span> <span class="n">direction</span>
-  <span class="n">acc_rot</span> <span class="o">=</span> <span class="n">accommodation</span> <span class="n">coefficient</span> <span class="k">for</span> <span class="n">the</span> <span class="n">rotational</span> <span class="n">modes</span>
-  <span class="n">acc_vib</span> <span class="o">=</span> <span class="n">accommodation</span> <span class="n">coefficient</span> <span class="k">for</span> <span class="n">the</span> <span class="n">vibrational</span> <span class="n">modes</span>
-<span class="n">impulsive</span> <span class="n">args</span> <span class="o">=</span> <span class="n">Tsurf</span> <span class="n">model</span> <span class="n">param1</span> <span class="n">param2</span> <span class="n">var</span> <span class="n">theta_peak</span> <span class="n">pol_pow</span> <span class="n">azi_pow</span>
-  <span class="n">Tsurf</span> <span class="o">=</span> <span class="n">temperature</span> <span class="n">of</span> <span class="n">surface</span> <span class="p">(</span><span class="n">temperature</span> <span class="n">units</span><span class="p">)</span>
-          <span class="n">Tsurf</span> <span class="n">can</span> <span class="n">be</span> <span class="n">a</span> <span class="n">variable</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
-  <span class="n">model</span> <span class="n">can</span> <span class="n">be</span> <span class="n">softsphere</span> <span class="ow">or</span> <span class="n">tempvar</span>
-    <span class="n">softsphere</span> <span class="n">args</span> <span class="o">=</span> <span class="n">en_ratio</span> <span class="n">eff_mass</span>
-      <span class="n">param1</span> <span class="o">=</span> <span class="n">en_ratio</span> <span class="o">=</span> <span class="n">fraction</span> <span class="n">of</span> <span class="n">energy</span> <span class="n">lost</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">collision</span>
-      <span class="n">param2</span> <span class="o">=</span> <span class="n">eff_mass</span> <span class="o">=</span> <span class="n">effective</span> <span class="n">mass</span> <span class="n">of</span> <span class="n">the</span> <span class="n">surface</span> <span class="n">atom</span>
-    <span class="n">tempvar</span> <span class="n">args</span> <span class="o">=</span> <span class="n">a1</span> <span class="n">a0</span>
-      <span class="n">param1</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">linear</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">variation</span> <span class="k">with</span> <span class="n">temperature</span>
-      <span class="n">param2</span> <span class="o">=</span> <span class="n">a0</span> <span class="o">=</span> <span class="n">constant</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">variation</span> <span class="k">with</span> <span class="n">temperature</span>
-  <span class="n">var</span> <span class="o">=</span> <span class="n">variance</span> <span class="n">of</span> <span class="n">the</span> <span class="n">scattered</span> <span class="n">particle</span> <span class="n">velocity</span> <span class="n">distribution</span>
-  <span class="n">theta_peak</span> <span class="o">=</span> <span class="n">peak</span> <span class="n">location</span> <span class="n">of</span> <span class="n">the</span> <span class="n">polar</span> <span class="n">angle</span> <span class="n">distribution</span>
-  <span class="n">pol_pow</span> <span class="o">=</span> <span class="n">cosine</span> <span class="n">power</span> <span class="n">represeting</span> <span class="n">the</span> <span class="n">polar</span> <span class="n">angular</span> <span class="n">distribution</span>
-  <span class="n">azi_pow</span> <span class="o">=</span> <span class="n">cosine</span> <span class="n">power</span> <span class="n">represeting</span> <span class="n">the</span> <span class="n">azimuthal</span> <span class="n">angular</span> <span class="n">distribution</span>
-<span class="n">td</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">Tsurf</span>
-  <span class="n">Tsurf</span> <span class="o">=</span> <span class="n">temperature</span> <span class="n">of</span> <span class="n">surface</span> <span class="p">(</span><span class="n">temperature</span> <span class="n">units</span><span class="p">)</span>
-          <span class="n">Tsurf</span> <span class="n">can</span> <span class="n">be</span> <span class="n">a</span> <span class="n">variable</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
-<span class="n">piston</span> <span class="ow">or</span> <span class="n">piston</span><span class="o">/</span><span class="n">kk</span> <span class="n">args</span> <span class="o">=</span> <span class="n">Vwall</span>
-  <span class="n">Vwall</span> <span class="o">=</span> <span class="n">velocity</span> <span class="n">of</span> <span class="n">boundary</span> <span class="n">wall</span> <span class="p">(</span><span class="n">velocity</span> <span class="n">units</span><span class="p">)</span>
-<span class="n">transparent</span> <span class="n">args</span> <span class="o">=</span> <span class="n">none</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vanish</span> <span class="ow">or</span> <span class="n">vanish</span><span class="o">/</span><span class="n">kk</span> <span class="n">args</span> <span class="o">=</span> <span class="n">none</span>
-</pre></div>
-</div>
+<li><p><code class="docutils literal notranslate"><span class="pre">ID</span></code> = user-assigned name for the surface collision model</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">style</span></code> = <code class="docutils literal notranslate"><span class="pre">specular</span></code> or <code class="docutils literal notranslate"><span class="pre">diffuse</span></code> or <code class="docutils literal notranslate"><span class="pre">cll</span></code> or <code class="docutils literal notranslate"><span class="pre">impulsive</span></code> or <code class="docutils literal notranslate"><span class="pre">td</span></code> or
+<code class="docutils literal notranslate"><span class="pre">piston</span></code> or <code class="docutils literal notranslate"><span class="pre">transparent</span></code> or <code class="docutils literal notranslate"><span class="pre">vanish</span></code> or <code class="docutils literal notranslate"><span class="pre">specular/kk</span></code> or
+<code class="docutils literal notranslate"><span class="pre">diffuse/kk</span></code> or <code class="docutils literal notranslate"><span class="pre">piston/kk</span></code> or <code class="docutils literal notranslate"><span class="pre">vanish/kk</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code> = arguments for specific style</p>
+<dl class="simple">
+<dt>specular or specular/kk</dt><dd><p>args = none</p>
+</dd>
+<dt>diffuse or diffuse/kk args = Tsurf acc</dt><dd><ul class="simple">
+<li><p>Tsurf = temperature of surface (temperature units).
+Tsurf can be a variable (see below)</p></li>
+<li><p>acc = accommodation coefficient</p></li>
+</ul>
+</dd>
+<dt>cll args = Tsurf acc_n acc_t acc_rot acc_vib</dt><dd><ul class="simple">
+<li><p>Tsurf = temperature of surface (temperature units).
+Tsurf can be a variable (see below)</p></li>
+<li><p>acc_n = accommodation coefficient in the surface normal direction</p></li>
+<li><p>acc_t = accommodation coefficient in the surface tangential direction</p></li>
+<li><p>acc_rot = accommodation coefficient for the rotational modes</p></li>
+<li><p>acc_vib = accommodation coefficient for the vibrational modes</p></li>
+</ul>
+</dd>
+<dt>impulsive args = Tsurf model param1 param2 var theta_peak pol_pow azi_pow</dt><dd><ul class="simple">
+<li><p>Tsurf = temperature of surface (temperature units).
+Tsurf can be a variable (see below)</p></li>
+<li><p><strong>model</strong> can be softsphere or tempvar</p>
+<ul>
+<li><p>softsphere args = en_ratio eff_mass</p>
+<ul>
+<li><p>param1 = en_ratio = fraction of energy lost in the collision</p></li>
+<li><p>param2 = eff_mass = effective mass of the surface atom</p></li>
+</ul>
 </li>
-<li><p>zero or more keyword/arg pairs may be appended</p></li>
-<li><p>keyword = <em>translate</em> or <em>rotate</em> or <em>partial</em></p></li>
-<li><p>values = values for specific keyword</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">translate</span> <span class="n">args</span> <span class="o">=</span> <span class="n">Vx</span> <span class="n">Vy</span> <span class="n">Vz</span>
-  <span class="n">Vx</span><span class="p">,</span><span class="n">Vy</span><span class="p">,</span><span class="n">Vz</span> <span class="o">=</span> <span class="n">translational</span> <span class="n">velocity</span> <span class="n">of</span> <span class="n">surface</span> <span class="p">(</span><span class="n">velocity</span> <span class="n">units</span><span class="p">)</span>
-<span class="n">rotate</span> <span class="n">args</span> <span class="o">=</span> <span class="n">Pz</span> <span class="n">Py</span> <span class="n">Pz</span> <span class="n">Wx</span> <span class="n">Wy</span> <span class="n">Wz</span>
-  <span class="n">Px</span><span class="p">,</span><span class="n">Py</span><span class="p">,</span><span class="n">Pz</span> <span class="o">=</span> <span class="n">point</span> <span class="n">to</span> <span class="n">rotate</span> <span class="n">surface</span> <span class="n">around</span> <span class="p">(</span><span class="n">distance</span> <span class="n">units</span><span class="p">)</span>
-  <span class="n">Wx</span><span class="p">,</span><span class="n">Wy</span><span class="p">,</span><span class="n">Wz</span> <span class="o">=</span> <span class="n">angular</span> <span class="n">velocity</span> <span class="n">of</span> <span class="n">surface</span> <span class="n">around</span> <span class="n">point</span> <span class="p">(</span><span class="n">radians</span><span class="o">/</span><span class="n">time</span><span class="p">)</span>
-<span class="n">partial</span> <span class="n">args</span> <span class="o">=</span> <span class="n">eccen</span> <span class="p">(</span><span class="n">only</span> <span class="k">for</span> <span class="n">cll</span> <span class="n">style</span><span class="p">)</span>
-  <span class="n">eccen</span> <span class="o">=</span> <span class="n">eccentricity</span> <span class="n">parameter</span>
-<span class="n">barrier</span> <span class="n">args</span> <span class="o">=</span> <span class="n">bar_val</span> <span class="p">(</span><span class="n">only</span> <span class="k">for</span> <span class="n">td</span> <span class="n">style</span><span class="p">)</span>
-  <span class="n">bar_val</span> <span class="o">=</span> <span class="n">value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">desorption</span> <span class="n">barrier</span> <span class="ow">in</span> <span class="n">temperature</span> <span class="n">units</span>
-<span class="n">bond</span> <span class="n">args</span> <span class="o">=</span> <span class="n">bond_trans</span> <span class="n">bond_rot</span> <span class="n">bond_vib</span> <span class="p">(</span><span class="n">only</span> <span class="k">for</span> <span class="n">td</span> <span class="n">style</span><span class="p">)</span>
-  <span class="n">bond_trans</span> <span class="o">=</span> <span class="n">amount</span> <span class="n">of</span> <span class="n">bond</span> <span class="n">dissociation</span> <span class="n">energy</span> <span class="p">(</span><span class="ow">in</span> <span class="n">temperature</span> <span class="n">units</span><span class="p">)</span> <span class="n">going</span> <span class="n">into</span> <span class="n">translational</span> <span class="n">mode</span>
-  <span class="n">bond_rot</span> <span class="o">=</span> <span class="n">amount</span> <span class="n">of</span> <span class="n">bond</span> <span class="n">dissociation</span> <span class="n">energy</span> <span class="p">(</span><span class="ow">in</span> <span class="n">temperature</span> <span class="n">units</span><span class="p">)</span> <span class="n">going</span> <span class="n">into</span> <span class="n">rotational</span> <span class="n">mode</span>
-  <span class="n">bond_vib</span> <span class="o">=</span> <span class="n">amount</span> <span class="n">of</span> <span class="n">bond</span> <span class="n">dissociation</span> <span class="n">energy</span> <span class="p">(</span><span class="ow">in</span> <span class="n">temperature</span> <span class="n">units</span><span class="p">)</span> <span class="n">going</span> <span class="n">into</span> <span class="n">vibrational</span> <span class="n">mode</span>
-<span class="n">init_energy</span> <span class="o">=</span> <span class="n">IE_trans</span> <span class="n">IE_rot</span> <span class="n">IE_vib</span> <span class="p">(</span><span class="n">only</span> <span class="k">for</span> <span class="n">td</span> <span class="n">style</span><span class="p">)</span>
-  <span class="n">IE_trans</span> <span class="o">=</span> <span class="n">fraction</span> <span class="n">of</span> <span class="n">initial</span> <span class="n">translational</span> <span class="n">energy</span> <span class="n">going</span> <span class="n">into</span> <span class="n">translational</span> <span class="n">mode</span>
-  <span class="n">IE_rot</span> <span class="o">=</span> <span class="n">fraction</span> <span class="n">of</span> <span class="n">initial</span> <span class="n">translational</span> <span class="n">energy</span> <span class="n">going</span> <span class="n">into</span> <span class="n">rotational</span> <span class="n">mode</span>
-  <span class="n">IE_vib</span> <span class="o">=</span> <span class="n">fraction</span> <span class="n">of</span> <span class="n">initial</span> <span class="n">translational</span> <span class="n">energy</span> <span class="n">going</span> <span class="n">into</span> <span class="n">vibrational</span> <span class="n">mode</span>
-<span class="n">step</span> <span class="n">args</span> <span class="o">=</span> <span class="n">epsilon</span> <span class="p">(</span><span class="n">only</span> <span class="k">for</span> <span class="n">impulsive</span> <span class="n">style</span><span class="p">)</span>
-  <span class="n">epsilon</span> <span class="o">=</span> <span class="n">ratio</span> <span class="n">of</span> <span class="n">the</span> <span class="n">height</span> <span class="n">to</span> <span class="n">the</span> <span class="n">width</span> <span class="n">of</span> <span class="n">the</span> <span class="n">step</span>
-<span class="n">double</span> <span class="n">args</span> <span class="o">=</span> <span class="n">polar_pow_2</span> <span class="p">(</span><span class="n">only</span> <span class="k">for</span> <span class="n">impulsive</span> <span class="n">style</span><span class="p">)</span>
-  <span class="n">polar_pow_2</span> <span class="o">=</span> <span class="n">cosine</span> <span class="n">power</span> <span class="k">for</span> <span class="n">the</span> <span class="n">polar</span> <span class="n">angular</span> <span class="n">distribution</span> <span class="n">between</span> <span class="n">peak</span> <span class="ow">and</span> <span class="n">surface</span>
-<span class="n">intenergy</span> <span class="n">args</span> <span class="o">=</span> <span class="n">frac_rot</span> <span class="n">frac_vib</span> <span class="p">(</span><span class="n">only</span> <span class="k">for</span> <span class="n">impulsive</span> <span class="n">style</span><span class="p">)</span>
-  <span class="n">frac_rot</span> <span class="o">=</span> <span class="n">fraction</span> <span class="n">of</span> <span class="n">lost</span> <span class="n">translational</span> <span class="n">energy</span> <span class="n">going</span> <span class="n">into</span> <span class="n">the</span> <span class="n">rotational</span> <span class="n">mode</span>
-  <span class="n">frac_vib</span> <span class="o">=</span> <span class="n">fraction</span> <span class="n">of</span> <span class="n">lost</span> <span class="n">translational</span> <span class="n">energy</span> <span class="n">going</span> <span class="n">into</span> <span class="n">the</span> <span class="n">vibrational</span> <span class="n">mode</span>
-</pre></div>
-</div>
+<li><p>tempvar args = a1 a0</p>
+<ul>
+<li><p>param1 = a1 = linear term in the variation with temperature</p></li>
+<li><p>param2 = a0 = constant term in the variation with temperature</p></li>
+</ul>
 </li>
 </ul>
-<p><strong>Examples:</strong></p>
+</li>
+<li><p>var = variance of the scattered particle velocity distribution</p></li>
+<li><p>theta_peak = peak location of the polar angle distribution</p></li>
+<li><p>pol_pow = cosine power represeting the polar angular distribution</p></li>
+<li><p>azi_pow = cosine power represeting the azimuthal angular distribution</p></li>
+</ul>
+</dd>
+<dt>td arg = Tsurf</dt><dd><p>Tsurf = temperature of surface (temperature units).
+Tsurf can be a variable (see below)</p>
+</dd>
+<dt>piston or piston/kk args = Vwall</dt><dd><p>Vwall = velocity of boundary wall (velocity units)</p>
+</dd>
+<dt>transparent</dt><dd><p>args = none</p>
+</dd>
+<dt>vanish or vanish/kk</dt><dd><p>args = none</p>
+</dd>
+</dl>
+</li>
+<li><p>zero or more keyword/arg pairs may be appended</p>
+<p>keyword = <code class="docutils literal notranslate"><span class="pre">translate</span></code> or <code class="docutils literal notranslate"><span class="pre">rotate</span></code> or <code class="docutils literal notranslate"><span class="pre">partial</span></code></p>
+<p>values = values for specific keyword</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">translate</span></code> args = Vx Vy Vz</p>
+<ul>
+<li><p>Vx,Vy,Vz = translational velocity of surface (velocity units)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rotate</span></code> args = Pz Py Pz Wx Wy Wz</p>
+<ul>
+<li><p>Px,Py,Pz = point to rotate surface around (distance units)</p></li>
+<li><p>Wx,Wy,Wz = angular velocity of surface around point (radians/time)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">partial</span></code> args = eccen (only for cll style)</p>
+<ul>
+<li><p>eccen = eccentricity parameter</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">barrier</span></code> args = bar_val (only for td style)</p>
+<ul>
+<li><p>bar_val = value of the desorption barrier in temperature units</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bond</span></code> args = bond_trans bond_rot bond_vib (only for td style)</p>
+<ul>
+<li><p>bond_trans = amount of bond dissociation energy (in temperature units) going into translational mode</p></li>
+<li><p>bond_rot = amount of bond dissociation energy (in temperature units) going into rotational mode</p></li>
+<li><p>bond_vib = amount of bond dissociation energy (in temperature units) going into vibrational mode</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">init_energy</span></code> = IE_trans IE_rot IE_vib (only for td style)</p>
+<ul>
+<li><p>IE_trans = fraction of initial translational energy going into translational mode</p></li>
+<li><p>IE_rot = fraction of initial translational energy going into rotational mode</p></li>
+<li><p>IE_vib = fraction of initial translational energy going into vibrational mode</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">step</span></code> args = epsilon (only for impulsive style)</p>
+<ul>
+<li><p>epsilon = ratio of the height to the width of the step</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">double</span></code> args = polar_pow_2 (only for impulsive style)</p>
+<ul>
+<li><p>polar_pow_2 = cosine power for the polar angular distribution between peak and surface</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">intenergy</span></code> args = frac_rot frac_vib (only for impulsive style)</p>
+<ul>
+<li><p>frac_rot = fraction of lost translational energy going into the rotational mode</p></li>
+<li><p>frac_vib = fraction of lost translational energy going into the vibrational mode</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">surf_collide</span> <span class="mi">1</span> <span class="n">specular</span>
 <span class="n">surf_collide</span> <span class="mi">1</span> <span class="n">transparent</span>
 <span class="n">surf_collide</span> <span class="mi">1</span> <span class="n">diffuse</span> <span class="mf">273.15</span> <span class="mf">0.9</span>
@@ -261,7 +307,9 @@
 <span class="n">surf_collide</span> <span class="n">heatwall</span> <span class="n">diffuse</span> <span class="n">v_ramp</span> <span class="mf">0.8</span> <span class="n">translate</span> <span class="mf">5.0</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Define a model for particle-surface collisions. One or more models can
 be defined and assigned to different surfaces or simulation box
 boundaries via the <a class="reference internal" href="surf_modify.html#command-surf-modify"><span class="std std-ref">surf_modify command</span></a> or
@@ -269,7 +317,7 @@ boundaries via the <a class="reference internal" href="surf_modify.html#command-
 details of how SPARTA defines surfaces as collections of geometric
 elements, triangles in 3d and line segments in 2d. Chemical reactions
 can also be part of a particle-surface interaction model. See the
-surf_react command for details. All of the collision styles listed
+<a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a> for details. All of the collision styles listed
 here support optional reactions, except the <em>vanish</em> style.</p>
 <p>The ID for a surface collision model is used to identify it in other
 commands. Each surface collision model ID must be unique. The ID can
@@ -285,8 +333,9 @@ particle’s speed is unchanged.</p>
 <p>The model has 2 parameters set by the <em>Tsurf</em> and <em>acc</em> arguments.
 <em>Tsurf</em> is the temperature of the surface. <em>Acc</em> is an accommodation
 coefficient from 0.0 to 1.0, which determines what fraction of surface
-collisions are specular. The rest are diffusive. Thus a setting of <em>acc</em>
-= 0.0 means all collisions are specular.</p>
+collisions are diffusive. The rest are specular. Thus a setting of <em>acc</em>
+= 0.0 means all collisions are specular and a setting of <em>acc</em>
+= 1.0 means all collisions are diffusive.</p>
 <p>Note that setting <em>acc</em> = 0.0, is a way to perform surface reactions
 with specular reflection, via the <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a>, which
 cannot be done in conjunction with the <code class="docutils literal notranslate"><span class="pre">surf_collide</span></code> specular
@@ -460,14 +509,23 @@ The angular distributions are peaked more towards the normal and are often descr
 <p>These accelerated styles are part of the KOKKOS package. They are only enabled if SPARTA was built with that package. See the <a class="reference internal" href="Section_start.html#start-optional-packages"><span class="std std-ref">Making SPARTA</span></a> section for more info.</p>
 <p>You can specify the accelerated styles explicitly in your input script by including their suffix, or you can use the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-suffix command-line switch</span></a> when you invoke SPARTA, or you can use the <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix command</span></a> in your input script.</p>
 <p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual for more instructions on how to use the accelerated styles effectively.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restrictions:</strong></p>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
 <p>The <em>translate</em> and <em>rotate</em> keywords cannot be used together.</p>
 <p>If specified with a <em>kk</em> suffix, this command can be used no more than twice in the same input script (active at the same time).</p>
-<p><strong>Related commands:</strong></p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf command</span></a>,
 <a class="reference internal" href="bound_modify.html#command-bound-modify"><span class="std std-ref">bound_modify command</span></a></p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
 <hr class="docutils" />
 <dl class="citation">
 <dt class="label" id="bird94"><span class="brackets">Bird94</span><span class="fn-backref">(<a href="#id9">1</a>,<a href="#id10">2</a>)</span></dt>
@@ -561,6 +619,7 @@ The angular distributions are peaked more towards the normal and are often descr
 </ol>
 </dd>
 </dl>
+</div>
 </div>
 
 

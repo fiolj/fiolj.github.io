@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,22 +168,26 @@
             
   <div class="section" id="create-box-command">
 <span id="command-create-box"></span><span id="index-0"></span><h1>create_box command<a class="headerlink" href="#create-box-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create_box</span> <span class="n">xlo</span> <span class="n">xhi</span> <span class="n">ylo</span> <span class="n">yhi</span> <span class="n">zlo</span> <span class="n">zhi</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xlo</span><span class="p">,</span><span class="n">xhi</span> <span class="o">=</span> <span class="n">box</span> <span class="n">bounds</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">x</span> <span class="n">dimension</span> <span class="p">(</span><span class="n">distance</span> <span class="n">units</span><span class="p">)</span>
+
+<span class="n">xlo</span><span class="p">,</span><span class="n">xhi</span> <span class="o">=</span> <span class="n">box</span> <span class="n">bounds</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">x</span> <span class="n">dimension</span> <span class="p">(</span><span class="n">distance</span> <span class="n">units</span><span class="p">)</span>
 <span class="n">ylo</span><span class="p">,</span><span class="n">yhi</span> <span class="o">=</span> <span class="n">box</span> <span class="n">bounds</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">y</span> <span class="n">dimension</span> <span class="p">(</span><span class="n">distance</span> <span class="n">units</span><span class="p">)</span>
 <span class="n">zlo</span><span class="p">,</span><span class="n">zhi</span> <span class="o">=</span> <span class="n">box</span> <span class="n">bounds</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">z</span> <span class="n">dimension</span> <span class="p">(</span><span class="n">distance</span> <span class="n">units</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create_box</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span>
 <span class="n">create_box</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="o">-</span><span class="mf">0.5</span> <span class="mf">0.5</span>
 <span class="n">create_box</span> <span class="mi">0</span> <span class="mf">10.0</span> <span class="mi">0</span> <span class="mf">5.0</span> <span class="o">-</span><span class="mf">4.0</span> <span class="mf">0.0</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Set the size of the simulation box.</p>
 <p>For a 2d simulation, as specifed by the <a class="reference internal" href="dimension.html#command-dimension"><span class="std std-ref">dimension</span></a>
 command, <em>zlo</em> &lt; 0.0 and <em>zhi</em> &gt; 0.0 is required. This means the z
@@ -194,9 +198,25 @@ manual for more information about 2d simulations.</p>
 <a class="reference internal" href="dimension.html#command-dimension"><span class="std std-ref">dimension</span></a> and <a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">boundary</span></a>
 commands, the ylo setting must be 0.0. See <a class="reference internal" href="Section_howto.html#howto-axisymmetric"><span class="std std-ref">Section 6.2</span></a> of the manual for more information
 about axisymmetric simulations.</p>
-<p><strong>Restrictions:</strong> none</p>
-<p><strong>Related commands:</strong> none</p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
 </div>
 
 

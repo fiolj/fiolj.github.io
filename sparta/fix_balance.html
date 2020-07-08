@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,7 +168,8 @@
             
   <div class="section" id="fix-balance-command-fix-balance-kk-command">
 <span id="command-fix-balance"></span><span id="index-0"></span><h1>fix balance command - fix balance/kk command<a class="headerlink" href="#fix-balance-command-fix-balance-kk-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">balance</span> <span class="n">Nfreq</span> <span class="n">thresh</span> <span class="n">bstyle</span> <span class="n">args</span>
 </pre></div>
 </div>
@@ -194,12 +195,16 @@
 </div>
 </li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="mi">1</span> <span class="n">balance</span> <span class="mi">1000</span> <span class="mf">1.1</span> <span class="n">rcb</span> <span class="n">cell</span>
 <span class="n">fix</span> <span class="mi">2</span> <span class="n">balance</span> <span class="mi">10000</span> <span class="mf">1.0</span> <span class="n">random</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>This command dynamically adjusts the assignment of grid cells and their
 particles to processors as a simulation runs, to attempt to balance the
 computational cost (load) evenly across processors. The load balancing
@@ -331,12 +336,25 @@ can use the <a class="reference internal" href="suffix.html#command-suffix"><spa
 <p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the
 manual for more instructions on how to use the accelerated styles
 effectively.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restrictions:</strong> none</p>
-<p><strong>Related commands:</strong></p>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid command</span></a>,
 <a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid command</span></a></p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
 </div>
 
 

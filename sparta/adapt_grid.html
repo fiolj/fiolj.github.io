@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,7 +168,8 @@
             
   <div class="section" id="adapt-grid-command">
 <span id="command-adapt-grid"></span><span id="index-0"></span><h1>adapt_grid command<a class="headerlink" href="#adapt-grid-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adapt_grid</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">action1</span> <span class="n">action2</span> <span class="n">style</span> <span class="n">args</span> <span class="o">...</span> <span class="n">keyword</span> <span class="n">args</span> <span class="o">...</span>
 </pre></div>
 </div>
@@ -219,7 +220,9 @@ or <em>cells</em> or <em>region</em> or <em>dir</em></p>
   <span class="n">filename</span> <span class="o">=</span> <span class="n">name</span> <span class="n">of</span> <span class="n">file</span> <span class="n">to</span> <span class="n">write</span> <span class="n">out</span> <span class="k">with</span> <span class="n">new</span> <span class="n">parent</span> <span class="n">grid</span> <span class="n">info</span>
 </pre></div>
 </div>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adapt_grid</span> <span class="nb">all</span> <span class="n">refine</span> <span class="n">particle</span> <span class="mi">10</span> <span class="mi">50</span>
 <span class="n">adapt_grid</span> <span class="nb">all</span> <span class="n">coarsen</span> <span class="n">particle</span> <span class="mi">10</span> <span class="mi">50</span>
 <span class="n">adapt_grid</span> <span class="nb">all</span> <span class="n">refine</span> <span class="n">coarsen</span> <span class="n">particle</span> <span class="mi">10</span> <span class="mi">50</span>
@@ -227,7 +230,9 @@ or <em>cells</em> or <em>region</em> or <em>dir</em></p>
 <span class="n">adapt_grid</span> <span class="nb">all</span> <span class="n">refine</span> <span class="n">coarsen</span> <span class="n">value</span> <span class="n">c_11</span> <span class="mf">5.0</span> <span class="mf">10.0</span> <span class="n">iterate</span> <span class="mi">2</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>This command perform a one-time adaptation of grid cells within a grid
 cell group, either by refinement or coarsening or both. This command can
 be invoked as many times as desired, before or between simulation runs.
@@ -432,7 +437,9 @@ remain un-clumped after adaptation. You can use the
 re-balance the new adapted grid cells and their particles across
 processors. See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section howto 4.8</span></a> for a
 description clumped and unclumped grids.</p>
-<p><strong>Restrictions:</strong></p>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
 <p>This command can only be used after the grid has been created by the
 <a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a>, <a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid</span></a>, or
 <a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> commands.</p>
@@ -440,13 +447,18 @@ description clumped and unclumped grids.</p>
 This is because the per-grid cell values accumulated by the fix are not
 interpolated to new grid cells so that the fix can be re-evaluated
 multiple times. In the future we may revove this restriction.</p>
-<p><strong>Related commands:</strong></p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="fix_adapt.html#command-fix-adapt"><span class="std std-ref">fix adapt command</span></a>,
 <a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid command</span></a></p>
-<p><strong>Default:</strong></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
 <p>The keyword defaults are iterate = 1, minlevel = 1, maxlevel = 0, thresh
 = more for rdecide and less for cdecide, combine = sum, cells = 2 2 2
 for 3d and 2 2 1 for 2d, no region, dir = 0 0 0, and no file.</p>
+</div>
 </div>
 
 

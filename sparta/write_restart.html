@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,7 +168,8 @@
             
   <div class="section" id="write-restart-command">
 <span id="command-write-restart"></span><span id="index-0"></span><h1>write_restart command<a class="headerlink" href="#write-restart-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">write_restart</span> <span class="n">file</span> <span class="n">keyword</span> <span class="n">value</span> <span class="o">...</span>
 </pre></div>
 </div>
@@ -184,13 +185,17 @@
 </div>
 </li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">write_restart</span> <span class="n">restart</span><span class="o">.</span><span class="n">equil</span>
 <span class="n">write_restart</span> <span class="n">restart</span><span class="o">.</span><span class="n">equil</span><span class="o">.</span><span class="n">mpiio</span>
 <span class="n">write_restart</span> <span class="n">flow</span><span class="o">.%.*</span> <span class="n">nfile</span> <span class="mi">10</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Write a binary restart file with the current state of the simulation.</p>
 <p>During a long simulation, the <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart</span></a> command can be
 used to output restart files periodically. The write_restart command is
@@ -234,12 +239,25 @@ itself and the next 24 processors and write it to a restart file.</p>
 file for every Np processors. For example, if Np = 4, every 4th
 processor (0,4,8,12,etc) will collect information from itself and the
 next 3 processors and write it to a restart file.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restrictions:</strong> none</p>
-<p><strong>Related commands:</strong></p>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart command</span></a>
 <a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart command</span></a></p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
 </div>
 
 

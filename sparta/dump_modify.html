@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,98 +168,138 @@
             
   <div class="section" id="dump-modify-command">
 <span id="command-dump-modify"></span><span id="index-0"></span><h1>dump_modify command<a class="headerlink" href="#dump-modify-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dump_modify</span> <span class="n">dump</span><span class="o">-</span><span class="n">ID</span> <span class="n">keyword</span> <span class="n">values</span> <span class="o">...</span>
 </pre></div>
 </div>
 <ul>
 <li><p>dump-ID = ID of dump to modify</p></li>
 <li><p>one or more keyword/value pairs may be appended</p></li>
-<li><p>these keywords apply to various dump styles</p></li>
-<li><p>keyword = <em>append</em> or <em>buffer</em> or <em>every</em> or <em>fileper</em> or <em>first</em> or
+<li><p>these keywords apply to various dump styles</p>
+<p>keyword = <em>append</em> or <em>buffer</em> or <em>every</em> or <em>fileper</em> or <em>first</em> or
 <em>flush</em> or <em>format</em> or <em>nfile</em> or <em>pad</em> or <em>region</em> or <em>thresh</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">append</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
-<span class="n">buffer</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
-<span class="n">every</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">N</span>
-  <span class="n">N</span> <span class="o">=</span> <span class="n">dump</span> <span class="n">every</span> <span class="n">this</span> <span class="n">many</span> <span class="n">timesteps</span>
-  <span class="n">N</span> <span class="n">can</span> <span class="n">be</span> <span class="n">a</span> <span class="n">variable</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
-<span class="n">fileper</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">Np</span>
-  <span class="n">Np</span> <span class="o">=</span> <span class="n">write</span> <span class="n">one</span> <span class="n">file</span> <span class="k">for</span> <span class="n">every</span> <span class="n">this</span> <span class="n">many</span> <span class="n">processors</span>
-<span class="n">first</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
-<span class="n">flush</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
-<span class="nb">format</span> <span class="n">args</span> <span class="o">=</span> <span class="n">line</span> <span class="n">string</span><span class="p">,</span> <span class="nb">int</span> <span class="n">string</span><span class="p">,</span> <span class="nb">float</span> <span class="n">string</span><span class="p">,</span> <span class="n">M</span> <span class="n">string</span><span class="p">,</span> <span class="ow">or</span> <span class="n">none</span>
-  <span class="n">string</span> <span class="o">=</span> <span class="n">C</span><span class="o">-</span><span class="n">style</span> <span class="nb">format</span> <span class="n">string</span>
-  <span class="n">M</span> <span class="o">=</span> <span class="n">integer</span> <span class="kn">from</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">N</span><span class="p">,</span> <span class="n">where</span> <span class="n">N</span> <span class="o">=</span> <span class="c1"># of per-atom quantities being output</span>
-<span class="n">nfile</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">Nf</span>
-  <span class="n">Nf</span> <span class="o">=</span> <span class="n">write</span> <span class="n">this</span> <span class="n">many</span> <span class="n">files</span><span class="p">,</span> <span class="n">one</span> <span class="kn">from</span> <span class="nn">each</span> <span class="n">of</span> <span class="n">Nf</span> <span class="n">processors</span>
-<span class="n">pad</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">Nchar</span> <span class="o">=</span> <span class="c1"># of characters to convert timestep to</span>
-<span class="n">region</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">region</span><span class="o">-</span><span class="n">ID</span> <span class="ow">or</span> <span class="s2">&quot;none&quot;</span>
-<span class="n">thresh</span> <span class="n">args</span> <span class="o">=</span> <span class="n">attribute</span> <span class="n">operation</span> <span class="n">value</span>
-  <span class="n">attribute</span> <span class="o">=</span> <span class="n">same</span> <span class="n">attributes</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fy</span><span class="p">,</span><span class="n">etotal</span><span class="p">,</span><span class="n">sxx</span><span class="p">,</span><span class="n">etc</span><span class="p">)</span> <span class="n">used</span> <span class="n">by</span> <span class="n">dump</span> <span class="n">custom</span> <span class="n">style</span>
-  <span class="n">operation</span> <span class="o">=</span> <span class="s2">&quot;&lt;&quot;</span> <span class="ow">or</span> <span class="s2">&quot;&lt;=&quot;</span> <span class="ow">or</span> <span class="s2">&quot;&gt;&quot;</span> <span class="ow">or</span> <span class="s2">&quot;&gt;=&quot;</span> <span class="ow">or</span> <span class="s2">&quot;==&quot;</span> <span class="ow">or</span> <span class="s2">&quot;!=&quot;</span>
-  <span class="n">value</span> <span class="o">=</span> <span class="n">numeric</span> <span class="n">value</span> <span class="n">to</span> <span class="n">compare</span> <span class="n">to</span>
-  <span class="n">these</span> <span class="mi">3</span> <span class="n">args</span> <span class="n">can</span> <span class="n">be</span> <span class="n">replaced</span> <span class="n">by</span> <span class="n">the</span> <span class="n">word</span> <span class="s2">&quot;none&quot;</span> <span class="n">to</span> <span class="n">turn</span> <span class="n">off</span> <span class="n">thresholding</span>
-</pre></div>
-</div>
+<ul class="simple">
+<li><p>append arg = yes or no</p></li>
+<li><p>buffer arg = yes or no</p></li>
+<li><p>every arg = N</p>
+<ul>
+<li><p>N = dump every this many timesteps</p></li>
+<li><p>N can be a variable (see below)</p></li>
+</ul>
 </li>
-<li><p>these keywords apply only to the (image and <em>movie</em>
-<a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">styles</span></a></p></li>
-<li><p>keyword = <em>bcolor</em> or <em>bdiam</em> or <em>backcolor</em> or <em>bitrate</em> or
-<em>boxcolor</em> or <em>cmap</em> or <em>color</em> or <em>framerate</em> or <em>gcolor</em> or
-<em>glinecolor</em> or <em>pcolor</em> or <em>pdiam</em> or <em>scolor</em> or <em>slinecolor</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">backcolor</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">color</span>
-  <span class="n">color</span> <span class="o">=</span> <span class="n">name</span> <span class="n">of</span> <span class="n">color</span> <span class="k">for</span> <span class="n">background</span>
-<span class="n">bitrate</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">rate</span>
-  <span class="n">rate</span> <span class="o">=</span> <span class="n">target</span> <span class="n">bitrate</span> <span class="k">for</span> <span class="n">movie</span> <span class="ow">in</span> <span class="n">kbps</span>
-<span class="n">boxcolor</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">color</span>
-  <span class="n">color</span> <span class="o">=</span> <span class="n">name</span> <span class="n">of</span> <span class="n">color</span> <span class="k">for</span> <span class="n">box</span> <span class="n">lines</span>
-<span class="n">cmap</span> <span class="n">args</span> <span class="o">=</span> <span class="n">mode</span> <span class="n">lo</span> <span class="n">hi</span> <span class="n">style</span> <span class="n">delta</span> <span class="n">N</span> <span class="n">entry1</span> <span class="n">entry2</span> <span class="o">...</span> <span class="n">entryN</span>
-  <span class="n">mode</span> <span class="o">=</span> <span class="n">particle</span> <span class="ow">or</span> <span class="n">grid</span> <span class="ow">or</span> <span class="n">surf</span> <span class="ow">or</span> <span class="n">xplane</span> <span class="ow">or</span> <span class="n">yplane</span> <span class="ow">or</span> <span class="n">zplane</span>
-  <span class="n">lo</span> <span class="o">=</span> <span class="n">number</span> <span class="ow">or</span> <span class="nb">min</span> <span class="o">=</span> <span class="n">lower</span> <span class="n">bound</span> <span class="n">of</span> <span class="nb">range</span> <span class="n">of</span> <span class="n">color</span> <span class="nb">map</span>
-  <span class="n">hi</span> <span class="o">=</span> <span class="n">number</span> <span class="ow">or</span> <span class="nb">max</span> <span class="o">=</span> <span class="n">upper</span> <span class="n">bound</span> <span class="n">of</span> <span class="nb">range</span> <span class="n">of</span> <span class="n">color</span> <span class="nb">map</span>
-  <span class="n">style</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">letters</span> <span class="o">=</span> <span class="s2">&quot;c&quot;</span> <span class="ow">or</span> <span class="s2">&quot;d&quot;</span> <span class="ow">or</span> <span class="s2">&quot;s&quot;</span> <span class="n">plus</span> <span class="s2">&quot;a&quot;</span> <span class="ow">or</span> <span class="s2">&quot;f&quot;</span>
-    <span class="s2">&quot;c&quot;</span> <span class="k">for</span> <span class="n">continuous</span>
-    <span class="s2">&quot;d&quot;</span> <span class="k">for</span> <span class="n">discrete</span>
-    <span class="s2">&quot;s&quot;</span> <span class="k">for</span> <span class="n">sequential</span>
-    <span class="s2">&quot;a&quot;</span> <span class="k">for</span> <span class="n">absolute</span>
-    <span class="s2">&quot;f&quot;</span> <span class="k">for</span> <span class="n">fractional</span>
-  <span class="n">delta</span> <span class="o">=</span> <span class="n">binsize</span> <span class="p">(</span><span class="n">only</span> <span class="n">used</span> <span class="k">for</span> <span class="n">style</span> <span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">otherwise</span> <span class="n">ignored</span><span class="p">)</span>
-    <span class="n">binsize</span> <span class="o">=</span> <span class="nb">range</span> <span class="ow">is</span> <span class="n">divided</span> <span class="n">into</span> <span class="n">bins</span> <span class="n">of</span> <span class="n">this</span> <span class="n">width</span>
-  <span class="n">N</span> <span class="o">=</span> <span class="c1"># of subsequent entries</span>
-  <span class="n">entry</span> <span class="o">=</span> <span class="n">value</span> <span class="n">color</span> <span class="p">(</span><span class="k">for</span> <span class="n">continuous</span> <span class="n">style</span><span class="p">)</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">number</span> <span class="ow">or</span> <span class="nb">min</span> <span class="ow">or</span> <span class="nb">max</span> <span class="o">=</span> <span class="n">single</span> <span class="n">value</span> <span class="n">within</span> <span class="nb">range</span>
-    <span class="n">color</span> <span class="o">=</span> <span class="n">name</span> <span class="n">of</span> <span class="n">color</span> <span class="n">used</span> <span class="k">for</span> <span class="n">that</span> <span class="n">value</span>
-  <span class="n">entry</span> <span class="o">=</span> <span class="n">lo</span> <span class="n">hi</span> <span class="n">color</span> <span class="p">(</span><span class="k">for</span> <span class="n">discrete</span> <span class="n">style</span><span class="p">)</span>
-    <span class="n">lo</span><span class="o">/</span><span class="n">hi</span> <span class="o">=</span> <span class="n">number</span> <span class="ow">or</span> <span class="nb">min</span> <span class="ow">or</span> <span class="nb">max</span> <span class="o">=</span> <span class="n">lower</span><span class="o">/</span><span class="n">upper</span> <span class="n">bound</span> <span class="n">of</span> <span class="n">subset</span> <span class="n">of</span> <span class="nb">range</span>
-    <span class="n">color</span> <span class="o">=</span> <span class="n">name</span> <span class="n">of</span> <span class="n">color</span> <span class="n">used</span> <span class="k">for</span> <span class="n">that</span> <span class="n">subset</span> <span class="n">of</span> <span class="n">values</span>
-  <span class="n">entry</span> <span class="o">=</span> <span class="n">color</span> <span class="p">(</span><span class="k">for</span> <span class="n">sequential</span> <span class="n">style</span><span class="p">)</span>
-    <span class="n">color</span> <span class="o">=</span> <span class="n">name</span> <span class="n">of</span> <span class="n">color</span> <span class="n">used</span> <span class="k">for</span> <span class="n">a</span> <span class="nb">bin</span> <span class="n">of</span> <span class="n">values</span>
-<span class="n">color</span> <span class="n">args</span> <span class="o">=</span> <span class="n">name</span> <span class="n">R</span> <span class="n">G</span> <span class="n">B</span>
-  <span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="n">of</span> <span class="n">color</span>
-  <span class="n">R</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">B</span> <span class="o">=</span> <span class="n">red</span><span class="o">/</span><span class="n">green</span><span class="o">/</span><span class="n">blue</span> <span class="n">numeric</span> <span class="n">values</span> <span class="kn">from</span> <span class="mf">0.0</span> <span class="n">to</span> <span class="mf">1.0</span>
-<span class="n">framerate</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">fps</span>
-  <span class="n">fps</span> <span class="o">=</span> <span class="n">frames</span> <span class="n">per</span> <span class="n">second</span> <span class="k">for</span> <span class="n">movie</span>
-<span class="n">gcolor</span> <span class="n">args</span> <span class="o">=</span> <span class="n">proc</span> <span class="n">color</span>
-  <span class="n">proc</span> <span class="o">=</span> <span class="n">proc</span> <span class="n">ID</span> <span class="ow">or</span> <span class="nb">range</span> <span class="n">of</span> <span class="n">IDs</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
-  <span class="n">color</span> <span class="o">=</span> <span class="n">name</span> <span class="n">of</span> <span class="n">color</span> <span class="ow">or</span> <span class="n">color1</span><span class="o">/</span><span class="n">color2</span><span class="o">/...</span>
-<span class="n">glinecolor</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">color</span>
-  <span class="n">color</span> <span class="o">=</span> <span class="n">name</span> <span class="n">of</span> <span class="n">color</span> <span class="k">for</span> <span class="n">grid</span> <span class="n">cell</span> <span class="n">outlines</span>
-<span class="n">pcolor</span> <span class="n">args</span> <span class="o">=</span> <span class="nb">type</span> <span class="n">color</span>
-  <span class="nb">type</span> <span class="o">=</span> <span class="n">particle</span> <span class="nb">type</span> <span class="ow">or</span> <span class="nb">range</span> <span class="n">of</span> <span class="n">types</span> <span class="ow">or</span> <span class="n">proc</span> <span class="n">ID</span> <span class="ow">or</span> <span class="nb">range</span> <span class="n">of</span> <span class="n">IDs</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
-  <span class="n">color</span> <span class="o">=</span> <span class="n">name</span> <span class="n">of</span> <span class="n">color</span> <span class="ow">or</span> <span class="n">color1</span><span class="o">/</span><span class="n">color2</span><span class="o">/...</span>
-<span class="n">pdiam</span> <span class="n">args</span> <span class="o">=</span> <span class="nb">type</span> <span class="n">diam</span>
-  <span class="nb">type</span> <span class="o">=</span> <span class="n">particle</span> <span class="nb">type</span> <span class="ow">or</span> <span class="nb">range</span> <span class="n">of</span> <span class="n">types</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
-  <span class="n">diam</span> <span class="o">=</span> <span class="n">diameter</span> <span class="n">of</span> <span class="n">particles</span> <span class="n">of</span> <span class="n">that</span> <span class="nb">type</span> <span class="p">(</span><span class="n">distance</span> <span class="n">units</span><span class="p">)</span>
-<span class="n">scolor</span> <span class="n">args</span> <span class="o">=</span> <span class="n">proc</span> <span class="n">color</span>
-  <span class="n">proc</span> <span class="o">=</span> <span class="n">proc</span> <span class="n">ID</span> <span class="ow">or</span> <span class="nb">range</span> <span class="n">of</span> <span class="n">IDs</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
-  <span class="n">color</span> <span class="o">=</span> <span class="n">name</span> <span class="n">of</span> <span class="n">color</span> <span class="k">for</span> <span class="n">surf</span> <span class="n">one</span> <span class="n">option</span>
-<span class="n">slinecolor</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">color</span>
-  <span class="n">color</span> <span class="o">=</span> <span class="n">name</span> <span class="n">of</span> <span class="n">color</span> <span class="k">for</span> <span class="n">surface</span> <span class="n">element</span> <span class="n">outlines</span>
-</pre></div>
-</div>
+<li><p>fileper arg = Np = write one file for every this many processors</p></li>
+<li><p>first arg = yes or no</p></li>
+<li><p>flush arg = yes or no</p></li>
+<li><p>format args = line string, int string, float string, M string, or none</p>
+<ul>
+<li><p>string = C-style format string</p></li>
+<li><p>M = integer from 1 to N, where N = # of per-atom quantities being output</p></li>
+</ul>
+</li>
+<li><p>nfile arg = Nf = write this many files, one from each of Nf processors</p></li>
+<li><p>pad arg = Nchar = Number of characters to convert timestep to</p></li>
+<li><p>region arg = region-ID or “none”</p>
+<ul>
+<li><p>Select the region to dump</p></li>
+</ul>
+</li>
+<li><p>thresh args = attribute operation value</p>
+<ul>
+<li><p>attribute = same attributes (x,fy,etotal,sxx,etc) used by dump custom style</p></li>
+<li><p>operation = “&lt;” or “&lt;=” or “&gt;” or “&gt;=” or “==” or “!=”</p></li>
+<li><p>value = numeric value to compare to</p></li>
+<li><p>these 3 args can be replaced by the word “none” to turn off thresholding</p></li>
+</ul>
 </li>
 </ul>
-<p><strong>Examples:</strong></p>
+</li>
+<li><p>these keywords apply only to the (image and <em>movie</em> <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">styles</span></a>)</p>
+<p>keyword = <em>bcolor</em> or <em>bdiam</em> or <em>backcolor</em> or <em>bitrate</em> or
+<em>boxcolor</em> or <em>cmap</em> or <em>color</em> or <em>framerate</em> or <em>gcolor</em> or
+<em>glinecolor</em> or <em>pcolor</em> or <em>pdiam</em> or <em>scolor</em> or <em>slinecolor</em></p>
+<ul>
+<li><p>backcolor arg = color = name of color for background</p></li>
+<li><p>bitrate arg = rate = target bitrate for movie in kbps</p></li>
+<li><p>boxcolor arg = color = name of color for box lines</p></li>
+<li><p>cmap args = mode lo hi style delta N entry1 entry2 … entryN</p>
+<ul>
+<li><p>mode = particle or grid or surf or xplane or yplane or zplane</p></li>
+<li><p>lo = number or min = lower bound of range of color map</p></li>
+<li><p>hi = number or max = upper bound of range of color map</p></li>
+<li><p>style = 2 letters = “c” or “d” or “s” plus “a” or “f”</p>
+<ul class="simple">
+<li><p>“c” for continuous</p></li>
+<li><p>“d” for discrete</p></li>
+<li><p>“s” for sequential</p></li>
+<li><p>“a” for absolute</p></li>
+<li><p>“f” for fractional</p></li>
+</ul>
+</li>
+<li><p>delta = binsize (only used for style “s”, otherwise ignored)</p>
+<p>binsize = range is divided into bins of this width</p>
+</li>
+<li><p>N = # of subsequent entries</p></li>
+<li><p>entry = value color (for continuous style)</p>
+<ul class="simple">
+<li><p>value = number or min or max = single value within range</p></li>
+<li><p>color = name of color used for that value</p></li>
+</ul>
+</li>
+<li><p>entry = lo hi color (for discrete style)</p>
+<ul class="simple">
+<li><p>lo/hi = number or min or max = lower/upper bound of subset of range</p></li>
+<li><p>color = name of color used for that subset of values</p></li>
+</ul>
+</li>
+<li><p>entry = color (for sequential style)</p>
+<p>color = name of color used for a bin of values</p>
+</li>
+</ul>
+</li>
+<li><p>color args = name R G B</p>
+<ul class="simple">
+<li><p>name = name of color</p></li>
+<li><p>R,G,B = red/green/blue numeric values from 0.0 to 1.0</p></li>
+</ul>
+</li>
+<li><p>framerate arg = fps</p>
+<p>fps = frames per second for movie</p>
+</li>
+<li><p>gcolor args = proc color</p>
+<ul class="simple">
+<li><p>proc = proc ID or range of IDs (see below)</p></li>
+<li><p>color = name of color or color1/color2/…</p></li>
+</ul>
+</li>
+<li><p>glinecolor arg = color</p>
+<p>color = name of color for grid cell outlines</p>
+</li>
+<li><p>pcolor args = type color</p></li>
+<li><p>type = particle type or range of types or proc ID or range of IDs (see below)</p>
+<p>color = name of color or color1/color2/…</p>
+</li>
+<li><p>pdiam args = type diam</p>
+<ul class="simple">
+<li><p>type = particle type or range of types (see below)</p></li>
+<li><p>diam = diameter of particles of that type (distance units)</p></li>
+</ul>
+</li>
+<li><p>scolor args = proc color</p>
+<ul class="simple">
+<li><p>proc = proc ID or range of IDs (see below)</p></li>
+<li><p>color = name of color for surf one option</p></li>
+</ul>
+</li>
+<li><p>slinecolor arg = color</p>
+<p>color = name of color for surface element outlines</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dump_modify</span> <span class="mi">1</span> <span class="nb">format</span> <span class="n">line</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> </span><span class="si">%d</span><span class="s2"> </span><span class="si">%20.15g</span><span class="s2"> </span><span class="si">%g</span><span class="s2"> </span><span class="si">%g</span><span class="s2">&quot;</span>
 <span class="n">dump_modify</span> <span class="mi">1</span> <span class="nb">format</span> <span class="nb">float</span> <span class="o">%</span><span class="mf">20.15</span><span class="n">g</span>
 <span class="n">dump_modify</span> <span class="n">myDump</span> <span class="n">thresh</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="n">thresh</span> <span class="n">vx</span> <span class="o">&gt;=</span> <span class="mf">3.0</span>
@@ -268,160 +308,116 @@
 <span class="n">dump_modify</span> <span class="mi">1</span> <span class="n">cmap</span> <span class="n">particle</span> <span class="nb">min</span> <span class="nb">max</span> <span class="n">cf</span> <span class="mf">0.0</span> <span class="mi">3</span> <span class="nb">min</span> <span class="n">green</span> <span class="mf">0.5</span> <span class="n">yellow</span> <span class="nb">max</span> <span class="n">blue</span> <span class="n">boxcolor</span> <span class="n">red</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Modify the parameters of a previously defined dump command. Not all
 parameters are relevant to all dump styles.</p>
 <hr class="docutils" />
 <p>These keywords apply to all dump styles unless otherwise noted. The
 descriptions give details.</p>
 <hr class="docutils" />
-<p>The <em>append</em> keyword applies to all dump styles except <em>image</em> and
-<em>movie</em>. It also applies only to text output files, not to binary or
-gzipped files. If specified as <em>yes</em>, then dump snapshots are appended
-to the end of an existing dump file. If specified as <em>no</em>, then a new
-dump file will be created which will overwrite an existing file with the
-same name. This keyword can only take effect if the dump_modify command
-is used after the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump</span></a> command, but before the first
-command that causes dump snapshots to be output, e.g. a
-<a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command. Once the dump file has been opened, this
-keyword has no further effect.</p>
+<dl class="simple">
+<dt>The <em>append</em> keyword</dt><dd><p>applies to all dump styles except <em>image</em> and <em>movie</em>. It also applies only to text output files, not to binary or gzipped files. If specified as <em>yes</em>, then dump snapshots are appended to the end of an existing dump file. If specified as <em>no</em>, then a new dump file will be created which will overwrite an existing file with the same name. This keyword can only take effect if the dump_modify command is used after the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump</span></a> command, but before the first command that causes dump snapshots to be output, e.g. a <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command. Once the dump file has been opened, this keyword has no further effect.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>buffer</em> keyword applies only all dump styles except <em>image</em> and
-<em>movie</em>. It also applies only to text output files, not to binary or
-gzipped files. If specified as <em>yes</em>, which is the default, then each
-processor writes its output into an internal text buffer, which is then
-sent to the processor(s) which perform file writes, and written by those
-processors(s) as one large chunk of text. If specified as <em>no</em>, each
-processor sends its per-atom data in binary format to the processor(s)
-which perform file wirtes, and those processor(s) format and write it
-line by line into the output file.</p>
-<p>The buffering mode is typically faster since each processor does the
-relatively expensive task of formatting the output for its own atoms.
-However it requires about twice the memory (per processor) for the extra
-buffering.</p>
+<dl>
+<dt>The <em>buffer</em> keyword</dt><dd><p>applies only all dump styles except <em>image</em> and <em>movie</em>. It also applies only to text output files, not to binary or gzipped files. If specified as <em>yes</em>, which is the default, then each processor writes its output into an internal text buffer, which is then sent to the processor(s) which perform file writes, and written by those processors(s) as one large chunk of text. If specified as <em>no</em>, each processor sends its per-atom data in binary format to the processor(s) which perform file wirtes, and those processor(s) format and write it line by line into the output file.</p>
+<p>The buffering mode is typically faster since each processor does the relatively expensive task of formatting the output for its own atoms.  However it requires about twice the memory (per processor) for the extra buffering.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>every</em> keyword changes the dump frequency originally specified by
-the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump command</span></a> to a new value. The every keyword can be
-specified in one of two ways. It can be a numeric value in which case
-it must be &gt; 0. Or it can be an <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">equal-style variable</span></a>, which should be specified as v_name, where name
-is the variable name. In this case, the variable is evaluated at the
-beginning of a run to determine the next timestep at which a dump
-snapshot will be written out. On that timestep, the variable will be
-evaluated again to determine the next timestep, etc. Thus the variable
-should return timestep values. See the stagger() and logfreq() math
-functions for <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">equal-style variable</span></a>, as
-examples of useful functions to use in this context. Other similar
-math functions could easily be added as options for <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">equal-style variable</span></a>. When using the variable option with the
-<em>every</em> keyword, you also need to use the <em>first</em> option if you want
-an initial snapshot written to the dump file.</p>
-<p>For example, the following commands will write snapshots at timesteps
-0,10,20,30,100,200,300,1000,2000,etc:</p>
+<dl>
+<dt>The <em>every</em> keyword</dt><dd><p>changes the dump frequency originally specified by the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump command</span></a> to a new value. The every keyword can be specified in one of two ways. It can be a numeric value in which case it must be &gt; 0. Or it can be an <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">equal-style variable</span></a>, which should be specified as v_name, where name is the variable name. In this case, the variable is evaluated at the beginning of a run to determine the next timestep at which a dump snapshot will be written out. On that timestep, the variable will be evaluated again to determine the next timestep, etc. Thus the variable should return timestep values. See the stagger() and logfreq() math functions for <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">equal-style variable</span></a>, as examples of useful functions to use in this context.
+Other similar math functions could easily be added as options for <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">equal-style variable</span></a>. When using the variable option with the <em>every</em> keyword, you also need to use the <em>first</em> option if you want an initial snapshot written to the dump file.</p>
+<p>For example, the following commands will write snapshots at timesteps 0,10,20,30,100,200,300,1000,2000,etc:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span>           <span class="n">s</span> <span class="n">equal</span> <span class="n">logfreq</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">dump</span>        <span class="mi">1</span> <span class="n">particle</span> <span class="nb">all</span> <span class="mi">100</span> <span class="n">tmp</span><span class="o">.</span><span class="n">dump</span> <span class="nb">id</span> <span class="nb">type</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 <span class="n">dump_modify</span> <span class="mi">1</span> <span class="n">every</span> <span class="n">v_s</span> <span class="n">first</span> <span class="n">yes</span>
 </pre></div>
 </div>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>fileper</em> keyword is documented below with the <em>nfile</em> keyword.</p>
+<dl class="simple">
+<dt>The <em>fileper</em> keyword</dt><dd><p>documented below with the <em>nfile</em> keyword.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>first</em> keyword determines whether a dump snapshot is written on
-the very first timestep after the dump command is invoked. This will
-always occur if the current timestep is a multiple of N, the frequency
-specified in the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump command</span></a>, including timestep 0. But if
-this is not the case, a dump snapshot will only be written if the
-setting of this keyword is <em>yes</em>. If it is <em>no</em>, which is the default,
-then it will not be written.</p>
+<dl class="simple">
+<dt>The <em>first</em> keyword</dt><dd><p>determines whether a dump snapshot is written on the very first timestep after the dump command is invoked. This will always occur if the current timestep is a multiple of N, the frequency specified in the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump command</span></a>, including timestep 0. But if this is not the case, a dump snapshot will only be written if the setting of this keyword is <em>yes</em>. If it is <em>no</em>, which is the default, then it will not be written.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>flush</em> keyword applies to all dump styles except <em>image</em> and
-<em>movie</em>. It also applies only when the styles are used to write
-multiple successive snapshots to the same file. It determines whether
-a flush operation is invoked after a dump snapshot is written to the
-dump file.  A flush insures the output in that file is current (no
-buffering by the OS), even if SPARTA halts before the simulation
-completes.</p>
+<dl class="simple">
+<dt>The <em>flush</em> keyword</dt><dd><p>applies to all dump styles except <em>image</em> and <em>movie</em>. It also applies only when the styles are used to write multiple successive snapshots to the same file. It determines whether a flush operation is invoked after a dump snapshot is written to the dump file.  A flush insures the output in that file is current (no buffering by the OS), even if SPARTA halts before the simulation completes.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>format</em> keyword can be used to change the default numeric format
-output by the text-based dump styles: <em>particle</em>, <em>grid</em>, <em>surf</em>.</p>
-<p>All the specified format strings are C-style formats, e.g. as used by
-the C/C++ printf() command. The <em>line</em> keyword takes a single argument
-which is the format string for an entire line of output with N fields
-for each particle, grid cell, or suraface elememt, which you must
-enclose in quotes if it is more than one field. The <em>int</em> and <em>float</em>
-keywords take a single format argument and are applied to all integer or
-floating-point quantities output. The setting for <em>M string</em> also takes
-a single format argument which is used for the Mth value output in each
-line, e.g. the 5th column is output in high precision for “format 5
-%20.15g”.</p>
-<p>The <em>format</em> keyword can be used multiple times. The precedence is that
-for each value in a line of output, the <em>M</em> format (if specified) is
-used, else the <em>int</em> or <em>float</em> setting (if specified) is used, else the
-<em>line</em> setting (if specified) for that value is used, else the default
-setting is used. A setting of <em>none</em> clears all previous settings,
-reverting all values to their default format.</p>
-<p>NOTE: Grid cell IDs are stored internally as 4-byte or 8-byte signed
-integers, depending on how SPARTA was compiled. When specifying the
-<em>format int</em> option you can use a “%d”-style format identifier in the
-format string and SPARTA will convert this to the corresponding 8-byte
-form it it is needed when outputting those values. However, when
-specifying the <em>line</em> option or <em>format M string</em> option for those
-values, you should specify a format string appropriate for an 8-byte
-signed integer, e.g. one with “%ld”, if SPARTA was compiled with the
--DSPARTA_BIGBIG option for 8-byte IDs.</p>
+<dl>
+<dt>The <em>format</em> keyword</dt><dd><p>can be used to change the default numeric format output by the text-based dump styles: <em>particle</em>, <em>grid</em>, <em>surf</em>.</p>
+<p>All the specified format strings are C-style formats, e.g. as used by the C/C++ printf() command. The <em>line</em> keyword takes a single argument which is the format string for an entire line of output with N fields for each particle, grid cell, or suraface elememt, which you must enclose in quotes if it is more than one field. The <em>int</em> and <em>float</em> keywords take a single format argument and are applied to all integer or floating-point quantities output. The setting for <em>M string</em> also takes a single format argument which is used for the Mth value output in each line, e.g. the 5th column is output in high precision for “format 5 %20.15g”.</p>
+<p>The <em>format</em> keyword can be used multiple times. The precedence is that for each value in a line of output, the <em>M</em> format (if specified) is used, else the <em>int</em> or <em>float</em> setting (if specified) is used, else the <em>line</em> setting (if specified) for that value is used, else the default setting is used. A setting of <em>none</em> clears all previous settings, reverting all values to their default format.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Grid cell IDs are stored internally as 4-byte or 8-byte signed integers, depending on how SPARTA was compiled.
+When specifying the <em>format int</em> option you can use a “%d”-style format identifier in the format string and SPARTA will convert this to the corresponding 8-byte form it it is needed when outputting those values.
+However, when specifying the <em>line</em> option or <em>format M string</em> option for those values, you should specify a format string appropriate for an 8-byte signed integer, e.g. one with “%ld”, if SPARTA was compiled with the -DSPARTA_BIGBIG option for 8-byte IDs.</p>
+</div>
 <hr class="docutils" />
-<p>The <em>nfile</em> or <em>fileper</em> keywords apply to all dump styles except
-<em>image</em> and <em>movie</em>. They can be used in conjunction with the “%”
-wildcard character in the specified dump file name. As explained on the
-<a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump</span></a> command doc page, the “%” character causes the dump
-file to be written in pieces, one piece for each of P processors. By
-default P = the number of processors the simulation is running on. The
-<em>nfile</em> or <em>fileper</em> keyword can be used to set P to a smaller value,
-which can be more efficient when running on a large number of
-processors.</p>
-<p>The <em>nfile</em> keyword sets P to the specified Nf value. For example, if Nf
-= 4, and the simulation is running on 100 processors, 4 files will be
-written, by processors 0,25,50,75. Each will collect information from
-itself and the next 24 processors and write it to a dump file.</p>
-<p>For the <em>fileper</em> keyword, the specified value of Np means write one
-file for every Np processors. For example, if Np = 4, every 4th
-processor (0,4,8,12,etc) will collect information from itself and the
-next 3 processors and write it to a dump file.</p>
+<dl>
+<dt>The <em>nfile</em> or <em>fileper</em> keywords</dt><dd><p>apply to all dump styles except <em>image</em> and <em>movie</em>. They can be used in conjunction with the “%” wildcard character in the specified dump file name. As explained on the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump</span></a> command doc page, the “%” character causes the dump file to be written in pieces, one piece for each of P processors. By default P = the number of processors the simulation is running on. The <em>nfile</em> or <em>fileper</em> keyword can be used to set P to a smaller value, which can be more efficient when running on a large number of processors.</p>
+<dl class="simple">
+<dt>The <em>nfile</em> keyword</dt><dd><p>sets P to the specified Nf value. For example, if Nf = 4, and the simulation is running on 100 processors, 4 files will be written, by processors 0,25,50,75. Each will collect information from itself and the next 24 processors and write it to a dump file.</p>
+</dd>
+<dt>For the <em>fileper</em> keyword</dt><dd><p>the specified value of Np means write one file for every Np processors. For example, if Np = 4, every 4th processor (0,4,8,12,etc) will collect information from itself and the next 3 processors and write it to a dump file.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>pad</em> keyword only applies when the dump filename is specified with
-a wildcard “*” character which becomes the timestep. If <em>pad</em> is 0,
-which is the default, the timestep is converted into a string of
-unpadded length, e.g. 100 or 12000 or 2000000. When <em>pad</em> is specified
-with <em>Nchar</em> &gt; 0, the string is padded with leading zeroes so they are
-all the same length = <em>Nchar</em>. For example, pad 7 would yield 0000100,
-0012000, 2000000. This can be useful so that post-processing programs
-can easily read the files in ascending timestep order.</p>
+<dl class="simple">
+<dt>The <em>pad</em> keyword</dt><dd><p>only applies when the dump filename is specified with a wildcard “*” character which becomes the timestep. If <em>pad</em> is 0, which is the default, the timestep is converted into a string of unpadded length, e.g. 100 or 12000 or 2000000. When <em>pad</em> is specified with <em>Nchar</em> &gt; 0, the string is padded with leading zeroes so they are all the same length = <em>Nchar</em>. For example, pad 7 would yield 0000100, 0012000, 2000000. This can be useful so that post-processing programs can easily read the files in ascending timestep order.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>region</em> keyword only applies to the dump <em>particle</em> and <em>image</em>
-styles. If specified, only particles in the region will be written to
-the dump file or included in the image. Only one region can be applied
-as a filter (the last one specified). See the <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a>
-command for more details. Note that a region can be defined as the
-“inside” or “outside” of a geometric shape, and it can be the “union” or
-“intersection” of a series of simpler regions.</p>
+<dl class="simple">
+<dt>The <em>region</em> keyword</dt><dd><p>only applies to the dump <em>particle</em> and <em>image</em> styles. If specified, only particles in the region will be written to the dump file or included in the image. Only one region can be applied as a filter (the last one specified). See the <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command for more details. Note that a region can be defined as the “inside” or “outside” of a geometric shape, and it can be the “union” or “intersection” of a series of simpler regions.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>thresh</em> keyword only applies to the dump <em>particle</em> and <em>image</em> styles. Multiple thresholds can be specified. Specifying “none” turns off all threshold criteria. If thresholds are specified, only particles whose attributes meet all the threshold criteria are written to the dump file or included in the image. The possible attributes that can be tested for are the same as those that can be specified in the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump particle</span></a> command. Note that different attributes can be output by the dump particle command than are used as threshold criteria by the dump_modify command. E.g. you can output the coordinates of particles whose velocity components are above some threshold.</p>
+<dl class="simple">
+<dt>The <em>thresh</em> keyword</dt><dd><p>only applies to the dump <em>particle</em> and <em>image</em> styles. Multiple thresholds can be specified. Specifying “none” turns off all threshold criteria. If thresholds are specified, only particles whose attributes meet all the threshold criteria are written to the dump file or included in the image. The possible attributes that can be tested for are the same as those that can be specified in the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump particle</span></a> command. Note that different attributes can be output by the dump particle command than are used as threshold criteria by the dump_modify command. E.g. you can output the coordinates of particles whose velocity components are above some threshold.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>These keywords apply only to the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> and
-<a class="reference internal" href="dump_image.html#command-dump-image-command-dump-movie"><span class="std std-ref">command-dump-movie</span></a> styles. Any keyword that affects an
-image, also affects a movie, since the movie is simply a collection of
-images. Some of the keywords only affect the <a class="reference internal" href="dump_image.html#command-dump-image-command-dump-movie"><span class="std std-ref">command-dump-movie</span></a> style. The descriptions give details.</p>
+<p>These keywords apply only to the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> and <a class="reference internal" href="dump_image.html#command-dump-image-command-dump-movie"><span class="std std-ref">command-dump-movie</span></a> styles. Any keyword that affects an image, also affects a movie, since the movie is simply a collection of images. Some of the keywords only affect the <a class="reference internal" href="dump_image.html#command-dump-image-command-dump-movie"><span class="std std-ref">command-dump-movie</span></a> style. The descriptions give details.</p>
 <hr class="docutils" />
-<p>The <em>backcolor</em> keyword can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> to set the background color of the images. The color name can be any of the 140 pre-defined colors (see below) or a color name defined by the <code class="docutils literal notranslate"><span class="pre">dump_modify</span></code> color option.</p>
+<dl class="simple">
+<dt>The <em>backcolor</em> keyword</dt><dd><p>can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> to set the background color of the images. The color name can be any of the 140 pre-defined colors (see below) or a color name defined by the <code class="docutils literal notranslate"><span class="pre">dump_modify</span></code> color option.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>bitrate</em> keyword can be used with the <a class="reference internal" href="dump_image.html#command-dump-image-command-dump-movie"><span class="std std-ref">command-dump-movie</span></a> to define the size of the resulting movie file and its quality via setting how many kbits per second are to be used for the movie file. Higher bitrates require less compression and will result in higher quality movies. The quality is also determined by the compression format and encoder. The default setting is 2000 kbit/s, which will result in average quality with older compression formats.</p>
+<dl class="simple">
+<dt>The <em>bitrate</em> keyword</dt><dd><p>can be used with the <a class="reference internal" href="dump_image.html#command-dump-image-command-dump-movie"><span class="std std-ref">command-dump-movie</span></a> to define the size of the resulting movie file and its quality via setting how many kbits per second are to be used for the movie file. Higher bitrates require less compression and will result in higher quality movies. The quality is also determined by the compression format and encoder. The default setting is 2000 kbit/s, which will result in average quality with older compression formats.</p>
+</dd>
+</dl>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Not all movie file formats supported by dump movie allow the bitrate to be set.
 If not, the setting is silently ignored.</p>
 </div>
 <hr class="docutils" />
-<p>The <em>boxcolor</em> keyword can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> to set the color of the simulation box drawn around the particles in each image. See the “dump image box” command for how to specify that a box be drawn. The color name can be any of the 140 pre-defined colors (see below) or a color name defined by the dump_modify color option.</p>
+<dl class="simple">
+<dt>The <em>boxcolor</em> keyword</dt><dd><p>can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> to set the color of the simulation box drawn around the particles in each image. See the “dump image box” command for how to specify that a box be drawn. The color name can be any of the 140 pre-defined colors (see below) or a color name defined by the dump_modify color option.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>cmap</em> keyword can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> command to define a color map that is used to draw “objects” which can be particles, grid cells, or surface elements. The mode setting must be <em>particle</em> or <em>grid</em> or <em>surf</em> or <em>gridx</em> or <em>gridy</em> or <em>gridz</em> which correspond to the same keywords in the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a>.</p>
+<dl>
+<dt>The <em>cmap</em> keyword</dt><dd><p>can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> command to define a color map that is used to draw “objects” which can be particles, grid cells, or surface elements. The mode setting must be <em>particle</em> or <em>grid</em> or <em>surf</em> or <em>gridx</em> or <em>gridy</em> or <em>gridz</em> which correspond to the same keywords in the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a>.</p>
 <p>Color maps are used to assign a specific RGB (red/green/blue) color value to an individual object when it is drawn, based on the object’s attribute, which is a numeric value, e.g. the x-component of velocity for a particle, if the particle-attribute “vx” was specified in the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a>.</p>
 <p>The basic idea of a color map is that the attribute will be within a range of values, and that range is associated with a a series of colors (e.g. red, blue, green). A specific value (vx = -3.2) can then mapped to the series of colors (e.g. halfway between red and blue), and a specific color is determined via an interpolation procedure.</p>
 <p>There are many possible options for the color map, enabled by the <em>cmap</em> keyword. Here are the details.</p>
@@ -436,39 +432,74 @@ If not, the setting is silently ignored.</p>
 <p>For discrete color maps, each entry has a <em>lo</em> and <em>hi</em> value and a <em>color</em>. The <em>lo</em> and <em>hi</em> settings are either numbers within the range of values or <em>lo</em> can be <em>min</em> or <em>hi</em> can be <em>max</em>. The <em>lo</em> and <em>hi</em> settings of the last entry must be <em>min</em> and <em>max</em>. Other entries can have any <em>lo</em> and <em>hi</em> values and the sub-ranges of different values can overlap. Note that numeric <em>lo</em> and <em>hi</em> values can be specified either as absolute numbers or as fractions (0.0 to 1.0) of the range, depending on the “a” or “f” in the style setting for the color map.</p>
 <p>Here is how the entries are used to determine the color of an individual object, given the value X of its attribute. The entries are scanned from first to last. The first time that <em>lo</em> &lt;= X &lt;= <em>hi</em>, X is assigned the color associated with that entry. You can think of the last entry as assigning a default color (since it will always be matched by X), and the earlier entries as colors that override the default. Also note that no interpolation of a color RGB is done. All objects will be drawn with one of the colors in the list of entries.</p>
 <p>For sequential color maps, each entry has only a <em>color</em>. Here is how the entries are used to determine the color of an individual object, given the value X of its attribute. The range is partitioned into N bins of width <em>binsize</em>. Thus X will fall in a specific bin from 1 to N, say the Mth bin. If it falls on a boundary between 2 bins, it is considered to be in the higher of the 2 bins. Each bin is assigned a color from the E entries. If E &lt; N, then the colors are repeated. For example if 2 entries with colors red and green are specified, then the odd numbered bins will be red and the even bins green. The color of the object is the color of its bin. Note that the sequential color map is really a shorthand way of defining a discrete color map without having to specify where all the bin boundaries are.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>color</em> keyword can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> to define a new color name, in addition to the 140-predefined colors (see below), and associates 3 red/green/blue RGB values with that color name. The color name can then be used with any other dump_modify keyword that takes a color name as a value. The RGB values should each be floating point values between 0.0 and 1.0 inclusive.</p>
+<dl>
+<dt>The <em>color</em> keyword</dt><dd><p>can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> to define a new color name, in addition to the 140-predefined colors (see below), and associates 3 red/green/blue RGB values with that color name. The color name can then be used with any other dump_modify keyword that takes a color name as a value. The RGB values should each be floating point values between 0.0 and 1.0 inclusive.</p>
 <p>When a color name is converted to RGB values, the user-defined color names are searched first, then the 140 pre-defined color names. This means you can also use the <em>color</em> keyword to overwrite one of the pre-defined color names with new RBG values.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>framerate</em> keyword can be used with the <a class="reference internal" href="dump_image.html#command-dump-image-command-dump-movie"><span class="std std-ref">command-dump-movie</span></a> to define the duration of the resulting movie file. Movie files written by the dump <em>movie</em> command have a default frame rate of 24 frames per second and the images generated will be converted at that rate. Thus a sequence of 1000 dump images will result in a movie of about 42 seconds. To make a movie run longer you can either generate images more frequently or lower the frame rate. To speed a movie up, you can do the inverse. Using a frame rate higher than 24 is not recommended, as it will result in simply dropping the rendered images. It is more efficient to dump images less frequently.</p>
+<dl class="simple">
+<dt>The <em>framerate</em> keyword</dt><dd><p>can be used with the <a class="reference internal" href="dump_image.html#command-dump-image-command-dump-movie"><span class="std std-ref">command-dump-movie</span></a> to define the duration of the resulting movie file. Movie files written by the dump <em>movie</em> command have a default frame rate of 24 frames per second and the images generated will be converted at that rate. Thus a sequence of 1000 dump images will result in a movie of about 42 seconds. To make a movie run longer you can either generate images more frequently or lower the frame rate. To speed a movie up, you can do the inverse. Using a frame rate higher than 24 is not recommended, as it will result in simply dropping the rendered images. It is more efficient to dump images less frequently.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>gcolor</em> keyword can be used one or more times with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a>, only when its grid color setting is <em>proc</em>, to set the color that grid cells will be drawn in the image.</p>
+<dl>
+<dt>The <em>gcolor</em> keyword</dt><dd><p>can be used one or more times with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a>, only when its grid color setting is <em>proc</em>, to set the color that grid cells will be drawn in the image.</p>
 <p>The <em>proc</em> setting should be an integer from 1 to Nprocs = the number of processors. A wildcard asterisk can be used in place of or in conjunction with the <em>proc</em> argument to specify a range of processor IDs. This takes the form “*” or “<em>n” or “n</em>” or “m*n”. If N = the number of processors, then an asterisk with no numeric values means all procs from 1 to N. A leading asterisk means all procs from 1 to n (inclusive).  A trailing asterisk means all procs from n to N (inclusive). A middle asterisk means all procs from m to n (inclusive). Note that for this command, processor IDs range from 1 to Nprocs inclusive, instead of the more customary 0 to Nprocs-1.</p>
 <p>The specified <em>color</em> can be a single color which is any of the 140 pre-defined colors (see below) or a color name defined by the dump_modify color option. Or it can be two or more colors separated by a “/” character, e.g. red/green/blue. In the former case, that color is assigned to all the specified processors. In the latter case, the list of colors are assigned in a round-robin fashion to each of the specified processors.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>glinecolor</em> keyword can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> to set the color of the grid cell outlines drawn around the grid cells in each image. See the “dump image gline” command for how to specify that cell outlines be drawn. The color name can be any of the 140 pre-defined colors (see below) or a color name defined by the dump_modify color option.</p>
+<dl class="simple">
+<dt>The <em>glinecolor</em> keyword</dt><dd><p>can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> to set the color of the grid cell outlines drawn around the grid cells in each image. See the “dump image gline” command for how to specify that cell outlines be drawn. The color name can be any of the 140 pre-defined colors (see below) or a color name defined by the dump_modify color option.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>pcolor</em> keyword can be used one or more times with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a>, only when its particle color setting is <em>type</em> or <em>procs</em>, to set the color that particles will be drawn in the image.</p>
+<dl>
+<dt>The <em>pcolor</em> keyword</dt><dd><p>can be used one or more times with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a>, only when its particle color setting is <em>type</em> or <em>procs</em>, to set the color that particles will be drawn in the image.</p>
 <p>If the particle color setting is <em>type</em>, then the specified <em>type</em> for the <em>pcolor</em> keyword should be an integer from 1 to Ntypes = the number of particle types. A wildcard asterisk can be used in place of or in conjunction with the <em>type</em> argument to specify a range of particle types. This takes the form “*” or “<em>n” or “n</em>” or “m*n”. If N = the number of particle types, then an asterisk with no numeric values means all types from 1 to N. A leading asterisk means all types from 1 to n (inclusive). A trailing asterisk means all types from n to N (inclusive). A middle asterisk means all types from m to n (inclusive).</p>
 <p>If the particle color setting is <em>proc</em>, then the specified <em>type</em> for the <em>pcolor</em> keyword should be an integer from 1 to Nprocs = the number of processors. A wildcard asterisk can be used in place of or in conjunction with the <em>type</em> argument to specify a range of processor IDs, just as described above for particle types. Note that for this command, processor IDs range from 1 to Nprocs inclusive, instead of the more customary 0 to Nprocs-1.</p>
 <p>The specified <em>color</em> can be a single color which is any of the 140 pre-defined colors (see below) or a color name defined by the dump_modify color option. Or it can be two or more colors separated by a “/” character, e.g. red/green/blue. In the former case, that color is assigned to all the specified particle types. In the latter case, the list of colors are assigned in a round-robin fashion to each of the specified particle types.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>pdiam</em> keyword can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a>, when its particle diameter setting is <em>type</em>, to set the size that particles of each type will be drawn in the image. The specified <em>type</em> should be an integer from 1 to Ntypes.  As with the <em>pcolor</em> keyword, a wildcard asterisk can be used as part of the <em>type</em> argument to specify a range of particle types. The specified <em>diam</em> is the size in whatever distance <a class="reference internal" href="units.html#command-units"><span class="std std-ref">units command</span></a> the input script is using.</p>
+<dl class="simple">
+<dt>The <em>pdiam</em> keyword</dt><dd><p>can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a>, when its particle diameter setting is <em>type</em>, to set the size that particles of each type will be drawn in the image. The specified <em>type</em> should be an integer from 1 to Ntypes.  As with the <em>pcolor</em> keyword, a wildcard asterisk can be used as part of the <em>type</em> argument to specify a range of particle types. The specified <em>diam</em> is the size in whatever distance <a class="reference internal" href="units.html#command-units"><span class="std std-ref">units command</span></a> the input script is using.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>scolor</em> keyword can be used one or more times with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a>, only when its surface element color setting is <em>one</em> or <em>proc</em>, to set the color that surface elements will be drawn in the image.</p>
+<dl>
+<dt>The <em>scolor</em> keyword</dt><dd><p>can be used one or more times with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a>, only when its surface element color setting is <em>one</em> or <em>proc</em>, to set the color that surface elements will be drawn in the image.</p>
 <p>When the surf color is <em>one</em>, the <em>proc</em> setting for this command is ignored.</p>
 <p>When the surf color is <em>proc</em>, the <em>proc</em> setting for this command should be an integer from 1 to Nprocs = the number of processors. A wildcard asterisk can be used in place of or in conjunction with the <em>proc</em> argument to specify a range of processor IDs. This takes the form “*” or “<em>n” or “n</em>” or “m*n”. If N = the number of processors, then an asterisk with no numeric values means all procs from 1 to N. A leading asterisk means all procs from 1 to n (inclusive). A trailing asterisk means all procs from n to N (inclusive). A middle asterisk means all procs from m to n (inclusive). Note that for this command, processor IDs range from 1 to Nprocs inclusive, instead of the more customary 0 to Nprocs-1.</p>
 <p>When the surf color is <em>one</em>, the specified <em>color</em> setting for this command must be a single color which is any of the 140 pre-defined colors (see below) or a color name defined by the dump_modify color option.</p>
 <p>When the surf color is <em>proc</em>, the <em>color</em> setting for this command can be one or more colors separated by a “/” character, e.g. red/green/blue.  For a single color, that color is assigned to all the specified processors. For two or more colors, the list of colors are assigned in a round-robin fashion to each of the specified processors.</p>
+</dd>
+</dl>
 <hr class="docutils" />
-<p>The <em>slinecolor</em> keyword can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> to set the color of the surface element outlines drawn around the surface elements in each image. See the “dump image sline” command for how to specify that surface element outlines be drawn. The color name can be any of the 140 pre-defined colors (see below) or a color name defined by the dump_modify color option.</p>
+<dl class="simple">
+<dt>The <em>slinecolor</em> keyword</dt><dd><p>can be used with the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a> to set the color of the surface element outlines drawn around the surface elements in each image. See the “dump image sline” command for how to specify that surface element outlines be drawn. The color name can be any of the 140 pre-defined colors (see below) or a color name defined by the dump_modify color option.</p>
+</dd>
+</dl>
+</div>
 <hr class="docutils" />
-<p><strong>Restrictions:</strong> none</p>
-<p><strong>Related commands:</strong></p>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump command</span></a>
 <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image command</span></a>,
 <a class="reference internal" href="undump.html#command-undump"><span class="std std-ref">undump command</span></a></p>
-<p><strong>Default:</strong></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
 <p>The option defaults are</p>
 <ul class="simple">
 <li><p>append = no</p></li>
@@ -498,60 +529,61 @@ If not, the setting is silently ignored.</p>
 can be defined with the dump_modify color command. The 3 numbers listed
 for each name are the RGB (red/green/blue) values. Divide each value by
 255 to get the equivalent 0.0 to 1.0 value.</p>
-<div class="docutils container">
-<table class="docutils align-default">
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Pre-defined colors</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 19%" />
-<col style="width: 23%" />
-<col style="width: 20%" />
-<col style="width: 19%" />
-<col style="width: 19%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>aliceblue = 240, 248, 255</p></td>
 <td><p>antiquewhite = 250, 235, 215</p></td>
 <td><p>aqua = 0, 255, 255</p></td>
 <td><p>aquamarine = 127, 255, 212</p></td>
-<td><p>azure = 240, 255, 255</p></td>
 </tr>
-<tr class="row-even"><td><p>beige = 245, 245, 220</p></td>
+<tr class="row-even"><td><p>azure = 240, 255, 255</p></td>
+<td><p>beige = 245, 245, 220</p></td>
 <td><p>bisque = 255, 228, 196</p></td>
 <td><p>black = 0, 0, 0</p></td>
-<td><p>blanchedalmond = 255, 255, 205</p></td>
-<td><p>blue = 0, 0, 255</p></td>
 </tr>
-<tr class="row-odd"><td><p>blueviolet = 138, 43, 226</p></td>
+<tr class="row-odd"><td><p>blanchedalmond = 255, 255,</p></td>
+<td><p>05 blue = 0, 0, 255</p></td>
+<td><p>blueviolet = 138, 43, 226</p></td>
 <td><p>brown = 165, 42, 42</p></td>
-<td><p>burlywood = 222, 184, 135</p></td>
+</tr>
+<tr class="row-even"><td><p>burlywood = 222, 184, 135</p></td>
 <td><p>cadetblue = 95, 158, 160</p></td>
 <td><p>chartreuse = 127, 255, 0</p></td>
+<td><p>chocolate = 210, 105, 30</p></td>
 </tr>
-<tr class="row-even"><td><p>chocolate = 210, 105, 30</p></td>
-<td><p>coral = 255, 127, 80</p></td>
-<td><p>cornflowerblue = 100, 149, 237</p></td>
-<td><p>cornsilk = 255, 248, 220</p></td>
+<tr class="row-odd"><td><p>coral = 255, 127, 80</p></td>
+<td><p>cornflowerblue = 100, 149, 2</p></td>
+<td><p>7  cornsilk = 255, 248, 220</p></td>
 <td><p>crimson = 220, 20, 60</p></td>
 </tr>
-<tr class="row-odd"><td><p>cyan = 0, 255, 255</p></td>
+<tr class="row-even"><td><p>cyan = 0, 255, 255</p></td>
 <td><p>darkblue = 0, 0, 139</p></td>
 <td><p>darkcyan = 0, 139, 139</p></td>
-<td><p>darkgoldenrod = 184, 134, 11</p></td>
-<td><p>darkgray = 169, 169, 169</p></td>
+<td><p>darkgoldenrod = 184, 134, 1</p></td>
 </tr>
-<tr class="row-even"><td><p>darkgreen = 0, 100, 0</p></td>
+<tr class="row-odd"><td><p>darkgray = 169, 169, 169</p></td>
+<td><p>darkgreen = 0, 100, 0</p></td>
 <td><p>darkkhaki = 189, 183, 107</p></td>
 <td><p>darkmagenta = 139, 0, 139</p></td>
-<td><p>darkolivegreen = 85, 107, 47</p></td>
+</tr>
+<tr class="row-even"><td><p>darkolivegreen = 85, 107, 4</p></td>
 <td><p>darkorange = 255, 140, 0</p></td>
-</tr>
-<tr class="row-odd"><td><p>darkorchid = 153, 50, 204</p></td>
+<td><p>darkorchid = 153, 50, 204</p></td>
 <td><p>darkred = 139, 0, 0</p></td>
-<td><p>darksalmon = 233, 150, 122</p></td>
-<td><p>darkseagreen = 143, 188, 143</p></td>
-<td><p>darkslateblue = 72, 61, 139</p></td>
 </tr>
-<tr class="row-even"><td><p>darkslategray = 47, 79, 79</p></td>
-<td><p>darkturquoise = 0, 206, 209</p></td>
+<tr class="row-odd"><td><p>darksalmon = 233, 150, 122</p></td>
+<td><p>darkseagreen = 143, 188, 14</p></td>
+<td><p>darkslateblue = 72, 61, 139</p></td>
+<td><p>darkslategray = 47, 79, 79</p></td>
+</tr>
+<tr class="row-even"><td><p>darkturquoise = 0, 206, 209</p></td>
 <td><p>darkviolet = 148, 0, 211</p></td>
 <td><p>deeppink = 255, 20, 147</p></td>
 <td><p>deepskyblue = 0, 191, 255</p></td>
@@ -560,46 +592,48 @@ for each name are the RGB (red/green/blue) values. Divide each value by
 <td><p>dodgerblue = 30, 144, 255</p></td>
 <td><p>firebrick = 178, 34, 34</p></td>
 <td><p>floralwhite = 255, 250, 240</p></td>
-<td><p>forestgreen = 34, 139, 34</p></td>
 </tr>
-<tr class="row-even"><td><p>fuchsia = 255, 0, 255</p></td>
+<tr class="row-even"><td><p>forestgreen = 34, 139, 34</p></td>
+<td><p>fuchsia = 255, 0, 255</p></td>
 <td><p>gainsboro = 220, 220, 220</p></td>
 <td><p>ghostwhite = 248, 248, 255</p></td>
-<td><p>gold = 255, 215, 0</p></td>
-<td><p>goldenrod = 218, 165, 32</p></td>
 </tr>
-<tr class="row-odd"><td><p>gray = 128, 128, 128</p></td>
+<tr class="row-odd"><td><p>gold = 255, 215, 0</p></td>
+<td><p>goldenrod = 218, 165, 32</p></td>
+<td><p>gray = 128, 128, 128</p></td>
 <td><p>green = 0, 128, 0</p></td>
-<td><p>greenyellow = 173, 255, 47</p></td>
+</tr>
+<tr class="row-even"><td><p>greenyellow = 173, 255, 47</p></td>
 <td><p>honeydew = 240, 255, 240</p></td>
 <td><p>hotpink = 255, 105, 180</p></td>
+<td><p>indianred = 205, 92, 92</p></td>
 </tr>
-<tr class="row-even"><td><p>indianred = 205, 92, 92</p></td>
-<td><p>indigo = 75, 0, 130</p></td>
+<tr class="row-odd"><td><p>indigo = 75, 0, 130</p></td>
 <td><p>ivory = 255, 240, 240</p></td>
 <td><p>khaki = 240, 230, 140</p></td>
 <td><p>lavender = 230, 230, 250</p></td>
 </tr>
-<tr class="row-odd"><td><p>lavenderblush = 255, 240, 245</p></td>
-<td><p>lawngreen = 124, 252, 0</p></td>
+<tr class="row-even"><td><p>lavenderblush = 255, 240,</p></td>
+<td><p>45 lawngreen = 124, 252, 0</p></td>
 <td><p>lemonchiffon = 255, 250, 205</p></td>
 <td><p>lightblue = 173, 216, 230</p></td>
-<td><p>lightcoral = 240, 128, 128</p></td>
 </tr>
-<tr class="row-even"><td><p>lightcyan = 224, 255, 255</p></td>
-<td><p>lightgoldenrodyellow = 250, 250, 210</p></td>
-<td><p>lightgreen = 144, 238, 144</p></td>
-<td><p>lightgrey = 211, 211, 211</p></td>
+<tr class="row-odd"><td><p>lightcoral = 240, 128, 128</p></td>
+<td><p>lightcyan = 224, 255, 255</p></td>
+<td><p>lightgoldenrodyellow = 250, 250,</p></td>
+<td><p>10 lightgreen = 144, 238, 144</p></td>
+</tr>
+<tr class="row-even"><td><p>lightgrey = 211, 211, 211</p></td>
 <td><p>lightpink = 255, 182, 193</p></td>
-</tr>
-<tr class="row-odd"><td><p>lightsalmon = 255, 160, 122</p></td>
+<td><p>lightsalmon = 255, 160, 12</p></td>
 <td><p>lightseagreen = 32, 178, 170</p></td>
-<td><p>lightskyblue = 135, 206, 250</p></td>
-<td><p>lightslategray = 119, 136, 153</p></td>
-<td><p>lightsteelblue = 176, 196, 222</p></td>
 </tr>
-<tr class="row-even"><td><p>lightyellow = 255, 255, 224</p></td>
-<td><p>lime = 0, 255, 0</p></td>
+<tr class="row-odd"><td><p>lightskyblue = 135, 206, 250</p></td>
+<td><p>lightslategray = 119, 136,</p></td>
+<td><p>53 lightsteelblue = 176, 196,</p></td>
+<td><p>lightyellow = 255, 255, 22</p></td>
+</tr>
+<tr class="row-even"><td><p>lime = 0, 255, 0</p></td>
 <td><p>limegreen = 50, 205, 50</p></td>
 <td><p>linen = 250, 240, 230</p></td>
 <td><p>magenta = 255, 0, 255</p></td>
@@ -608,46 +642,48 @@ for each name are the RGB (red/green/blue) values. Divide each value by
 <td><p>mediumaquamarine = 102, 205, 170</p></td>
 <td><p>mediumblue = 0, 0, 205</p></td>
 <td><p>mediumorchid = 186, 85, 211</p></td>
-<td><p>mediumpurple = 147, 112, 219</p></td>
 </tr>
-<tr class="row-even"><td><p>mediumseagreen = 60, 179, 113</p></td>
-<td><p>mediumslateblue = 123, 104, 238</p></td>
-<td><p>mediumspringgreen = 0, 250, 154</p></td>
-<td><p>mediumturquoise = 72, 209, 204</p></td>
-<td><p>mediumvioletred = 199, 21, 133</p></td>
+<tr class="row-even"><td><p>mediumpurple = 147, 112, 21</p></td>
+<td><p>mediumseagreen = 60, 179,</p></td>
+<td><p>13 mediumslateblue = 123, 104, 238</p></td>
+<td><p>mediumspringgreen = 0, 250,</p></td>
 </tr>
-<tr class="row-odd"><td><p>midnightblue = 25, 25, 112</p></td>
+<tr class="row-odd"><td><p>54 mediumturquoise = 72, 209,</p></td>
+<td><p>04 mediumvioletred = 199, 21,</p></td>
+<td><p>midnightblue = 25, 25, 112</p></td>
 <td><p>mintcream = 245, 255, 250</p></td>
-<td><p>mistyrose = 255, 228, 225</p></td>
+</tr>
+<tr class="row-even"><td><p>mistyrose = 255, 228, 225</p></td>
 <td><p>moccasin = 255, 228, 181</p></td>
 <td><p>navajowhite = 255, 222, 173</p></td>
+<td><p>navy = 0, 0, 128</p></td>
 </tr>
-<tr class="row-even"><td><p>navy = 0, 0, 128</p></td>
-<td><p>oldlace = 253, 245, 230</p></td>
+<tr class="row-odd"><td><p>oldlace = 253, 245, 230</p></td>
 <td><p>olive = 128, 128, 0</p></td>
 <td><p>olivedrab = 107, 142, 35</p></td>
 <td><p>orange = 255, 165, 0</p></td>
 </tr>
-<tr class="row-odd"><td><p>orangered = 255, 69, 0</p></td>
+<tr class="row-even"><td><p>orangered = 255, 69, 0</p></td>
 <td><p>orchid = 218, 112, 214</p></td>
-<td><p>palegoldenrod = 238, 232, 170</p></td>
+<td><p>palegoldenrod = 238, 232, 17</p></td>
 <td><p>palegreen = 152, 251, 152</p></td>
-<td><p>paleturquoise = 175, 238, 238</p></td>
 </tr>
-<tr class="row-even"><td><p>palevioletred = 219, 112, 147</p></td>
-<td><p>papayawhip = 255, 239, 213</p></td>
+<tr class="row-odd"><td><p>paleturquoise = 175, 238, 2</p></td>
+<td><p>palevioletred = 219, 112,</p></td>
+<td><p>47 papayawhip = 255, 239, 213</p></td>
 <td><p>peachpuff = 255, 239, 213</p></td>
-<td><p>peru = 205, 133, 63</p></td>
-<td><p>pink = 255, 192, 203</p></td>
 </tr>
-<tr class="row-odd"><td><p>plum = 221, 160, 221</p></td>
+<tr class="row-even"><td><p>peru = 205, 133, 63</p></td>
+<td><p>pink = 255, 192, 203</p></td>
+<td><p>plum = 221, 160, 221</p></td>
 <td><p>powderblue = 176, 224, 230</p></td>
-<td><p>purple = 128, 0, 128</p></td>
+</tr>
+<tr class="row-odd"><td><p>purple = 128, 0, 128</p></td>
 <td><p>red = 255, 0, 0</p></td>
 <td><p>rosybrown = 188, 143, 143</p></td>
+<td><p>royalblue = 65, 105, 225</p></td>
 </tr>
-<tr class="row-even"><td><p>royalblue = 65, 105, 225</p></td>
-<td><p>saddlebrown = 139, 69, 19</p></td>
+<tr class="row-even"><td><p>saddlebrown = 139, 69, 19</p></td>
 <td><p>salmon = 250, 128, 114</p></td>
 <td><p>sandybrown = 244, 164, 96</p></td>
 <td><p>seagreen = 46, 139, 87</p></td>
@@ -656,22 +692,23 @@ for each name are the RGB (red/green/blue) values. Divide each value by
 <td><p>sienna = 160, 82, 45</p></td>
 <td><p>silver = 192, 192, 192</p></td>
 <td><p>skyblue = 135, 206, 235</p></td>
-<td><p>slateblue = 106, 90, 205</p></td>
 </tr>
-<tr class="row-even"><td><p>slategray = 112, 128, 144</p></td>
+<tr class="row-even"><td><p>slateblue = 106, 90, 205</p></td>
+<td><p>slategray = 112, 128, 144</p></td>
 <td><p>snow = 255, 250, 250</p></td>
 <td><p>springgreen = 0, 255, 127</p></td>
-<td><p>steelblue = 70, 130, 180</p></td>
-<td><p>tan = 210, 180, 140</p></td>
 </tr>
-<tr class="row-odd"><td><p>teal = 0, 128, 128</p></td>
+<tr class="row-odd"><td><p>steelblue = 70, 130, 180</p></td>
+<td><p>tan = 210, 180, 140</p></td>
+<td><p>teal = 0, 128, 128</p></td>
 <td><p>thistle = 216, 191, 216</p></td>
-<td><p>tomato = 253, 99, 71</p></td>
+</tr>
+<tr class="row-even"><td><p>tomato = 253, 99, 71</p></td>
 <td><p>turquoise = 64, 224, 208</p></td>
 <td><p>violet = 238, 130, 238</p></td>
+<td><p>wheat = 245, 222, 179</p></td>
 </tr>
-<tr class="row-even"><td><p>wheat = 245, 222, 179</p></td>
-<td><p>white = 255, 255, 255</p></td>
+<tr class="row-odd"><td><p>white = 255, 255, 255</p></td>
 <td><p>whitesmoke = 245, 245, 245</p></td>
 <td><p>yellow = 255, 255, 0</p></td>
 <td><p>yellowgreen = 154, 205, 50</p></td>

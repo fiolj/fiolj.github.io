@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,21 +168,29 @@
             
   <div class="section" id="read-restart-command">
 <span id="command-read-restart"></span><span id="index-0"></span><h1>read_restart command<a class="headerlink" href="#read-restart-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_restart</span> <span class="n">file</span> <span class="n">keyword</span> <span class="n">args</span> <span class="o">...</span>
 </pre></div>
 </div>
-<ul class="simple">
+<ul>
 <li><p>file = name of binary restart file to read in</p></li>
-<li><p>zero or one keyword/args pair may be listed</p></li>
+<li><p>zero or one keyword/args pair may be listed</p>
+<ul>
+<li><p>keywords = gridcut or balance</p>
+<ul>
+<li><p>gridcut arg = cutoff</p>
+<p>cutoff = acquire ghost cells up to this far away (distance units)</p>
+</li>
+<li><p>balance args = same as for balance_grid command</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">keywords</span> <span class="o">=</span> <span class="n">gridcut</span> <span class="ow">or</span> <span class="n">balance</span>
-  <span class="n">gridcut</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">cutoff</span>
-    <span class="n">cutoff</span> <span class="o">=</span> <span class="n">acquire</span> <span class="n">ghost</span> <span class="n">cells</span> <span class="n">up</span> <span class="n">to</span> <span class="n">this</span> <span class="n">far</span> <span class="n">away</span> <span class="p">(</span><span class="n">distance</span> <span class="n">units</span><span class="p">)</span>
-  <span class="n">balance</span> <span class="n">args</span> <span class="o">=</span> <span class="n">same</span> <span class="k">as</span> <span class="k">for</span> <span class="n">balance_grid</span> <span class="n">command</span>
-</pre></div>
+</li>
+</ul>
+</li>
+</ul>
 </div>
-<p><strong>Examples:</strong></p>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_restart</span> <span class="n">save</span><span class="o">.</span><span class="mi">10000</span>
 <span class="n">read_restart</span> <span class="n">restart</span><span class="o">.*</span>
 <span class="n">read_restart</span> <span class="n">flow</span><span class="o">.*.%</span>
@@ -190,7 +198,9 @@
 <span class="n">read_restart</span> <span class="n">save</span><span class="o">.</span><span class="mi">10000</span> <span class="n">balance</span> <span class="n">rcb</span> <span class="n">cell</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Read in a previously saved simulation from a restart file. This allows
 continuation of a previous run on the same or different number of
 processors. Information about what is stored in a restart file is given
@@ -204,9 +214,10 @@ regeneration of information, the random numbers used in the continued
 run will not be identical to those used if the run had been continued.
 Hence the new run will not be identical to the continued original run,
 but should be statistically similar.</p>
-<p>IMPORTANT NOTE: Because restart files are binary, they may not be
-portable to other machines. SPARTA will print an error message if it
-cannot read a restart file for this reason.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Because restart files are binary, they may not be portable to other machines. SPARTA will print an error message if it cannot read a restart file for this reason.</p>
+</div>
 <p>If a restarted run is performed on the same number of processors as the
 original run, then the assignment of grid cells (and their particles) to
 processors will be the same as in the original simulation. If the
@@ -336,14 +347,27 @@ creates a custom vector called “ionambi” and a custom array called
 the first <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command it uses, so that the same custom
 attributes are re-created, otherwise the custom attribute info from the
 restart file will be deleted.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restrictions:</strong> none</p>
-<p><strong>Related commands:</strong></p>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid command</span></a>,
 <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf command</span></a>,
 <a class="reference internal" href="write_restart.html#command-write-restart"><span class="std std-ref">write_restart command</span></a>,
 <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart command</span></a></p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
 </div>
 
 

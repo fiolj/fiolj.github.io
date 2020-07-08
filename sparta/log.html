@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,7 +168,8 @@
             
   <div class="section" id="log-command">
 <span id="command-log"></span><span id="index-0"></span><h1>log command<a class="headerlink" href="#log-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">log</span> <span class="n">file</span> <span class="n">keyword</span>
 </pre></div>
 </div>
@@ -176,12 +177,16 @@
 <li><p>file = name of new logfile</p></li>
 <li><p>keyword = <em>append</em> if output should be appended to logfile (optional)</p></li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">log</span> <span class="n">log</span><span class="o">.</span><span class="n">equil</span>
 <span class="n">log</span> <span class="n">log</span><span class="o">.</span><span class="n">equil</span> <span class="n">append</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>This command closes the current SPARTA log file, opens a new file with
 the specified name, and begins logging information to it. If the
 specified file name is <em>none</em>, then no new log file is opened. If the
@@ -193,10 +198,21 @@ same log file.</p>
 <p>The file “log.sparta” is the default log file for a SPARTA run. The name
 of the initial log file can also be set by the command-line switch -log.
 See <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">Section 2.6</span></a> for details.</p>
-<p><strong>Restrictions:</strong> none</p>
-<p><strong>Related commands:</strong> none</p>
-<p><strong>Default:</strong></p>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<p>none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
 <p>The default SPARTA log file is named log.sparta</p>
+</div>
 </div>
 
 

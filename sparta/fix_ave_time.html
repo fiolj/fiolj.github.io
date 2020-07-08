@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,53 +168,58 @@
             
   <div class="section" id="fix-ave-time-command">
 <span id="command-fix-ave-time"></span><span id="index-0"></span><h1>fix ave/time command<a class="headerlink" href="#fix-ave-time-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">ave</span><span class="o">/</span><span class="n">time</span> <span class="n">Nevery</span> <span class="n">Nrepeat</span> <span class="n">Nfreq</span> <span class="n">value1</span> <span class="n">value2</span> <span class="o">...</span> <span class="n">keyword</span> <span class="n">args</span> <span class="o">...</span>
 </pre></div>
 </div>
 <ul>
-<li><p>ID is documented in <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> command</p></li>
-<li><p>ave/time = style name of this fix command</p></li>
-<li><p>Nevery = use input values every this many timesteps</p></li>
-<li><p>Nrepeat = # of times to use input values for calculating averages</p></li>
-<li><p>Nfreq = calculate averages every this many timesteps</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ID</span></code> is documented in <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> command</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ave/time</span></code> = style name of this fix command</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Nevery</span></code> = use input values every this many timesteps</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Nrepeat</span></code> = # of times to use input values for calculating averages</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Nfreq</span></code> = calculate averages every this many timesteps</p></li>
 <li><p>one or more input values can be listed</p></li>
-<li><p>value = c_ID, c_ID[N], f_ID, f_ID[N], v_name</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c_ID</span> <span class="o">=</span> <span class="k">global</span> <span class="n">scalar</span> <span class="ow">or</span> <span class="n">vector</span> <span class="ow">or</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">compute</span> <span class="k">with</span> <span class="n">ID</span>
-<span class="n">c_ID</span><span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ith</span> <span class="n">component</span> <span class="n">of</span> <span class="k">global</span> <span class="n">vector</span> <span class="ow">or</span> <span class="n">Ith</span> <span class="n">column</span> <span class="n">of</span> <span class="k">global</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">compute</span> <span class="k">with</span> <span class="n">ID</span><span class="p">,</span> <span class="n">I</span> <span class="n">can</span> <span class="n">include</span> <span class="n">wildcard</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
-<span class="n">f_ID</span> <span class="o">=</span> <span class="k">global</span> <span class="n">scalar</span> <span class="ow">or</span> <span class="n">vector</span> <span class="ow">or</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">fix</span> <span class="k">with</span> <span class="n">ID</span>
-<span class="n">f_ID</span><span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ith</span> <span class="n">component</span> <span class="n">of</span> <span class="k">global</span> <span class="n">vector</span> <span class="ow">or</span> <span class="n">Ith</span> <span class="n">column</span> <span class="n">of</span> <span class="k">global</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">fix</span> <span class="k">with</span> <span class="n">ID</span><span class="p">,</span> <span class="n">I</span> <span class="n">can</span> <span class="n">include</span> <span class="n">wildcard</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
-<span class="n">v_name</span> <span class="o">=</span> <span class="k">global</span> <span class="n">value</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">an</span> <span class="n">equal</span><span class="o">-</span><span class="n">style</span> <span class="n">variable</span> <span class="k">with</span> <span class="n">name</span>
-</pre></div>
-</div>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code> = c_ID, c_ID[N], f_ID, f_ID[N], v_name</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">c_ID</span></code> = global scalar or vector or array calculated by a compute with ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">c_ID[I]</span></code> = Ith component of global vector or Ith column of global array calculated by a compute with ID, I can include wildcard (see below)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_ID</span></code> = global scalar or vector or array calculated by a fix with ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_ID[I]</span></code> = Ith component of global vector or Ith column of global array calculated by a fix with ID, I can include wildcard (see below)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v_name</span></code> = global value calculated by an equal-style variable with name</p></li>
+</ul>
 </li>
 <li><p>zero or more keyword/arg pairs may be appended</p></li>
-<li><p>keyword = <em>mode</em> or <em>file</em> or <em>ave</em> or <em>start</em> or <em>off</em> or <em>title1</em>
-or <em>title2</em> or <em>title3</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mode</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">scalar</span> <span class="ow">or</span> <span class="n">vector</span>
-  <span class="n">scalar</span> <span class="o">=</span> <span class="nb">all</span> <span class="nb">input</span> <span class="n">values</span> <span class="n">are</span> <span class="k">global</span> <span class="n">scalars</span>
-  <span class="n">vector</span> <span class="o">=</span> <span class="nb">all</span> <span class="nb">input</span> <span class="n">values</span> <span class="n">are</span> <span class="k">global</span> <span class="n">vectors</span> <span class="ow">or</span> <span class="k">global</span> <span class="n">arrays</span>
-<span class="n">ave</span> <span class="n">args</span> <span class="o">=</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">running</span> <span class="ow">or</span> <span class="n">window</span> <span class="n">M</span>
-  <span class="n">one</span> <span class="o">=</span> <span class="n">output</span> <span class="n">a</span> <span class="n">new</span> <span class="n">average</span> <span class="n">value</span> <span class="n">every</span> <span class="n">Nfreq</span> <span class="n">steps</span>
-  <span class="n">running</span> <span class="o">=</span> <span class="n">output</span> <span class="n">cummulative</span> <span class="n">average</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">previous</span> <span class="n">Nfreq</span> <span class="n">steps</span>
-  <span class="n">window</span> <span class="n">M</span> <span class="o">=</span> <span class="n">output</span> <span class="n">average</span> <span class="n">of</span> <span class="n">M</span> <span class="n">most</span> <span class="n">recent</span> <span class="n">Nfreq</span> <span class="n">steps</span>
-<span class="n">start</span> <span class="n">args</span> <span class="o">=</span> <span class="n">Nstart</span>
-  <span class="n">Nstart</span> <span class="o">=</span> <span class="n">start</span> <span class="n">averaging</span> <span class="n">on</span> <span class="n">this</span> <span class="n">timestep</span>
-<span class="n">off</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">M</span> <span class="o">=</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">average</span> <span class="n">this</span> <span class="n">value</span>
-  <span class="n">M</span> <span class="o">=</span> <span class="n">value</span> <span class="c1"># from 1 to Nvalues</span>
-<span class="n">file</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">filename</span>
-  <span class="n">filename</span> <span class="o">=</span> <span class="n">name</span> <span class="n">of</span> <span class="n">file</span> <span class="n">to</span> <span class="n">output</span> <span class="n">time</span> <span class="n">averages</span> <span class="n">to</span>
-<span class="n">title1</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">string</span>
-  <span class="n">string</span> <span class="o">=</span> <span class="n">text</span> <span class="n">to</span> <span class="nb">print</span> <span class="k">as</span> <span class="mi">1</span><span class="n">st</span> <span class="n">line</span> <span class="n">of</span> <span class="n">output</span> <span class="n">file</span>
-<span class="n">title2</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">string</span>
-  <span class="n">string</span> <span class="o">=</span> <span class="n">text</span> <span class="n">to</span> <span class="nb">print</span> <span class="k">as</span> <span class="mi">2</span><span class="n">nd</span> <span class="n">line</span> <span class="n">of</span> <span class="n">output</span> <span class="n">file</span>
-<span class="n">title3</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">string</span>
-  <span class="n">string</span> <span class="o">=</span> <span class="n">text</span> <span class="n">to</span> <span class="nb">print</span> <span class="k">as</span> <span class="mi">3</span><span class="n">rd</span> <span class="n">line</span> <span class="n">of</span> <span class="n">output</span> <span class="n">file</span><span class="p">,</span> <span class="n">only</span> <span class="k">for</span> <span class="n">vector</span> <span class="n">mode</span>
-</pre></div>
-</div>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyword</span></code> = <code class="docutils literal notranslate"><span class="pre">mode</span></code> or <code class="docutils literal notranslate"><span class="pre">file</span></code> or <code class="docutils literal notranslate"><span class="pre">ave</span></code> or <code class="docutils literal notranslate"><span class="pre">start</span></code> or <code class="docutils literal notranslate"><span class="pre">off</span></code> or <code class="docutils literal notranslate"><span class="pre">title1</span></code>
+or <code class="docutils literal notranslate"><span class="pre">title2</span></code> or <code class="docutils literal notranslate"><span class="pre">title3</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code> arg = scalar or vector</p>
+<ul class="simple">
+<li><p>scalar = all input values are global scalars</p></li>
+<li><p>vector = all input values are global vectors or global arrays</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ave</span></code> args = one or running or window M</p>
+<ul class="simple">
+<li><p>one = output a new average value every Nfreq steps</p></li>
+<li><p>running = output cummulative average of all previous Nfreq steps</p></li>
+<li><p>window M = output average of M most recent Nfreq steps</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start</span></code> args = Nstart = start averaging on this timestep</p></li>
+<li><p>off arg = M = do not average this value</p>
+<p>M = value: # from 1 to Nvalues</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file</span></code> arg = filename = name of file to output time averages to</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">title1</span></code> arg = string = text to print as 1st line of output file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">title2</span></code> arg = string  = text to print as 2nd line of output file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">title3</span></code> arg = string = text to print as 3rd line of output file, only for vector mode</p></li>
+</ul>
 </li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">time</span> <span class="nb">all</span> <span class="mi">100</span> <span class="mi">5</span> <span class="mi">1000</span> <span class="n">c_myTemp</span> <span class="n">c_thermo_temp</span> <span class="n">file</span> <span class="n">temp</span><span class="o">.</span><span class="n">profile</span>
 <span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">time</span> <span class="nb">all</span> <span class="mi">100</span> <span class="mi">5</span> <span class="mi">1000</span> <span class="n">c_myCount</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">c_myCount</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">ave</span> <span class="n">window</span> <span class="mi">20</span> <span class="o">&amp;</span>
                               <span class="n">title1</span> <span class="s2">&quot;My output values&quot;</span>
@@ -222,7 +227,9 @@ or <em>title2</em> or <em>title3</em></p>
 <span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">time</span> <span class="nb">all</span> <span class="mi">1</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="n">f_indent</span> <span class="n">f_indent</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">file</span> <span class="n">temp</span><span class="o">.</span><span class="n">indent</span> <span class="n">off</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Use one or more global values as inputs every few timesteps, and average
 them over longer timescales. The resulting averages can be used by other
 output commands such as <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style custom</span></a>, and
@@ -411,15 +418,28 @@ second case, the length of the vector is the same as the length of the
 input vector. An array is produced if multiple input values are averaged
 and <em>mode</em> = vector. The global array has # of rows = length of the
 input vectors and # of columns = number of inputs.</p>
-<p><strong>Restrictions:</strong> none</p>
-<p><strong>Related commands:</strong></p>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute command</span></a>,
 <a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">fix ave/surf command</span></a>,
 <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable command</span></a></p>
-<p><strong>Default:</strong> none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
 <p>The option defaults are mode = scalar, ave = one, start = 0, no file
 output, title 1,2,3 = strings as described above, and no off settings
 for any input values.</p>
+</div>
 </div>
 
 

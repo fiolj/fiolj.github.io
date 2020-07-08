@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020
+                7 May 2020  (build: 08/07/2020)
               </div>
             
           
@@ -168,7 +168,8 @@
             
   <div class="section" id="group-command">
 <span id="command-group"></span><span id="index-0"></span><h1>group command<a class="headerlink" href="#group-command" title="Permalink to this headline">¶</a></h1>
-<p><strong>Syntax:</strong></p>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">group</span> <span class="n">ID</span> <span class="n">which</span> <span class="n">style</span> <span class="n">args</span>
 </pre></div>
 </div>
@@ -203,7 +204,9 @@
 </div>
 </li>
 </ul>
-<p><strong>Examples:</strong></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">group</span> <span class="n">sphere</span> <span class="n">surf</span> <span class="nb">type</span> <span class="mi">1</span> <span class="mi">3</span>
 <span class="n">group</span> <span class="n">sphere</span> <span class="n">surf</span> <span class="nb">id</span> <span class="mi">50</span> <span class="mi">100</span><span class="p">:</span><span class="mi">150</span>
 <span class="n">group</span> <span class="n">sphere</span> <span class="n">surf</span> <span class="nb">id</span> <span class="o">&lt;=</span> <span class="mi">1000</span>
@@ -216,7 +219,9 @@
 <span class="n">group</span> <span class="n">boundary</span> <span class="n">surf</span> <span class="n">intersect</span> <span class="n">upper</span> <span class="n">leftside</span>
 </pre></div>
 </div>
-<p><strong>Description:</strong></p>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Assign grid cells to grid groups or surface elements to surface groups.
 In SPARTA, a “grid group” is a collection of one or more grid cells. A
 “surface” group is a collection of one or more surface elements (line
@@ -315,18 +320,25 @@ the listed groups are added to the specified group.</p>
 <p>The <em>clear</em> style un-assigns all grid cells or surface elements that
 were assigned to that group. This is a way to empty a group before
 adding more grid cells or surface elements to it.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restrictions:</strong></p>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
 <p>No more than 32 grid groups and no more than 32 surface groups can be
 defined, including “all”.</p>
-<p><strong>Related commands:</strong></p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump command</span></a>,
 <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region command</span></a>,
 <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid</span></a>
 <a class="reference internal" href="compute_surf.html#command-compute-surf"><span class="std std-ref">compute surf</span></a></p>
-<p><strong>Default:</strong></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
 <p>All grid cells belong to the “all” grid group. All surface elements
 belong to the “all” surface group.</p>
+</div>
 </div>
 
 
