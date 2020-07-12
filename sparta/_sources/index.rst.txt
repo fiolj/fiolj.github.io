@@ -91,7 +91,7 @@ documentation for all SPARTA commands.
 
    Section_history
 
-   list_commands
+..   list_commands
 
 .. only:: html
 	  

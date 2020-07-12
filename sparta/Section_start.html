@@ -157,6 +157,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list_commands.html">14. List of Commands</a></li>
 </ul>
 
             
@@ -607,15 +608,13 @@ directory and from within the build directory, run cmake:</p>
 </div>
 <p>This will generate the default Makefiles and print the SPARTA CMake options. To
 list the generated targets, do:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>make help</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">help</span>
+</pre></div>
+</div>
 <p>Now you can try to build the SPARTA binaries with:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>make</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span>
+</pre></div>
+</div>
 <p>If everything works, an executable named spa_tutorial and a library named
 libsparta.a will be produced in build/src.</p>
 </div>
@@ -637,23 +636,21 @@ libsparta.a will be produced in build/src.</p>
 <span id="id5"></span><h4>2.2.3.4. Step 3<a class="headerlink" href="#start-step-c3" title="Permalink to this headline">¶</a></h4>
 <p>If Step 2 did not work, look at cmake -LH for a list of SPARTA CMake options and their
 meaning, then modify one or more of those options by doing:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>cd build
-rm -rf CMake*
-cmake -C /path/to/sparta/cmake/presets/&lt;NAME&gt;.cmake -D&lt;OPTION_NAME&gt;=&lt;VALUE&gt; /path/to/sparta/cmake
-make</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">CMake</span><span class="o">*</span>
+<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/&lt;</span><span class="n">NAME</span><span class="o">&gt;.</span><span class="n">cmake</span> <span class="o">-</span><span class="n">D</span><span class="o">&lt;</span><span class="n">OPTION_NAME</span><span class="o">&gt;=&lt;</span><span class="n">VALUE</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<span class="n">make</span>
+</pre></div>
+</div>
 <p>where &lt;OPTION_NAME&gt; and &lt;VALUE&gt; correspond to valid option value pairs listed by
 cmake -LH. For the SPARTA_DEFAULT_CXX_COMPILE_FLAGS option, see <a class="reference internal" href="#start-step-c4"><span class="std std-ref">Step 4</span></a>.</p>
 <p>For a full list of CMake option value pairs, see cmake -LAH. The most relevant
 CMake options (with example values) for our purposes here are:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>-DCMAKE_C_COMPILER=gcc
--DCMAKE_CXX_COMPILER=/usr/local/bin/g++
--DCMAKE_CXX_FLAGS=-O3</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">DCMAKE_C_COMPILER</span><span class="o">=</span><span class="n">gcc</span>
+<span class="o">-</span><span class="n">DCMAKE_CXX_COMPILER</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">g</span><span class="o">++</span>
+<span class="o">-</span><span class="n">DCMAKE_CXX_FLAGS</span><span class="o">=-</span><span class="n">O3</span>
+</pre></div>
+</div>
 <p>If your cmake command line is getting too long, consider placing it in a bash
 script and escaping newlines. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> \
@@ -741,13 +738,12 @@ source code. Note that the CMake cache is sticky and will only evict a
 cached option value pair if you use -D or the FORCE argument to CMake’s set
 routine.</p>
 <p>Now just do:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>cd build
-rm -rf CMake*
-cmake -C /path/to/sparta/cmake/presets/&lt;NEW&gt;.cmake /path/to/sparta/cmake
-make</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">CMake</span><span class="o">*</span>
+<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/&lt;</span><span class="n">NEW</span><span class="o">&gt;.</span><span class="n">cmake</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<span class="n">make</span>
+</pre></div>
+</div>
 <p>consider sharing and vetting &lt;NEW&gt;.cmake by opening a pull request at
 <a class="reference external" href="https://github.com/sparta/sparta/">https://github.com/sparta/sparta/</a>.</p>
 </div>
@@ -758,10 +754,9 @@ configuration. There may already be a preset in
 /path/to/sparta/cmake/presets that selects the correct MPI installation.</p>
 <p>By default, SPARTA configures with MPI enabled and cmake will print which MPI
 was selected. To build serial binaries, use SPARTA’s MPI_STUBS package:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>cmake -DPKG_MPI_STUBS=ON /path/to/sparta/cmake</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DPKG_MPI_STUBS</span><span class="o">=</span><span class="n">ON</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+</pre></div>
+</div>
 <p>You may want a different MPI installation than CMake finds. CMake uses module
 files such as FindMPI.cmake to handle wiring in a given installation of a
 library and its headers. If you’re on a cluster or supercomputer, use module
@@ -779,13 +774,13 @@ use:</p>
 <p>On Linux one may use apt, yum, or pacman to install MPI.</p>
 <p>On Mac one may use brew or macports to install MPI.</p>
 <p>Verify that cmake found the correct MPI installation:</p>
-<dl>
-<dt>::</dt><dd><p>cd build
-rm -rf CMake*</p>
-<p># cmake should print “Found MPI*” strings
-cmake [options] /path/to/sparta/cmake :pre</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">CMake</span><span class="o">*</span>
+
+<span class="c1"># cmake should print &quot;Found MPI*&quot; strings</span>
+<span class="n">cmake</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span> <span class="p">:</span><span class="n">pre</span>
+</pre></div>
+</div>
 <p>Note that if the preset file you’re using enables PKG_MPI_STUBS, MPI will not be
 searched for unless you explicitly disable PKG_MPI_STUBS in the preset file.</p>
 <p>If you’d like to use a custom MPI installation or cmake is not locating the MPI
@@ -802,14 +797,15 @@ package which can be selected with cmake -DPKG_FFT=ON.</p>
 <p>You may need to install the FFT TPL you’re interested in using. If you’re on a
 cluster or supercomputer, use module before running cmake so that cmake finds
 the FFT installation you’d like to use:</p>
-<dl>
-<dt>::</dt><dd><p># Show which modules are loaded
-module list</p>
-<p># Show which modules are available
-module avail</p>
-<p>module load &lt;FFT&gt; :pre</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show which modules are loaded</span>
+<span class="n">module</span> <span class="nb">list</span>
+
+<span class="c1"># Show which modules are available</span>
+<span class="n">module</span> <span class="n">avail</span>
+
+<span class="n">module</span> <span class="n">load</span> <span class="o">&lt;</span><span class="n">FFT</span><span class="o">&gt;</span> <span class="p">:</span><span class="n">pre</span>
+</pre></div>
+</div>
 <p>On Linux one may use apt, yum, or pacman to install FFT.</p>
 <p>On Mac one may use brew or macports to install FFT.</p>
 <p>Verify that cmake found the correct MPI installation:</p>
@@ -831,15 +827,13 @@ open an issue at <a class="reference external" href="https://github.com/sparta/s
 <span id="id10"></span><h4>2.2.3.9. Step 8<a class="headerlink" href="#start-step-c8" title="Permalink to this headline">¶</a></h4>
 <p>You may select between 2 TPLs, JPEG or PNG, for writing out JPEG or PNG files
 via the “dump image”_dump_image.html command. To select a TPL, use:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>cmake -DBUILD_JPEG=ON /path/to/sparta/cmake</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DBUILD_JPEG</span><span class="o">=</span><span class="n">ON</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+</pre></div>
+</div>
 <p>or:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>cmake -DBUILD_PNG=ON /path/to/sparta/cmake</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DBUILD_PNG</span><span class="o">=</span><span class="n">ON</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+</pre></div>
+</div>
 <p>If you’d like to use a custom jpeg or png installation, please see
 <a class="reference external" href="https://cmake.org/cmake/help/v3.10/module/FindJPEG.html">https://cmake.org/cmake/help/v3.10/module/FindJPEG.html</a> or
 <a class="reference external" href="https://cmake.org/cmake/help/v3.10/module/FindPNG.html">https://cmake.org/cmake/help/v3.10/module/FindPNG.html</a>. Note that these
@@ -849,15 +843,13 @@ documentation links are for CMake version 3.10.</p>
 <span id="id11"></span><h4>2.2.3.10. Step 9<a class="headerlink" href="#start-step-c9" title="Permalink to this headline">¶</a></h4>
 <p>By default, none of the SPARTA optional packages are installed. To build SPARTA
 with optional packages, use:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>cmake -DPKG_XXX=ON /path/to/sparta/cmake</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DPKG_XXX</span><span class="o">=</span><span class="n">ON</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+</pre></div>
+</div>
 <p>Where XXX is the package to enable. For a full list of optional packages, see:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>cmake -LH /path/to/sparta/cmake</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">LH</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="step-10">
 <span id="start-step-c10"></span><h4>2.2.3.11. Step 10<a class="headerlink" href="#step-10" title="Permalink to this headline">¶</a></h4>
@@ -1031,17 +1023,15 @@ options.</p>
 <span id="start-includingexcluding-cmake"></span><h3><a class="toc-backref" href="#id31">2.3.3. Including/excluding packages with CMake:</a><a class="headerlink" href="#including-excluding-packages-with-cmake" title="Permalink to this headline">¶</a></h3>
 <p>To use (or not use) a package you must include it (or exclude it)
 before building SPARTA.  From the build directory, do:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>cmake -DPKG_FFT=ON /path/to/sparta/cmake
-make -j</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DPKG_FFT</span><span class="o">=</span><span class="n">ON</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<span class="n">make</span> <span class="o">-</span><span class="n">j</span>
+</pre></div>
+</div>
 <p>or</p>
-<dl class="simple">
-<dt>::</dt><dd><p>cmake -DPKG_FFT=OFF /path/to/sparta/cmake
-make -j :pre</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DPKG_FFT</span><span class="o">=</span><span class="n">OFF</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<span class="n">make</span> <span class="o">-</span><span class="n">j</span> <span class="p">:</span><span class="n">pre</span>
+</pre></div>
+</div>
 <p>Some packages have individual files that depend on other packages
 being included.  SPARTA checks for this and does the right thing.
 I.e. individual files are only included if their dependencies are
@@ -1097,11 +1087,10 @@ dynamically loaded, e.g. from Python, type</p>
 </pre></div>
 </div>
 <p>or:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>cmake -C /path/to/sparta/cmake/presets/foo.cmake -DBUILD_SHARED_LIBS=ON /path/to/sparta/cmake
-make</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">foo</span><span class="o">.</span><span class="n">cmake</span> <span class="o">-</span><span class="n">DBUILD_SHARED_LIBS</span><span class="o">=</span><span class="n">ON</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<span class="n">make</span>
+</pre></div>
+</div>
 <p>where foo is the machine name. This kind of library is required when
 wrapping SPARTA with Python; see <a class="reference internal" href="Section_python.html#python"><span class="std std-ref">Python interface to SPARTA</span></a> for details. This will use the
 SHFLAGS and SHLIBFLAGS settings in src/MAKE/Makefile.foo and perform the
@@ -1398,9 +1387,8 @@ context.</p>
 </pre></div>
 </div>
 <p>Invoke the <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package command</span></a> with style and args. The syntax is the same as if the command appeared at the top of the input script. For example “-package kokkos on gpus 2” or “-pk kokkos g 2” is the same as <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package kokkos g 2</span></a> in the input script.  The possible styles and args are documented on the <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package command</span></a> doc page. This switch can be used multiple times.</p>
-<p>Along with the “-suffix” command-line switch, this is a convenient
-mechanism for invoking the KOKKOS accelerator package and its options
-without having to edit an input script.</p>
+<p>Along with the <a class="reference internal" href="#start-command-line-options"><span class="std std-ref">-suffix command-line switch</span></a>,
+this is a convenient mechanism for invoking the KOKKOS accelerator package and its options without having to edit an input script.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">plog</span> <span class="n">file</span>
 </pre></div>
 </div>
