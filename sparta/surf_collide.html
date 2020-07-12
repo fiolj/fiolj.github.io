@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020  (build: 08/07/2020)
+                7 May 2020  (build: 12/07/2020)
               </div>
             
           
@@ -237,52 +237,52 @@ Tsurf can be a variable (see below)</p>
 <p>keyword = <code class="docutils literal notranslate"><span class="pre">translate</span></code> or <code class="docutils literal notranslate"><span class="pre">rotate</span></code> or <code class="docutils literal notranslate"><span class="pre">partial</span></code></p>
 <p>values = values for specific keyword</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">translate</span></code> args = Vx Vy Vz</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">translate</span></code> args = <a class="reference internal" href="#surf-collide-veloc"><span class="std std-ref">Vx Vy Vz</span></a></p>
 <ul>
 <li><p>Vx,Vy,Vz = translational velocity of surface (velocity units)</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">rotate</span></code> args = Pz Py Pz Wx Wy Wz</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">rotate</span></code> args = <a class="reference internal" href="#surf-collide-veloc"><span class="std std-ref">Pz Py Pz Wx Wy Wz</span></a></p>
 <ul>
 <li><p>Px,Py,Pz = point to rotate surface around (distance units)</p></li>
 <li><p>Wx,Wy,Wz = angular velocity of surface around point (radians/time)</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">partial</span></code> args = eccen (only for cll style)</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">partial</span></code> args = <a class="reference internal" href="#surf-collide-veloc"><span class="std std-ref">eccen (only for cll style)</span></a></p>
 <ul>
 <li><p>eccen = eccentricity parameter</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">barrier</span></code> args = bar_val (only for td style)</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">barrier</span></code> args = <a class="reference internal" href="#surf-collide-energy"><span class="std std-ref">bar_val (only for td style)</span></a></p>
 <ul>
 <li><p>bar_val = value of the desorption barrier in temperature units</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bond</span></code> args = bond_trans bond_rot bond_vib (only for td style)</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">bond</span></code> args = <a class="reference internal" href="#surf-collide-energy"><span class="std std-ref">bond_trans bond_rot bond_vib (only for td style)</span></a></p>
 <ul>
 <li><p>bond_trans = amount of bond dissociation energy (in temperature units) going into translational mode</p></li>
 <li><p>bond_rot = amount of bond dissociation energy (in temperature units) going into rotational mode</p></li>
 <li><p>bond_vib = amount of bond dissociation energy (in temperature units) going into vibrational mode</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">init_energy</span></code> = IE_trans IE_rot IE_vib (only for td style)</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">init_energy</span></code> = <a class="reference internal" href="#surf-collide-energy"><span class="std std-ref">IE_trans IE_rot IE_vib (only for td style)</span></a></p>
 <ul>
 <li><p>IE_trans = fraction of initial translational energy going into translational mode</p></li>
 <li><p>IE_rot = fraction of initial translational energy going into rotational mode</p></li>
 <li><p>IE_vib = fraction of initial translational energy going into vibrational mode</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">step</span></code> args = epsilon (only for impulsive style)</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">step</span></code> args = <a class="reference internal" href="#surf-collide-energy"><span class="std std-ref">epsilon (only for impulsive style)</span></a></p>
 <ul>
 <li><p>epsilon = ratio of the height to the width of the step</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">double</span></code> args = polar_pow_2 (only for impulsive style)</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">double</span></code> args = <a class="reference internal" href="#surf-collide-energy"><span class="std std-ref">polar_pow_2 (only for impulsive style)</span></a></p>
 <ul>
 <li><p>polar_pow_2 = cosine power for the polar angular distribution between peak and surface</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">intenergy</span></code> args = frac_rot frac_vib (only for impulsive style)</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">intenergy</span></code> args = <a class="reference internal" href="#surf-collide-energy"><span class="std std-ref">frac_rot frac_vib (only for impulsive style)</span></a></p>
 <ul>
 <li><p>frac_rot = fraction of lost translational energy going into the rotational mode</p></li>
 <li><p>frac_vib = fraction of lost translational energy going into the vibrational mode</p></li>
@@ -401,13 +401,13 @@ determine the current surface temperature.</p>
 Within impulsive scattering, two different models are available, namely <em>softsphere</em> and <em>tempvar</em>. The <em>softsphere</em> argument uses the soft sphere model and has two parameters: <em>en_ratio</em> which represents the fraction of energy lost during the collision, and <em>eff_mass</em> specifying the effective mass of the surface atom.
 The <em>tempvar</em> argument directly provides the peak value of the scattered particle velocity distribution as a linear function of temperature. It has two parameters: the linear term <em>a1</em> and constant term <em>a0</em>.
 The other five parameters <em>Tsurf</em>, <em>var</em>, <em>pol_peak</em>, <em>pol_pow</em>, <em>azi_pow</em> are set for both the models. <em>Tsurf</em> is the surface temperature. <em>var</em> is the variance of the scattered particle velocity distribution.  <em>pol_peak</em> is the peak of the polar angle distribution. <em>pol_pow</em> and <em>azi_pow</em> are the cosine power representing the polar and azimuthal angle distribution respectively.</p>
-<p>The <em>impulsive</em> model is used to represent the scattering of particles having super or hyperthermal translational energies and very low internal energies, like in a beam. This type of scattering falls under the structural regime, whose scattering physics and distributions are very different from the thermal regime. The velocity distribution of the impulsive scattering model can be represented using a Gaussian distribution with a mean <em>u0</em> and a variance <em>\alpha</em> following Rettner <a class="reference internal" href="#rettner94a" id="id6"><span>[Rettner94a]</span></a></p>
+<p>The <em>impulsive</em> model is used to represent the scattering of particles having super or hyperthermal translational energies and very low internal energies, like in a beam. This type of scattering falls under the structural regime, whose scattering physics and distributions are very different from the thermal regime. The velocity distribution of the impulsive scattering model can be represented using a Gaussian distribution with a mean <span class="math notranslate nohighlight">\(u_{0}\)</span> and a variance <span class="math notranslate nohighlight">\(\alpha\)</span> following Rettner <a class="reference internal" href="#rettner94a" id="id6"><span>[Rettner94a]</span></a></p>
 <div class="math notranslate nohighlight">
 \[f_\text{impulsive}(u) \propto u^{2} \, \exp\left(-\frac{(u-u_0)^{2}}{2\alpha^2}\right)\]</div>
-<p>The variance parameter is directly specified by the user. The value of <em>u0</em> can be provided directly using the <em>tempvar</em> model in which it is represented as a linear function of temperature. The linear term <em>a1</em> and constant term <em>a0</em> are given as inputs.</p>
+<p>The variance parameter is directly specified by the user. The value of <span class="math notranslate nohighlight">\(u_{0}\)</span> can be provided directly using the <em>tempvar</em> model in which it is represented as a linear function of temperature. The linear term <em>a1</em> and constant term <em>a0</em> are given as inputs.</p>
 <div class="math notranslate nohighlight">
 \[\left\langle E_{f} \right\rangle = E_{i} \left(1 - \frac{2\mu}{\left(\mu+1\right)^{2}}\left[1 + \mu \sin^{2}\chi + \frac{E_\text{int}}{E_{i}}\left(\frac{\mu+1}{2\mu}\right) - \cos{\chi}\sqrt{1 - \mu^{2} \sin^{2}\chi - \frac{E_\text{int}}{E_{i}}\left(\mu+1\right)}\right]\right)\]</div>
-<p>The <em>u0</em> parameter can also be specified by a more physical model such as the soft sphere scattering model <a class="reference internal" href="#alexander12" id="id7"><span>[Alexander12]</span></a>.  This model uses the parameters <em>en_ratio</em>, the fraction of energy lost in the collision and <em>eff_mass</em>, the effective mass of the surface atom to determine the average final energy and then the average final velocity <em>u0</em>. Within the soft sphere model, the average final velocity will vary as a function of the final polar angle.</p>
+<p>The <span class="math notranslate nohighlight">\(u_{0}\)</span> parameter can also be specified by a more physical model such as the soft sphere scattering model <a class="reference internal" href="#alexander12" id="id7"><span>[Alexander12]</span></a>.  This model uses the parameters <em>en_ratio</em>, the fraction of energy lost in the collision and <em>eff_mass</em>, the effective mass of the surface atom to determine the average final energy and then the average final velocity <em>u0</em>. Within the soft sphere model, the average final velocity will vary as a function of the final polar angle.</p>
 <div class="math notranslate nohighlight">
 \[u_{0} =  a_{1} \cdot  T + a_{0}\]</div>
 <p>Both the polar and azimuthal angular distribution are lobular in nature and sharply peaked. These distributions can be represented using the cosine power law distribution <a class="reference internal" href="#glatzer97" id="id8"><span>[Glatzer97]</span></a>.
@@ -438,12 +438,12 @@ can also be used to delete particles hitting a surface, by setting the
 <em>pdelete</em> parameter to 1.0. Using a surf_collide vanish command is
 simpler.</p>
 <hr class="docutils" />
-<p>The keyword <em>translate</em> can only be applied to the <em>diffuse</em> and <em>cll</em>
+<p id="surf-collide-veloc">The keyword <code class="docutils literal notranslate"><span class="pre">translate</span></code> can only be applied to the <em>diffuse</em> and <em>cll</em>
 style. It models the surface as if it were translating with a constant
 velocity, specified by the vector (Vx,Vy,Vz). This velocity is added
 to the final post-collisional velocity of each particle that collides
 with the surface.</p>
-<p>The keyword <em>rotate</em> can only be applied to the <em>diffuse</em> and <em>cll</em>
+<p>The keyword <code class="docutils literal notranslate"><span class="pre">rotate</span></code> can only be applied to the <em>diffuse</em> and <em>cll</em>
 style. It models the surface as if it were rotating with a constant
 angular velocity, specified by the vector W = (Wx,Wy,Wz), around the
 specified point P = (Px,Py,Pz). Note that W and P define the rotation
@@ -454,7 +454,7 @@ time unit, where time units are defined by the <a class="reference internal" hre
 collision point has a velocity given by V = (Vx,Vy,Vz) = W cross
 (X-P).  This velocity is added to the final post-collisional velocity
 of the particle.</p>
-<p>The <em>rotate</em> keyword can be used to treat a simulation box boundary as
+<p>The <code class="docutils literal notranslate"><span class="pre">rotate</span></code> keyword can be used to treat a simulation box boundary as
 a rotating wall, e.g. the end cap of an axisymmetric cylinder. Or to
 model a rotating object consisting of surface elements, e.g. a
 sphere. In either case, the wall or surface elements themselves do not
@@ -462,11 +462,11 @@ change position due to rotation. They are simply modeled as having a
 tangential velocity, as if the entire object were rotating.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>For both the <em>translate</em> and <em>rotate</em> keywords the added velocity can only be tangential to the surface, with no normal component since the surface is not actually moving in the normal direction.
+<p>For both the <code class="docutils literal notranslate"><span class="pre">translate</span></code> and <code class="docutils literal notranslate"><span class="pre">rotate</span></code> keywords the added velocity can only be tangential to the surface, with no normal component since the surface is not actually moving in the normal direction.
 SPARTA does not check that the specified translation or rotation produces a tangential velocity.
 However if does enforce the condition by subtracting off any component of the added velocity that is normal to the simulation box boundary or individual surface element.</p>
 </div>
-<p>The keyword <em>partial</em> can only be applied to the <em>cll</em> style. Within the
+<p>The keyword <code class="docutils literal notranslate"><span class="pre">partial</span></code> can only be applied to the <em>cll</em> style. Within the
 CLL model, the energy and angular distribution are linked. Lord
 <a class="reference internal" href="#lord95" id="id11"><span>[Lord95]</span></a> proposed a way to decouple the energy
 accommodation from the angular distribution. This case of partially
@@ -475,33 +475,33 @@ in SPARTA using the optional keyword <em>partial</em>. It requires an
 additional parameter eccentricity set by the <em>eccen</em> argument. For this
 case, the energy accommodation is calculated using the accommodation
 coefficients, but the angular distribution is computed using the
-additional parameter eccentricity. The <em>eccen</em> parameter can vary
+additional parameter eccentricity. The <code class="docutils literal notranslate"><span class="pre">eccen</span></code> parameter can vary
 between 0 and 1. A value of 0 represents fully diffuse scattering and
 gives a cosine angular distribution. Increasing value of <em>eccen</em>
 presents more peaked and lobular distribution <a class="reference internal" href="#lord95" id="id12"><span>[Lord95]</span></a>.</p>
-<p>The keywords <em>barrier</em>, <em>bond</em>, and <em>initenergy</em> can only be applied to the <em>td</em> style. Due to the nature of the interaction between the products and the surface, the desorption of the products might have an energy barrier. For a surface desorption process, this desorption barrier exists only in the normal direction. Thus, only the products having enough energy (in the normal direction) to overcome the barrier will be able to desorb from the surface. This alters the velocity distribution of the observed products along the surface normal direction and thus leads to the distortion of the speed distribution <a class="reference internal" href="#goodman72" id="id13"><span>[Goodman72]</span></a>. The angular distributions, which represent the ratio of the normal to the tangential velocities, are also altered as a result of the desorption barrier.
+<p id="surf-collide-energy">The keywords <code class="docutils literal notranslate"><span class="pre">barrier</span></code>, <code class="docutils literal notranslate"><span class="pre">bond</span></code>, and <code class="docutils literal notranslate"><span class="pre">initenergy</span></code> can only be applied to the <code class="docutils literal notranslate"><span class="pre">td</span></code> style. Due to the nature of the interaction between the products and the surface, the desorption of the products might have an energy barrier. For a surface desorption process, this desorption barrier exists only in the normal direction. Thus, only the products having enough energy (in the normal direction) to overcome the barrier will be able to desorb from the surface. This alters the velocity distribution of the observed products along the surface normal direction and thus leads to the distortion of the speed distribution <a class="reference internal" href="#goodman72" id="id13"><span>[Goodman72]</span></a>. The angular distributions, which represent the ratio of the normal to the tangential velocities, are also altered as a result of the desorption barrier.
 The angular distributions are peaked more towards the normal and are often described by a cosine power law distribution.</p>
 <div class="math notranslate nohighlight">
 \[T_\text{norm} = T_\text{surf}\left(1 + \frac{E_\text{barrier}}{k_{b}}\right).\]</div>
 <div class="math notranslate nohighlight">
 \[f(v) \propto v^{2} \exp\left(-\frac{mv^{2}}{2k_{b}}\left(\frac{\cos^{2}\theta}{T_\text{norm}} + \frac{\sin^{2}\theta}{T_{\text{surf}}}\right)\right)\]</div>
 <p>In addition to the desorption energy barrier, products formed through thermal mechanisms might have energies exceeding those corresponding to the bulk surface temperature. The energy of the local surface environment where the product formation occurs might be greater than the normal surface temperature due to the formation of local hot-spots <a class="reference internal" href="#rettner94b" id="id14"><span>[Rettner94b]</span></a>.</p>
-<p>These hot-spots might stem from the dissociation or bond energy of the intermediates or the products. The optional keyword <em>bond</em> can be used to account for this scenario. This requires three arguments: the amount of energy (in temperature units) going into the translational, rotational and vibrational mode.</p>
+<p>These hot-spots might stem from the dissociation or bond energy of the intermediates or the products. The optional keyword <code class="docutils literal notranslate"><span class="pre">bond</span></code> can be used to account for this scenario. This requires three arguments: the amount of energy (in temperature units) going into the translational, rotational and vibrational mode.</p>
 <div class="math notranslate nohighlight">
 \[E_{prod} = k_{b}T_{s} + k_{b}\sigma_2\]</div>
-<p>The higher energy during desorption might also arise due to the energy deposited by high speed of the incoming gas-phase particles. Since the formation of the products is rapid, the product might form and desorb before this high energy dissipates from the local hot-spots <a class="reference internal" href="#beckerle90" id="id15"><span>[Beckerle90]</span></a>. In this case, although the products are in thermal equilibrium with the surroundings, the energies of the products might not depend only on the equilibrium surface temperature, but also on the incoming velocities of the particles. This can be used within SPARTA using the optional keyword <em>initenergy</em>. It requires 3 arguments: fraction of the initial translational energy going into the translational, rotational and vibrational modes.</p>
+<p>The higher energy during desorption might also arise due to the energy deposited by high speed of the incoming gas-phase particles. Since the formation of the products is rapid, the product might form and desorb before this high energy dissipates from the local hot-spots <a class="reference internal" href="#beckerle90" id="id15"><span>[Beckerle90]</span></a>. In this case, although the products are in thermal equilibrium with the surroundings, the energies of the products might not depend only on the equilibrium surface temperature, but also on the incoming velocities of the particles. This can be used within SPARTA using the optional keyword <code class="docutils literal notranslate"><span class="pre">initenergy</span></code>. It requires 3 arguments: fraction of the initial translational energy going into the translational, rotational and vibrational modes.</p>
 <div class="math notranslate nohighlight">
 \[E_{prod} = k_{b}T_{s} + \sigma_1 E_{in}\]</div>
-<p>The keywords <em>step</em>, <em>double</em>, and <em>intenergy</em> can only be applied to the <em>impulsive</em> style. In some cases, it is observed that the polar angular distribution on either side of the peak is different. Goodman <a class="reference internal" href="#goodman74" id="id16"><span>[Goodman74]</span></a> provided a physical reasoning for the observed faster decay rate in the polar angular distribution away from the normal with the surface assumed to consist of periodic steps of average height H and average periodicity L. The ratio of the height to periodicity is <em>epsilon</em> and the correction to the angular distribution is given by</p>
+<p>The keywords <code class="docutils literal notranslate"><span class="pre">step</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, and <code class="docutils literal notranslate"><span class="pre">intenergy</span></code> can only be applied to the <code class="docutils literal notranslate"><span class="pre">impulsive</span></code> style. In some cases, it is observed that the polar angular distribution on either side of the peak is different. Goodman <a class="reference internal" href="#goodman74" id="id16"><span>[Goodman74]</span></a> provided a physical reasoning for the observed faster decay rate in the polar angular distribution away from the normal with the surface assumed to consist of periodic steps of average height H and average periodicity L. The ratio of the height to periodicity is <em>epsilon</em> and the correction to the angular distribution is given by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}f_{corr} = \begin{cases}
 1 - \epsilon \, \tan(\theta_{0}), &amp; \text{if } \tan(\theta_{0}) &lt; \epsilon^{-1} \\
 0, &amp; \text{otherwise}
 \end{cases}\end{split}\]</div>
-<p>This optional argument can be accessed using the keyword <em>step</em>, and <em>epsilon</em> parameter must be specified. Another optional argument to specify the angular distribution of the products is the <em>double</em> keyword. In this option, the angular distribution on either sides of the peak are represented by a different cosine power decay. It requires one argument <em>pol_pow_2</em>, which describes the distribution between the peak and the surface. The distribution between the surface normal and the peak is described using the parameter <em>pol_pow</em>.</p>
-<p>The keyword <em>intenergy</em> can be used to modify the internal energy of an incident molecule during collision. In the case of hyperthermal collision the energy from the translational mode is transfered to the internal modes. This keyword requires two input parameters <em>frac_rot</em> and <em>frac_vib</em>. These specify the fraction of the change in translational energy (difference between the final and initial) transferred to the rotational and vibrational mode respectively.</p>
-<hr class="docutils" />
-<p><strong>Output info:</strong></p>
+<p>This optional argument can be accessed using the keyword <code class="docutils literal notranslate"><span class="pre">step</span></code>, and <code class="docutils literal notranslate"><span class="pre">epsilon</span></code> parameter must be specified. Another optional argument to specify the angular distribution of the products is the <em>double</em> keyword. In this option, the angular distribution on either sides of the peak are represented by a different cosine power decay. It requires one argument <em>pol_pow_2</em>, which describes the distribution between the peak and the surface. The distribution between the surface normal and the peak is described using the parameter <em>pol_pow</em>.</p>
+<p>The keyword <code class="docutils literal notranslate"><span class="pre">intenergy</span></code> can be used to modify the internal energy of an incident molecule during collision. In the case of hyperthermal collision the energy from the translational mode is transfered to the internal modes. This keyword requires two input parameters <em>frac_rot</em> and <em>frac_vib</em>. These specify the fraction of the change in translational energy (difference between the final and initial) transferred to the rotational and vibrational mode respectively.</p>
+<div class="section" id="output-info">
+<h3>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h3>
 <p>All the surface collide models calculate a global vector of length 2.  The values can be used by the <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style command</span></a> and by <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable command</span></a> that define formulas. The latter means they can be used by any command that uses a variable as input, e.g. the <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time command</span></a>. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Output from SPARTA (stats, dumps, computes, fixes, variables)</span></a> for an overview of SPARTA output options.</p>
 <p>The first element of the vector is the count of particles that hit surface elements assigned to this collision model during the current timestep. The second element is the cummulative count of particles that have hit surface elements since the current run began.</p>
 <hr class="docutils" />
@@ -510,7 +510,7 @@ The angular distributions are peaked more towards the normal and are often descr
 <p>You can specify the accelerated styles explicitly in your input script by including their suffix, or you can use the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-suffix command-line switch</span></a> when you invoke SPARTA, or you can use the <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix command</span></a> in your input script.</p>
 <p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual for more instructions on how to use the accelerated styles effectively.</p>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="restrictions">
 <h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
 <p>The <em>translate</em> and <em>rotate</em> keywords cannot be used together.</p>
@@ -526,7 +526,10 @@ The angular distributions are peaked more towards the normal and are often descr
 <blockquote>
 <div><p>none</p>
 </div></blockquote>
+</div>
 <hr class="docutils" />
+<div class="section" id="references">
+<h2>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <dl class="citation">
 <dt class="label" id="bird94"><span class="brackets">Bird94</span><span class="fn-backref">(<a href="#id9">1</a>,<a href="#id10">2</a>)</span></dt>
 <dd><ol class="upperalpha simple" start="7">

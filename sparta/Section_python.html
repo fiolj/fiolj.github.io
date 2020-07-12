@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                7 May 2020  (build: 08/07/2020)
+                7 May 2020  (build: 12/07/2020)
               </div>
             
           
@@ -209,11 +209,17 @@ See <a class="reference internal" href="Section_howto.html#howto-other-code"><sp
 <div class="section" id="building-sparta-as-a-shared-library">
 <span id="python-building-sparta"></span><h2><a class="toc-backref" href="#id1">11.1. Building SPARTA as a shared library</a><a class="headerlink" href="#building-sparta-as-a-shared-library" title="Permalink to this headline">¶</a></h2>
 <p>Instructions on how to build SPARTA as a shared library are given in <a class="reference internal" href="Section_start.html#start-build-library"><span class="std std-ref">build-library</span></a>. A shared library is one that is dynamically loadable, which is what Python requires. On Linux this is a library file that ends in “.so”, not “.a”.</p>
-<p>From the src directory, type</p>
+<p>For make, from the src directory, type</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">makeshlib</span>
 <span class="n">make</span> <span class="o">-</span><span class="n">f</span> <span class="n">Makefile</span><span class="o">.</span><span class="n">shlib</span> <span class="n">foo</span>
 </pre></div>
 </div>
+<p>For CMake, from the build directory, tyoe</p>
+<dl class="simple">
+<dt>::</dt><dd><p>cmake -C /path/to/sparta/cmake/presets/foo.cmake -DBUILD_SHARED_LIBS=ON /path/to/sparta/cmake
+make</p>
+</dd>
+</dl>
 <p>where foo is the machine target name, such as icc or g++ or serial. This should create the file libsparta_foo.so in the src directory, as well as a soft link libsparta.so, which is what the Python wrapper will load by default. Note that if you are building multiple machine versions of the shared library, the soft link is always set to the most recently built version.</p>
 <p>If this fails, see <a class="reference internal" href="Section_start.html#start-optional-packages"><span class="std std-ref">Making SPARTA with optional packages</span></a> for more details, especially if your SPARTA build uses auxiliary libraries like MPI which may not be built as shared libraries on your system.</p>
 </div>

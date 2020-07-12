@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020  (build: 08/07/2020)
+                7 May 2020  (build: 12/07/2020)
               </div>
             
           
@@ -178,8 +178,9 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">ave/time</span></code> = style name of this fix command</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Nevery</span></code> = use input values every this many timesteps</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Nrepeat</span></code> = # of times to use input values for calculating averages</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Nfreq</span></code> = calculate averages every this many timesteps</p></li>
-<li><p>one or more input values can be listed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Nfreq</span></code> = calculate averages every this many timesteps</p>
+<p>one or more input values can be listed</p>
+</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">value</span></code> = c_ID, c_ID[N], f_ID, f_ID[N], v_name</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">c_ID</span></code> = global scalar or vector or array calculated by a compute with ID</p></li>
@@ -279,8 +280,7 @@ vector with 3 values.</p>
 <span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">time</span> <span class="mi">100</span> <span class="mi">1</span> <span class="mi">100</span> <span class="n">c_1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">c_1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">c_1</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">file</span> <span class="n">tmp</span><span class="o">.</span><span class="n">count</span>
 </pre></div>
 </div>
-<hr class="docutils" />
-<p>The <em>Nevery</em>, <em>Nrepeat</em>, and <em>Nfreq</em> arguments specify on what timesteps
+<p id="command-fix-ave-time-nevery">The <em>Nevery</em>, <em>Nrepeat</em>, and <em>Nfreq</em> arguments specify on what timesteps
 the input values will be used in order to contribute to the average. The
 final averaged quantities are generated on timesteps that are a mlutiple
 of <em>Nfreq</em>. The average is over <em>Nrepeat</em> quantities, computed in the

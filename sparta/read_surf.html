@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020  (build: 08/07/2020)
+                7 May 2020  (build: 12/07/2020)
               </div>
             
           
@@ -174,44 +174,44 @@
 </pre></div>
 </div>
 <ul>
-<li><p>filename = name of surface file</p></li>
-<li><p>zero or more keyword/args pairs may be appended</p></li>
-<li><p>keyword = <em>origin</em> or <em>trans</em> or <em>atrans</em> or <em>ftrans</em> or <em>scale</em> or
-<em>rotate</em> or <em>transparent</em> or <em>invert</em> or <em>clip</em> or <em>group</em> or
-<em>typeadd</em> or <em>particle</em> or <em>file</em></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">filename</span></code> = name of surface file</p></li>
+<li><p>zero or more keyword/args pairs may be appended</p>
+<p>keyword = <code class="docutils literal notranslate"><span class="pre">origin</span></code> or <code class="docutils literal notranslate"><span class="pre">trans</span></code> or <code class="docutils literal notranslate"><span class="pre">atrans</span></code> or <code class="docutils literal notranslate"><span class="pre">ftrans</span></code> or <code class="docutils literal notranslate"><span class="pre">scale</span></code> or
+<code class="docutils literal notranslate"><span class="pre">rotate</span></code> or <code class="docutils literal notranslate"><span class="pre">transparent</span></code> or <code class="docutils literal notranslate"><span class="pre">invert</span></code> or <code class="docutils literal notranslate"><span class="pre">clip</span></code> or <code class="docutils literal notranslate"><span class="pre">group</span></code> or
+<code class="docutils literal notranslate"><span class="pre">typeadd</span></code> or <code class="docutils literal notranslate"><span class="pre">particle</span></code> or <code class="docutils literal notranslate"><span class="pre">file</span></code></p>
 <dl class="simple">
-<dt>origin args = Ox Oy Oz</dt><dd><p>Ox,Oy,Oz = set origin of surface to this point (distance units)</p>
+<dt>origin args = Ox Oy Oz</dt><dd><p>Ox,Oy,Oz = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">set origin of surface to this point (distance units)</span></a></p>
 </dd>
-<dt>trans args = Dx Dy Dz</dt><dd><p>Dx,Dy,Dz = translate origin by this displacement (distance units)</p>
+<dt>trans args = Dx Dy Dz</dt><dd><p>Dx,Dy,Dz = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">translate origin by this displacement (distance units)</span></a></p>
 </dd>
-<dt>atrans args = Ax Ay Az</dt><dd><p>Ax,Ax,Az = translate origin to this absolute point (distance units)</p>
+<dt>atrans args = Ax Ay Az</dt><dd><p>Ax,Ax,Az = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">translate origin to this absolute point (distance units)</span></a></p>
 </dd>
-<dt>ftrans args = Fx Fy Fz</dt><dd><p>Fx,Fy,Fz = translate origin to this fractional point in simulation box</p>
+<dt>ftrans args = Fx Fy Fz</dt><dd><p>Fx,Fy,Fz = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">translate origin to this fractional point in simulation box</span></a></p>
 </dd>
-<dt>scale args = Sx Sy Sz</dt><dd><p>Sx,Sy,Sz = scale surface by these factors around origin</p>
+<dt>scale args = Sx Sy Sz</dt><dd><p>Sx,Sy,Sz = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">scale surface by these factors around origin</span></a></p>
 </dd>
 <dt>rotate args = theta Rx Ry Rz</dt><dd><ul class="simple">
-<li><p>theta = rotate surface by this angle in counter-clockwise direction (degrees)</p></li>
-<li><p>Rx,Ry,Rz = rotate around vector starting at origin pointing in this direction</p></li>
+<li><p>theta = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">rotate surface by this angle in counter-clockwise direction (degrees)</span></a></p></li>
+<li><p>Rx,Ry,Rz = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">rotate around vector starting at origin pointing in this direction</span></a></p></li>
 </ul>
 </dd>
-<dt>transparent args</dt><dd><p>= none</p>
+<dt>transparent args</dt><dd><p>args = <a class="reference internal" href="#read-surf-props"><span class="std std-ref">none</span></a></p>
 </dd>
-<dt>invert args</dt><dd><p>= none</p>
+<dt>invert args</dt><dd><p>args = <a class="reference internal" href="#read-surf-props"><span class="std std-ref">none</span></a></p>
 </dd>
-<dt>clip args = none or fraction</dt><dd><p>fraction = push points close to the box boundary to the boundary (optional)</p>
+<dt>clip args = none or fraction</dt><dd><p>fraction = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">push points close to the box boundary to the boundary (optional)</span></a></p>
 </dd>
-<dt>group arg = group-ID</dt><dd><p>group-ID = new or existing surface group to assign the surface elements to</p>
+<dt>group arg = group-ID</dt><dd><p>group-ID = <a class="reference internal" href="#read-surf-group"><span class="std std-ref">new or existing surface group to assign the surface elements to</span></a></p>
 </dd>
-<dt>typeadd arg = Noffset</dt><dd><p>Noffset = add Noffset to the type value of each element</p>
+<dt>typeadd arg = Noffset</dt><dd><p>Noffset = <a class="reference internal" href="#read-surf-group"><span class="std std-ref">add Noffset to the type value of each element</span></a></p>
 </dd>
 <dt>particle args = none or check or keep</dt><dd><ul class="simple">
-<li><p>none = allow no particles in simulation when read surfs (default)</p></li>
-<li><p>check = delete particles inside surfs or in cells intersected by surfs</p></li>
-<li><p>keep = keep all particles</p></li>
+<li><p>none = <a class="reference internal" href="#read-surf-group"><span class="std std-ref">allow no particles in simulation when read surfs (default)</span></a></p></li>
+<li><p>check = <a class="reference internal" href="#read-surf-group"><span class="std std-ref">delete particles inside surfs or in cells intersected by surfs</span></a></p></li>
+<li><p>keep = <a class="reference internal" href="#read-surf-group"><span class="std std-ref">keep all particles</span></a></p></li>
 </ul>
 </dd>
-<dt>file args = identical to those defined for the write_surf command</dt><dd><p>this keyword must be last</p>
+<dt>file args = <a class="reference internal" href="#read-surf-file"><span class="std std-ref">identical to those defined for the write_surf command</span></a></dt><dd><p>this keyword must be last</p>
 </dd>
 </dl>
 </li>
@@ -448,29 +448,29 @@ operation.</p>
 vertices in the surface file with respect to an origin point. By default
 the origin is (0.0,0.0,0.0), regardless of the position of individual
 vertices in the file.</p>
-<p>The <em>origin</em> keyword resets the origin to the specified <em>Ox,Oy,Oz</em>. This
+<p id="read-surf-geometry">The <code class="docutils literal notranslate"><span class="pre">origin</span></code> keyword resets the origin to the specified <em>Ox,Oy,Oz</em>. This
 operation has no effect on the vertices.</p>
-<p>The <em>trans</em> keyword shifts or displaces the origin by the vector
+<p>The <code class="docutils literal notranslate"><span class="pre">trans</span></code> keyword shifts or displaces the origin by the vector
 (Dx,Dy,Dz). It also displaces each vertex by (Dx,Dy,Dz).</p>
-<p>The <em>atrans</em> keyword resets the origin to an absolute point (Ax,Ay,Az)
+<p>The <code class="docutils literal notranslate"><span class="pre">atrans</span></code> keyword resets the origin to an absolute point (Ax,Ay,Az)
 which implies a displacement (Dx,Dy,Dz) from the current origin. It also
 displaces each vertex by (Dx,Dy,Dz).</p>
-<p>The <em>ftrans</em> keyword resets the origin to a fractional point (Fx,Fy,Fz).
+<p>The <code class="docutils literal notranslate"><span class="pre">ftrans</span></code> keyword resets the origin to a fractional point (Fx,Fy,Fz).
 Fractional means that Fx = 0.0 is the lower edge/face in the x-dimension
 and Fx = 1.0 is the upper edge/face in the x-dimension, and similarly
 for Fy and Fz. This change of origin implies a displacement (Dx,Dy,Dz)
 from the current origin. This operation also displaces each vertex by
 (Dx,Dy,Dz).</p>
-<p>The <em>scale</em> keyword does not change the origin. It computes the
+<p>The <code class="docutils literal notranslate"><span class="pre">scale</span></code> keyword does not change the origin. It computes the
 displacement vector of each vertex from the origin (delx,dely,delz) and
 scales that vector by (Sx,Sy,Sz), so that the new vertex coordinate is
 (Ox + Sx*delx,Oy + Sy*dely,Oz + Sz*delz).</p>
-<p>The <em>rotate</em> keyword does not change the origin. It rotates the
+<p>The <code class="docutils literal notranslate"><span class="pre">rotate</span></code> keyword does not change the origin. It rotates the
 coordinates of all vertices by an angle <em>theta</em> in a counter-clockwise
 direction, around the vector starting at the origin and pointing in the
 direction <em>Rx,Ry,Rz</em>. Any rotation can be represented by an appropriate
 choice of origin, <em>theta</em> and (Rx,Ry,Rz).</p>
-<p>The <em>transparent</em> keyword flags all the read in surface elements as transparent,
+<p id="read-surf-props">The <code class="docutils literal notranslate"><span class="pre">transparent</span></code> keyword flags all the read in surface elements as transparent,
 meaning particles pass through them. This is useful for tallying flow
 statistics. The <a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide transparent</span></a> command
 must also be used to assign a transparent collision model to those surface
@@ -478,14 +478,14 @@ elements. The <a class="reference internal" href="compute_surf.html#command-comp
 differently for transparent surf elements. The <a class="reference internal" href="Section_howto.html#howto-transparent-surface"><span class="std std-ref">Section
 6.15</span></a> doc page provides an overview of transparent
 surfaces. See those doc pages for details.</p>
-<p>The <em>invert</em> keyword does not change the origin or any vertex
+<p>The <code class="docutils literal notranslate"><span class="pre">invert</span></code> keyword does not change the origin or any vertex
 coordinates. It flips the direction of the outward surface normal of
 each surface element by changing the ordering of its vertices. Since
 particles only collide with the outer surface of a surface element, this
 is a mechanism for using a surface files containing a single sphere (for
 example) as either a sphere to embed in a flow field, or a spherical
 outer boundary containing the flow.</p>
-<p>The <em>clip</em> keyword does not change the origin. It truncates or “clips” a
+<p>The <code class="docutils literal notranslate"><span class="pre">clip</span></code> keyword does not change the origin. It truncates or “clips” a
 surface that extends outside the simulation box in the following manner.
 In 3d, each of the 6 clip planes represented by faces of the global
 simulation box are considered in turn. Any triangle that straddles the
@@ -505,22 +505,22 @@ edges represented by the edges of the global simulation box.</p>
 <p>If a surface you clip crosses a periodic boundary, as specified by the <a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">boundary</span></a> command, then the clipping that takes place must be consistent on both the low and high end of the box (in the periodic dimension). This means any point on the boundary that is generated by the clip operation should be generated twice, once on the low side of the box and once on the high side. And those two points must be periodic images of each other, as implied by periodicity.
 If the surface you are reading does not clip in this manner, then SPARTA will likely generate an error about mis-matched or inconsistent cells when it attempts to mark all the grid cells and their corner points as inside vs outside the surface.</p>
 </div>
-<p>If you use the <em>clip</em> keyword, you should check the resulting statistics
+<p>If you use the <code class="docutils literal notranslate"><span class="pre">clip</span></code> keyword, you should check the resulting statistics
 of the clipped surface printed out by this command, including the
 minimum size of line and triangle edge lengths. It is possible that very
 short lines or very small triangles will be created near the box surface
 due to the clipping operation, depending on the coordinates of the
 initial unclipped points.</p>
-<p>If this is the case, an optional <em>fraction</em> argument can be appended to
-the <em>clip</em> keyword. <em>Fraction</em> is a unitless value which is converted to
-a distance <em>delta</em> in each dimension where delta = fraction * (boxhi -
+<p>If this is the case, an optional <code class="docutils literal notranslate"><span class="pre">fraction</span></code> argument can be appended to
+the <code class="docutils literal notranslate"><span class="pre">clip</span></code> keyword. <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> is a unitless value which is converted to
+a distance <code class="docutils literal notranslate"><span class="pre">delta</span></code> in each dimension where delta = fraction * (boxhi -
 boxlo). If a point is nearer than delta to the lo or hi boundary in a
 dimension, the point is moved to be on the boundary, before the clipping
 operation takes place. This can prevent tiny surface elements from being
-created due to clipping. If <em>fraction</em> is not specified, the default
-value is 0.0, which means points are not moved. If specified, <em>fraction</em>
+created due to clipping. If <code class="docutils literal notranslate"><span class="pre">fraction</span></code> is not specified, the default
+value is 0.0, which means points are not moved. If specified, <code class="docutils literal notranslate"><span class="pre">fraction</span></code>
 must be a value between 0.0 and 0.5.</p>
-<p>Note that the <em>clip</em> operation may delete some surface elements and
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">clip</span></code> operation may delete some surface elements and
 create new ones. Likewise for the points that define the end points or
 corner points of surface element lines (2d) or triangles (3d). The
 resulting altered set of surface elements can be written out to a file
@@ -528,10 +528,10 @@ by the <a class="reference internal" href="write_surf.html#command-write-surf"><
 an input to a new simulation or for post-processing and visualization.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>When the <em>clip</em> operation deletes or adds surface elements, the line-IDs or tri-IDs will be renumbered to produce IDs that are consecutive values from 1 to the # of surface elements. The ID of a surface element that is unclipped may change due to this reordering.</p>
+<p>When the <code class="docutils literal notranslate"><span class="pre">clip</span></code> operation deletes or adds surface elements, the line-IDs or tri-IDs will be renumbered to produce IDs that are consecutive values from 1 to the # of surface elements. The ID of a surface element that is unclipped may change due to this reordering.</p>
 </div>
 <hr class="docutils" />
-<p>The following optional keywords affect group and type settings for the
+<p id="read-surf-group">The following optional keywords affect group and type settings for the
 read-in surface elements and output of the elements. Also how particles
 are treated when surface elements are added.</p>
 <p>Surface groups are collections of surface elements. Each surface element
@@ -539,27 +539,28 @@ belongs to one or more surface groups; all elements belong to the “all”
 group, which is created by default. Surface group IDs are used by other
 commands to identify a group of suface elements to operate on. See the
 <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command for more details.</p>
-<p>Every surface element also stores a <em>type</em> which is a positive integer.
-<em>Type</em> values are useful for flagging subsets of elements or different
+<p>Every surface element also stores a <code class="docutils literal notranslate"><span class="pre">type</span></code> which is a positive integer.
+<code class="docutils literal notranslate"><span class="pre">Type</span></code> values are useful for flagging subsets of elements or different
 objects in the surface file. For example, a patch of triangles on a
 sphere. Or one sphere out of several that the file contains. Surface
-element types can be used to define surface groups. See the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command for details.</p>
-<p>The <em>group</em> keyword specifies an extra surface <em>group-ID</em> to assign all
+element types can be used to define surface groups.
+See the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command for details.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">group</span></code> keyword specifies an extra surface <code class="docutils literal notranslate"><span class="pre">group-ID</span></code> to assign all
 the read-in surface elements to. All the read-in elements are assigned
-to the “all” group and to <em>group-ID</em>. If <em>group-ID</em> does not exist, a
+to the “all” group and to <code class="docutils literal notranslate"><span class="pre">group-ID</span></code>. If <code class="docutils literal notranslate"><span class="pre">group-ID</span></code> does not exist, a
 new surface group is created. If it does exist the read-in surface
 elements are added to that group.</p>
-<p>The <em>typeadd</em> keyword defines an <em>Noffset</em> value which is added to the
+<p>The <code class="docutils literal notranslate"><span class="pre">typeadd</span></code> keyword defines an <code class="docutils literal notranslate"><span class="pre">Noffset</span></code> value which is added to the
 type of each read-in surface element. The default is Noffset = 0, which
 means the read-in type values are not altered. If type values are not
 included in the file, they default to 1 for every element, but can still
-be altered by the <em>typeadd</em> keyword.</p>
-<p>Note that use of the <em>group</em> and <em>typeadd</em> keywords allow the same
+be altered by the <code class="docutils literal notranslate"><span class="pre">typeadd</span></code> keyword.</p>
+<p>Note that use of the <code class="docutils literal notranslate"><span class="pre">group</span></code> and <code class="docutils literal notranslate"><span class="pre">typeadd</span></code> keywords allow the same
 surface file to be read multiple times (e.g. with different origins,
 tranlations, rotations, etc) to define multiple objects, and assign
 their surface elements to different groups or different type values.</p>
-<p>The <em>particle</em> keyword determines how particles in the simulation are
-affected by the new surface elements. If the setting is <em>none</em>, which is
+<p>The <code class="docutils literal notranslate"><span class="pre">particle</span></code> keyword determines how particles in the simulation are
+affected by the new surface elements. If the setting is <code class="docutils literal notranslate"><span class="pre">none</span></code>, which is
 the default, then no particles can exist in the simulation. If the
 setting is <em>check</em>, then particles in grid cells that are inside the new
 watertight surface object(s) or in grid cells intersected by the new
@@ -572,15 +573,15 @@ a <a class="reference internal" href="remove_surf.html#command-remove-surf"><spa
 object, and a new object is being read in, and you know the new object
 is smaller than the one it replaced. E.g. for a model of a shrinking or
 ablating object.</p>
-<p>If the <em>file</em> keyword is used, the surfaces will be written out to the
-specified <em>filename</em> immediately after they are read in. The arguments
+<p id="read-surf-file">If the <code class="docutils literal notranslate"><span class="pre">file</span></code> keyword is used, the surfaces will be written out to the
+specified <code class="docutils literal notranslate"><span class="pre">filename</span></code> immediately after they are read in. The arguments
 for this keyword are identical to those used for the
 <a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf</span></a> command. This includes a file name with
 optional “*” and “%” wildcard characters, as well as its optional
 keywords.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The <em>file</em> keyword must be the last keyword specified with the read_isurf command. This is because all the remaining arguments are passed to the <a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf</span></a> command.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">file</span></code> keyword must be the last keyword specified with the read_isurf command. This is because all the remaining arguments are passed to the <a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf</span></a> command.</p>
 </div>
 <p>The format for the output file is the same as the one written by the
 <a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf</span></a> command, or read by this command. Note
@@ -600,7 +601,7 @@ already exist in the simulation, you must insure particles do not end up
 inside the added surfaces. See the <em>particle</em> keyword for options with
 regard to particles.</p>
 <p>To read gzipped surface files, you must compile SPARTA with the
--DSPARTA_GZIP option - see <a class="reference internal" href="Section_start.html#start-steps-build"><span class="std std-ref">Section 2.2</span></a>
+-DSPARTA_GZIP option - see <a class="reference internal" href="Section_start.html#start-steps-build-make"><span class="std std-ref">Section 2.2</span></a>
 of the manual for details.</p>
 <p>The <em>clip</em> keyword cannot be used when the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global surfs explicit/distributed</span></a> command has been used. This is
 because we have not yet figured out how to clip distributed surfaces.</p>

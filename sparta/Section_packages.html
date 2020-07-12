@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                7 May 2020  (build: 08/07/2020)
+                7 May 2020  (build: 12/07/2020)
               </div>
             
           
@@ -95,13 +95,19 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. Packages</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#fft-package">4.1. FFT package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#contents">4.1.1. Contents:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#install-or-un-install">4.1.2. Install or un-install:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#supporting-info">4.1.3. Supporting info:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-or-un-install-with-make">4.1.2. Install or un-install with make:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-or-un-install-with-cmake">4.1.3. Install or un-install with CMake:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supporting-info">4.1.4. Supporting info:</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#kokkos-package">4.2. KOKKOS package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#packages-package-kokkos-contents">4.2.1. Contents:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#packages-package-kokkos-install">4.2.2. Install or un-install:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-or-un-install">4.2.2. Install or un-install:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#for-multicore-cpus-using-openmp">4.2.2.1. For multicore CPUs using OpenMP:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#for-intel-knls-using-openmp">4.2.2.2. For Intel KNLs using OpenMP:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#for-nvidia-gpus-using-cuda">4.2.2.3. For NVIDIA GPUs using CUDA:</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#packages-package-kokkos-supporting">4.2.3. Supporting info:</a></li>
 </ul>
 </li>
@@ -190,7 +196,9 @@ of them. Packages are groups of files that enable a specific set of
 features. For example, the KOKKOS package provides styles that can run
 on different hardware such as GPUs. You can see the list of all packages
 and “make” commands to manage them by typing “make package” from within
-the src directory of the SPARTA distribution. <a class="reference internal" href="Section_start.html#start"><span class="std std-ref">Getting Started</span></a> gives general info on how to install and un-install packages as part of the SPARTA build process.</p>
+the src directory of the SPARTA distribution  or “cmake -DSPARTA_LIST_PKGS”
+from within a build directory. <a class="reference internal" href="Section_start.html#start"><span class="std std-ref">Getting Started</span></a> gives general info on how to
+install and un-install packages as part of the SPARTA build process.</p>
 <p>Packages may require some additional code compiled located in the lib
 folder, or may require an external library to be downloaded, compiled,
 installed, and SPARTA configured to know about its location and
@@ -219,8 +227,8 @@ build it</p></li>
 your machine</p></li>
 </ul>
 <hr class="docutils" />
-<table class="docutils align-default" id="id5">
-<caption><span class="caption-text">SPARTA packages</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">SPARTA packages</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 20%" />
@@ -266,8 +274,8 @@ in the Makefile, SPARTA will use the internal KISS FFT library that is
 included with SPARTA. See the see discussion in
 doc/Section_start.html#2_2 (step 6).</p>
 </div>
-<div class="section" id="install-or-un-install">
-<span id="packages-package-fft-install"></span><h3>4.1.2. Install or un-install:<a class="headerlink" href="#install-or-un-install" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="install-or-un-install-with-make">
+<span id="packages-package-fft-install"></span><h3>4.1.2. Install or un-install with make:<a class="headerlink" href="#install-or-un-install-with-make" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">yes</span><span class="o">-</span><span class="n">fft</span>
 <span class="n">make</span> <span class="n">machine</span>
 </pre></div>
@@ -277,8 +285,20 @@ doc/Section_start.html#2_2 (step 6).</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="install-or-un-install-with-cmake">
+<h3>4.1.3. Install or un-install with CMake:<a class="headerlink" href="#install-or-un-install-with-cmake" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
+<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">machine</span><span class="o">.</span><span class="n">cmake</span> <span class="o">-</span><span class="n">DPKG_FFT</span><span class="o">=</span><span class="n">ON</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<span class="n">make</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">machine</span><span class="o">.</span><span class="n">cmake</span> <span class="o">-</span><span class="n">DPKG_FFT</span><span class="o">=</span><span class="n">OFF</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<span class="n">make</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="supporting-info">
-<span id="packages-package-fft-supporting"></span><h3>4.1.3. Supporting info:<a class="headerlink" href="#supporting-info" title="Permalink to this headline">¶</a></h3>
+<span id="packages-package-fft-supporting"></span><h3>4.1.4. Supporting info:<a class="headerlink" href="#supporting-info" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="compute_fft_grid.html#command-compute-fft-grid"><span class="std std-ref">compute fft/grid</span></a></p></li>
 <li><p>examples/fft</p></li>
@@ -300,42 +320,63 @@ kk” or “-suffix kk” <a class="reference internal" href="Section_start.html
 <p>You must have a C++11 compatible compiler to use this package.</p>
 <p><strong>Authors:</strong> The KOKKOS package was created primarily by Stan Moore (Sandia), with contributions from other folks as well. It uses the open-source <a class="reference external" href="https://github.com/kokkos">Kokkos library</a> which was developed by Carter Edwards, Christian Trott, and others at Sandia, and which is included in the SPARTA distribution in lib/kokkos.</p>
 </div>
-<div class="section" id="packages-package-kokkos-install">
-<span id="id3"></span><h3>4.2.2. Install or un-install:<a class="headerlink" href="#packages-package-kokkos-install" title="Permalink to this headline">¶</a></h3>
-<p>For the KOKKOS package, you have 3 choices when building. You can build
-with either CPU or KNL or GPU support. Each choice requires additional
-settings in your Makefile.machine for the KOKKOS_DEVICES and KOKKOS_ARCH
-settings. See the src/MAKE/OPTIONS/Makefile.kokkos* files for examples.</p>
-<p>For multicore CPUs using OpenMP:</p>
+<div class="section" id="install-or-un-install">
+<span id="packages-package-kokkos-install"></span><h3>4.2.2. Install or un-install:<a class="headerlink" href="#install-or-un-install" title="Permalink to this headline">¶</a></h3>
+<p>For the KOKKOS package, you have 3 choices when building. You can build with either CPU or KNL or GPU support.
+Each choice requires additional settings in your Makefile.machine or machine.cmake file for the KOKKOS_DEVICES and KOKKOS_ARCH settings. See the
+src/MAKE/OPTIONS/Makefile.kokkos* or cmake/presets/<em>kokkos</em>.cmake
+files for examples. For CMake, it’s best to start by copying
+cmake/presets/kokkos_cuda.cmake to cmake/presets/machine.cmake.</p>
+<div class="section" id="for-multicore-cpus-using-openmp">
+<h4>4.2.2.1. For multicore CPUs using OpenMP:<a class="headerlink" href="#for-multicore-cpus-using-openmp" title="Permalink to this headline">¶</a></h4>
+<p>Using Makefiles:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KOKKOS_DEVICES</span> <span class="o">=</span> <span class="n">OpenMP</span>
 <span class="n">KOKKOS_ARCH</span> <span class="o">=</span> <span class="n">HSW</span>           <span class="c1"># HSW = Haswell, SNB = SandyBridge, BDW = Broadwell, etc</span>
 </pre></div>
 </div>
-<p>For Intel KNLs using OpenMP:</p>
+<p>Using CMake:</p>
+<dl class="simple">
+<dt>::</dt><dd><p>-DKokkos_ENABLE_OPENMP=ON
+-DKokkos_ARCH_HSW=ON</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="for-intel-knls-using-openmp">
+<h4>4.2.2.2. For Intel KNLs using OpenMP:<a class="headerlink" href="#for-intel-knls-using-openmp" title="Permalink to this headline">¶</a></h4>
+<p>Using Makefiles:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KOKKOS_DEVICES</span> <span class="o">=</span> <span class="n">OpenMP</span>
 <span class="n">KOKKOS_ARCH</span> <span class="o">=</span> <span class="n">KNL</span>
 </pre></div>
 </div>
-<p>For NVIDIA GPUs using CUDA:</p>
+</div>
+<div class="section" id="for-nvidia-gpus-using-cuda">
+<h4>4.2.2.3. For NVIDIA GPUs using CUDA:<a class="headerlink" href="#for-nvidia-gpus-using-cuda" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KOKKOS_DEVICES</span> <span class="o">=</span> <span class="n">Cuda</span>
-<span class="n">KOKKOS_ARCH</span> <span class="o">=</span> <span class="n">Pascal60</span><span class="p">,</span><span class="n">POWER8</span>     <span class="c1"># P100 hosted by an IBM Power8, etc</span>
-<span class="n">KOKKOS_ARCH</span> <span class="o">=</span> <span class="n">Kepler37</span><span class="p">,</span><span class="n">POWER8</span>     <span class="c1"># K80 hosted by an IBM Power8, etc</span>
+<span class="n">KOKKOS_ARCH</span> <span class="o">=</span> <span class="n">PASCAL60</span><span class="p">,</span><span class="n">POWER8</span>     <span class="c1"># P100 hosted by an IBM Power8, etc</span>
+<span class="n">KOKKOS_ARCH</span> <span class="o">=</span> <span class="n">KEPLER37</span><span class="p">,</span><span class="n">POWER8</span>     <span class="c1"># K80 hosted by an IBM Power8, etc</span>
 </pre></div>
 </div>
-<p>For GPUs, you also need these 2 lines in your Makefile.machine before
-the CC line is defined, in this case for use with OpenMPI mpicxx. The 2
-lines define a nvcc wrapper compiler, which will use nvcc for compiling
-CUDA files or use a C++ compiler for non-Kokkos, non-CUDA files.</p>
+<p>Using CMake:</p>
+<dl class="simple">
+<dt>::</dt><dd><p>-DKokkos_ENABLE_CUDA=ON
+-DKokkos_ARCH_PASCAL60=ON -DKokkos_ARCH_POWER8=ON :pre</p>
+</dd>
+</dl>
+<p>For make with GPUs, the following 2 lines define a nvcc wrapper compiler, which will use nvcc for compiling CUDA files or use a C++ compiler for non-Kokkos, non-CUDA
+files.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>KOKKOS_ABSOLUTE_PATH = $(shell cd $(KOKKOS_PATH); pwd)
 export OMPI_CXX = $(KOKKOS_ABSOLUTE_PATH)/bin/nvcc_wrapper
 CC =        mpicxx
 </pre></div>
 </div>
-<p>Once you have an appropriate Makefile.machine, you can
+<p>For CMake, copy cmake/presets/kokkos_cuda.cmake so OMPI_CXX and CC are set
+properly.</p>
+<p>Once you have an appropriate Makefile.machine or machine.cmake, you can
 install/un-install the package and build SPARTA in the usual manner.
 Note that you cannot build one executable to run on multiple hardware
 targets (CPU or KNL or GPU). You need to build SPARTA once for each
 hardware target, to produce a separate executable.</p>
+<p>Using make:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">yes</span><span class="o">-</span><span class="n">kokkos</span>
 <span class="n">make</span> <span class="n">machine</span>
 </pre></div>
@@ -344,9 +385,20 @@ hardware target, to produce a separate executable.</p>
 <span class="n">make</span> <span class="n">machine</span>
 </pre></div>
 </div>
+<p>Using CMake:</p>
+<dl class="simple">
+<dt>::</dt><dd><p>cmake -C /path/to/sparta/cmake/presets/machine.cmake /path/to/sparta/cmake
+make</p>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">machine</span><span class="o">.</span><span class="n">cmake</span> <span class="o">-</span><span class="n">DPKG_KOKKOS</span><span class="o">=</span><span class="n">OFF</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<span class="n">make</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="packages-package-kokkos-supporting">
-<span id="id4"></span><h3>4.2.3. Supporting info:<a class="headerlink" href="#packages-package-kokkos-supporting" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>4.2.3. Supporting info:<a class="headerlink" href="#packages-package-kokkos-supporting" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>src/KOKKOS: filenames -&gt; commands</p></li>
 <li><p>src/KOKKOS/README</p></li>

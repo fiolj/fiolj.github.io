@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020  (build: 08/07/2020)
+                7 May 2020  (build: 12/07/2020)
               </div>
             
           
@@ -176,9 +176,9 @@
 </div>
 <ul class="simple">
 <li><p>name = name of variable to define</p></li>
-<li><p>style = <em>delete</em> or <em>index</em> or <em>loop</em> or <em>world</em> or <em>universe</em> or
-<em>uloop</em> or <em>string</em> or <em>format</em> or <em>getenv</em> or <em>file</em> or <em>internal</em>
-or <em>equal</em> or <em>particle</em> or <em>grid</em></p>
+<li><p>style = <code class="docutils literal notranslate"><span class="pre">delete</span></code> or <code class="docutils literal notranslate"><span class="pre">index</span></code> or <code class="docutils literal notranslate"><span class="pre">loop</span></code> or <code class="docutils literal notranslate"><span class="pre">world</span></code> or <code class="docutils literal notranslate"><span class="pre">universe</span></code> or
+<code class="docutils literal notranslate"><span class="pre">uloop</span></code> or <code class="docutils literal notranslate"><span class="pre">string</span></code> or <code class="docutils literal notranslate"><span class="pre">format</span></code> or <code class="docutils literal notranslate"><span class="pre">getenv</span></code> or <code class="docutils literal notranslate"><span class="pre">file</span></code> or <code class="docutils literal notranslate"><span class="pre">internal</span></code>
+or <code class="docutils literal notranslate"><span class="pre">equal</span></code> or <code class="docutils literal notranslate"><span class="pre">particle</span></code> or <code class="docutils literal notranslate"><span class="pre">grid</span></code></p>
 <ul>
 <li><p>delete = no args</p></li>
 <li><p>index args = one or more strings</p></li>
@@ -384,7 +384,7 @@ The simulations will be run one after the other on whatever partition becomes av
 </dd>
 <dt>For the <em>file</em> style,</dt><dd><p>a filename is provided which contains a list of strings to assign to the variable, one per line. The strings can be numeric values if desired. See the discussion of the next() function below for equal-style variables, which will convert the string of a file-style variable into a numeric value in a formula.</p>
 </dd>
-<dt>When a file-style variable is defined,</dt><dd><p>the file is opened and the string on the first line is read and stored with the variable. This means the variable can then be evaluated as many times as desired and will return that string. There are two ways to cause the next string from the file to be read: use the <a class="reference internal" href="next.html#command-next"><span class="std std-ref">next</span></a> command or the next() function in an equal- or atom-style variable, as discussed below.</p>
+<dt>When a file-style variable is defined,</dt><dd><p>the file is opened and the string on the first line is read and stored with the variable. This means the variable can then be evaluated as many times as desired and will return that string. There are two ways to cause the next string from the file to be read: use the <a class="reference internal" href="next.html#command-next"><span class="std std-ref">next</span></a> command or the next() function in an equal- or particle- or grid-style variable, as discussed below.</p>
 <p>The rules for formatting the file are as follows. A comment character “#” can be used anywhere on a line; text starting with the comment character is stripped. Blank lines are skipped. The first “word” of a non-blank line, delimited by white space, is the “string” assigned to the variable.</p>
 </dd>
 <dt>For the <em>internal</em> style</dt><dd><p>a numeric value is provided. This value will be assigned to the variable until a SPARTA command sets it to a new value.  There is currently only one command that requirew <em>internal</em> variables as inputs, because it resets them: <a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles</span></a>. As mentioned above, an internal-style variable can be used in place of an equal-style variable anywhere else in an input script, e.g. as an argument to another command that allows for equal-style variables.</p>
@@ -610,11 +610,11 @@ points, equally spaced by 1 in their x coordinate: (1,V1), (2,V2), …,
 (N,VN), where the Vi are the values in the global vector of length N.
 The returned value is the slope of the line. If the line has a single
 point or is vertical, it returns 1.0e20.</p>
-<p>The next(x) function takes 1 argument which is a variable ID (not
-“v_foo”, just “foo”). It must be for a file-style or atomfile-style
-variable. Each time the <code class="docutils literal notranslate"><span class="pre">next()</span></code> function is invoked (i.e. each time the
-equal-style or atom-style variable is evaluated), the following steps
-occur.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">next(x)</span></code> function takes 1 argument which is a variable ID (not
+“v_foo”, just “foo”). It must be for a file-style
+variable. Each time the <code class="docutils literal notranslate"><span class="pre">next()</span></code> function is invoked (i.e. each time
+the equal-style or particle-style or grid-style variable is evaluated),
+the following steps occur.</p>
 <p>For file-style variables, the current string value stored by the
 file-style variable is converted to a numeric value and returned by the
 function. And the next string value in the file is read and stored. Note

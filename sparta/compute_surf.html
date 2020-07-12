@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020  (build: 08/07/2020)
+                7 May 2020  (build: 12/07/2020)
               </div>
             
           
@@ -183,20 +183,20 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">mix-ID</span></code> = mixture ID for particles to perform calculation on</p>
 <p>one or more values can be appended</p>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code> = <em>n</em> or <em>nwt</em> or <em>mflux</em> or <em>fx</em> or <em>fy</em> or <em>fz</em> or <em>press</em> or
-<em>px</em> or <em>py</em> or <em>pz</em> or <em>shx</em> or <em>shy</em> or <em>shz</em> or <em>ke</em></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code> = <code class="docutils literal notranslate"><span class="pre">n</span></code> or <code class="docutils literal notranslate"><span class="pre">nwt</span></code> or <code class="docutils literal notranslate"><span class="pre">mflux</span></code> or <code class="docutils literal notranslate"><span class="pre">fx</span></code> or <code class="docutils literal notranslate"><span class="pre">fy</span></code> or <code class="docutils literal notranslate"><span class="pre">fz</span></code> or <code class="docutils literal notranslate"><span class="pre">press</span></code> or
+<code class="docutils literal notranslate"><span class="pre">px</span></code> or <code class="docutils literal notranslate"><span class="pre">py</span></code> or <code class="docutils literal notranslate"><span class="pre">pz</span></code> or <code class="docutils literal notranslate"><span class="pre">shx</span></code> or <code class="docutils literal notranslate"><span class="pre">shy</span></code> or <code class="docutils literal notranslate"><span class="pre">shz</span></code> or <code class="docutils literal notranslate"><span class="pre">ke</span></code></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> = count of particles hitting surface element</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nwt</span></code> = weighted count of particles hitting surface element</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mflux</span></code> = flux of mass on surface element</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">fx,fy,fz</span></code> = components of force on surface element</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">press</span></code> = magnitude of normal pressure on surface element</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">px,py,pz</span></code> = components of normal pressure on surface element</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">shx,shy,shz</span></code> = components of shear stress on surface element</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ke</span></code> = flux of particle kinetic energy on surface element</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">erot</span></code> = flux of particle rotational energy on surface element</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">evib</span></code> = flux of particle vibrational energy on surface element</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">etot</span></code> = flux of particle total energy on surface element</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> = <a class="reference internal" href="#compute-surf-npart"><span class="std std-ref">count of particles hitting surface element</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nwt</span></code> = <a class="reference internal" href="#compute-surf-npart"><span class="std std-ref">weighted count of particles hitting surface element</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mflux</span></code> = <a class="reference internal" href="#compute-surf-npart"><span class="std std-ref">flux of mass on surface element</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fx,fy,fz</span></code> = <a class="reference internal" href="#compute-surf-force"><span class="std std-ref">components of force on surface element</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">press</span></code> = <a class="reference internal" href="#compute-surf-force"><span class="std std-ref">magnitude of normal pressure on surface element</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">px,py,pz</span></code> = <a class="reference internal" href="#compute-surf-force"><span class="std std-ref">components of normal pressure on surface element</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shx,shy,shz</span></code> = <a class="reference internal" href="#compute-surf-force"><span class="std std-ref">components of shear stress on surface element</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ke</span></code> = <a class="reference internal" href="#compute-surf-energy"><span class="std std-ref">flux of particle kinetic energy on surface element</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">erot</span></code> = <a class="reference internal" href="#compute-surf-energy"><span class="std std-ref">flux of particle rotational energy on surface element</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">evib</span></code> = <a class="reference internal" href="#compute-surf-energy"><span class="std std-ref">flux of particle vibrational energy on surface element</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">etot</span></code> = <a class="reference internal" href="#compute-surf-energy"><span class="std std-ref">flux of particle total energy on surface element</span></a></p></li>
 </ul>
 </li>
 </ul>
@@ -273,10 +273,10 @@ for the current values listed below, the two normalization methods are
 the same.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If particle weighting is enabled via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command, then all of the values below are scaled by the weight assigned to the grid cell in which the particle collision with the surface element occurs. The only exception is the the <em>n</em> value, which is NOT scaled by the weight; it is a simple count of particle collisions with the surface element.</p>
+<p>If particle weighting is enabled via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command, then all of the values below are scaled by the weight assigned to the grid cell in which the particle collision with the surface element occurs. The only exception is the the <code class="docutils literal notranslate"><span class="pre">n</span></code> value, which is <strong>NOT</strong> scaled by the weight; it is a simple count of particle collisions with the surface element.</p>
 </div>
 <hr class="docutils" />
-<dl>
+<dl id="compute-surf-npart">
 <dt>The <code class="docutils literal notranslate"><span class="pre">n</span></code> value</dt><dd><p>counts the number of particles in the group striking the surface element.</p>
 </dd>
 <dt>The <code class="docutils literal notranslate"><span class="pre">nwt</span></code> value</dt><dd><p>counts the number of particles in the group striking the surface element and weights the count by the weight assigned to the grid cell in which the particle collision with the surface element occurs.  The <em>nwt</em> quantity will only be different than <code class="docutils literal notranslate"><span class="pre">n</span></code> if particle weighting is enabled via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command.</p>
@@ -287,7 +287,9 @@ the same.</p>
 </div>
 <p>where the sum is over all contributing particle masses, normalized by A = the area of the surface element, dt = the timestep, and fnum = the real/simulated particle ratio set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global fnum</span></a> command.</p>
 </dd>
-<dt>The <em>fx</em>, <em>fy</em>, <em>fz</em> values</dt><dd><p>calculate the components of force extered on the surface element by particles in the group, with respect to the x, y, z coordinate axes. These are computed as</p>
+</dl>
+<dl id="compute-surf-force">
+<dt>The <code class="docutils literal notranslate"><span class="pre">fx</span></code>, <code class="docutils literal notranslate"><span class="pre">fy</span></code>, <code class="docutils literal notranslate"><span class="pre">fz</span></code> values</dt><dd><p>calculate the components of force extered on the surface element by particles in the group, with respect to the x, y, z coordinate axes. These are computed as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p_delta</span> <span class="o">=</span> <span class="n">mass</span> <span class="o">*</span> <span class="p">(</span><span class="n">V_post</span> <span class="o">-</span> <span class="n">V_pre</span><span class="p">)</span>
 <span class="n">Px</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
 <span class="n">Py</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_y</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
@@ -296,14 +298,14 @@ the same.</p>
 </div>
 <p>where p_delta is the change in momentum of a particle, whose velocity changes from V_pre to V_post when colliding with the surface element.  The force exerted on the surface element is the sum over all contributing p_delta, normalized by dt and fnum as defined before.</p>
 </dd>
-<dt>The <em>press</em> value</dt><dd><p>calculates the pressure <em>P</em> exerted on the surface element in the normal direction by particles in the group, such that outward pressure is positive. This is computed as</p>
+<dt>The <code class="docutils literal notranslate"><span class="pre">press</span></code> value</dt><dd><p>calculates the pressure <em>P</em> exerted on the surface element in the normal direction by particles in the group, such that outward pressure is positive. This is computed as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p_delta</span> <span class="o">=</span> <span class="n">mass</span> <span class="o">*</span> <span class="p">(</span><span class="n">V_post</span> <span class="o">-</span> <span class="n">V_pre</span><span class="p">)</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_i</span> <span class="n">dot</span> <span class="n">N</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>where p_delta, V_pre, V_post, dt, fnum are defined as before. The pressure exerted on the surface element is the sum over all contributing p_delta dotted into the outward normal N of the surface element, also normalized by A = the area of the surface element.</p>
 </dd>
-<dt>The <em>px</em>, <em>py</em>, <em>pz</em> values</dt><dd><p>calculate the normal pressure Px, Py, Pz extered on the surface element in the direction of its normal by particles in the group, with respect to the x, y, z coordinate axes.  These are computed as</p>
+<dt>The <code class="docutils literal notranslate"><span class="pre">px</span></code>, <code class="docutils literal notranslate"><span class="pre">py</span></code>, <code class="docutils literal notranslate"><span class="pre">pz</span></code> values</dt><dd><p>calculate the normal pressure Px, Py, Pz extered on the surface element in the direction of its normal by particles in the group, with respect to the x, y, z coordinate axes.  These are computed as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p_delta</span> <span class="o">=</span> <span class="n">mass</span> <span class="o">*</span> <span class="p">(</span><span class="n">V_post</span> <span class="o">-</span> <span class="n">V_pre</span><span class="p">)</span>
 <span class="n">p_delta_n</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_delta</span> <span class="n">dot</span> <span class="n">N</span><span class="p">)</span> <span class="n">N</span>
 <span class="n">Px</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_n_x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
@@ -314,7 +316,7 @@ the same.</p>
 <p>where p_delta, V_pre, V_post, N, A, and dt are defined as before.
 P_delta_n is the normal component of the change in momentum vector p_delta of a particle. P_delta_n_x (and y,z) are its x, y, z components.</p>
 </dd>
-<dt>The <em>shx</em>, <em>shy</em>, <em>shz</em> values</dt><dd><p>calculate the shear pressure Sx, Sy, Sz extered on the surface element in the tangential direction to its normal by particles in the group, with respect to the x, y, z coordinate axes.  These are computed as</p>
+<dt>The <code class="docutils literal notranslate"><span class="pre">shx</span></code>, <code class="docutils literal notranslate"><span class="pre">shy</span></code>, <code class="docutils literal notranslate"><span class="pre">shz</span></code> values</dt><dd><p>calculate the shear pressure Sx, Sy, Sz extered on the surface element in the tangential direction to its normal by particles in the group, with respect to the x, y, z coordinate axes.  These are computed as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p_delta</span> <span class="o">=</span> <span class="n">mass</span> <span class="o">*</span> <span class="p">(</span><span class="n">V_post</span> <span class="o">-</span> <span class="n">V_pre</span><span class="p">)</span>
 <span class="n">p_delta_t</span> <span class="o">=</span> <span class="n">p_delta</span> <span class="o">-</span> <span class="p">(</span><span class="n">p_delta</span> <span class="n">dot</span> <span class="n">N</span><span class="p">)</span> <span class="n">N</span>
 <span class="n">Sx</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">p_delta_t_x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
@@ -325,41 +327,38 @@ P_delta_n is the normal component of the change in momentum vector p_delta of a 
 <p>where p_delta, V_pre, V_post, N, A, and dt are defined as before.
 P_delta_t is the tangential component of the change in momentum vector p_delta of a particle. P_delta_t_x (and y,z) are its x, y, z components.</p>
 </dd>
-<dt>The <em>ke</em> value</dt><dd><p>calculates the kinetic energy flux <em>Eflux</em> imparted to the surface element by particles in the group, such that energy lost by a particle is a positive flux. This is computed as</p>
+</dl>
+<dl id="compute-surf-energy">
+<dt>The <code class="docutils literal notranslate"><span class="pre">ke</span></code> value</dt><dd><p>calculates the kinetic energy flux <em>Eflux</em> imparted to the surface element by particles in the group, such that energy lost by a particle is a positive flux. This is computed as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e_delta</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="n">mass</span> <span class="p">(</span><span class="n">V_post</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="n">V_pre</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">Eflux</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">e_delta</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>where e_delta is the kinetic energy change in a particle, whose velocity changes from V_pre to V_post when colliding with the surface element.  The energy flux imparted to the surface element is the sum over all contributing e_delta, normalized by A = the area of the surface element and dt = the timestep and fnum = the real/simulated particle ratio set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global fnum</span></a> command.</p>
 </dd>
-<dt>The <em>erot</em> value</dt><dd><p>calculates the rotational energy flux <em>Eflux</em> imparted to the surface element by particles in the group, such that energy lost by a particle is a positive flux. This is computed as</p>
+<dt>The <code class="docutils literal notranslate"><span class="pre">erot</span></code> value</dt><dd><p>calculates the rotational energy flux <em>Eflux</em> imparted to the surface element by particles in the group, such that energy lost by a particle is a positive flux. This is computed as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e_delta</span> <span class="o">=</span> <span class="n">Erot_post</span> <span class="o">-</span> <span class="n">Erot_pre</span>
 <span class="n">Eflux</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">e_delta</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>where e_delta is the rotational energy change in a particle, whose internal rotational energy changes from Erot_pre to Erot_post when colliding with the surface element. The flux equation is the same as for the <em>ke</em> value.</p>
 </dd>
-<dt>The <em>evib</em> value</dt><dd><p>calculates the vibrational energy flux <em>Eflux</em> imparted to the surface element by particles in the group, such that energy lost by a particle is a positive flux. This is computed as</p>
+<dt>The <code class="docutils literal notranslate"><span class="pre">evib</span></code> value</dt><dd><p>calculates the vibrational energy flux <em>Eflux</em> imparted to the surface element by particles in the group, such that energy lost by a particle is a positive flux. This is computed as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e_delta</span> <span class="o">=</span> <span class="n">Evib_post</span> <span class="o">-</span> <span class="n">Evib_pre</span>
 <span class="n">Eflux</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">e_delta</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fnum</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>where e_delta is the vibrational energy change in a particle, whose internal vibrational energy changes from Evib_pre to Evib_post when colliding with the surface element. The flux equation is the same as for the <em>ke</em> value.</p>
 </dd>
-<dt>The <em>etot</em> value</dt><dd><p>calculates the total energy flux imparted to the surface element by particles in the group, such that energy lost by a particle is a positive flux. This is simply the sum of kinetic, rotational, and vibrational energies. Thus the total energy flux is the sum of what is computed by the <em>ke</em>, <em>erot</em>, and <em>evib</em> values.</p>
+<dt>The <code class="docutils literal notranslate"><span class="pre">etot</span></code> value</dt><dd><p>calculates the total energy flux imparted to the surface element by particles in the group, such that energy lost by a particle is a positive flux. This is simply the sum of kinetic, rotational, and vibrational energies. Thus the total energy flux is the sum of what is computed by the <em>ke</em>, <em>erot</em>, and <em>evib</em> values.</p>
 </dd>
 </dl>
 <div class="section" id="transparent-surface-elements">
 <h3>Transparent surface elements:<a class="headerlink" href="#transparent-surface-elements" title="Permalink to this headline">¶</a></h3>
-<p>This compute will tally information on particles that pass through
-transparent surface elements. The <a class="reference internal" href="Section_howto.html#howto-transparent-surface"><span class="std std-ref">Section 6.15</span></a> doc page provides an overview of
-transparent surfaces and how to create them.</p>
-<dl class="simple">
-<dt>The <em>n</em> and <em>nwt</em> value</dt><dd><p>are calculated the same for transparent surfaces. I.e. they are the count and weighted count of particles passing through the surface.</p>
-</dd>
-<dt>The <em>mflux</em>, <em>ke</em>, <em>erot</em>. <em>evib</em>, and <em>etot</em> values are fluxes.</dt><dd><p>For transparent surfaces, they are calculated for the incident particle as if they had struck the surface. The outgoing particle is ignored. This means the tally quantity is the flux of particles onto the outward face of the surface. No tallying is done for particles hitting the inward face of the surface. See <a class="reference internal" href="Section_howto.html#howto-transparent-surface"><span class="std std-ref">Section 6.15</span></a> for how to do tallying in both directions.</p>
-</dd>
-</dl>
+<p>This compute will tally information on particles that pass through transparent surface elements. The section <a class="reference internal" href="Section_howto.html#howto-transparent-surface"><span class="std std-ref">Transparent surface elements</span></a> in <a class="reference internal" href="Section_howto.html#howto"><span class="std std-ref">How-to discussions</span></a> page provides an overview of transparent surfaces and how to create them.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">n</span></code> and <code class="docutils literal notranslate"><span class="pre">nwt</span></code> value are calculated the same for transparent surfaces. I.e. they are the count and weighted count of particles passing through the surface.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">mflux</span></code>, <code class="docutils literal notranslate"><span class="pre">ke</span></code>, <code class="docutils literal notranslate"><span class="pre">erot</span></code>. <code class="docutils literal notranslate"><span class="pre">evib</span></code>, and <code class="docutils literal notranslate"><span class="pre">etot</span></code> values are fluxes.
+For transparent surfaces, they are calculated for the incident particle as if they had struck the surface. The outgoing particle is ignored. This means the tally quantity is the flux of particles onto the outward face of the surface. No tallying is done for particles hitting the inward face of the surface. See <a class="reference internal" href="Section_howto.html#howto-transparent-surface"><span class="std std-ref">Section 6.15</span></a> for how to do tallying in both directions.</p>
 <p>All the other values are calculated as described above. This means they will be zero, since the incident particle and outgoing particle have the same mass and velocity.</p>
 </div>
 <div class="section" id="output-info">
@@ -392,7 +391,7 @@ issues.</p>
 enabled if SPARTA was built with that package. See the <a class="reference internal" href="Section_start.html#start-making-sparta"><span class="std std-ref">Making SPARTA</span></a> section for more info.</p>
 <p>You can specify the accelerated styles explicitly in your input script
 by including their suffix, or you can use the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-suffix command-line switch</span></a> when you invoke SPARTA, or you
-can use the <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix</span></a> command in your input script.</p>
+can use the <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix command</span></a> in your input script.</p>
 <p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the
 manual for more instructions on how to use the accelerated styles
 effectively.</p>

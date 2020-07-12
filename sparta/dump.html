@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020  (build: 08/07/2020)
+                7 May 2020  (build: 12/07/2020)
               </div>
             
           
@@ -174,87 +174,72 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="n">ID</span> <span class="n">style</span> <span class="n">select</span><span class="o">-</span><span class="n">ID</span> <span class="n">N</span> <span class="n">file</span> <span class="n">args</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>ID = user-assigned name for the dump</p></li>
-<li><p>style = <em>particle</em> or <em>grid</em> or <em>surf</em> or <em>image</em></p></li>
-<li><p>select-ID = which particles, grid cells, surface elements to dump</p>
 <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ID</span></code> = user-assigned name for the dump</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">style</span></code> = <code class="docutils literal notranslate"><span class="pre">particle</span></code> or <code class="docutils literal notranslate"><span class="pre">grid</span></code> or <code class="docutils literal notranslate"><span class="pre">surf</span></code> or <code class="docutils literal notranslate"><span class="pre">image</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">select-ID</span></code> = which particles, grid cells, surface elements to dump</p>
+<ul class="simple">
 <li><p>for dump style = particle or image, use a mixture ID</p></li>
 <li><p>for style = grid, use a grid group ID</p></li>
 <li><p>for style = surf, use a surface group ID</p></li>
 </ul>
 </li>
-<li><p>N = dump every this many timesteps</p></li>
-<li><p>file = name of file to write dump info to</p></li>
-<li><p>args = list of arguments for a particular style</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">N</span></code> =  dump every this many timesteps</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file</span></code> = name of file to write dump info to</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code> = list of arguments for a particular style</p>
 <ul>
-<li><dl class="simple">
-<dt>particle args = list of particle attributes</dt><dd><p>possible attributes = id, type, proc, x, y, z, xs, ys, zs, vx, vy, vz,      ke, erot, evib, p_ID, p_ID[N], c_ID, c_ID[N], f_ID, f_ID[N], v_name</p>
-<ul>
-<li><p>id = particle ID</p></li>
-<li><p>type = particle species</p></li>
-<li><p>proc = ID of owning processor</p></li>
-<li><p>x,y,z = unscaled particle coordinates</p></li>
-<li><p>xs,ys,zs = scaled particle coordinates</p></li>
-<li><p>vx,vy,vz = particle velocities</p></li>
-<li><p>ke,erot,evib = translational, rotational, and vibrational energy</p></li>
-<li><p>p_ID = custom per-particle vector with ID</p></li>
-<li><p>p_ID[N] = Nth column of custom per-particle array with ID</p></li>
-<li><p>c_ID = per-particle vector calculated by a compute with ID</p></li>
-<li><p>c_ID[N] = Nth column of per-particle array calculated by a compute,
-with ID, I can include wildcard (see below)</p></li>
-<li><p>f_ID = per-particle vector calculated by a fix with ID</p></li>
-<li><p>f_ID[N] = Nth column of per-particle array calculated by a fix. With ID,
-I can include wildcard (see below)</p></li>
-<li><p>v_name = per-particle vector calculated by a particle-style variable with name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">particle</span></code> args = list of particle attributes</p>
+<p><a class="reference internal" href="#command-dump-particle-attributes"><span class="std std-ref">possible attributes</span></a> = id, type, proc, x, y, z, xs, ys, zs, vx, vy, vz, ke, erot, evib, p_ID, p_ID[N], c_ID, c_ID[N], f_ID, f_ID[N], v_name</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> = particle ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> = particle species</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">proc</span></code> = ID of owning processor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x,y,z</span></code> = unscaled particle coordinates</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xs,ys,zs</span></code> = scaled particle coordinates</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vx,vy,vz</span></code> = particle velocities</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ke,erot,evib</span></code> = translational, rotational, and vibrational energy</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p_ID</span></code> = custom per-particle vector with ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p_ID[N]</span></code> = Nth column of custom per-particle array with ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">c_ID</span></code> = per-particle vector calculated by a compute with ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">c_ID[N]</span></code> = Nth column of per-particle array calculated by a compute, with ID, <code class="docutils literal notranslate"><span class="pre">N</span></code> can include wildcard (see below)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_ID</span></code> = per-particle vector calculated by a fix with ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_ID[N]</span></code> = Nth column of per-particle array calculated by a fix. With ID,       <code class="docutils literal notranslate"><span class="pre">N</span></code> can include wildcard (see below)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v_name</span></code> = per-particle vector calculated by a particle-style variable with name</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>grid args = list of grid attributes</dt><dd><p>possible attributes = id, idstr, proc, xlo, ylo, zlo, xhi, yhi, zhi,
-c_ID, c_ID[N], f_ID, f_ID[N], v_name</p>
-<ul>
-<li><p>id = integer form of grid cell ID</p></li>
-<li><p>idstr = string form of grid cell ID</p></li>
-<li><p>proc = processor that owns grid cell</p></li>
-<li><p>xlo,ylo,zlo = coords of lower left corner of grid cell</p></li>
-<li><p>xhi,yhi,zhi = coords of lower left corner of grid cell</p></li>
-<li><p>xc,yc,zc = coords of center of grid cell</p></li>
-<li><p>vol = flow volume of grid cell (area in 2d)</p></li>
-<li><p>c_ID = per-grid vector calculated by a compute with ID</p></li>
-<li><p>c_ID[N] = Nth column of per-grid array calculated by a compute with ID, I can include wildcard (see below)</p></li>
-<li><p>f_ID = per-grid vector calculated by a fix with ID</p></li>
-<li><p>f_ID[N] = Nth column of per-grid array calculated by a fix with ID,</p></li>
-<li><p>I can include wildcard (see below)</p></li>
-<li><p>v_name = per-grid vector calculated by a grid-style variable with name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid</span></code> args = list of grid attributes</p>
+<p><a class="reference internal" href="#command-dump-grid-attributes"><span class="std std-ref">possible attributes</span></a> = id, idstr, proc, xlo, ylo, zlo, xhi, yhi, zhi, c_ID, c_ID[N], f_ID, f_ID[N], v_name</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> = integer form of grid cell ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idstr</span></code> = string form of grid cell ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">proc</span></code> = processor that owns grid cell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xlo,ylo,zlo</span></code> = coords of lower left corner of grid cell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xhi,yhi,zhi</span></code> = coords of lower left corner of grid cell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xc,yc,zc</span></code> = coords of center of grid cell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vol</span></code> = flow volume of grid cell (area in 2d)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">c_ID</span></code> = per-grid vector calculated by a compute with ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">c_ID[N]</span></code> = Nth column of per-grid array calculated by a compute with ID, <code class="docutils literal notranslate"><span class="pre">N</span></code> can include wildcard (see below)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_ID</span></code> = per-grid vector calculated by a fix with ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_ID[N]</span></code> = Nth column of per-grid array calculated by a fix with ID, <code class="docutils literal notranslate"><span class="pre">N</span></code> can include wildcard (see below)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v_name</span></code> = per-grid vector calculated by a grid-style variable with name</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>surf args = list of surf attributes</dt><dd><p>possible attributes = id, v1x, v1y, v1z, v2x, v2y, v2z, v3x, v3y, v3z,
-c_ID, c_ID[N], f_ID, f_ID[N], v_name</p>
-<ul>
-<li><p>id = surface element ID</p></li>
-<li><p>v1x,v1y,v1z = coords of 1st vertex in surface element</p></li>
-<li><p>v1x,v1y,v1z = coords of 2nd vertex in surface element</p></li>
-<li><p>v1x,v1y,v1z = coords of 3rd vertex in surface element</p></li>
-<li><p>c_ID = per-surf vector calculated by a compute with ID</p></li>
-<li><p>c_ID[N] = Nth column of per-surf array calculated by a compute with ID,</p></li>
-<li><p>I can include wildcard (see below)</p></li>
-<li><p>f_ID = per-surf vector calculated by a fix with ID</p></li>
-<li><p>f_ID[N] = Nth column of per-surf array calculated by a fix with ID,</p></li>
-<li><p>I can include wildcard (see below)</p></li>
-<li><p>v_name = per-surf vector calculated by a surf-style variable with name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">surf</span></code> args = list of surf attributes</p>
+<p><a class="reference internal" href="#command-dump-surf-attributes"><span class="std std-ref">possible attributes</span></a> = id, v1x, v1y, v1z, v2x, v2y, v2z, v3x, v3y, v3z, c_ID, c_ID[N], f_ID, f_ID[N], v_name</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> = surface element ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v1x,v1y,v1z</span></code> = coords of 1st vertex in surface element</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v1x,v1y,v1z</span></code> = coords of 2nd vertex in surface element</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v1x,v1y,v1z</span></code> = coords of 3rd vertex in surface element</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">c_ID</span></code> = per-surf vector calculated by a compute with ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">c_ID[N]</span></code> = Nth column of per-surf array calculated by a compute with ID, <code class="docutils literal notranslate"><span class="pre">I</span></code> can include wildcard (see below)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_ID</span></code> = per-surf vector calculated by a fix with ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_ID[N]</span></code> = Nth column of per-surf array calculated by a fix with ID, <code class="docutils literal notranslate"><span class="pre">N</span></code> can include wildcard (see below)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v_name</span></code> = per-surf vector calculated by a surf-style variable with name</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>image args</dt><dd><p>discussed on dump image doc page</p>
-</dd>
-</dl>
+<li><p><code class="docutils literal notranslate"><span class="pre">image</span></code> args</p>
+<p>Discussed on <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image</span></a> doc page</p>
 </li>
 </ul>
 </li>
@@ -271,7 +256,7 @@ c_ID, c_ID[N], f_ID, f_ID[N], v_name</p>
 <div class="section" id="description">
 <h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Dump a snapshot of simulation quantities to one or more files every N
-timesteps in one of several styles. The <em>image</em> style is the exception;
+timesteps in one of several styles. The <code class="docutils literal notranslate"><span class="pre">image</span></code> style is the exception;
 it creates a JPG or PPM image file of the simulation configuration every
 N timesteps, as discussed on the <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">dump image</span></a> doc
 page.</p>
@@ -280,18 +265,18 @@ dump ID must be unique. The ID can only contain alphanumeric characters
 and underscores. You can specify multiple dumpes of the same style so
 long as they have different IDs. A dump can be deleted with the
 <a class="reference internal" href="undump.html#command-undump"><span class="std std-ref">undump</span></a> command, after which its ID can be re-used.</p>
-<p>The <em>style</em> setting determines what quantities are written to the file
-and in what format. The <em>particle</em>, <em>grid</em>, <em>surf</em> options are for
+<p>The <code class="docutils literal notranslate"><span class="pre">style</span></code> setting determines what quantities are written to the file
+and in what format. The <code class="docutils literal notranslate"><span class="pre">particle</span></code>, <code class="docutils literal notranslate"><span class="pre">grid</span></code>, <code class="docutils literal notranslate"><span class="pre">surf</span></code> options are for
 particles, grid cells, or surface elements. Settings made via the
 <a class="reference internal" href="dump_modify.html#command-dump-modify"><span class="std std-ref">dump_modify</span></a> command can also alter what info is
 included in the file and the format of individual values.</p>
-<p>The <em>select-ID</em> setting determines which particles, grid cells, or
-surface elements are output. For <em>style</em> = <em>particle</em>, the <em>select-ID</em>
+<p>The <code class="docutils literal notranslate"><span class="pre">select-ID</span></code> setting determines which particles, grid cells, or
+surface elements are output. For <code class="docutils literal notranslate"><span class="pre">style</span></code> = <code class="docutils literal notranslate"><span class="pre">particle</span></code>, the <code class="docutils literal notranslate"><span class="pre">select-ID</span></code>
 is a mixture ID as defined by the <a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture</span></a> command.
 Only particles whose species are part of the mixture are output. For
-<em>style</em> = <em>grid</em>, the <em>select-ID</em> is for a grid group, as defined by the
+<code class="docutils literal notranslate"><span class="pre">style</span></code> = <code class="docutils literal notranslate"><span class="pre">grid</span></code>, the <code class="docutils literal notranslate"><span class="pre">select-ID</span></code> is for a grid group, as defined by the
 <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group grid</span></a> command. Only grid cells in the group are
-output. For <em>style</em> = <em>surf</em>, the <em>select-ID</em> is for a surface eleemnt
+output. For <code class="docutils literal notranslate"><span class="pre">style</span></code> = <code class="docutils literal notranslate"><span class="pre">surf</span></code>, the <code class="docutils literal notranslate"><span class="pre">select-ID</span></code> is for a surface eleemnt
 group, as defined by the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command. Only
 surface elements in the group are output.</p>
 <p>As described below, the filename determines the kind of output (text or
@@ -301,7 +286,7 @@ per processor).</p>
 controlled by the <a class="reference internal" href="dump_modify.html#command-dump-modify"><span class="std std-ref">dump_modify format</span></a> command and
 its options.</p>
 <hr class="docutils" />
-<p>The <em>particle</em> and <em>grid</em> and <em>surf</em> styles create files in a simple
+<p>The <code class="docutils literal notranslate"><span class="pre">particle</span></code> and <code class="docutils literal notranslate"><span class="pre">grid</span></code> and <code class="docutils literal notranslate"><span class="pre">surf</span></code> styles create files in a simple
 text format that is self-explanatory when viewing a dump file. Many of
 the SPARTA <a class="reference internal" href="Section_tools.html#tools"><span class="std std-ref">post-processing tools</span></a>, including
 <a class="reference external" href="http://pizza.sandia.gov">Pizza.py</a>, work with this format.</p>
@@ -374,12 +359,12 @@ about 3x smaller than the text version, but will also take longer to
 write.</p>
 <hr class="docutils" />
 <p>Note that in the discussion which follows, for styles which can
-reference values from a compute or fix, like the <em>particle</em>, <em>grid</em>, or
-<em>surf</em> styles, the bracketed index I can be specified using a wildcard
+reference values from a compute or fix, like the <code class="docutils literal notranslate"><span class="pre">particle</span></code>, <code class="docutils literal notranslate"><span class="pre">grid</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">surf</span></code> styles, the bracketed index I can be specified using a wildcard
 asterisk with the index to effectively specify multiple values. This
 takes the form “*” or “<em>n” or “n</em>” or “m*n”. If N = the size of the
-vector (for <em>mode</em> = scalar) or the number of columns in the array (for
-<em>mode</em> = vector), then an asterisk with no numeric values means all
+vector (for <code class="docutils literal notranslate"><span class="pre">mode</span></code> = scalar) or the number of columns in the array (for
+<code class="docutils literal notranslate"><span class="pre">mode</span></code> = vector), then an asterisk with no numeric values means all
 indices from 1 to N. A leading asterisk means all indices from 1 to n
 (inclusive). A trailing asterisk means all indices from n to N
 (inclusive). A middle asterisk means all indices from m to n
@@ -394,61 +379,61 @@ per-grid array with 3 columns:</p>
 </pre></div>
 </div>
 <div class="section" id="particle-attributes">
-<h3>Particle attributes<a class="headerlink" href="#particle-attributes" title="Permalink to this headline">¶</a></h3>
+<span id="command-dump-particle-attributes"></span><h3>Particle attributes<a class="headerlink" href="#particle-attributes" title="Permalink to this headline">¶</a></h3>
 <p>This section explains the particle attributes that can be specified as
-part of the <em>particle</em> style.</p>
-<p><em>Id</em> is the particle ID. <em>Type</em> is an integer index representing the
+part of the <code class="docutils literal notranslate"><span class="pre">particle</span></code> style.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Id</span></code> is the particle ID. <code class="docutils literal notranslate"><span class="pre">Type</span></code> is an integer index representing the
 particle species. It is a value from 1 to Nspecies, The value
 corresponds to the order in which species were defined via the
-<a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a> command. <em>Proc</em> is the ID of the processor
+<a class="reference internal" href="species.html#command-species"><span class="std std-ref">species</span></a> command. <code class="docutils literal notranslate"><span class="pre">Proc</span></code> is the ID of the processor
 which currently owns the particle.</p>
-<p>The <em>x</em>, <em>y</em>, <em>z</em> attributes write particle coordinates “unscaled”, in
-the appropriate distance <a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a>. Use <em>xs</em>, <em>ys</em>, <em>zs</em> to
+<p>The <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code> attributes write particle coordinates “unscaled”, in
+the appropriate distance <a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a>. Use <code class="docutils literal notranslate"><span class="pre">xs</span></code>, <code class="docutils literal notranslate"><span class="pre">ys</span></code>, <code class="docutils literal notranslate"><span class="pre">zs</span></code> to
 “scale” the coordinates to the box size, so that each value is 0.0 to
 1.0.</p>
-<p><em>Vx</em>, <em>vy</em>, <em>vz</em> are components of particle velocity. The <em>ke</em>, <em>erot</em>,
-and <em>evib</em> attributes are the kinetic, rotational, and vibrational
+<p><code class="docutils literal notranslate"><span class="pre">Vx</span></code>, <code class="docutils literal notranslate"><span class="pre">Vy</span></code>, <code class="docutils literal notranslate"><span class="pre">Vz</span></code> are components of particle velocity. The <code class="docutils literal notranslate"><span class="pre">ke</span></code>, <code class="docutils literal notranslate"><span class="pre">erot</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">evib</span></code> attributes are the kinetic, rotational, and vibrational
 energies of the particle. A particle’s kinetic energy is given by 1/2 m
 (vx^2 + vy^2 + vz^2). The way that rotational and vibrational energy is
 treated in collisions and stored by particles is affected by the
 <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify</span></a> command.</p>
-<p>The <em>p_ID</em> and <em>p_ID[N]</em> attributes allow custom per-particle vectors or
+<p>The <code class="docutils literal notranslate"><span class="pre">p_ID</span></code> and <code class="docutils literal notranslate"><span class="pre">p_ID[N]</span></code> attributes allow custom per-particle vectors or
 arrays defined by a <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> command to be output. The ID in
 the attribute should be replaced by the actual ID of the custom particle
 attribute that the fix defines. See individal fix commands for details,
 e.g. the <a class="reference internal" href="fix_ambipolar.html#command-fix-ambipolar"><span class="std std-ref">fix ambipolar</span></a> command which defines
 the custom vector “ionambi” and the custom array “velambi”.</p>
-<p>If <em>p_ID</em> is used as a attribute, the custom attribute must be a vector,
-and it is output. If <em>p_ID[N]</em> is used, the custom attribute must be an
+<p>If <code class="docutils literal notranslate"><span class="pre">p_ID</span></code> is used as an attribute, the custom attribute must be a vector,
+and it is output. If <code class="docutils literal notranslate"><span class="pre">p_ID[N]</span></code> is used, the custom attribute must be an
 array, and N must be in the range from 1-M, which will output the Nth
 column of the M-column array.</p>
-<p>The <em>c_ID</em> and <em>c_ID[I]</em> attributes allow per-particle vectors or arrays
+<p>The <code class="docutils literal notranslate"><span class="pre">c_ID</span></code> and <code class="docutils literal notranslate"><span class="pre">c_ID[I]</span></code> attributes allow per-particle vectors or arrays
 calculated by a <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> to be output. The ID in the
 attribute should be replaced by the actual ID of the compute that has
 been defined previously in the input script. See the
 <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command for details.</p>
-<p>If <em>c_ID</em> is used as a attribute, the compute must calculate a
-per-particle vector, and it is output. If <em>c_ID[I]</em> is used, the compute
+<p>If <code class="docutils literal notranslate"><span class="pre">c_ID</span></code> is used as an attribute, the compute must calculate a
+per-particle vector, and it is output. If <code class="docutils literal notranslate"><span class="pre">c_ID[I]</span></code> is used, the compute
 must calculate a per-particle array, and I must be in the range from
 1-M, which will output the Ith column of the M-column array. See the
 discussion above for how I can be specified with a wildcard asterisk to
 effectively specify multiple values.</p>
-<p>The <em>f_ID</em> and <em>f_ID[I]</em> attributes allow vector or array per-particle
+<p>The <code class="docutils literal notranslate"><span class="pre">f_ID</span></code> and <code class="docutils literal notranslate"><span class="pre">f_ID[I]</span></code> attributes allow vector or array per-particle
 quantities calculated by a <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> to be output. The ID in
 the attribute should be replaced by the actual ID of the fix that has
 been defined previously in the input script.</p>
-<p>If <em>f_ID</em> is used as a attribute, the fix must calculate a per-particle
-vector, and it is output. If <em>f_ID[I]</em> is used, the fix must calculate a
+<p>If <code class="docutils literal notranslate"><span class="pre">f_ID</span></code> is used as an attribute, the fix must calculate a per-particle
+vector, and it is output. If <code class="docutils literal notranslate"><span class="pre">f_ID[I]</span></code> is used, the fix must calculate a
 per-particle array, and I must be in the range from 1-M, which will
 output the Ith column of the M-column array. See the discussion above
 for how I can be specified with a wildcard asterisk to effectively
 specify multiple values.</p>
-<p>The <em>v_name</em> attribute allows per-particle vectors calculated by a
+<p>The <code class="docutils literal notranslate"><span class="pre">v_name</span></code> attribute allows per-particle vectors calculated by a
 <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a> to be output. The name in the attribute
 should be replaced by the actual name of the variable that has been
 defined previously in the input script. Only a particle-style variable
 can be referenced, since it is the only style that generates
-per-particle values. Variables of style <em>particle</em> can reference
+per-particle values. Variables of style <code class="docutils literal notranslate"><span class="pre">particle</span></code> can reference
 per-particle attributes, stats keywords, or invoke other computes,
 fixes, or variables when they are evaluated, so this is a very general
 means of creating quantities to output to a dump file.</p>
@@ -457,9 +442,9 @@ on how to add new compute and fix styles to SPARTA to calculate
 per-particle quantities which could then be output into dump files.</p>
 </div>
 <div class="section" id="grid-attributes">
-<h3>Grid Attributes<a class="headerlink" href="#grid-attributes" title="Permalink to this headline">¶</a></h3>
+<span id="command-dump-grid-attributes"></span><h3>Grid Attributes<a class="headerlink" href="#grid-attributes" title="Permalink to this headline">¶</a></h3>
 <p>This section explains the grid cell attributes that can be specified as
-part of the <em>grid</em> style.</p>
+part of the <code class="docutils literal notranslate"><span class="pre">grid</span></code> style.</p>
 <p>Note that dump grid will output one line (per snapshot) for 3 kinds of
 child cells: unsplit cells, cut cells, and sub cells of split cells.
 <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual gives details
@@ -470,7 +455,7 @@ their output. The dump grid command discards that output since the sub
 cells of a split cell provide the needed information for further
 processing and visualization. Note that unsplit cells can be outside (in
 the flow) or inside surface objects, if they exist.</p>
-<p><em>Id</em> and <em>idstr</em> are two different forms of the grid cell ID. In SPARTA
+<p><code class="docutils literal notranslate"><span class="pre">Id</span></code> and <code class="docutils literal notranslate"><span class="pre">idstr</span></code> are two different forms of the grid cell ID. In SPARTA
 each grid cell is assigned a unique ID which represents its location, in
 a topological sense, within the hierarchical grid. This ID is stored as
 an integer such as 5774983, but can also be decoded into a string such
@@ -478,18 +463,18 @@ as 33-4-6, which makes it easier to understand the grid hierarchy. In
 this case it means the grid cell is at the 3rd level of the hierarchy.
 Its grandparent cell was 33 at the 1st level, its parent was cell 4 (at
 level 2) within cell 33, and the cell itself is cell 6 (at level 3)
-within cell 4 within cell 33. If you specify <em>id</em>, the ID is printed
-directly as an integer. If you specify <em>idstr</em>, it is printed as a
+within cell 4 within cell 33. If you specify <code class="docutils literal notranslate"><span class="pre">id</span></code>, the ID is printed
+directly as an integer. If you specify <code class="docutils literal notranslate"><span class="pre">idstr</span></code>, it is printed as a
 string.</p>
-<p><em>Proc</em> is the ID of the processor which currently owns the grid cell.</p>
-<p>The <em>xlo</em>, <em>ylo</em>, <em>zlo</em> attributes write the coordinates of the
+<p><code class="docutils literal notranslate"><span class="pre">Proc</span></code> is the ID of the processor which currently owns the grid cell.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">xlo</span></code>, <code class="docutils literal notranslate"><span class="pre">ylo</span></code>, <code class="docutils literal notranslate"><span class="pre">zlo</span></code> attributes write the coordinates of the
 lower-left corner of the grid cell in the appropriate distance
-<a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a>. The <em>xhi</em>, <em>yhi</em>, <em>zhi</em> attributes write the
-coordinates of the upper-right corner of the grid cell. The <em>xc</em>, <em>yc</em>,
-<em>zc</em> attributes write the coordinates of the center point of the grid
-cell. The <em>zlo</em>, <em>zhi</em>, <em>zc</em> attributes cannot be used for a 2d
+<a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a>. The <code class="docutils literal notranslate"><span class="pre">xhi</span></code>, <code class="docutils literal notranslate"><span class="pre">yhi</span></code>, <code class="docutils literal notranslate"><span class="pre">zhi</span></code> attributes write the
+coordinates of the upper-right corner of the grid cell. The <code class="docutils literal notranslate"><span class="pre">xc</span></code>, <code class="docutils literal notranslate"><span class="pre">yc</span></code>,
+<code class="docutils literal notranslate"><span class="pre">zc</span></code> attributes write the coordinates of the center point of the grid
+cell. The <code class="docutils literal notranslate"><span class="pre">zlo</span></code>, <code class="docutils literal notranslate"><span class="pre">zhi</span></code>, <code class="docutils literal notranslate"><span class="pre">zc</span></code> attributes cannot be used for a 2d
 simulation.</p>
-<p>The <em>vol</em> attribute is the flow volume of the grid cell (or area in 2d)
+<p>The <code class="docutils literal notranslate"><span class="pre">vol</span></code> attribute is the flow volume of the grid cell (or area in 2d)
 for unsplit or cut or sub cells. <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 4.8</span></a> of the manual gives details of how
 SPARTA defines unsplit and sub cells. Flow volume is the portion of the
 grid cell that is accessible to particles, i.e. outside any closed
@@ -498,33 +483,33 @@ inside a surface object will have a flow volume of 0.0. Likewise a cut
 cell which is inside a suface object but which is intersected by surface
 element(s) which only touch a face, edge, or corner point of the grid
 cell, will have a flow volume of 0.0.</p>
-<p>The <em>c_ID</em> and <em>c_ID[I]</em> attributes allow per-grid vectors or arrays
+<p>The <code class="docutils literal notranslate"><span class="pre">c_ID</span></code> and <code class="docutils literal notranslate"><span class="pre">c_ID[I]</span></code> attributes allow per-grid vectors or arrays
 calculated by a <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> to be output. The ID in the
 attribute should be replaced by the actual ID of the compute that has
 been defined previously in the input script. See the
 <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command for details.</p>
-<p>If <em>c_ID</em> is used as a attribute, and the compute calculates a per-grid
-vector, then the per-grid vector is output. If <em>c_ID[I]</em> is used, then I
+<p>If <code class="docutils literal notranslate"><span class="pre">c_ID</span></code> is used as an attribute, and the compute calculates a per-grid
+vector, then the per-grid vector is output. If <code class="docutils literal notranslate"><span class="pre">c_ID[I]</span></code> is used, then I
 must be in the range from 1-M, which will output the Ith column of the
 M-column per-grid array calculated by the compute. See the discussion
 above for how I can be specified with a wildcard asterisk to effectively
 specify multiple values.</p>
-<p>The <em>f_ID</em> and <em>f_ID[I]</em> attributes allow per-grid vectors or arrays
+<p>The <code class="docutils literal notranslate"><span class="pre">f_ID</span></code> and <code class="docutils literal notranslate"><span class="pre">f_ID[I]</span></code> attributes allow per-grid vectors or arrays
 calculated by a <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> to be output. The ID in the attribute
 should be replaced by the actual ID of the fix that has been defined
 previously in the input script.</p>
-<p>If <em>f_ID</em> is used as a attribute, and the fix calculates a per-grid
-vector, then the per-grid vector is output. If <em>f_ID[I]</em> is used, then I
+<p>If <code class="docutils literal notranslate"><span class="pre">f_ID</span></code> is used as an attribute, and the fix calculates a per-grid
+vector, then the per-grid vector is output. If <code class="docutils literal notranslate"><span class="pre">f_ID[I]</span></code> is used, then I
 must be in the range from 1-M, which will output the Ith column of the
 M-columne per-grid array calculated by the fix. See the discussion above
 for how I can be specified with a wildcard asterisk to effectively
 specify multiple values.</p>
-<p>The <em>v_name</em> attribute allows per-grid vectors calculated by a
+<p>The <code class="docutils literal notranslate"><span class="pre">v_name</span></code> attribute allows per-grid vectors calculated by a
 <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a> to be output. The name in the attribute
 should be replaced by the actual name of the variable that has been
 defined previously in the input script. Only a grid-style variable can
 be referenced, since it is the only style that generates per-grid
-values. Variables of style <em>grid</em> can reference per-grid attributes,
+values. Variables of style <code class="docutils literal notranslate"><span class="pre">grid</span></code> can reference per-grid attributes,
 stats keywords, or invoke other computes, fixes, or variables when they
 are evaluated, so this is a very general means of creating quantities to
 output to a dump file.</p>
@@ -533,46 +518,46 @@ on how to add new compute and fix styles to SPARTA to calculate per-grid
 quantities which could then be output into dump files.</p>
 </div>
 <div class="section" id="surface-attributes">
-<h3>Surface attributes<a class="headerlink" href="#surface-attributes" title="Permalink to this headline">¶</a></h3>
+<span id="command-dump-surf-attributes"></span><h3>Surface attributes<a class="headerlink" href="#surface-attributes" title="Permalink to this headline">¶</a></h3>
 <p>This section explains the surface element attributes that can be
-specified as part of the <em>surf</em> style. For 2d simulations, a surface
+specified as part of the <code class="docutils literal notranslate"><span class="pre">surf</span></code> style. For 2d simulations, a surface
 element is a line segment with 2 end points. Crossing the unit +z vector
 into the vector (v2-v1) determines the outward normal of the line
 segment. For 3d simulations, a surface element is a triangle with 3
 corner points. Crossing (v2-v1) into (v3-v1) determines the outward
 normal of the triangle.</p>
-<p><em>Id</em> is the surface element ID.</p>
-<p>The <em>v1x</em>, <em>v1y</em>, <em>v1z</em>, <em>v2x</em>, <em>v2y</em>, <em>v2z</em>, <em>v3x</em>, <em>v3y</em>, <em>v3z</em>
+<p><code class="docutils literal notranslate"><span class="pre">Id</span></code> is the surface element ID.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">v1x</span></code>, <code class="docutils literal notranslate"><span class="pre">v1y</span></code>, <code class="docutils literal notranslate"><span class="pre">v1z</span></code>, <code class="docutils literal notranslate"><span class="pre">v2x</span></code>, <code class="docutils literal notranslate"><span class="pre">v2y</span></code>, <code class="docutils literal notranslate"><span class="pre">v2z</span></code>, <code class="docutils literal notranslate"><span class="pre">v3x</span></code>, <code class="docutils literal notranslate"><span class="pre">v3y</span></code>, <code class="docutils literal notranslate"><span class="pre">v3z</span></code>
 attributes write the coordinates of the vertices of the end or corner
-points of the surface element. The <em>v1z</em>, <em>v2z</em>, <em>v3x</em>, <em>v3y</em>, and <em>v3z</em>
+points of the surface element. The <code class="docutils literal notranslate"><span class="pre">v1z</span></code>, <code class="docutils literal notranslate"><span class="pre">v2z</span></code>, <code class="docutils literal notranslate"><span class="pre">v3x</span></code>, <code class="docutils literal notranslate"><span class="pre">v3y</span></code>, and <code class="docutils literal notranslate"><span class="pre">v3z</span></code>
 attributes cannot be used for a 2d simulation.</p>
-<p>The <em>c_ID</em> and <em>c_ID[I]</em> attributes allow per-surf vectors or arrays
+<p>The <code class="docutils literal notranslate"><span class="pre">c_ID</span></code> and <code class="docutils literal notranslate"><span class="pre">c_ID[I]</span></code> attributes allow per-surf vectors or arrays
 calculated by a <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> to be output. The ID in the
 attribute should be replaced by the actual ID of the compute that has
 been defined previously in the input script. See the
 <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command for details.</p>
-<p>If <em>c_ID</em> is used as a attribute, and the compute calculates a per-srf
-vector, then the per-surf vector is output. If <em>c_ID[I]</em> is used, then I
+<p>If <code class="docutils literal notranslate"><span class="pre">c_ID</span></code> is used as an attribute, and the compute calculates a per-srf
+vector, then the per-surf vector is output. If <code class="docutils literal notranslate"><span class="pre">c_ID[I]</span></code> is used, then I
 must be in the range from 1-M, which will output the Ith column of the
 M-column per-surf array calculated by the compute. See the discussion
 above for how I can be specified with a wildcard asterisk to effectively
 specify multiple values.</p>
-<p>The <em>f_ID</em> and <em>f_ID[I]</em> attributes allow per-surf vectors or arrays
+<p>The <code class="docutils literal notranslate"><span class="pre">f_ID</span></code> and <code class="docutils literal notranslate"><span class="pre">f_ID[I]</span></code> attributes allow per-surf vectors or arrays
 calculated by a <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> to be output. The ID in the attribute
 should be replaced by the actual ID of the fix that has been defined
 previously in the input script.</p>
-<p>If <em>f_ID</em> is used as a attribute, and the fix calculates a per-surf
-vector, then the per-surf vector is output. If <em>f_ID[I]</em> is used, then I
+<p>If <code class="docutils literal notranslate"><span class="pre">f_ID</span></code> is used as an attribute, and the fix calculates a per-surf
+vector, then the per-surf vector is output. If <code class="docutils literal notranslate"><span class="pre">f_ID[I]</span></code> is used, then I
 must be in the range from 1-M, which will output the Ith column of the
 M-column per-surf array calculated by the fix. See the discussion above
 for how I can be specified with a wildcard asterisk to effectively
 specify multiple values.</p>
-<p>The <em>v_name</em> attribute allows per-surf vectors calculated by a
+<p>The <code class="docutils literal notranslate"><span class="pre">v_name</span></code> attribute allows per-surf vectors calculated by a
 <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a> to be output. The name in the attribute
 should be replaced by the actual name of the variable that has been
 defined previously in the input script. Only a surf-style variable can
 be referenced, since it is the only style that generates per-surf
-values. Variables of style <em>surf</em> can reference per-surf attributes,
+values. Variables of style <code class="docutils literal notranslate"><span class="pre">surf</span></code> can reference per-surf attributes,
 stats keywords, or invoke other computes, fixes, or variables when they
 are evaluated, so this is a very general means of creating quantities to
 output to a dump file.</p>
@@ -589,7 +574,7 @@ quantities which could then be output into dump files.</p>
 <div class="section" id="restrictions">
 <h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
 <p>To write gzipped dump files, you must compile SPARTA with the
--DSPARTA_GZIP option - see the <a class="reference internal" href="Section_start.html#start-steps-build"><span class="std std-ref">Making SPARTA</span></a> section of the documentation.</p>
+-DSPARTA_GZIP option - see the <a class="reference internal" href="Section_start.html#start-steps-build-make"><span class="std std-ref">Making SPARTA</span></a> section of the documentation.</p>
 </div>
 <div class="section" id="related-commands">
 <h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>

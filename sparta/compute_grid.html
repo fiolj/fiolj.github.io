@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020  (build: 08/07/2020)
+                7 May 2020  (build: 12/07/2020)
               </div>
             
           
@@ -177,39 +177,36 @@
 </pre></div>
 </div>
 <ul>
-<li><p>ID is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
-<li><p>grid = style name of this compute command</p></li>
-<li><p>group-ID = group ID for which grid cells to perform calculation on</p></li>
-<li><p>mix-ID = mixture ID to perform calculation on</p></li>
-<li><p>one or more values can be appended</p></li>
-<li><p>value = <em>n</em> or <em>nrho</em> or <em>nfrac</em> or <em>mass</em> or <em>massrho</em> or <em>massfrac</em>
-or <em>u</em> or <em>v</em> or <em>w</em> or <em>usq</em> or <em>vsq</em> or <em>wsq</em> of <em>ke</em> or <em>temp</em> or
-<em>erot</em> or <em>trot</em> or <em>evib</em> or <em>tvib</em> or <em>pxrho</em> or <em>pyrho</em> or <em>pzrho</em>
-or <em>kerho</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">particle</span> <span class="n">count</span>
-<span class="n">nrho</span> <span class="o">=</span> <span class="n">number</span> <span class="n">density</span>
-<span class="n">nfrac</span> <span class="o">=</span> <span class="n">number</span> <span class="n">fraction</span>
-<span class="n">mass</span> <span class="o">=</span> <span class="n">mass</span>
-<span class="n">massrho</span> <span class="o">=</span> <span class="n">mass</span> <span class="n">density</span>
-<span class="n">massfrac</span> <span class="o">=</span> <span class="n">mass</span> <span class="n">fraction</span>
-<span class="n">u</span> <span class="o">=</span> <span class="n">x</span> <span class="n">component</span> <span class="n">of</span> <span class="n">velocity</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">y</span> <span class="n">component</span> <span class="n">of</span> <span class="n">velocity</span>
-<span class="n">w</span> <span class="o">=</span> <span class="n">z</span> <span class="n">component</span> <span class="n">of</span> <span class="n">velocity</span>
-<span class="n">usq</span> <span class="o">=</span> <span class="n">x</span> <span class="n">component</span> <span class="n">of</span> <span class="n">velocity</span> <span class="n">squared</span>
-<span class="n">vsq</span> <span class="o">=</span> <span class="n">y</span> <span class="n">component</span> <span class="n">of</span> <span class="n">velocity</span> <span class="n">squared</span>
-<span class="n">wsq</span> <span class="o">=</span> <span class="n">z</span> <span class="n">component</span> <span class="n">of</span> <span class="n">velocity</span> <span class="n">squared</span>
-<span class="n">ke</span> <span class="o">=</span> <span class="n">kinetic</span> <span class="n">energy</span>
-<span class="n">temp</span> <span class="o">=</span> <span class="n">temperature</span>
-<span class="n">erot</span> <span class="o">=</span> <span class="n">rotational</span> <span class="n">energy</span>
-<span class="n">trot</span> <span class="o">=</span> <span class="n">rotational</span> <span class="n">temperature</span>
-<span class="n">evib</span> <span class="o">=</span> <span class="n">vibrational</span> <span class="n">energy</span>
-<span class="n">tvib</span> <span class="o">=</span> <span class="n">vibrational</span> <span class="n">temperature</span> <span class="p">(</span><span class="n">classical</span> <span class="n">definition</span><span class="p">)</span>
-<span class="n">pxrho</span> <span class="o">=</span> <span class="n">x</span> <span class="n">component</span> <span class="n">of</span> <span class="n">momentum</span> <span class="n">density</span>
-<span class="n">pyrho</span> <span class="o">=</span> <span class="n">y</span> <span class="n">component</span> <span class="n">of</span> <span class="n">momentum</span> <span class="n">density</span>
-<span class="n">pzrho</span> <span class="o">=</span> <span class="n">z</span> <span class="n">component</span> <span class="n">of</span> <span class="n">momentum</span> <span class="n">density</span>
-<span class="n">kerho</span> <span class="o">=</span> <span class="n">kinetic</span> <span class="n">energy</span> <span class="n">density</span>
-</pre></div>
-</div>
+<li><p><code class="docutils literal notranslate"><span class="pre">ID</span></code> is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid</span></code> = style name of this compute command</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group-ID</span></code> = group ID for which grid cells to perform calculation on</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mix-ID</span></code> = mixture ID to perform calculation on</p></li>
+<li><p>one or more values can be appended:</p>
+<p>value = <code class="docutils literal notranslate"><span class="pre">n</span></code> or <code class="docutils literal notranslate"><span class="pre">nrho</span></code> or <code class="docutils literal notranslate"><span class="pre">nfrac</span></code> or <code class="docutils literal notranslate"><span class="pre">mass</span></code> or <code class="docutils literal notranslate"><span class="pre">massrho</span></code> or <code class="docutils literal notranslate"><span class="pre">massfrac</span></code> or <code class="docutils literal notranslate"><span class="pre">u</span></code> or <code class="docutils literal notranslate"><span class="pre">v</span></code> or <code class="docutils literal notranslate"><span class="pre">w</span></code> or <code class="docutils literal notranslate"><span class="pre">usq</span></code> or <code class="docutils literal notranslate"><span class="pre">vsq</span></code> or <code class="docutils literal notranslate"><span class="pre">wsq</span></code> of <code class="docutils literal notranslate"><span class="pre">ke</span></code> or <code class="docutils literal notranslate"><span class="pre">temp</span></code> or <code class="docutils literal notranslate"><span class="pre">erot</span></code> or <code class="docutils literal notranslate"><span class="pre">trot</span></code> or <code class="docutils literal notranslate"><span class="pre">evib</span></code> or <code class="docutils literal notranslate"><span class="pre">tvib</span></code> or <code class="docutils literal notranslate"><span class="pre">pxrho</span></code> or <code class="docutils literal notranslate"><span class="pre">pyrho</span></code> or <code class="docutils literal notranslate"><span class="pre">pzrho</span></code> or <code class="docutils literal notranslate"><span class="pre">kerho</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> = <a class="reference internal" href="#compute-grid-npart"><span class="std std-ref">particle count</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nrho</span></code> = <a class="reference internal" href="#compute-grid-npart"><span class="std std-ref">number density</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nfrac</span></code> = <a class="reference internal" href="#compute-grid-npart"><span class="std std-ref">number fraction</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mass</span></code> = <a class="reference internal" href="#compute-grid-mass"><span class="std std-ref">mass</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">massrho</span></code> = <a class="reference internal" href="#compute-grid-mass"><span class="std std-ref">mass density</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">massfrac</span></code> = <a class="reference internal" href="#compute-grid-mass"><span class="std std-ref">mass fraction</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">u</span></code> = <a class="reference internal" href="#compute-grid-veloc"><span class="std std-ref">x component of velocity</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code> = <a class="reference internal" href="#compute-grid-veloc"><span class="std std-ref">y component of velocity</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">w</span></code> = <a class="reference internal" href="#compute-grid-veloc"><span class="std std-ref">z component of velocity</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usq</span></code> = <a class="reference internal" href="#compute-grid-veloc"><span class="std std-ref">x component of velocity squared</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vsq</span></code> = <a class="reference internal" href="#compute-grid-veloc"><span class="std std-ref">y component of velocity squared</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wsq</span></code> = <a class="reference internal" href="#compute-grid-veloc"><span class="std std-ref">z component of velocity squared</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ke</span></code> = <a class="reference internal" href="#compute-grid-energy"><span class="std std-ref">kinetic energy</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temp</span></code> = <a class="reference internal" href="#compute-grid-energy"><span class="std std-ref">temperature</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">erot</span></code> = <a class="reference internal" href="#compute-grid-energy"><span class="std std-ref">rotational energy</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trot</span></code> = <a class="reference internal" href="#compute-grid-energy"><span class="std std-ref">rotational temperature</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">evib</span></code> = <a class="reference internal" href="#compute-grid-energy"><span class="std std-ref">vibrational energy</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tvib</span></code> = <a class="reference internal" href="#compute-grid-energy"><span class="std std-ref">vibrational temperature (classical definition)</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pxrho</span></code> = <a class="reference internal" href="#compute-grid-momentum"><span class="std std-ref">x component of momentum density</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pyrho</span></code> = <a class="reference internal" href="#compute-grid-momentum"><span class="std std-ref">y component of momentum density</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pzrho</span></code> = <a class="reference internal" href="#compute-grid-momentum"><span class="std std-ref">z component of momentum density</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kerho</span></code> = <a class="reference internal" href="#compute-grid-momentum"><span class="std std-ref">kinetic energy density</span></a></p></li>
+</ul>
 </li>
 </ul>
 </div>
@@ -247,11 +244,10 @@ into one large set of particles to compute the formulas below.</p>
 than taking the values produced by the formulas below for a single
 timestep, summing those values over the sampling timesteps, and then
 dividing by the number of sampling steps.</p>
-<hr class="docutils" />
-<p>The <em>n</em> value counts the number of particles in each group. When
+<p id="compute-grid-npart">The <code class="docutils literal notranslate"><span class="pre">n</span></code> value counts the number of particles in each group. When
 accumulated over multiple sampling steps, this value is normalized by
 the number of sampling steps.</p>
-<p>The <em>nrho</em> value computes the number density for the grid cell volume
+<p>The <code class="docutils literal notranslate"><span class="pre">nrho</span></code> value computes the number density for the grid cell volume
 due to particles in each group:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Nrho</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="o">*</span> <span class="n">N</span>
 </pre></div>
@@ -263,19 +259,18 @@ accumulated over multiple sampling steps, this value is normalized by
 the number of sampling steps. Note that if particle weighting is enabled
 via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command, then the volume used in
 the formula is divided by the weight assigned to the grid cell.</p>
-<p>The <em>nfrac</em> value computes the number fraction of particles in each
+<p>The <code class="docutils literal notranslate"><span class="pre">nfrac</span></code> value computes the number fraction of particles in each
 group:</p>
 <p>Nfrac = Ngroup / Ntotal</p>
 <p>Ngroup is the count of particles in the group and Ntotal is the total
 number of particles in all groups in the mixture. Note that this total
 is not (necessarily) all particles in the cell.</p>
-<hr class="docutils" />
-<p>The <em>mass</em> value computes the average mass of particles in each group:</p>
+<p id="compute-grid-mass">The <code class="docutils literal notranslate"><span class="pre">mass</span></code> value computes the average mass of particles in each group:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mass</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
 </pre></div>
 </div>
 <p>where Sum_i is a sum over particles in the group.</p>
-<p>The <em>massrho</em> value computes the mass density for the grid cell volume
+<p>The <code class="docutils literal notranslate"><span class="pre">massrho</span></code> value computes the mass density for the grid cell volume
 due to particles in each group:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Massrho</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="o">*</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
 </pre></div>
@@ -287,7 +282,7 @@ accumulated over multiple sampling steps, this value is normalized by
 the number of sampling steps. Note that if particle weighting is enabled
 via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command, then the volume used in
 the formula is divided by the weight assigned to the grid cell.</p>
-<p>The <em>massfrac</em> value computes the mass fraction of particles in each
+<p>The <code class="docutils literal notranslate"><span class="pre">massfrac</span></code> value computes the mass fraction of particles in each
 group:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Massfrac</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Masstotal</span>
 </pre></div>
@@ -295,8 +290,7 @@ group:</p>
 <p>where Sum_i is a sum over particles in the group and Masstotal is the
 total mass of particles in all groups in the mixture. Note that this
 total is not (necessarily) the mass of all particles in the cell.</p>
-<hr class="docutils" />
-<p>The <em>u</em>, <em>v</em>, <em>w</em> values compute the components of the mass-weighted
+<p id="compute-grid-veloc">The <code class="docutils literal notranslate"><span class="pre">u</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">w</span></code> values compute the components of the mass-weighted
 average velocity of particles in each group:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">U</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vx_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
 <span class="n">V</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vy_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
@@ -305,15 +299,14 @@ average velocity of particles in each group:</p>
 </div>
 <p>This is the same as the center-of-mass velocity of particles in each
 group.</p>
-<p>The <em>usq</em>, <em>vsq</em>, <em>wsq</em> values compute the average mass-weighted squared
+<p>The <code class="docutils literal notranslate"><span class="pre">usq</span></code>, <code class="docutils literal notranslate"><span class="pre">vsq</span></code>, <code class="docutils literal notranslate"><span class="pre">wsq</span></code> values compute the average mass-weighted squared
 components of the velocity of particles in each group:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usq</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vx_i</span> <span class="n">Vx_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
 <span class="n">Vsq</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vy_i</span> <span class="n">Vy_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
 <span class="n">Wsq</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vz_i</span> <span class="n">Vz_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
 </pre></div>
 </div>
-<hr class="docutils" />
-<p>The <em>ke</em> value computes the average kinetic energy of particles in each
+<p id="compute-grid-energy">The <code class="docutils literal notranslate"><span class="pre">ke</span></code> value computes the average kinetic energy of particles in each
 group:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Vsq</span> <span class="o">=</span> <span class="n">Vx</span><span class="o">*</span><span class="n">Vx</span> <span class="o">+</span> <span class="n">Vy</span><span class="o">*</span><span class="n">Vy</span> <span class="o">+</span> <span class="n">Vz</span><span class="o">*</span><span class="n">Vz</span>
 <span class="n">KE</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="n">mass_i</span> <span class="n">Vsq_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
@@ -322,7 +315,7 @@ group:</p>
 <p>Note that this is different than the group’s contribution to the average
 kinetic energy of entire grid cells. That can be calculated by
 multiplying the <em>ke</em> quantity by the <em>n</em> quantity.</p>
-<p>The <em>temp</em> value first computes the average kinetic energy of particles
+<p>The <code class="docutils literal notranslate"><span class="pre">temp</span></code> value first computes the average kinetic energy of particles
 in each group, as for the <em>ke</em> value. This is then converted to a
 temperature <em>T</em> by the following formula where <em>kB</em> is the Boltzmann
 factor:</p>
@@ -337,8 +330,7 @@ thermal temperature when the particles have a non-zero streaming
 velocity. See the <a class="reference internal" href="compute_thermal_grid.html#command-compute-thermal-grid"><span class="std std-ref">compute thermal/grid</span></a>
 command to calculate thermal temperatures after subtracting out
 streaming components of velocity.</p>
-<hr class="docutils" />
-<p>The <em>erot</em> value computes the average rotational energy of particles in
+<p>The <code class="docutils literal notranslate"><span class="pre">erot</span></code> value computes the average rotational energy of particles in
 each group:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Erot</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">erot_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
 </pre></div>
@@ -346,14 +338,13 @@ each group:</p>
 <p>Note that this is different than the group’s contribution to the average
 rotational energy of entire grid cells. That can be calculated by
 multiplying the <em>erot</em> quantity by the <em>n</em> quantity.</p>
-<p>The <em>trot</em> value computes a rotational temperature by the following
+<p>The <code class="docutils literal notranslate"><span class="pre">trot</span></code> value computes a rotational temperature by the following
 formula where <em>kB</em> is the Boltzmann factor:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Trot</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">kB</span><span class="p">)</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">erot_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">dof_i</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Dof_i is the number of rotational degrees of freedom for particle i.</p>
-<hr class="docutils" />
-<p>The <em>evib</em> value computes the average vibrational energy of particles in
+<p>The <code class="docutils literal notranslate"><span class="pre">evib</span></code> value computes the average vibrational energy of particles in
 each group:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Evib</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">evib_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
 </pre></div>
@@ -361,15 +352,14 @@ each group:</p>
 <p>Note that this is different than the group’s contribution to the average
 vibrational energy of entire grid cells. That can be calculated by
 multiplying the <em>evib</em> quantity by the <em>n</em> quantity.</p>
-<p>The <em>tvib</em> value computes a classical definition of vibrational
+<p>The <code class="docutils literal notranslate"><span class="pre">tvib</span></code> value computes a classical definition of vibrational
 temperature, valid for continous distributions of vibrational energy, by
 the following formula where <em>kB</em> is the Boltzmann factor:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Tvib</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">kB</span><span class="p">)</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">evib_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">dof_i</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Dof_i is the number of vibrational degrees of freedom for particle i.</p>
-<hr class="docutils" />
-<p>The <em>pxrho</em>, <em>pyrho</em>, <em>pzrho</em> values compute components of momentum
+<p id="compute-grid-momentum">The <code class="docutils literal notranslate"><span class="pre">pxrho</span></code>, <code class="docutils literal notranslate"><span class="pre">pyrho</span></code>, <code class="docutils literal notranslate"><span class="pre">pzrho</span></code> values compute components of momentum
 density for the grid cell volume due to particles in each group:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pxrho</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="o">*</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vx_i</span><span class="p">)</span>
 <span class="n">Pyrho</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="o">*</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vy_i</span><span class="p">)</span>
@@ -383,7 +373,7 @@ accumulated over multiple sampling steps, this value is normalized by
 the number of sampling steps. Note that if particle weighting is enabled
 via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command, then the volume used in
 the formula is divided by the weight assigned to the grid cell.</p>
-<p>The <em>kerho</em> value computes the kinetic energy density for the grid cell
+<p>The <code class="docutils literal notranslate"><span class="pre">kerho</span></code> value computes the kinetic energy density for the grid cell
 volume due to particles in each group:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Vsq</span> <span class="o">=</span> <span class="n">Vx</span><span class="o">*</span><span class="n">Vx</span> <span class="o">+</span> <span class="n">Vy</span><span class="o">*</span><span class="n">Vy</span> <span class="o">+</span> <span class="n">Vz</span><span class="o">*</span><span class="n">Vz</span>
 <span class="n">KErho</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="o">*</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vsq_i</span><span class="p">)</span>
@@ -396,8 +386,8 @@ accumulated over multiple sampling steps, this value is normalized by
 the number of sampling steps. Note that if particle weighting is enabled
 via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command, then the volume used in
 the formula is divided by the weight assigned to the grid cell.</p>
-<hr class="docutils" />
-<p><strong>Output info:</strong></p>
+<div class="section" id="output-info">
+<h3>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h3>
 <p>This compute calculates a per-grid array, with the number of columns
 equal to the number of values times the number of groups. The ordering
 of columns is first by values, then by groups. I.e. if the <em>n</em> and <em>u</em>
@@ -447,6 +437,7 @@ can use the <a class="reference internal" href="suffix.html#command-suffix"><spa
 <p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the
 manual for more instructions on how to use the accelerated styles
 effectively.</p>
+</div>
 </div>
 <hr class="docutils" />
 <div class="section" id="restrictions">

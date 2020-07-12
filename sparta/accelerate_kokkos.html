@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                7 May 2020  (build: 08/07/2020)
+                7 May 2020  (build: 12/07/2020)
               </div>
             
           
@@ -194,64 +194,112 @@ programmers’ guide at /lib/kokkos/doc/Kokkos_PG.pdf.</p>
 OpenMP (threading for many-core CPUs and Intel Phi), and CUDA (for
 NVIDIA GPUs). You choose the mode at build time to produce an executable
 compatible with specific hardware.</p>
-<p><strong>Building SPARTA with the KOKKOS package:</strong></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Kokkos support within SPARTA must be built with a C++11 compatible compiler. This means GCC version 4.7.2 or later, Intel 14.0.4 or later, or Clang 3.5.2 or later is required.</p>
 </div>
-<p>To build with the KOKKOS package start with the provided Kokkos
+<div class="section" id="building-sparta-with-the-kokkos-package-with-makefiles">
+<span id="accelerate-kokkos-building-make"></span><h2>Building SPARTA with the KOKKOS package with Makefiles:<a class="headerlink" href="#building-sparta-with-the-kokkos-package-with-makefiles" title="Permalink to this headline">¶</a></h2>
+<p>To build with the KOKKOS package, start with the provided Kokkos
 Makefiles in /src/MAKE/. You may need to modify the KOKKOS_ARCH variable
 in the Makefile to match your specific hardware. For example:</p>
 <ul class="simple">
 <li><p>for Sandy Bridge CPUs, set KOKKOS_ARCH=SNB</p></li>
 <li><p>for Broadwell CPUs, set KOKKOS_ARCH=BWD</p></li>
-<li><p>for K80 GPUs, set KOKKOS_ARCH=Kepler37</p></li>
-<li><p>for P100 GPUs and Power8 CPUs, set KOKKOS_ARCH=Pascal60,Power8</p></li>
+<li><p>for K80 GPUs, set KOKKOS_ARCH=KEPLER37</p></li>
+<li><p>for P100 GPUs and Power8 CPUs, set KOKKOS_ARCH=PASCAL60,POWER8</p></li>
 </ul>
-<p>See the <strong>Advanced Kokkos Options</strong> section below for a listing of all
-KOKKOS_ARCH options.</p>
-<p><strong>Compile for CPU-only (MPI only, no threading):</strong></p>
-<p>Use a C++11 compatible compiler and set KOKKOS_ARCH variable in
-/src/MAKE/Makefile.kokkos_mpi_only as described above. Then do the
-following:</p>
+</div>
+<div class="section" id="building-sparta-with-the-kokkos-package-with-cmake">
+<span id="accelerate-kokkos-building-cmake"></span><h2>Building SPARTA with the KOKKOS package with CMake:<a class="headerlink" href="#building-sparta-with-the-kokkos-package-with-cmake" title="Permalink to this headline">¶</a></h2>
+<p>To build with the KOKKOS package, start with the provided preset files
+in /cmake/presets/. You may need to set -D Kokkos_ARCH_{TYPE}=ON
+to match your specific hardware. For example:</p>
+<ul class="simple">
+<li><p>for Sandy Bridge CPUs, set -D Kokkos_ARCH_SNB=ON</p></li>
+<li><p>for Broadwell CPUs, set -D Kokkos_ARCH_BWD=ON</p></li>
+<li><p>for K80 GPUs, set -D Kokkos_ARCH_KEPLER37=ON</p></li>
+<li><p>for P100 GPUs and Power8 CPUs, set -D Kokkos_ARCH_PASCAL60=ON, -D Kokkos_ARCH_POWER8=ON</p></li>
+</ul>
+<p>See the <a class="reference internal" href="#advanced-kokkos-options">Advanced Kokkos Options:</a> section below for a listing of all
+Kokkos architecture options.</p>
+</div>
+<div class="section" id="compile-for-cpu-only-mpi-only-no-threading">
+<h2>Compile for CPU-only (MPI only, no threading):<a class="headerlink" href="#compile-for-cpu-only-mpi-only-no-threading" title="Permalink to this headline">¶</a></h2>
+<p>Use a C++11 compatible compiler and set Kokkos architecture variable as described above. Then do the following:</p>
+<p>Using Makefiles:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">sparta</span><span class="o">/</span><span class="n">src</span>
 <span class="n">make</span> <span class="n">yes</span><span class="o">-</span><span class="n">kokkos</span>
 <span class="n">make</span> <span class="n">kokkos_mpi_only</span>
 </pre></div>
 </div>
-<p><strong>Compile for CPU-only (MPI plus OpenMP threading):</strong></p>
+<p>using CMake:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
+<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">kokkos_mpi_only</span><span class="o">.</span><span class="n">cmake</span>
+<span class="n">make</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compile-for-cpu-only-mpi-plus-openmp-threading">
+<h2>Compile for CPU-only (MPI plus OpenMP threading):<a class="headerlink" href="#compile-for-cpu-only-mpi-plus-openmp-threading" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To build with Kokkos support for OpenMP threading, your compiler must support the OpenMP interface. You should have one or more multi-core CPUs so that multiple threads can be launched by each MPI task running on a CPU.</p>
 </div>
-<p>Use a C++11 compatible compiler and set KOKKOS_ARCH variable in
-/src/MAKE/Makefile.kokkos_omp as described above. Then do the following:</p>
+<p>Use a C++11 compatible compiler and set KOKKOS architecture variable as described above. Then do the following:</p>
+<p>using Makefiles:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">sparta</span><span class="o">/</span><span class="n">src</span>
 <span class="n">make</span> <span class="n">yes</span><span class="o">-</span><span class="n">kokkos</span>
 <span class="n">make</span> <span class="n">kokkos_omp</span>
 </pre></div>
 </div>
-<p><strong>Compile for Intel KNL Xeon Phi (Intel Compiler, OpenMPI):</strong></p>
+<p>using CMake:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
+<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">kokkos_omp</span><span class="o">.</span><span class="n">cmake</span>
+<span class="n">make</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compile-for-intel-knl-xeon-phi-intel-compiler-openmpi">
+<h2>Compile for Intel KNL Xeon Phi (Intel Compiler, OpenMPI):<a class="headerlink" href="#compile-for-intel-knl-xeon-phi-intel-compiler-openmpi" title="Permalink to this headline">¶</a></h2>
 <p>Use a C++11 compatible compiler and do the following:</p>
+<p>using Makefiles:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">sparta</span><span class="o">/</span><span class="n">src</span>
 <span class="n">make</span> <span class="n">yes</span><span class="o">-</span><span class="n">kokkos</span>
 <span class="n">make</span> <span class="n">kokkos_phi</span>
 </pre></div>
 </div>
-<p><strong>Compile for CPUs and GPUs (with OpenMPI or MPICH):</strong></p>
+<p>using CMake:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
+<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">kokkos_phi</span><span class="o">.</span><span class="n">cmake</span>
+<span class="n">make</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compile-for-cpus-and-gpus-with-openmpi-or-mpich">
+<h2>Compile for CPUs and GPUs (with OpenMPI or MPICH):<a class="headerlink" href="#compile-for-cpus-and-gpus-with-openmpi-or-mpich" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To build with Kokkos support for NVIDIA GPUs, NVIDIA CUDA software version 7.5 or later must be installed on your system.</p>
 </div>
-<p>Use a C++11 compatible compiler and set KOKKOS_ARCH variable in
-/src/MAKE/Makefile.kokkos_cuda_mpi for both GPU and CPU as described
+<p>Use a C++11 compatible compiler and set Kokkos architecture variable in
+for both GPU and CPU as described
 above. Then do the following:</p>
+<p>using Makefiles:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">sparta</span><span class="o">/</span><span class="n">src</span>
 <span class="n">make</span> <span class="n">yes</span><span class="o">-</span><span class="n">kokkos</span>
-<span class="n">make</span> <span class="n">kokkos_cuda_mpi</span>
+<span class="n">make</span> <span class="n">kokkos_cuda</span>
 </pre></div>
 </div>
-<p><strong>Running SPARTA with the KOKKOS package:</strong></p>
+<p>using CMake:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
+<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">kokkos_cuda</span><span class="o">.</span><span class="n">cmake</span>
+<span class="n">make</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-sparta-with-the-kokkos-package">
+<h2>Running SPARTA with the KOKKOS package:<a class="headerlink" href="#running-sparta-with-the-kokkos-package" title="Permalink to this headline">¶</a></h2>
 <p>All Kokkos operations occur within the context of an individual MPI task
 running on a single node of the machine. The total number of MPI tasks
 used by SPARTA (one or multiple per compute node) is set in the usual
@@ -313,7 +361,9 @@ with a single thread, no duplication or atomics are used. For CUDA, the
 KOKKOS package always uses atomics in these computes when necessary. The
 use of atomics instead of duplication can be forced by compiling with
 the “-DSPARTA_KOKKOS_USE_ATOMICS” compile switch.</p>
-<p><strong>Core and Thread Affinity:</strong></p>
+</div>
+<div class="section" id="core-and-thread-affinity">
+<h2>Core and Thread Affinity:<a class="headerlink" href="#core-and-thread-affinity" title="Permalink to this headline">¶</a></h2>
 <p>When using multi-threading, it is important for performance to bind both
 MPI tasks to physical cores, and threads to physical cores, so they do
 not migrate during a simulation.</p>
@@ -330,7 +380,9 @@ sufficient. In general, for best performance with OpenMP 4.0 or better
 set OMP_PROC_BIND=spread and OMP_PLACES=threads. For binding threads
 with the KOKKOS pthreads option, compile SPARTA the KOKKOS HWLOC=yes
 option as described below.</p>
-<p><strong>Running on Knight’s Landing (KNL) Intel Xeon Phi:</strong></p>
+</div>
+<div class="section" id="running-on-knight-s-landing-knl-intel-xeon-phi">
+<h2>Running on Knight’s Landing (KNL) Intel Xeon Phi:<a class="headerlink" href="#running-on-knight-s-landing-knl-intel-xeon-phi" title="Permalink to this headline">¶</a></h2>
 <p>Here is a quick overview of how to use the KOKKOS package for the Intel
 Knight’s Landing (KNL) Xeon Phi:</p>
 <p>KNL Intel Phi chips have 68 physical cores. Typically 1 to 4 cores are
@@ -429,88 +481,183 @@ you wish to change any of its option defaults, as set by the “-k on”
 <p>The performance of KOKKOS running in different modes is a function of
 your hardware, which KOKKOS-enable styles are used, and the problem
 size.</p>
-<p>Generally speaking, the following rules of thumb apply:</p>
-<p>When running on CPUs only, with a single thread per MPI task, the
+<p>Generally speaking, when running on CPUs only, with a single thread per MPI task, the
 performance difference of a KOKKOS style and (un-accelerated) styles
 (MPI-only mode)is typically small (less than 20%).</p>
 <p>See the <a class="reference external" href="http://sparta.sandia.gov/bench.html">Benchmark page</a> of the
 SPARTA web site for performance of the KOKKOS package on different
 hardware.</p>
-<p><strong>Advanced Kokkos options:</strong></p>
+</div>
+<div class="section" id="advanced-kokkos-options">
+<h2>Advanced Kokkos options:<a class="headerlink" href="#advanced-kokkos-options" title="Permalink to this headline">¶</a></h2>
 <p>There are other allowed options when building with the KOKKOS package.
-As above, they can be set either as variables on the make command line
+A few options are listed here; for a full list of all options,
+please refer to the Kokkos documentation.
+As above, these options can be set as variables on the command line,
+in a Makefile, or in a CMake presets file. For default CMake values,
+see <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-LH</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">kokkos</span></code>.</p>
+<p>The CMake option Kokkos_ENABLE_{OPTION} or the makefile setting KOKKOS_DEVICE={OPTION} sets the
+parallelization method used for Kokkos code (within SPARTA).
+For example, the CMake option Kokkos_ENABLE_SERIAL=ON or the makefile setting KOKKOS_DEVICES=SERIAL
+means that no threading will be used.  The CMake option Kokkos_ENABLE_OPENMP=ON or the
+makefile setting KOKKOS_DEVICES=OPENMP means that OpenMP threading will be
+used. The CMake option Kokkos_ENABLE_CUDA=ON or the makefile setting
+KOKKOS_DEVICES=CUDA means an NVIDIA GPU running CUDA will be used.</p>
+<p>As described above, the CMake option Kokkos_ARCH_{TYPE}=ON or the makefile setting KOKKOS_ARCH={TYPE} enables compiler switches needed when compiling for a specific hardware:</p>
+<p>As above, they can be set either as variables on the make command line
 or in Makefile.machine. This is the full list of options, including
 those discussed above. Each takes a value shown below. The default value
 is listed, which is set in the /lib/kokkos/Makefile.kokkos file.</p>
-<ul class="simple">
-<li><p>KOKKOS_DEVICES, values = <em>Serial</em>, <em>OpenMP</em>, <em>Pthreads</em>, <em>Cuda</em>,
-default = <em>OpenMP</em></p></li>
-<li><p>KOKKOS_ARCH, values = <em>KNC</em>, <em>SNB</em>, <em>HSW</em>, <em>Kepler30</em>, <em>Kepler32</em>,
-<em>Kepler35</em>, <em>Kepler37</em>, <em>Maxwell50</em>, <em>Maxwell52</em>, <em>Maxwell53</em>,
-<em>Pascal60</em>, <em>Pascal61</em>, <em>ARMv80</em>, <em>ARMv81</em>, <em>ARMv81</em>,
-<em>ARMv8-ThunderX</em>, <em>BGQ</em>, <em>Power7</em>, <em>Power8</em>, <em>Power9</em>, <em>KNL</em>, <em>BDW</em>,
-<em>SKX</em>, default = <em>none</em></p></li>
-<li><p>KOKKOS_DEBUG, values = <em>yes</em>, <em>no</em>, default = <em>no</em></p></li>
-<li><p>KOKKOS_USE_TPLS, values = <em>hwloc</em>, <em>librt</em>, <em>experimental_memkind</em>,
-default = <em>none</em></p></li>
-<li><p>KOKKOS_CXX_STANDARD, values = <em>c++11</em>, <em>c++1z</em>, default = <em>c++11</em></p></li>
-<li><p>KOKKOS_OPTIONS, values = <em>aggressive_vectorization</em>,
-<em>disable_profiling</em>, default = <em>none</em></p></li>
-<li><p>KOKKOS_CUDA_OPTIONS, values = <em>force_uvm</em>, <em>use_ldg</em>, <em>rdc</em>,
-<em>enable_lambda</em>, default = <em>enable_lambda</em></p></li>
-</ul>
-<p>KOKKOS_DEVICES sets the parallelization method used for Kokkos code
-(within SPARTA). KOKKOS_DEVICES=Serial means that no threading will be
-used. KOKKOS_DEVICES=OpenMP means that OpenMP threading will be used.
-KOKKOS_DEVICES=Pthreads means that pthreads will be used.
-KOKKOS_DEVICES=Cuda means an NVIDIA GPU running CUDA will be used.</p>
-<p>KOKKOS_ARCH enables compiler switches needed when compiling for a
-specific hardware:</p>
-<ul class="simple">
-<li><p>ARMv80 = ARMv8.0 Compatible CPU</p></li>
-<li><p>ARMv81 = ARMv8.1 Compatible CPU</p></li>
-<li><p>ARMv8-ThunderX = ARMv8 Cavium ThunderX CPU</p></li>
-<li><p>SNB = Intel Sandy/Ivy Bridge CPUs</p></li>
-<li><p>HSW = Intel Haswell CPUs</p></li>
-<li><p>BDW = Intel Broadwell Xeon E-class CPUs</p></li>
-<li><p>SKX = Intel Sky Lake Xeon E-class HPC CPUs (AVX512)</p></li>
-<li><p>KNC = Intel Knights Corner Xeon Phi</p></li>
-<li><p>KNL = Intel Knights Landing Xeon Phi</p></li>
-<li><p>Kepler30 = NVIDIA Kepler generation CC 3.0</p></li>
-<li><p>Kepler32 = NVIDIA Kepler generation CC 3.2</p></li>
-<li><p>Kepler35 = NVIDIA Kepler generation CC 3.5</p></li>
-<li><p>Kepler37 = NVIDIA Kepler generation CC 3.7</p></li>
-<li><p>Maxwell50 = NVIDIA Maxwell generation CC 5.0</p></li>
-<li><p>Maxwell52 = NVIDIA Maxwell generation CC 5.2</p></li>
-<li><p>Maxwell53 = NVIDIA Maxwell generation CC 5.3</p></li>
-<li><p>Pascal60 = NVIDIA Pascal generation CC 6.0</p></li>
-<li><p>Pascal61 = NVIDIA Pascal generation CC 6.1</p></li>
-<li><p>BGQ = IBM Blue Gene/Q CPUs</p></li>
-<li><p>Power8 = IBM POWER8 CPUs</p></li>
-<li><p>Power9 = IBM POWER9 CPUs</p></li>
-</ul>
-<p>KOKKOS_USE_TPLS=hwloc binds threads to hardware cores, so they do not
-migrate during a simulation. KOKKOS_USE_TPLS=hwloc should always be used
-if running with KOKKOS_DEVICES=Pthreads for pthreads. It is not
-necessary for KOKKOS_DEVICES=OpenMP for OpenMP, because OpenMP provides
-alternative methods via environment variables for binding threads to
-hardware cores. More info on binding threads to cores is given in the
-<a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a>.</p>
-<p>KOKKOS_USE_TPLS=librt enables use of a more accurate timer mechanism on
-most Unix platforms. This library is not available on all platforms.</p>
-<p>KOKKOS_DEBUG is only useful when developing a Kokkos-enabled style
-within SPARTA. KOKKOS_DEBUG=yes enables printing of run-time debugging
-information that can be useful. It also enables runtime bounds checking
-on Kokkos data structures.</p>
-<p>KOKKOS_CXX_STANDARD and KOKKOS_OPTIONS are typically not changed when
-building SPARTA.</p>
-<p>KOKKOS_CUDA_OPTIONS are additional options for CUDA. The SPARTA KOKKOS
-package must be compiled with the <em>enable_lambda</em> option when using
-GPUs.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Arch-ID</p></th>
+<th class="head"><p>HOST or GPU</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AMDAVX</p></td>
+<td><p>HOST</p></td>
+<td><p>AMD 64-bit x86 CPU (AVX 1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EPYC</p></td>
+<td><p>HOST</p></td>
+<td><p>AMD EPYC Zen class CPU (AVX 2)</p></td>
+</tr>
+<tr class="row-even"><td><p>ARMV80</p></td>
+<td><p>HOST</p></td>
+<td><p>ARMv8.0 Compatible CPU</p></td>
+</tr>
+<tr class="row-odd"><td><p>ARMV81</p></td>
+<td><p>HOST</p></td>
+<td><p>ARMv8.1 Compatible CPU</p></td>
+</tr>
+<tr class="row-even"><td><p>ARMV8<sub>THUNDERX</sub></p></td>
+<td><p>HOST</p></td>
+<td><p>ARMv8 Cavium ThunderX CPU</p></td>
+</tr>
+<tr class="row-odd"><td><p>ARMV8<sub>THUNDERX2</sub></p></td>
+<td><p>HOST</p></td>
+<td><p>ARMv8 Cavium ThunderX2 CPU</p></td>
+</tr>
+<tr class="row-even"><td><p>WSM</p></td>
+<td><p>HOST</p></td>
+<td><p>Intel Westmere CPU (SSE 4.2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SNB</p></td>
+<td><p>HOST</p></td>
+<td><p>Intel Sandy/Ivy Bridge CPU (AVX 1)</p></td>
+</tr>
+<tr class="row-even"><td><p>HSW</p></td>
+<td><p>HOST</p></td>
+<td><p>Intel Haswell CPU (AVX 2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>BDW</p></td>
+<td><p>HOST</p></td>
+<td><p>Intel Broadwell Xeon E-class CPU (AVX 2 + transactional mem)</p></td>
+</tr>
+<tr class="row-even"><td><p>SKX</p></td>
+<td><p>HOST</p></td>
+<td><p>Intel Sky Lake Xeon E-class HPC CPU (AVX512 + transactional mem)</p></td>
+</tr>
+<tr class="row-odd"><td><p>KNC</p></td>
+<td><p>HOST</p></td>
+<td><p>Intel Knights Corner Xeon Phi</p></td>
+</tr>
+<tr class="row-even"><td><p>KNL</p></td>
+<td><p>HOST</p></td>
+<td><p>Intel Knights Landing Xeon Phi</p></td>
+</tr>
+<tr class="row-odd"><td><p>BGQ</p></td>
+<td><p>HOST</p></td>
+<td><p>IBM Blue Gene/Q CPU</p></td>
+</tr>
+<tr class="row-even"><td><p>POWER7</p></td>
+<td><p>HOST</p></td>
+<td><p>IBM POWER7 CPU</p></td>
+</tr>
+<tr class="row-odd"><td><p>POWER8</p></td>
+<td><p>HOST</p></td>
+<td><p>IBM POWER8 CPU</p></td>
+</tr>
+<tr class="row-even"><td><p>POWER9</p></td>
+<td><p>HOST</p></td>
+<td><p>IBM POWER9 CPU</p></td>
+</tr>
+<tr class="row-odd"><td><p>KEPLER30</p></td>
+<td><p>GPU</p></td>
+<td><p>NVIDIA Kepler generation CC 3.0 GPU</p></td>
+</tr>
+<tr class="row-even"><td><p>KEPLER32</p></td>
+<td><p>GPU</p></td>
+<td><p>NVIDIA Kepler generation CC 3.2 GPU</p></td>
+</tr>
+<tr class="row-odd"><td><p>KEPLER35</p></td>
+<td><p>GPU</p></td>
+<td><p>NVIDIA Kepler generation CC 3.5 GPU</p></td>
+</tr>
+<tr class="row-even"><td><p>KEPLER37</p></td>
+<td><p>GPU</p></td>
+<td><p>NVIDIA Kepler generation CC 3.7 GPU</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAXWELL50</p></td>
+<td><p>GPU</p></td>
+<td><p>NVIDIA Maxwell generation CC 5.0 GPU</p></td>
+</tr>
+<tr class="row-even"><td><p>MAXWELL52</p></td>
+<td><p>GPU</p></td>
+<td><p>NVIDIA Maxwell generation CC 5.2 GPU</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAXWELL53</p></td>
+<td><p>GPU</p></td>
+<td><p>NVIDIA Maxwell generation CC 5.3 GPU</p></td>
+</tr>
+<tr class="row-even"><td><p>PASCAL60</p></td>
+<td><p>GPU</p></td>
+<td><p>NVIDIA Pascal generation CC 6.0 GPU</p></td>
+</tr>
+<tr class="row-odd"><td><p>PASCAL61</p></td>
+<td><p>GPU</p></td>
+<td><p>NVIDIA Pascal generation CC 6.1 GPU</p></td>
+</tr>
+<tr class="row-even"><td><p>VOLTA70</p></td>
+<td><p>GPU</p></td>
+<td><p>NVIDIA Volta generation CC 7.0 GPU</p></td>
+</tr>
+<tr class="row-odd"><td><p>VOLTA72</p></td>
+<td><p>GPU</p></td>
+<td><p>NVIDIA Volta generation CC 7.2 GPU</p></td>
+</tr>
+<tr class="row-even"><td><p>TURING75</p></td>
+<td><p>GPU</p></td>
+<td><p>NVIDIA Turing generation CC 7.5 GPU</p></td>
+</tr>
+<tr class="row-odd"><td><p>VEGA900</p></td>
+<td><p>GPU</p></td>
+<td><p>AMD GPU MI25 GFX900</p></td>
+</tr>
+<tr class="row-even"><td><p>VEGA906</p></td>
+<td><p>GPU</p></td>
+<td><p>AMD GPU MI50/MI60 GFX906</p></td>
+</tr>
+</tbody>
+</table>
+<p>The CMake option Kokkos_ENABLE_CUDA_{OPTION} or the makefile setting KOKKOS_CUDA_OPTIONS=*OPTION* are
+additional options for CUDA. For example, the CMake option Kokkos_ENABLE_CUDA_UVM=ON or the makefile setting KOKKOS_CUDA_OPTIONS=”enable_lambda,force_uvm” enables the use of CUDA “Unified Virtual Memory” (UVM) in Kokkos. UVM allows to one to use the host CPU memory to supplement the memory used on the GPU (with some performance penalty) and thus enables running larger problems that would otherwise not fit into the RAM on the GPU. Please note, that the SPARTA KOKKOS package must always be compiled with the CMake option Kokkos_ENABLE_CUDA_LAMBDA=ON or the makefile setting KOKKOS_CUDA_OPTIONS=enable_lambda when using GPUs. The CMake configuration will thus always enable it.</p>
+<p>The CMake option Kokkos_ENABLE_DEBUG=ON or the makefile setting KOKKOS_DEBUG=yes is useful
+when developing a Kokkos-enabled style within SPARTA. This option enables printing of run-time debugging
+information that can be useful and also enables runtime bounds
+checking on Kokkos data structures, but may slow down performance.</p>
 <div class="section" id="restrictions">
-<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<h3>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h3>
 <p>Currently, there are no precision options with the KOKKOS package. All
 compilation and computation is performed in double precision.</p>
+</div>
 </div>
 </div>
 
