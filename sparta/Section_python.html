@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="12. Errors" href="Section_errors.html" />
@@ -62,7 +63,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -210,8 +211,8 @@ See <a class="reference internal" href="Section_howto.html#howto-other-code"><sp
 <span id="python-building-sparta"></span><h2><a class="toc-backref" href="#id1">11.1. Building SPARTA as a shared library</a><a class="headerlink" href="#building-sparta-as-a-shared-library" title="Permalink to this headline">¶</a></h2>
 <p>Instructions on how to build SPARTA as a shared library are given in <a class="reference internal" href="Section_start.html#start-build-library"><span class="std std-ref">build-library</span></a>. A shared library is one that is dynamically loadable, which is what Python requires. On Linux this is a library file that ends in “.so”, not “.a”.</p>
 <p>For make, from the src directory, type</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">makeshlib</span>
-<span class="n">make</span> <span class="o">-</span><span class="n">f</span> <span class="n">Makefile</span><span class="o">.</span><span class="n">shlib</span> <span class="n">foo</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">make</span> <span class="no">makeshlib</span>
+<span class="nb">make</span> <span class="no">-f Makefile.shlib foo</span>
 </pre></div>
 </div>
 <p>For CMake, from the build directory, tyoe</p>
@@ -241,25 +242,25 @@ described above.</p>
 <p>If you set the paths to these files as environment variables, you only
 have to do it once. For the csh or tcsh shells, add something like this
 to your ~/.cshrc file, one line for each of the two files:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>setenv PYTHONPATH $PYTHONPATH:/home/sjplimp/sparta/python
-setenv LD_LIBRARY_PATH $LD_LIBRARY_PATH:/home/sjplimp/sparta/src
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>setenv PYTHONPATH <span class="nv">$PYTHONPATH</span>:/home/sjplimp/sparta/python
+setenv LD_LIBRARY_PATH <span class="nv">$LD_LIBRARY_PATH</span>:/home/sjplimp/sparta/src
 </pre></div>
 </div>
 <p>If you use the python/install.py script, you need to invoke it every
 time you rebuild SPARTA (as a shared library) or make changes to the
 python/sparta.py file.</p>
 <p>You can invoke install.py from the python directory as</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">python</span> <span class="n">install</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="n">libdir</span><span class="p">]</span> <span class="p">[</span><span class="n">pydir</span><span class="p">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>% python install.py <span class="o">[</span>libdir<span class="o">]</span> <span class="o">[</span>pydir<span class="o">]</span>
 </pre></div>
 </div>
 <p>The optional libdir is where to copy the SPARTA shared library to; the default is /usr/local/lib. The optional pydir is where to copy the sparta.py file to; the default is the site-packages directory of the version of Python that is running the install script.</p>
 <p>Note that libdir must be a location that is in your default LD_LIBRARY_PATH, like /usr/local/lib or /usr/lib. And pydir must be a location that Python looks in by default for imported modules, like its site-packages dir. If you want to copy these files to non-standard locations, such as within your own user space, you will need to set your <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> and <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> environment variables accordingly, as above.</p>
 <p>If the install.py script does not allow you to copy files into system directories, prefix the python command with “sudo”. If you do this, make sure that the Python that root runs is the same as the Python you run.  E.g. you may need to do something like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">sudo</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="n">install</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="n">libdir</span><span class="p">]</span> <span class="p">[</span><span class="n">pydir</span><span class="p">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>% sudo /usr/local/bin/python install.py <span class="o">[</span>libdir<span class="o">]</span> <span class="o">[</span>pydir<span class="o">]</span>
 </pre></div>
 </div>
 <p>You can also invoke install.py from the make command in the src directory as</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">make</span> <span class="n">install</span><span class="o">-</span><span class="n">python</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>% make install-python
 </pre></div>
 </div>
 <p>In this mode you cannot append optional arguments. Again, you may need to prefix this with “sudo”. In this mode you cannot control which Python is invoked by root.</p>
@@ -280,34 +281,34 @@ python/sparta.py file.</p>
 <p>All of these except pyMPI work by wrapping the MPI library and exposing (some portion of) its interface to your Python script. This means Python cannot be used interactively in parallel, since they do not address the issue of interactive input to multiple instances of Python running on different processors. The one exception is pyMPI, which alters the Python interpreter to address this issue, and (I believe) creates a new alternate executable (in place of “python” itself) as a result.</p>
 <p>In principle any of these Python/MPI packages should work to invoke SPARTA in parallel and MPI calls themselves from a Python script which is itself running in parallel. However, when I downloaded and looked at a few of them, their documentation was incomplete and I had trouble with their installation. It’s not clear if some of the packages are still being actively developed and supported.</p>
 <p>The one I recommend, since I have successfully used it with SPARTA, is Pypar. Pypar requires the ubiquitous <a class="reference external" href="http://numpy.scipy.org">Numpy package</a> be installed in your Python. After launching python, type</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
 </pre></div>
 </div>
 <p>to see if it is installed. If not, here is how to install it (version 1.3.0b1 as of April 2009). Unpack the numpy tarball and from its top-level directory, type</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">build</span>
-<span class="n">sudo</span> <span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python setup.py build
+sudo python setup.py install
 </pre></div>
 </div>
 <p>The “sudo” is only needed if required to copy Numpy files into your
 Python distribution’s site-packages directory.</p>
 <p>To install Pypar (version pypar-2.1.4_94 as of Aug 2012), unpack it and
 from its “source” directory, type</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">build</span>
-<span class="n">sudo</span> <span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python setup.py build
+sudo python setup.py install
 </pre></div>
 </div>
 <p>Again, the “sudo” is only needed if required to copy Pypar files into your Python distribution’s site-packages directory.</p>
 <p>If you have successully installed Pypar, you should be able to run Python and type</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pypar</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pypar</span>
 </pre></div>
 </div>
 <p>without error. You should also be able to run python in parallel on a simple test script</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">4</span> <span class="n">python</span> <span class="n">test</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>% mpirun -np <span class="m">4</span> python test.py
 </pre></div>
 </div>
 <p>where test.py contains the lines</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pypar</span>
-<span class="nb">print</span> <span class="s2">&quot;Proc </span><span class="si">%d</span><span class="s2"> out of </span><span class="si">%d</span><span class="s2"> procs&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pypar</span><span class="o">.</span><span class="n">rank</span><span class="p">(),</span><span class="n">pypar</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pypar</span>
+<span class="k">print</span> <span class="s2">&quot;Proc </span><span class="si">%d</span><span class="s2"> out of </span><span class="si">%d</span><span class="s2"> procs&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pypar</span><span class="o">.</span><span class="n">rank</span><span class="p">(),</span><span class="n">pypar</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>and see one line of output for each processor you run on.</p>
@@ -322,13 +323,13 @@ If you have problems running both Pypar and SPARTA together, this is an issue yo
 <span id="python-testing-pythonsparta"></span><h2><a class="toc-backref" href="#id4">11.4. Testing the Python-SPARTA interface</a><a class="headerlink" href="#testing-the-python-sparta-interface" title="Permalink to this headline">¶</a></h2>
 <p>To test if SPARTA is callable from Python, launch Python interactively
 and type:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sparta</span> <span class="k">import</span> <span class="n">sparta</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sparta</span> <span class="k">import</span> <span class="n">sparta</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spa</span> <span class="o">=</span> <span class="n">sparta</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>If you get no errors, you’re ready to use SPARTA from Python. If the 2nd
 command fails, the most common error to see is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">OSError</span><span class="p">:</span> <span class="n">Could</span> <span class="ow">not</span> <span class="n">load</span> <span class="n">SPARTA</span> <span class="n">dynamic</span> <span class="n">library</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>OSError: Could not load SPARTA dynamic library
 </pre></div>
 </div>
 <p>which means Python was unable to load the SPARTA shared library. This
@@ -338,7 +339,7 @@ about the library is incompatible with your Python. The error message
 should give you an indication of what went wrong.</p>
 <p>You can also test the load directly in Python as follows, without first
 importing from the sparta.py file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ctypes</span> <span class="k">import</span> <span class="n">CDLL</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ctypes</span> <span class="k">import</span> <span class="n">CDLL</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">CDLL</span><span class="p">(</span><span class="s2">&quot;libsparta.so&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -346,26 +347,26 @@ importing from the sparta.py file:</p>
 <div class="section" id="test-sparta-and-python-in-serial">
 <span id="python-test-python-serial"></span><h3>11.4.1. Test SPARTA and Python in serial:<a class="headerlink" href="#test-sparta-and-python-in-serial" title="Permalink to this headline">¶</a></h3>
 <p>To run a SPARTA test in serial, type these lines into Python interactively from the bench directory:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sparta</span> <span class="k">import</span> <span class="n">sparta</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sparta</span> <span class="k">import</span> <span class="n">sparta</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spa</span> <span class="o">=</span> <span class="n">sparta</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spa</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="s2">&quot;in.free&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Or put the same lines in the file test.py and run it as</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">python</span> <span class="n">test</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>% python test.py
 </pre></div>
 </div>
 <p>Either way, you should see the results of running the <code class="docutils literal notranslate"><span class="pre">in.free</span></code> benchmark on a single processor appear on the screen, the same as if you had typed something like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa_g</span><span class="o">++</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">free</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spa_g++ &lt; in.free
 </pre></div>
 </div>
 <p>You can also pass command-line switches, e.g. to set input script variables, through the Python interface.</p>
 <p>Replacing the “spa = sparta()” line above with</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa</span> <span class="o">=</span> <span class="n">sparta</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;-v&quot;</span><span class="p">,</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;100&quot;</span><span class="p">,</span><span class="s2">&quot;-v&quot;</span><span class="p">,</span><span class="s2">&quot;y&quot;</span><span class="p">,</span><span class="s2">&quot;100&quot;</span><span class="p">,</span><span class="s2">&quot;-v&quot;</span><span class="p">,</span><span class="s2">&quot;z&quot;</span><span class="p">,</span><span class="s2">&quot;100&quot;</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">spa</span> <span class="o">=</span> <span class="n">sparta</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;-v&quot;</span><span class="p">,</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;100&quot;</span><span class="p">,</span><span class="s2">&quot;-v&quot;</span><span class="p">,</span><span class="s2">&quot;y&quot;</span><span class="p">,</span><span class="s2">&quot;100&quot;</span><span class="p">,</span><span class="s2">&quot;-v&quot;</span><span class="p">,</span><span class="s2">&quot;z&quot;</span><span class="p">,</span><span class="s2">&quot;100&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>is the same as typing</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">v</span> <span class="n">x</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">y</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">z</span> <span class="mi">100</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">free</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spa_g++ -v x <span class="m">100</span> -v y <span class="m">100</span> -v z <span class="m">100</span> &lt; in.free
 </pre></div>
 </div>
 <p>from the command line.</p>
@@ -373,7 +374,7 @@ importing from the sparta.py file:</p>
 <div class="section" id="test-sparta-and-python-in-parallel">
 <span id="python-test-python-parallel"></span><h3>11.4.2. Test SPARTA and Python in parallel:<a class="headerlink" href="#test-sparta-and-python-in-parallel" title="Permalink to this headline">¶</a></h3>
 <p>To run SPARTA in parallel, assuming you have installed the <a class="reference external" href="http://datamining.anu.edu.au/~ole/pypar">Pypar</a> package as discussed above, create a test.py file containing these lines:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pypar</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pypar</span>
 <span class="kn">from</span> <span class="nn">sparta</span> <span class="k">import</span> <span class="n">sparta</span>
 <span class="n">spa</span> <span class="o">=</span> <span class="n">sparta</span><span class="p">()</span>
 <span class="n">spa</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="s2">&quot;in.free&quot;</span><span class="p">)</span>
@@ -382,11 +383,11 @@ importing from the sparta.py file:</p>
 </pre></div>
 </div>
 <p>You can then run it in parallel as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">4</span> <span class="n">python</span> <span class="n">test</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>% mpirun -np <span class="m">4</span> python test.py
 </pre></div>
 </div>
 <p>and you should see the same output as if you had typed</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">4</span> <span class="n">spa_g</span><span class="o">++</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">lj</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>% mpirun -np <span class="m">4</span> spa_g++ &lt; in.lj
 </pre></div>
 </div>
 <p>Note that if you leave out the 3 lines from test.py that specify Pypar commands you will instantiate and run SPARTA independently on each of the P processors specified in the mpirun command. In this case you should get 4 sets of output, each showing that a SPARTA run was made on a single processor, instead of one set of output showing that SPARTA ran on 4 processors. If the 1-processor outputs occur, it means that Pypar is not working correctly.</p>
@@ -395,19 +396,19 @@ importing from the sparta.py file:</p>
 <div class="section" id="running-python-scripts">
 <span id="python-running-python"></span><h3>11.4.3. Running Python scripts:<a class="headerlink" href="#running-python-scripts" title="Permalink to this headline">¶</a></h3>
 <p>Note that any Python script (not just for SPARTA) can be invoked in one of several ways:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">python</span> <span class="n">foo</span><span class="o">.</span><span class="n">script</span>
-<span class="o">%</span> <span class="n">python</span> <span class="o">-</span><span class="n">i</span> <span class="n">foo</span><span class="o">.</span><span class="n">script</span>
-<span class="o">%</span> <span class="n">foo</span><span class="o">.</span><span class="n">script</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>% python foo.script
+% python -i foo.script
+% foo.script
 </pre></div>
 </div>
 <p>The last command requires that the first line of the script be something
 like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/local/bin/python</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/local/bin/python</span>
 <span class="c1">#!/usr/local/bin/python -i</span>
 </pre></div>
 </div>
 <p>where the path points to where you have Python installed, and requires that you have made the script file executable:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">foo</span><span class="o">.</span><span class="n">script</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>% chmod +x foo.script
 </pre></div>
 </div>
 <p>Without the “-i” flag, Python will exit when the script finishes. With the “-i” flag, you will be left in the Python interpreter when the script finishes, so you can type subsequent commands. As mentioned above, you can only run Python interactively when running Python on a single processor, not in parallel.</p>
@@ -416,30 +417,30 @@ like this:</p>
 <div class="section" id="using-sparta-from-python">
 <span id="python-using"></span><h2><a class="toc-backref" href="#id5">11.5. Using SPARTA from Python</a><a class="headerlink" href="#using-sparta-from-python" title="Permalink to this headline">¶</a></h2>
 <p>The Python interface to SPARTA consists of a Python “sparta” module, the source code for which is in python/sparta.py, which creates a “sparta” object, with a set of methods that can be invoked on that object. The sample Python code below assumes you have first imported the “sparta” module in your Python script, as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sparta</span> <span class="k">import</span> <span class="n">sparta</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sparta</span> <span class="k">import</span> <span class="n">sparta</span>
 </pre></div>
 </div>
 <p>These are the methods defined by the sparta module. If you look at the file src/library.cpp you will see that they correspond one-to-one with calls you can make to the SPARTA library from a C++ or C or Fortran program.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa</span> <span class="o">=</span> <span class="n">sparta</span><span class="p">()</span>           <span class="c1"># create a SPARTA object using the default libsparta.so library</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">spa</span> <span class="o">=</span> <span class="n">sparta</span><span class="p">()</span>           <span class="c1"># create a SPARTA object using the default libsparta.so library</span>
 <span class="n">spa</span> <span class="o">=</span> <span class="n">sparta</span><span class="p">(</span><span class="s2">&quot;g++&quot;</span><span class="p">)</span>      <span class="c1"># create a SPARTA object using the libsparta_g++.so library</span>
 <span class="n">spa</span> <span class="o">=</span> <span class="n">sparta</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span>    <span class="c1"># ditto, with command-line args, e.g. list = [&quot;-echo&quot;,&quot;screen&quot;]</span>
 <span class="n">spa</span> <span class="o">=</span> <span class="n">sparta</span><span class="p">(</span><span class="s2">&quot;g++&quot;</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>              <span class="c1"># destroy a SPARTA object</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>           <span class="c1"># run an entire input script, file = &quot;in.lj&quot;</span>
+
+
+<span class="n">spa</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>              <span class="c1"># destroy a SPARTA object</span>
+
+
+<span class="n">spa</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>           <span class="c1"># run an entire input script, file = &quot;in.lj&quot;</span>
 <span class="n">spa</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>         <span class="c1"># invoke a single SPARTA command, cmd = &quot;run 100&quot;</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fnum</span> <span class="o">=</span> <span class="n">spa</span><span class="o">.</span><span class="n">extract_global</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="nb">type</span><span class="p">)</span> <span class="c1"># extract a global quantity</span>
+
+
+<span class="n">fnum</span> <span class="o">=</span> <span class="n">spa</span><span class="o">.</span><span class="n">extract_global</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="nb">type</span><span class="p">)</span> <span class="c1"># extract a global quantity</span>
                                      <span class="c1"># name = &quot;dt&quot;, &quot;fnum&quot;, etc</span>
                      <span class="c1"># type = 0 = int</span>
                      <span class="c1">#        1 = double</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="n">spa</span><span class="o">.</span><span class="n">extract_compute</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">style</span><span class="p">,</span><span class="nb">type</span><span class="p">)</span> <span class="c1"># extract value(s) from a compute</span>
+
+
+<span class="n">temp</span> <span class="o">=</span> <span class="n">spa</span><span class="o">.</span><span class="n">extract_compute</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">style</span><span class="p">,</span><span class="nb">type</span><span class="p">)</span> <span class="c1"># extract value(s) from a compute</span>
                                           <span class="c1"># id = ID of compute</span>
                       <span class="c1"># style = 0 = global data</span>
                       <span class="c1">#     1 = per particle data</span>
@@ -448,9 +449,9 @@ like this:</p>
                       <span class="c1"># type = 0 = scalar</span>
                       <span class="c1">#    1 = vector</span>
                       <span class="c1">#        2 = array</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="n">spa</span><span class="o">.</span><span class="n">extract_variable</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">flag</span><span class="p">)</span>  <span class="c1"># extract value(s) from a variable</span>
+
+
+<span class="n">var</span> <span class="o">=</span> <span class="n">spa</span><span class="o">.</span><span class="n">extract_variable</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">flag</span><span class="p">)</span>  <span class="c1"># extract value(s) from a variable</span>
                                    <span class="c1"># name = name of variable</span>
                        <span class="c1"># flag = 0 = equal-style variable</span>
                        <span class="c1">#        1 = particle-style variable</span>
@@ -463,7 +464,7 @@ If someone figures out how to do this with one or more of the Python wrappers fo
 </div>
 <p>Note that you can create multiple SPARTA objects in your Python script,
 and coordinate and run multiple simulations, e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sparta</span> <span class="k">import</span> <span class="n">sparta</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sparta</span> <span class="k">import</span> <span class="n">sparta</span>
 <span class="n">spa1</span> <span class="o">=</span> <span class="n">sparta</span><span class="p">()</span>
 <span class="n">spa2</span> <span class="o">=</span> <span class="n">sparta</span><span class="p">()</span>
 <span class="n">spa1</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="s2">&quot;in.file1&quot;</span><span class="p">)</span>

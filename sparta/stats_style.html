@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,24 +171,24 @@
 <span id="command-stats-style"></span><span id="index-0"></span><h1>stats_style command<a class="headerlink" href="#stats-style-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stats_style</span> <span class="n">arg1</span> <span class="n">arg2</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">stats_style</span> <span class="no">arg1 arg2 ...</span>
 </pre></div>
 </div>
 <ul>
 <li><p>arg1,arg2,… = list of keywords</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">possible</span> <span class="n">keywords</span> <span class="o">=</span> <span class="n">step</span><span class="p">,</span> <span class="n">elapsed</span><span class="p">,</span> <span class="n">elaplong</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">cpu</span><span class="p">,</span> <span class="n">tpcpu</span><span class="p">,</span> <span class="n">spcpu</span><span class="p">,</span> <span class="n">wall</span><span class="p">,</span>
-                    <span class="n">np</span><span class="p">,</span> <span class="n">npave</span><span class="p">,</span> <span class="n">ntouch</span><span class="p">,</span> <span class="n">ntouchave</span><span class="p">,</span> <span class="n">ncomm</span><span class="p">,</span> <span class="n">ncommave</span><span class="p">,</span>
-                    <span class="n">nbound</span><span class="p">,</span> <span class="n">nboundave</span><span class="p">,</span> <span class="n">nexit</span><span class="p">,</span> <span class="n">nexitave</span><span class="p">,</span>
-            <span class="n">nscoll</span><span class="p">,</span> <span class="n">nscollave</span><span class="p">,</span> <span class="n">nscheck</span><span class="p">,</span> <span class="n">nscheckave</span><span class="p">,</span>
-                    <span class="n">ncoll</span><span class="p">,</span> <span class="n">ncollave</span><span class="p">,</span> <span class="n">nattempt</span><span class="p">,</span> <span class="n">nattemptave</span><span class="p">,</span>
-                    <span class="n">nreact</span><span class="p">,</span> <span class="n">nreactave</span><span class="p">,</span> <span class="n">nsreact</span><span class="p">,</span> <span class="n">nsreactave</span><span class="p">,</span>
-                    <span class="n">nparent</span><span class="p">,</span> <span class="n">nchild</span><span class="p">,</span> <span class="n">nsplit</span><span class="p">,</span> <span class="n">maxlevel</span><span class="p">,</span>
-            <span class="n">vol</span><span class="p">,</span> <span class="n">lx</span><span class="p">,</span> <span class="n">ly</span><span class="p">,</span> <span class="n">lz</span><span class="p">,</span>
-            <span class="n">xlo</span><span class="p">,</span> <span class="n">xhi</span><span class="p">,</span> <span class="n">ylo</span><span class="p">,</span> <span class="n">yhi</span><span class="p">,</span> <span class="n">zlo</span><span class="p">,</span> <span class="n">zhi</span><span class="p">,</span>
-            <span class="n">s_ID</span><span class="p">[</span><span class="n">I</span><span class="p">],</span> <span class="n">r_ID</span><span class="p">[</span><span class="n">I</span><span class="p">],</span>
-            <span class="n">c_ID</span><span class="p">,</span> <span class="n">c_ID</span><span class="p">[</span><span class="n">I</span><span class="p">],</span> <span class="n">c_ID</span><span class="p">[</span><span class="n">I</span><span class="p">][</span><span class="n">J</span><span class="p">],</span>
-                    <span class="n">f_ID</span><span class="p">,</span> <span class="n">f_ID</span><span class="p">[</span><span class="n">I</span><span class="p">],</span> <span class="n">f_ID</span><span class="p">[</span><span class="n">I</span><span class="p">][</span><span class="n">J</span><span class="p">],</span>
-                    <span class="n">v_name</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>possible keywords = step, elapsed, elaplong, dt, cpu, tpcpu, spcpu, wall,
+                    np, npave, ntouch, ntouchave, ncomm, ncommave,
+                    nbound, nboundave, nexit, nexitave,
+            nscoll, nscollave, nscheck, nscheckave,
+                    ncoll, ncollave, nattempt, nattemptave,
+                    nreact, nreactave, nsreact, nsreactave,
+                    nparent, nchild, nsplit, maxlevel,
+            vol, lx, ly, lz,
+            xlo, xhi, ylo, yhi, zlo, zhi,
+            s_ID[I], r_ID[I],
+            c_ID, c_ID[I], c_ID[I][J],
+                    f_ID, f_ID[I], f_ID[I][J],
+                    v_name
 </pre></div>
 </div>
 <ul class="simple">
@@ -230,9 +231,9 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stats_style</span> <span class="n">step</span> <span class="n">cpu</span> <span class="n">np</span>
-<span class="n">stats_style</span> <span class="n">step</span> <span class="n">cpu</span> <span class="n">spcpu</span> <span class="n">np</span> <span class="n">xlo</span> <span class="n">xhi</span> <span class="n">c_myCount</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">stats_style</span> <span class="n">step</span> <span class="n">cpu</span> <span class="n">spcpu</span> <span class="n">np</span> <span class="n">xlo</span> <span class="n">xhi</span> <span class="n">c_myCount</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">stats_style</span> <span class="no">step cpu np</span>
+<span class="nb">stats_style</span> <span class="no">step cpu spcpu np xlo xhi c_myCount[2]</span>
+<span class="nb">stats_style</span> <span class="no">step cpu spcpu np xlo xhi c_myCount[*]</span>
 </pre></div>
 </div>
 </div>
@@ -253,12 +254,12 @@ other attributes of the statistics.</p>
 <dt>The <em>cpu</em> keyword</dt><dd><p>is elapsed CPU seconds since the beginning of this run. The <em>tpcpu</em> and <em>spcpu</em> keywords are measures of how fast your simulation is currently running. The <em>tpcpu</em> keyword is simulation time per CPU second, where simulation time is in time <a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a>.  The <em>spcpu</em> keyword is the number of timesteps per CPU second. Both quantities are on-the-fly metrics, measured relative to the last time they were invoked. Thus if you are printing out statistical output every 100 timesteps, the two keywords will continually output the time and timestep rate for the last 100 steps.</p>
 </dd>
 <dt>The <em>wall</em> keyword</dt><dd><p>is elapsed time in seconds since SPARTA was launched.  This can be used to time portions of the input script in the following manner:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>variable            t equal wall
-variable            t1 equal $t
-portion of input script
-variable            t2 equal $t
-variable            delta equal v_2-v_1
-print               &quot;Delta time = $delta&quot;
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span>            <span class="no">t equal wall</span>
+<span class="nb">variable</span>            <span class="no">t1 equal $t</span>
+<span class="nb">portion</span> <span class="no">of input script</span>
+<span class="nb">variable</span>            <span class="no">t2 equal $t</span>
+<span class="nb">variable</span>            <span class="no">delta equal v_2-v_1</span>
+<span class="nb">print</span>               <span class="no">&quot;Delta time = $delta&quot;</span>
 </pre></div>
 </div>
 </dd>
@@ -321,10 +322,10 @@ indices from 1 to N. A leading asterisk means all indices from 1 to n
 had been listed one by one. E.g. these 2 stats_style commands are
 equivalent, since the <a class="reference internal" href="compute_reduce.html#command-compute-reduce"><span class="std std-ref">compute reduce</span></a> command
 creates a global vector with 6 values.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">myCount</span> <span class="n">reduce</span> <span class="nb">max</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="n">vx</span> <span class="n">vy</span> <span class="n">vz</span>
-<span class="n">stats_style</span> <span class="n">step</span> <span class="n">np</span> <span class="n">c_myCount</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
-<span class="n">stats_style</span> <span class="n">step</span> <span class="n">np</span> <span class="n">c_myCount</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">c_myCount</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">c_myCount</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">&amp;</span>
-                    <span class="n">c_myCount</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">c_myCount</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="n">c_myCount</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>compute myCount reduce max x y z vx vy vz
+stats_style step np c_myCount[*]
+stats_style step np c_myCount[1] c_myCount[2] c_myCount[3] &amp;
+                    c_myCount[4] c_myCount[5] c_myCount[6]
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -360,7 +361,7 @@ global scalar, vector, or array, then the keyword formats with 0, 1, or
 </div>
 <div class="section" id="default">
 <h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stats_style</span> <span class="n">step</span> <span class="n">cpu</span> <span class="n">np</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">stats_style</span> <span class="no">step cpu np</span>
 </pre></div>
 </div>
 </div>

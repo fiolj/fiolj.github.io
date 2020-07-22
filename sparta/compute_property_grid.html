@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -173,31 +174,30 @@
 <span id="command-compute-property-gridkk"></span><h1>compute property/grid/kk command<a class="headerlink" href="#compute-property-grid-kk-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="nb">property</span><span class="o">/</span><span class="n">grid</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">input1</span> <span class="n">input2</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">ID property/grid group-ID input1 input2 ...</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><p>ID is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
 <li><p>property/grid = style name of this compute command</p></li>
 <li><p>group-ID = group ID for which grid cells to perform calculation on</p></li>
-<li><p>input = one or more grid attributes</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">possible</span> <span class="n">attributes</span> <span class="o">=</span> <span class="nb">id</span><span class="p">,</span> <span class="n">proc</span><span class="p">,</span> <span class="n">xlo</span><span class="p">,</span> <span class="n">ylo</span><span class="p">,</span> <span class="n">zlo</span><span class="p">,</span> <span class="n">xhi</span><span class="p">,</span> <span class="n">yhi</span><span class="p">,</span> <span class="n">zhi</span><span class="p">,</span> <span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">zc</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">integer</span> <span class="n">form</span> <span class="n">of</span> <span class="n">grid</span> <span class="n">cell</span> <span class="n">ID</span>
-<span class="n">proc</span> <span class="o">=</span> <span class="n">processor</span> <span class="n">that</span> <span class="n">owns</span> <span class="n">grid</span> <span class="n">cell</span>
-<span class="n">xlo</span><span class="p">,</span><span class="n">ylo</span><span class="p">,</span><span class="n">zlo</span> <span class="o">=</span> <span class="n">coords</span> <span class="n">of</span> <span class="n">lower</span> <span class="n">left</span> <span class="n">corner</span> <span class="n">of</span> <span class="n">grid</span> <span class="n">cell</span>
-<span class="n">xhi</span><span class="p">,</span><span class="n">yhi</span><span class="p">,</span><span class="n">zhi</span> <span class="o">=</span> <span class="n">coords</span> <span class="n">of</span> <span class="n">lower</span> <span class="n">left</span> <span class="n">corner</span> <span class="n">of</span> <span class="n">grid</span> <span class="n">cell</span>
-<span class="n">xc</span><span class="p">,</span><span class="n">yc</span><span class="p">,</span><span class="n">zc</span> <span class="o">=</span> <span class="n">coords</span> <span class="n">of</span> <span class="n">center</span> <span class="n">of</span> <span class="n">grid</span> <span class="n">cell</span>
-<span class="n">vol</span> <span class="o">=</span> <span class="n">flow</span> <span class="n">volume</span> <span class="n">of</span> <span class="n">grid</span> <span class="n">cell</span> <span class="p">(</span><span class="n">area</span> <span class="ow">in</span> <span class="mi">2</span><span class="n">d</span><span class="p">)</span>
-</pre></div>
-</div>
-</li>
+<li><p>input = one or more grid attributes</p></li>
 </ul>
+<blockquote>
+<div><p>possible attributes = id, proc, xlo, ylo, zlo, xhi, yhi, zhi, xc, yc, zc</p>
+<ul class="simple">
+<li><p>id = integer form of grid cell ID</p></li>
+<li><p>proc = processor that owns grid cell</p></li>
+<li><p>xlo,ylo,zlo = coords of lower left corner of grid cell</p></li>
+<li><p>xhi,yhi,zhi = coords of lower left corner of grid cell</p></li>
+<li><p>xc,yc,zc = coords of center of grid cell</p></li>
+<li><p>vol = flow volume of grid cell (area in 2d)</p></li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="nb">property</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="nb">id</span> <span class="n">xc</span> <span class="n">yc</span> <span class="n">zc</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 property/grid all id xc yc zc</span>
 </pre></div>
 </div>
 </div>
@@ -233,8 +233,10 @@ are the coordinates of the center point of the grid cell. The <em>zlo</em>,
 <p>The <em>vol</em> attribute is the flow volume of the grid cell (or area in 2d).
 Flow volume is the portion of the grid cell that is accessible to
 particles, i.e. outside any closed surface that may intersect the cell.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Output info:</strong></p>
+<div class="section" id="output-info">
+<h2>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h2>
 <p>This compute calculates a per-grid vector or per-grid array depending on
 the number of input values. If a single input is specified, a per-grid
 vector is produced. If two or more inputs are specified, a per-grid

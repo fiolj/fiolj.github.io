@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -173,7 +174,7 @@
 <span id="command-compute-ke-particle-compute-keparticlekk"></span><h1>compute ke/particle/kk command<a class="headerlink" href="#compute-ke-particle-kk-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">ke</span><span class="o">/</span><span class="n">particle</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">ID ke/particle</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -183,7 +184,7 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">ke</span><span class="o">/</span><span class="n">particle</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 ke/particle</span>
 </pre></div>
 </div>
 </div>
@@ -195,12 +196,14 @@ energy for each particle.</p>
 different ways. The values for a single timestep can be output by the
 <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump particle</span></a> command.</p>
 <p>The kinetic energy is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Vsq</span> <span class="o">=</span> <span class="n">Vx</span><span class="o">*</span><span class="n">Vx</span> <span class="o">+</span> <span class="n">Vy</span><span class="o">*</span><span class="n">Vy</span> <span class="o">+</span> <span class="n">Vz</span><span class="o">*</span><span class="n">Vz</span>
-<span class="n">KE</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="n">m</span> <span class="n">Vsq</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Vsq</span> <span class="no">= Vx*Vx + Vy*Vy + Vz*Vz</span>
+<span class="nb">KE</span> <span class="no">= 1/2 m Vsq</span>
 </pre></div>
 </div>
 <p>where m is the mass and (Vx,Vy,Vz) are the velocity components of the particle.</p>
-<p><strong>Output info:</strong></p>
+</div>
+<div class="section" id="output-info">
+<h2>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h2>
 <p>This compute calculates a per-particle vector, which can be accessed by any command that uses per-particle values from a compute as input.</p>
 <p>The vector can be accessed by any command that uses per-particle values from a compute as input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Output from SPARTA (stats, dumps, computes, fixes, variables)</span></a> for an overview of SPARTA output options.</p>
 <p>The per-particle vector values will be in energy <a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a>.</p>

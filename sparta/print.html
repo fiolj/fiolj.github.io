@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -175,9 +176,9 @@
 <li><p>string = text string to print, which may contain variables</p></li>
 <li><p>zero or more keyword/value pairs may be appended</p></li>
 <li><p>keyword = <em>file</em> or <em>append</em> or <em>screen</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="n">value</span> <span class="o">=</span> <span class="n">filename</span>
-<span class="n">append</span> <span class="n">value</span> <span class="o">=</span> <span class="n">filename</span>
-<span class="n">screen</span> <span class="n">value</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">file</span> <span class="no">value = filename</span>
+<span class="nb">append</span> <span class="no">value = filename</span>
+<span class="nb">screen</span> <span class="no">value = yes or no</span>
 </pre></div>
 </div>
 </li>
@@ -185,14 +186,14 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s2">&quot;Done with equilibration&quot;</span>
-<span class="nb">print</span> <span class="s1">&#39;Done with equilibration&#39;</span>
-<span class="nb">print</span> <span class="s2">&quot;Done with equilibration&quot;</span> <span class="n">file</span> <span class="n">info</span><span class="o">.</span><span class="n">dat</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="no">&quot;Done with equilibration&quot;</span>
+<span class="nb">print</span> <span class="no">&#39;Done with equilibration&#39;</span>
+<span class="nb">print</span> <span class="no">&quot;Done with equilibration&quot; file info.dat</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">myTemp</span> <span class="n">temp</span>
-<span class="n">variable</span> <span class="n">t</span> <span class="n">equal</span> <span class="n">c_myTemp</span>
-<span class="nb">print</span> <span class="s2">&quot;The system temperature is now $t&quot;</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">myTemp temp</span>
+<span class="nb">variable</span> <span class="no">t equal c_myTemp</span>
+<span class="nb">print</span> <span class="no">&quot;The system temperature is now $t&quot;</span>
 </pre></div>
 </div>
 </div>

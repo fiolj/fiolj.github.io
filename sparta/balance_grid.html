@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,42 +171,39 @@
 <span id="command-balance-grid"></span><span id="index-0"></span><h1>balance_grid command<a class="headerlink" href="#balance-grid-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">balance_grid</span> <span class="n">style</span> <span class="n">args</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">balance_grid</span> <span class="no">style args ...</span>
 </pre></div>
 </div>
 <ul>
-<li><p>style = <em>none</em> or <em>stride</em> or <em>clump</em> or <em>block</em> or <em>random</em> or
-<em>proc</em> or <em>rcb</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">none</span> <span class="n">args</span> <span class="o">=</span> <span class="n">none</span>
-<span class="n">stride</span> <span class="n">args</span> <span class="o">=</span> <span class="n">xyz</span> <span class="ow">or</span> <span class="n">xzy</span> <span class="ow">or</span> <span class="n">yxz</span> <span class="ow">or</span> <span class="n">yzx</span> <span class="ow">or</span> <span class="n">zxy</span> <span class="ow">or</span> <span class="n">zyx</span>
-<span class="n">clump</span> <span class="n">args</span> <span class="o">=</span> <span class="n">xyz</span> <span class="ow">or</span> <span class="n">xzy</span> <span class="ow">or</span> <span class="n">yxz</span> <span class="ow">or</span> <span class="n">yzx</span> <span class="ow">or</span> <span class="n">zxy</span> <span class="ow">or</span> <span class="n">zyx</span>
-<span class="n">block</span> <span class="n">args</span> <span class="o">=</span> <span class="n">Px</span> <span class="n">Py</span> <span class="n">Pz</span>
-  <span class="n">Px</span><span class="p">,</span><span class="n">Py</span><span class="p">,</span><span class="n">Pz</span> <span class="o">=</span> <span class="c1"># of processors in each dimension</span>
-<span class="n">random</span> <span class="n">args</span> <span class="o">=</span> <span class="n">none</span>
-<span class="n">proc</span> <span class="n">args</span> <span class="o">=</span> <span class="n">none</span>
-<span class="n">rcb</span> <span class="n">args</span> <span class="o">=</span> <span class="n">weight</span>
-  <span class="n">weight</span> <span class="o">=</span> <span class="n">cell</span> <span class="ow">or</span> <span class="n">part</span> <span class="ow">or</span> <span class="n">time</span>
-</pre></div>
-</div>
+<li><p>style = <code class="docutils literal notranslate"><span class="pre">none</span></code> or <code class="docutils literal notranslate"><span class="pre">stride</span></code> or <code class="docutils literal notranslate"><span class="pre">clump</span></code> or <code class="docutils literal notranslate"><span class="pre">block</span></code> or <code class="docutils literal notranslate"><span class="pre">random</span></code> or
+<code class="docutils literal notranslate"><span class="pre">proc</span></code> or <code class="docutils literal notranslate"><span class="pre">rcb</span></code></p>
+<ul class="simple">
+<li><p>none args = none</p></li>
+<li><p>stride args = xyz or xzy or yxz or yzx or zxy or zyx</p></li>
+<li><p>clump args = xyz or xzy or yxz or yzx or zxy or zyx</p></li>
+<li><p>block args = Px Py Pz:  # of processors in each dimension</p></li>
+<li><p>random args = none</p></li>
+<li><p>proc args = none</p></li>
+<li><p>rcb args = weight: or part or time</p></li>
+</ul>
 </li>
-<li><p>zero or more keyword/value(s) pairs may be appended</p></li>
-<li><p>keyword = <em>axes</em> or <em>flip</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">axes</span> <span class="n">value</span> <span class="o">=</span> <span class="n">dims</span>
-  <span class="n">dims</span> <span class="o">=</span> <span class="n">string</span> <span class="k">with</span> <span class="nb">any</span> <span class="n">of</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="ow">or</span> <span class="s2">&quot;z&quot;</span> <span class="n">characters</span> <span class="ow">in</span> <span class="n">it</span>
-<span class="n">flip</span> <span class="n">value</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
-</pre></div>
-</div>
+<li><p>zero or more keyword/value(s) pairs may be appended</p>
+<p>keyword = <code class="docutils literal notranslate"><span class="pre">axes</span></code> or <code class="docutils literal notranslate"><span class="pre">flip</span></code></p>
+<ul class="simple">
+<li><p>axes value = dims: string with any of “x”, “y”, or “z” characters in it</p></li>
+<li><p>flip value = yes or no</p></li>
+</ul>
 </li>
 </ul>
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">balance_grid</span> <span class="n">block</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span>
-<span class="n">balance_grid</span> <span class="n">block</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">*</span>
-<span class="n">balance_grid</span> <span class="n">clump</span> <span class="n">yxz</span>
-<span class="n">balance_grid</span> <span class="n">random</span>
-<span class="n">balance_grid</span> <span class="n">rcb</span> <span class="n">part</span>
-<span class="n">balance_grid</span> <span class="n">rcb</span> <span class="n">part</span> <span class="n">axes</span> <span class="n">xz</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">balance_grid</span> <span class="no">block * * *</span>
+<span class="nb">balance_grid</span> <span class="no">block * 4 *</span>
+<span class="nb">balance_grid</span> <span class="no">clump yxz</span>
+<span class="nb">balance_grid</span> <span class="no">random</span>
+<span class="nb">balance_grid</span> <span class="no">rcb part</span>
+<span class="nb">balance_grid</span> <span class="no">rcb part axes xz</span>
 </pre></div>
 </div>
 </div>

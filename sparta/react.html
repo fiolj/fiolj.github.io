@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,21 +171,21 @@
 <span id="command-react"></span><span id="index-0"></span><h1>react command<a class="headerlink" href="#react-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">react</span> <span class="n">style</span> <span class="n">args</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">react</span> <span class="no">style args</span>
 </pre></div>
 </div>
 <ul>
 <li><p>style = <em>none</em> or <em>tce</em> or <em>qk</em> or <em>tce/qk</em></p></li>
 <li><p>args = arguments for that style</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">none</span> <span class="n">args</span> <span class="o">=</span> <span class="n">none</span>
-<span class="n">tce</span> <span class="n">args</span> <span class="o">=</span> <span class="n">infile</span>
-  <span class="n">infile</span> <span class="o">=</span> <span class="n">file</span> <span class="k">with</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">gas</span><span class="o">-</span><span class="n">phase</span> <span class="n">chemistry</span> <span class="n">reactions</span>
-<span class="n">qk</span> <span class="n">args</span> <span class="o">=</span> <span class="n">infile</span>
-  <span class="n">infile</span> <span class="o">=</span> <span class="n">file</span> <span class="k">with</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">gas</span><span class="o">-</span><span class="n">phase</span> <span class="n">chemistry</span> <span class="n">reactions</span>
-<span class="n">tce</span><span class="o">/</span><span class="n">qk</span> <span class="n">args</span> <span class="o">=</span> <span class="n">infile</span>
-  <span class="n">infile</span> <span class="o">=</span> <span class="n">file</span> <span class="k">with</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">gas</span><span class="o">-</span><span class="n">phase</span> <span class="n">chemistry</span> <span class="n">reactions</span>
-<span class="n">tce</span><span class="o">/</span><span class="n">kk</span> <span class="n">args</span> <span class="o">=</span> <span class="n">infile</span>
-  <span class="n">infile</span> <span class="o">=</span> <span class="n">file</span> <span class="k">with</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">gas</span><span class="o">-</span><span class="n">phase</span> <span class="n">chemistry</span> <span class="n">reactions</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>none args = none
+tce args = infile
+  infile = file with list of gas-phase chemistry reactions
+qk args = infile
+  infile = file with list of gas-phase chemistry reactions
+tce/qk args = infile
+  infile = file with list of gas-phase chemistry reactions
+tce/kk args = infile
+  infile = file with list of gas-phase chemistry reactions
 </pre></div>
 </div>
 </li>
@@ -192,9 +193,9 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">react</span> <span class="n">none</span>
-<span class="n">react</span> <span class="n">tce</span> <span class="n">air</span><span class="o">.</span><span class="n">tce</span>
-<span class="n">react</span> <span class="n">qk</span> <span class="n">air</span><span class="o">.</span><span class="n">tce</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">react</span> <span class="no">none</span>
+<span class="nb">react</span> <span class="no">tce air.tce</span>
+<span class="nb">react</span> <span class="no">qk air.tce</span>
 </pre></div>
 </div>
 </div>
@@ -286,8 +287,8 @@ using the QK model.</p>
 lines are allowed in the file. Comment lines start with a “#” character.
 All other entries must come in 2-line pairs with values separated by
 whitespace in the following format</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span> <span class="o">+</span> <span class="n">R2</span> <span class="o">+</span> <span class="o">...</span> <span class="o">--&gt;</span> <span class="n">P1</span> <span class="o">+</span> <span class="n">P2</span> <span class="o">+</span> <span class="o">...</span>
-<span class="nb">type</span> <span class="n">style</span> <span class="n">C1</span> <span class="n">C2</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">R1</span> <span class="no">+ R2 + ... --&gt; P1 + P2 + ...</span>
+<span class="nb">type</span> <span class="no">style C1 C2 ...</span>
 </pre></div>
 </div>
 <p>The first line is a text-based description of a single reaction. R1, R2,
@@ -303,10 +304,10 @@ separated by whitespace and “–&gt;”.</p>
 <p>The <em>type</em> of each reaction is a single character (upper or lower case)
 with the following meaning. The type determines how many reactants and
 products can be specified in the first line.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">dissociation</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">reactants</span> <span class="ow">and</span> <span class="mi">3</span> <span class="n">products</span>
-<span class="n">E</span> <span class="o">=</span> <span class="n">exchange</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">reactants</span> <span class="ow">and</span> <span class="mi">2</span> <span class="n">products</span>
-<span class="n">I</span> <span class="o">=</span> <span class="n">ionization</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">reactants</span> <span class="ow">and</span> <span class="mi">2</span> <span class="ow">or</span> <span class="mi">3</span> <span class="n">products</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">recombination</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">reactants</span> <span class="ow">and</span> <span class="mi">1</span> <span class="n">product</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">D</span> <span class="no">= dissociation = 2 reactants and 3 products</span>
+<span class="nb">E</span> <span class="no">= exchange = 2 reactants and 2 products</span>
+<span class="nb">I</span> <span class="no">= ionization = 2 reactants and 2 or 3 products</span>
+<span class="nb">R</span> <span class="no">= recombination = 2 reactants and 1 product (see below)</span>
 </pre></div>
 </div>
 <p>A dissociation reaction means that R1 dissociates into P1 and P2 when it
@@ -334,9 +335,9 @@ to balance energy and momentum. So conceptually it can be thought of as
 both a reactant and a product. There are 3 ways you can specify
 recombination reactions, to include information about which species of
 3rd particles are eligible to participate:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span> <span class="o">+</span> <span class="n">R2</span> <span class="o">-&gt;</span> <span class="n">P1</span>
-<span class="n">R1</span> <span class="o">+</span> <span class="n">R2</span> <span class="o">-&gt;</span> <span class="n">P1</span> <span class="o">+</span> <span class="n">atom</span><span class="o">/</span><span class="n">mol</span>
-<span class="n">R1</span> <span class="o">+</span> <span class="n">R2</span> <span class="o">-&gt;</span> <span class="n">P1</span> <span class="o">+</span> <span class="n">P2</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">R1</span> <span class="no">+ R2 -&gt; P1</span>
+<span class="nb">R1</span> <span class="no">+ R2 -&gt; P1 + atom/mol</span>
+<span class="nb">R1</span> <span class="no">+ R2 -&gt; P1 + P2</span>
 </pre></div>
 </div>
 <p>In the first case, no info for a 3rd particle is listed. This means any
@@ -407,26 +408,26 @@ ambipolar reaction written here conserves charge.  I.e. the net charge
 of the reactants equals the net charge of the products.</p>
 <p>Ambipolar dissociation reactions must list their reactants and products
 in one of the following orders:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AB</span> <span class="o">+</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="n">A</span> <span class="o">+</span> <span class="n">e</span> <span class="o">+</span> <span class="n">B</span>
-<span class="n">AB</span><span class="o">+</span> <span class="o">+</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="n">A</span><span class="o">+</span> <span class="o">+</span> <span class="n">e</span> <span class="o">+</span> <span class="n">B</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>AB + e -&gt; A + e + B
+AB+ + e -&gt; A+ + e + B
 </pre></div>
 </div>
 <p>Ambipolar ionization reactions with 2 or 3 products must be in one of
 the following orders:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span> <span class="o">-&gt;</span> <span class="n">AB</span><span class="o">+</span> <span class="o">+</span> <span class="n">e</span>
-<span class="n">A</span> <span class="o">+</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="n">A</span><span class="o">+</span> <span class="o">+</span> <span class="n">e</span> <span class="o">+</span> <span class="n">e</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">A</span> <span class="no">+ B -&gt; AB+ + e</span>
+<span class="nb">A</span> <span class="no">+ e -&gt; A+ + e + e</span>
 </pre></div>
 </div>
 <p>Ambipolar exchange reactions must be in one of the following orders:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AB</span><span class="o">+</span> <span class="o">+</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span>
-<span class="n">AB</span><span class="o">+</span> <span class="o">+</span> <span class="n">C</span> <span class="o">-&gt;</span> <span class="n">A</span> <span class="o">+</span> <span class="n">BC</span><span class="o">+</span>
-<span class="n">C</span> <span class="o">+</span> <span class="n">AB</span><span class="o">+</span> <span class="o">-&gt;</span> <span class="n">A</span> <span class="o">+</span> <span class="n">BC</span><span class="o">+</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>AB+ + e -&gt; A + B
+AB+ + C -&gt; A + BC+
+C + AB+ -&gt; A + BC+
 </pre></div>
 </div>
 <p>Ambipolar recombination reactions must be in the following order:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">+</span> <span class="o">+</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="n">A</span>
-<span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="o">+</span> <span class="o">-&gt;</span> <span class="n">AB</span><span class="o">+</span>
-<span class="n">A</span><span class="o">+</span> <span class="o">+</span> <span class="n">B</span> <span class="o">-&gt;</span> <span class="n">AB</span><span class="o">+</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>A+ + e -&gt; A
+A + B+ -&gt; AB+
+A+ + B -&gt; AB+
 </pre></div>
 </div>
 <p>A third particle for recombination reactions can be specified in

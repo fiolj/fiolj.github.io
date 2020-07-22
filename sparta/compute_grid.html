@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -173,7 +174,7 @@
 <span id="command-compute-grid-compute-gridkk"></span><h1>compute grid/kk command<a class="headerlink" href="#compute-grid-kk-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">grid</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">value1</span> <span class="n">value2</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">ID grid group-ID mix-ID value1 value2 ...</span>
 </pre></div>
 </div>
 <ul>
@@ -212,15 +213,15 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">grid</span> <span class="nb">all</span> <span class="n">species</span> <span class="n">n</span> <span class="n">u</span> <span class="n">v</span> <span class="n">w</span> <span class="n">usq</span> <span class="n">vsq</span> <span class="n">wsq</span>
-<span class="n">compute</span> <span class="mi">1</span> <span class="n">grid</span> <span class="n">subset</span> <span class="n">air</span> <span class="n">n</span> <span class="n">u</span> <span class="n">v</span> <span class="n">w</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 grid all species n u v w usq vsq wsq</span>
+<span class="nb">compute</span> <span class="no">1 grid subset air n u v w</span>
 </pre></div>
 </div>
 <p>These commands will dump time averages for each species and each grid
 cell to a dump file every 1000 steps:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">grid</span> <span class="nb">all</span> <span class="n">species</span> <span class="n">n</span> <span class="n">u</span> <span class="n">v</span> <span class="n">w</span> <span class="n">usq</span> <span class="n">vsq</span> <span class="n">wsq</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="mi">10</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="n">c_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
-<span class="n">dump</span> <span class="mi">1</span> <span class="n">grid</span> <span class="nb">all</span> <span class="mi">1000</span> <span class="n">tmp</span><span class="o">.</span><span class="n">grid</span> <span class="nb">id</span> <span class="n">f_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 grid all species n u v w usq vsq wsq</span>
+<span class="nb">fix</span> <span class="no">1 ave/grid 10 100 1000 c_1[*]</span>
+<span class="nb">dump</span> <span class="no">1 grid all 1000 tmp.grid id f_1[*]</span>
 </pre></div>
 </div>
 </div>
@@ -249,7 +250,7 @@ accumulated over multiple sampling steps, this value is normalized by
 the number of sampling steps.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">nrho</span></code> value computes the number density for the grid cell volume
 due to particles in each group:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Nrho</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="o">*</span> <span class="n">N</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Nrho</span> <span class="no">= fnum/volume * N</span>
 </pre></div>
 </div>
 <p>N is the number of particles (same as the <em>n</em> keyword), fnum is the
@@ -266,13 +267,13 @@ group:</p>
 number of particles in all groups in the mixture. Note that this total
 is not (necessarily) all particles in the cell.</p>
 <p id="compute-grid-mass">The <code class="docutils literal notranslate"><span class="pre">mass</span></code> value computes the average mass of particles in each group:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mass</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Mass</span> <span class="no">= Sum_i (mass_i) / N</span>
 </pre></div>
 </div>
 <p>where Sum_i is a sum over particles in the group.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">massrho</span></code> value computes the mass density for the grid cell volume
 due to particles in each group:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Massrho</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="o">*</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Massrho</span> <span class="no">= fnum/volume * Sum_i (mass_i)</span>
 </pre></div>
 </div>
 <p>where Sum_i is a sum over particles in the group, fnum is the
@@ -284,7 +285,7 @@ via the <a class="reference internal" href="global.html#command-global"><span cl
 the formula is divided by the weight assigned to the grid cell.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">massfrac</span></code> value computes the mass fraction of particles in each
 group:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Massfrac</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Masstotal</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Massfrac</span> <span class="no">= Sum_i (mass_i) / Masstotal</span>
 </pre></div>
 </div>
 <p>where Sum_i is a sum over particles in the group and Masstotal is the
@@ -292,24 +293,24 @@ total mass of particles in all groups in the mixture. Note that this
 total is not (necessarily) the mass of all particles in the cell.</p>
 <p id="compute-grid-veloc">The <code class="docutils literal notranslate"><span class="pre">u</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">w</span></code> values compute the components of the mass-weighted
 average velocity of particles in each group:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">U</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vx_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">V</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vy_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vz_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">U</span> <span class="no">= Sum_i (mass_i Vx_i) / Sum_i (mass_i)</span>
+<span class="nb">V</span> <span class="no">= Sum_i (mass_i Vy_i) / Sum_i (mass_i)</span>
+<span class="nb">W</span> <span class="no">= Sum_i (mass_i Vz_i) / Sum_i (mass_i)</span>
 </pre></div>
 </div>
 <p>This is the same as the center-of-mass velocity of particles in each
 group.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">usq</span></code>, <code class="docutils literal notranslate"><span class="pre">vsq</span></code>, <code class="docutils literal notranslate"><span class="pre">wsq</span></code> values compute the average mass-weighted squared
 components of the velocity of particles in each group:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usq</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vx_i</span> <span class="n">Vx_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">Vsq</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vy_i</span> <span class="n">Vy_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">Wsq</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vz_i</span> <span class="n">Vz_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Usq</span> <span class="no">= Sum_i (mass_i Vx_i Vx_i) / Sum_i (mass_i)</span>
+<span class="nb">Vsq</span> <span class="no">= Sum_i (mass_i Vy_i Vy_i) / Sum_i (mass_i)</span>
+<span class="nb">Wsq</span> <span class="no">= Sum_i (mass_i Vz_i Vz_i) / Sum_i (mass_i)</span>
 </pre></div>
 </div>
 <p id="compute-grid-energy">The <code class="docutils literal notranslate"><span class="pre">ke</span></code> value computes the average kinetic energy of particles in each
 group:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Vsq</span> <span class="o">=</span> <span class="n">Vx</span><span class="o">*</span><span class="n">Vx</span> <span class="o">+</span> <span class="n">Vy</span><span class="o">*</span><span class="n">Vy</span> <span class="o">+</span> <span class="n">Vz</span><span class="o">*</span><span class="n">Vz</span>
-<span class="n">KE</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="n">mass_i</span> <span class="n">Vsq_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Vsq</span> <span class="no">= Vx*Vx + Vy*Vy + Vz*Vz</span>
+<span class="nb">KE</span> <span class="no">= Sum_i (1/2 mass_i Vsq_i) / N</span>
 </pre></div>
 </div>
 <p>Note that this is different than the group’s contribution to the average
@@ -319,9 +320,9 @@ multiplying the <em>ke</em> quantity by the <em>n</em> quantity.</p>
 in each group, as for the <em>ke</em> value. This is then converted to a
 temperature <em>T</em> by the following formula where <em>kB</em> is the Boltzmann
 factor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Vsq</span> <span class="o">=</span> <span class="n">Vx</span><span class="o">*</span><span class="n">Vx</span> <span class="o">+</span> <span class="n">Vy</span><span class="o">*</span><span class="n">Vy</span> <span class="o">+</span> <span class="n">Vz</span><span class="o">*</span><span class="n">Vz</span>
-<span class="n">KE</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="n">mass_i</span> <span class="n">Vsq_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
-<span class="n">T</span> <span class="o">=</span> <span class="n">KE</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span> <span class="n">kB</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Vsq</span> <span class="no">= Vx*Vx + Vy*Vy + Vz*Vz</span>
+<span class="nb">KE</span> <span class="no">= Sum_i (1/2 mass_i Vsq_i) / N</span>
+<span class="nb">T</span> <span class="no">= KE / (3/2 kB)</span>
 </pre></div>
 </div>
 <p>Note that this definition of temperature does not subtract out a net
@@ -332,7 +333,7 @@ command to calculate thermal temperatures after subtracting out
 streaming components of velocity.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">erot</span></code> value computes the average rotational energy of particles in
 each group:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Erot</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">erot_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Erot</span> <span class="no">= Sum_i (erot_i) / N</span>
 </pre></div>
 </div>
 <p>Note that this is different than the group’s contribution to the average
@@ -340,13 +341,13 @@ rotational energy of entire grid cells. That can be calculated by
 multiplying the <em>erot</em> quantity by the <em>n</em> quantity.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">trot</span></code> value computes a rotational temperature by the following
 formula where <em>kB</em> is the Boltzmann factor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Trot</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">kB</span><span class="p">)</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">erot_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">dof_i</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Trot</span> <span class="no">= (2/kB) Sum_i (erot_i) / Sum_i (dof_i)</span>
 </pre></div>
 </div>
 <p>Dof_i is the number of rotational degrees of freedom for particle i.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">evib</span></code> value computes the average vibrational energy of particles in
 each group:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Evib</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">evib_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Evib</span> <span class="no">= Sum_i (evib_i) / N</span>
 </pre></div>
 </div>
 <p>Note that this is different than the group’s contribution to the average
@@ -355,15 +356,15 @@ multiplying the <em>evib</em> quantity by the <em>n</em> quantity.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">tvib</span></code> value computes a classical definition of vibrational
 temperature, valid for continous distributions of vibrational energy, by
 the following formula where <em>kB</em> is the Boltzmann factor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Tvib</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">kB</span><span class="p">)</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">evib_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">dof_i</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Tvib</span> <span class="no">= (2/kB) Sum_i (evib_i) / Sum_i (dof_i)</span>
 </pre></div>
 </div>
 <p>Dof_i is the number of vibrational degrees of freedom for particle i.</p>
 <p id="compute-grid-momentum">The <code class="docutils literal notranslate"><span class="pre">pxrho</span></code>, <code class="docutils literal notranslate"><span class="pre">pyrho</span></code>, <code class="docutils literal notranslate"><span class="pre">pzrho</span></code> values compute components of momentum
 density for the grid cell volume due to particles in each group:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pxrho</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="o">*</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vx_i</span><span class="p">)</span>
-<span class="n">Pyrho</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="o">*</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vy_i</span><span class="p">)</span>
-<span class="n">Pzrho</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="o">*</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vz_i</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Pxrho</span> <span class="no">= fnum/volume * Sum_i (mass_i * Vx_i)</span>
+<span class="nb">Pyrho</span> <span class="no">= fnum/volume * Sum_i (mass_i * Vy_i)</span>
+<span class="nb">Pzrho</span> <span class="no">= fnum/volume * Sum_i (mass_i * Vz_i)</span>
 </pre></div>
 </div>
 <p>where Sum_i is a sum over particles in the group, fnum is the
@@ -375,8 +376,8 @@ via the <a class="reference internal" href="global.html#command-global"><span cl
 the formula is divided by the weight assigned to the grid cell.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">kerho</span></code> value computes the kinetic energy density for the grid cell
 volume due to particles in each group:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Vsq</span> <span class="o">=</span> <span class="n">Vx</span><span class="o">*</span><span class="n">Vx</span> <span class="o">+</span> <span class="n">Vy</span><span class="o">*</span><span class="n">Vy</span> <span class="o">+</span> <span class="n">Vz</span><span class="o">*</span><span class="n">Vz</span>
-<span class="n">KErho</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="o">*</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vsq_i</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Vsq</span> <span class="no">= Vx*Vx + Vy*Vy + Vz*Vz</span>
+<span class="nb">KErho</span> <span class="no">= fnum/volume * Sum_i (mass_i * Vsq_i)</span>
 </pre></div>
 </div>
 <p>where Sum_i is a sum over particles in the group, fnum is the

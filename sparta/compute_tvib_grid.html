@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,7 +171,7 @@
 <span id="command-compute-tvib-grid"></span><span id="index-0"></span><h1>compute tvib/grid command<a class="headerlink" href="#compute-tvib-grid-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">tvib</span><span class="o">/</span><span class="n">grid</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">keyword</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">ID tvib/grid group-ID mix-ID keyword ...</span>
 </pre></div>
 </div>
 <ul>
@@ -179,8 +180,8 @@
 <li><p>group-ID = group ID for which grid cells to perform calculation on</p></li>
 <li><p>mix-ID = mixture ID to perform calculation on</p></li>
 <li><p>zero or more keywords can follow</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">possible</span> <span class="n">keywords</span> <span class="o">=</span> <span class="n">mode</span>
-<span class="n">mode</span> <span class="o">=</span> <span class="n">output</span> <span class="n">one</span> <span class="n">temperature</span> <span class="n">per</span> <span class="n">vibrational</span> <span class="n">mode</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">possible</span> <span class="no">keywords = mode</span>
+<span class="nb">mode</span> <span class="no">= output one temperature per vibrational mode</span>
 </pre></div>
 </div>
 </li>
@@ -188,9 +189,9 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">tvib</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="n">species</span>
-<span class="n">compute</span> <span class="mi">1</span> <span class="n">tvib</span><span class="o">/</span><span class="n">grid</span> <span class="n">subset</span> <span class="nb">all</span>
-<span class="n">compute</span> <span class="mi">1</span> <span class="n">tvib</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="n">species</span> <span class="n">mode</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 tvib/grid all species</span>
+<span class="nb">compute</span> <span class="no">1 tvib/grid subset all</span>
+<span class="nb">compute</span> <span class="no">1 tvib/grid all species mode</span>
 </pre></div>
 </div>
 </div>
@@ -223,7 +224,7 @@ modes with each particle.</p>
 <p>The vibrational temperature in a grid cell for a group of particles
 comprised of different species and (optionally) different vibrational
 modes is defined as a weighted average as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T_group</span> <span class="o">=</span> <span class="p">(</span><span class="n">T1</span><span class="o">*</span><span class="n">N1</span> <span class="o">+</span> <span class="n">T2</span><span class="o">*</span><span class="n">N2</span> <span class="o">+</span> <span class="o">...</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">N1</span> <span class="o">+</span> <span class="n">N2</span> <span class="o">+</span> <span class="o">...</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">T_group</span> <span class="no">= (T1*N1 + T2*N2 + ...) / (N1 + N2 + ...)</span>
 </pre></div>
 </div>
 <p>What is summed over in the numerator and denominator depends on several
@@ -238,8 +239,8 @@ temperatures of each species. N1, N2, … are the counts of particles of
 each species.</p>
 <p>The vibrational temperature Tsp for particles of a single species is
 defined as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ibar</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">e_vib_i</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="n">kB</span> <span class="n">Theta</span><span class="p">)</span>
-<span class="n">Tsp</span> <span class="o">=</span> <span class="n">Theta</span> <span class="o">/</span> <span class="n">ln</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">Ibar</span><span class="p">))</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Ibar</span> <span class="no">= Sum_i (e_vib_i) / (N kB Theta)</span>
+<span class="nb">Tsp</span> <span class="no">= Theta / ln(1 + 1/Ibar))</span>
 </pre></div>
 </div>
 <p>where e_vib is the continuous (smooth) vibrational energy of a single
@@ -263,8 +264,8 @@ modes. Three terms in the numerator and demoninator are included when
 CO2 is a species in the group.</p>
 <p>The vibrational temperature Tsp_m for particles of a single species and
 single mode M is defined as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ibar_m</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">level_im</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="n">Tsp_m</span> <span class="o">=</span> <span class="n">Theta_m</span> <span class="o">/</span> <span class="n">ln</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">Ibar_m</span><span class="p">))</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Ibar_m</span> <span class="no">= Sum_i (level_im) / (N)</span>
+<span class="nb">Tsp_m</span> <span class="no">= Theta_m / ln(1 + 1/Ibar_m))</span>
 </pre></div>
 </div>
 <p>where level_im is the integer level for mode M of a single particle I,
@@ -285,8 +286,10 @@ temperature values, one for mode 1, another for mode 2, another for mode
 3.</p>
 <p>The vibrational temperature Tsp_m for particles of a single species and
 single mode M is calculated the same as explained above.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Output info:</strong></p>
+<div class="section" id="output-info">
+<h2>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h2>
 <p>This compute calculates a per-grid array. If the <em>mode</em> keyword is not
 specified, the number of columns is equal to the number of groups in the
 specified mixture. If is is specified, the number of columns is equal to

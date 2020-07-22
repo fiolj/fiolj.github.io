@@ -3,7 +3,6 @@
 .. index:: fix ave/surf
 
 
-
 .. _command-fix-ave-surf:
 
 ####################
@@ -38,9 +37,11 @@ Syntax:
 
    ``keyword = ave``
 
-   - ave args = one or running
+   - ave args = :ref:`one or running <fix-ave-surf-additional>`
+
      - one = output a new average value every Nfreq steps
      - running = accumulate average continuously 
+
 
 *********
 Examples:
@@ -96,7 +97,7 @@ creates a per-surf array with 4 columns:
    compute mySurf all all n fx fy fz
    fix 1 ave/surf all 10 20 1000 c_mySurf[*]
    fix 1 ave/surf all 10 20 1000 c_mySurf[1] c_mySurf[2] &
-                                 c_mySurf[3] c_mySurf[4] 
+         c_mySurf[3] c_mySurf[4] 
 
 --------------
 
@@ -156,6 +157,8 @@ timesteps.
 
 --------------
 
+.. _fix-ave-surf-additional:
+
 Additional optional keywords also affect the operation of this fix.
 
 The *ave* keyword determines what happens to the accumulation of
@@ -174,7 +177,9 @@ fix, or by re-specifying it.
 
 --------------
 
-**Restart, output info:**
+*********************
+Restart, output info:
+*********************
 
 No information about this fix is written to :ref:`binary restart files<command-restart>`.
 

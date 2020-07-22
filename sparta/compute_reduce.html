@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,7 +171,7 @@
 <span id="command-compute-reduce"></span><span id="index-0"></span><h1>compute reduce command<a class="headerlink" href="#compute-reduce-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">reduce</span> <span class="n">mode</span> <span class="n">input1</span> <span class="n">input2</span> <span class="o">...</span> <span class="n">keyword</span> <span class="n">args</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">ID reduce mode input1 input2 ... keyword args ...</span>
 </pre></div>
 </div>
 <ul>
@@ -180,39 +181,42 @@
 <li><p>one or more inputs can be listed</p></li>
 <li><p>input = x, y, z, vx, vy, vz, ke, erot, evib, c_ID, c_ID[N], f_ID,
 f_ID[N], v_name</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">vx</span><span class="p">,</span><span class="n">vy</span><span class="p">,</span><span class="n">vz</span> <span class="o">=</span> <span class="n">particle</span> <span class="n">position</span> <span class="ow">or</span> <span class="n">velocity</span> <span class="n">component</span>
-<span class="n">ke</span><span class="p">,</span><span class="n">erot</span><span class="p">,</span><span class="n">evib</span> <span class="o">=</span> <span class="n">particle</span> <span class="n">energy</span> <span class="n">component</span>
-<span class="n">c_ID</span> <span class="o">=</span> <span class="n">per</span><span class="o">-</span><span class="n">particle</span> <span class="ow">or</span> <span class="n">per</span><span class="o">-</span><span class="n">grid</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">compute</span> <span class="k">with</span> <span class="n">ID</span>
-<span class="n">c_ID</span><span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ith</span> <span class="n">column</span> <span class="n">of</span> <span class="n">per</span><span class="o">-</span><span class="n">particle</span> <span class="ow">or</span> <span class="n">per</span><span class="o">-</span><span class="n">grid</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">compute</span> <span class="k">with</span> <span class="n">ID</span><span class="p">,</span> <span class="n">I</span> <span class="n">can</span> <span class="n">include</span> <span class="n">wildcard</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
-<span class="n">f_ID</span> <span class="o">=</span> <span class="n">per</span><span class="o">-</span><span class="n">particle</span> <span class="ow">or</span> <span class="n">per</span><span class="o">-</span><span class="n">grid</span> <span class="ow">or</span> <span class="n">per</span><span class="o">-</span><span class="n">surf</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">fix</span> <span class="k">with</span> <span class="n">ID</span>
-<span class="n">f_ID</span><span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ith</span> <span class="n">column</span> <span class="n">of</span> <span class="n">per</span><span class="o">-</span><span class="n">particle</span> <span class="ow">or</span> <span class="n">per</span><span class="o">-</span><span class="n">grid</span> <span class="ow">or</span> <span class="n">per</span><span class="o">-</span><span class="n">surf</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">fix</span> <span class="k">with</span> <span class="n">ID</span><span class="p">,</span> <span class="n">I</span> <span class="n">can</span> <span class="n">include</span> <span class="n">wildcard</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
-<span class="n">v_name</span> <span class="o">=</span> <span class="n">per</span><span class="o">-</span><span class="n">particle</span> <span class="ow">or</span> <span class="n">per</span><span class="o">-</span><span class="n">grid</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">particle</span><span class="o">-</span><span class="n">style</span> <span class="ow">or</span> <span class="n">grid</span><span class="o">-</span><span class="n">style</span> <span class="n">variable</span> <span class="k">with</span> <span class="n">name</span>
-</pre></div>
-</div>
+<ul class="simple">
+<li><p>x,y,z,vx,vy,vz = particle position or velocity component</p></li>
+<li><p>ke,erot,evib = particle energy component</p></li>
+<li><p>c_ID = per-particle or per-grid vector calculated by a compute with ID</p></li>
+<li><p>c_ID[I] = Ith column of per-particle or per-grid array calculated by a compute with ID, I can include wildcard (see below)</p></li>
+<li><p>f_ID = per-particle or per-grid or per-surf vector calculated by a fix with ID</p></li>
+<li><p>f_ID[I] = Ith column of per-particle or per-grid or per-surf array calculated by a fix with ID, I can include wildcard (see below)</p></li>
+<li><p>v_name = per-particle or per-grid vector calculated by a particle-style or grid-style variable with name</p></li>
+</ul>
 </li>
-<li><p>zero or more keyword/args pairs may be appended</p></li>
-<li><p>keyword = <em>replace</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">replace</span> <span class="n">args</span> <span class="o">=</span> <span class="n">vec1</span> <span class="n">vec2</span>
-  <span class="n">vec1</span> <span class="o">=</span> <span class="n">reduced</span> <span class="n">value</span> <span class="kn">from</span> <span class="nn">this</span> <span class="nb">input</span> <span class="n">vector</span> <span class="n">will</span> <span class="n">be</span> <span class="n">replaced</span>
-  <span class="n">vec2</span> <span class="o">=</span> <span class="n">replace</span> <span class="n">it</span> <span class="k">with</span> <span class="n">vec1</span><span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="n">where</span> <span class="n">N</span> <span class="ow">is</span> <span class="n">index</span> <span class="n">of</span> <span class="nb">max</span><span class="o">/</span><span class="nb">min</span> <span class="n">value</span> <span class="kn">from</span> <span class="nn">vec2</span>
-</pre></div>
-</div>
+<li><p>zero or more keyword/args pairs may be appended</p>
+<p>keyword = <code class="docutils literal notranslate"><span class="pre">replace</span></code></p>
+<ul class="simple">
+<li><p>replace args = vec1 vec2</p>
+<ul>
+<li><p>vec1 = reduced value from this input vector will be replaced</p></li>
+<li><p>vec2 = replace it with vec1[N] where N is index of max/min value from vec2</p></li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">reduce</span> <span class="nb">sum</span> <span class="n">c_grid</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
-<span class="n">compute</span> <span class="mi">2</span> <span class="n">reduce</span> <span class="nb">min</span> <span class="n">f_ave</span> <span class="n">v_myKE</span>
-<span class="n">compute</span> <span class="mi">3</span> <span class="n">reduce</span> <span class="nb">max</span> <span class="n">c_mine</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">c_mine</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">c_temp</span> <span class="n">replace</span> <span class="mi">1</span> <span class="mi">3</span> <span class="n">replace</span> <span class="mi">2</span> <span class="mi">3</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 reduce sum c_grid[*]</span>
+<span class="nb">compute</span> <span class="no">2 reduce min f_ave v_myKE</span>
+<span class="nb">compute</span> <span class="no">3 reduce max c_mine[1] c_mine[2] c_temp replace 1 3 replace 2 3</span>
 </pre></div>
 </div>
 <p>These commands will include the average grid cell temperature, across
 all grid cells, in the stats output:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">temp</span>
-<span class="n">compute</span> <span class="mi">2</span> <span class="n">grid</span> <span class="nb">all</span> <span class="nb">all</span> <span class="n">temp</span>
-<span class="n">compute</span> <span class="mi">3</span> <span class="n">reduce</span> <span class="n">ave</span> <span class="n">c_2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">stats_style</span> <span class="n">step</span> <span class="n">c_temp</span> <span class="n">c_3</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 temp</span>
+<span class="nb">compute</span> <span class="no">2 grid all all temp</span>
+<span class="nb">compute</span> <span class="no">3 reduce ave c_2[1]</span>
+<span class="nb">stats_style</span> <span class="no">step c_temp c_3</span>
 </pre></div>
 </div>
 </div>
@@ -255,9 +259,9 @@ from m to n (inclusive).</p>
 had been listed one by one. E.g. these 2 compute reduce commands are
 equivalent, since the <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid</span></a> command
 creates a per-grid array with 3 columns:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">myGrid</span> <span class="n">grid</span> <span class="nb">all</span> <span class="nb">all</span> <span class="n">u</span> <span class="n">v</span> <span class="n">w</span>
-<span class="n">compute</span> <span class="mi">2</span> <span class="nb">all</span> <span class="n">reduce</span> <span class="nb">min</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
-<span class="n">compute</span> <span class="mi">2</span> <span class="nb">all</span> <span class="n">reduce</span> <span class="nb">min</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">myGrid grid all all u v w</span>
+<span class="nb">compute</span> <span class="no">2 all reduce min c_myGrid[*]</span>
+<span class="nb">compute</span> <span class="no">2 all reduce min c_myGrid[1] c_myGrid[2] c_myGrid[3]</span>
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -307,10 +311,10 @@ instead of performing a min/max on the <em>vec1</em> input vector, the stored
 index is used to select the Nth element of the <em>vec1</em> vector.</p>
 <p>Here is an example which prints out both the grid cell ID and number of
 particles for the grid cell with the maximum number of particles:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="nb">property</span><span class="o">/</span><span class="n">grid</span> <span class="nb">id</span>
-<span class="n">compute</span> <span class="mi">2</span> <span class="n">grid</span> <span class="nb">all</span> <span class="n">n</span>
-<span class="n">compute</span> <span class="mi">3</span> <span class="n">reduce</span> <span class="nb">max</span> <span class="n">c_1</span> <span class="n">c_2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">replace</span> <span class="mi">1</span> <span class="mi">2</span>
-<span class="n">stats_style</span> <span class="n">step</span> <span class="n">c_temp</span> <span class="n">c_3</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">c_3</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 property/grid id</span>
+<span class="nb">compute</span> <span class="no">2 grid all n</span>
+<span class="nb">compute</span> <span class="no">3 reduce max c_1 c_2[1] replace 1 2</span>
+<span class="nb">stats_style</span> <span class="no">step c_temp c_3[1] c_3[2]</span>
 </pre></div>
 </div>
 <p>The first two input values in the compute reduce command are vectors
@@ -324,8 +328,10 @@ particle count will be printed with the statistical output.</p>
 value. If multiple inputs are specified, this compute produces a global
 vector of values, the length of which is equal to the number of inputs
 specified.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Output info:</strong></p>
+<div class="section" id="output-info">
+<h2>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h2>
 <p>This compute calculates a global scalar if a single input value is
 specified or a global vector of length N where N is the number of
 inputs, and which can be accessed by indices 1 to N. These values can be

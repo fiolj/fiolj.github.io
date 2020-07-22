@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,19 +171,20 @@
 <span id="command-create-box"></span><span id="index-0"></span><h1>create_box command<a class="headerlink" href="#create-box-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create_box</span> <span class="n">xlo</span> <span class="n">xhi</span> <span class="n">ylo</span> <span class="n">yhi</span> <span class="n">zlo</span> <span class="n">zhi</span>
-
-<span class="n">xlo</span><span class="p">,</span><span class="n">xhi</span> <span class="o">=</span> <span class="n">box</span> <span class="n">bounds</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">x</span> <span class="n">dimension</span> <span class="p">(</span><span class="n">distance</span> <span class="n">units</span><span class="p">)</span>
-<span class="n">ylo</span><span class="p">,</span><span class="n">yhi</span> <span class="o">=</span> <span class="n">box</span> <span class="n">bounds</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">y</span> <span class="n">dimension</span> <span class="p">(</span><span class="n">distance</span> <span class="n">units</span><span class="p">)</span>
-<span class="n">zlo</span><span class="p">,</span><span class="n">zhi</span> <span class="o">=</span> <span class="n">box</span> <span class="n">bounds</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">z</span> <span class="n">dimension</span> <span class="p">(</span><span class="n">distance</span> <span class="n">units</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">create_box</span> <span class="no">xlo xhi ylo yhi zlo zhi</span>
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>xlo,xhi = box bounds in the x dimension (distance units)</p></li>
+<li><p>ylo,yhi = box bounds in the y dimension (distance units)</p></li>
+<li><p>zlo,zhi = box bounds in the z dimension (distance units)</p></li>
+</ul>
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create_box</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span>
-<span class="n">create_box</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="o">-</span><span class="mf">0.5</span> <span class="mf">0.5</span>
-<span class="n">create_box</span> <span class="mi">0</span> <span class="mf">10.0</span> <span class="mi">0</span> <span class="mf">5.0</span> <span class="o">-</span><span class="mf">4.0</span> <span class="mf">0.0</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">create_box</span> <span class="no">0 1 0 1 0 1</span>
+<span class="nb">create_box</span> <span class="no">0 1 0 1 -0.5 0.5</span>
+<span class="nb">create_box</span> <span class="no">0 10.0 0 5.0 -4.0 0.0</span>
 </pre></div>
 </div>
 </div>

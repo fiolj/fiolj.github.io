@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,18 +171,18 @@
 <span id="command-surf-react"></span><span id="index-0"></span><h1>surf_react command<a class="headerlink" href="#surf-react-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">surf_react</span> <span class="n">ID</span> <span class="n">style</span> <span class="n">args</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">surf_react</span> <span class="no">ID style args</span>
 </pre></div>
 </div>
 <ul>
 <li><p>ID = user-assigned name for the surface reaction model</p></li>
 <li><p>style = <em>global</em> or <em>prob</em></p></li>
 <li><p>args = arguments for that style</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">global</span> <span class="n">args</span> <span class="o">=</span> <span class="n">pdelete</span> <span class="n">pcreate</span>
-  <span class="n">pdelete</span> <span class="o">=</span> <span class="n">probability</span> <span class="n">that</span> <span class="n">surface</span> <span class="n">collision</span> <span class="n">removes</span> <span class="n">the</span> <span class="n">incident</span> <span class="n">particle</span>
-  <span class="n">pcreate</span> <span class="o">=</span> <span class="n">probability</span> <span class="n">that</span> <span class="n">surface</span> <span class="n">collision</span> <span class="n">clones</span> <span class="n">the</span> <span class="n">incident</span> <span class="n">particle</span>
-<span class="n">prob</span> <span class="n">args</span> <span class="o">=</span> <span class="n">infile</span>
-  <span class="n">infile</span> <span class="o">=</span> <span class="n">file</span> <span class="k">with</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">surface</span> <span class="n">chemistry</span> <span class="n">reactions</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">global</span> <span class="no">args = pdelete pcreate</span>
+  <span class="nb">pdelete</span> <span class="no">= probability that surface collision removes the incident particle</span>
+  <span class="nb">pcreate</span> <span class="no">= probability that surface collision clones the incident particle</span>
+<span class="nb">prob</span> <span class="no">args = infile</span>
+  <span class="nb">infile</span> <span class="no">= file with list of surface chemistry reactions</span>
 </pre></div>
 </div>
 </li>
@@ -189,8 +190,8 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">surf_react</span> <span class="k">global</span> <span class="mf">0.2</span> <span class="mf">0.15</span>
-<span class="n">surf_react</span> <span class="n">prob</span> <span class="n">air</span><span class="o">.</span><span class="n">surf</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">surf_react</span> <span class="no">global 0.2 0.15</span>
+<span class="nb">surf_react</span> <span class="no">prob air.surf</span>
 </pre></div>
 </div>
 </div>
@@ -257,8 +258,8 @@ performed.</p>
 blank lines are allowed in the file. Comment lines start with a “#”
 character. All other entries must come in 2-line pairs with values
 separated by whitespace in the following format</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span> <span class="o">--&gt;</span> <span class="n">P1</span> <span class="o">+</span> <span class="n">P2</span>
-<span class="nb">type</span> <span class="n">style</span> <span class="n">C1</span> <span class="n">C2</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">R1</span> <span class="no">--&gt; P1 + P2</span>
+<span class="nb">type</span> <span class="no">style C1 C2 ...</span>
 </pre></div>
 </div>
 <p>The first line is a text-based description of a single reaction. R1 is a
@@ -273,9 +274,9 @@ whitespace and “–&gt;”.</p>
 <p>The <em>type</em> of each reaction is a single character (upper or lower case)
 with the following meaning. The type determines how many reactants and
 products can be specified in the first line.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">dissociation</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">reactant</span> <span class="ow">and</span> <span class="mi">2</span> <span class="n">products</span>
-<span class="n">E</span> <span class="o">=</span> <span class="n">exchange</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">reactant</span> <span class="ow">and</span> <span class="mi">1</span> <span class="n">product</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">recombination</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">reactant</span> <span class="ow">and</span> <span class="mi">1</span> <span class="n">product</span> <span class="n">named</span> <span class="n">NULL</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">D</span> <span class="no">= dissociation = 1 reactant and 2 products</span>
+<span class="nb">E</span> <span class="no">= exchange = 1 reactant and 1 product</span>
+<span class="nb">R</span> <span class="no">= recombination = 1 reactant and 1 product named NULL</span>
 </pre></div>
 </div>
 <p>A dissociation reaction means that R1 dissociates into P1 and P2 when it
@@ -314,8 +315,10 @@ ion and ambipolar electron. In the file of reactions this is done by
 having the reactant not be an ambipolar ion, the first product be an
 ambipolar ion, and the second product be an ambipolar electron. The two
 products must be specified in this order.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Output info:</strong></p>
+<div class="section" id="output-info">
+<h2>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h2>
 <p>All the surface reaction models calculate a global vector of values. The
 values can be used by the <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style</span></a> command and
 by <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variables</span></a> that define formulas. The latter means

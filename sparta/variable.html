@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -171,7 +172,7 @@
 </div>
 <div class="section" id="syntax">
 <h1>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span> <span class="n">name</span> <span class="n">style</span> <span class="n">args</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">name style args ...</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -235,20 +236,20 @@ or <code class="docutils literal notranslate"><span class="pre">equal</span></co
 </ul>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>variable x index run1 run2 run3 run4 run5 run6 run7 run8
-variable LoopVar loop $n
-variable beta equal temp/3.0
-variable beta equal &quot;temp / 3.0&quot;
-variable b equal c_myTemp
-variable b particle x*y/vol
-variable foo string myfile
-variable foo internal 3.5
-variable f file values.txt
-variable temp world 300.0 310.0 320.0 ${Tfinal}
-variable x universe 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
-variable x uloop 15 pad
-variable str format x %.6g
-variable x delete
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">x index run1 run2 run3 run4 run5 run6 run7 run8</span>
+<span class="nb">variable</span> <span class="no">LoopVar loop $n</span>
+<span class="nb">variable</span> <span class="no">beta equal temp/3.0</span>
+<span class="nb">variable</span> <span class="no">beta equal &quot;temp / 3.0&quot;</span>
+<span class="nb">variable</span> <span class="no">b equal c_myTemp</span>
+<span class="nb">variable</span> <span class="no">b particle x*y/vol</span>
+<span class="nb">variable</span> <span class="no">foo string myfile</span>
+<span class="nb">variable</span> <span class="no">foo internal 3.5</span>
+<span class="nb">variable</span> <span class="no">f file values.txt</span>
+<span class="nb">variable</span> <span class="no">temp world 300.0 310.0 320.0 ${Tfinal}</span>
+<span class="nb">variable</span> <span class="no">x universe 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15</span>
+<span class="nb">variable</span> <span class="no">x uloop 15 pad</span>
+<span class="nb">variable</span> <span class="no">str format x %.6g</span>
+<span class="nb">variable</span> <span class="no">x delete</span>
 </pre></div>
 </div>
 </div>
@@ -325,14 +326,14 @@ were exhausted, allowing it to be redefined later in the input script or
 when the input script is looped over. This can be useful when breaking
 out of a loop via the <a class="reference internal" href="if.html#command-if"><span class="std std-ref">if</span></a> and <a class="reference internal" href="jump.html#command-jump"><span class="std std-ref">jump</span></a> commands
 before the variable would become exhausted. For example,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">label</span>      <span class="n">loop</span>
-<span class="n">variable</span>    <span class="n">a</span> <span class="n">loop</span> <span class="mi">5</span>
-<span class="nb">print</span>       <span class="s2">&quot;A = $a&quot;</span>
-<span class="k">if</span>      <span class="s2">&quot;$a &gt; 2&quot;</span> <span class="n">then</span> <span class="s2">&quot;jump in.script break&quot;</span>
-<span class="nb">next</span>        <span class="n">a</span>
-<span class="n">jump</span>        <span class="ow">in</span><span class="o">.</span><span class="n">script</span> <span class="n">loop</span>
-<span class="n">label</span>       <span class="k">break</span>
-<span class="n">variable</span>    <span class="n">a</span> <span class="n">delete</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">label</span>      <span class="no">loop</span>
+<span class="nb">variable</span>    <span class="no">a loop 5</span>
+<span class="nb">print</span>       <span class="no">&quot;A = $a&quot;</span>
+<span class="nb">if</span>      <span class="no">&quot;$a &gt; 2&quot; then &quot;jump in.script break&quot;</span>
+<span class="nb">next</span>        <span class="no">a</span>
+<span class="nb">jump</span>        <span class="no">in.script loop</span>
+<span class="nb">label</span>       <span class="no">break</span>
+<span class="nb">variable</span>    <span class="no">a delete</span>
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -406,7 +407,7 @@ The simulations will be run one after the other on whatever partition becomes av
 <h3><a class="toc-backref" href="#id3">Formulas</a><a class="headerlink" href="#formulas" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>The formula for an <em>equal</em> or <em>particle</em> or <em>grid</em> variable can contain a variety of quantities. The syntax for each kind of quantity is simple, but multiple quantities can be nested and combined in various ways to build up formulas of arbitrary complexity. For example, this is a valid (though strange) variable formula:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span> <span class="n">x</span> <span class="n">equal</span> <span class="s2">&quot;np + c_MyTemp / vol^(1/3)&quot;</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">x equal &quot;np + c_MyTemp / vol^(1/3)&quot;</span>
 </pre></div>
 </div>
 <p>Specifically, a formula can contain numbers, stats keywords, math
@@ -547,7 +548,7 @@ the nearest integer to its argument.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">ramp(x,y)</span></code> function uses the current timestep to generate a value
 linearly intepolated between the specified x,y values over the course of
 a run, according to this formula:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">timestep</span><span class="o">-</span><span class="n">startstep</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">stopstep</span><span class="o">-</span><span class="n">startstep</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">value</span> <span class="no">= x + (y-x) * (timestep-startstep) / (stopstep-startstep)</span>
 </pre></div>
 </div>
 <p>The run begins on startstep and ends on stopstep. Startstep and stopstep
@@ -565,26 +566,26 @@ x,x+y,2x,2x+y,3x,3x+y,etc. For any current timestep, the next timestep
 in the sequence is returned. Thus if stagger(1000,100) is used in a
 variable by the <a class="reference internal" href="dump_modify.html#command-dump-modify"><span class="std std-ref">dump_modify every</span></a> command, it
 will generate the sequence of output timesteps:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">100</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1100</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2100</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span><span class="n">etc</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>100,1000,1100,2000,2100,3000,etc
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">logfreq(x,y,z)</span></code> function uses the current timestep to generate a new timestep. X,y,z &gt; 0 and y &lt; z are required. The generated timesteps increase in a logarithmic fashion, as the sequence x,2x,3x,…y*x,z*x,2*z*x,3*z*x,…y*z*x,z*z*x,2*z*x*x,etc. For any current timestep, the next timestep in the sequence is returned. Thus if <code class="docutils literal notranslate"><span class="pre">logfreq(100,4,10)</span></code> is used in a variable by the <a class="reference internal" href="dump_modify.html#command-dump-modify"><span class="std std-ref">dump_modify every</span></a> command, it will generate the sequence of output timesteps:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span><span class="mi">4000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">20000</span><span class="p">,</span><span class="n">etc</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>100,200,300,400,1000,2000,3000,4000,10000,20000,etc
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">stride(x,y,z)</span></code> function uses the current timestep to generate a new timestep. X,y &gt;= 0 and z &gt; 0 and x &lt;= y are required. The generated timesteps increase in increments of z, from x to y, I.e. it generates the sequece x,x+z,x+2z,…,y. If y-x is not a multiple of z, then similar to the way a for loop operates, the last value will be one that does not exceed y. For any current timestep, the next timestep in the sequence is returned. Thus if <code class="docutils literal notranslate"><span class="pre">stagger(1000,2000,100)</span></code> is used in a variable by the <a class="reference internal" href="dump_modify.html#command-dump-modify"><span class="std std-ref">dump_modify every</span></a> command, it will generate the sequence of output timesteps:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1000</span><span class="p">,</span><span class="mi">1100</span><span class="p">,</span><span class="mi">1200</span><span class="p">,</span> <span class="o">...</span> <span class="p">,</span><span class="mi">1900</span><span class="p">,</span><span class="mi">2000</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>1000,1100,1200, ... ,1900,2000
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">vdisplace(x,y)</span></code> function takes 2 arguments: x = value0 and y = velocity, and uses the elapsed time to change the value by a linear displacement due to the applied velocity over the course of a run, according to this formula:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="n">value0</span> <span class="o">+</span> <span class="n">velocity</span><span class="o">*</span><span class="p">(</span><span class="n">timestep</span><span class="o">-</span><span class="n">startstep</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">value</span> <span class="no">= value0 + velocity*(timestep-startstep)*dt</span>
 </pre></div>
 </div>
 <p>where dt = the timestep size.</p>
 <p>The run begins on startstep. Startstep can span multiple runs, using the <em>start</em> keyword of the <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command. See the <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command for details of how to do this. Note that the <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style</span></a> keyword <em>elaplong</em> = timestep-startstep.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">swiggle(x,y,z)</span></code> and <code class="docutils literal notranslate"><span class="pre">cwiggle(x,y,z)</span></code> functions each take 3 arguments: x = value0, y = amplitude, z = period. They use the elapsed time to oscillate the value by a sin() or cos() function over the course of a run, according to one of these formulas, where omega = 2 PI / period:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="n">value0</span> <span class="o">+</span> <span class="n">Amplitude</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="p">(</span><span class="n">timestep</span><span class="o">-</span><span class="n">startstep</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>
-<span class="n">value</span> <span class="o">=</span> <span class="n">value0</span> <span class="o">+</span> <span class="n">Amplitude</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">cos</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="p">(</span><span class="n">timestep</span><span class="o">-</span><span class="n">startstep</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span><span class="p">))</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">value</span> <span class="no">= value0 + Amplitude * sin(omega*(timestep-startstep)*dt)</span>
+<span class="nb">value</span> <span class="no">= value0 + Amplitude * (1 - cos(omega*(timestep-startstep)*dt))</span>
 </pre></div>
 </div>
 <p>where dt = the timestep size.</p>
@@ -798,7 +799,7 @@ formula if you wish to reference a second variable. The second variable
 will be evaluated whenever the first variable is evaluated.</p>
 <p>As an example, suppose you use this command in your input script to
 define the variable “n” as</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span> <span class="n">n</span> <span class="n">equal</span> <span class="n">np</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">n equal np</span>
 </pre></div>
 </div>
 <p>before a run where the particle count changes. You might think this will
@@ -810,20 +811,20 @@ the current particle count will be evaluated continuously during the
 run.</p>
 <p>If you want to store the initial particle count of the system, it can be
 done in this manner:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>variable n equal np
-variable n0 equal $n
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">n equal np</span>
+<span class="nb">variable</span> <span class="no">n0 equal $n</span>
 </pre></div>
 </div>
 <p>The second command will force “n” to be evaluated (yielding the initial
 count) and assign that value to the variable “n0”. Thus the command</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stats_style</span> <span class="n">custom</span> <span class="n">step</span> <span class="n">v_n</span> <span class="n">v_n0</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">stats_style</span> <span class="no">custom step v_n v_n0</span>
 </pre></div>
 </div>
 <p>would print out both the current and initial particle count periodically
 during the run.</p>
 <p>Also note that it is a mistake to enclose a variable formula in quotes
 if it contains variables preceeded by $ signs. For example,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span> <span class="n">nratio</span> <span class="n">equal</span> <span class="s2">&quot;$</span><span class="si">{nfinal}</span><span class="s2">/$</span><span class="si">{n0}</span><span class="s2">&quot;</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">nratio equal &quot;${nfinal}/${n0}&quot;</span>
 </pre></div>
 </div>
 <p>This is because the quotes prevent variable substitution (see <a class="reference internal" href="Section_commands.html#commands-parsing-rules"><span class="std std-ref">Section
@@ -859,40 +860,40 @@ be current. This leads to one of three kinds of behavior:</p>
 <li><p>The variable may be evaluated accurately. If it contains references to a compute or fix, and these values were calculated on the last timestep of a preceeding run, then they will be accessed and used by the variable and the result will be accurate.</p></li>
 <li><p>SPARTA may not be able to evaluate the variable and will generate an error message stating so. For example, if the variable requires a quantity from a <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> that has not been invoked on the current timestep, SPARTA will generate an error. This means, for example, that such a variable cannot be evaluated before the first run has occurred. Likewise, in between runs, a variable containing a compute cannot be evaluated unless the compute was invoked on the last timestep of the preceding run, e.g. by stats output.</p>
 <p>One way to get around this problem is to perform a 0-timestep run before using the variable. For example, these commands</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">myTemp</span> <span class="n">grid</span> <span class="nb">all</span> <span class="n">temp</span>
-<span class="n">variable</span> <span class="n">t</span> <span class="n">equal</span> <span class="n">c_myTemp1</span>
-<span class="nb">print</span> <span class="s2">&quot;Initial temperature = $t&quot;</span>
-<span class="n">run</span> <span class="mi">1000</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">myTemp grid all temp</span>
+<span class="nb">variable</span> <span class="no">t equal c_myTemp1</span>
+<span class="nb">print</span> <span class="no">&quot;Initial temperature = $t&quot;</span>
+<span class="nb">run</span> <span class="no">1000</span>
 </pre></div>
 </div>
 <p>will generate an error if the run is the first run specified in the input script, because generating a value for the “t” variable requires a compute for calculating the temperature to be invoked.</p>
 <p>However, this sequence of commands would be fine:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">myTemp</span> <span class="n">grid</span> <span class="nb">all</span> <span class="n">temp</span>
-<span class="n">variable</span> <span class="n">t</span> <span class="n">equal</span> <span class="n">c_myTemp1</span>
-<span class="n">run</span> <span class="mi">0</span>
-<span class="nb">print</span> <span class="s2">&quot;Initial temperature = $t&quot;</span>
-<span class="n">run</span> <span class="mi">1000</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">myTemp grid all temp</span>
+<span class="nb">variable</span> <span class="no">t equal c_myTemp1</span>
+<span class="nb">run</span> <span class="no">0</span>
+<span class="nb">print</span> <span class="no">&quot;Initial temperature = $t&quot;</span>
+<span class="nb">run</span> <span class="no">1000</span>
 </pre></div>
 </div>
 <p>The 0-timestep run initializes and invokes various computes, including the one for temperature, so that the value it stores is current and can be accessed by the variable “t” after the run has completed. Note that a 0-timestep run does not alter the state of the system, so it does not change the input state for the 1000-timestep run that follows. Also note that the 0-timestep run must actually use and invoke the compute in question (e.g. via <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats</span></a> or <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump</span></a> output) in order for it to enable the compute to be used in a variable after the run. Thus if you are trying to print a variable that uses a compute you have defined, you can insure it is invoked on the last timestep of the preceding run by including it in stats output.</p>
 <p>Unlike computes, <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fixes</span></a> will never generate an error if their values are accessed by a variable in between runs. They always return some value to the variable. However, the value may not be what you expect if the fix has not yet calculated the quantity of interest or it is not current. For example, the <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix indent</span></a> command stores the force on the indenter. But this is not computed until a run is performed. Thus if a variable attempts to print this value before the first run, zeroes will be output. Again, performing a 0-timestep run before printing the variable has the desired effect.</p>
 </li>
 <li><p>The variable may be evaluated incorrectly. And SPARTA may have no way to detect this has occurred. Consider the following sequence of commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">myTemp</span> <span class="n">grid</span> <span class="nb">all</span> <span class="n">temp</span>
-<span class="n">variable</span> <span class="n">t</span> <span class="n">equal</span> <span class="n">c_myTemp1</span>
-<span class="n">run</span> <span class="mi">1000</span>
-<span class="n">create_particles</span> <span class="nb">all</span> <span class="n">n</span> <span class="mi">10000</span>
-<span class="nb">print</span> <span class="s2">&quot;Final temperature = $t&quot;</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">myTemp grid all temp</span>
+<span class="nb">variable</span> <span class="no">t equal c_myTemp1</span>
+<span class="nb">run</span> <span class="no">1000</span>
+<span class="nb">create_particles</span> <span class="no">all n 10000</span>
+<span class="nb">print</span> <span class="no">&quot;Final temperature = $t&quot;</span>
 </pre></div>
 </div>
 <p>The first run is performed using the current set of particles. The temperature is evaluated on the final timestep and stored by the <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid</span></a> compute (when invoked by the <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style</span></a> command). Then new particles are added by the <a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles</span></a> command, altering the temperature of the system. When the temperature is printed via the “t” variable, SPARTA will use the temperature value stored by the <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid command</span></a>, thinking it is current. There are many other commands which could alter the state of the system between runs, causing a variable to evaluate incorrectly.</p>
 <p>The solution to this issue is the same as for case (2) above, namely perform a 0-timestep run before the variable is evaluated to insure the system is up-to-date. For example, this sequence of commands would print a temperature that reflected the new particles:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">myTemp</span> <span class="n">grid</span> <span class="nb">all</span> <span class="n">temp</span>
-<span class="n">variable</span> <span class="n">t</span> <span class="n">equal</span> <span class="n">c_myTemp1</span>
-<span class="n">run</span> <span class="mi">1000</span>
-<span class="n">create_particles</span> <span class="nb">all</span> <span class="n">n</span> <span class="mi">10000</span>
-<span class="n">run</span> <span class="mi">0</span>
-<span class="nb">print</span> <span class="s2">&quot;Final temperature = $t&quot;</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">myTemp grid all temp</span>
+<span class="nb">variable</span> <span class="no">t equal c_myTemp1</span>
+<span class="nb">run</span> <span class="no">1000</span>
+<span class="nb">create_particles</span> <span class="no">all n 10000</span>
+<span class="nb">run</span> <span class="no">0</span>
+<span class="nb">print</span> <span class="no">&quot;Final temperature = $t&quot;</span>
 </pre></div>
 </div>
 </li>

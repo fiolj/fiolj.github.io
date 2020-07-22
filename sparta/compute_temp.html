@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -173,7 +174,7 @@
 <span id="command-compute-temp-compute-tempkk"></span><h1>compute temp/kk command<a class="headerlink" href="#compute-temp-kk-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">temp</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">ID temp</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -183,8 +184,8 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">temp</span>
-<span class="n">compute</span> <span class="n">myTemp</span> <span class="n">temp</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 temp</span>
+<span class="nb">compute</span> <span class="no">myTemp temp</span>
 </pre></div>
 </div>
 </div>
@@ -199,8 +200,10 @@ Boltzmann constant, and T = temperature.</p>
 streaming velocity for particles, so it is not a thermal temperature
 when the particles have a non-zero streaming velocity. See the <a class="reference internal" href="compute_thermal_grid.html#command-compute-thermal-grid"><span class="std std-ref">compute thermal/grid</span></a> command for calculation of
 thermal temperatures on a per grid cell basis.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Output info:</strong></p>
+<div class="section" id="output-info">
+<h2>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h2>
 <p>This compute calculates a global scalar (the temperature). This value
 can be used by any command that uses global scalar values from a compute
 as input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Section 6.4</span></a> for an

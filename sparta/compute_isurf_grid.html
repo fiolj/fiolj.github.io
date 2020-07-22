@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,54 +171,54 @@
 <span id="command-compute-isurf-grid"></span><span id="index-0"></span><h1>compute isurf/grid command<a class="headerlink" href="#compute-isurf-grid-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">isurf</span><span class="o">/</span><span class="n">grid</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">value1</span> <span class="n">value2</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">ID isurf/grid group-ID mix-ID value1 value2 ...</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><p>ID is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
 <li><p>isurf/grid = style name of this compute command</p></li>
 <li><p>group-ID = group ID for which grid cells to perform calculation on</p></li>
 <li><p>mix-ID = mixture ID for particles to perform calculation on</p></li>
 <li><p>one or more values can be appended</p></li>
-<li><p>value = <em>n</em> or <em>nwt</em> or <em>mflux</em> or <em>fx</em> or <em>fy</em> or <em>fz</em> or <em>press</em> or
-<em>px</em> or <em>py</em> or <em>pz</em> or <em>shx</em> or <em>shy</em> or <em>shz</em> or <em>ke</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">count</span> <span class="n">of</span> <span class="n">particles</span> <span class="n">hitting</span> <span class="n">surface</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">grid</span> <span class="n">cell</span>
-<span class="n">nwt</span> <span class="o">=</span> <span class="n">weighted</span> <span class="n">count</span> <span class="n">of</span> <span class="n">particles</span> <span class="n">hitting</span> <span class="n">surface</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">grid</span> <span class="n">cell</span>
-<span class="n">mflux</span> <span class="o">=</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">mass</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">grid</span> <span class="n">cell</span>
-<span class="n">fx</span><span class="p">,</span><span class="n">fy</span><span class="p">,</span><span class="n">fz</span> <span class="o">=</span> <span class="n">components</span> <span class="n">of</span> <span class="n">force</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">grid</span> <span class="n">cell</span>
-<span class="n">press</span> <span class="o">=</span> <span class="n">magnitude</span> <span class="n">of</span> <span class="n">normal</span> <span class="n">pressure</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">grid</span> <span class="n">cell</span>
-<span class="n">px</span><span class="p">,</span><span class="n">py</span><span class="p">,</span><span class="n">pz</span> <span class="o">=</span> <span class="n">components</span> <span class="n">of</span> <span class="n">normal</span> <span class="n">pressure</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">grid</span> <span class="n">cell</span>
-<span class="n">shx</span><span class="p">,</span><span class="n">shy</span><span class="p">,</span><span class="n">shz</span> <span class="o">=</span> <span class="n">components</span> <span class="n">of</span> <span class="n">shear</span> <span class="n">stress</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">grid</span> <span class="n">cell</span>
-<span class="n">ke</span> <span class="o">=</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">particle</span> <span class="n">kinetic</span> <span class="n">energy</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">grid</span> <span class="n">cell</span>
-<span class="n">erot</span> <span class="o">=</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">particle</span> <span class="n">rotational</span> <span class="n">energy</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">grid</span> <span class="n">cell</span>
-<span class="n">evib</span> <span class="o">=</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">particle</span> <span class="n">vibrational</span> <span class="n">energy</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">grid</span> <span class="n">cell</span>
-<span class="n">etot</span> <span class="o">=</span> <span class="n">flux</span> <span class="n">of</span> <span class="n">particle</span> <span class="n">total</span> <span class="n">energy</span> <span class="n">on</span> <span class="n">surface</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">grid</span> <span class="n">cell</span>
-</pre></div>
-</div>
+<li><p>value = <code class="docutils literal notranslate"><span class="pre">n</span></code> or <code class="docutils literal notranslate"><span class="pre">nwt</span></code> or <code class="docutils literal notranslate"><span class="pre">mflux</span></code> or <code class="docutils literal notranslate"><span class="pre">fx</span></code> or <code class="docutils literal notranslate"><span class="pre">fy</span></code> or <code class="docutils literal notranslate"><span class="pre">fz</span></code> or <code class="docutils literal notranslate"><span class="pre">press</span></code> or
+<code class="docutils literal notranslate"><span class="pre">px</span></code> or <code class="docutils literal notranslate"><span class="pre">py</span></code> or <code class="docutils literal notranslate"><span class="pre">pz</span></code> or <code class="docutils literal notranslate"><span class="pre">shx</span></code> or <code class="docutils literal notranslate"><span class="pre">shy</span></code> or <code class="docutils literal notranslate"><span class="pre">shz</span></code> or <code class="docutils literal notranslate"><span class="pre">ke</span></code></p>
+<ul>
+<li><p>n = count of particles hitting surface elements in a grid cell</p></li>
+<li><p>nwt = weighted count of particles hitting surface elements in a grid cell</p></li>
+<li><p>mflux = flux of mass on surface elements in a grid cell</p></li>
+<li><p>fx,fy,fz = components of force on surface elements in a grid cell</p></li>
+<li><p>press = magnitude of normal pressure on surface elements in a grid cell</p></li>
+<li><p>px,py,pz = components of normal pressure on surface elements in a grid cell</p></li>
+<li><p>shx,shy,shz = components of shear stress on surface elements in a grid cell</p></li>
+<li><p>ke = flux of particle kinetic energy on surface elements in a grid cell</p></li>
+<li><p>erot = flux of particle rotational energy on surface elements in a grid cell</p></li>
+<li><p>evib = flux of particle vibrational energy on surface elements in a grid cell</p></li>
+<li><p>etot = flux of particle total energy on surface elements in a grid cell</p></li>
+</ul>
 </li>
 </ul>
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">isurf</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="nb">all</span> <span class="n">n</span> <span class="n">press</span> <span class="n">eng</span>
-<span class="n">compute</span> <span class="n">mine</span> <span class="n">isurf</span><span class="o">/</span><span class="n">grid</span> <span class="n">sphere</span> <span class="n">species</span> <span class="n">press</span> <span class="n">shx</span> <span class="n">shy</span> <span class="n">shz</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 isurf/grid all all n press eng</span>
+<span class="nb">compute</span> <span class="no">mine isurf/grid sphere species press shx shy shz</span>
 </pre></div>
 </div>
 <p>These commands will dump time averages for each species and each grid
 cell to a dump file every 1000 steps:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">isurfgrid</span> <span class="nb">all</span> <span class="n">species</span> <span class="n">n</span> <span class="n">press</span> <span class="n">shx</span> <span class="n">shy</span> <span class="n">shz</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="mi">10</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="n">c_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
-<span class="n">dump</span> <span class="mi">1</span> <span class="n">grid</span> <span class="nb">all</span> <span class="mi">1000</span> <span class="n">tmp</span><span class="o">.</span><span class="n">grid</span> <span class="nb">id</span> <span class="n">f_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 isurfgrid all species n press shx shy shz</span>
+<span class="nb">fix</span> <span class="no">1 ave/grid all 10 100 1000 c_1[*]</span>
+<span class="nb">dump</span> <span class="no">1 grid all 1000 tmp.grid id f_1[*]</span>
 </pre></div>
 </div>
 <p>These commands will time-average the force surface elements in each grid
 cell, then sum them across grid cells to compute drag (fx) and lift (fy)
 on the set of implicit surfs:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">isurf</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="nb">all</span> <span class="n">fx</span> <span class="n">fy</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="mi">10</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="n">c_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
-<span class="n">compute</span> <span class="mi">2</span> <span class="n">reduce</span> <span class="nb">sum</span> <span class="n">f_1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">f_1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">stats</span> <span class="mi">1000</span>
-<span class="n">stats_style</span> <span class="n">step</span> <span class="n">cpu</span> <span class="n">np</span> <span class="n">c_2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">c_2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 isurf/grid all all fx fy</span>
+<span class="nb">fix</span> <span class="no">1 ave/grid all 10 100 1000 c_1[*]</span>
+<span class="nb">compute</span> <span class="no">2 reduce sum f_1[1] f_1[2]</span>
+<span class="nb">stats</span> <span class="no">1000</span>
+<span class="nb">stats_style</span> <span class="no">step cpu np c_2[1] c_2[2]</span>
 </pre></div>
 </div>
 </div>
@@ -274,8 +275,10 @@ particle collisions with surface elements in the grid cell.</p>
 these quantities is exactly the same as described by the <a class="reference internal" href="compute_surf.html#command-compute-surf"><span class="std std-ref">compute surf</span></a> command.</p>
 <p>The only difference is that the quantities are calculated on a per grid
 cell basis, summing over all the surface elements in that grid cell.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Output info:</strong></p>
+<div class="section" id="output-info">
+<h2>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h2>
 <p>This compute calculates a per-grid array, with the number of columns
 equal to the number of values times the number of groups. The ordering
 of columns is first by values, then by groups. I.e. if the <em>n</em> and <em>u</em>

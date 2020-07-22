@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,7 +171,7 @@
 <span id="command-compute-fft-grid"></span><span id="index-0"></span><h1>compute fft/grid command<a class="headerlink" href="#compute-fft-grid-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">fft</span><span class="o">/</span><span class="n">grid</span> <span class="n">value1</span> <span class="n">value2</span> <span class="o">...</span> <span class="n">keyword</span> <span class="n">args</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">ID fft/grid value1 value2 ... keyword args ...</span>
 </pre></div>
 </div>
 <ul>
@@ -178,41 +179,41 @@
 <li><p>fft/grid = style name of this compute command</p></li>
 <li><p>one or more values can be appended</p></li>
 <li><p>value = c_ID, c_ID[N], f_ID, f_ID[N], v_name</p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c_ID</span> <span class="o">=</span> <span class="n">per</span><span class="o">-</span><span class="n">grid</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">compute</span> <span class="k">with</span> <span class="n">ID</span>
-<span class="n">c_ID</span><span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ith</span> <span class="n">column</span> <span class="n">of</span> <span class="n">per</span><span class="o">-</span><span class="n">grid</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">compute</span> <span class="k">with</span> <span class="n">ID</span>
-<span class="n">f_ID</span> <span class="o">=</span> <span class="n">per</span><span class="o">-</span><span class="n">grid</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">fix</span> <span class="k">with</span> <span class="n">ID</span>
-<span class="n">f_ID</span><span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ith</span> <span class="n">column</span> <span class="n">of</span> <span class="n">per</span><span class="o">-</span><span class="n">grid</span> <span class="ow">or</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">fix</span> <span class="k">with</span> <span class="n">ID</span>
-<span class="n">v_name</span> <span class="o">=</span> <span class="n">per</span><span class="o">-</span><span class="n">grid</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">grid</span><span class="o">-</span><span class="n">style</span> <span class="n">variable</span> <span class="k">with</span> <span class="n">name</span>
-</pre></div>
-</div>
-</div></blockquote>
+<ul class="simple">
+<li><p>c_ID = per-grid vector calculated by a compute with ID</p></li>
+<li><p>c_ID[I] = Ith column of per-grid array calculated by a compute with ID</p></li>
+<li><p>f_ID = per-grid vector calculated by a fix with ID</p></li>
+<li><p>f_ID[I] = Ith column of per-grid or array calculated by a fix with ID</p></li>
+<li><p>v_name = per-grid vector calculated by a grid-style variable with name</p></li>
+</ul>
 </li>
-<li><p>zero or more keyword/arg pairs can be appended</p></li>
-<li><p>keyword = <em>sum</em> or <em>scale</em> or <em>conjugate</em> or <em>kmag</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span> <span class="n">to</span> <span class="nb">sum</span> <span class="nb">all</span> <span class="n">FFTs</span> <span class="n">into</span> <span class="n">a</span> <span class="n">single</span> <span class="n">output</span>
-<span class="n">scale</span> <span class="o">=</span> <span class="n">sfactor</span> <span class="o">=</span> <span class="n">numeric</span> <span class="n">value</span> <span class="n">to</span> <span class="n">scale</span> <span class="n">results</span> <span class="n">by</span>
-<span class="n">conjugate</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span> <span class="o">=</span> <span class="n">perform</span> <span class="nb">complex</span> <span class="n">conjugate</span> <span class="n">multiply</span> <span class="ow">or</span> <span class="ow">not</span>
-<span class="n">kx</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span> <span class="o">=</span> <span class="n">calculate</span> <span class="n">x</span><span class="o">-</span><span class="n">component</span> <span class="n">of</span> <span class="n">wavelength</span> <span class="ow">or</span> <span class="ow">not</span>
-<span class="n">kx</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span> <span class="o">=</span> <span class="n">calculate</span> <span class="n">y</span><span class="o">-</span><span class="n">component</span> <span class="n">of</span> <span class="n">wavelength</span> <span class="ow">or</span> <span class="ow">not</span>
-<span class="n">kx</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span> <span class="o">=</span> <span class="n">calculate</span> <span class="n">z</span><span class="o">-</span><span class="n">component</span> <span class="n">of</span> <span class="n">wavelength</span> <span class="ow">or</span> <span class="ow">not</span>
-<span class="n">kmag</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span> <span class="o">=</span> <span class="n">calculate</span> <span class="n">wavelength</span> <span class="n">magnitude</span> <span class="ow">or</span> <span class="ow">not</span>
-</pre></div>
-</div>
+<li><p>zero or more keyword/arg pairs can be appended</p>
+<p>keyword = <code class="docutils literal notranslate"><span class="pre">sum</span></code> or <code class="docutils literal notranslate"><span class="pre">scale</span></code> or <code class="docutils literal notranslate"><span class="pre">conjugate</span></code> or <code class="docutils literal notranslate"><span class="pre">kmag</span></code></p>
 </li>
 </ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>sum = yes or no to sum all FFTs into a single output</p></li>
+<li><p>scale = sfactor = numeric value to scale results by</p></li>
+<li><p>conjugate = yes or no = perform complex conjugate multiply or not</p></li>
+<li><p>kx = yes or no = calculate x-component of wavelength or not</p></li>
+<li><p>kx = yes or no = calculate y-component of wavelength or not</p></li>
+<li><p>kx = yes or no = calculate z-component of wavelength or not</p></li>
+<li><p>kmag = yes or no = calculate wavelength magnitude or not</p></li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">fft</span><span class="o">/</span><span class="n">grid</span> <span class="n">c_1</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 fft/grid c_1</span>
 </pre></div>
 </div>
 <p>These commands will dump FFTs of instantaneous and time-averaged
 velocity components in each grid cell to a dump file every 1000 steps:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">grid</span> <span class="nb">all</span> <span class="n">u</span> <span class="n">v</span> <span class="n">w</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="mi">10</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="n">c_1</span>
-<span class="n">compute</span> <span class="mi">2</span> <span class="n">fft</span><span class="o">/</span><span class="n">grid</span> <span class="n">f_11</span> <span class="n">f_12</span> <span class="n">f_13</span>
-<span class="n">dump</span> <span class="mi">1</span> <span class="n">grid</span> <span class="nb">all</span> <span class="mi">1000</span> <span class="n">tmp</span><span class="o">.</span><span class="n">grid</span> <span class="nb">id</span> <span class="n">c_2</span> <span class="n">f_1</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 grid all u v w</span>
+<span class="nb">fix</span> <span class="no">1 ave/grid 10 100 1000 c_1</span>
+<span class="nb">compute</span> <span class="no">2 fft/grid f_11 f_12 f_13</span>
+<span class="nb">dump</span> <span class="no">1 grid all 1000 tmp.grid id c_2 f_1</span>
 </pre></div>
 </div>
 </div>
@@ -287,8 +288,10 @@ associated with the x-dimension and used in those formulas are not Kx =
 0,1,2 … N-2,N-1. Rather they are Kx = 0,1,2, … N/2-1, N/2, N/2-1,
 … 2,1. Similary for Ky in the y-dimension with a max index of M/2, and
 Kz in the z-dimension with a max index of P/2.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Output info:</strong></p>
+<div class="section" id="output-info">
+<h2>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h2>
 <p>The number of per-grid values ouptut by this compute depends on the
 optional keyword settings. The number of FFTs is equal to the number of
 specified input values.</p>

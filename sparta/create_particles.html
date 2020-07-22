@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -173,7 +174,7 @@
 <span id="command-create-particles-createparticleskk"></span><h1>create_particles/kk command<a class="headerlink" href="#create-particles-kk-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create_particles</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">style</span> <span class="n">args</span> <span class="n">keyword</span> <span class="n">value</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">create_particles</span> <span class="no">mix-ID style args keyword value ...</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -211,14 +212,14 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create_particles</span> <span class="n">background</span> <span class="n">n</span> <span class="mi">0</span>
-<span class="n">create_particles</span> <span class="n">air</span> <span class="n">n</span> <span class="mi">100000</span> <span class="n">region</span> <span class="n">sphere</span>
-<span class="n">create_particles</span> <span class="n">air</span> <span class="n">n</span> <span class="mi">100000</span> <span class="k">global</span> <span class="n">yes</span>
-<span class="n">create_particles</span> <span class="n">air</span> <span class="n">single</span> <span class="mi">3</span> <span class="mf">5.0</span> <span class="mf">6.0</span> <span class="mf">5.4</span> <span class="mf">10.0</span> <span class="o">-</span><span class="mf">1.0</span> <span class="mf">0.0</span>
-<span class="n">create_particles</span> <span class="n">air</span> <span class="n">n</span> <span class="mi">0</span> <span class="n">species</span> <span class="n">mySpecies</span> <span class="n">xpos</span> <span class="n">NULL</span> <span class="n">zpos</span>
-<span class="n">create_particles</span> <span class="n">air</span> <span class="n">n</span> <span class="mi">0</span> <span class="n">density</span> <span class="n">myDens</span> <span class="n">xgrid</span> <span class="n">ygrid</span> <span class="n">NULL</span>
-<span class="n">create_particles</span> <span class="n">air</span> <span class="n">n</span> <span class="mi">0</span> <span class="n">temperature</span> <span class="n">myTemp</span> <span class="n">xgrid</span> <span class="n">ygrid</span> <span class="n">zgrid</span>
-<span class="n">create_particles</span> <span class="n">air</span> <span class="n">n</span> <span class="mi">0</span> <span class="n">velocity</span> <span class="n">myVx</span> <span class="n">NULL</span> <span class="n">myVz</span> <span class="n">xpos</span> <span class="n">ypos</span> <span class="n">NULL</span> <span class="n">twopass</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">create_particles</span> <span class="no">background n 0</span>
+<span class="nb">create_particles</span> <span class="no">air n 100000 region sphere</span>
+<span class="nb">create_particles</span> <span class="no">air n 100000 global yes</span>
+<span class="nb">create_particles</span> <span class="no">air single 3 5.0 6.0 5.4 10.0 -1.0 0.0</span>
+<span class="nb">create_particles</span> <span class="no">air n 0 species mySpecies xpos NULL zpos</span>
+<span class="nb">create_particles</span> <span class="no">air n 0 density myDens xgrid ygrid NULL</span>
+<span class="nb">create_particles</span> <span class="no">air n 0 temperature myTemp xgrid ygrid zgrid</span>
+<span class="nb">create_particles</span> <span class="no">air n 0 velocity myVx NULL myVz xpos ypos NULL twopass</span>
 </pre></div>
 </div>
 </div>
@@ -343,11 +344,11 @@ snapshot of the initial particle distribution. Click on the image for a
 larger version. Note that when using this option less than the requested
 N particles can be created if the species variable returns values &lt;= 0
 or greater than Nsp = the number of species in the mixture.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span> <span class="n">x</span> <span class="n">internal</span> <span class="mi">0</span>
-<span class="n">variable</span> <span class="n">y</span> <span class="n">internal</span> <span class="mi">0</span>
-<span class="n">variable</span> <span class="n">n</span> <span class="n">equal</span> <span class="mi">3</span>
-<span class="n">variable</span> <span class="n">s</span> <span class="n">equal</span> <span class="s2">&quot;(v_y &lt; 0.5*(ylo+yhi) + 0.15*yhi*sin(2*PI*v_n*v_x/xhi)) + 1&quot;</span>
-<span class="n">create_particles</span> <span class="n">species</span> <span class="n">n</span> <span class="mi">10000</span> <span class="n">species</span> <span class="n">s</span> <span class="n">x</span> <span class="n">y</span> <span class="n">NULL</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">x internal 0</span>
+<span class="nb">variable</span> <span class="no">y internal 0</span>
+<span class="nb">variable</span> <span class="no">n equal 3</span>
+<span class="nb">variable</span> <span class="no">s equal &quot;(v_y &lt; 0.5*(ylo+yhi) + 0.15*yhi*sin(2*PI*v_n*v_x/xhi)) + 1&quot;</span>
+<span class="nb">create_particles</span> <span class="no">species n 10000 species s x y NULL</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="JPG/species_variation.jpg"><img alt="image0" src="_images/species_variation_small.jpg" /></a></p>
@@ -376,10 +377,10 @@ initial particle distribution. Click on the image for a larger version.
 Note that less than requested N particles will be created in this case
 because all the scale factors generated by the variable <em>d</em> are less
 than 1.0.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span> <span class="n">x</span> <span class="n">internal</span> <span class="mi">0</span>
-<span class="n">variable</span> <span class="n">y</span> <span class="n">internal</span> <span class="mi">0</span>
-<span class="n">variable</span> <span class="n">d</span> <span class="n">equal</span> <span class="s2">&quot;v_x/xhi * v_y/yhi&quot;</span>
-<span class="n">create_particles</span> <span class="n">air</span> <span class="n">n</span> <span class="mi">10000</span> <span class="n">density</span> <span class="n">d</span> <span class="n">x</span> <span class="n">y</span> <span class="n">NULL</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">x internal 0</span>
+<span class="nb">variable</span> <span class="no">y internal 0</span>
+<span class="nb">variable</span> <span class="no">d equal &quot;v_x/xhi * v_y/yhi&quot;</span>
+<span class="nb">create_particles</span> <span class="no">air n 10000 density d x y NULL</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="JPG/density_variation.jpg"><img alt="image1" src="_images/density_variation_small.jpg" /></a></p>
@@ -407,9 +408,9 @@ temperature.</p>
 a thermal temperature gradient in x, where the temperature on the left
 side of the box is the default value, and the temperature on the right
 side is 3x larger.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span> <span class="n">x</span> <span class="n">internal</span> <span class="mi">0</span>
-<span class="n">variable</span> <span class="n">t</span> <span class="n">equal</span> <span class="s2">&quot;1.0 + 2.0*(v_x-xlo)/(xhi-xlo)&quot;</span>
-<span class="n">create_particles</span> <span class="n">air</span> <span class="n">n</span> <span class="mi">10000</span> <span class="n">temperature</span> <span class="n">t</span> <span class="n">x</span> <span class="n">NULL</span> <span class="n">NULL</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">x internal 0</span>
+<span class="nb">variable</span> <span class="no">t equal &quot;1.0 + 2.0*(v_x-xlo)/(xhi-xlo)&quot;</span>
+<span class="nb">create_particles</span> <span class="no">air n 10000 temperature t x NULL NULL</span>
 </pre></div>
 </div>
 <p>The <em>velocity</em> keyword can be used to create particles with a
@@ -439,11 +440,11 @@ the domain with a magnitude that makes them all reach that point at the
 same time (assuming their thermal velocity is small and it is not a
 collisional flow). Click on the image to play an animation of the
 effect.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span> <span class="n">x</span> <span class="n">internal</span> <span class="mi">0</span>
-<span class="n">variable</span> <span class="n">y</span> <span class="n">internal</span> <span class="mi">0</span>
-<span class="n">variable</span> <span class="n">vx</span> <span class="n">equal</span> <span class="p">(</span><span class="n">xhi</span><span class="o">-</span><span class="n">v_x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="mf">7.0e-9</span><span class="p">)</span>  <span class="c1"># timesteps and timestep-size</span>
-<span class="n">variable</span> <span class="n">vy</span> <span class="n">equal</span> <span class="p">(</span><span class="n">yhi</span><span class="o">-</span><span class="n">v_y</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="mf">7.0e-9</span><span class="p">)</span>
-<span class="n">create_particles</span> <span class="n">air</span> <span class="n">n</span> <span class="mi">10000</span> <span class="n">velocity</span> <span class="n">vx</span> <span class="n">vy</span> <span class="n">NULL</span> <span class="n">x</span> <span class="n">y</span> <span class="n">NULL</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">x internal 0</span>
+<span class="nb">variable</span> <span class="no">y internal 0</span>
+<span class="nb">variable</span> <span class="no">vx equal (xhi-v_x)/(1000*7.0e-9)  </span><span class="c"># timesteps and timestep-size</span>
+<span class="nb">variable</span> <span class="no">vy equal (yhi-v_y)/(1000*7.0e-9)</span>
+<span class="nb">create_particles</span> <span class="no">air n 10000 velocity vx vy NULL x y NULL</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="JPG/velocity_variation.gif"><img alt="image2" src="_images/velocity_variation_small.jpg" /></a></p>

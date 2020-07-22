@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,7 +171,7 @@
 <span id="command-species"></span><span id="index-0"></span><h1>species command<a class="headerlink" href="#species-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">species</span> <span class="n">file</span> <span class="n">ID1</span> <span class="n">ID2</span> <span class="o">...</span> <span class="n">keyword</span> <span class="n">value</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">species</span> <span class="no">file ID1 ID2 ... keyword value ...</span>
 </pre></div>
 </div>
 <ul>
@@ -179,7 +180,7 @@
 <li><p>multi-species abbreviations can also be used (see below)</p></li>
 <li><p>zero or more keyword/value pairs may be appended</p></li>
 <li><p>keyword = <em>vibfile</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vibfile</span> <span class="n">value</span> <span class="o">=</span> <span class="n">vfile</span> <span class="o">=</span> <span class="n">filename</span> <span class="k">for</span> <span class="n">extra</span> <span class="n">vibrational</span> <span class="n">info</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">vibfile</span> <span class="no">value = vfile = filename for extra vibrational info</span>
 </pre></div>
 </div>
 </li>
@@ -187,10 +188,10 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">species</span> <span class="n">air</span><span class="o">.</span><span class="n">species</span> <span class="n">air</span>
-<span class="n">species</span> <span class="n">ar</span><span class="o">.</span><span class="n">species</span> <span class="n">Ar</span>
-<span class="n">species</span> <span class="n">air</span><span class="o">.</span><span class="n">species</span> <span class="n">air</span> <span class="n">CO2</span> <span class="n">CO</span> <span class="n">vibfile</span> <span class="n">co2</span><span class="o">.</span><span class="n">species</span><span class="o">.</span><span class="n">vib</span>
-<span class="n">species</span> <span class="n">myfile</span> <span class="n">H</span><span class="o">+</span> <span class="n">Cl</span><span class="o">-</span> <span class="n">HCl</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">species</span> <span class="no">air.species air</span>
+<span class="nb">species</span> <span class="no">ar.species Ar</span>
+<span class="nb">species</span> <span class="no">air.species air CO2 CO vibfile co2.species.vib</span>
+<span class="nb">species</span> <span class="no">myfile H+ Cl- HCl</span>
 </pre></div>
 </div>
 </div>
@@ -222,7 +223,7 @@ as in the 3rd example above.</p>
 allowed in the file. Comment lines start with a “#” character. All other
 lines must have the following format with values separated by
 whitespace:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">species</span><span class="o">-</span><span class="n">ID</span> <span class="n">prop1</span> <span class="n">prop2</span> <span class="o">...</span> <span class="n">prop9</span> <span class="n">prop10</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>species-ID prop1 prop2 ... prop9 prop10
 </pre></div>
 </div>
 <p>The species-ID is a string that will be matched against the requested
@@ -270,7 +271,7 @@ info is read, it is ignored by SPARTA unless the <a class="reference internal" h
 data/co2.species.vib for an example. Comments or blank lines are allowed
 in the file. Comment lines start with a “#” character. All other lines
 must have the following format with values separated by whitespace:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">species</span><span class="o">-</span><span class="n">ID</span> <span class="n">N</span> <span class="n">temp1</span> <span class="n">relax1</span> <span class="n">degen1</span> <span class="n">temp2</span> <span class="n">relax2</span> <span class="n">degen2</span> <span class="o">...</span> <span class="n">tempN</span> <span class="n">relaxN</span> <span class="n">degenN</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>species-ID N temp1 relax1 degen1 temp2 relax2 degen2 ... tempN relaxN degenN
 </pre></div>
 </div>
 <p>The species-ID is a string that will be matched against the requested

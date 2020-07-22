@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="10. Modifying &amp; extending SPARTA" href="Section_modify.html" />
@@ -62,7 +63,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -291,7 +292,7 @@ have GnuPlot installed on your system to use this script. If you can
 type “gnuplot” from the command line to start GnuPlot, it should work.
 If not (e.g. because you need a path name), then edit these 2 lines as
 needed in pizza/gnu.py:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">except</span><span class="p">:</span> <span class="n">PIZZA_GNUPLOT</span> <span class="o">=</span> <span class="s2">&quot;gnuplot&quot;</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">except</span><span class="p">:</span> <span class="n">PIZZA_GNUPLOT</span> <span class="o">=</span> <span class="s2">&quot;gnuplot&quot;</span>
 <span class="k">except</span><span class="p">:</span> <span class="n">PIZZA_GNUTERM</span> <span class="o">=</span> <span class="s2">&quot;x11&quot;</span>
 </pre></div>
 </div>
@@ -320,7 +321,7 @@ of triangles and can be created by various mesh-generation programs. The
 format for SPARTA surface files is described on the
 <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command doc page.</p>
 <p>See the header of the script for the syntax used to run it, e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">python</span> <span class="n">stl2surf</span><span class="o">.</span><span class="n">py</span> <span class="n">stlfile</span> <span class="n">surffile</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">python</span> <span class="n">stl2surf</span><span class="o">.</span><span class="n">py</span> <span class="n">stlfile</span> <span class="n">surffile</span>
 </pre></div>
 </div>
 <p>The script also checks the triangulated object to see if it is

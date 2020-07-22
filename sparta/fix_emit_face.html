@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -173,18 +174,18 @@
 <span id="command-fix-emit-face-fix-emitfacekk"></span><h1>fix emit/face/kk command<a class="headerlink" href="#fix-emit-face-kk-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">emit</span><span class="o">/</span><span class="n">face</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">face1</span> <span class="n">face2</span> <span class="o">...</span> <span class="n">keyword</span> <span class="n">value</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">ID emit/face mix-ID face1 face2 ... keyword value(s) ...</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>ID is documented in <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> command</p></li>
 <li><p>emit/face = style name of this fix command</p></li>
 <li><p>mix-ID = ID of mixture to use when creating particles</p></li>
-<li><p>face1,face2,… = one or more of <em>all</em> or <em>xlo</em> or <em>xhi</em> or <em>ylo</em> or
-<em>yhi</em> or <em>zlo</em> or <em>zhi</em></p></li>
+<li><p>face1,face2,… = one or more of <code class="docutils literal notranslate"><span class="pre">all</span></code> or <code class="docutils literal notranslate"><span class="pre">xlo</span></code> or <code class="docutils literal notranslate"><span class="pre">xhi</span></code> or <code class="docutils literal notranslate"><span class="pre">ylo</span></code> or
+<code class="docutils literal notranslate"><span class="pre">yhi</span></code> or <code class="docutils literal notranslate"><span class="pre">zlo</span></code> or <code class="docutils literal notranslate"><span class="pre">zhi</span></code></p></li>
 <li><p>zero or more keyword/value(s) pairs may be appended</p></li>
-<li><p>keyword = <em>n</em> or <em>nevery</em> or <em>perspecies</em> or <em>region</em> or <em>subsonic</em>
-or <em>twopass</em></p></li>
+<li><p>keyword = <code class="docutils literal notranslate"><span class="pre">n</span></code> or <code class="docutils literal notranslate"><span class="pre">nevery</span></code> or <code class="docutils literal notranslate"><span class="pre">perspecies</span></code> or <code class="docutils literal notranslate"><span class="pre">region</span></code> or <code class="docutils literal notranslate"><span class="pre">subsonic</span></code>
+or <code class="docutils literal notranslate"><span class="pre">twopass</span></code></p></li>
 </ul>
 <blockquote>
 <div><dl class="simple">
@@ -208,10 +209,10 @@ or <em>twopass</em></p></li>
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="ow">in</span> <span class="n">emit</span><span class="o">/</span><span class="n">face</span> <span class="n">air</span> <span class="nb">all</span>
-<span class="n">fix</span> <span class="ow">in</span> <span class="n">emit</span><span class="o">/</span><span class="n">face</span> <span class="n">mymix</span> <span class="n">xlo</span> <span class="n">yhi</span> <span class="n">n</span> <span class="mi">1000</span> <span class="n">nevery</span> <span class="mi">10</span> <span class="n">region</span> <span class="n">circle</span>
-<span class="n">fix</span> <span class="ow">in</span> <span class="n">emit</span><span class="o">/</span><span class="n">face</span> <span class="n">air</span> <span class="n">xlo</span> <span class="n">subsonic</span> <span class="mf">0.1</span> <span class="mi">300</span>
-<span class="n">fix</span> <span class="ow">in</span> <span class="n">emit</span><span class="o">/</span><span class="n">face</span> <span class="n">air</span> <span class="n">xhi</span> <span class="n">subsonic</span> <span class="mf">0.05</span> <span class="n">NULL</span> <span class="n">twopass</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">in emit/face air all</span>
+<span class="nb">fix</span> <span class="no">in emit/face mymix xlo yhi n 1000 nevery 10 region circle</span>
+<span class="nb">fix</span> <span class="no">in emit/face air xlo subsonic 0.1 300</span>
+<span class="nb">fix</span> <span class="no">in emit/face air xhi subsonic 0.05 NULL twopass</span>
 </pre></div>
 </div>
 </div>
@@ -221,15 +222,15 @@ or <em>twopass</em></p></li>
 continuously during a simulation. If invoked every timestep, this fix
 creates a continuous influx of particles thru the face(s).</p>
 <p>The properties of the added particles are determined by the mixture with
-ID <em>mix-ID</em>. This sets the number and species of added particles, as
+ID <code class="docutils literal notranslate"><span class="pre">mix-ID</span></code>. This sets the number and species of added particles, as
 well as their streaming velocity, thermal temperature, and internal
 energy modes. The details are explained below.</p>
 <p>One or more faces of the simulation box can be specified via the
-<em>face1</em>, <em>face2</em>, etc arguments. The 6 possible faces can be specified
-as <em>xlo</em>, <em>xhi</em>, <em>ylo</em>, <em>yhi</em>, <em>zlo</em>, or <em>zhi</em>. Specifying <em>all</em> is the
+<code class="docutils literal notranslate"><span class="pre">face1</span></code>, <code class="docutils literal notranslate"><span class="pre">face2</span></code>, etc arguments. The 6 possible faces can be specified
+as <code class="docutils literal notranslate"><span class="pre">xlo</span></code>, <code class="docutils literal notranslate"><span class="pre">xhi</span></code>, <code class="docutils literal notranslate"><span class="pre">ylo</span></code>, <code class="docutils literal notranslate"><span class="pre">yhi</span></code>, <code class="docutils literal notranslate"><span class="pre">zlo</span></code>, or <code class="docutils literal notranslate"><span class="pre">zhi</span></code>. Specifying <code class="docutils literal notranslate"><span class="pre">all</span></code> is the
 same as specifying all 6 individual faces.</p>
 <p>On each insertion timestep, each grid cell with one or more of its faces
-touching a specified boundary <em>face</em> performs the following computations
+touching a specified boundary <code class="docutils literal notranslate"><span class="pre">face</span></code> performs the following computations
 to add particles. The particles are added at the beginning of the SPARTA
 timestep.</p>
 <p>The molecular flux across a grid cell face per unit time is given by
@@ -237,7 +238,7 @@ equation 4.22 of <a class="reference internal" href="surf_collide.html#bird94" i
 insert on a particular grid cell face is based on this flux and
 additional global, flow, and cell face properties:</p>
 <ul class="simple">
-<li><p>global property: <em>fnum</em> ratio as specified by the
+<li><p>global property: <code class="docutils literal notranslate"><span class="pre">fnum</span></code> ratio as specified by the
 <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global</span></a> command</p></li>
 <li><p>flow properties: number density, streaming velocity, and thermal
 temperature</p></li>
@@ -258,8 +259,8 @@ command.</p>
 </div>
 <p>The velocity of the particle is set to the sum of the streaming velocity
 and a thermal velocity sampled from the thermal temperature. The
-internal energy modes of the particle are determined by the <em>trot</em> and
-<em>tvib</em> settings of the mixture and the <em>rotate</em> and <em>vibrate</em> options of
+internal energy modes of the particle are determined by the <code class="docutils literal notranslate"><span class="pre">trot</span></code> and
+<code class="docutils literal notranslate"><span class="pre">tvib</span></code> settings of the mixture and the <code class="docutils literal notranslate"><span class="pre">rotate</span></code> and <code class="docutils literal notranslate"><span class="pre">vibrate</span></code> options of
 the <a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify</span></a> command. Note that if the
 <a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide</span></a> command has not been specified (free
 molecular flow), then no rotational or vibrational energy will be
@@ -272,56 +273,53 @@ desired.</p>
 random fraction of the timestep. This insures a continuous flow field of
 particles entering the simulation box.</p>
 <hr class="docutils" />
-<p>The <em>n</em> keyword can alter how many particles are added, which can be
-useful for debugging purposes. If <em>Np</em> is set to 0, then the number of
-added particles is a function of <em>fnum</em>, <em>nrho</em>, and other mixture
-settings, as described above. If <em>Np</em> is set to a value &gt; 0, then the
-<em>fnum</em> and <em>nrho</em> settings are ignored, and exactly <em>Np</em> particles are
-added on each insertion timestep. This is done by dividing <em>Np</em> by the
+<p>The <code class="docutils literal notranslate"><span class="pre">n</span></code> keyword can alter how many particles are added, which can be
+useful for debugging purposes. If <code class="docutils literal notranslate"><span class="pre">Np</span></code> is set to 0, then the number of
+added particles is a function of <code class="docutils literal notranslate"><span class="pre">fnum</span></code>, <code class="docutils literal notranslate"><span class="pre">nrho</span></code>, and other mixture
+settings, as described above. If <code class="docutils literal notranslate"><span class="pre">Np</span></code> is set to a value &gt; 0, then the
+<code class="docutils literal notranslate"><span class="pre">fnum</span></code> and <code class="docutils literal notranslate"><span class="pre">nrho</span></code> settings are ignored, and exactly <code class="docutils literal notranslate"><span class="pre">Np</span></code> particles are
+added on each insertion timestep. This is done by dividing <code class="docutils literal notranslate"><span class="pre">Np</span></code> by the
 total number of grid cells that are adjacent to the specified box faces
 and adding an equal number of particles per grid cell.</p>
-<p>The <em>nevery</em> keyword determines how often particles are added. If
-<em>Nstep</em> &gt; 1, this may give a non-continuous, clumpy distribution in the
+<p>The <code class="docutils literal notranslate"><span class="pre">nevery</span></code> keyword determines how often particles are added. If
+<code class="docutils literal notranslate"><span class="pre">Nstep</span></code> &gt; 1, this may give a non-continuous, clumpy distribution in the
 inlet flow field.</p>
-<p>The <em>perspecies</em> keyword determines how the species of each added
+<p>The <code class="docutils literal notranslate"><span class="pre">perspecies</span></code> keyword determines how the species of each added
 particle is randomly determined. This has an effect on the statistical
 properties of added particles.</p>
-<p>If <em>perspecies</em> is set to <em>yes</em>, then a target insertion number <em>M</em> in a
+<p>If <code class="docutils literal notranslate"><span class="pre">perspecies</span></code> is set to <code class="docutils literal notranslate"><span class="pre">yes</span></code>, then a target insertion number <code class="docutils literal notranslate"><span class="pre">M</span></code> in a
 grid cell is calculated for each species, which is a function of the
-relative number fraction of the species, as set by the <a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture nfrac</span></a> command. If <em>M</em> has a fractional value, e.g.
+relative number fraction of the species, as set by the <a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture nfrac</span></a> command. If <code class="docutils literal notranslate"><span class="pre">M</span></code> has a fractional value, e.g.
 12.5, then 12 particles of that species will always be added, and a 13th
 depending on the value of a random number.</p>
-<p>If <em>perspecies</em> is set to <em>no</em>, then a single target insertion number
-<em>M</em> in a grid cell is calculated for all the species. Each time a
+<p>If <code class="docutils literal notranslate"><span class="pre">perspecies</span></code> is set to <code class="docutils literal notranslate"><span class="pre">no</span></code>, then a single target insertion number
+<code class="docutils literal notranslate"><span class="pre">M</span></code> in a grid cell is calculated for all the species. Each time a
 particle is added, a random number is used to choose the species of the
 particle, based on the relative number fractions of all the species in
-the mixture. As before, if <em>M</em> has a fractional value, e.g. 12.5, then
+the mixture. As before, if <code class="docutils literal notranslate"><span class="pre">M</span></code> has a fractional value, e.g. 12.5, then
 12 particles will always be added, and a 13th depending on the value of
 a random number.</p>
 <p>Here is a simple example that illustrates the difference between the two
 options. Assume a mixture with 2 species, each with a relative number
 fraction of 0.5. Assume a particular grid cell adds 10 particles from
-that mixture. If <em>perspecies</em> is set to <em>yes</em>, then exactly 5 particles
+that mixture. If <code class="docutils literal notranslate"><span class="pre">perspecies</span></code> is set to <code class="docutils literal notranslate"><span class="pre">yes</span></code>, then exactly 5 particles
 of each species will be added on every timestep insertions take place.
-If <em>perspecies</em> is set to <em>no</em>, then exactly 10 particles will be added
+If <code class="docutils literal notranslate"><span class="pre">perspecies</span></code> is set to <code class="docutils literal notranslate"><span class="pre">no</span></code>, then exactly 10 particles will be added
 every time and on average there will be 5 particles of each of the two
 species. But on one timestep it might be 6 of the first and 4 of the
 second. On another timestep it might be 3 of the first and 7 of the
 second.</p>
-<p>If the <em>region</em> keyword is used, then a particle will only added if its
-position is within the specified <em>region-ID</em>. This can be used to only
+<p>If the <code class="docutils literal notranslate"><span class="pre">region</span></code> keyword is used, then a particle will only added if its
+position is within the specified <code class="docutils literal notranslate"><span class="pre">region-ID</span></code>. This can be used to only
 allow particle insertion on a subset of the boundary face. Note that the
-<em>side</em> option for the <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command can be used to
+<code class="docutils literal notranslate"><span class="pre">side</span></code> option for the <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command can be used to
 define whether the inside or outside of the geometric region is
 considered to be “in” the region.</p>
-<p>IMPORTANT NOTE: If the <em>region</em> and <em>n</em> keywords are used together, less
-than N particles may be added on an insertion timestep. This is because
-grid cells will be candidates for particle insertion, unless they are
-entirely outside the bounding box that encloses the region. Particles
-those grid cells attempt to add are included in the count for N, even if
-some or all of the particle insertions are rejected due to not being
-inside the region.</p>
-<p>The <em>subsonic</em> keyword uses the method of Fang and Liou
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">region</span></code> and <code class="docutils literal notranslate"><span class="pre">n</span></code> keywords are used together, less than N particles may be added on an insertion timestep. This is because grid cells will be candidates for particle insertion, unless they are entirely outside the bounding box that encloses the region. Particles those grid cells attempt to add are included in the count for N, even if some or all of the particle insertions are rejected due to not being inside the region.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">subsonic</span></code> keyword uses the method of Fang and Liou
 <a class="reference internal" href="#fang02" id="id2"><span>[Fang02]</span></a> to determine the number of particles to insert in
 each grid cell on the emitting face(s). They used the method of
 characteristics to calculate the mean properties of the incoming
@@ -336,22 +334,15 @@ instantaneous values for the density, temperature, and stream velocity
 of particles in the cells adjacent to the boundary face(s) are computed
 and used to determine the properties of inserted particles on each
 timestep.</p>
-<p>IMPORTANT NOTE: Caution must be exercised when using the subsonic
-boundary condition without specifying an inlet temperature. In this case
-the code tries to estimate the temperature of the flow from the
-properties of the particles in the domain. If the domain contains few
-particles per cell it may lead to spurious results. This boundary
-condition is meant more for an outlet than an inlet boundary condition,
-and performs well in cases where the cells are adequately populated.</p>
-<p>IMPORTANT NOTE: When using this keyword, you should also use an
-appropriate boundary collision or chemistry model via the
-<a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">boundary</span></a> or <a class="reference internal" href="bound_modify.html#command-bound-modify"><span class="std std-ref">bound_modify</span></a> or
-<a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide</span></a> or <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react</span></a>
-commands, so that particles hitting the surface disappear as if they
-were exiting the simulation domain. That is necessary to produce the
-correct subsonic conditions that the particle insertions due to this
-command are trying to achieve.</p>
-<p>The <em>twopass</em> keyword does not require a value. If used, the insertion
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Caution must be exercised when using the subsonic boundary condition without specifying an inlet temperature. In this case the code tries to estimate the temperature of the flow from the properties of the particles in the domain. If the domain contains few particles per cell it may lead to spurious results. This boundary condition is meant more for an outlet than an inlet boundary condition, and performs well in cases where the cells are adequately populated.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When using this keyword, you should also use an appropriate boundary collision or chemistry model via the <a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">boundary</span></a> or <a class="reference internal" href="bound_modify.html#command-bound-modify"><span class="std std-ref">bound_modify</span></a> or <a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide</span></a> or <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react</span></a> commands, so that particles hitting the surface disappear as if they were exiting the simulation domain. That is necessary to produce the correct subsonic conditions that the particle insertions due to this command are trying to achieve.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">twopass</span></code> keyword does not require a value. If used, the insertion
 procedure will loop over the insertion grid cells twice, the same as the
 KOKKOS package version of this fix does, so that it can reallocate
 memory efficiently, e.g. on a GPU. If this keyword is used the
@@ -359,8 +350,10 @@ non-KOKKOS and KOKKOS version will generate exactly the same set of
 particles, which makes debugging easier. If the keyword is not used, the
 non-KOKKOS and KOKKOS runs will use random numbers differently and thus
 generate different particles, though they will be statistically similar.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restart, output info:</strong></p>
+<div class="section" id="restart-output-info">
+<h2>Restart, output info:<a class="headerlink" href="#restart-output-info" title="Permalink to this headline">¶</a></h2>
 <p>No information about this fix is written to <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">binary restart files</span></a>.</p>
 <p>This fix computes a global vector of length 2 which can be accessed by
 various output commands. The first element of the vector is the total
@@ -386,8 +379,8 @@ effectively.</p>
 <hr class="docutils" />
 <div class="section" id="restrictions">
 <h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
-<p>Particles cannot be emitted from periodic faces of the simulation box.  Particles cannot be emitted from <em>z</em> faces of the simluation box for a 2d simulation.</p>
-<p>A <em>n</em> setting of <em>Np</em> &gt; 0 can only be used with a <em>perspecies</em> setting of <em>no</em>.</p>
+<p>Particles cannot be emitted from periodic faces of the simulation box.  Particles cannot be emitted from <code class="docutils literal notranslate"><span class="pre">z</span></code> faces of the simluation box for a 2d simulation.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">n</span></code> setting of <code class="docutils literal notranslate"><span class="pre">Np</span></code> &gt; 0 can only be used with a <code class="docutils literal notranslate"><span class="pre">perspecies</span></code> setting of <code class="docutils literal notranslate"><span class="pre">no</span></code>.</p>
 <p>A warning will be issued if a specified face has an inward normal in a direction opposing the streaming velocity. Particles will still be emitted from that face, so long as a small fraction have a thermal velocity large enough to overcome the outward streaming velocity, so that their net velocity is inward. The threshold for this is that a thermal velocity 3 sigmas from the mean thermal velocity is large enough to overcome the outward streaming velocity and produce a net velocity into the simulation box.</p>
 </div>
 <div class="section" id="related-commands">

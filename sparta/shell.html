@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,26 +171,26 @@
 <span id="command-shell"></span><span id="index-0"></span><h1>shell command<a class="headerlink" href="#shell-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">shell</span> <span class="n">cmd</span> <span class="n">args</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">shell</span> <span class="no">cmd args</span>
 </pre></div>
 </div>
 <ul>
 <li><p>cmd = <em>cd</em> or <em>mkdir</em> or <em>mv</em> or <em>rm</em> or <em>rmdir</em> or <em>putenv</em> or
 arbitrary command</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">arg</span> <span class="o">=</span> <span class="nb">dir</span>
-  <span class="nb">dir</span> <span class="o">=</span> <span class="n">directory</span> <span class="n">to</span> <span class="n">change</span> <span class="n">to</span>
-<span class="n">mkdir</span> <span class="n">args</span> <span class="o">=</span> <span class="n">dir1</span> <span class="n">dir2</span> <span class="o">...</span>
-  <span class="n">dir1</span><span class="p">,</span><span class="n">dir2</span> <span class="o">=</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">directories</span> <span class="n">to</span> <span class="n">create</span>
-<span class="n">mv</span> <span class="n">args</span> <span class="o">=</span> <span class="n">old</span> <span class="n">new</span>
-  <span class="n">old</span> <span class="o">=</span> <span class="n">old</span> <span class="n">filename</span>
-  <span class="n">new</span> <span class="o">=</span> <span class="n">new</span> <span class="n">filename</span>
-<span class="n">rm</span> <span class="n">args</span> <span class="o">=</span> <span class="n">file1</span> <span class="n">file2</span> <span class="o">...</span>
-  <span class="n">file1</span><span class="p">,</span><span class="n">file2</span> <span class="o">=</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">filenames</span> <span class="n">to</span> <span class="n">delete</span>
-<span class="n">rmdir</span> <span class="n">args</span> <span class="o">=</span> <span class="n">dir1</span> <span class="n">dir2</span> <span class="o">...</span>
-  <span class="n">dir1</span><span class="p">,</span><span class="n">dir2</span> <span class="o">=</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">directories</span> <span class="n">to</span> <span class="n">delete</span>
-<span class="n">putenv</span> <span class="n">args</span> <span class="o">=</span> <span class="n">var1</span><span class="o">=</span><span class="n">value1</span> <span class="n">var2</span><span class="o">=</span><span class="n">value2</span>
-  <span class="n">var</span><span class="o">=</span><span class="n">value</span> <span class="o">=</span> <span class="n">one</span> <span class="n">of</span> <span class="n">more</span> <span class="n">definitions</span> <span class="n">of</span> <span class="n">environment</span> <span class="n">variables</span>
-<span class="n">anything</span> <span class="k">else</span> <span class="ow">is</span> <span class="n">passed</span> <span class="k">as</span> <span class="n">a</span> <span class="n">command</span> <span class="n">to</span> <span class="n">the</span> <span class="n">shell</span> <span class="k">for</span> <span class="n">direct</span> <span class="n">execution</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>cd arg = dir
+  dir = directory to change to
+mkdir args = dir1 dir2 ...
+  dir1,dir2 = one or more directories to create
+mv args = old new
+  old = old filename
+  new = new filename
+rm args = file1 file2 ...
+  file1,file2 = one or more filenames to delete
+rmdir args = dir1 dir2 ...
+  dir1,dir2 = one or more directories to delete
+putenv args = var1=value1 var2=value2
+  var=value = one of more definitions of environment variables
+anything else is passed as a command to the shell for direct execution
 </pre></div>
 </div>
 </li>
@@ -197,15 +198,15 @@ arbitrary command</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">shell</span> <span class="n">cd</span> <span class="n">sub1</span>
-<span class="n">shell</span> <span class="n">cd</span> <span class="o">..</span>
-<span class="n">shell</span> <span class="n">mkdir</span> <span class="n">tmp1</span> <span class="n">tmp2</span> <span class="n">tmp3</span>
-<span class="n">shell</span> <span class="n">rmdir</span> <span class="n">tmp1</span>
-<span class="n">shell</span> <span class="n">mv</span> <span class="n">log</span><span class="o">.</span><span class="n">sparta</span> <span class="n">hold</span><span class="o">/</span><span class="n">log</span><span class="o">.</span><span class="mi">1</span>
-<span class="n">shell</span> <span class="n">rm</span> <span class="n">TMP</span><span class="o">/</span><span class="n">file1</span> <span class="n">TMP</span><span class="o">/</span><span class="n">file2</span>
-<span class="n">shell</span> <span class="n">putenv</span> <span class="n">SPARTA_DATA</span><span class="o">=../../</span><span class="n">data</span>
-<span class="n">shell</span> <span class="n">my_setup</span> <span class="n">file1</span> <span class="mi">10</span> <span class="n">file2</span>
-<span class="n">shell</span> <span class="n">my_post_process</span> <span class="mi">100</span> <span class="n">dump</span><span class="o">.</span><span class="n">out</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">shell</span> <span class="no">cd sub1</span>
+<span class="nb">shell</span> <span class="no">cd ..</span>
+<span class="nb">shell</span> <span class="no">mkdir tmp1 tmp2 tmp3</span>
+<span class="nb">shell</span> <span class="no">rmdir tmp1</span>
+<span class="nb">shell</span> <span class="no">mv log.sparta hold/log.1</span>
+<span class="nb">shell</span> <span class="no">rm TMP/file1 TMP/file2</span>
+<span class="nb">shell</span> <span class="no">putenv SPARTA_DATA=../../data</span>
+<span class="nb">shell</span> <span class="no">my_setup file1 10 file2</span>
+<span class="nb">shell</span> <span class="no">my_post_process 100 dump.out</span>
 </pre></div>
 </div>
 </div>
@@ -241,13 +242,13 @@ is performed. The resulting string is then used literally.</p>
 <p>Any other cmd is passed as-is to the shell along with its arguments as
 one string, invoked by the C-library system() call. For example, these
 lines in your input script:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>variable n equal 10
-variable foo string file2
-shell my_setup file1 $n ${foo}
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">n equal 10</span>
+<span class="nb">variable</span> <span class="no">foo string file2</span>
+<span class="nb">shell</span> <span class="no">my_setup file1 $n ${foo}</span>
 </pre></div>
 </div>
 <p>would be the same as invoking</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">my_setup</span> <span class="n">file1</span> <span class="mi">10</span> <span class="n">file2</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>% my_setup file1 10 file2
 </pre></div>
 </div>
 <p>from a command-line prompt. The executable program “my_setup” is run

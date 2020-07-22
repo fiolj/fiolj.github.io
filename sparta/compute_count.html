@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -173,25 +174,25 @@
 <span id="command-compute-count-compute-countkk"></span><h1>compute count/kk command<a class="headerlink" href="#compute-count-kk-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">count</span> <span class="n">id1</span> <span class="n">id2</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">ID count id1 id2 ...</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><p>ID is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
 <li><p>count = style name of this compute command</p></li>
 <li><p>id1,id2,… = species ID or mixture ID or mixture/group</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">species</span> <span class="n">ID</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">used</span> <span class="k">with</span> <span class="n">the</span> <span class="n">species</span> <span class="n">command</span>
-<span class="n">mixture</span> <span class="n">ID</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">used</span> <span class="k">with</span> <span class="n">the</span> <span class="n">mixture</span> <span class="n">command</span><span class="p">,</span> <span class="n">expands</span> <span class="n">to</span> <span class="nb">all</span> <span class="n">groups</span> <span class="ow">in</span> <span class="n">mixture</span>
-<span class="n">mixture</span><span class="o">/</span><span class="n">group</span> <span class="o">=</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">mixture</span> <span class="n">followed</span> <span class="n">by</span> <span class="n">name</span> <span class="n">of</span> <span class="n">a</span> <span class="n">group</span> <span class="n">within</span> <span class="n">mixture</span>
-</pre></div>
-</div>
+<ul>
+<li><p>species ID = ID used with the species command</p></li>
+<li><p>mixture ID = ID used with the mixture command, expands to all groups in mixture</p></li>
+<li><p>mixture/group = ID of mixture followed by name of a group within mixture</p></li>
+</ul>
 </li>
 </ul>
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">count</span> <span class="n">species</span>
-<span class="n">compute</span> <span class="n">Ncounts</span> <span class="n">count</span> <span class="n">N</span> <span class="n">N2</span> <span class="n">N</span><span class="o">+</span> <span class="n">air</span><span class="o">/</span><span class="n">O</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 count species</span>
+<span class="nb">compute</span> <span class="no">Ncounts count N N2 N+ air/O</span>
 </pre></div>
 </div>
 </div>
@@ -213,13 +214,15 @@ defined for the simulation to its own group. If there are 10 species in
 the simulation, there will thus be 10 counts calculated, the same as if
 the command had been specified with explicit names for all 10 species,
 e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">count</span> <span class="n">O2</span> <span class="n">N2</span> <span class="n">O</span> <span class="n">N</span> <span class="n">NO</span> <span class="n">O2</span><span class="o">+</span> <span class="n">N2</span><span class="o">+</span> <span class="n">O</span><span class="o">+</span> <span class="n">N</span><span class="o">+</span> <span class="n">NO</span><span class="o">+</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 count O2 N2 O N NO O2+ N2+ O+ N+ NO+</span>
 </pre></div>
 </div>
 <p>An <em>id</em> can also be of the form mix-ID/name where mix-ID is a mixture ID
 and name is the name of a group in that mixture.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Output info:</strong></p>
+<div class="section" id="output-info">
+<h2>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h2>
 <p>If there is a single count accumulated, this compute calculates a global
 scalar. If there are multiple counts accumulated, it calculates a global
 vector with a length = number of counts. These results can be used by

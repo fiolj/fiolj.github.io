@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -179,7 +180,7 @@
 <span id="command-fix-ave-histo-fix-avehistoweightkk"></span><h1>fix ave/histo/weight/kk command<a class="headerlink" href="#fix-ave-histo-weight-kk-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">style</span> <span class="n">Nevery</span> <span class="n">Nrepeat</span> <span class="n">Nfreq</span> <span class="n">lo</span> <span class="n">hi</span> <span class="n">Nbin</span> <span class="n">value1</span> <span class="n">value2</span> <span class="o">...</span> <span class="n">keyword</span> <span class="n">args</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">ID style Nevery Nrepeat Nfreq lo hi Nbin value1 value2 ... keyword args ...</span>
 </pre></div>
 </div>
 <ul>
@@ -194,54 +195,55 @@ command</p></li>
 <li><p>one or more input values can be listed</p></li>
 <li><p>value = x, y, z, vx, vy, vz, fx, fy, fz, c_ID, c_ID[N], f_ID,
 f_ID[N], v_name</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">vx</span><span class="p">,</span><span class="n">vy</span><span class="p">,</span><span class="n">vz</span> <span class="o">=</span> <span class="n">particle</span> <span class="n">attribute</span> <span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">velocity</span> <span class="n">component</span><span class="p">)</span>
-<span class="n">c_ID</span> <span class="o">=</span> <span class="n">scalar</span> <span class="ow">or</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">compute</span> <span class="k">with</span> <span class="n">ID</span>
-<span class="n">c_ID</span><span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ith</span> <span class="n">component</span> <span class="n">of</span> <span class="n">vector</span> <span class="ow">or</span> <span class="n">Ith</span> <span class="n">column</span> <span class="n">of</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">compute</span> <span class="k">with</span> <span class="n">ID</span><span class="p">,</span> <span class="n">I</span> <span class="n">can</span> <span class="n">include</span> <span class="n">wildcard</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
-<span class="n">f_ID</span> <span class="o">=</span> <span class="n">scalar</span> <span class="ow">or</span> <span class="n">vector</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">fix</span> <span class="k">with</span> <span class="n">ID</span>
-<span class="n">f_ID</span><span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ith</span> <span class="n">component</span> <span class="n">of</span> <span class="n">vector</span> <span class="ow">or</span> <span class="n">Ith</span> <span class="n">column</span> <span class="n">of</span> <span class="n">array</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">a</span> <span class="n">fix</span> <span class="k">with</span> <span class="n">ID</span><span class="p">,</span> <span class="n">I</span> <span class="n">can</span> <span class="n">include</span> <span class="n">wildcard</span> <span class="p">(</span><span class="n">see</span> <span class="n">below</span><span class="p">)</span>
-<span class="n">v_name</span> <span class="o">=</span> <span class="n">value</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">calculated</span> <span class="n">by</span> <span class="n">an</span> <span class="n">equal</span><span class="o">-</span><span class="n">style</span> <span class="ow">or</span> <span class="n">particle</span><span class="o">-</span><span class="n">style</span> <span class="ow">or</span> <span class="n">grid</span><span class="o">-</span><span class="n">style</span> <span class="n">variable</span> <span class="k">with</span> <span class="n">name</span>
-</pre></div>
-</div>
+<ul class="simple">
+<li><p>x,y,z,vx,vy,vz = particle attribute (position, velocity component)</p></li>
+<li><p>c_ID = scalar or vector calculated by a compute with ID</p></li>
+<li><p>c_ID[I] = Ith component of vector or Ith column of array calculated by a compute with ID, I can include wildcard (see below)</p></li>
+<li><p>f_ID = scalar or vector calculated by a fix with ID</p></li>
+<li><p>f_ID[I] = Ith component of vector or Ith column of array calculated by a fix with ID, I can include wildcard (see below)</p></li>
+<li><p>v_name = value(s) calculated by an equal-style or particle-style or grid-style variable with name</p></li>
+</ul>
 </li>
-<li><p>zero or more keyword/arg pairs may be appended</p></li>
-<li><p>keyword = <em>mode</em> or <em>file</em> or <em>region</em> or <em>mix</em> or <em>group</em> or <em>ave</em>
-or <em>start</em> or <em>beyond</em> or <em>overwrite</em> or <em>title1</em> or <em>title2</em> or
-<em>title3</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mode</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">scalar</span> <span class="ow">or</span> <span class="n">vector</span>
-  <span class="n">scalar</span> <span class="o">=</span> <span class="nb">all</span> <span class="nb">input</span> <span class="n">values</span> <span class="n">are</span> <span class="n">scalars</span>
-  <span class="n">vector</span> <span class="o">=</span> <span class="nb">all</span> <span class="nb">input</span> <span class="n">values</span> <span class="n">are</span> <span class="n">vectors</span>
-<span class="n">file</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">filename</span>
-  <span class="n">filename</span> <span class="o">=</span> <span class="n">name</span> <span class="n">of</span> <span class="n">file</span> <span class="n">to</span> <span class="n">output</span> <span class="n">histogram</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">to</span>
-<span class="n">region</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">region</span><span class="o">-</span><span class="n">ID</span> <span class="k">for</span> <span class="n">particle</span> <span class="n">inclusion</span>
-<span class="n">mix</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">mixture</span><span class="o">-</span><span class="n">ID</span> <span class="k">for</span> <span class="n">particle</span> <span class="n">inclusion</span>
-<span class="n">group</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="k">for</span> <span class="n">grid</span> <span class="n">cell</span> <span class="n">inclusion</span>
-<span class="n">ave</span> <span class="n">args</span> <span class="o">=</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">running</span> <span class="ow">or</span> <span class="n">window</span>
-  <span class="n">one</span> <span class="o">=</span> <span class="n">output</span> <span class="n">a</span> <span class="n">new</span> <span class="n">average</span> <span class="n">value</span> <span class="n">every</span> <span class="n">Nfreq</span> <span class="n">steps</span>
-  <span class="n">running</span> <span class="o">=</span> <span class="n">output</span> <span class="n">cumulative</span> <span class="n">average</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">previous</span> <span class="n">Nfreq</span> <span class="n">steps</span>
-  <span class="n">window</span> <span class="n">M</span> <span class="o">=</span> <span class="n">output</span> <span class="n">average</span> <span class="n">of</span> <span class="n">M</span> <span class="n">most</span> <span class="n">recent</span> <span class="n">Nfreq</span> <span class="n">steps</span>
-<span class="n">start</span> <span class="n">args</span> <span class="o">=</span> <span class="n">Nstart</span>
-  <span class="n">Nstart</span> <span class="o">=</span> <span class="n">start</span> <span class="n">averaging</span> <span class="n">on</span> <span class="n">this</span> <span class="n">timestep</span>
-<span class="n">beyond</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">ignore</span> <span class="ow">or</span> <span class="n">end</span> <span class="ow">or</span> <span class="n">extra</span>
-  <span class="n">ignore</span> <span class="o">=</span> <span class="n">ignore</span> <span class="n">values</span> <span class="n">outside</span> <span class="n">histogram</span> <span class="n">lo</span><span class="o">/</span><span class="n">hi</span> <span class="n">bounds</span>
-  <span class="n">end</span> <span class="o">=</span> <span class="n">count</span> <span class="n">values</span> <span class="n">outside</span> <span class="n">histogram</span> <span class="n">lo</span><span class="o">/</span><span class="n">hi</span> <span class="n">bounds</span> <span class="ow">in</span> <span class="n">end</span> <span class="n">bins</span>
-  <span class="n">extra</span> <span class="o">=</span> <span class="n">create</span> <span class="mi">2</span> <span class="n">extra</span> <span class="n">bins</span> <span class="k">for</span> <span class="n">value</span> <span class="n">outside</span> <span class="n">histogram</span> <span class="n">lo</span><span class="o">/</span><span class="n">hi</span> <span class="n">bounds</span>
-<span class="n">overwrite</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">none</span> <span class="o">=</span> <span class="n">overwrite</span> <span class="n">output</span> <span class="n">file</span> <span class="k">with</span> <span class="n">only</span> <span class="n">latest</span> <span class="n">output</span>
-<span class="n">title1</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">string</span>
-  <span class="n">string</span> <span class="o">=</span> <span class="n">text</span> <span class="n">to</span> <span class="nb">print</span> <span class="k">as</span> <span class="mi">1</span><span class="n">st</span> <span class="n">line</span> <span class="n">of</span> <span class="n">output</span> <span class="n">file</span>
-<span class="n">title2</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">string</span>
-  <span class="n">string</span> <span class="o">=</span> <span class="n">text</span> <span class="n">to</span> <span class="nb">print</span> <span class="k">as</span> <span class="mi">2</span><span class="n">nd</span> <span class="n">line</span> <span class="n">of</span> <span class="n">output</span> <span class="n">file</span>
-<span class="n">title3</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">string</span>
-  <span class="n">string</span> <span class="o">=</span> <span class="n">text</span> <span class="n">to</span> <span class="nb">print</span> <span class="k">as</span> <span class="mi">3</span><span class="n">rd</span> <span class="n">line</span> <span class="n">of</span> <span class="n">output</span> <span class="n">file</span><span class="p">,</span> <span class="n">only</span> <span class="k">for</span> <span class="n">vector</span> <span class="n">mode</span>
-</pre></div>
-</div>
+<li><p>zero or more keyword/arg pairs may be appended</p>
+<p>keyword = <code class="docutils literal notranslate"><span class="pre">mode</span></code> or <code class="docutils literal notranslate"><span class="pre">file</span></code> or <code class="docutils literal notranslate"><span class="pre">region</span></code> or <code class="docutils literal notranslate"><span class="pre">mix</span></code> or <code class="docutils literal notranslate"><span class="pre">group</span></code> or <code class="docutils literal notranslate"><span class="pre">ave</span></code>
+or <code class="docutils literal notranslate"><span class="pre">start</span></code> or <code class="docutils literal notranslate"><span class="pre">beyond</span></code> or <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> or <code class="docutils literal notranslate"><span class="pre">title1</span></code> or <code class="docutils literal notranslate"><span class="pre">title2</span></code> or
+<code class="docutils literal notranslate"><span class="pre">title3</span></code></p>
+<ul class="simple">
+<li><p>mode arg = scalar or vector</p>
+<ul>
+<li><p>scalar = all input values are scalars</p></li>
+<li><p>vector = all input values are vectors</p></li>
+</ul>
+</li>
+<li><p>file arg = filename: name of file to output histogram(s) to</p></li>
+<li><p>region arg = region-ID for particle inclusion</p></li>
+<li><p>mix arg = mixture-ID for particle inclusion</p></li>
+<li><p>group arg = group-ID for grid cell inclusion</p></li>
+<li><p>ave args = one or running or window</p>
+<ul>
+<li><p>one = output a new average value every Nfreq steps</p></li>
+<li><p>running = output cumulative average of all previous Nfreq steps</p></li>
+<li><p>window M = output average of M most recent Nfreq steps</p></li>
+</ul>
+</li>
+<li><p>start args = Nstart:  start averaging on this timestep</p></li>
+<li><p>beyond arg = ignore or end or extra</p></li>
+<li><p>ignore = ignore values outside histogram lo/hi bounds</p></li>
+<li><p>end = count values outside histogram lo/hi bounds in end bins</p></li>
+<li><p>extra = create 2 extra bins for value outside histogram lo/hi bounds</p></li>
+<li><p>overwrite arg = none = overwrite output file with only latest output</p></li>
+<li><p>title1 arg = string: text to print as 1st line of output file</p></li>
+<li><p>title2 arg = string: text to print as 2nd line of output file</p></li>
+<li><p>title3 arg = string: text to print as 3rd line of output file, only for vector mode</p></li>
+</ul>
 </li>
 </ul>
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">histo</span> <span class="mi">100</span> <span class="mi">5</span> <span class="mi">1000</span> <span class="mf">0.5</span> <span class="mf">1.5</span> <span class="mi">50</span> <span class="n">c_myGrid</span><span class="o">*</span> <span class="n">file</span> <span class="n">temp</span><span class="o">.</span><span class="n">histo</span> <span class="n">ave</span> <span class="n">running</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">histo</span> <span class="mi">100</span> <span class="mi">5</span> <span class="mi">1000</span> <span class="mi">0</span> <span class="mi">5</span> <span class="mi">100</span> <span class="n">c_kePart</span> <span class="s2">&quot;My output values&quot;</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">histo</span><span class="o">/</span><span class="n">weight</span> <span class="mi">1</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="o">-</span><span class="mf">2.0</span> <span class="mf">2.0</span> <span class="mi">18</span> <span class="n">vx</span> <span class="n">vy</span> <span class="n">ave</span> <span class="n">running</span> <span class="n">beyond</span> <span class="n">extra</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">1 ave/histo 100 5 1000 0.5 1.5 50 c_myGrid* file temp.histo ave running</span>
+<span class="nb">fix</span> <span class="no">1 ave/histo 100 5 1000 0 5 100 c_kePart &quot;My output values&quot;</span>
+<span class="nb">fix</span> <span class="no">1 ave/histo/weight 1 100 1000 -2.0 2.0 18 vx vy ave running beyond extra</span>
 </pre></div>
 </div>
 </div>
@@ -290,9 +292,9 @@ from m to n (inclusive).</p>
 <p>Using a wildcard is the same as if the individual elements of the vector
 or columns of the array had been listed one by one. E.g. these 2 fix
 ave/histo commands are equivalent, since the <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid command</span></a> creates a per-grid array with 3 columns:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">myGrid</span> <span class="n">grid</span> <span class="nb">all</span> <span class="nb">all</span> <span class="n">u</span> <span class="n">v</span> <span class="n">w</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">histo</span> <span class="mi">100</span> <span class="mi">1</span> <span class="mi">100</span> <span class="n">c_myGrid</span> <span class="n">file</span> <span class="n">tmp1</span><span class="o">.</span><span class="n">grid</span> <span class="n">mode</span> <span class="n">vector</span>
-<span class="n">fix</span> <span class="mi">2</span> <span class="n">ave</span><span class="o">/</span><span class="n">histo</span> <span class="mi">100</span> <span class="mi">1</span> <span class="mi">100</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">file</span> <span class="n">tmp2</span><span class="o">.</span><span class="n">grid</span> <span class="n">mode</span> <span class="n">vector</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">myGrid grid all all u v w</span>
+<span class="nb">fix</span> <span class="no">1 ave/histo 100 1 100 c_myGrid file tmp1.grid mode vector</span>
+<span class="nb">fix</span> <span class="no">2 ave/histo 100 1 100 c_myGrid[1] c_myGrid[2] c_myGrid[3] file tmp2.grid mode vector</span>
 </pre></div>
 </div>
 <p>If the fix ave/histo/weight command is used, exactly two values must be
@@ -438,17 +440,19 @@ the strings that will be printed as the first 3 lines of the output
 file, assuming the <em>file</em> keyword was used. SPARTA uses default values
 for each of these, so they do not need to be specified.</p>
 <p>By default, these header lines are as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Histogram for fix ID</span>
-<span class="c1"># TimeStep Number-of-bins Total-counts Missing-counts Min-value Max-value</span>
-<span class="c1"># Bin Coord Count Count/Total</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="c"># Histogram for fix ID</span>
+<span class="c"># TimeStep Number-of-bins Total-counts Missing-counts Min-value Max-value</span>
+<span class="c"># Bin Coord Count Count/Total</span>
 </pre></div>
 </div>
 <p>In the first line, ID is replaced with the fix-ID. The second line
 describes the six values that are printed at the first of each section
 of output. The third describes the 4 values printed for each bin in the
 histogram.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restart, output info:</strong></p>
+<div class="section" id="restart-output-info">
+<h2>Restart, output info:<a class="headerlink" href="#restart-output-info" title="Permalink to this headline">¶</a></h2>
 <p>No information about this fix is written to <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">binary restart files</span></a>.</p>
 <p>This fix produces a global vector and global array which can be accessed
 by various output commands. The values can only be accessed on timesteps

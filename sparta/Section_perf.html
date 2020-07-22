@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="9. Additional tools" href="Section_tools.html" />
@@ -62,7 +63,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -179,18 +180,19 @@
 <p>For each problem there is an input script and sample log file outputs on different machines and different numbers of processors. E.g. a log file like log.free.foo.1M.P means the the free molecular problem with 1 million grid cells ran on P processors of machine “foo”.</p>
 <p>Each can be run as a serial benchmark (on one processor) or in parallel.  In parallel, all the benchmarks can be run as a fixed-size problem, meaning the same problem is run on various numbers of processors (strong scaling). They can also be run as scaled-size problem, if the problem size is increased with the number of processors (weak scaling).</p>
 <p>Here is an example of how to run the benchmark problems. See the bench/README file for more details.</p>
-<ul>
-<li><p>1-processor runs:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">v</span> <span class="n">x</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">y</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">z</span> <span class="mi">100</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">free</span>
-<span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">v</span> <span class="n">x</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">y</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">z</span> <span class="mi">100</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>
-<span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">v</span> <span class="n">x</span> <span class="mi">50</span> <span class="o">-</span><span class="n">v</span> <span class="n">y</span> <span class="mi">50</span> <span class="o">-</span><span class="n">v</span> <span class="n">z</span> <span class="mi">50</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">sphere</span>
+<ul class="simple">
+<li><p>1-processor runs:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spa_g++ -v x <span class="m">100</span> -v y <span class="m">100</span> -v z <span class="m">100</span> &lt; in.free
+spa_g++ -v x <span class="m">100</span> -v y <span class="m">100</span> -v z <span class="m">100</span> &lt; in.collide
+spa_g++ -v x <span class="m">50</span> -v y <span class="m">50</span> -v z <span class="m">50</span> &lt; in.sphere
 </pre></div>
 </div>
-</li>
+<ul>
 <li><p>32-processor runs:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">32</span> <span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">v</span> <span class="n">x</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">y</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">z</span> <span class="mi">100</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">free</span>
-<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">32</span> <span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">v</span> <span class="n">x</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">y</span> <span class="mi">100</span> <span class="o">-</span><span class="n">v</span> <span class="n">z</span> <span class="mi">100</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>
-<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">32</span> <span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">v</span> <span class="n">x</span> <span class="mi">50</span> <span class="o">-</span><span class="n">v</span> <span class="n">y</span> <span class="mi">50</span> <span class="o">-</span><span class="n">v</span> <span class="n">z</span> <span class="mi">50</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">sphere</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">mpirun</span> <span class="no">-np 32 spa_g++ -v x 100 -v y 100 -v z 100 &lt; in.free</span>
+<span class="nb">mpirun</span> <span class="no">-np 32 spa_g++ -v x 100 -v y 100 -v z 100 &lt; in.collide</span>
+<span class="nb">mpirun</span> <span class="no">-np 32 spa_g++ -v x 50 -v y 50 -v z 50 &lt; in.sphere</span>
 </pre></div>
 </div>
 </li>

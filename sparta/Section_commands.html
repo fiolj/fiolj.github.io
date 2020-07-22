@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4. Packages" href="Section_packages.html" />
@@ -62,7 +63,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -215,15 +216,15 @@ important. However the following rules apply:</p>
 <li><p>SPARTA does not read your entire input script and then perform a simulation with all the settings.
 Rather, the input script is read one line at a time and each command takes effect when it is read.
 Thus this sequence of commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">timestep</span> <span class="mf">0.5</span>
-<span class="n">run</span>      <span class="mi">100</span>
-<span class="n">run</span>      <span class="mi">100</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">timestep</span> <span class="no">0.5</span>
+<span class="nb">run</span>      <span class="no">100</span>
+<span class="nb">run</span>      <span class="no">100</span>
 </pre></div>
 </div>
 <p>does something different than this sequence:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span>      <span class="mi">100</span>
-<span class="n">timestep</span> <span class="mf">0.5</span>
-<span class="n">run</span>      <span class="mi">100</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">run</span>      <span class="no">100</span>
+<span class="nb">timestep</span> <span class="no">0.5</span>
+<span class="nb">run</span>      <span class="no">100</span>
 </pre></div>
 </div>
 <p>In the first case, the specified timestep (0.5 secs) is used for two simulations of 100 timesteps each.
@@ -250,20 +251,20 @@ The next line is concatenated to the previous line by removing the “&amp;” c
 <p>If the <code class="docutils literal notranslate"><span class="pre">$</span></code> is followed by curly brackets, then the variable name is the text inside the curly brackets. If no curly brackets follow the <code class="docutils literal notranslate"><span class="pre">$</span></code>, then the variable name is the single character immediately following the $.  Thus <code class="docutils literal notranslate"><span class="pre">${myTemp}</span></code> and <code class="docutils literal notranslate"><span class="pre">$x</span></code> refer to variable names “myTemp” and “x”.</p>
 <p>How the variable is converted to a text string depends on what style of variable it is; see the <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable command</span></a> doc page for details. It can be a variable that stores multiple text strings, and return one of them. The returned text string can be multiple “words” (space separated) which will then be interpreted as multiple arguments in the input command. The variable can also store a numeric formula which will be evaluated and its numeric result returned as a string.</p>
 <p>As a special case, if the $ is followed by parenthesis, then the text inside the parenthesis is treated as an “immediate” variable and evaluated as an <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">equal-style variable</span></a>. This is a way to use numeric formulas in an input script without having to assign them to variable names. For example, these 3 input script lines:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>variable X equal (xlo+xhi)/2+sqrt(v_area)
-region 1 block $X 2 INF INF EDGE EDGE
-variable X delete
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">X equal (xlo+xhi)/2+sqrt(v_area)</span>
+<span class="nb">region</span> <span class="no">1 block $X 2 INF INF EDGE EDGE</span>
+<span class="nb">variable</span> <span class="no">X delete</span>
 </pre></div>
 </div>
 <p>can be replaced by</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>region 1 block $((xlo+xhi)/2+sqrt(v_area)) 2 INF INF EDGE EDGE
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">region</span> <span class="no">1 block $((xlo+xhi)/2+sqrt(v_area)) 2 INF INF EDGE EDGE</span>
 </pre></div>
 </div>
 <p>so that you do not have to define (or discard) a temporary variable X.</p>
 <p>Note that neither the curly-bracket or immediate form of variables can contain nested $ characters for other variables to substitute for. Thus you cannot do this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span>        <span class="n">a</span> <span class="n">equal</span> <span class="mi">2</span>
-<span class="n">variable</span>        <span class="n">b2</span> <span class="n">equal</span> <span class="mi">4</span>
-<span class="nb">print</span>           <span class="s2">&quot;B2 = ${b$a}&quot;</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span>        <span class="no">a equal 2</span>
+<span class="nb">variable</span>        <span class="no">b2 equal 4</span>
+<span class="nb">print</span>           <span class="no">&quot;B2 = ${b$a}&quot;</span>
 </pre></div>
 </div>
 <p>Nor can you specify this <code class="docutils literal notranslate"><span class="pre">$($x-1.0)</span></code> for an immediate variable, but you could use <code class="docutils literal notranslate"><span class="pre">$(v_x-1.0)</span></code>, since the latter is valid syntax for an <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">equal-style variable</span></a>.</p>
@@ -272,11 +273,11 @@ variable X delete
 <li><p>The line is broken into “words” separated by whitespace (tabs, spaces). Note that words can thus contain letters, digits, underscores, or punctuation characters.</p></li>
 <li><p>The first word is the command name. All successive words in the line are arguments.</p></li>
 <li><p>If you want text with spaces to be treated as a single argument, it can be enclosed in either double or single quotes. A long single argument enclosed in quotes can even span multiple lines if the “&amp;” character is used, as described above. E.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s2">&quot;Volume = $v&quot;</span>
-<span class="nb">print</span> <span class="s1">&#39;Volume = $v&#39;</span>
-<span class="n">variable</span> <span class="n">a</span> <span class="n">string</span> <span class="s2">&quot;red green blue &amp;</span>
-                   <span class="n">purple</span> <span class="n">orange</span> <span class="n">cyan</span><span class="s2">&quot;</span>
-<span class="k">if</span> <span class="s2">&quot;$steps &gt; 1000&quot;</span> <span class="n">then</span> <span class="n">quit</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="no">&quot;Volume = $v&quot;</span>
+<span class="nb">print</span> <span class="no">&#39;Volume = $v&#39;</span>
+<span class="nb">variable</span> <span class="no">a string &quot;red green blue &amp;</span>
+                   <span class="nb">purple</span> <span class="no">orange cyan&quot;</span>
+<span class="nb">if</span> <span class="no">&quot;$steps &gt; 1000&quot; then quit</span>
 </pre></div>
 </div>
 <p>The quotes are removed when the single argument is stored internally.</p>

@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,16 +171,16 @@
 <span id="command-boundary"></span><span id="index-0"></span><h1>boundary command<a class="headerlink" href="#boundary-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">boundary</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">boundary</span> <span class="no">x y z</span>
 </pre></div>
 </div>
 <ul>
 <li><p>x,y,z = <em>o</em> or <em>p</em> or <em>r</em> or <em>a</em> or <em>s</em>, one or two letters</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">o</span> <span class="ow">is</span> <span class="n">outflow</span>
-<span class="n">p</span> <span class="ow">is</span> <span class="n">periodic</span>
-<span class="n">r</span> <span class="ow">is</span> <span class="n">specular</span> <span class="n">reflection</span>
-<span class="n">a</span> <span class="ow">is</span> <span class="n">axi</span><span class="o">-</span><span class="n">symmetric</span>
-<span class="n">s</span> <span class="ow">is</span> <span class="n">treat</span> <span class="n">boundary</span> <span class="k">as</span> <span class="n">a</span> <span class="n">surface</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">o</span> <span class="no">is outflow</span>
+<span class="nb">p</span> <span class="no">is periodic</span>
+<span class="nb">r</span> <span class="no">is specular reflection</span>
+<span class="nb">a</span> <span class="no">is axi-symmetric</span>
+<span class="nb">s</span> <span class="no">is treat boundary as a surface</span>
 </pre></div>
 </div>
 </li>
@@ -187,9 +188,9 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">boundary</span> <span class="n">o</span> <span class="n">p</span> <span class="n">p</span>
-<span class="n">boundary</span> <span class="n">os</span> <span class="n">o</span> <span class="n">o</span>
-<span class="n">boundary</span> <span class="n">r</span> <span class="n">p</span> <span class="n">rs</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">boundary</span> <span class="no">o p p</span>
+<span class="nb">boundary</span> <span class="no">os o o</span>
+<span class="nb">boundary</span> <span class="no">r p rs</span>
 </pre></div>
 </div>
 </div>
@@ -241,7 +242,7 @@ command. The assignment of the boundary to the model is done via the
 </div>
 <div class="section" id="default">
 <h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">boundary</span> <span class="n">p</span> <span class="n">p</span> <span class="n">p</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">boundary</span> <span class="no">p p p</span>
 </pre></div>
 </div>
 </div>

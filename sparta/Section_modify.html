@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="11. Python interface to SPARTA" href="Section_python.html" />
@@ -62,7 +63,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -199,19 +200,17 @@ code.</p>
 <p>The best way to add a new feature is to find a similar feature in SPARTA and look at the corresponding source and header files to figure out what it does. You will need some knowledge of C++ to be able to understand the hi-level structure of SPARTA and its class organization, but functions (class methods) that do actual computations are written in vanilla C-style code and operate on simple C-style data structures (vectors, arrays, structs).</p>
 <p>The new features described in this section require you to write a new C++ derived class. Creating a new class requires 2 files, a source code file (<em>.cpp) and a header file (</em>.h). The derived class must provide certain methods to work as a new option. Depending on how different your new feature is compared to existing features, you can either derive from the base class itself, or from a derived class that already exists.  Enabling SPARTA to invoke the new class is as simple as putting the two source files in the src dir and re-building SPARTA.</p>
 <p>The advantage of C++ and its object-orientation is that all the code and variables needed to define the new feature are in the 2 files you write, and thus shouldn’t make the rest of SPARTA more complex or cause side-effect bugs.</p>
-<p>Here is a concrete example. Suppose you write 2 files collide_foo.cpp and collide_foo.h that define a new class CollideFoo that computes inter-particle collisions described in the classic 1997 paper by Foo, et al. If you wish to invoke those potentials in a SPARTA input script with a command like</p>
+<p>Here is a concrete example. Suppose you write 2 files <em>collide_foo.cpp</em> and <em>collide_foo.h</em> that define a new class CollideFoo that computes inter-particle collisions described in the classic 1997 paper by Foo, et al. If you wish to invoke those potentials in a SPARTA input script with a command like</p>
 <p>collide foo mix-ID params.foo 3.0</p>
-<p>then your collide_foo.h file should be structured as follows:</p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#ifdef COLLIDE_CLASS</span>
+<p>then your <em>collide_foo.h</em> file should be structured as follows:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef COLLIDE_CLASS</span>
   <span class="n">CollideStyle</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span><span class="n">CollideFoo</span><span class="p">)</span>
-<span class="c1">#else</span>
-  <span class="o">...</span> <span class="p">(</span><span class="k">class</span> <span class="nc">definition</span> <span class="k">for</span> <span class="n">CollideFoo</span><span class="p">)</span> <span class="o">...</span>
-<span class="c1">#endif</span>
+<span class="cp">#else</span>
+  <span class="p">...</span> <span class="p">(</span><span class="k">class</span> <span class="nc">definition</span> <span class="k">for</span> <span class="n">CollideFoo</span><span class="p">)</span> <span class="p">...</span>
+<span class="cp">#endif</span>
 </pre></div>
 </div>
-</div></blockquote>
-<p>where “foo” is the style keyword in the collid command, and CollideFoo is the class name defined in your collide_foo.cpp and collide_foo.h files.</p>
+<p>where “foo” is the style keyword in the collid command, and CollideFoo is the class name defined in your <em>collide_foo.cpp</em> and <em>collide_foo.h</em> files.</p>
 <p>When you re-build SPARTA, your new collision model becomes part of the executable and can be invoked with a <a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collide</span></a> command like the example above. Arguments like a mixture ID, params.foo (a file with collision parameters), and 3.0 can be defined and processed by your new class.</p>
 <p>As illustrated by this example, many kinds of options are referred to in the SPARTA documentation as the “style” of a particular command.</p>
 <p>The instructions below give the header file for the base class that these styles are derived from. Public variables in that file are ones used and set by the derived classes which are also used by the base class. Sometimes they are also used by the rest of SPARTA. Virtual functions in the base class header file which are set = 0 are ones that must be defined in the new derived class to give it the functionality SPARTA expects. Virtual functions that are not set to 0 are functions that can be optionally defined.</p>

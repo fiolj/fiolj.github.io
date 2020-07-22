@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,18 +171,18 @@
 <span id="command-stats-modify"></span><span id="index-0"></span><h1>stats_modify command<a class="headerlink" href="#stats-modify-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stats_modify</span> <span class="n">keyword</span> <span class="n">value</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">stats_modify</span> <span class="no">keyword value ...</span>
 </pre></div>
 </div>
 <ul>
 <li><p>one or more keyword/value pairs may be listed</p></li>
 <li><p>keyword = <em>flush</em> or <em>format</em> or <em>every</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flush</span> <span class="n">value</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
-<span class="nb">format</span> <span class="n">values</span> <span class="o">=</span> <span class="n">line</span> <span class="n">string</span><span class="p">,</span> <span class="nb">int</span> <span class="n">string</span><span class="p">,</span> <span class="nb">float</span> <span class="n">string</span><span class="p">,</span> <span class="n">M</span> <span class="n">string</span><span class="p">,</span> <span class="ow">or</span> <span class="n">none</span>
-  <span class="n">string</span> <span class="o">=</span> <span class="n">C</span><span class="o">-</span><span class="n">style</span> <span class="nb">format</span> <span class="n">string</span>
-  <span class="n">M</span> <span class="o">=</span> <span class="n">integer</span> <span class="kn">from</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">N</span><span class="p">,</span> <span class="n">where</span> <span class="n">N</span> <span class="o">=</span> <span class="c1"># of quantities being output</span>
-<span class="n">every</span> <span class="n">value</span> <span class="o">=</span> <span class="n">v_name</span>
-  <span class="n">v_name</span> <span class="o">=</span> <span class="n">an</span> <span class="n">equal</span><span class="o">-</span><span class="n">style</span> <span class="n">variable</span> <span class="n">name</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">flush</span> <span class="no">value = yes or no</span>
+<span class="nb">format</span> <span class="no">values = line string, int string, float string, M string, or none</span>
+  <span class="nb">string</span> <span class="no">= C-style format string</span>
+  <span class="nb">M</span> <span class="no">= integer from 1 to N, where N = </span><span class="c"># of quantities being output</span>
+<span class="nb">every</span> <span class="no">value = v_name</span>
+  <span class="nb">v_name</span> <span class="no">= an equal-style variable name</span>
 </pre></div>
 </div>
 </li>
@@ -189,9 +190,9 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stats_modify</span> <span class="n">flush</span> <span class="n">yes</span>
-<span class="n">stats_modify</span> <span class="nb">format</span> <span class="mi">3</span> <span class="o">%</span><span class="mf">15.8</span><span class="n">g</span>
-<span class="n">stas_modify</span> <span class="nb">format</span> <span class="n">line</span> <span class="s2">&quot;</span><span class="si">%ld</span><span class="s2"> </span><span class="si">%g</span><span class="s2"> </span><span class="si">%g</span><span class="s2"> </span><span class="si">%15.8g</span><span class="s2">&quot;</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">stats_modify</span> <span class="no">flush yes</span>
+<span class="nb">stats_modify</span> <span class="no">format 3 %15.8g</span>
+<span class="nb">stas_modify</span> <span class="no">format line &quot;%ld %g %g %15.8g&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -238,8 +239,8 @@ could easily be added as options for <a class="reference internal" href="variabl
 always occur on the first and last timestep of each run.</p>
 <p>For example, the following commands will output statistical info at
 timesteps 0,10,20,30,100,200,300,1000,2000,etc:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span>   <span class="n">s</span> <span class="n">equal</span> <span class="n">logfreq</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">stats_modify</span>    <span class="mi">1</span> <span class="n">every</span> <span class="n">v_s</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span>   <span class="no">s equal logfreq(10,3,10)</span>
+<span class="nb">stats_modify</span>    <span class="no">1 every v_s</span>
 </pre></div>
 </div>
 <p>Note that the <em>every</em> keyword overrides the output frequency setting

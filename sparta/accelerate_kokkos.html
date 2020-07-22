@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -228,15 +229,15 @@ Kokkos architecture options.</p>
 <h2>Compile for CPU-only (MPI only, no threading):<a class="headerlink" href="#compile-for-cpu-only-mpi-only-no-threading" title="Permalink to this headline">¶</a></h2>
 <p>Use a C++11 compatible compiler and set Kokkos architecture variable as described above. Then do the following:</p>
 <p>Using Makefiles:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">sparta</span><span class="o">/</span><span class="n">src</span>
-<span class="n">make</span> <span class="n">yes</span><span class="o">-</span><span class="n">kokkos</span>
-<span class="n">make</span> <span class="n">kokkos_mpi_only</span>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span>cd sparta/src
+make yes-kokkos
+make kokkos_mpi_only
 </pre></div>
 </div>
 <p>using CMake:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
-<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">kokkos_mpi_only</span><span class="o">.</span><span class="n">cmake</span>
-<span class="n">make</span>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span>cd build
+cmake -C /path/to/sparta/cmake/presets/kokkos_mpi_only.cmake
+make
 </pre></div>
 </div>
 </div>
@@ -248,33 +249,35 @@ Kokkos architecture options.</p>
 </div>
 <p>Use a C++11 compatible compiler and set KOKKOS architecture variable as described above. Then do the following:</p>
 <p>using Makefiles:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">sparta</span><span class="o">/</span><span class="n">src</span>
-<span class="n">make</span> <span class="n">yes</span><span class="o">-</span><span class="n">kokkos</span>
-<span class="n">make</span> <span class="n">kokkos_omp</span>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span>cd sparta/src
+make yes-kokkos
+make kokkos_omp
 </pre></div>
 </div>
 <p>using CMake:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
-<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">kokkos_omp</span><span class="o">.</span><span class="n">cmake</span>
-<span class="n">make</span>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span>cd build
+cmake -C /path/to/sparta/cmake/presets/kokkos_omp.cmake
+make
 </pre></div>
 </div>
 </div>
 <div class="section" id="compile-for-intel-knl-xeon-phi-intel-compiler-openmpi">
 <h2>Compile for Intel KNL Xeon Phi (Intel Compiler, OpenMPI):<a class="headerlink" href="#compile-for-intel-knl-xeon-phi-intel-compiler-openmpi" title="Permalink to this headline">¶</a></h2>
 <p>Use a C++11 compatible compiler and do the following:</p>
-<p>using Makefiles:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">sparta</span><span class="o">/</span><span class="n">src</span>
-<span class="n">make</span> <span class="n">yes</span><span class="o">-</span><span class="n">kokkos</span>
-<span class="n">make</span> <span class="n">kokkos_phi</span>
-</pre></div>
-</div>
-<p>using CMake:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
-<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">kokkos_phi</span><span class="o">.</span><span class="n">cmake</span>
-<span class="n">make</span>
-</pre></div>
-</div>
+<p>using Makefiles:
+.. code-block:: make</p>
+<blockquote>
+<div><p>cd sparta/src
+make yes-kokkos
+make kokkos_phi</p>
+</div></blockquote>
+<p>using CMake:
+.. code-block:: make</p>
+<blockquote>
+<div><p>cd build
+cmake -C /path/to/sparta/cmake/presets/kokkos_phi.cmake
+make</p>
+</div></blockquote>
 </div>
 <div class="section" id="compile-for-cpus-and-gpus-with-openmpi-or-mpich">
 <h2>Compile for CPUs and GPUs (with OpenMPI or MPICH):<a class="headerlink" href="#compile-for-cpus-and-gpus-with-openmpi-or-mpich" title="Permalink to this headline">¶</a></h2>
@@ -285,18 +288,20 @@ Kokkos architecture options.</p>
 <p>Use a C++11 compatible compiler and set Kokkos architecture variable in
 for both GPU and CPU as described
 above. Then do the following:</p>
-<p>using Makefiles:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">sparta</span><span class="o">/</span><span class="n">src</span>
-<span class="n">make</span> <span class="n">yes</span><span class="o">-</span><span class="n">kokkos</span>
-<span class="n">make</span> <span class="n">kokkos_cuda</span>
-</pre></div>
-</div>
-<p>using CMake:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
-<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">kokkos_cuda</span><span class="o">.</span><span class="n">cmake</span>
-<span class="n">make</span>
-</pre></div>
-</div>
+<p>using Makefiles:
+.. code-block:: make</p>
+<blockquote>
+<div><p>cd sparta/src
+make yes-kokkos
+make kokkos_cuda</p>
+</div></blockquote>
+<p>using CMake:
+.. code-block:: make</p>
+<blockquote>
+<div><p>cd build
+cmake -C /path/to/sparta/cmake/presets/kokkos_cuda.cmake
+make</p>
+</div></blockquote>
 </div>
 <div class="section" id="running-sparta-with-the-kokkos-package">
 <h2>Running SPARTA with the KOKKOS package:<a class="headerlink" href="#running-sparta-with-the-kokkos-package" title="Permalink to this headline">¶</a></h2>
@@ -311,10 +316,10 @@ and -npernode switches. Ditto for MPICH via -np and -ppn.</p>
 <p><strong>Running on a multi-core CPU:</strong></p>
 <p>Here is a quick overview of how to use the KOKKOS package for CPU
 acceleration, assuming one or more 16-core nodes.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">16</span> <span class="n">spa_kokkos_mpi_only</span> <span class="o">-</span><span class="n">k</span> <span class="n">on</span> <span class="o">-</span><span class="n">sf</span> <span class="n">kk</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>        <span class="c1"># 1 node, 16 MPI tasks/node, no multi-threading</span>
-<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">2</span> <span class="o">-</span><span class="n">ppn</span> <span class="mi">1</span> <span class="n">spa_kokkos_omp</span> <span class="o">-</span><span class="n">k</span> <span class="n">on</span> <span class="n">t</span> <span class="mi">16</span> <span class="o">-</span><span class="n">sf</span> <span class="n">kk</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>  <span class="c1"># 2 nodes, 1 MPI task/node, 16 threads/task</span>
-<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">2</span> <span class="n">spa_kokkos_omp</span> <span class="o">-</span><span class="n">k</span> <span class="n">on</span> <span class="n">t</span> <span class="mi">8</span> <span class="o">-</span><span class="n">sf</span> <span class="n">kk</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>          <span class="c1"># 1 node,  2 MPI tasks/node, 8 threads/task</span>
-<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">32</span> <span class="o">-</span><span class="n">ppn</span> <span class="mi">4</span> <span class="n">spa_kokkos_omp</span> <span class="o">-</span><span class="n">k</span> <span class="n">on</span> <span class="n">t</span> <span class="mi">4</span> <span class="o">-</span><span class="n">sf</span> <span class="n">kk</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>  <span class="c1"># 8 nodes, 4 MPI tasks/node, 4 threads/task</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mpirun -np <span class="m">16</span> spa_kokkos_mpi_only -k on -sf kk -in in.collide        <span class="c1"># 1 node, 16 MPI tasks/node, no multi-threading</span>
+mpirun -np <span class="m">2</span> -ppn <span class="m">1</span> spa_kokkos_omp -k on t <span class="m">16</span> -sf kk -in in.collide  <span class="c1"># 2 nodes, 1 MPI task/node, 16 threads/task</span>
+mpirun -np <span class="m">2</span> spa_kokkos_omp -k on t <span class="m">8</span> -sf kk -in in.collide          <span class="c1"># 1 node,  2 MPI tasks/node, 8 threads/task</span>
+mpirun -np <span class="m">32</span> -ppn <span class="m">4</span> spa_kokkos_omp -k on t <span class="m">4</span> -sf kk -in in.collide  <span class="c1"># 8 nodes, 4 MPI tasks/node, 4 threads/task</span>
 </pre></div>
 </div>
 <p>To run using the KOKKOS package, use the “-k on”, “-sf kk” and “-pk
@@ -322,7 +327,7 @@ kokkos” <a class="reference internal" href="Section_start.html#start-command-l
 mpirun command. You must use the “-k on” <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line switch</span></a> to enable the KOKKOS package. It
 takes additional arguments for hardware settings appropriate to your
 system. Those arguments are <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">documented here</span></a>. For OpenMP use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">k</span> <span class="n">on</span> <span class="n">t</span> <span class="n">Nt</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>-k on t Nt
 </pre></div>
 </div>
 <p>The “t Nt” option specifies how many OpenMP threads per MPI task to use
@@ -347,7 +352,7 @@ the code thread-safe is removed.</p>
 <p class="admonition-title">Note</p>
 <p>The default for the <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package kokkos</span></a> command is to use “threaded” communication. However, when running on CPUs, it will typically be faster to use “classic” non-threaded communication. Use the “-pk kokkos” <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line switch</span></a> to change the default <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package kokkos</span></a> options. See its doc page for details and default settings. Experimenting with its options can provide a speed-up for specific calculations. For example:</p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">16</span> <span class="n">spa_kokkos_mpi_only</span> <span class="o">-</span><span class="n">k</span> <span class="n">on</span> <span class="o">-</span><span class="n">sf</span> <span class="n">kk</span> <span class="o">-</span><span class="n">pk</span> <span class="n">kokkos</span> <span class="n">comm</span> <span class="n">classic</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>       <span class="c1"># non-threaded comm</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">mpirun</span> <span class="no">-np 16 spa_kokkos_mpi_only -k on -sf kk -pk kokkos comm classic -in in.collide       </span><span class="c"># non-threaded comm</span>
 </pre></div>
 </div>
 <p>For OpenMP, the KOKKOS package uses data duplication (i.e.
@@ -369,8 +374,8 @@ MPI tasks to physical cores, and threads to physical cores, so they do
 not migrate during a simulation.</p>
 <p>If you are not certain MPI tasks are being bound (check the defaults for
 your MPI installation), binding can be forced with these flags:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OpenMPI</span> <span class="mf">1.8</span><span class="p">:</span> <span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">2</span> <span class="o">-</span><span class="n">bind</span><span class="o">-</span><span class="n">to</span> <span class="n">socket</span> <span class="o">-</span><span class="nb">map</span><span class="o">-</span><span class="n">by</span> <span class="n">socket</span> <span class="o">./</span><span class="n">spa_openmpi</span> <span class="o">...</span>
-<span class="n">Mvapich2</span> <span class="mf">2.0</span><span class="p">:</span> <span class="n">mpiexec</span> <span class="o">-</span><span class="n">np</span> <span class="mi">2</span> <span class="o">-</span><span class="n">bind</span><span class="o">-</span><span class="n">to</span> <span class="n">socket</span> <span class="o">-</span><span class="nb">map</span><span class="o">-</span><span class="n">by</span> <span class="n">socket</span> <span class="o">./</span><span class="n">spa_mvapich</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">OpenMPI</span> <span class="no">1.8: mpirun -np 2 -bind-to socket -map-by socket ./spa_openmpi ...</span>
+<span class="nb">Mvapich2</span> <span class="no">2.0: mpiexec -np 2 -bind-to socket -map-by socket ./spa_mvapich ...</span>
 </pre></div>
 </div>
 <p>For binding threads with KOKKOS OpenMP, use thread affinity environment
@@ -394,11 +399,11 @@ the KOKKOS package you do not need to specify how many KNLs there are
 per node; each KNL is simply treated as running some number of MPI
 tasks.</p>
 <p>Examples of mpirun commands that follow these rules are shown below.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Intel</span> <span class="n">KNL</span> <span class="n">node</span> <span class="k">with</span> <span class="mi">64</span> <span class="n">cores</span> <span class="p">(</span><span class="mi">256</span> <span class="n">threads</span><span class="o">/</span><span class="n">node</span> <span class="n">via</span> <span class="mi">4</span><span class="n">x</span> <span class="n">hardware</span> <span class="n">threading</span><span class="p">):</span>
-<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">64</span> <span class="n">spa_kokkos_phi</span> <span class="o">-</span><span class="n">k</span> <span class="n">on</span> <span class="n">t</span> <span class="mi">4</span> <span class="o">-</span><span class="n">sf</span> <span class="n">kk</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>      <span class="c1"># 1 node, 64 MPI tasks/node, 4 threads/task</span>
-<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">66</span> <span class="n">spa_kokkos_phi</span> <span class="o">-</span><span class="n">k</span> <span class="n">on</span> <span class="n">t</span> <span class="mi">4</span> <span class="o">-</span><span class="n">sf</span> <span class="n">kk</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>      <span class="c1"># 1 node, 66 MPI tasks/node, 4 threads/task</span>
-<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">32</span> <span class="n">spa_kokkos_phi</span> <span class="o">-</span><span class="n">k</span> <span class="n">on</span> <span class="n">t</span> <span class="mi">8</span> <span class="o">-</span><span class="n">sf</span> <span class="n">kk</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>      <span class="c1"># 1 node, 32 MPI tasks/node, 8 threads/task</span>
-<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">512</span> <span class="o">-</span><span class="n">ppn</span> <span class="mi">64</span> <span class="n">spa_kokkos_phi</span> <span class="o">-</span><span class="n">k</span> <span class="n">on</span> <span class="n">t</span> <span class="mi">4</span> <span class="o">-</span><span class="n">sf</span> <span class="n">kk</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>  <span class="c1"># 8 nodes, 64 MPI tasks/node, 4 threads/task</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Intel</span> <span class="no">KNL node with 64 cores (256 threads/node via 4x hardware threading):</span>
+<span class="nb">mpirun</span> <span class="no">-np 64 spa_kokkos_phi -k on t 4 -sf kk -in in.collide      </span><span class="c"># 1 node, 64 MPI tasks/node, 4 threads/task</span>
+<span class="nb">mpirun</span> <span class="no">-np 66 spa_kokkos_phi -k on t 4 -sf kk -in in.collide      </span><span class="c"># 1 node, 66 MPI tasks/node, 4 threads/task</span>
+<span class="nb">mpirun</span> <span class="no">-np 32 spa_kokkos_phi -k on t 8 -sf kk -in in.collide      </span><span class="c"># 1 node, 32 MPI tasks/node, 8 threads/task</span>
+<span class="nb">mpirun</span> <span class="no">-np 512 -ppn 64 spa_kokkos_phi -k on t 4 -sf kk -in in.collide  </span><span class="c"># 8 nodes, 64 MPI tasks/node, 4 threads/task</span>
 </pre></div>
 </div>
 <p>The -np setting of the mpirun command sets the number of MPI tasks/node.
@@ -407,7 +412,7 @@ Nt. The product of these two values should be N, i.e. 256 or 264.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The default for the <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package kokkos</span></a> command is to use “threaded” communication. However, when running on KNL, it will typically be faster to use “classic” non-threaded communication. Use the “-pk kokkos” <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line switch</span></a> to change the default <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package kokkos</span></a> options. See its doc page for details and default settings. Experimenting with its options can provide a speed-up for specific calculations. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">64</span> <span class="n">spa_kokkos_phi</span> <span class="o">-</span><span class="n">k</span> <span class="n">on</span> <span class="n">t</span> <span class="mi">4</span> <span class="o">-</span><span class="n">sf</span> <span class="n">kk</span> <span class="o">-</span><span class="n">pk</span> <span class="n">kokkos</span> <span class="n">comm</span> <span class="n">classic</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>      <span class="c1"># non-threaded comm</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">mpirun</span> <span class="no">-np 64 spa_kokkos_phi -k on t 4 -sf kk -pk kokkos comm classic -in in.collide      </span><span class="c"># non-threaded comm</span>
 </pre></div>
 </div>
 </div>
@@ -430,20 +435,20 @@ input script have not been ported to use Kokkos. Using CUDA MPS is
 recommended in this scenario. As above for multi-core CPUs (and no GPU),
 if N is the number of physical cores/node, then the number of MPI
 tasks/node should not exceed N.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">k</span> <span class="n">on</span> <span class="n">g</span> <span class="n">Ng</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>-k on g Ng
 </pre></div>
 </div>
 <p>Here are examples of how to use the KOKKOS package for GPUs, assuming
 one or more nodes, each with two GPUs.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">2</span> <span class="n">spa_kokkos_cuda_mpi</span> <span class="o">-</span><span class="n">k</span> <span class="n">on</span> <span class="n">g</span> <span class="mi">2</span> <span class="o">-</span><span class="n">sf</span> <span class="n">kk</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>          <span class="c1"># 1 node,   2 MPI tasks/node, 2 GPUs/node</span>
-<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">32</span> <span class="o">-</span><span class="n">ppn</span> <span class="mi">2</span> <span class="n">spa_kokkos_cuda_mpi</span> <span class="o">-</span><span class="n">k</span> <span class="n">on</span> <span class="n">g</span> <span class="mi">2</span> <span class="o">-</span><span class="n">sf</span> <span class="n">kk</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>  <span class="c1"># 16 nodes, 2 MPI tasks/node, 2 GPUs/node (32 GPUs total)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mpirun -np <span class="m">2</span> spa_kokkos_cuda_mpi -k on g <span class="m">2</span> -sf kk -in in.collide          <span class="c1"># 1 node,   2 MPI tasks/node, 2 GPUs/node</span>
+mpirun -np <span class="m">32</span> -ppn <span class="m">2</span> spa_kokkos_cuda_mpi -k on g <span class="m">2</span> -sf kk -in in.collide  <span class="c1"># 16 nodes, 2 MPI tasks/node, 2 GPUs/node (32 GPUs total)</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The default for the <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package kokkos</span></a> command is to use “parallel” reduction of statistics along with threaded communication. However, using “atomic” reduction is typically faster for GPUs. Use the “-pk kokkos” <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line switch</span></a> to change the default <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package kokkos</span></a> options.
 See its doc page for details and default settings. Experimenting with its options can provide a speed-up for specific calculations. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">2</span> <span class="n">spa_kokkos_cuda_mpi</span> <span class="o">-</span><span class="n">k</span> <span class="n">on</span> <span class="n">g</span> <span class="mi">2</span> <span class="o">-</span><span class="n">sf</span> <span class="n">kk</span> <span class="o">-</span><span class="n">pk</span> <span class="n">kokkos</span> <span class="n">reduction</span> <span class="n">atomic</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">collide</span>      <span class="c1"># set reduction = atomic</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">mpirun</span> <span class="no">-np 2 spa_kokkos_cuda_mpi -k on g 2 -sf kk -pk kokkos reduction atomic -in in.collide      </span><span class="c"># set reduction = atomic</span>
 </pre></div>
 </div>
 </div>
@@ -471,7 +476,7 @@ your system, as documented above.</p>
 <p>You can use the <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix kk</span></a> command, or you can
 explicitly add a “kk” suffix to individual styles in your input script,
 e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">collide</span> <span class="n">vss</span><span class="o">/</span><span class="n">kk</span> <span class="n">air</span> <span class="n">ar</span><span class="o">.</span><span class="n">vss</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">collide</span> <span class="no">vss/kk air ar.vss</span>
 </pre></div>
 </div>
 <p>You only need to use the <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package kokkos</span></a> command if

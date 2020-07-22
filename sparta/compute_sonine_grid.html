@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -173,7 +174,7 @@
 <span id="command-compute-sonine-grid-compute-soninegridkk"></span><h1>compute sonine/grid/kk command<a class="headerlink" href="#compute-sonine-grid-kk-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">sonine</span><span class="o">/</span><span class="n">grid</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">keyword</span> <span class="n">values</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">ID sonine/grid group-ID mix-ID keyword values ...</span>
 </pre></div>
 </div>
 <ul>
@@ -184,12 +185,12 @@
 <li><p>one or more keywords may be appended, multiple times</p></li>
 <li><p>keyword = <em>a</em> or <em>b</em></p></li>
 <li><p>values = values for specific keyword</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="n">args</span> <span class="o">=</span> <span class="n">dim</span> <span class="n">order</span> <span class="o">=</span> <span class="n">sonine</span> <span class="n">A</span> <span class="n">moment</span>
-  <span class="n">dim</span> <span class="o">=</span> <span class="n">x</span> <span class="ow">or</span> <span class="n">y</span> <span class="ow">or</span> <span class="n">z</span>
-  <span class="n">order</span> <span class="o">=</span> <span class="n">number</span> <span class="kn">from</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">5</span>
-<span class="n">b</span> <span class="n">args</span> <span class="o">=</span> <span class="n">dim2</span> <span class="n">order</span> <span class="o">=</span> <span class="n">sonine</span> <span class="n">B</span> <span class="n">moment</span>
-  <span class="n">dim2</span> <span class="o">=</span> <span class="n">xx</span> <span class="ow">or</span> <span class="n">yy</span> <span class="ow">or</span> <span class="n">zz</span> <span class="ow">or</span> <span class="n">xy</span> <span class="ow">or</span> <span class="n">yz</span> <span class="ow">or</span> <span class="n">xz</span>
-  <span class="n">order</span> <span class="o">=</span> <span class="n">number</span> <span class="kn">from</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">5</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">a</span> <span class="no">args = dim order = sonine A moment</span>
+  <span class="nb">dim</span> <span class="no">= x or y or z</span>
+  <span class="nb">order</span> <span class="no">= number from 1 to 5</span>
+<span class="nb">b</span> <span class="no">args = dim2 order = sonine B moment</span>
+  <span class="nb">dim2</span> <span class="no">= xx or yy or zz or xy or yz or xz</span>
+  <span class="nb">order</span> <span class="no">= number from 1 to 5</span>
 </pre></div>
 </div>
 </li>
@@ -197,15 +198,15 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">sonine</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="n">air</span> <span class="n">a</span> <span class="n">x</span> <span class="mi">5</span> <span class="n">b</span> <span class="n">xy</span> <span class="mi">5</span>
-<span class="n">compute</span> <span class="mi">1</span> <span class="n">sonine</span><span class="o">/</span><span class="n">grid</span> <span class="n">subset</span> <span class="n">air</span> <span class="n">a</span> <span class="n">x</span> <span class="mi">5</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 sonine/grid all air a x 5 b xy 5</span>
+<span class="nb">compute</span> <span class="no">1 sonine/grid subset air a x 5</span>
 </pre></div>
 </div>
 <p>These commands will dump 10 time averaged sonine moments for each
 species and each grid cell to a dump file every 1000 steps:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">sonine</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="n">species</span> <span class="n">a</span> <span class="n">x</span> <span class="mi">5</span> <span class="n">b</span> <span class="n">xy</span> <span class="mi">5</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="mi">10</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="n">c_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
-<span class="n">dump</span> <span class="mi">1</span> <span class="n">grid</span> <span class="nb">all</span> <span class="mi">1000</span> <span class="n">tmp</span><span class="o">.</span><span class="n">grid</span> <span class="nb">id</span> <span class="n">f_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 sonine/grid all species a x 5 b xy 5</span>
+<span class="nb">fix</span> <span class="no">1 ave/grid 10 100 1000 c_1[*]</span>
+<span class="nb">dump</span> <span class="no">1 grid all 1000 tmp.grid id f_1[*]</span>
 </pre></div>
 </div>
 </div>
@@ -238,13 +239,13 @@ sampling steps.</p>
 <p>Calculation of both the A and B sonine moments is done by first
 calcuating the center-of-mass (COM) velocity of particles for each group
 within a grid cell. This is done as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">COMx</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vx_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">COMy</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vy_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">COMz</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vz_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">Cx</span> <span class="o">=</span> <span class="n">Vx</span> <span class="o">-</span> <span class="n">COMx</span>
-<span class="n">Cy</span> <span class="o">=</span> <span class="n">Vy</span> <span class="o">-</span> <span class="n">COMy</span>
-<span class="n">Cz</span> <span class="o">=</span> <span class="n">Vz</span> <span class="o">-</span> <span class="n">COMz</span>
-<span class="n">Csq</span> <span class="o">=</span> <span class="n">Cx</span><span class="o">*</span><span class="n">Cx</span> <span class="o">+</span> <span class="n">Cy</span><span class="o">*</span><span class="n">Cy</span> <span class="o">+</span> <span class="n">Cz</span><span class="o">*</span><span class="n">Cz</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">COMx</span> <span class="no">= Sum_i (mass_i Vx_i) / Sum_i (mass_i)</span>
+<span class="nb">COMy</span> <span class="no">= Sum_i (mass_i Vy_i) / Sum_i (mass_i)</span>
+<span class="nb">COMz</span> <span class="no">= Sum_i (mass_i Vz_i) / Sum_i (mass_i)</span>
+<span class="nb">Cx</span> <span class="no">= Vx - COMx</span>
+<span class="nb">Cy</span> <span class="no">= Vy - COMy</span>
+<span class="nb">Cz</span> <span class="no">= Vz - COMz</span>
+<span class="nb">Csq</span> <span class="no">= Cx*Cx + Cy*Cy + Cz*Cz</span>
 </pre></div>
 </div>
 <p>The COM velocity is (COMx,COMy,COMz). The thermal velocity of each
@@ -255,11 +256,11 @@ moments.</p>
 <hr class="docutils" />
 <p>The <em>a</em> keyword calculates the average of one or more sonine A moments
 for all particles in each group:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A1</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vdim</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">Csq</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">A2</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vdim</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">Csq</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">A3</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vdim</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">Csq</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">A4</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vdim</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">Csq</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">A5</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vdim</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">Csq</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">A1</span> <span class="no">= Sum_i (mass_i * Vdim * pow(Csq,1)) / Sum_i (mass_i)</span>
+<span class="nb">A2</span> <span class="no">= Sum_i (mass_i * Vdim * pow(Csq,2)) / Sum_i (mass_i)</span>
+<span class="nb">A3</span> <span class="no">= Sum_i (mass_i * Vdim * pow(Csq,3)) / Sum_i (mass_i)</span>
+<span class="nb">A4</span> <span class="no">= Sum_i (mass_i * Vdim * pow(Csq,4)) / Sum_i (mass_i)</span>
+<span class="nb">A5</span> <span class="no">= Sum_i (mass_i * Vdim * pow(Csq,5)) / Sum_i (mass_i)</span>
 </pre></div>
 </div>
 <p>Vdim is Vx or Vy or Vz as specified by the <em>dim</em> value. <em>Csq</em> is the
@@ -269,11 +270,11 @@ for order = 3, the first 3 moments are computed, which leads to 3
 columns of output as explained below.</p>
 <p>The <em>b</em> keyword calculates the average of one or more sonine B moments
 for all particles in each group:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">B1</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vdim1</span> <span class="o">*</span> <span class="n">Vdim2</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">Csq</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">B2</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vdim1</span> <span class="o">*</span> <span class="n">Vdim2</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">Csq</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">B3</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vdim1</span> <span class="o">*</span> <span class="n">Vdim2</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">Csq</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">B4</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vdim1</span> <span class="o">*</span> <span class="n">Vdim2</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">Csq</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">B5</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="o">*</span> <span class="n">Vdim1</span> <span class="o">*</span> <span class="n">Vdim2</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">Csq</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">B1</span> <span class="no">= Sum_i (mass_i * Vdim1 * Vdim2 * pow(Csq,1)) / Sum_i (mass_i)</span>
+<span class="nb">B2</span> <span class="no">= Sum_i (mass_i * Vdim1 * Vdim2 * pow(Csq,2)) / Sum_i (mass_i)</span>
+<span class="nb">B3</span> <span class="no">= Sum_i (mass_i * Vdim1 * Vdim2 * pow(Csq,3)) / Sum_i (mass_i)</span>
+<span class="nb">B4</span> <span class="no">= Sum_i (mass_i * Vdim1 * Vdim2 * pow(Csq,4)) / Sum_i (mass_i)</span>
+<span class="nb">B5</span> <span class="no">= Sum_i (mass_i * Vdim1 * Vdim2 * pow(Csq,5)) / Sum_i (mass_i)</span>
 </pre></div>
 </div>
 <p>Vdim is Vx or Vy or Vz as specified by the <em>dim</em> value. <em>Csq</em> is the
@@ -281,8 +282,10 @@ squared thermal velocity of the particle, as in the COM equations above.
 The number of moments computed is specified by the <em>order</em> value, e.g.
 for order = 2, the first 2 moments are computed, which leads to 2
 columns of output as explained below.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Output info:</strong></p>
+<div class="section" id="output-info">
+<h2>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h2>
 <p>This compute calculates a per-grid array, with the number of columns
 equal to the number of values times the number of groups. The ordering
 of columns is first by values, then by groups. I.e. if the <em>a z 3</em> and

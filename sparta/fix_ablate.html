@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,7 +171,7 @@
 <span id="command-fix-ablate"></span><span id="index-0"></span><h1>fix ablate command<a class="headerlink" href="#fix-ablate-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">ablate</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">Nevery</span> <span class="n">scale</span> <span class="n">source</span> <span class="n">maxrandom</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">ID ablate group-ID Nevery scale source maxrandom</span>
 </pre></div>
 </div>
 <ul>
@@ -181,9 +182,9 @@
 <li><p>scale = scale factor to convert source to grid corner point value
 decrement</p></li>
 <li><p>source = computeID or fixID or random</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">computeID</span> <span class="o">=</span> <span class="n">c_ID</span> <span class="ow">or</span> <span class="n">c_ID</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="n">compute</span> <span class="n">that</span> <span class="n">calculates</span> <span class="n">per</span> <span class="n">grid</span> <span class="n">cell</span> <span class="n">values</span>
-<span class="n">fixID</span> <span class="o">=</span> <span class="n">f_ID</span> <span class="ow">or</span> <span class="n">f_ID</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="n">fix</span> <span class="n">that</span> <span class="n">calculates</span> <span class="n">per</span> <span class="n">grid</span> <span class="n">cell</span> <span class="n">values</span>
-<span class="n">random</span> <span class="o">=</span> <span class="n">perform</span> <span class="n">a</span> <span class="n">random</span> <span class="n">decrement</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">computeID</span> <span class="no">= c_ID or c_ID[n] for a compute that calculates per grid cell values</span>
+<span class="nb">fixID</span> <span class="no">= f_ID or f_ID[n] for a fix that calculates per grid cell values</span>
+<span class="nb">random</span> <span class="no">= perform a random decrement</span>
 </pre></div>
 </div>
 </li>
@@ -193,8 +194,8 @@ specified if source = random)</p></li>
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="mi">1</span> <span class="n">ablate</span> <span class="n">surfcells</span> <span class="mi">0</span> <span class="mf">0.0</span> <span class="n">random</span> <span class="mi">10</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ablate</span> <span class="n">surfcells</span> <span class="mi">1000</span> <span class="mf">10.0</span> <span class="n">c_tally</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">1 ablate surfcells 0 0.0 random 10</span>
+<span class="nb">fix</span> <span class="no">1 ablate surfcells 1000 10.0 c_tally</span>
 </pre></div>
 </div>
 </div>
@@ -259,21 +260,21 @@ corner point values are decremented.</p>
 reaction statistics to modulate ablation of a set of implicit surfaces.
 These lines are taken from the
 examples/ablation/in.ablation.3d.reactions input script:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">surf_collide</span>       <span class="mi">1</span> <span class="n">diffuse</span> <span class="mf">300.0</span> <span class="mf">1.0</span>
-<span class="n">surf_react</span>      <span class="mi">2</span> <span class="n">prob</span> <span class="n">air</span><span class="o">.</span><span class="n">surf</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">surf_collide</span>       <span class="no">1 diffuse 300.0 1.0</span>
+<span class="nb">surf_react</span>      <span class="no">2 prob air.surf</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span>             <span class="mi">10</span> <span class="n">react</span><span class="o">/</span><span class="n">isurf</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="mi">2</span>
-<span class="n">fix</span>                 <span class="mi">10</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="mi">1</span> <span class="mi">100</span> <span class="mi">100</span> <span class="n">c_10</span><span class="o">*</span>
-<span class="n">dump</span>                <span class="mi">10</span> <span class="n">grid</span> <span class="nb">all</span> <span class="mi">100</span> <span class="n">tmp</span><span class="o">.</span><span class="n">grid</span> <span class="nb">id</span> <span class="n">c_101</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span>             <span class="no">10 react/isurf/grid all 2</span>
+<span class="nb">fix</span>                 <span class="no">10 ave/grid all 1 100 100 c_10*</span>
+<span class="nb">dump</span>                <span class="no">10 grid all 100 tmp.grid id c_101</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">global</span>              <span class="n">surfs</span> <span class="n">implicit</span>
-<span class="n">fix</span>                 <span class="n">ablate</span> <span class="n">ablate</span> <span class="nb">all</span> <span class="mi">100</span> <span class="mf">2.0</span> <span class="n">c_101</span>   <span class="c1"># could be f_10</span>
-<span class="n">read_isurf</span>          <span class="nb">all</span> <span class="mi">20</span> <span class="mi">20</span> <span class="mi">20</span> <span class="n">binary</span><span class="o">.</span><span class="mi">21</span><span class="n">x21x21</span> <span class="mf">99.5</span> <span class="n">ablate</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">global</span>              <span class="no">surfs implicit</span>
+<span class="nb">fix</span>                 <span class="no">ablate ablate all 100 2.0 c_101   </span><span class="c"># could be f_10</span>
+<span class="nb">read_isurf</span>          <span class="no">all 20 20 20 binary.21x21x21 99.5 ablate</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">surf_modify</span>         <span class="nb">all</span> <span class="n">collide</span> <span class="mi">1</span> <span class="n">react</span> <span class="mi">2</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">surf_modify</span>         <span class="no">all collide 1 react 2</span>
 </pre></div>
 </div>
 <p>The order of these commands matter, so here is the explanation.</p>
@@ -329,8 +330,10 @@ thresh-epsilon &lt; X &lt; thresh+epsilon are reset to thresh-epsilon. Thresh
 is defined by the <a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command. Epsilon is
 set to 1.0e-4 in src/fix_ablate.cpp. Note that this is on the scale of
 corner point values from 0 to 255.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restart, output info:</strong></p>
+<div class="section" id="restart-output-info">
+<h2>Restart, output info:<a class="headerlink" href="#restart-output-info" title="Permalink to this headline">¶</a></h2>
 <p>No information about this fix is written to <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">binary restart files</span></a>.</p>
 <p>This fix computes a global scalar and a global vector of length 2. The
 global scalar is the current sum of unique corner point values across

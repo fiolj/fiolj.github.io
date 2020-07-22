@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,7 +171,7 @@
 <span id="command-mixture"></span><span id="index-0"></span><h1>mixture command<a class="headerlink" href="#mixture-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mixture</span> <span class="n">ID</span> <span class="n">species1</span> <span class="n">species2</span> <span class="o">...</span> <span class="n">keyword</span> <span class="n">args</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">mixture</span> <span class="no">ID species1 species2 ... keyword args ...</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -209,12 +210,12 @@ mixture</p></li>
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mixture</span> <span class="n">air</span> <span class="n">N</span> <span class="n">O</span> <span class="n">NO</span> <span class="n">group</span> <span class="n">lite</span>
-<span class="n">mixture</span> <span class="n">air</span> <span class="n">N</span> <span class="n">O</span> <span class="n">NO</span> <span class="n">vstream</span> <span class="mf">250.0</span> <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="n">group</span> <span class="n">species</span>
-<span class="n">mixture</span> <span class="n">air</span> <span class="n">N</span> <span class="n">frac</span> <span class="mf">0.8</span>
-<span class="n">mixture</span> <span class="n">air</span> <span class="n">O</span> <span class="n">frac</span> <span class="mf">0.2</span> <span class="n">copy</span> <span class="n">myAir</span>
-<span class="n">mixture</span> <span class="n">background</span> <span class="n">N</span> <span class="n">O</span>
-<span class="n">mixture</span> <span class="n">air</span> <span class="n">delete</span> <span class="n">N</span> <span class="n">NO</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">mixture</span> <span class="no">air N O NO group lite</span>
+<span class="nb">mixture</span> <span class="no">air N O NO vstream 250.0 0.0 0.0 group species</span>
+<span class="nb">mixture</span> <span class="no">air N frac 0.8</span>
+<span class="nb">mixture</span> <span class="no">air O frac 0.2 copy myAir</span>
+<span class="nb">mixture</span> <span class="no">background N O</span>
+<span class="nb">mixture</span> <span class="no">air delete N NO</span>
 </pre></div>
 </div>
 </div>

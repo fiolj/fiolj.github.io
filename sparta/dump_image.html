@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -173,7 +174,7 @@
 <span id="command-dump-image-command-dump-movie"></span><h1>dump movie command<a class="headerlink" href="#dump-movie-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="n">ID</span> <span class="n">style</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">N</span> <span class="n">file</span> <span class="n">color</span> <span class="n">diameter</span> <span class="n">keyword</span> <span class="n">value</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">dump</span> <span class="no">ID style mix-ID N file color diameter keyword value ...</span>
 </pre></div>
 </div>
 <ul>
@@ -285,18 +286,20 @@ or <em>persp</em> or <em>box</em> or <em>gline</em> or <em>sline</em> or <em>axe
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="n">myDump</span> <span class="n">image</span> <span class="nb">all</span> <span class="mi">100</span> <span class="n">dump</span><span class="o">.*.</span><span class="n">jpg</span> <span class="nb">type</span> <span class="nb">type</span>
-<span class="n">dump</span> <span class="n">myDump</span> <span class="n">movie</span> <span class="nb">all</span> <span class="mi">100</span> <span class="n">movie</span><span class="o">.</span><span class="n">mpg</span> <span class="nb">type</span> <span class="nb">type</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">dump</span> <span class="no">myDump image all 100 dump.*.jpg type type</span>
+<span class="nb">dump</span> <span class="no">myDump movie all 100 movie.mpg type type</span>
 </pre></div>
 </div>
 <p>These commands will dump shapshot images of all particles whose species
 are in the <em>mix-ID</em> to a file every 100 steps. The last two shell
 command will make a movie from the JPG files (once the run has finished)
 and play it in the Firefox browser:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span>                <span class="mi">4</span> <span class="n">image</span> <span class="nb">all</span> <span class="mi">100</span> <span class="n">tmp</span><span class="o">.*.</span><span class="n">jpg</span> <span class="nb">type</span> <span class="nb">type</span> <span class="n">pdiam</span> <span class="mf">0.2</span> <span class="n">view</span> <span class="mi">90</span> <span class="o">-</span><span class="mi">90</span>
-<span class="n">dump_modify</span>     <span class="mi">4</span> <span class="n">pad</span> <span class="mi">4</span>
-<span class="o">%</span> <span class="n">convert</span> <span class="n">tmp</span><span class="o">*</span><span class="n">jpg</span> <span class="n">tmp</span><span class="o">.</span><span class="n">gif</span>
-<span class="o">%</span> <span class="n">firefox</span> <span class="n">tmp</span><span class="o">.</span><span class="n">gif</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">dump</span>  <span class="no">4 image all 100 tmp.*.jpg type type pdiam 0.2 view 90 -90</span>
+<span class="nb">dump_modify</span> <span class="no">4 pad 4</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>% convert tmp*jpg tmp.gif
+% firefox tmp.gif
 </pre></div>
 </div>
 </div>
@@ -581,7 +584,7 @@ plane perpendicular to the view vector implied by the <em>theta</em> and <em>pni
 values, and which is also in the plane defined by the view vector and
 user-specified up vector. Thus this internal vector is computed from the
 user-specified <em>up</em> vector as</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">up_internal</span> <span class="o">=</span> <span class="n">view</span> <span class="n">cross</span> <span class="p">(</span><span class="n">up</span> <span class="n">cross</span> <span class="n">view</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">up_internal</span> <span class="no">= view cross (up cross view)</span>
 </pre></div>
 </div>
 <p>This means the only restriction on the specified <em>up</em> vector is that it
@@ -661,8 +664,8 @@ or other movie file you can:</p>
 <li><ol class="loweralpha simple">
 <li><p>Use the ImageMagick convert program.</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">convert</span> <span class="o">*.</span><span class="n">jpg</span> <span class="n">foo</span><span class="o">.</span><span class="n">gif</span>
-<span class="o">%</span> <span class="n">convert</span> <span class="o">-</span><span class="n">loop</span> <span class="mi">1</span> <span class="o">*.</span><span class="n">ppm</span> <span class="n">foo</span><span class="o">.</span><span class="n">mpg</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>% convert *.jpg foo.gif
+% convert -loop <span class="m">1</span> *.ppm foo.mpg
 </pre></div>
 </div>
 <p>Animated GIF files from ImageMagick are unoptimized. You can use a
@@ -686,8 +689,8 @@ libraries are installed.</p>
 </ol>
 <p>FFmpeg is a command line tool that is available on many platforms and
 allows extremely flexible encoding and decoding of movies.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">snap</span><span class="o">.*.</span><span class="n">jpg</span> <span class="o">|</span> <span class="n">ffmpeg</span> <span class="o">-</span><span class="n">y</span> <span class="o">-</span><span class="n">f</span> <span class="n">image2pipe</span> <span class="o">-</span><span class="n">c</span><span class="p">:</span><span class="n">v</span> <span class="n">mjpeg</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span> <span class="o">-</span><span class="n">b</span><span class="p">:</span><span class="n">v</span> <span class="mi">2000</span><span class="n">k</span> <span class="n">movie</span><span class="o">.</span><span class="n">m4v</span>
-<span class="n">cat</span> <span class="n">snap</span><span class="o">.*.</span><span class="n">ppm</span> <span class="o">|</span> <span class="n">ffmpeg</span> <span class="o">-</span><span class="n">y</span> <span class="o">-</span><span class="n">f</span> <span class="n">image2pipe</span> <span class="o">-</span><span class="n">c</span><span class="p">:</span><span class="n">v</span> <span class="n">ppm</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span> <span class="o">-</span><span class="n">b</span><span class="p">:</span><span class="n">v</span> <span class="mi">2400</span><span class="n">k</span> <span class="n">movie</span><span class="o">.</span><span class="n">avi</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">cat</span> <span class="no">snap.*.jpg | ffmpeg -y -f image2pipe -c:v mjpeg -i - -b:v 2000k movie.m4v</span>
+<span class="nb">cat</span> <span class="no">snap.*.ppm | ffmpeg -y -f image2pipe -c:v ppm -i - -b:v 2400k movie.avi</span>
 </pre></div>
 </div>
 <p>Frontends for FFmpeg exist for multiple platforms. For more
@@ -705,8 +708,8 @@ information see the <a class="reference external" href="http://www.ffmpeg.org/">
 <li><p>b) Use the freely available mplayer or ffplay tool to view a movie.
 Both are available for multiple OSes and support a large variety of
 file formats and decoders.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">mplayer</span> <span class="n">foo</span><span class="o">.</span><span class="n">mpg</span>
-<span class="o">%</span> <span class="n">ffplay</span> <span class="n">bar</span><span class="o">.</span><span class="n">avi</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>% mplayer foo.mpg
+% ffplay bar.avi
 </pre></div>
 </div>
 </li>
@@ -714,7 +717,7 @@ file formats and decoders.</p>
 <li><p>Use the <a class="reference external" href="http://www.sandia.gov/~sjplimp/pizza.html">Pizza.py</a> <a class="reference external" href="http://www.sandia.gov/~sjplimp/pizza/doc/animate.html">animate tool</a>, which works directly on a series of image files.</p></li>
 </ol>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">animate</span><span class="p">(</span><span class="s2">&quot;foo*.jpg&quot;</span><span class="p">)</span>
+<div><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">animate</span><span class="p">(</span><span class="s2">&quot;foo*.jpg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -749,9 +752,9 @@ addressed according to the FFmpeg documentation. One known issue is that
 certain movie file formats (e.g. MPEG level 1 and 2 format streams) have
 video bandwith limits that can be crossed when rendering too large of
 image sizes. Typical warnings look like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">mpeg</span> <span class="o">@</span> <span class="mh">0x98b5e0</span><span class="p">]</span> <span class="n">packet</span> <span class="n">too</span> <span class="n">large</span><span class="p">,</span> <span class="n">ignoring</span> <span class="n">buffer</span> <span class="n">limits</span> <span class="n">to</span> <span class="n">mux</span> <span class="n">it</span>
-<span class="p">[</span><span class="n">mpeg</span> <span class="o">@</span> <span class="mh">0x98b5e0</span><span class="p">]</span> <span class="n">buffer</span> <span class="n">underflow</span> <span class="n">st</span><span class="o">=</span><span class="mi">0</span> <span class="n">bufi</span><span class="o">=</span><span class="mi">281407</span> <span class="n">size</span><span class="o">=</span><span class="mi">285018</span>
-<span class="p">[</span><span class="n">mpeg</span> <span class="o">@</span> <span class="mh">0x98b5e0</span><span class="p">]</span> <span class="n">buffer</span> <span class="n">underflow</span> <span class="n">st</span><span class="o">=</span><span class="mi">0</span> <span class="n">bufi</span><span class="o">=</span><span class="mi">283448</span> <span class="n">size</span><span class="o">=</span><span class="mi">285018</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>[mpeg @ 0x98b5e0] packet too large, ignoring buffer limits to mux it
+[mpeg @ 0x98b5e0] buffer underflow st=0 bufi=281407 size=285018
+[mpeg @ 0x98b5e0] buffer underflow st=0 bufi=283448 size=285018
 </pre></div>
 </div>
 <p>In this case it is recommended to either reduce the size of the image or

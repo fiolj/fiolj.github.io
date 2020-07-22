@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,7 +171,7 @@
 <span id="command-read-particles"></span><span id="index-0"></span><h1>read_particles command<a class="headerlink" href="#read-particles-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_particles</span> <span class="n">file</span> <span class="n">Nstep</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">read_particles</span> <span class="no">file Nstep</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -180,7 +181,7 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_particles</span> <span class="n">dump</span><span class="o">.</span><span class="n">sphere</span> <span class="mi">10500</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">read_particles</span> <span class="no">dump.sphere 10500</span>
 </pre></div>
 </div>
 </div>
@@ -195,7 +196,7 @@ generate particles for a simulation.</p>
 <p>The dump file must be in the SPARTA format created by the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump particles</span></a> command which is described on its doc page.</p>
 <p>Currently, each line of particle data in the file must have 8 fields in
 the following order. At some point we may generalize this format.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">,</span> <span class="n">vz</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>id, type, x, y, z, vx, vy, vz
 </pre></div>
 </div>
 <p>The <em>id</em> is any positive integer, which can simply be set to values from

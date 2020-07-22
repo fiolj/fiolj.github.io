@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="5. Accelerating SPARTA performance" href="Section_accelerate.html" />
@@ -62,7 +63,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -276,24 +277,24 @@ doc/Section_start.html#2_2 (step 6).</p>
 </div>
 <div class="section" id="install-or-un-install-with-make">
 <span id="packages-package-fft-install"></span><h3>4.1.2. Install or un-install with make:<a class="headerlink" href="#install-or-un-install-with-make" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">yes</span><span class="o">-</span><span class="n">fft</span>
-<span class="n">make</span> <span class="n">machine</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make yes-fft
+make machine
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">no</span><span class="o">-</span><span class="n">fft</span>
-<span class="n">make</span> <span class="n">machine</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make no-fft
+make machine
 </pre></div>
 </div>
 </div>
 <div class="section" id="install-or-un-install-with-cmake">
 <h3>4.1.3. Install or un-install with CMake:<a class="headerlink" href="#install-or-un-install-with-cmake" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
-<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">machine</span><span class="o">.</span><span class="n">cmake</span> <span class="o">-</span><span class="n">DPKG_FFT</span><span class="o">=</span><span class="n">ON</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
-<span class="n">make</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
+cmake -C /path/to/sparta/cmake/presets/machine.cmake -DPKG_FFT<span class="o">=</span>ON /path/to/sparta/cmake
+make
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">machine</span><span class="o">.</span><span class="n">cmake</span> <span class="o">-</span><span class="n">DPKG_FFT</span><span class="o">=</span><span class="n">OFF</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
-<span class="n">make</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -C /path/to/sparta/cmake/presets/machine.cmake -DPKG_FFT<span class="o">=</span>OFF /path/to/sparta/cmake
+make
 </pre></div>
 </div>
 </div>
@@ -330,43 +331,41 @@ cmake/presets/kokkos_cuda.cmake to cmake/presets/machine.cmake.</p>
 <div class="section" id="for-multicore-cpus-using-openmp">
 <h4>4.2.2.1. For multicore CPUs using OpenMP:<a class="headerlink" href="#for-multicore-cpus-using-openmp" title="Permalink to this headline">¶</a></h4>
 <p>Using Makefiles:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KOKKOS_DEVICES</span> <span class="o">=</span> <span class="n">OpenMP</span>
-<span class="n">KOKKOS_ARCH</span> <span class="o">=</span> <span class="n">HSW</span>           <span class="c1"># HSW = Haswell, SNB = SandyBridge, BDW = Broadwell, etc</span>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">KOKKOS_DEVICES</span> <span class="o">=</span> OpenMP
+<span class="nv">KOKKOS_ARCH</span> <span class="o">=</span> HSW           <span class="c1"># HSW = Haswell, SNB = SandyBridge, BDW = Broadwell, etc</span>
 </pre></div>
 </div>
 <p>Using CMake:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>-DKokkos_ENABLE_OPENMP=ON
--DKokkos_ARCH_HSW=ON</p>
-</dd>
-</dl>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">-DKokkos_ENABLE_OPENMP</span><span class="o">=</span>ON
+<span class="nv">-DKokkos_ARCH_HSW</span><span class="o">=</span>ON
+</pre></div>
+</div>
 </div>
 <div class="section" id="for-intel-knls-using-openmp">
 <h4>4.2.2.2. For Intel KNLs using OpenMP:<a class="headerlink" href="#for-intel-knls-using-openmp" title="Permalink to this headline">¶</a></h4>
 <p>Using Makefiles:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KOKKOS_DEVICES</span> <span class="o">=</span> <span class="n">OpenMP</span>
-<span class="n">KOKKOS_ARCH</span> <span class="o">=</span> <span class="n">KNL</span>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">KOKKOS_DEVICES</span> <span class="o">=</span> OpenMP
+<span class="nv">KOKKOS_ARCH</span> <span class="o">=</span> KNL
 </pre></div>
 </div>
 </div>
 <div class="section" id="for-nvidia-gpus-using-cuda">
 <h4>4.2.2.3. For NVIDIA GPUs using CUDA:<a class="headerlink" href="#for-nvidia-gpus-using-cuda" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KOKKOS_DEVICES</span> <span class="o">=</span> <span class="n">Cuda</span>
-<span class="n">KOKKOS_ARCH</span> <span class="o">=</span> <span class="n">PASCAL60</span><span class="p">,</span><span class="n">POWER8</span>     <span class="c1"># P100 hosted by an IBM Power8, etc</span>
-<span class="n">KOKKOS_ARCH</span> <span class="o">=</span> <span class="n">KEPLER37</span><span class="p">,</span><span class="n">POWER8</span>     <span class="c1"># K80 hosted by an IBM Power8, etc</span>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">KOKKOS_DEVICES</span> <span class="o">=</span> Cuda
+<span class="nv">KOKKOS_ARCH</span> <span class="o">=</span> PASCAL60,POWER8     <span class="c1"># P100 hosted by an IBM Power8, etc</span>
+<span class="nv">KOKKOS_ARCH</span> <span class="o">=</span> KEPLER37,POWER8     <span class="c1"># K80 hosted by an IBM Power8, etc</span>
 </pre></div>
 </div>
 <p>Using CMake:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>-DKokkos_ENABLE_CUDA=ON
--DKokkos_ARCH_PASCAL60=ON -DKokkos_ARCH_POWER8=ON :pre</p>
-</dd>
-</dl>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">-DKokkos_ENABLE_CUDA</span><span class="o">=</span>ON
+<span class="nv">-DKokkos_ARCH_PASCAL60</span><span class="o">=</span>ON -DKokkos_ARCH_POWER8<span class="o">=</span>ON :pre
+</pre></div>
+</div>
 <p>For make with GPUs, the following 2 lines define a nvcc wrapper compiler, which will use nvcc for compiling CUDA files or use a C++ compiler for non-Kokkos, non-CUDA
 files.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>KOKKOS_ABSOLUTE_PATH = $(shell cd $(KOKKOS_PATH); pwd)
-export OMPI_CXX = $(KOKKOS_ABSOLUTE_PATH)/bin/nvcc_wrapper
-CC =        mpicxx
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">KOKKOS_ABSOLUTE_PATH</span> <span class="o">=</span> <span class="k">$(</span>shell <span class="nb">cd</span> <span class="k">$(</span>KOKKOS_PATH<span class="k">)</span><span class="p">;</span> <span class="nb">pwd</span><span class="k">)</span>
+<span class="k">export </span><span class="nv">OMPI_CXX</span> <span class="o">=</span> <span class="k">$(</span>KOKKOS_ABSOLUTE_PATH<span class="k">)</span>/bin/nvcc_wrapper
+<span class="nv">CC</span> <span class="o">=</span>        mpicxx
 </pre></div>
 </div>
 <p>For CMake, copy cmake/presets/kokkos_cuda.cmake so OMPI_CXX and CC are set
@@ -377,22 +376,21 @@ Note that you cannot build one executable to run on multiple hardware
 targets (CPU or KNL or GPU). You need to build SPARTA once for each
 hardware target, to produce a separate executable.</p>
 <p>Using make:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">yes</span><span class="o">-</span><span class="n">kokkos</span>
-<span class="n">make</span> <span class="n">machine</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make yes-kokkos
+make machine
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">no</span><span class="o">-</span><span class="n">kokkos</span>
-<span class="n">make</span> <span class="n">machine</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make no-kokkos
+make machine
 </pre></div>
 </div>
 <p>Using CMake:</p>
-<dl class="simple">
-<dt>::</dt><dd><p>cmake -C /path/to/sparta/cmake/presets/machine.cmake /path/to/sparta/cmake
-make</p>
-</dd>
-</dl>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">machine</span><span class="o">.</span><span class="n">cmake</span> <span class="o">-</span><span class="n">DPKG_KOKKOS</span><span class="o">=</span><span class="n">OFF</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
-<span class="n">make</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -C /path/to/sparta/cmake/presets/machine.cmake /path/to/sparta/cmake
+make
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -C /path/to/sparta/cmake/presets/machine.cmake -DPKG_KOKKOS<span class="o">=</span>OFF /path/to/sparta/cmake
+make
 </pre></div>
 </div>
 </div>

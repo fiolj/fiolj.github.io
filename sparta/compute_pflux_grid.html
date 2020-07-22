@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -173,7 +174,7 @@
 <span id="command-compute-pflux-grid-compute-pfluxgridkk"></span><h1>compute pflux/grid/kk command<a class="headerlink" href="#compute-pflux-grid-kk-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="n">pflux</span><span class="o">/</span><span class="n">grid</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">value1</span> <span class="n">value2</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">ID pflux/grid group-ID mix-ID value1 value2 ...</span>
 </pre></div>
 </div>
 <ul>
@@ -193,15 +194,15 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">pflux</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="n">species</span> <span class="n">momxx</span> <span class="n">momyy</span> <span class="n">momzz</span>
-<span class="n">compute</span> <span class="mi">1</span> <span class="n">pflux</span><span class="o">/</span><span class="n">grid</span> <span class="n">subset</span> <span class="n">species</span> <span class="n">momxx</span> <span class="n">momxy</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 pflux/grid all species momxx momyy momzz</span>
+<span class="nb">compute</span> <span class="no">1 pflux/grid subset species momxx momxy</span>
 </pre></div>
 </div>
 <p>These commands will dump 10 time averaged momentum flux densities for
 each species and each grid cell to a dump file every 1000 steps:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">pflux</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="n">species</span> <span class="n">momxx</span> <span class="n">momyy</span> <span class="n">momzz</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="mi">10</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="n">c_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
-<span class="n">dump</span> <span class="mi">1</span> <span class="n">grid</span> <span class="nb">all</span> <span class="mi">1000</span> <span class="n">tmp</span><span class="o">.</span><span class="n">grid</span> <span class="nb">id</span> <span class="n">f_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 pflux/grid all species momxx momyy momzz</span>
+<span class="nb">fix</span> <span class="no">1 ave/grid 10 100 1000 c_1[*]</span>
+<span class="nb">dump</span> <span class="no">1 grid all 1000 tmp.grid id f_1[*]</span>
 </pre></div>
 </div>
 </div>
@@ -245,12 +246,12 @@ sampling steps.</p>
 <p>Calculation of the momentum flux density is done by first calculating the
 center-of-mass (COM) velocity of particles for each group within a grid
 cell. This is done as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">COMx</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vx_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">COMy</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vy_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">COMz</span> <span class="o">=</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Vz_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span><span class="p">)</span>
-<span class="n">Cx</span> <span class="o">=</span> <span class="n">Vx</span> <span class="o">-</span> <span class="n">COMx</span>
-<span class="n">Cy</span> <span class="o">=</span> <span class="n">Vy</span> <span class="o">-</span> <span class="n">COMy</span>
-<span class="n">Cz</span> <span class="o">=</span> <span class="n">Vz</span> <span class="o">-</span> <span class="n">COMz</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">COMx</span> <span class="no">= Sum_i (mass_i Vx_i) / Sum_i (mass_i)</span>
+<span class="nb">COMy</span> <span class="no">= Sum_i (mass_i Vy_i) / Sum_i (mass_i)</span>
+<span class="nb">COMz</span> <span class="no">= Sum_i (mass_i Vz_i) / Sum_i (mass_i)</span>
+<span class="nb">Cx</span> <span class="no">= Vx - COMx</span>
+<span class="nb">Cy</span> <span class="no">= Vy - COMy</span>
+<span class="nb">Cz</span> <span class="no">= Vz - COMz</span>
 </pre></div>
 </div>
 <p>The COM velocity is (COMx,COMy,COMz). The thermal velocity of each
@@ -259,23 +260,25 @@ particles in its group and cell.</p>
 <p>The <em>momxx</em>, <em>momyy</em>, <em>momzz</em> values compute the diagonal components of
 the momentum flux density tensor due to particles in the group as
 follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">momxx</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Cx</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">momyy</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Cy</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">momzz</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Cz</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">momxx</span> <span class="no">= fnum/volume Sum_i (mass_i Cx^2)</span>
+<span class="nb">momyy</span> <span class="no">= fnum/volume Sum_i (mass_i Cy^2)</span>
+<span class="nb">momzz</span> <span class="no">= fnum/volume Sum_i (mass_i Cz^2)</span>
 </pre></div>
 </div>
 <p>The <em>momxy</em>, <em>momyz</em>, <em>momxz</em> values compute the off-diagonal components
 of the momentum flux density tensor due to particles in the group as
 follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">momxy</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Cx</span> <span class="n">Cy</span><span class="p">)</span>
-<span class="n">momyz</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Cy</span> <span class="n">Cz</span><span class="p">)</span>
-<span class="n">momxz</span> <span class="o">=</span> <span class="n">fnum</span><span class="o">/</span><span class="n">volume</span> <span class="n">Sum_i</span> <span class="p">(</span><span class="n">mass_i</span> <span class="n">Cx</span> <span class="n">Cz</span><span class="p">)</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">momxy</span> <span class="no">= fnum/volume Sum_i (mass_i Cx Cy)</span>
+<span class="nb">momyz</span> <span class="no">= fnum/volume Sum_i (mass_i Cy Cz)</span>
+<span class="nb">momxz</span> <span class="no">= fnum/volume Sum_i (mass_i Cx Cz)</span>
 </pre></div>
 </div>
 <p>Note that if particle weighting is enabled via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command, then the volume used in the formula is
 divided by the weight assigned to the grid cell.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Output info:</strong></p>
+<div class="section" id="output-info">
+<h2>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h2>
 <p>This compute calculates a per-grid array, with the number of columns
 equal to the number of values times the number of groups. The ordering
 of columns is first by values, then by groups. I.e. if <em>momxx</em> and

@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,10 +171,10 @@
 <span id="command-fix-emit-face-file"></span><span id="index-0"></span><h1>fix emit/face/file command<a class="headerlink" href="#fix-emit-face-file-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">emit</span><span class="o">/</span><span class="n">face</span><span class="o">/</span><span class="n">file</span> <span class="n">mix</span><span class="o">-</span><span class="n">ID</span> <span class="n">face</span> <span class="n">filename</span> <span class="n">boundary</span><span class="o">-</span><span class="n">ID</span> <span class="n">keyword</span> <span class="n">value</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">ID emit/face/file mix-ID face filename boundary-ID keyword value ...</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><p>ID is documented in <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> command</p></li>
 <li><p>emit/face/file = style name of this fix command</p></li>
 <li><p>mix-ID = ID of mixture to use when creating particles</p></li>
@@ -181,20 +182,20 @@
 <li><p>filename = input data file with boundary values for the emission</p></li>
 <li><p>boundary-ID = section of data file to read</p></li>
 <li><p>zero or more keyword/value pairs may be appended</p></li>
-<li><p>keyword = <em>frac</em> or <em>nevery</em> or <em>perspecies</em> or <em>region</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">frac</span> <span class="n">value</span> <span class="o">=</span> <span class="n">fraction</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="n">to</span> <span class="mf">1.0</span> <span class="n">fraction</span> <span class="n">of</span> <span class="n">particles</span> <span class="n">to</span> <span class="n">insert</span>
-<span class="n">nevery</span> <span class="n">value</span> <span class="o">=</span> <span class="n">Nstep</span> <span class="o">=</span> <span class="n">insert</span> <span class="n">every</span> <span class="n">this</span> <span class="n">many</span> <span class="n">timesteps</span>
-<span class="n">perspecies</span> <span class="n">value</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span>
-<span class="n">region</span> <span class="n">value</span> <span class="o">=</span> <span class="n">region</span><span class="o">-</span><span class="n">ID</span>
-</pre></div>
-</div>
+<li><p>keyword = <code class="docutils literal notranslate"><span class="pre">frac</span></code> or <code class="docutils literal notranslate"><span class="pre">nevery</span></code> or <code class="docutils literal notranslate"><span class="pre">perspecies</span></code> or <code class="docutils literal notranslate"><span class="pre">region</span></code></p>
+<ul>
+<li><p>frac value = fraction = 0.0 to 1.0 fraction of particles to insert</p></li>
+<li><p>nevery value = Nstep = insert every this many timesteps</p></li>
+<li><p>perspecies value = yes or no</p></li>
+<li><p>region value = region-ID</p></li>
+</ul>
 </li>
 </ul>
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="ow">in</span> <span class="n">emit</span><span class="o">/</span><span class="n">face</span><span class="o">/</span><span class="n">file</span> <span class="n">air</span> <span class="n">xlo</span> <span class="nb">input</span><span class="o">.</span><span class="n">data</span> <span class="n">xlo</span>
-<span class="n">fix</span> <span class="ow">in</span> <span class="n">emit</span><span class="o">/</span><span class="n">face</span><span class="o">/</span><span class="n">file</span> <span class="n">mymix</span> <span class="n">ylo</span> <span class="n">file</span><span class="o">.</span><span class="n">txt</span> <span class="n">oneface</span> <span class="n">frac</span> <span class="mf">0.1</span> <span class="n">nevery</span> <span class="mi">10</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">in emit/face/file air xlo input.data xlo</span>
+<span class="nb">fix</span> <span class="no">in emit/face/file mymix ylo file.txt oneface frac 0.1 nevery 10</span>
 </pre></div>
 </div>
 </div>
@@ -285,24 +286,15 @@ face xlo, I = y.</p>
 <p>For a 3d simulation, interpolation from values on the 2d mesh to any
 grid cell face that is on the corresponding simulation box face is done
 in the following manner. There are 3 cases to consider.</p>
-<p>(a) For a grid cell face that is entirely inside the area defined by the
-file mesh, the centroid (center point) of the grid cell face is
-surrounded geometrically by 4 file mesh points. The 4 values defined on
-those 4 file points are averaged in a weighted manner using bilinear
-interpolation (described below) to determine the value for the grid cell
-face. This value is then used for the calculation described above for
-<em>M</em> = the number of particles to add on the cell face as well as the
-properties of the added particles.</p>
-<p>(b) For a grid cell face that is entirely outside the area defined by
-the file mesh, no particles are added in that grid cell.</p>
-<p>(c) For a grid cell face that partially overlaps the area defined by the
-file mesh, the extent of the overlap is computed. The centroid (center
-point) of the overlap area is surrounded geometrically by 4 file mesh
-points. The values for those 4 points are used as in (a) above to
-determine properties of particles added in that grid cell. Note that the
-area of insertion, used to calculate <em>M</em>, is the overlap area, which is
-smaller than the grid cell face area. Also, particles are only added
-within the overlap area of the grid cell face.</p>
+<ol class="loweralpha simple">
+<li><p>For a grid cell face that is entirely inside the area defined by the file mesh, the centroid (center point) of the grid cell face is surrounded geometrically by 4 file mesh points.
+The 4 values defined on those 4 file points are averaged in a weighted manner using bilinear interpolation (described below) to determine the value for the grid cell face.
+This value is then used for the calculation described above for <em>M</em> = the number of particles to add on the cell face as well as the properties of the added particles.</p></li>
+<li><p>For a grid cell face that is entirely outside the area defined by the file mesh, no particles are added in that grid cell.</p></li>
+<li><p>For a grid cell face that partially overlaps the area defined by the file mesh, the extent of the overlap is computed.
+The centroid (center point) of the overlap area is surrounded geometrically by 4 file mesh points. The values for those 4 points are used as in (a) above to determine properties of particles added in that grid cell.
+Note that the area of insertion, used to calculate <em>M</em>, is the overlap area, which is smaller than the grid cell face area. Also, particles are only added within the overlap area of the grid cell face.</p></li>
+</ol>
 <p>For a 2d simulation, the 3 cases are similar, except for (a) and (c) the
 centroid is the midpoint of a line segment, the centroid is surrounded
 by 2 file mesh points, and linear interpolation (described below) is
@@ -315,29 +307,28 @@ values. The sections can be a mix of 2d and 3d formats. SPARTA reads the
 file section by section, skipping sections with non-matching boundary
 IDs, until it finds one that matches the specified boundary-ID. The
 lines that follow must be in this order:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># plume ABC info           (one or more comment or blank lines)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PLUME_ABC</span>                  <span class="p">(</span><span class="n">boundary</span><span class="o">-</span><span class="n">ID</span> <span class="ow">is</span> <span class="n">first</span> <span class="n">word</span> <span class="n">on</span> <span class="n">line</span><span class="p">)</span>
-<span class="n">NIJ</span> <span class="mi">4</span> <span class="mi">10</span>                   <span class="p">(</span><span class="n">mesh</span> <span class="n">size</span><span class="p">:</span> <span class="n">Ni</span> <span class="n">by</span> <span class="n">Nj</span><span class="p">)</span>
-<span class="n">NV</span> <span class="mi">3</span>                       <span class="p">(</span><span class="n">Nv</span> <span class="o">=</span> <span class="n">number</span> <span class="n">of</span> <span class="n">values</span> <span class="n">per</span> <span class="n">mesh</span> <span class="n">point</span><span class="p">)</span>
-<span class="n">VALUES</span> <span class="n">nrho</span> <span class="n">temp</span> <span class="n">Ar</span>        <span class="p">(</span><span class="nb">list</span> <span class="n">of</span> <span class="n">Nv</span> <span class="n">values</span> <span class="n">per</span> <span class="n">mesh</span> <span class="n">point</span><span class="p">)</span>
-<span class="n">IMESH</span> <span class="mf">0.0</span> <span class="mf">0.3</span> <span class="mf">0.9</span> <span class="mf">1.0</span>      <span class="p">(</span><span class="n">mesh</span> <span class="n">coordinates</span> <span class="ow">in</span> <span class="n">I</span> <span class="n">direction</span><span class="p">)</span>
-<span class="n">JMESH</span> <span class="o">...</span>                  <span class="p">(</span><span class="n">mesh</span> <span class="n">coordinates</span> <span class="ow">in</span> <span class="n">J</span> <span class="n">direction</span><span class="p">)</span>
-                           <span class="p">(</span><span class="n">blank</span><span class="p">)</span>
-<span class="mi">1</span> <span class="mi">1</span> <span class="mf">1.0</span> <span class="mf">300.0</span> <span class="mf">0.5</span>          <span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">value1</span><span class="p">,</span> <span class="n">value2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-<span class="mi">1</span> <span class="mi">2</span> <span class="mf">1.02</span> <span class="mf">310.0</span> <span class="mf">0.5</span>
-<span class="o">...</span>
-<span class="mi">4</span> <span class="mi">10</span> <span class="mf">3.0</span> <span class="mf">400.0</span> <span class="mf">0.7</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span># plume ABC info           (one or more comment or blank lines)
+
+PLUME_ABC                  (boundary-ID is first word on line)
+NIJ 4 10                   (mesh size: Ni by Nj)
+NV 3                       (Nv = number of values per mesh point)
+VALUES nrho temp Ar        (list of Nv values per mesh point)
+IMESH 0.0 0.3 0.9 1.0      (mesh coordinates in I direction)
+JMESH ...                  (mesh coordinates in J direction)
+                           (blank)
+1 1 1.0 300.0 0.5          (I, J, value1, value2, ...)
+1 2 1.02 310.0 0.5
+...
+4 10 3.0 400.0 0.7
 </pre></div>
 </div>
 <p>This format is for a 3d simulation. For a 2d simulation, there are 3
 changes:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;NIJ 4 10&quot;</span> <span class="ow">is</span> <span class="n">replaced</span> <span class="n">by</span> <span class="s2">&quot;NI 6&quot;</span>
-<span class="n">JMESH</span> <span class="n">line</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">included</span>
-<span class="s2">&quot;I,J,value1,...&quot;</span> <span class="ow">is</span> <span class="n">replaced</span> <span class="n">by</span> <span class="s2">&quot;I,value1,...&quot;</span>
-</pre></div>
-</div>
+<ol class="arabic simple">
+<li><p>“NIJ 4 10” is replaced by “NI 6”</p></li>
+<li><p>JMESH line is not included</p></li>
+<li><p>“I,J,value1,…” is replaced by “I,value1,…”</p></li>
+</ol>
 <p>A section begins with a non-blank line whose first character is not a
 “#”. Blank lines or lines starting with “#” can be used as comments
 between sections. The first line begins with a boundary-ID which
@@ -393,29 +384,24 @@ temperature must be &gt; 0.0. Currently, instantaneous values for the
 density, temperature, and stream velocity of particles in the cells
 adjacent to the boundary face(s) are computed and used to determine the
 properties of inserted particles on each timestep.</p>
-<p>IMPORTANT NOTE: Caution must be exercised when using the subsonic
-boundary condition without specifying an inlet temperature. In this case
-the code tries to estimate the temperature of the flow from the
-properties of the particles in the domain. If the domain contains few
-particles per cell it may lead to spurious results. This boundary
-condition is meant more for an outlet than an inlet boundary condition,
-and performs well in cases where the cells are adequately populated.</p>
-<p>IMPORTANT NOTE: When using a subsonic prsesure boundary condition, you
-should also use an appropriate boundary collision or chemistry model via
-the <a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">boundary</span></a> or <a class="reference internal" href="bound_modify.html#command-bound-modify"><span class="std std-ref">bound_modify</span></a>
-or <a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide</span></a> or
-<a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react</span></a> commands, so that particles hitting the
-surface disappear as if they were exiting the simulation domain. That is
-necessary to produce the correct subsonic conditions that the particle
-insertions due to this command are trying to achieve.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Caution must be exercised when using the subsonic boundary condition without specifying an inlet temperature.
+In this case the code tries to estimate the temperature of the flow from the properties of the particles in the domain.
+If the domain contains few particles per cell it may lead to spurious results. This boundary condition is meant more for an outlet than an inlet boundary condition, and performs well in cases where the cells are adequately populated.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When using a subsonic pressure boundary condition, you should also use an appropriate boundary collision or chemistry model via the <a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">boundary</span></a> or <a class="reference internal" href="bound_modify.html#command-bound-modify"><span class="std std-ref">bound_modify</span></a> or <a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide</span></a> or <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react</span></a> commands, so that particles hitting the surface disappear as if they were exiting the simulation domain.
+That is necessary to produce the correct subsonic conditions that the particle insertions due to this command are trying to achieve.</p>
+</div>
 <hr class="docutils" />
 <p>For 3d simulations, bilinear interpolation from the 2d mesh of values
 specified in the file is performed using this equation to calculate the
 value at the centroid point (i,j) in the grid cell face:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">area</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span><span class="n">j1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">i2</span><span class="o">-</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">j2</span><span class="o">-</span><span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">i2</span><span class="p">,</span><span class="n">j1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">i1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">j2</span><span class="o">-</span><span class="n">j</span><span class="p">)</span> <span class="o">+</span>
-                   <span class="n">f</span><span class="p">(</span><span class="n">i2</span><span class="p">,</span><span class="n">j2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">i1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="n">j1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span><span class="n">j2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">i2</span><span class="o">-</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="n">j1</span><span class="p">))</span>
-</pre></div>
-</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}f(i,j) = (1/area) (f(i1,j1) (i2-i) (j2-j) + f(i2,j1) (i-i1) (j2-j) +\\
+                   f(i2,j2) (i-i1) (j-j1) + f(i1,j2) (i2-i) (j-j1))\end{split}\]</div>
 <p>where the 4 surrounding file mesh points are (i1,j1), (i2,j1), (i2,j2),
 and (i1,j2). The 4 f() values on the right-hand side are the values
 defined at the file mesh points. The sum is normalized by the area of
@@ -423,10 +409,9 @@ the overlap between the grid cell face and file mesh.</p>
 <p>For 2d simulations, linear interpolation from the 1d mesh of values
 specified in the file is performed using this equation to calculate the
 value at the centroid poitn (i) in the grid cell line:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">length</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">i2</span><span class="o">-</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">i2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">i1</span><span class="p">)</span>
-     <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">i1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">i2</span> <span class="o">-</span> <span class="n">i1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">i2</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">i1</span><span class="p">))</span>
-</pre></div>
-</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}f(i) = (1/length)  (f(i1) (i2-i) + f(i2) (i-i1) \\
+     = f(i1) + (i - i1)/(i2 - i1)  (f(i2) - f(i1))\end{split}\]</div>
 <p>where the 2 surrounding file mesh points are (i1) and (i2). The 2 f()
 values on the right-hand side are the values defined at the file mesh
 points. The sum is normalized by the length of the overlap between the
@@ -473,8 +458,10 @@ allow particle insertion on a subset of the boundary face. Note that the
 <em>side</em> option for the <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command can be used to
 define whether the inside or outside of the geometric region is
 considered to be “in” the region.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restart, output info:</strong></p>
+<div class="section" id="restart-output-info">
+<h2>Restart, output info:<a class="headerlink" href="#restart-output-info" title="Permalink to this headline">¶</a></h2>
 <p>No information about this fix is written to <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">binary restart files</span></a>.</p>
 <p>This fix computes a global vector of length 2 which can be accessed by
 various output commands. The first element of the vector is the total

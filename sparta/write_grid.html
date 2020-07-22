@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,7 +171,7 @@
 <span id="command-write-grid"></span><span id="index-0"></span><h1>write_grid command<a class="headerlink" href="#write-grid-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">write_grid</span> <span class="n">mode</span> <span class="n">file</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">write_grid</span> <span class="no">mode file</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -180,8 +181,8 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">write_grid</span> <span class="n">parent</span> <span class="n">data</span><span class="o">.</span><span class="n">grid</span>
-<span class="n">write_grid</span> <span class="n">geom</span> <span class="n">viz</span><span class="o">.</span><span class="n">out</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">write_grid</span> <span class="no">parent data.grid</span>
+<span class="nb">write_grid</span> <span class="no">geom viz.out</span>
 </pre></div>
 </div>
 </div>
@@ -201,29 +202,24 @@ cells is written in the following format. This file can be used in
 conjunction with snapshot files of per-grid properties, written by the
 <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a> command, to visualize various properties on
 the grid.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Description</span> <span class="n">line</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="n">points</span>
-<span class="n">M</span> <span class="n">cells</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Points</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
-<span class="mi">2</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
-<span class="o">...</span>
-<span class="n">N</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cells</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="n">p1</span> <span class="n">p2</span> <span class="n">p3</span> <span class="n">p4</span> <span class="o">...</span>
-<span class="mi">2</span> <span class="n">p1</span> <span class="n">p2</span> <span class="n">p3</span> <span class="n">p4</span> <span class="o">...</span>
-<span class="o">...</span>
-<span class="n">M</span> <span class="n">p1</span> <span class="n">p2</span> <span class="n">p3</span> <span class="n">p4</span> <span class="o">...</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Description line
+
+N points
+M cells
+
+Points
+
+1 x y z
+2 x y z
+...
+N x y z
+
+Cells
+
+1 p1 p2 p3 p4 ...
+2 p1 p2 p3 p4 ...
+...
+M p1 p2 p3 p4 ...
 </pre></div>
 </div>
 <p>The file will have N points and M grid cells. For each point the x,y,z

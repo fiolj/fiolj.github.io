@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,7 +171,7 @@
 <span id="command-fix-ambipolar"></span><span id="index-0"></span><h1>fix ambipolar command<a class="headerlink" href="#fix-ambipolar-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">ambipolar</span> <span class="n">especies</span> <span class="n">ion1</span> <span class="n">ion2</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">ID ambipolar especies ion1 ion2 ...</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -182,7 +183,7 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="mi">1</span> <span class="n">ambipolar</span> <span class="n">e</span> <span class="n">N</span><span class="o">+</span> <span class="n">O</span><span class="o">+</span> <span class="n">NO</span><span class="o">+</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">1 ambipolar e N+ O+ NO+</span>
 </pre></div>
 </div>
 </div>
@@ -220,8 +221,10 @@ It stores a value of 1 for ambipolar ions, or 0 otherwise. The second is
 named “velambi” and is a floating-point arrays (3 values per particle).
 It stores the velocity of the ambipolar electron associated with the
 ambipolar ion, or zeroes otherwise.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restart, output info:</strong></p>
+<div class="section" id="restart-output-info">
+<h2>Restart, output info:<a class="headerlink" href="#restart-output-info" title="Permalink to this headline">¶</a></h2>
 <p>No information about this fix is written to <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">binary restart files</span></a>.</p>
 <p>However, the values of the two custom particle attributes defined by
 this fix are written to the restart file. Namely the integer value

@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -173,7 +174,7 @@
 <span id="command-fix-ave-grid-fix-avegridkk"></span><h1>fix ave/grid/kk command<a class="headerlink" href="#fix-ave-grid-kk-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">Nevery</span> <span class="n">Nrepeat</span> <span class="n">Nfreq</span> <span class="n">value1</span> <span class="n">value2</span> <span class="o">...</span> <span class="n">keyword</span> <span class="n">args</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">ID ave/grid group-ID Nevery Nrepeat Nfreq value1 value2 ... keyword args ...</span>
 </pre></div>
 </div>
 <ul>
@@ -206,17 +207,17 @@ input values can be listed</p></li>
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="mi">10</span> <span class="mi">20</span> <span class="mi">1000</span> <span class="n">c_mine</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="mi">1</span> <span class="mi">100</span> <span class="mi">100</span> <span class="n">c_2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">ave</span> <span class="n">running</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="mi">1</span> <span class="mi">100</span> <span class="mi">100</span> <span class="n">c_2</span><span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">ave</span> <span class="n">running</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="n">section1</span> <span class="mi">5</span> <span class="mi">20</span> <span class="mi">100</span> <span class="n">v_myEng</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">1 ave/grid all 10 20 1000 c_mine</span>
+<span class="nb">fix</span> <span class="no">1 ave/grid all 1 100 100 c_2[1] ave running</span>
+<span class="nb">fix</span> <span class="no">1 ave/grid all 1 100 100 c_2[*] ave running</span>
+<span class="nb">fix</span> <span class="no">1 ave/grid section1 5 20 100 v_myEng</span>
 </pre></div>
 </div>
 <p>These commands will dump averages for each species and each grid cell to
 a file every 1000 steps:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">grid</span> <span class="n">species</span> <span class="n">n</span> <span class="n">u</span> <span class="n">v</span> <span class="n">w</span> <span class="n">usq</span> <span class="n">vsq</span> <span class="n">wsq</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="mi">10</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="n">c_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
-<span class="n">dump</span> <span class="mi">1</span> <span class="n">grid</span> <span class="nb">all</span> <span class="mi">1000</span> <span class="n">tmp</span><span class="o">.</span><span class="n">grid</span> <span class="nb">id</span> <span class="n">f_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 grid species n u v w usq vsq wsq</span>
+<span class="nb">fix</span> <span class="no">1 ave/grid 10 100 1000 c_1[*]</span>
+<span class="nb">dump</span> <span class="no">1 grid all 1000 tmp.grid id f_1[*]</span>
 </pre></div>
 </div>
 </div>
@@ -253,9 +254,9 @@ from m to n (inclusive).</p>
 had been listed one by one. E.g. these 2 fix ave/grid commands are
 equivalent, since the <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid</span></a> command
 creates a per-grid array with 3 columns:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">myGrid</span> <span class="nb">all</span> <span class="nb">all</span> <span class="n">u</span> <span class="n">v</span> <span class="n">w</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="mi">10</span> <span class="mi">20</span> <span class="mi">1000</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="nb">all</span> <span class="mi">10</span> <span class="mi">20</span> <span class="mi">1000</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">c_myGrid</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">myGrid all all u v w</span>
+<span class="nb">fix</span> <span class="no">1 ave/grid all 10 20 1000 c_myGrid[*]</span>
+<span class="nb">fix</span> <span class="no">1 ave/grid all 10 20 1000 c_myGrid[1] c_myGrid[2] c_myGrid[3]</span>
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -332,8 +333,10 @@ the output at any <em>Nfreq</em> timestep is normalized over all previously
 accumulated samples since the fix was defined. The tallies can only be
 zeroed by deleting the fix via the unfix command, or by re-defining the
 fix, or by re-specifying it.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Restart, output info:</strong></p>
+<div class="section" id="restart-output-info">
+<h2>Restart, output info:<a class="headerlink" href="#restart-output-info" title="Permalink to this headline">¶</a></h2>
 <p>No information about this fix is written to <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">binary restart files</span></a>.</p>
 <p>This fix produces a per-grid vector or array which can be accessed by
 various output commands. A vector is produced if only a single quantity

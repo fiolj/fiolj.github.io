@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,18 +171,18 @@
 <span id="command-write-surf"></span><span id="index-0"></span><h1>write_surf command<a class="headerlink" href="#write-surf-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">write_surf</span> <span class="n">file</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">write_surf</span> <span class="no">file</span>
 </pre></div>
 </div>
 <ul>
 <li><p>file = name of file to write surface element info to</p></li>
 <li><p>zero or more keyword/args pairs may be appended</p></li>
 <li><p>keyword = <em>points</em> or <em>fileper</em> or <em>nfile</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">points</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span> <span class="n">to</span> <span class="n">include</span> <span class="n">a</span> <span class="n">Points</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">file</span>
-<span class="n">fileper</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">Np</span>
-  <span class="n">Np</span> <span class="o">=</span> <span class="n">write</span> <span class="n">one</span> <span class="n">file</span> <span class="k">for</span> <span class="n">every</span> <span class="n">this</span> <span class="n">many</span> <span class="n">processors</span>
-<span class="n">nfile</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">Nf</span>
-  <span class="n">Nf</span> <span class="o">=</span> <span class="n">write</span> <span class="n">this</span> <span class="n">many</span> <span class="n">files</span><span class="p">,</span> <span class="n">one</span> <span class="kn">from</span> <span class="nn">each</span> <span class="n">of</span> <span class="n">Nf</span> <span class="n">processors</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">points</span> <span class="no">arg = yes or no to include a Points section in the file</span>
+<span class="nb">fileper</span> <span class="no">arg = Np</span>
+  <span class="nb">Np</span> <span class="no">= write one file for every this many processors</span>
+<span class="nb">nfile</span> <span class="no">arg = Nf</span>
+  <span class="nb">Nf</span> <span class="no">= write this many files, one from each of Nf processors</span>
 </pre></div>
 </div>
 </li>
@@ -189,9 +190,9 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">write_surf</span> <span class="n">data</span><span class="o">.</span><span class="n">surf</span>
-<span class="n">write_surf</span> <span class="n">data</span><span class="o">.</span><span class="n">surf</span> <span class="n">points</span> <span class="n">no</span>
-<span class="n">write_surf</span> <span class="n">data</span><span class="o">.</span><span class="n">surf</span><span class="o">.%</span> <span class="n">nfile</span> <span class="mi">50</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">write_surf</span> <span class="no">data.surf</span>
+<span class="nb">write_surf</span> <span class="no">data.surf points no</span>
+<span class="nb">write_surf</span> <span class="no">data.surf.% nfile 50</span>
 </pre></div>
 </div>
 </div>

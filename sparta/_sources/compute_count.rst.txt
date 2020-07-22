@@ -38,11 +38,9 @@ Syntax:
 -  count = style name of this compute command
 -  id1,id2,... = species ID or mixture ID or mixture/group
 
-   ::
-
-        species ID = ID used with the species command
-        mixture ID = ID used with the mixture command, expands to all groups in mixture
-        mixture/group = ID of mixture followed by name of a group within mixture 
+   - species ID = ID used with the species command
+   - mixture ID = ID used with the mixture command, expands to all groups in mixture
+   - mixture/group = ID of mixture followed by name of a group within mixture 
 
 *********
 Examples:
@@ -86,7 +84,9 @@ and name is the name of a group in that mixture.
 
 --------------
 
-**Output info:**
+************
+Output info:
+************
 
 If there is a single count accumulated, this compute calculates a global
 scalar. If there are multiple counts accumulated, it calculates a global

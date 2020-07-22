@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,7 +171,7 @@
 <span id="command-jump"></span><span id="index-0"></span><h1>jump command<a class="headerlink" href="#jump-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jump</span> <span class="n">file</span> <span class="n">label</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">jump</span> <span class="no">file label</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -180,9 +181,9 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jump</span> <span class="n">newfile</span>
-<span class="n">jump</span> <span class="ow">in</span><span class="o">.</span><span class="n">run2</span> <span class="n">runloop</span>
-<span class="n">jump</span> <span class="n">SELF</span> <span class="n">runloop</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">jump</span> <span class="no">newfile</span>
+<span class="nb">jump</span> <span class="no">in.run2 runloop</span>
+<span class="nb">jump</span> <span class="no">SELF runloop</span>
 </pre></div>
 </div>
 </div>
@@ -198,16 +199,16 @@ script is re-opened and read again.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>The SELF option is not guaranteed to work when the current input script is being read through stdin (standard input), e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa_g</span><span class="o">++</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">script</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>spa_g++ &lt; in.script
 </pre></div>
 </div>
 <p>since the SELF option invokes the C-library rewind() call, which may not be supported for stdin on some systems or by some MPI implementations.
 This can be worked around by using the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-in command-line argument</span></a>, e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">script</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>spa_g++ -in in.script
 </pre></div>
 </div>
 <p>or by using the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-var command-line argument</span></a> to pass the script name as a variable to the input script. In the latter case, a <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a> called “fname” could be used in place of SELF, e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">var</span> <span class="n">fname</span> <span class="ow">in</span><span class="o">.</span><span class="n">script</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">script</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>spa_g++ -var fname in.script &lt; in.script
 </pre></div>
 </div>
 </div>
@@ -220,13 +221,13 @@ script, as in this example. These commands perform 10 runs, each of
 <a class="reference internal" href="next.html#command-next"><span class="std std-ref">next</span></a> command is used to exit the loop after 10
 iterations. When the “a” variable has been incremented for the tenth
 time, it will cause the next jump command to be skipped.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>variable a loop 10
-label loop
-dump 1 grid all 100 file.$a
-run 10000
-undump 1
-next a
-jump in.flow loop
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">a loop 10</span>
+<span class="nb">label</span> <span class="no">loop</span>
+<span class="nb">dump</span> <span class="no">1 grid all 100 file.$a</span>
+<span class="nb">run</span> <span class="no">10000</span>
+<span class="nb">undump</span> <span class="no">1</span>
+<span class="nb">next</span> <span class="no">a</span>
+<span class="nb">jump</span> <span class="no">in.flow loop</span>
 </pre></div>
 </div>
 <p>If the jump <em>file</em> argument is a variable, the jump command can be used
@@ -234,31 +235,31 @@ to cause different processor partitions to run different input scripts.
 In this example, SPARTA is run on 40 processors, with 4 partitions of 10
 procs each. An in.file containing the example variable and jump command
 will cause each partition to run a different simulation.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">40</span> <span class="n">lmp_ibm</span> <span class="o">-</span><span class="n">partition</span> <span class="mi">4</span><span class="n">x10</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">file</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">mpirun</span> <span class="no">-np 40 lmp_ibm -partition 4x10 -in in.file</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>variable f world script.1 script.2 script.3 script.4
-jump $f
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">f world script.1 script.2 script.3 script.4</span>
+<span class="nb">jump</span> <span class="no">$f</span>
 </pre></div>
 </div>
 <p>Here is an example of a double loop which uses the <a class="reference internal" href="if.html#command-if"><span class="std std-ref">if</span></a> and
 jump commands to break out of the inner loop when a condition is met,
 then continues iterating thru the outer loop.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>label      loopa
-variable    a loop 5
-  label     loopb
-  variable  b loop 5
-  print     &quot;A,B = $a,$b&quot;
-  run       10000
-  if        $b &gt; 2 then &quot;jump in.script break&quot;
-  next      b
-  jump      in.script loopb
-label       break
-variable    b delete
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">label</span>      <span class="no">loopa</span>
+<span class="nb">variable</span>    <span class="no">a loop 5</span>
+  <span class="nb">label</span>     <span class="no">loopb</span>
+  <span class="nb">variable</span>  <span class="no">b loop 5</span>
+  <span class="nb">print</span>     <span class="no">&quot;A,B = $a,$b&quot;</span>
+  <span class="nb">run</span>       <span class="no">10000</span>
+  <span class="nb">if</span>        <span class="no">$b &gt; 2 then &quot;jump in.script break&quot;</span>
+  <span class="nb">next</span>      <span class="no">b</span>
+  <span class="nb">jump</span>      <span class="no">in.script loopb</span>
+<span class="nb">label</span>       <span class="no">break</span>
+<span class="nb">variable</span>    <span class="no">b delete</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span>       <span class="n">a</span>
-<span class="n">jump</span>        <span class="ow">in</span><span class="o">.</span><span class="n">script</span> <span class="n">loopa</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span>       <span class="no">a</span>
+<span class="nb">jump</span>        <span class="no">in.script loopa</span>
 </pre></div>
 </div>
 </div>

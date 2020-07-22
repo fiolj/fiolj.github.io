@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,7 +171,7 @@
 <span id="command-fix"></span><span id="index-0"></span><h1>fix command<a class="headerlink" href="#fix-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="n">ID</span> <span class="n">style</span> <span class="n">args</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">ID style args</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -181,8 +182,8 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span> <span class="mi">1</span> <span class="n">grid</span><span class="o">/</span><span class="n">check</span> <span class="mi">100</span> <span class="n">warn</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">time</span> <span class="nb">all</span> <span class="mi">100</span> <span class="mi">5</span> <span class="mi">1000</span> <span class="n">c_myTemp</span> <span class="n">c_thermo_temp</span> <span class="n">file</span> <span class="n">temp</span><span class="o">.</span><span class="n">profile</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">1 grid/check 100 warn</span>
+<span class="nb">fix</span> <span class="no">1 ave/time all 100 5 1000 c_myTemp c_thermo_temp file temp.profile</span>
 </pre></div>
 </div>
 </div>

@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="3. Commands" href="Section_commands.html" />
@@ -62,7 +63,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -248,8 +249,8 @@ experienced users.</p>
 <span id="start-what-s-sparta"></span><h2><a class="toc-backref" href="#id14">2.1. What’s in the SPARTA distribution</a><a class="headerlink" href="#what-s-in-the-sparta-distribution" title="Permalink to this headline">¶</a></h2>
 <p>When you download SPARTA you will need to unzip and untar the downloaded
 file with the following commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gunzip</span> <span class="n">sparta</span><span class="o">*.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
-<span class="n">tar</span> <span class="n">xvf</span> <span class="n">sparta</span><span class="o">*.</span><span class="n">tar</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gunzip sparta*.tar.gz
+tar xvf sparta*.tar
 </pre></div>
 </div>
 <p>This will create a SPARTA directory containing two files and several
@@ -338,9 +339,9 @@ low-level Makefile.* files for many machines. From within the src
 directory, type “make” or “gmake”. You should see a list of available
 choices. If one of those is the machine and options you want, you can
 type a command like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">g</span><span class="o">++</span>
-<span class="ow">or</span>
-<span class="n">gmake</span> <span class="n">mac</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make g++
+or
+gmake mac
 </pre></div>
 </div>
 <p>Note that on a multi-core platform you can launch a parallel make, by using the “-j” switch with the make command, which will build SPARTA more quickly.</p>
@@ -564,10 +565,10 @@ below, before proceeding to Step 9.</p>
 <p>That’s it. Once you have a correct Makefile.foo, and you have pre-built
 any other needed libraries (e.g. MPI), all you need to do from the src
 directory is type one of the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">foo</span>
-<span class="n">make</span> <span class="o">-</span><span class="n">j</span> <span class="n">N</span> <span class="n">foo</span>
-<span class="n">gmake</span> <span class="n">foo</span>
-<span class="n">gmake</span> <span class="o">-</span><span class="n">j</span> <span class="n">N</span> <span class="n">foo</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make foo
+make -j N foo
+gmake foo
+gmake -j N foo
 </pre></div>
 </div>
 <p>The -j or -j N switches perform a parallel build which can be much
@@ -583,14 +584,14 @@ the number of cores the build runs on.</p>
 <span id="id2"></span><h4>2.2.3.1. Step 0<a class="headerlink" href="#start-step-c0" title="Permalink to this headline">¶</a></h4>
 <p>Please review <a class="reference external" href="https://github.com/sparta/sparta/blob/master/BUILD_CMAKE.md">https://github.com/sparta/sparta/blob/master/BUILD_CMAKE.md</a> and ensure that
 CMake version 3.10.0 or greater is installed:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">which</span> <span class="n">cmake</span>
-<span class="n">which</span> <span class="n">cmake3</span>
-<span class="n">cmake</span> <span class="o">--</span><span class="n">version</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>which cmake
+which cmake3
+cmake --version
 </pre></div>
 </div>
 <p>On clusters and supercomputers one can use modules to load cmake:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">avail</span> <span class="n">cmake</span>
-<span class="n">module</span> <span class="n">load</span> <span class="o">&lt;</span><span class="n">CMAKE</span><span class="o">&gt;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module avail cmake
+module load &lt;CMAKE&gt;
 </pre></div>
 </div>
 <p>On Linux one may use apt, yum, or pacman to install cmake.</p>
@@ -600,18 +601,18 @@ CMake version 3.10.0 or greater is installed:</p>
 <span id="id3"></span><h4>2.2.3.2. Step 1<a class="headerlink" href="#start-step-c1" title="Permalink to this headline">¶</a></h4>
 <p>The cmake directory contains the CMake source files for SPARTA. Create a build
 directory and from within the build directory, run cmake:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">build</span>
-<span class="n">cd</span> <span class="n">build</span>
-<span class="n">cmake</span> <span class="o">-</span><span class="n">LH</span> <span class="o">-</span><span class="n">DSPARTA_MACHINE</span><span class="o">=</span><span class="n">tutorial</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build
+<span class="nb">cd</span> build
+cmake -LH -DSPARTA_MACHINE<span class="o">=</span>tutorial /path/to/sparta/cmake
 </pre></div>
 </div>
 <p>This will generate the default Makefiles and print the SPARTA CMake options. To
 list the generated targets, do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">help</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make <span class="nb">help</span>
 </pre></div>
 </div>
 <p>Now you can try to build the SPARTA binaries with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make
 </pre></div>
 </div>
 <p>If everything works, an executable named spa_tutorial and a library named
@@ -621,13 +622,13 @@ libsparta.a will be produced in build/src.</p>
 <span id="id4"></span><h4>2.2.3.3. Step 2<a class="headerlink" href="#start-step-c2" title="Permalink to this headline">¶</a></h4>
 <p>If Step 1 did not work, see if you can use any system presets from
 /path/to/sparta/cmake/presets. To select a preset:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
 
 <span class="c1"># Clear the CMake files</span>
-<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">CMake</span><span class="o">*</span>
+rm -rf CMake*
 
-<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/&lt;</span><span class="n">NAME</span><span class="o">&gt;.</span><span class="n">cmake</span> <span class="o">-</span><span class="n">DSPARTA_MACHINE</span><span class="o">=</span><span class="n">tutorial</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
-<span class="n">make</span>
+cmake -C /path/to/sparta/cmake/presets/&lt;NAME&gt;.cmake -DSPARTA_MACHINE<span class="o">=</span>tutorial /path/to/sparta/cmake
+make
 </pre></div>
 </div>
 </div>
@@ -635,27 +636,27 @@ libsparta.a will be produced in build/src.</p>
 <span id="id5"></span><h4>2.2.3.4. Step 3<a class="headerlink" href="#start-step-c3" title="Permalink to this headline">¶</a></h4>
 <p>If Step 2 did not work, look at cmake -LH for a list of SPARTA CMake options and their
 meaning, then modify one or more of those options by doing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
-<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">CMake</span><span class="o">*</span>
-<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/&lt;</span><span class="n">NAME</span><span class="o">&gt;.</span><span class="n">cmake</span> <span class="o">-</span><span class="n">D</span><span class="o">&lt;</span><span class="n">OPTION_NAME</span><span class="o">&gt;=&lt;</span><span class="n">VALUE</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
-<span class="n">make</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
+rm -rf CMake*
+cmake -C /path/to/sparta/cmake/presets/&lt;NAME&gt;.cmake -D&lt;OPTION_NAME&gt;<span class="o">=</span>&lt;VALUE&gt; /path/to/sparta/cmake
+make
 </pre></div>
 </div>
 <p>where &lt;OPTION_NAME&gt; and &lt;VALUE&gt; correspond to valid option value pairs listed by
 cmake -LH. For the SPARTA_DEFAULT_CXX_COMPILE_FLAGS option, see <a class="reference internal" href="#start-step-c4"><span class="std std-ref">Step 4</span></a>.</p>
 <p>For a full list of CMake option value pairs, see cmake -LAH. The most relevant
 CMake options (with example values) for our purposes here are:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">DCMAKE_C_COMPILER</span><span class="o">=</span><span class="n">gcc</span>
-<span class="o">-</span><span class="n">DCMAKE_CXX_COMPILER</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">g</span><span class="o">++</span>
-<span class="o">-</span><span class="n">DCMAKE_CXX_FLAGS</span><span class="o">=-</span><span class="n">O3</span>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">-DCMAKE_C_COMPILER</span><span class="o">=</span>gcc
+<span class="nv">-DCMAKE_CXX_COMPILER</span><span class="o">=</span>/usr/local/bin/g++
+<span class="nv">-DCMAKE_CXX_FLAGS</span><span class="o">=</span>-O3
 </pre></div>
 </div>
 <p>If your cmake command line is getting too long, consider placing it in a bash
 script and escaping newlines. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> \
-<span class="o">-</span><span class="n">C</span>  <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/&lt;</span><span class="n">NAME</span><span class="o">&gt;.</span><span class="n">cmake</span> \
-<span class="o">-</span><span class="n">D</span>  <span class="o">-</span><span class="n">D</span><span class="o">&lt;</span><span class="n">OPTION_NAME</span><span class="o">&gt;=&lt;</span><span class="n">VALUE</span><span class="o">&gt;</span> \
-<span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span> <span class="p">:</span><span class="n">pre</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake <span class="se">\</span>
+-C  /path/to/sparta/cmake/presets/&lt;NAME&gt;.cmake <span class="se">\</span>
+-D  -D&lt;OPTION_NAME&gt;<span class="o">=</span>&lt;VALUE&gt; <span class="se">\</span>
+/path/to/sparta/cmake :pre
 </pre></div>
 </div>
 </div>
@@ -666,16 +667,16 @@ building object files.  Note that if you change any -D setting in this section,
 you should do a full re-compile, after typing “make clean”.</p>
 <p>The SPARTA_DEFAULT_CXX_COMPILE_FLAGS option is typically used to include options
 that turn on ifdefs within the SPARTA code.  The options that are currently recogized are:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">DSPARTA_GZIP</span>
-<span class="o">-</span><span class="n">DSPARTA_JPEG</span>
-<span class="o">-</span><span class="n">DSPARTA_PNG</span>
-<span class="o">-</span><span class="n">DSPARTA_FFMPEG</span>
-<span class="o">-</span><span class="n">DSPARTA_MAP</span>
-<span class="o">-</span><span class="n">DSPARTA_UNORDERED_MAP</span>
-<span class="o">-</span><span class="n">DSPARTA_SMALL</span>
-<span class="o">-</span><span class="n">DSPARTA_BIG</span>
-<span class="o">-</span><span class="n">DSPARTA_BIGBIG</span>
-<span class="o">-</span><span class="n">DSPARTA_LONGLONG_TO_LONG</span> <span class="p">:</span><span class="n">ul</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-DSPARTA_GZIP
+-DSPARTA_JPEG
+-DSPARTA_PNG
+-DSPARTA_FFMPEG
+-DSPARTA_MAP
+-DSPARTA_UNORDERED_MAP
+-DSPARTA_SMALL
+-DSPARTA_BIG
+-DSPARTA_BIGBIG
+-DSPARTA_LONGLONG_TO_LONG :ul
 </pre></div>
 </div>
 <p>The read_data and dump commands will read/write gzipped files if you
@@ -737,10 +738,10 @@ source code. Note that the CMake cache is sticky and will only evict a
 cached option value pair if you use -D or the FORCE argument to CMake’s set
 routine.</p>
 <p>Now just do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
-<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">CMake</span><span class="o">*</span>
-<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/&lt;</span><span class="n">NEW</span><span class="o">&gt;.</span><span class="n">cmake</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
-<span class="n">make</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
+rm -rf CMake*
+cmake -C /path/to/sparta/cmake/presets/&lt;NEW&gt;.cmake /path/to/sparta/cmake
+make
 </pre></div>
 </div>
 <p>consider sharing and vetting &lt;NEW&gt;.cmake by opening a pull request at
@@ -753,7 +754,7 @@ configuration. There may already be a preset in
 /path/to/sparta/cmake/presets that selects the correct MPI installation.</p>
 <p>By default, SPARTA configures with MPI enabled and cmake will print which MPI
 was selected. To build serial binaries, use SPARTA’s MPI_STUBS package:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DPKG_MPI_STUBS</span><span class="o">=</span><span class="n">ON</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -DPKG_MPI_STUBS<span class="o">=</span>ON /path/to/sparta/cmake
 </pre></div>
 </div>
 <p>You may want a different MPI installation than CMake finds. CMake uses module
@@ -761,23 +762,23 @@ files such as FindMPI.cmake to handle wiring in a given installation of a
 library and its headers. If you’re on a cluster or supercomputer, use module
 before running cmake so that cmake finds the MPI installation you’d like to
 use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show which modules are loaded</span>
-<span class="n">module</span> <span class="nb">list</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show which modules are loaded</span>
+module list
 
 <span class="c1"># Show which modules are available</span>
-<span class="n">module</span> <span class="n">avail</span>
+module avail
 
-<span class="n">module</span> <span class="n">load</span> <span class="o">&lt;</span><span class="n">MPI</span><span class="o">&gt;</span> <span class="p">:</span><span class="n">pre</span>
+module load &lt;MPI&gt; :pre
 </pre></div>
 </div>
 <p>On Linux one may use apt, yum, or pacman to install MPI.</p>
 <p>On Mac one may use brew or macports to install MPI.</p>
 <p>Verify that cmake found the correct MPI installation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
-<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">CMake</span><span class="o">*</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
+rm -rf CMake*
 
 <span class="c1"># cmake should print &quot;Found MPI*&quot; strings</span>
-<span class="n">cmake</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span> <span class="p">:</span><span class="n">pre</span>
+cmake <span class="o">[</span>options<span class="o">]</span> /path/to/sparta/cmake :pre
 </pre></div>
 </div>
 <p>Note that if the preset file you’re using enables PKG_MPI_STUBS, MPI will not be
@@ -796,23 +797,23 @@ package which can be selected with cmake -DPKG_FFT=ON.</p>
 <p>You may need to install the FFT TPL you’re interested in using. If you’re on a
 cluster or supercomputer, use module before running cmake so that cmake finds
 the FFT installation you’d like to use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show which modules are loaded</span>
-<span class="n">module</span> <span class="nb">list</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show which modules are loaded</span>
+module list
 
 <span class="c1"># Show which modules are available</span>
-<span class="n">module</span> <span class="n">avail</span>
+module avail
 
-<span class="n">module</span> <span class="n">load</span> <span class="o">&lt;</span><span class="n">FFT</span><span class="o">&gt;</span> <span class="p">:</span><span class="n">pre</span>
+module load &lt;FFT&gt; :pre
 </pre></div>
 </div>
 <p>On Linux one may use apt, yum, or pacman to install FFT.</p>
 <p>On Mac one may use brew or macports to install FFT.</p>
 <p>Verify that cmake found the correct MPI installation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
-<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">CMake</span><span class="o">*</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
+rm -rf CMake*
 
 <span class="c1"># cmake should print &quot;Found FFT*&quot; strings</span>
-<span class="n">cmake</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span> <span class="p">:</span><span class="n">pre</span>
+cmake <span class="o">[</span>options<span class="o">]</span> /path/to/sparta/cmake :pre
 </pre></div>
 </div>
 <p>Note that if the preset file you’re using enables PKG_FFT, FFT will not be
@@ -826,11 +827,11 @@ open an issue at <a class="reference external" href="https://github.com/sparta/s
 <span id="id10"></span><h4>2.2.3.9. Step 8<a class="headerlink" href="#start-step-c8" title="Permalink to this headline">¶</a></h4>
 <p>You may select between 2 TPLs, JPEG or PNG, for writing out JPEG or PNG files
 via the “dump image”_dump_image.html command. To select a TPL, use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DBUILD_JPEG</span><span class="o">=</span><span class="n">ON</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -DBUILD_JPEG<span class="o">=</span>ON /path/to/sparta/cmake
 </pre></div>
 </div>
 <p>or:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DBUILD_PNG</span><span class="o">=</span><span class="n">ON</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -DBUILD_PNG<span class="o">=</span>ON /path/to/sparta/cmake
 </pre></div>
 </div>
 <p>If you’d like to use a custom jpeg or png installation, please see
@@ -842,11 +843,11 @@ documentation links are for CMake version 3.10.</p>
 <span id="id11"></span><h4>2.2.3.10. Step 9<a class="headerlink" href="#start-step-c9" title="Permalink to this headline">¶</a></h4>
 <p>By default, none of the SPARTA optional packages are installed. To build SPARTA
 with optional packages, use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DPKG_XXX</span><span class="o">=</span><span class="n">ON</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -DPKG_XXX<span class="o">=</span>ON /path/to/sparta/cmake
 </pre></div>
 </div>
 <p>Where XXX is the package to enable. For a full list of optional packages, see:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">LH</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -LH /path/to/sparta/cmake
 </pre></div>
 </div>
 </div>
@@ -854,16 +855,16 @@ with optional packages, use:</p>
 <span id="start-step-c10"></span><h4>2.2.3.11. Step 10<a class="headerlink" href="#step-10" title="Permalink to this headline">¶</a></h4>
 <p>Once you have a correct cmake command line or the &lt;NAME&gt;.cmake preset file, just
 do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
-<span class="n">cmake</span> <span class="p">[</span><span class="n">OPTIONS</span><span class="p">]</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
+cmake <span class="o">[</span>OPTIONS<span class="o">]</span> /path/to/sparta/cmake
 </pre></div>
 </div>
 <p>or:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
-<span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/&lt;</span><span class="n">NAME</span><span class="o">&gt;.</span><span class="n">cmake</span> <span class="o">-</span><span class="n">DSPARTA_MACHINE</span><span class="o">=</span><span class="n">tutorial</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
+cmake -C /path/to/sparta/cmake/presets/&lt;NAME&gt;.cmake -DSPARTA_MACHINE<span class="o">=</span>tutorial /path/to/sparta/cmake
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="o">-</span><span class="n">j</span> <span class="n">N</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make -j N
 </pre></div>
 </div>
 <p>The -j or -j N switches perform a parallel build which can be much faster,
@@ -885,9 +886,9 @@ machine’s native make doesn’t support wildcard expansion in a makefile.
 Try gmake instead of make. If that doesn’t work, try using a -f switch
 with your make command to use a pre-generated Makefile.list which
 explicitly lists all the needed files, e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">makelist</span>
-<span class="n">make</span> <span class="o">-</span><span class="n">f</span> <span class="n">Makefile</span><span class="o">.</span><span class="n">list</span> <span class="n">g</span><span class="o">++</span>
-<span class="n">gmake</span> <span class="o">-</span><span class="n">f</span> <span class="n">Makefile</span><span class="o">.</span><span class="n">list</span> <span class="n">mac</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make makelist
+make -f Makefile.list g++
+gmake -f Makefile.list mac
 </pre></div>
 </div>
 <p>The first “make” command will create a current Makefile.list with all
@@ -969,13 +970,13 @@ page specfies if it is part of a package.</p>
 <span id="start-includingexcluding"></span><h3><a class="toc-backref" href="#id30">2.3.2. Including/excluding packages with make:</a><a class="headerlink" href="#including-excluding-packages-with-make" title="Permalink to this headline">¶</a></h3>
 <p>To use (or not use) a package you must include it (or exclude it) before
 building SPARTA. From the src directory, this is typically as simple as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">yes</span><span class="o">-</span><span class="n">fft</span>
-<span class="n">make</span> <span class="n">g</span><span class="o">++</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make yes-fft
+make g++
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">no</span><span class="o">-</span><span class="n">fft</span>
-<span class="n">make</span> <span class="n">g</span><span class="o">++</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make no-fft
+make g++
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1022,13 +1023,13 @@ options.</p>
 <span id="start-includingexcluding-cmake"></span><h3><a class="toc-backref" href="#id31">2.3.3. Including/excluding packages with CMake:</a><a class="headerlink" href="#including-excluding-packages-with-cmake" title="Permalink to this headline">¶</a></h3>
 <p>To use (or not use) a package you must include it (or exclude it)
 before building SPARTA.  From the build directory, do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DPKG_FFT</span><span class="o">=</span><span class="n">ON</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
-<span class="n">make</span> <span class="o">-</span><span class="n">j</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -DPKG_FFT<span class="o">=</span>ON /path/to/sparta/cmake
+make -j
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DPKG_FFT</span><span class="o">=</span><span class="n">OFF</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
-<span class="n">make</span> <span class="o">-</span><span class="n">j</span> <span class="p">:</span><span class="n">pre</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -DPKG_FFT<span class="o">=</span>OFF /path/to/sparta/cmake
+make -j :pre
 </pre></div>
 </div>
 <p>Some packages have individual files that depend on other packages
@@ -1067,7 +1068,7 @@ library in build/src.</p>
 <span id="start-static-library"></span><h3>2.4.1. Static library:<a class="headerlink" href="#static-library" title="Permalink to this headline">¶</a></h3>
 <p>CMake builds sparta as a static library in libsparta.a, by default.</p>
 <p>To build SPARTA as a static library (“*.a” file on Linux), type</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">foo</span> <span class="n">mode</span><span class="o">=</span><span class="n">lib</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make foo <span class="nv">mode</span><span class="o">=</span>lib
 </pre></div>
 </div>
 <p>where foo is the machine name. This kind of library is typically used to
@@ -1082,12 +1083,12 @@ most recently built static library.</p>
 <span id="start-shared-library"></span><h3>2.4.2. Shared library:<a class="headerlink" href="#shared-library" title="Permalink to this headline">¶</a></h3>
 <p>To build SPARTA as a shared library (“*.so” file on Linux), which can be
 dynamically loaded, e.g. from Python, type</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">foo</span> <span class="n">mode</span><span class="o">=</span><span class="n">shlib</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make foo <span class="nv">mode</span><span class="o">=</span>shlib
 </pre></div>
 </div>
 <p>or:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">presets</span><span class="o">/</span><span class="n">foo</span><span class="o">.</span><span class="n">cmake</span> <span class="o">-</span><span class="n">DBUILD_SHARED_LIBS</span><span class="o">=</span><span class="n">ON</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
-<span class="n">make</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -C /path/to/sparta/cmake/presets/foo.cmake -DBUILD_SHARED_LIBS<span class="o">=</span>ON /path/to/sparta/cmake
+make
 </pre></div>
 </div>
 <p>where foo is the machine name. This kind of library is required when
@@ -1111,13 +1112,13 @@ library. The build instructions for the library should tell you how to
 do this.</p>
 <p>Here is an example of such errors when the system FFTW or provided
 lib/colvars library have not been built as shared libraries:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/usr/bin/ld: /usr/local/lib/libfftw3.a(mapflags.o): relocation
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/bin/ld: /usr/local/lib/libfftw3.a(mapflags.o): relocation
 R_X86_64_32 against :ref:`.rodata&#39; can not be used when making a shared
 object; recompile with -fPIC
 /usr/local/lib/libfftw3.a: could not read symbols: Bad value
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/usr/bin/ld: ../../lib/colvars/libcolvars.a(colvarmodule.o):
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/bin/ld: ../../lib/colvars/libcolvars.a(colvarmodule.o):
 relocation R_X86_64_32 against`pthread_key_create&#39; can not be used
 when making a shared object; recompile with -fPIC
 ../../lib/colvars/libcolvars.a: error adding symbols: Bad value
@@ -1126,9 +1127,9 @@ when making a shared object; recompile with -fPIC
 <p>As an example, here is how to build and install the <a class="reference external" href="http://www-unix.mcs.anl.gov/mpi">MPICH library</a>, a popular open-source
 version of MPI, distributed by Argonne National Labs, as a shared
 library in the default /usr/local/lib location:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">configure</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">shared</span>
-<span class="n">make</span>
-<span class="n">make</span> <span class="n">install</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./configure --enable-shared
+make
+make install
 </pre></div>
 </div>
 <p>You may need to use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">make</span> <span class="pre">install</span></code> in place of the last line if you
@@ -1144,7 +1145,7 @@ the environment variable LD_LIBRARY_PATH.</p>
 <p>Using make, you may wish to copy the file src/libsparta.so or src/libsparta_g++.so (for example) to a place the system can find it by default, such as /usr/local/lib, or you may wish to add the SPARTA src directory to LD_LIBRARY_PATH, so that the current version of the shared library is always available to programs that use it.</p>
 <p>For the csh or tcsh shells, you would add something like this to your
 ~/.cshrc file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/home/sjplimp/sparta/src
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>setenv LD_LIBRARY_PATH <span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>:/home/sjplimp/sparta/src
 </pre></div>
 </div>
 </div>
@@ -1172,17 +1173,17 @@ the interface and how to extend it for your needs.</p>
 <span id="start-running-sparta"></span><h2><a class="toc-backref" href="#id18">2.5. Running SPARTA</a><a class="headerlink" href="#running-sparta" title="Permalink to this headline">¶</a></h2>
 <p>By default, SPARTA runs by reading commands from standard input. Thus if
 you run the SPARTA executable by itself, e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa_g</span><span class="o">++</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spa_g++
 </pre></div>
 </div>
 <p>it will simply wait, expecting commands from the keyboard. Typically you
 should put commands in an input script and use I/O redirection, e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa_g</span><span class="o">++</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">file</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spa_g++ &lt; in.file
 </pre></div>
 </div>
 <p>For parallel environments this should also work. If it does not, use the
 ‘-in’ command-line switch, e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="ow">in</span> <span class="ow">in</span><span class="o">.</span><span class="n">file</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spa_g++ -in in.file
 </pre></div>
 </div>
 <p><a class="reference internal" href="Section_commands.html#commands"><span class="std std-ref">Commands</span></a> describes how input scripts are structured and what commands they contain.</p>
@@ -1192,19 +1193,19 @@ named log.*.name.P where name is a machine and P is the number of
 processors it was run on.</p>
 <p>Here is how you might run one of the benchmarks on a Linux box, using
 mpirun to launch a parallel job:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">src</span>
-<span class="n">make</span> <span class="n">g</span><span class="o">++</span>
-<span class="n">cp</span> <span class="n">spa_g</span><span class="o">++</span> <span class="o">../</span><span class="n">bench</span>
-<span class="n">cd</span> <span class="o">../</span><span class="n">bench</span>
-<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">4</span> <span class="n">spa_g</span><span class="o">++</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">free</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> src
+make g++
+cp spa_g++ ../bench
+<span class="nb">cd</span> ../bench
+mpirun -np <span class="m">4</span> spa_g++ &lt; in.free
 </pre></div>
 </div>
 <p>or:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span>
-<span class="n">cmake</span> <span class="o">-</span><span class="n">DCMAKE_CXX_COMPILER</span><span class="o">=</span><span class="n">g</span><span class="o">++</span> <span class="o">-</span><span class="n">DSPARTA_MACHINE</span><span class="o">=</span><span class="n">g</span><span class="o">++</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sparta</span><span class="o">/</span><span class="n">cmake</span>
-<span class="n">cp</span> <span class="n">src</span><span class="o">/</span><span class="n">spa_g</span><span class="o">++</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">bench</span>
-<span class="n">cd</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">bench</span>
-<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">4</span> <span class="n">spa_g</span><span class="o">++</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">free</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
+cmake -DCMAKE_CXX_COMPILER<span class="o">=</span>g++ -DSPARTA_MACHINE<span class="o">=</span>g++ /path/to/sparta/cmake
+cp src/spa_g++ /path/to/bench
+<span class="nb">cd</span> /path/to/bench
+mpirun -np <span class="m">4</span> spa_g++ &lt; in.free
 </pre></div>
 </div>
 <p>See <a class="reference external" href="http://sparta.sandia.gov/bench.html">this page</a> for timings for
@@ -1251,12 +1252,12 @@ letter abbreviation can be used:</p>
 <li><p>-v or -var</p></li>
 </ul>
 <p>For example, spa_g++ might be launched as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">16</span> <span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">v</span> <span class="n">f</span> <span class="n">tmp</span><span class="o">.</span><span class="n">out</span> <span class="o">-</span><span class="n">l</span> <span class="n">my</span><span class="o">.</span><span class="n">log</span> <span class="o">-</span><span class="n">sc</span> <span class="n">none</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">sphere</span>
-<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">16</span> <span class="n">spa_g</span><span class="o">++</span> <span class="o">-</span><span class="n">var</span> <span class="n">f</span> <span class="n">tmp</span><span class="o">.</span><span class="n">out</span> <span class="o">-</span><span class="n">log</span> <span class="n">my</span><span class="o">.</span><span class="n">log</span> <span class="o">-</span><span class="n">screen</span> <span class="n">none</span> <span class="o">&lt;</span> <span class="ow">in</span><span class="o">.</span><span class="n">sphere</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mpirun -np <span class="m">16</span> spa_g++ -v f tmp.out -l my.log -sc none &lt; in.sphere
+mpirun -np <span class="m">16</span> spa_g++ -var f tmp.out -log my.log -screen none &lt; in.sphere
 </pre></div>
 </div>
 <p>Here are the details on the options:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">echo</span> <span class="n">style</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-echo style
 </pre></div>
 </div>
 <p>Set the style of command echoing. The style can be <em>none</em> or <em>screen</em> or
@@ -1265,7 +1266,7 @@ input script will be echoed to the screen and/or logfile. This can be
 useful to figure out which line of your script is causing an input
 error. The default value is <em>log</em>. The echo style can also be set by
 using the <a class="reference internal" href="echo.html#command-echo"><span class="std std-ref">echo command</span></a> in the input script itself.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="ow">in</span> <span class="n">file</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-in file
 </pre></div>
 </div>
 <p>Specify a file to use as an input script. This is an optional switch
@@ -1273,13 +1274,13 @@ when running SPARTA in one-partition mode. If it is not specified,
 SPARTA reads its input script from stdin - e.g. <cite>spa_g++ &lt; in.run</cite>. This
 is a required switch when running SPARTA in multi-partition mode, since
 multiple processors cannot all read from stdin.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">help</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-help
 </pre></div>
 </div>
 <p>Print a list of options compiled into this executable for each SPARTA
 style (fix, compute, collide, etc). SPARTA will print the info and
 immediately exit if this switch is used.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">kokkos</span> <span class="n">on</span><span class="o">/</span><span class="n">off</span> <span class="n">keyword</span><span class="o">/</span><span class="n">value</span> <span class="o">...</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-kokkos on/off keyword/value ...
 </pre></div>
 </div>
 <p>Explicitly enable or disable KOKKOS support, as provided by the KOKKOS
@@ -1307,7 +1308,7 @@ on different platforms is given in <a class="reference internal" href="Section_a
 <li><p>t or threads</p></li>
 <li><p>n or numa</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">device</span> <span class="n">Nd</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>device Nd
 </pre></div>
 </div>
 <p>This option is only relevant if you built SPARTA with
@@ -1317,7 +1318,7 @@ GPU on the node to run on. By default Nd = 0. If you have multiple GPUs
 per node, they have consecutive IDs numbered as 0,1,2,etc. This setting
 allows you to launch multiple independent jobs on the node, each with a
 single MPI task per node, and assign each job to run on a different GPU.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gpus</span> <span class="n">Ng</span> <span class="n">Ns</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gpus Ng Ns
 </pre></div>
 </div>
 <p>This option is only relevant if you built SPARTA with
@@ -1330,16 +1331,16 @@ the rest are intended for computational work like running SPARTA. By
 default Ng = 1 and Ns is not set.</p>
 <p>Depending on which flavor of MPI you are running, SPARTA will look for
 one of these 4 environment variables</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SLURM_LOCALID</span> <span class="p">(</span><span class="n">various</span> <span class="n">MPI</span> <span class="n">variants</span> <span class="n">compiled</span> <span class="k">with</span> <span class="n">SLURM</span> <span class="n">support</span><span class="p">)</span>
-<span class="n">MPT_LRANK</span> <span class="p">(</span><span class="n">HPE</span> <span class="n">MPI</span><span class="p">)</span>
-<span class="n">MV2_COMM_WORLD_LOCAL_RANK</span> <span class="p">(</span><span class="n">Mvapich</span><span class="p">)</span>
-<span class="n">OMPI_COMM_WORLD_LOCAL_RANK</span> <span class="p">(</span><span class="n">OpenMPI</span><span class="p">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SLURM_LOCALID <span class="o">(</span>various MPI variants compiled with SLURM support<span class="o">)</span>
+MPT_LRANK <span class="o">(</span>HPE MPI<span class="o">)</span>
+MV2_COMM_WORLD_LOCAL_RANK <span class="o">(</span>Mvapich<span class="o">)</span>
+OMPI_COMM_WORLD_LOCAL_RANK <span class="o">(</span>OpenMPI<span class="o">)</span>
 </pre></div>
 </div>
 <p>which are initialized by the “srun”, “mpirun” or “mpiexec” commands. The
 environment variable setting for each MPI rank is used to assign a
 unique GPU ID to the MPI task.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">threads</span> <span class="n">Nt</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>threads Nt
 </pre></div>
 </div>
 <p>This option assigns Nt number of threads to each MPI task for performing
@@ -1348,7 +1349,7 @@ Nt = 1, which essentially runs in MPI-only mode. If there are Np MPI
 tasks per physical node, you generally want Np*Nt = the number of
 physical cores per node, to use your available hardware optimally. If
 SPARTA is compiled with KOKKOS_DEVICES=Cuda, this setting has no effect.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">log</span> <span class="n">file</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-log file
 </pre></div>
 </div>
 <p>Specify a log file for SPARTA to write status information to. In
@@ -1363,7 +1364,7 @@ one-partition and multi-partition mode, if the specified file is “none”,
 then no log files are created. Using a <a class="reference internal" href="log.html#command-log"><span class="std std-ref">log command</span></a> in the
 input script will override this setting. Option -plog will override the
 name of the partition log files file.N.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">partition</span> <span class="mi">8</span><span class="n">x2</span> <span class="mi">4</span> <span class="mi">5</span> <span class="o">...</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-partition 8x2 <span class="m">4</span> <span class="m">5</span> ...
 </pre></div>
 </div>
 <p>Invoke SPARTA in multi-partition mode. When SPARTA is run on P
@@ -1382,13 +1383,13 @@ installed on a machine (e.g. your desktop), you can run on more
 multiple partitions, see  <a class="reference internal" href="Section_howto.html#howto-multiple-simulations"><span class="std std-ref">Running multiple simulations from one input script</span></a> of
 the manual. World- and universe-style variables are useful in this
 context.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">package</span> <span class="n">style</span> <span class="n">args</span> <span class="o">....</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-package style args ....
 </pre></div>
 </div>
 <p>Invoke the <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package command</span></a> with style and args. The syntax is the same as if the command appeared at the top of the input script. For example “-package kokkos on gpus 2” or “-pk kokkos g 2” is the same as <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package kokkos g 2</span></a> in the input script.  The possible styles and args are documented on the <a class="reference internal" href="package.html#command-package"><span class="std std-ref">package command</span></a> doc page. This switch can be used multiple times.</p>
 <p>Along with the <a class="reference internal" href="#start-command-line-options"><span class="std std-ref">-suffix command-line switch</span></a>,
 this is a convenient mechanism for invoking the KOKKOS accelerator package and its options without having to edit an input script.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">plog</span> <span class="n">file</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-plog file
 </pre></div>
 </div>
 <p>Specify the base name for the partition log files, so partition N writes
@@ -1400,7 +1401,7 @@ numbers of partitions, allowing the partition log files to be suppressed
 replica_files/log.sparta) If this option is not used the log file for
 partition N is log.sparta.N or whatever is specified by the -log
 command-line option.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">pscreen</span> <span class="n">file</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-pscreen file
 </pre></div>
 </div>
 <p>Specify the base name for the partition screen file, so partition N
@@ -1412,7 +1413,7 @@ suppressed (<code class="docutils literal notranslate"><span class="pre">-pscree
 <span class="pre">replica_files/screen</span></code>). If this option is not used the screen file for
 partition N is screen.N or whatever is specified by the -screen
 command-line option.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">screen</span> <span class="n">file</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-screen file
 </pre></div>
 </div>
 <p>Specify a file for SPARTA to write its screen information to. In
@@ -1427,7 +1428,7 @@ screen information to a file.N. For both one-partition and
 multi-partition mode, if the specified file is “none”, then no screen
 output is performed. Option -pscreen will override the name of the
 partition screen files file.N.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">suffix</span> <span class="n">style</span> <span class="n">args</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-suffix style args
 </pre></div>
 </div>
 <p>Use variants of various styles if they exist. The specified style can be
@@ -1449,7 +1450,7 @@ the top of your input script. These settings can be changed by using the
 <p>The <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix command</span></a> can also be used within an input
 script to set a suffix, or to turn off or back on any suffix setting
 made via the command line.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">var</span> <span class="n">name</span> <span class="n">value1</span> <span class="n">value2</span> <span class="o">...</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-var name value1 value2 ...
 </pre></div>
 </div>
 <p>Specify a variable that will be defined for substitution purposes when
@@ -1484,84 +1485,84 @@ information stored for the simulation. An example set of statistics is
 shown here:</p>
 <ul>
 <li><p>The first line gives the total CPU run time for the simulation, in seconds.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Loop</span> <span class="n">time</span> <span class="n">of</span> <span class="mf">0.639973</span> <span class="n">on</span> <span class="mi">4</span> <span class="n">procs</span> <span class="k">for</span> <span class="mi">1000</span> <span class="n">steps</span> <span class="k">with</span> <span class="mi">45792</span> <span class="n">particles</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Loop <span class="nb">time</span> of <span class="m">0</span>.639973 on <span class="m">4</span> procs <span class="k">for</span> <span class="m">1000</span> steps with <span class="m">45792</span> particles
 </pre></div>
 </div>
 </li>
 <li><p>The next section gives a breakdown of the CPU timing (in seconds) in 7 categories. The first four are timings for particles moves, which includes interaction with surface elements, then particle collisions, then sorting of particles (required to perform collisions), and communication of particles between processors. The Modify section is time for operations invoked by fixes and computes. The Output section is for dump command and statistical output. The Other category is typically for load-imbalance, as some MPI tasks wait for others MPI tasks to complete. In each category the min,ave,max time across processors is shown, as well as a variation, and the percentage of total time.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MPI</span> <span class="n">task</span> <span class="n">timing</span> <span class="n">breakdown</span><span class="p">:</span>
-<span class="n">Section</span> <span class="o">|</span>  <span class="nb">min</span> <span class="n">time</span>  <span class="o">|</span>  <span class="n">avg</span> <span class="n">time</span>  <span class="o">|</span>  <span class="nb">max</span> <span class="n">time</span>  <span class="o">|%</span><span class="n">varavg</span><span class="o">|</span> <span class="o">%</span><span class="n">total</span>
-<span class="o">---------------------------------------------------------------</span>
-<span class="n">Move</span>    <span class="o">|</span> <span class="mf">0.10948</span>    <span class="o">|</span> <span class="mf">0.26191</span>    <span class="o">|</span> <span class="mf">0.42049</span>    <span class="o">|</span>  <span class="mf">27.6</span> <span class="o">|</span> <span class="mf">40.92</span>
-<span class="n">Coll</span>    <span class="o">|</span> <span class="mf">0.013711</span>   <span class="o">|</span> <span class="mf">0.041659</span>   <span class="o">|</span> <span class="mf">0.070985</span>   <span class="o">|</span>  <span class="mf">13.5</span> <span class="o">|</span>  <span class="mf">6.51</span>
-<span class="n">Sort</span>    <span class="o">|</span> <span class="mf">0.01733</span>    <span class="o">|</span> <span class="mf">0.040286</span>   <span class="o">|</span> <span class="mf">0.063573</span>   <span class="o">|</span>  <span class="mf">10.6</span> <span class="o">|</span>  <span class="mf">6.29</span>
-<span class="n">Comm</span>    <span class="o">|</span> <span class="mf">0.02276</span>    <span class="o">|</span> <span class="mf">0.023555</span>   <span class="o">|</span> <span class="mf">0.02493</span>    <span class="o">|</span>   <span class="mf">0.6</span> <span class="o">|</span>  <span class="mf">3.68</span>
-<span class="n">Modify</span>  <span class="o">|</span> <span class="mf">0.00018167</span> <span class="o">|</span> <span class="mf">0.024758</span>   <span class="o">|</span> <span class="mf">0.051345</span>   <span class="o">|</span>  <span class="mf">15.6</span> <span class="o">|</span>  <span class="mf">3.87</span>
-<span class="n">Output</span>  <span class="o">|</span> <span class="mf">0.0002172</span>  <span class="o">|</span> <span class="mf">0.0007354</span>  <span class="o">|</span> <span class="mf">0.0012152</span>  <span class="o">|</span>   <span class="mf">0.0</span> <span class="o">|</span>  <span class="mf">0.11</span>
-<span class="n">Other</span>   <span class="o">|</span>            <span class="o">|</span> <span class="mf">0.2471</span>     <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span> <span class="mf">38.61</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>MPI task timing breakdown:
+Section <span class="p">|</span>  min <span class="nb">time</span>  <span class="p">|</span>  avg <span class="nb">time</span>  <span class="p">|</span>  max <span class="nb">time</span>  <span class="p">|</span>%varavg<span class="p">|</span> %total
+---------------------------------------------------------------
+Move    <span class="p">|</span> <span class="m">0</span>.10948    <span class="p">|</span> <span class="m">0</span>.26191    <span class="p">|</span> <span class="m">0</span>.42049    <span class="p">|</span>  <span class="m">27</span>.6 <span class="p">|</span> <span class="m">40</span>.92
+Coll    <span class="p">|</span> <span class="m">0</span>.013711   <span class="p">|</span> <span class="m">0</span>.041659   <span class="p">|</span> <span class="m">0</span>.070985   <span class="p">|</span>  <span class="m">13</span>.5 <span class="p">|</span>  <span class="m">6</span>.51
+Sort    <span class="p">|</span> <span class="m">0</span>.01733    <span class="p">|</span> <span class="m">0</span>.040286   <span class="p">|</span> <span class="m">0</span>.063573   <span class="p">|</span>  <span class="m">10</span>.6 <span class="p">|</span>  <span class="m">6</span>.29
+Comm    <span class="p">|</span> <span class="m">0</span>.02276    <span class="p">|</span> <span class="m">0</span>.023555   <span class="p">|</span> <span class="m">0</span>.02493    <span class="p">|</span>   <span class="m">0</span>.6 <span class="p">|</span>  <span class="m">3</span>.68
+Modify  <span class="p">|</span> <span class="m">0</span>.00018167 <span class="p">|</span> <span class="m">0</span>.024758   <span class="p">|</span> <span class="m">0</span>.051345   <span class="p">|</span>  <span class="m">15</span>.6 <span class="p">|</span>  <span class="m">3</span>.87
+Output  <span class="p">|</span> <span class="m">0</span>.0002172  <span class="p">|</span> <span class="m">0</span>.0007354  <span class="p">|</span> <span class="m">0</span>.0012152  <span class="p">|</span>   <span class="m">0</span>.0 <span class="p">|</span>  <span class="m">0</span>.11
+Other   <span class="p">|</span>            <span class="p">|</span> <span class="m">0</span>.2471     <span class="p">|</span>            <span class="p">|</span>       <span class="p">|</span> <span class="m">38</span>.61
 </pre></div>
 </div>
 </li>
 <li><p>The next section gives some statistics about the run. These are total counts of particle moves, grid cells touched by particles, the number of particles communicated between processors, collisions of particles with the global boundary and with surface elements (none in this problem), as well as collision and reaction statistics.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Particle</span> <span class="n">moves</span>    <span class="o">=</span> <span class="mi">38096354</span> <span class="p">(</span><span class="mf">38.1</span><span class="n">M</span><span class="p">)</span>
-<span class="n">Cells</span> <span class="n">touched</span>     <span class="o">=</span> <span class="mi">43236871</span> <span class="p">(</span><span class="mf">43.2</span><span class="n">M</span><span class="p">)</span>
-<span class="n">Particle</span> <span class="n">comms</span>    <span class="o">=</span> <span class="mi">146623</span> <span class="p">(</span><span class="mf">0.147</span><span class="n">M</span><span class="p">)</span>
-<span class="n">Boundary</span> <span class="n">collides</span> <span class="o">=</span> <span class="mi">182782</span> <span class="p">(</span><span class="mf">0.183</span><span class="n">M</span><span class="p">)</span>
-<span class="n">Boundary</span> <span class="n">exits</span>    <span class="o">=</span> <span class="mi">181792</span> <span class="p">(</span><span class="mf">0.182</span><span class="n">M</span><span class="p">)</span>
-<span class="n">SurfColl</span> <span class="n">checks</span>   <span class="o">=</span> <span class="mi">7670863</span> <span class="p">(</span><span class="mf">7.67</span><span class="n">M</span><span class="p">)</span>
-<span class="n">SurfColl</span> <span class="n">occurs</span>   <span class="o">=</span> <span class="mi">177740</span> <span class="p">(</span><span class="mf">0.178</span><span class="n">M</span><span class="p">)</span>
-<span class="n">Surf</span> <span class="n">reactions</span>    <span class="o">=</span> <span class="mi">124169</span> <span class="p">(</span><span class="mf">0.124</span><span class="n">M</span><span class="p">)</span>
-<span class="n">Collide</span> <span class="n">attempts</span>  <span class="o">=</span> <span class="mi">1232</span> <span class="p">(</span><span class="mi">1</span><span class="n">K</span><span class="p">)</span>
-<span class="n">Collide</span> <span class="n">occurs</span>    <span class="o">=</span> <span class="mi">553</span> <span class="p">(</span><span class="mf">0.553</span><span class="n">K</span><span class="p">)</span>
-<span class="n">Gas</span> <span class="n">reactions</span>     <span class="o">=</span> <span class="mi">23</span> <span class="p">(</span><span class="mf">0.023</span><span class="n">K</span><span class="p">)</span>
-<span class="n">Particles</span> <span class="n">stuck</span>   <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Particle <span class="nv">moves</span>    <span class="o">=</span> <span class="m">38096354</span> <span class="o">(</span><span class="m">38</span>.1M<span class="o">)</span>
+Cells <span class="nv">touched</span>     <span class="o">=</span> <span class="m">43236871</span> <span class="o">(</span><span class="m">43</span>.2M<span class="o">)</span>
+Particle <span class="nv">comms</span>    <span class="o">=</span> <span class="m">146623</span> <span class="o">(</span><span class="m">0</span>.147M<span class="o">)</span>
+Boundary <span class="nv">collides</span> <span class="o">=</span> <span class="m">182782</span> <span class="o">(</span><span class="m">0</span>.183M<span class="o">)</span>
+Boundary <span class="nv">exits</span>    <span class="o">=</span> <span class="m">181792</span> <span class="o">(</span><span class="m">0</span>.182M<span class="o">)</span>
+SurfColl <span class="nv">checks</span>   <span class="o">=</span> <span class="m">7670863</span> <span class="o">(</span><span class="m">7</span>.67M<span class="o">)</span>
+SurfColl <span class="nv">occurs</span>   <span class="o">=</span> <span class="m">177740</span> <span class="o">(</span><span class="m">0</span>.178M<span class="o">)</span>
+Surf <span class="nv">reactions</span>    <span class="o">=</span> <span class="m">124169</span> <span class="o">(</span><span class="m">0</span>.124M<span class="o">)</span>
+Collide <span class="nv">attempts</span>  <span class="o">=</span> <span class="m">1232</span> <span class="o">(</span>1K<span class="o">)</span>
+Collide <span class="nv">occurs</span>    <span class="o">=</span> <span class="m">553</span> <span class="o">(</span><span class="m">0</span>.553K<span class="o">)</span>
+Gas <span class="nv">reactions</span>     <span class="o">=</span> <span class="m">23</span> <span class="o">(</span><span class="m">0</span>.023K<span class="o">)</span>
+Particles <span class="nv">stuck</span>   <span class="o">=</span> <span class="m">0</span>
 </pre></div>
 </div>
 </li>
 <li><p>The next section gives additional statistics, normalized by timestep or processor count.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Particle</span><span class="o">-</span><span class="n">moves</span><span class="o">/</span><span class="n">CPUsec</span><span class="o">/</span><span class="n">proc</span><span class="p">:</span> <span class="mf">1.4882e+07</span>
-<span class="n">Particle</span><span class="o">-</span><span class="n">moves</span><span class="o">/</span><span class="n">step</span><span class="p">:</span> <span class="mf">38096.4</span>
-<span class="n">Cell</span><span class="o">-</span><span class="n">touches</span><span class="o">/</span><span class="n">particle</span><span class="o">/</span><span class="n">step</span><span class="p">:</span> <span class="mf">1.13493</span>
-<span class="n">Particle</span> <span class="n">comm</span> <span class="n">iterations</span><span class="o">/</span><span class="n">step</span><span class="p">:</span> <span class="mf">1.999</span>
-<span class="n">Particle</span> <span class="n">fraction</span> <span class="n">communicated</span><span class="p">:</span> <span class="mf">0.00384874</span>
-<span class="n">Particle</span> <span class="n">fraction</span> <span class="n">colliding</span> <span class="k">with</span> <span class="n">boundary</span><span class="p">:</span> <span class="mf">0.00479789</span>
-<span class="n">Particle</span> <span class="n">fraction</span> <span class="n">exiting</span> <span class="n">boundary</span><span class="p">:</span> <span class="mf">0.0047719</span>
-<span class="n">Surface</span><span class="o">-</span><span class="n">checks</span><span class="o">/</span><span class="n">particle</span><span class="o">/</span><span class="n">step</span><span class="p">:</span> <span class="mf">0.201354</span>
-<span class="n">Surface</span><span class="o">-</span><span class="n">collisions</span><span class="o">/</span><span class="n">particle</span><span class="o">/</span><span class="n">step</span><span class="p">:</span> <span class="mf">0.00466554</span>
-<span class="n">Surface</span><span class="o">-</span><span class="n">reactions</span><span class="o">/</span><span class="n">particle</span><span class="o">/</span><span class="n">step</span><span class="p">:</span> <span class="mf">0.00325934</span>
-<span class="n">Collision</span><span class="o">-</span><span class="n">attempts</span><span class="o">/</span><span class="n">particle</span><span class="o">/</span><span class="n">step</span><span class="p">:</span> <span class="mf">1.232</span>
-<span class="n">Collisions</span><span class="o">/</span><span class="n">particle</span><span class="o">/</span><span class="n">step</span><span class="p">:</span> <span class="mf">0.553</span>
-<span class="n">Gas</span><span class="o">-</span><span class="n">reactions</span><span class="o">/</span><span class="n">particle</span><span class="o">/</span><span class="n">step</span><span class="p">:</span> <span class="mf">0.023</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Particle-moves/CPUsec/proc: <span class="m">1</span>.4882e+07
+Particle-moves/step: <span class="m">38096</span>.4
+Cell-touches/particle/step: <span class="m">1</span>.13493
+Particle comm iterations/step: <span class="m">1</span>.999
+Particle fraction communicated: <span class="m">0</span>.00384874
+Particle fraction colliding with boundary: <span class="m">0</span>.00479789
+Particle fraction exiting boundary: <span class="m">0</span>.0047719
+Surface-checks/particle/step: <span class="m">0</span>.201354
+Surface-collisions/particle/step: <span class="m">0</span>.00466554
+Surface-reactions/particle/step: <span class="m">0</span>.00325934
+Collision-attempts/particle/step: <span class="m">1</span>.232
+Collisions/particle/step: <span class="m">0</span>.553
+Gas-reactions/particle/step: <span class="m">0</span>.023
 </pre></div>
 </div>
 </li>
 <li><p>The next 2 sections are optional. The “Gas reaction tallies” section is only output if the <a class="reference internal" href="react.html#command-react"><span class="std std-ref">react command</span></a> is used. For each reaction with a non-zero tally, the number of those reactions that occurred during the run is printed. The “Surface reaction tallies” section is only output if the <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a> was used one or more times, to assign reaction models to individual surface elements or the box boundaries. For each of the commands, and each of its reactions with a non-zero tally, the number of those reactions that occurred during the run is printed. Note that this is effectively a summation over all the surface elements and/or box boundaries the <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a> was used to assign a reaction model to.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Gas</span> <span class="n">reaction</span> <span class="n">tallies</span><span class="p">:</span> <span class="n">style</span> <span class="n">tce</span> <span class="c1">#-of-reactions 45 \</span>
-<span class="n">reaction</span> <span class="n">O2</span> <span class="o">+</span> <span class="n">N</span> <span class="o">--&gt;</span> <span class="n">O</span> <span class="o">+</span> <span class="n">O</span> <span class="o">+</span> <span class="n">N</span><span class="p">:</span> <span class="mi">10</span> \
-<span class="n">reaction</span> <span class="n">O2</span> <span class="o">+</span> <span class="n">O</span> <span class="o">--&gt;</span> <span class="n">O</span> <span class="o">+</span> <span class="n">O</span> <span class="o">+</span> <span class="n">O</span><span class="p">:</span> <span class="mi">5</span> \
-<span class="n">reaction</span> <span class="n">N2</span> <span class="o">+</span> <span class="n">O</span> <span class="o">--&gt;</span> <span class="n">N</span> <span class="o">+</span> <span class="n">N</span> <span class="o">+</span> <span class="n">O</span><span class="p">:</span> <span class="mi">8</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Gas reaction tallies: style tce <span class="c1">#-of-reactions 45 \</span>
+reaction O2 + N --&gt; O + O + N: <span class="m">10</span> <span class="se">\</span>
+reaction O2 + O --&gt; O + O + O: <span class="m">5</span> <span class="se">\</span>
+reaction N2 + O --&gt; N + N + O: <span class="m">8</span>
 
-<span class="n">Surface</span> <span class="n">reaction</span> <span class="n">tallies</span><span class="p">:</span> <span class="nb">id</span> <span class="mi">1</span> <span class="n">style</span> <span class="k">global</span> <span class="c1">#-of-reactions 2 \</span>
-<span class="n">reaction</span> <span class="nb">all</span><span class="p">:</span> <span class="mi">124025</span> \
-<span class="n">reaction</span> <span class="n">delete</span><span class="p">:</span> <span class="mi">53525</span> \
-<span class="n">reaction</span> <span class="n">create</span><span class="p">:</span> <span class="mi">70500</span>
+Surface reaction tallies: id <span class="m">1</span> style global <span class="c1">#-of-reactions 2 \</span>
+reaction all: <span class="m">124025</span> <span class="se">\</span>
+reaction delete: <span class="m">53525</span> <span class="se">\</span>
+reaction create: <span class="m">70500</span>
 </pre></div>
 </div>
 </li>
 <li><p>The last section is a histogramming across processors of various per-processor statistics: particle count, owned grid cells, processor, ghost grid cells which are copies of cells owned by other processors, and empty cells which are ghost cells without surface information (only used to pass particles to neighboring processors).
 The ave value is the average across all processors. The max and min values are for any processor. The 10-bin histogram shows the distribution of the value across processors. The total number of histogram counts is equal to the number of processors.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Particles</span><span class="p">:</span> <span class="mi">11448</span> <span class="n">ave</span> <span class="mi">17655</span> <span class="nb">max</span> <span class="mi">5306</span> <span class="nb">min</span>
-<span class="n">Histogram</span><span class="p">:</span> <span class="mi">2</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">2</span>
-<span class="n">Cells</span><span class="p">:</span>     <span class="mi">100</span> <span class="n">ave</span> <span class="mi">100</span> <span class="nb">max</span> <span class="mi">100</span> <span class="nb">min</span>
-<span class="n">Histogram</span><span class="p">:</span> <span class="mi">4</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
-<span class="n">GhostCell</span><span class="p">:</span> <span class="mi">21</span> <span class="n">ave</span> <span class="mi">21</span> <span class="nb">max</span> <span class="mi">21</span> <span class="nb">min</span>
-<span class="n">Histogram</span><span class="p">:</span> <span class="mi">4</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
-<span class="n">EmptyCell</span><span class="p">:</span> <span class="mi">21</span> <span class="n">ave</span> <span class="mi">21</span> <span class="nb">max</span> <span class="mi">21</span> <span class="nb">min</span>
-<span class="n">Histogram</span><span class="p">:</span> <span class="mi">4</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
-<span class="n">Surfs</span><span class="p">:</span>     <span class="mi">50</span> <span class="n">ave</span> <span class="mi">50</span> <span class="nb">max</span> <span class="mi">50</span> <span class="nb">min</span>
-<span class="n">Histogram</span><span class="p">:</span> <span class="mi">4</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
-<span class="n">GhostSurf</span><span class="p">:</span> <span class="mi">0</span> <span class="n">ave</span> <span class="mi">0</span> <span class="nb">max</span> <span class="mi">0</span> <span class="nb">min</span>
-<span class="n">Histogram</span><span class="p">:</span> <span class="mi">4</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Particles: <span class="m">11448</span> ave <span class="m">17655</span> max <span class="m">5306</span> min
+Histogram: <span class="m">2</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">2</span>
+Cells:     <span class="m">100</span> ave <span class="m">100</span> max <span class="m">100</span> min
+Histogram: <span class="m">4</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span>
+GhostCell: <span class="m">21</span> ave <span class="m">21</span> max <span class="m">21</span> min
+Histogram: <span class="m">4</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span>
+EmptyCell: <span class="m">21</span> ave <span class="m">21</span> max <span class="m">21</span> min
+Histogram: <span class="m">4</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span>
+Surfs:     <span class="m">50</span> ave <span class="m">50</span> max <span class="m">50</span> min
+Histogram: <span class="m">4</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span>
+GhostSurf: <span class="m">0</span> ave <span class="m">0</span> max <span class="m">0</span> min
+Histogram: <span class="m">4</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span>
 </pre></div>
 </div>
 </li>

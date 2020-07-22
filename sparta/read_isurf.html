@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -170,7 +171,7 @@
 <span id="command-read-isurf"></span><span id="index-0"></span><h1>read_isurf command<a class="headerlink" href="#read-isurf-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_isurf</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="n">Nx</span> <span class="n">Ny</span> <span class="n">Nz</span> <span class="n">filename</span> <span class="n">thresh</span> <span class="n">ablateID</span> <span class="n">keyword</span> <span class="n">args</span> <span class="o">...</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">read_isurf</span> <span class="no">group-ID Nx Ny Nz filename thresh ablateID keyword args ...</span>
 </pre></div>
 </div>
 <ul>
@@ -181,13 +182,13 @@
 <li><p>ablateID = ID of a <a class="reference internal" href="fix_ablate.html#command-fix-ablate"><span class="std std-ref">fix ablate command</span></a></p></li>
 <li><p>zero or more keyword/args pairs may be appended</p></li>
 <li><p>keyword = <em>group</em> or <em>type</em> or <em>push</em> or <em>precision</em> or <em>read</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">group</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">group</span><span class="o">-</span><span class="n">ID</span>
-  <span class="n">group</span><span class="o">-</span><span class="n">ID</span> <span class="o">=</span> <span class="n">new</span> <span class="ow">or</span> <span class="n">existing</span> <span class="n">surface</span> <span class="n">group</span> <span class="n">to</span> <span class="n">assign</span> <span class="n">the</span> <span class="n">surface</span> <span class="n">elements</span> <span class="n">to</span>
-<span class="nb">type</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">tfile</span>
-  <span class="n">tfile</span> <span class="o">=</span> <span class="n">binary</span> <span class="n">file</span> <span class="k">with</span> <span class="n">per</span> <span class="n">grid</span> <span class="n">cell</span> <span class="n">surface</span> <span class="nb">type</span> <span class="n">values</span>
-<span class="n">push</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">yes</span> <span class="ow">or</span> <span class="n">no</span> <span class="o">=</span> <span class="n">whether</span> <span class="n">to</span> <span class="n">push</span> <span class="n">corner</span> <span class="n">point</span> <span class="n">values</span> <span class="n">to</span> <span class="mi">0</span><span class="o">/</span><span class="mi">255</span>
-<span class="n">precision</span> <span class="n">arg</span> <span class="o">=</span> <span class="nb">int</span> <span class="ow">or</span> <span class="n">double</span>
-<span class="n">read</span> <span class="n">arg</span> <span class="o">=</span> <span class="n">serial</span> <span class="ow">or</span> <span class="n">parallel</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>group arg = group-ID
+  group-ID = new or existing surface group to assign the surface elements to
+type arg = tfile
+  tfile = binary file with per grid cell surface type values
+push arg = yes or no = whether to push corner point values to 0/255
+precision arg = int or double
+read arg = serial or parallel
 </pre></div>
 </div>
 </li>
@@ -195,9 +196,9 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read_isurf</span> <span class="n">portion</span> <span class="mi">100</span> <span class="mi">100</span> <span class="mi">1</span> <span class="n">isurf</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="mi">2</span><span class="n">d</span> <span class="mf">180.5</span> <span class="n">group</span> <span class="n">mesh</span>
-<span class="n">read_isurf</span> <span class="n">subset</span> <span class="mi">150</span> <span class="mi">100</span> <span class="mi">50</span> <span class="n">isurf</span><span class="o">.</span><span class="n">materials</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mf">120.5</span> <span class="nb">type</span> <span class="n">isurf</span><span class="o">.</span><span class="n">type</span>
-<span class="n">read_isurf</span> <span class="n">subset</span> <span class="mi">150</span> <span class="mi">100</span> <span class="mi">50</span> <span class="n">isurf</span><span class="o">.</span><span class="n">materials</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mf">120.5</span> <span class="n">read</span> <span class="n">parallel</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">read_isurf</span> <span class="no">portion 100 100 1 isurf.material.2d 180.5 group mesh</span>
+<span class="nb">read_isurf</span> <span class="no">subset 150 100 50 isurf.materials.3d 120.5 type isurf.type</span>
+<span class="nb">read_isurf</span> <span class="no">subset 150 100 50 isurf.materials.3d 120.5 read parallel</span>
 </pre></div>
 </div>
 </div>

@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 13/07/2020)
+                6 Jul 2020  (build: 22/07/2020)
               </div>
             
           
@@ -173,7 +174,7 @@
 <span id="command-compute-lambda-grid-compute-lambdagridkk"></span><h1>compute lambda/grid/kk command<a class="headerlink" href="#compute-lambda-grid-kk-command" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="syntax">
 <h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="n">ID</span> <span class="k">lambda</span><span class="o">/</span><span class="n">grid</span> <span class="n">nrho</span> <span class="n">temp</span> <span class="n">species</span> <span class="n">extra</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">ID lambda/grid nrho temp species extra</span>
 </pre></div>
 </div>
 <ul>
@@ -185,10 +186,10 @@
 <code class="docutils literal notranslate"><span class="pre">c_</span></code> or <code class="docutils literal notranslate"><span class="pre">f_</span></code></p></li>
 <li><p>species = species name used for reference properties</p></li>
 <li><p>extra = <em>kall</em> or <em>kx</em> or <em>ky</em> or <em>kz</em> (optional)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kall</span> <span class="o">=</span> <span class="n">also</span> <span class="n">calculate</span> <span class="n">Knudsen</span> <span class="n">number</span> <span class="n">based</span> <span class="n">on</span> <span class="n">cell</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">all</span> <span class="n">dimensions</span>
-<span class="n">kx</span> <span class="o">=</span> <span class="n">also</span> <span class="n">calculate</span> <span class="n">Knudsen</span> <span class="n">number</span> <span class="n">based</span> <span class="n">on</span> <span class="n">cell</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">x</span> <span class="n">dimension</span>
-<span class="n">ky</span> <span class="o">=</span> <span class="n">also</span> <span class="n">calculate</span> <span class="n">Knudsen</span> <span class="n">number</span> <span class="n">based</span> <span class="n">on</span> <span class="n">cell</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">y</span> <span class="n">dimension</span>
-<span class="n">kz</span> <span class="o">=</span> <span class="n">also</span> <span class="n">calculate</span> <span class="n">Knudsen</span> <span class="n">number</span> <span class="n">based</span> <span class="n">on</span> <span class="n">cell</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">z</span> <span class="n">dimension</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">kall</span> <span class="no">= also calculate Knudsen number based on cell size in all dimensions</span>
+<span class="nb">kx</span> <span class="no">= also calculate Knudsen number based on cell size in x dimension</span>
+<span class="nb">ky</span> <span class="no">= also calculate Knudsen number based on cell size in y dimension</span>
+<span class="nb">kz</span> <span class="no">= also calculate Knudsen number based on cell size in z dimension</span>
 </pre></div>
 </div>
 </li>
@@ -196,16 +197,16 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="k">lambda</span><span class="o">/</span><span class="n">grid</span> <span class="n">c_GR</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">NULL</span> <span class="n">Ar</span>
-<span class="n">compute</span> <span class="mi">1</span> <span class="k">lambda</span><span class="o">/</span><span class="n">grid</span> <span class="n">f_ave</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">f_ave</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">N2</span> <span class="n">kall</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 lambda/grid c_GR[1] NULL Ar</span>
+<span class="nb">compute</span> <span class="no">1 lambda/grid f_ave[2] f_ave[3] N2 kall</span>
 </pre></div>
 </div>
 <p>These commands will dump time averages for the mean free path for each
 grid cell to a dump file every 1000 steps:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute</span> <span class="mi">1</span> <span class="n">grid</span> <span class="n">species</span> <span class="n">nrho</span> <span class="n">temp</span>
-<span class="n">fix</span> <span class="mi">1</span> <span class="n">ave</span><span class="o">/</span><span class="n">grid</span> <span class="mi">10</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="n">c_1</span><span class="p">[</span><span class="o">*</span><span class="p">]</span>
-<span class="n">compute</span> <span class="mi">2</span> <span class="k">lambda</span><span class="o">/</span><span class="n">grid</span> <span class="n">f_1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">f_1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">Ar</span>
-<span class="n">dump</span> <span class="mi">1</span> <span class="n">grid</span> <span class="nb">all</span> <span class="mi">1000</span> <span class="n">tmp</span><span class="o">.</span><span class="n">grid</span> <span class="nb">id</span> <span class="n">c_2</span>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 grid species nrho temp</span>
+<span class="nb">fix</span> <span class="no">1 ave/grid 10 100 1000 c_1[*]</span>
+<span class="nb">compute</span> <span class="no">2 lambda/grid f_1[1] f_1[2] Ar</span>
+<span class="nb">dump</span> <span class="no">1 grid all 1000 tmp.grid id c_2</span>
 </pre></div>
 </div>
 </div>
@@ -296,8 +297,10 @@ is taken to be the average of the three grid cell side lengths (or two
 cell lengths for a 2d simulation). For <em>kx</em>, <em>ky</em>, or <em>kz</em>, the cell
 size is the single cell side length in the corresponding x,y,z
 dimension.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Output info:</strong></p>
+<div class="section" id="output-info">
+<h2>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h2>
 <p>This compute calculates a per-grid vector or array. If one of <em>kall</em>,
 <em>kx</em>, <em>ky</em>, or <em>kz</em> is not specified, then it is a vector. If one extra
 argument is specified, it is an array with two columns. The vector or
