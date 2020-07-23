@@ -1,8 +1,4 @@
 
-
-
-
-
 .. _modify:
 
 ############################
@@ -34,13 +30,13 @@ collide foo mix-ID params.foo 3.0
 
 then your *collide_foo.h* file should be structured as follows:
 
-.. code-block:: c++
+.. code-block:: cpp
 
-     #ifdef COLLIDE_CLASS
-       CollideStyle(foo,CollideFoo)
-     #else
-       ... (class definition for CollideFoo) ...
-     #endif
+   #ifdef COLLIDE_CLASS
+     CollideStyle(foo,CollideFoo)
+   #else
+     ... (class definition for CollideFoo) ...
+   #endif
 
 where "foo" is the style keyword in the collid command, and CollideFoo is the class name defined in your *collide_foo.cpp* and *collide_foo.h* files.
 

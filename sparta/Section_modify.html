@@ -63,7 +63,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 22/07/2020)
+                6 Jul 2020  (build: 23/07/2020)
               </div>
             
           
@@ -203,7 +203,7 @@ code.</p>
 <p>Here is a concrete example. Suppose you write 2 files <em>collide_foo.cpp</em> and <em>collide_foo.h</em> that define a new class CollideFoo that computes inter-particle collisions described in the classic 1997 paper by Foo, et al. If you wish to invoke those potentials in a SPARTA input script with a command like</p>
 <p>collide foo mix-ID params.foo 3.0</p>
 <p>then your <em>collide_foo.h</em> file should be structured as follows:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef COLLIDE_CLASS</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef COLLIDE_CLASS</span>
   <span class="n">CollideStyle</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span><span class="n">CollideFoo</span><span class="p">)</span>
 <span class="cp">#else</span>
   <span class="p">...</span> <span class="p">(</span><span class="k">class</span> <span class="nc">definition</span> <span class="k">for</span> <span class="n">CollideFoo</span><span class="p">)</span> <span class="p">...</span>

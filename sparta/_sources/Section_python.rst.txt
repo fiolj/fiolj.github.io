@@ -48,7 +48,7 @@ Instructions on how to build SPARTA as a shared library are given in :ref:`build
 
 For make, from the src directory, type
 
-::
+.. code-block:: bash
 
    make makeshlib
    make -f Makefile.shlib foo 
@@ -56,7 +56,8 @@ For make, from the src directory, type
 
 For CMake, from the build directory, tyoe
 
-::
+.. code-block:: bash
+
    cmake -C /path/to/sparta/cmake/presets/foo.cmake -DBUILD_SHARED_LIBS=ON /path/to/sparta/cmake
    make
 

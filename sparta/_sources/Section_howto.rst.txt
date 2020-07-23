@@ -475,7 +475,7 @@ All of these methodologies use a C-style interface to SPARTA that is provided in
 
 Library.cpp contains these 4 functions:
 
-.. code-block:: c++
+.. code-block:: cpp
 
    void sparta_open(int, char **, MPI_Comm, void **);
    void sparta_close(void *);
@@ -492,7 +492,7 @@ The ``sparta_file()`` and ``sparta_command()`` functions are used to pass a file
 
 Other useful functions are also included in library.cpp. For example:
 
-.. code-block:: c
+.. code-block:: cpp
 
    void *sparta_extract_global(void *, char *);
    void *sparta_extract_compute(void *, char *, int, int);

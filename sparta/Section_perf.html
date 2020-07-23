@@ -63,7 +63,7 @@
             
             
               <div class="version">
-                6 Jul 2020  (build: 22/07/2020)
+                6 Jul 2020  (build: 23/07/2020)
               </div>
             
           
@@ -188,15 +188,14 @@ spa_g++ -v x <span class="m">100</span> -v y <span class="m">100</span> -v z <sp
 spa_g++ -v x <span class="m">50</span> -v y <span class="m">50</span> -v z <span class="m">50</span> &lt; in.sphere
 </pre></div>
 </div>
-<ul>
-<li><p>32-processor runs:</p>
-<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">mpirun</span> <span class="no">-np 32 spa_g++ -v x 100 -v y 100 -v z 100 &lt; in.free</span>
-<span class="nb">mpirun</span> <span class="no">-np 32 spa_g++ -v x 100 -v y 100 -v z 100 &lt; in.collide</span>
-<span class="nb">mpirun</span> <span class="no">-np 32 spa_g++ -v x 50 -v y 50 -v z 50 &lt; in.sphere</span>
+<ul class="simple">
+<li><p>32-processor runs:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mpirun -np <span class="m">32</span> spa_g++ -v x <span class="m">100</span> -v y <span class="m">100</span> -v z <span class="m">100</span> &lt; in.free
+mpirun -np <span class="m">32</span> spa_g++ -v x <span class="m">100</span> -v y <span class="m">100</span> -v z <span class="m">100</span> &lt; in.collide
+mpirun -np <span class="m">32</span> spa_g++ -v x <span class="m">50</span> -v y <span class="m">50</span> -v z <span class="m">50</span> &lt; in.sphere
 </pre></div>
 </div>
-</li>
-</ul>
 <p>Note that the benchmark scripts define variables that can be set from
 the command line that determine the size of problem that is run.
 Specifically, the x,y,z variables specify the grid size (e.g.
