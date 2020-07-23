@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>variable command &mdash; SPARTA 6 Jul 2020 documentation</title>
+  <title>14.114. variable command &mdash; SPARTA 6 Jul 2020 documentation</title>
   
 
   
@@ -148,7 +148,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>variable command</li>
+      <li>14.114. variable command</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -352,6 +352,7 @@ before the variable would become exhausted. For example,</p>
 <li><p><a class="reference internal" href="#fix-references" id="id9">Fix References</a></p></li>
 <li><p><a class="reference internal" href="#surface-collision-and-surface-reaction-model-references" id="id10">Surface Collision and Surface Reaction Model References</a></p></li>
 <li><p><a class="reference internal" href="#variable-references" id="id11">Variable References</a></p></li>
+<li><p><a class="reference internal" href="#variable-accuracy" id="id12">Variable Accuracy:</a></p></li>
 </ul>
 </div>
 <div class="section" id="styles-and-arguments">
@@ -566,26 +567,26 @@ x,x+y,2x,2x+y,3x,3x+y,etc. For any current timestep, the next timestep
 in the sequence is returned. Thus if stagger(1000,100) is used in a
 variable by the <a class="reference internal" href="dump_modify.html#command-dump-modify"><span class="std std-ref">dump_modify every</span></a> command, it
 will generate the sequence of output timesteps:</p>
-<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>100,1000,1100,2000,2100,3000,etc
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>100,1000,1100,2000,2100,3000,etc
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">logfreq(x,y,z)</span></code> function uses the current timestep to generate a new timestep. X,y,z &gt; 0 and y &lt; z are required. The generated timesteps increase in a logarithmic fashion, as the sequence x,2x,3x,…y*x,z*x,2*z*x,3*z*x,…y*z*x,z*z*x,2*z*x*x,etc. For any current timestep, the next timestep in the sequence is returned. Thus if <code class="docutils literal notranslate"><span class="pre">logfreq(100,4,10)</span></code> is used in a variable by the <a class="reference internal" href="dump_modify.html#command-dump-modify"><span class="std std-ref">dump_modify every</span></a> command, it will generate the sequence of output timesteps:</p>
-<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>100,200,300,400,1000,2000,3000,4000,10000,20000,etc
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>100,200,300,400,1000,2000,3000,4000,10000,20000,etc
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">stride(x,y,z)</span></code> function uses the current timestep to generate a new timestep. X,y &gt;= 0 and z &gt; 0 and x &lt;= y are required. The generated timesteps increase in increments of z, from x to y, I.e. it generates the sequece x,x+z,x+2z,…,y. If y-x is not a multiple of z, then similar to the way a for loop operates, the last value will be one that does not exceed y. For any current timestep, the next timestep in the sequence is returned. Thus if <code class="docutils literal notranslate"><span class="pre">stagger(1000,2000,100)</span></code> is used in a variable by the <a class="reference internal" href="dump_modify.html#command-dump-modify"><span class="std std-ref">dump_modify every</span></a> command, it will generate the sequence of output timesteps:</p>
-<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>1000,1100,1200, ... ,1900,2000
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1000,1100,1200, ... ,1900,2000
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">vdisplace(x,y)</span></code> function takes 2 arguments: x = value0 and y = velocity, and uses the elapsed time to change the value by a linear displacement due to the applied velocity over the course of a run, according to this formula:</p>
-<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">value</span> <span class="no">= value0 + velocity*(timestep-startstep)*dt</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>value = value0 + velocity*(timestep-startstep)*dt
 </pre></div>
 </div>
 <p>where dt = the timestep size.</p>
 <p>The run begins on startstep. Startstep can span multiple runs, using the <em>start</em> keyword of the <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command. See the <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command for details of how to do this. Note that the <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style</span></a> keyword <em>elaplong</em> = timestep-startstep.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">swiggle(x,y,z)</span></code> and <code class="docutils literal notranslate"><span class="pre">cwiggle(x,y,z)</span></code> functions each take 3 arguments: x = value0, y = amplitude, z = period. They use the elapsed time to oscillate the value by a sin() or cos() function over the course of a run, according to one of these formulas, where omega = 2 PI / period:</p>
-<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">value</span> <span class="no">= value0 + Amplitude * sin(omega*(timestep-startstep)*dt)</span>
-<span class="nb">value</span> <span class="no">= value0 + Amplitude * (1 - cos(omega*(timestep-startstep)*dt))</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>value = value0 + Amplitude * sin(omega*(timestep-startstep)*dt)
+value = value0 + Amplitude * (1 - cos(omega*(timestep-startstep)*dt))
 </pre></div>
 </div>
 <p>where dt = the timestep size.</p>
@@ -830,8 +831,10 @@ if it contains variables preceeded by $ signs. For example,</p>
 <p>This is because the quotes prevent variable substitution (see <a class="reference internal" href="Section_commands.html#commands-parsing-rules"><span class="std std-ref">Section
 2.2</span></a> of the manual on parsing input script commands),
 and thus an error will occur when the formula for “nratio” is evaluated later.</p>
+</div>
 <hr class="docutils" />
-<p><strong>Variable Accuracy:</strong></p>
+<div class="section" id="variable-accuracy">
+<h3><a class="toc-backref" href="#id12">Variable Accuracy:</a><a class="headerlink" href="#variable-accuracy" title="Permalink to this headline">¶</a></h3>
 <p>Obviously, SPARTA attempts to evaluate variables containing formulas
 (<em>equal</em> and <em>particle</em> and <em>grid</em> style variables) accurately whenever
 the evaluation is performed. Depending on what is included in the
