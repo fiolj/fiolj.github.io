@@ -1,0 +1,165 @@
+############################
+Ejemplos de uso programático
+############################
+
+**************
+Bases e Inicio
+**************
+
+
+
+Para poder usar el paquete **antes** hay que importarlo, para
+ello hay que incluir la siguiente línea: import tof_simul
+
+Esta línea hace accesible todas los objetos del módulo *tof*. Por
+ejemplo después podemos crear un objeto *ToF* en la forma:
+
+::
+
+   t= tof_simul.tof.ToF()
+
+También se puede importar sólo los objetos y rutinas que se necesitan
+
+.. code-block:: python3
+
+   from tof_simul.tof import ToF
+   t = ToF
+
+Otra manera de importar y usar las rutinas es usando un alias (en este
+caso el alias es *tof*):
+
+.. code-block:: python3
+
+    import tof_simul.tof as tof
+    T = tof.ToF()
+
+Veamos en que consiste un objeto del tipo ToF
+
+.. code-block:: python3
+
+        print ('Parámetros del TOF')
+        print (T.tof_parameters)
+        print ('Valor original: Vs =', T.Vs)
+        T.Vs = T.Vs /2.
+        print ('Valor cambiado: Vs =', T.Vs)
+        for k in T.tof_parameters:
+          print ('{0} = {1}'.format(k, T.__dict__[k]))
+
+
+.. parsed-literal::
+
+    Parámetros del TOF
+    ['s', 'd', 'D', 'Vs', 'Vd', 'ds', 'dt', 't0', 'r0']
+    Valor original: Vs = 200.0
+    Valor cambiado: Vs = 100.0
+    s = 0.59
+    d = 1.3
+    D = 100.0
+    Vs = 100.0
+    Vd = 2000.0
+    ds = 0.03
+    dt = 0.008
+    t0 = 0.0
+    r0 = 1000.0
+
+
+********
+Cálculos
+********
+
+Para realizar cálculos debemos definir algunas masas. Para eso usamos el
+módulo *nist_elem*, explicado en *masas-1*
+
+.. code-block:: python3
+
+    from nist_elem import Sustancias
+    elementos = ['UF6','UF5','UF4','UF3','U']
+    m = Sustancias(elementos, threshold=1.e-3)
+
+.. code-block:: python3
+
+    # Vemos que incorporamos todas las sustancias
+    # Cada isótopo es una sustancia diferente
+    m.keys()
+
+
+
+
+.. parsed-literal::
+
+    dict_keys(['19F6-235U^{0+}', '19F6-238U^{0+}', '19F5-235U^{0+}', '19F5-238U^{0+}', '19F4-235U^{0+}', '19F4-238U^{0+}', '19F3-235U^{0+}', '19F3-238U^{0+}', '235U^{0+}', '238U^{0+}'])
+
+
+
+.. code-block:: python3
+
+    # Veamos que tiene una sustancia
+    m['19F6-235U^{0+}']
+
+
+
+
+.. parsed-literal::
+
+    {'S': 'UF6',
+     'M': 349.03434921999997,
+     'L': '$^{19}\\mathrm{F}_{6}^{235}\\mathrm{U}$',
+     'T': '$\\mathrm{F}_{6}\\mathrm{U}$',
+     'P': 0.7204,
+     'A': 349,
+     'Z': 146,
+     'q': 0}
+
+
+
+El método *ToF.signal(masas)* devuelve la simulación de la señal que se
+observaría en el TOF.
+
+::
+
+   senal = T.signal(m)
+
+El resultado es un diccionario donde cada elemento es un array de datos:
+- senal[‘time’] tiene el eje x, con la ventana de tiempo -
+senal[‘signal’] tiene los valores de la suma de todas las especies - los
+restantes senal[sustancia] tienen los valores de señal producida por
+cada sustancia
+
+.. code-block:: python3
+
+    # Que tipo de variables tenemos?
+    senal = T.signal(m)
+    print ('type(senal):', type(senal),'\n')
+    print ('keys:', senal.keys(),'\n')
+    # print ('variable:', senal)
+
+
+.. parsed-literal::
+
+    type(senal): <class 'dict'> 
+    
+    keys: dict_keys(['signal', '19F6-235U^{0+}', '19F6-238U^{0+}', '19F5-235U^{0+}', '19F5-238U^{0+}', '19F4-235U^{0+}', '19F4-238U^{0+}', '19F3-235U^{0+}', '19F3-238U^{0+}', '235U^{0+}', '238U^{0+}', 'time']) 
+    
+
+
+********
+Gráficos
+********
+
+La manera más simple de graficar es llamar al método *make_plot*. Este
+método ofrece algo de flexibilidad, pero también se puede graficar
+separadamente. Los datos están en la variable
+
+::
+
+   T.signal(m)
+
+.. code-block:: python3
+
+    f=T.make_plot(m, negative=True, graph_all=True, hide_legend=False, fname = None)
+
+
+
+.. image:: example1-out1.png
+
+
