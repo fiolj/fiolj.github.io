@@ -14,9 +14,11 @@ Contenidos:
 .. toctree::
    :maxdepth: 2
 
+   installation
    teoria
    interactivo
-   example1
+   ejemplo1
+
 
 ..
    ################
