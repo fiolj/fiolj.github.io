@@ -22,7 +22,8 @@ Some python programs
 ====================
 
 - `Biblio-py <http://fiolj.github.io/biblio-py/>`_ is a package to manage bibliography in BibTeX format
-- Documentation for an in-house `TOF-simulation <tof-simul>`_ package (spanish).
+- Documentación de un paquete `Simulador TOF <tof-simul/es/>`_  (spanish).
+- Documentation for an in-house `TOF-simulation <tof-simul/en>`_ package (english).
 
 Fortran-related
 ===============
