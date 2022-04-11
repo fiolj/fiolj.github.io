@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>balance_grid command &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>balance_grid command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/balance_grid.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="balance-grid-command">
+<span id="command-balance-grid"></span><span id="index-0"></span><h1>balance_grid command<a class="headerlink" href="#balance-grid-command" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">balance_grid</span> <span class="no">style args ...</span>
+</pre></div>
+</div>
+<ul>
+<li><p>style = <code class="docutils literal notranslate"><span class="pre">none</span></code> or <code class="docutils literal notranslate"><span class="pre">stride</span></code> or <code class="docutils literal notranslate"><span class="pre">clump</span></code> or <code class="docutils literal notranslate"><span class="pre">block</span></code> or <code class="docutils literal notranslate"><span class="pre">random</span></code> or
+<code class="docutils literal notranslate"><span class="pre">proc</span></code> or <code class="docutils literal notranslate"><span class="pre">rcb</span></code></p>
+<ul class="simple">
+<li><p>none args = none</p></li>
+<li><p>stride args = xyz or xzy or yxz or yzx or zxy or zyx</p></li>
+<li><p>clump args = xyz or xzy or yxz or yzx or zxy or zyx</p></li>
+<li><p>block args = Px Py Pz:  # of processors in each dimension</p></li>
+<li><p>random args = none</p></li>
+<li><p>proc args = none</p></li>
+<li><p>rcb args = weight: or part or time</p></li>
+</ul>
+</li>
+<li><p>zero or more keyword/value(s) pairs may be appended</p>
+<p>keyword = <code class="docutils literal notranslate"><span class="pre">axes</span></code> or <code class="docutils literal notranslate"><span class="pre">flip</span></code></p>
+<ul class="simple">
+<li><p>axes value = dims: string with any of “x”, “y”, or “z” characters in it</p></li>
+<li><p>flip value = yes or no</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">balance_grid</span> <span class="no">block * * *</span>
+<span class="nb">balance_grid</span> <span class="no">block * 4 *</span>
+<span class="nb">balance_grid</span> <span class="no">clump yxz</span>
+<span class="nb">balance_grid</span> <span class="no">random</span>
+<span class="nb">balance_grid</span> <span class="no">rcb part</span>
+<span class="nb">balance_grid</span> <span class="no">rcb part axes xz</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>This command adjusts the assignment of grid cells and their particles to
+processors, to attempt to balance the computational cost (load) evenly
+across processors. The load balancing is “static” in the sense that this
+command performs the balancing once, before or between simulations. The
+assignments will remain static during the subsequent run. To perform
+“dynamic” balancing, see the <a class="reference internal" href="fix_balance.html#command-fix-balance"><span class="std std-ref">fix balance</span></a> command,
+which can adjust the assignemt of grid cells to processors on-the-fly
+during a run.</p>
+<p>After grid cells have been assigned, they are migrated to new owning
+processors, along with any particles they own or other per-cell
+attributes stored by fixes. The internal data structures within SPARTA
+for grid cells and particles are re-initialized with the new
+decomposition.</p>
+<p>This command can be used immediately after the grid is created, via the
+<a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a> or
+<a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> commands. In the former case
+balance_grid can be used to partition the grid in a more desirable
+manner than the default creation options allow for. In the latter case,
+balance grid can be used to change the somewhat random assignment of
+grid cells to processors that will be made if the restart file is read
+by a different number of processors than it was written by.</p>
+<p>This command can also be used once particles have been created, or a
+simulation has come to equilibrium with a spatially varying density
+distribution of particles, so that the computational load is more evenly
+balanced across processors.</p>
+<p>The details of how child cells are assigned to processors by the various
+options of this command are described below. The cells assigned to each
+processor will either be “clumped” or “dispersed”.</p>
+<p>The <em>clump</em> and <em>block</em> and <em>rcb</em> styles will produce clumped
+assignments of child cells to each processor. This means each
+processor’s cells will be geometrically compact. The <em>stride</em> and
+<em>random</em> and <em>proc</em> styles will produce dispersed assignments of child
+cells to each processor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual for an explanation of clumped and dispersed grid cell assignments and their relative performance trade-offs.</p>
+</div>
+<hr class="docutils" />
+<p>The <em>none</em> style will not change the assignment of grid cells to
+processors. However it will update the internal data structures within
+SPARTA that store ghost cell information on each processor for cells
+owned by other processors. This is useful if the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global gridcut</span></a> command was used after grid cells were already
+defined. That command erases ghost cell information stored by
+processors, which then needs to be re-generated before a simulation is
+run. Using the balance_grid none command will re-generate the ghost cell
+information.</p>
+<p>The <em>stride</em>, <em>clump</em>, and <em>block</em> styles can only be used if the grid
+is “uniform”. The grid in SPARTA is hierarchical with one or more
+levels, as defined by the <a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a> or
+<a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid</span></a> commlands. If the parent cell of every
+grid cell is at the same level of the hierarchy, then for puposed os
+this command the grid is uniform, meaning the collection of grid cells
+effectively form a uniform fine grid overlaying the entire simulation
+domain.</p>
+<p>The meaning of the <em>stride</em>, <em>clump</em>, and <em>block</em> styles is exactly the
+same as when they are used as keywords with the
+<a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a> command. See its doc page for
+details.</p>
+<p>The <em>random</em> style means that each grid cell will be assigned randomly
+to one of the processors. Note that in this case every processor will
+typically not be assigned the exact same number of cells.</p>
+<p>The <em>proc</em> style means that each processor will choose a random
+processor to assign its first grid cell to. It will then loop over its
+grid cells and assign each to consecutive processors, wrapping around
+the enumeration of processors if necessary. Note that in this case every
+processor will typically not be assigned exactly the same number of
+cells.</p>
+<p>The <em>rcb</em> style uses a recursive coordinate bisectioning (RCB) algorithm
+to assign spatially-compact clumps of grid cells to processors. Each
+grid cell has a “weight” in this algorithm so that each processor is
+assigned an equal total weight of grid cells, as nearly as possible.</p>
+<p>If the <em>weight</em> argument is specified as <em>cell</em>, then the weight for
+each grid cell is 1.0, so that each processor will end up with an equal
+number of grid cells.</p>
+<p>If the <em>weight</em> argument is specified as <em>part</em>, then the weight for
+each grid cell is the number of particles it currently owns, so that
+each processor will end up with an equal number of particles.</p>
+<p>If the <em>weight</em> argument is specified as <em>time</em>, then timers are used to
+estimate the cost of each grid cell. The cost from the timers is given
+on a per processor basis, and then assigned to grid cells by weighting
+by the relative number of particles in the grid cells. If no timing data
+has yet been collected at the point in a script where this command is
+issued, a <em>cell</em> style weight will be used instead of <em>time</em>. A small
+warmup run (for example 100 timesteps) can be used before the balance
+command so that timer data is available. The timers used for balancing
+tally time from the move, sort, collide, and modify portions of each
+timestep.</p>
+<p>Here is an example of an RCB partitioning for 24 processors, of a 2d
+hierarchical grid with 5 levels, refined around a tilted ellipsoidal
+surface object (outlined in pink). This is for a <em>weight cell</em> setting,
+yielding an equal number of grid cells per processor. Each processor is
+assigned a different color of grid cells. (Note that less colors than
+processors were used, so the disjoint yellow cells actually belong to
+three different processors). This is an example of a clumped
+distribution where each processor’s assigned cells can be compactly
+bounded by a rectangle. Click for a larger version of the image.</p>
+<p><a class="reference external" href="JPG/partition.jpg"><img alt="image0" src="_images/partition_small.jpg" /></a></p>
+<hr class="docutils" />
+<p>The optional keywords <em>axes</em> and <em>flip</em> only apply to the <em>rcb</em> style.
+Otherwise they are ignored.</p>
+<p>The <em>axes</em> keyword allows limiting the partitioning created by the RCB
+algorithm to a subset of dimensions. The default is to allow cuts in all
+dimension, e.g. x,y,z for 3d simulations. The dims value is a string
+with 1, 2, or 3 characters. The characters must be one of “x”, “y”, or
+“z”. They can be in any order and must be unique. For example, in 3d, a
+dims = xz would only partition the 3d grid only in the x and z
+dimensions.</p>
+<p>The <em>flip</em> keyword is useful for debugging. If it is set to <em>yes</em> then
+each time an RCB partitioning is done, the coordinates of grid cells
+will (internally only) undergo a sign flip to insure that the new owner
+of each grid cell is a different processor than the previous owner, at
+least when more than a few processors are used. This will insure all
+particle and grid data moves to new processors, fully exercising the
+rebalancing code.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<p>This command can only be used after the grid has been created by the
+<a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a>, <a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid</span></a>, or
+<cite>read_restart &lt;command-read-restart&gt;</cite> commands.</p>
+<p>This command also initializes various options in SPARTA before
+performing the balancing. This is so that grid cells are ready to
+migrate to new processors. Thus if an error is flagged, e.g. that a
+simulation box boundary condition is not yet assigned, that operation
+needs to be performed in the input script before balancing can be
+performed.</p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="fix_balance.html#command-fix-balance"><span class="std std-ref">fix balance command - fix balance/kk command</span></a></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<p>The default settings for the optional keywords are axes = xyz, flip =
+no.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

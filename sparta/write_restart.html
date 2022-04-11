@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>write_restart command &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>write_restart command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/write_restart.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="write-restart-command">
+<span id="command-write-restart"></span><span id="index-0"></span><h1>write_restart command<a class="headerlink" href="#write-restart-command" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">write_restart</span> <span class="no">file keyword value ...</span>
+</pre></div>
+</div>
+<ul>
+<li><p>file = name of file to write restart information to</p></li>
+<li><p>zero or more keyword/value pairs may be appended</p></li>
+<li><p>keyword = <em>fileper</em> or <em>nfile</em></p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fileper</span> <span class="no">arg = Np</span>
+  <span class="nb">Np</span> <span class="no">= write one file for every this many processors</span>
+<span class="nb">nfile</span> <span class="no">arg = Nf</span>
+  <span class="nb">Nf</span> <span class="no">= write this many files, one from each of Nf processors</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">write_restart</span> <span class="no">restart.equil</span>
+<span class="nb">write_restart</span> <span class="no">restart.equil.mpiio</span>
+<span class="nb">write_restart</span> <span class="no">flow.%.* nfile 10</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Write a binary restart file with the current state of the simulation.</p>
+<p>During a long simulation, the <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart</span></a> command can be
+used to output restart files periodically. The write_restart command is
+useful at the end of a run or between two runs, whenever you wish to
+write out a single current restart file.</p>
+<p>Similar to <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump</span></a> files, the restart filename can contain
+two wild-card characters. If a “*” appears in the filename, it is
+replaced with the current timestep value. If a “%” character appears in
+the filename, then one file is written by each processor and the “%”
+character is replaced with the processor ID from 0 to P-1. An additional
+file with the “%” replaced by “base” is also written, which contains
+global information. For example, the files written for filename
+restart.% would be restart.base, restart.0, restart.1, … restart.P-1.
+This creates smaller files and can be a fast mode of output and
+subsequent input on parallel machines that support parallel I/O. The
+optional <em>fileper</em> and <em>nfile</em> keywords discussed below can alter the
+number of files written.</p>
+<p>Restart files can be read by a <a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a>
+command to restart a simulation from a particular state. Because the
+file is binary, it may not be readable on another machine.</p>
+<p>IMPORTANT NOTE: Although the purpose of restart files is to enable
+restarting a simulation from where it left off, not all information
+about a simulation is stored in the file. For example, the list of fixes
+that were specified during the initial run is not stored, which means
+the new input script must specify any fixes you want to use. See the
+<a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> command for details about what is
+stored in a restart file.</p>
+<hr class="docutils" />
+<p>The optional <em>nfile</em> or <em>fileper</em> keywords can be used in conjunction
+with the “%” wildcard character in the specified restart file name. As
+explained above, the “%” character causes the restart file to be written
+in pieces, one piece for each of P processors. By default P = the number
+of processors the simulation is running on. The <em>nfile</em> or <em>fileper</em>
+keyword can be used to set P to a smaller value, which can be more
+efficient when running on a large number of processors.</p>
+<p>The <em>nfile</em> keyword sets P to the specified Nf value. For example, if Nf
+= 4, and the simulation is running on 100 processors, 4 files will be
+written, by processors 0,25,50,75. Each will collect information from
+itself and the next 24 processors and write it to a restart file.</p>
+<p>For the <em>fileper</em> keyword, the specified value of Np means write one
+file for every Np processors. For example, if Np = 4, every 4th
+processor (0,4,8,12,etc) will collect information from itself and the
+next 3 processors and write it to a restart file.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart command</span></a>
+<a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart command</span></a></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

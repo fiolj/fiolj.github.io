@@ -1,0 +1,514 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Introduction &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Getting Started" href="Section_start.html" />
+    <link rel="prev" title="SPARTA Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-sparta">1.1. What is SPARTA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sparta-features">1.2. SPARTA features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-features">1.2.1. General features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#models">1.2.2. Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geometry">1.2.3. Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gas-phase-collisions-and-chemistry">1.2.4. Gas-phase collisions and chemistry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#surface-collisions-and-chemistry">1.2.5. Surface collisions and chemistry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performance">1.2.6. Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diagnostics">1.2.7. Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output">1.2.8. Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-and-post-processing">1.2.9. Pre- and post-processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#grids-and-surfaces-in-sparta">1.3. Grids and surfaces in SPARTA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#open-source-distribution">1.4. Open source distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acknowledgments-and-citations">1.5. Acknowledgments and citations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>1. Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Section_intro.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<span id="intro"></span><h1><a class="toc-backref" href="#id1">1. Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>These sections provide an overview of what SPARTA can do, describe what
+it means for SPARTA to be an open-source code, and acknowledge the
+funding and people who have contributed to SPARTA.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id1">Introduction</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-is-sparta" id="id2">What is SPARTA</a></p></li>
+<li><p><a class="reference internal" href="#sparta-features" id="id3">SPARTA features</a></p></li>
+<li><p><a class="reference internal" href="#grids-and-surfaces-in-sparta" id="id4">Grids and surfaces in SPARTA</a></p></li>
+<li><p><a class="reference internal" href="#open-source-distribution" id="id5">Open source distribution</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgments-and-citations" id="id6">Acknowledgments and citations</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="what-is-sparta">
+<span id="intro-what-sparta"></span><h2><a class="toc-backref" href="#id2">1.1. What is SPARTA</a><a class="headerlink" href="#what-is-sparta" title="Permalink to this headline">¶</a></h2>
+<p>SPARTA is a Direct Simulation Montel Carlo code that models rarefied
+gases, using collision, chemistry, and boundary condition models. It
+uses a hierarchical Cartesian grid to track and group particles for 3d
+or 2d or axisymmetric models. Objects emedded in the gas are represented
+as triangulated surfaces and cut through grid cells.</p>
+<p>For examples of SPARTA simulations, see the <a class="reference external" href="http://sparta.sandia.gov">SPARTA WWW Site</a>.</p>
+<p>SPARTA runs efficiently on single-processor desktop or laptop machines,
+but is designed for parallel computers. It will run on any parallel
+machine that compiles C++ and supports the
+<a class="reference external" href="http://www-unix.mcs.anl.gov/mpi">MPI</a> message-passing library. This
+includes distributed- or shared-memory parallel machines as well as
+commodity clusters.</p>
+<p>SPARTA can model systems with only a few particles up to millions or
+billions. See <a class="reference internal" href="#intro-performance"><span class="std std-ref">performance</span></a> for information on
+SPARTA performance and scalability, or the Benchmarks section of the
+<a class="reference external" href="http://sparta.sandia.gov">SPARTA WWW Site</a>.</p>
+<p>SPARTA is a freely-available open-source code, distributed under the
+terms of the <a class="reference external" href="http://www.gnu.org/copyleft/gpl.html">GNU Public License</a>, or sometimes by
+request under the terms of the <a class="reference external" href="https://www.gnu.org/licenses/lgpl-3.0.html">GNU Lesser General Public License (LGPL)</a>, which means you can use or modify the code however you wish. The only restrictions imposed by the GPL or LGPL are on how you distribute the code further. See <a class="reference internal" href="#intro-open-source"><span class="std std-ref">open-source</span></a> below for a
+brief discussion of the open-source philosophy.</p>
+<p>SPARTA is designed to be easy to modify or extend with new capabilities,
+such as new collision or chemistry models, boundary conditions, or
+diagnostics. See <a class="reference internal" href="Section_modify.html#modify"><span class="std std-ref">Section 10</span></a> for more details.</p>
+<p>SPARTA is written in C++ which is used at a hi-level to structure the
+code and its options in an object-oriented fashion. The kernel
+computations use simple data structures and C-like code for effciency.
+So SPARTA is really written in an object-oriented C style.</p>
+<p>SPARTA was developed with internal funding at <a class="reference external" href="http://www.sandia.gov">Sandia National Laboratories</a>, a US Department of Energy lab.
+See <a class="reference internal" href="#intro-acknowledgements"><span class="std std-ref">Section 1.5</span></a> below for more information on SPARTA
+funding and individuals who have contributed to SPARTA.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="sparta-features">
+<span id="intro-sparta-features"></span><h2><a class="toc-backref" href="#id3">1.2. SPARTA features</a><a class="headerlink" href="#sparta-features" title="Permalink to this headline">¶</a></h2>
+<p>This section highlights SPARTA features, with links to specific commands
+which give more details. The <cite>next section &lt;grids&gt;</cite> illustrates the
+kinds of grid geometries and surface definitions which SPARTA supports.</p>
+<p>If SPARTA doesn’t have your favorite collision model, boundary
+condition, or diagnostic, see <cite>Section 10 &lt;modify&gt;</cite> of
+the manual, which describes how it can be added to SPARTA.</p>
+<div class="section" id="general-features">
+<span id="intro-general-features"></span><h3>1.2.1. General features<a class="headerlink" href="#general-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>runs on a single processor or in parallel</p></li>
+<li><p>distributed-memory message-passing parallelism (MPI)</p></li>
+<li><p>spatial-decomposition of simulation domain for parallelism</p></li>
+<li><p>open-source distribution</p></li>
+<li><p>highly portable C++</p></li>
+<li><p>optional libraries used: MPI</p></li>
+<li><p><a class="reference internal" href="Section_modify.html#modify"><span class="std std-ref">easy to extend</span></a> with new features and
+functionality</p></li>
+<li><p>runs from an <a class="reference internal" href="Section_commands.html#commands"><span class="std std-ref">input script</span></a></p></li>
+<li><p>syntax for defining and using <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variables and    formulas</span></a></p></li>
+<li><p>syntax for <a class="reference internal" href="jump.html#command-jump"><span class="std std-ref">looping over runs</span></a> and breaking out of
+loops</p></li>
+<li><p>run one or <a class="reference internal" href="Section_howto.html#howto-multiple-simulations"><span class="std std-ref">multiple simulations simultaneously</span></a> (in parallel) from one script</p></li>
+<li><p><a class="reference internal" href="Section_start.html#start-build-library"><span class="std std-ref">build as library</span></a>, invoke SPARTA thru
+<a class="reference internal" href="Section_howto.html#howto-library"><span class="std std-ref">library interface</span></a> or provided
+<a class="reference internal" href="Section_python.html#python"><span class="std std-ref">Python wrapper</span></a>.</p></li>
+<li><p><cite>couple with other codes &lt;howto-other-code&gt;</cite>: SPARTA
+calls other code, other code calls SPARTA, umbrella code calls both</p></li>
+</ul>
+</div>
+<div class="section" id="models">
+<span id="intro-models"></span><h3>1.2.2. Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="dimension.html#command-dimension"><span class="std std-ref">3d or 2d</span></a> or
+<a class="reference internal" href="Section_howto.html#howto-axisymmetric"><span class="std std-ref">2d-axisymmetric</span></a> domains</p></li>
+<li><p>variety of <a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">global boundary conditions</span></a></p></li>
+<li><p><a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create particles</span></a> within flow volume</p></li>
+<li><p>emit particles from simulation box faces due to <a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">flow properties</span></a></p></li>
+<li><p>emit particles from simulation box faces due to <a class="reference internal" href="fix_emit_face_file.html#command-fix-emit-face-file"><span class="std std-ref">profile defined in    file</span></a></p></li>
+<li><p>emit particles from surface elements due to <a class="reference internal" href="fix_emit_surf.html#command-fix-emit-surf"><span class="std std-ref">normal and flow    properties</span></a></p></li>
+<li><p><a class="reference internal" href="Section_howto.html#howto-ambipolar"><span class="std std-ref">ambipolar</span></a> approximation for ionized plasmas</p></li>
+</ul>
+</div>
+<div class="section" id="geometry">
+<span id="intro-geometry"></span><h3>1.2.3. Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#intro-grids"><span class="std std-ref">Cartesian, hierarchical grids</span></a> with multiple levels of
+local refinement</p></li>
+<li><p><a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create grid from input script</span></a> or <cite>read from
+file &lt;command-read-grid&gt;</cite></p></li>
+<li><p>embed :triangulated (3d) or line-segmented (2d) surfaces in grid,
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read in from file</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="gas-phase-collisions-and-chemistry">
+<span id="intro-gasphase-collisions"></span><h3>1.2.4. Gas-phase collisions and chemistry<a class="headerlink" href="#gas-phase-collisions-and-chemistry" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>collisions between all particles or pairs of species groups within
+grid cells</p></li>
+<li><p><a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collision models:</span></a> VSS (variable soft sphere), VHS
+(variable hard sphere), HS (hard sphere)</p></li>
+<li><p><a class="reference internal" href="react.html#command-react"><span class="std std-ref">chemistry models:</span></a> TCE, QK</p></li>
+</ul>
+</div>
+<div class="section" id="surface-collisions-and-chemistry">
+<span id="intro-surface-collisions"></span><h3>1.2.5. Surface collisions and chemistry<a class="headerlink" href="#surface-collisions-and-chemistry" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>for surface elements or global simulation box
+<a class="reference internal" href="bound_modify.html#command-bound-modify"><span class="std std-ref">boundaries</span></a></p></li>
+<li><p><a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">collisions:</span></a> specular or diffuse</p></li>
+<li><p><a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">reactions</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="performance">
+<span id="intro-performance"></span><h3>1.2.6. Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="global.html#command-global"><span class="std std-ref">grid cell weighting</span></a> of particles</p></li>
+<li><p><a class="reference internal" href="adapt_grid.html#command-adapt-grid"><span class="std std-ref">adaptation</span></a> of the grid cells between runs</p></li>
+<li><p><a class="reference internal" href="fix_adapt.html#command-fix-adapt"><span class="std std-ref">on-the-fly adaptation</span></a> of the grid cells</p></li>
+<li><p><a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">static</span></a> load-balancing of grid cells or particles</p></li>
+<li><p><a class="reference internal" href="fix_balance.html#command-fix-balance"><span class="std std-ref">dynamic</span></a> load-balancing of grid cells or particles</p></li>
+</ul>
+</div>
+<div class="section" id="diagnostics">
+<span id="intro-diagnostics"></span><h3>1.2.7. Diagnostics<a class="headerlink" href="#diagnostics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="compute_boundary.html#command-compute-boundary"><span class="std std-ref">global boundary statistics</span></a></p></li>
+<li><p><a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">per grid cell statistics</span></a></p></li>
+<li><p><a class="reference internal" href="compute_surf.html#command-compute-surf"><span class="std std-ref">per surface element statistics</span></a></p></li>
+<li><p>time-averaging of <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">global</span></a>
+<a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">grid</span></a>, <a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">surface</span></a> statistics</p></li>
+</ul>
+</div>
+<div class="section" id="output">
+<span id="intro-output"></span><h3>1.2.8. Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">log file of statistical info</span></a></p></li>
+<li><p><a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump files</span></a> (text or binary) of per particle, per grid cell, per surface element values</p></li>
+<li><p>binary <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart files</span></a></p></li>
+<li><p>on-the-fly <a class="reference internal" href="dump_image.html#command-dump-image"><span class="std std-ref">rendered images and movies</span></a> of particles, grid cells, surface elements</p></li>
+</ul>
+</div>
+<div class="section" id="pre-and-post-processing">
+<span id="intro-pre-postprocessing"></span><h3>1.2.9. Pre- and post-processing<a class="headerlink" href="#pre-and-post-processing" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Various pre- and post-processing serial tools are packaged with
+SPARTA; see <a class="reference internal" href="Section_tools.html#tools"><span class="std std-ref">Section 9</span></a> of the manual.</p></li>
+<li><p>Our group has also written and released a separate toolkit called
+<a class="reference external" href="http://pizza.sandia.gov">Pizza.py</a> which provides tools for doing
+setup, analysis, plotting, and visualization for SPARTA simulations.
+Pizza.py is written in <a class="reference external" href="http://www.python.org">Python</a> and is
+available for download from <a class="reference external" href="http://pizza.sandia.gov">the Pizza.py WWW site</a>.</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="grids-and-surfaces-in-sparta">
+<span id="intro-grids"></span><h2><a class="toc-backref" href="#id4">1.3. Grids and surfaces in SPARTA</a><a class="headerlink" href="#grids-and-surfaces-in-sparta" title="Permalink to this headline">¶</a></h2>
+<p>SPARTA overlays a grid over the simulation domain which is used to track
+particles and to co-locate particles in the same grid cell for
+performing collision and chemistry operations. SPARTA uses a Cartesian
+hierarchical grid. Cartesian means that the faces of a grid cell are
+aligned with the Cartesian xyz axes. Hierarchical means that individual
+grid cells can be sub-divided into smaller cells, recursively. This
+allows for flexible grid cell refinement in any region of the simulation
+domain. E.g. around a surface, or in a high-density region of the gas
+flow.</p>
+<p>An example 2d hierarchical grid is shown in the diagram, for a circular
+surface object (in red) with the grid refined on the upwind side of the
+object (flow from left to right).</p>
+<p><img alt="image0" src="_images/refine_grid.jpg" /></p>
+<p>Objects represented with a surface triangulation (line segments in 2d)
+can also be read in to define objects which particles flow around.
+Individual surface elements are assigned to grid cells they intersect
+with, so that particle/surface collisions can be efficiently computed.</p>
+<p>As an example, here is coarsely triangulated representation of the space
+shuttle (only 616 triangles!), which could be embedded in a simulation
+box. Click on the image for a larger picture.</p>
+<p><a class="reference external" href="JPG/shuttle.jpg"><img alt="image1" src="_images/shuttle_small.jpg" /></a></p>
+<p>See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Details of grid geometry in SPARTA</span></a> and <a class="reference internal" href="Section_howto.html#howto-surfaces"><span class="std std-ref">Details of surfaces in SPARTA</span></a> for more details of both the grids and surface objects that SPARTA supports and how to define them.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="open-source-distribution">
+<span id="intro-open-source"></span><h2><a class="toc-backref" href="#id5">1.4. Open source distribution</a><a class="headerlink" href="#open-source-distribution" title="Permalink to this headline">¶</a></h2>
+<p>SPARTA comes with no warranty of any kind. As each source file states in
+its header, it is a copyrighted code that is distributed free-of-
+charge, under the terms of the <a class="reference external" href="http://www.gnu.org/copyleft/gpl.html">GNU Public License</a> (GPL). This is often
+referred to as open-source distribution - see
+<a class="reference external" href="http://www.gnu.org">www.gnu.org</a> or
+<a class="reference external" href="http://www.opensource.org">www.opensource.org</a> for more details. The
+legal text of the GPL is in the LICENSE file that is included in the
+SPARTA distribution.</p>
+<p>Here is a summary of what the GPL means for SPARTA users:</p>
+<p>(1) Anyone is free to use, modify, or extend SPARTA in any way they
+choose, including for commercial purposes.</p>
+<p>(2) If you distribute a modified version of SPARTA, it must remain
+open-source, meaning you distribute it under the terms of the GPL. You
+should clearly annotate such a code as a derivative version of SPARTA.</p>
+<p>(3) If you release any code that includes SPARTA source code, then it
+must also be open-sourced, meaning you distribute it under the terms of
+the GPL.</p>
+<p>(4) If you give SPARTA files to someone else, the GPL LICENSE file and
+source file headers (including the copyright and GPL notices) should
+remain part of the code.</p>
+<p>In the spirit of an open-source code, these are various ways you can
+contribute to making SPARTA better. You can send email to the
+<a class="reference external" href="http://sparta.sandia.gov/authors.html">developers</a> on any of these
+topics.</p>
+<ul class="simple">
+<li><p>Point prospective users to the <a class="reference external" href="http://sparta.sandia.gov">SPARTA WWW    Site</a>. Mention it in talks or link to it
+from your WWW site.</p></li>
+<li><p>If you find an error or omission in this manual or on the <a class="reference external" href="http://sparta.sandia.gov">SPARTA WWW    Site</a>, or have a suggestion for
+something to clarify or include, send an email to the
+<a class="reference external" href="http://sparta.sandia.gov/authors.html">developers</a>.</p></li>
+<li><p>If you find a bug, <a class="reference internal" href="Section_errors.html#errors-error-common"><span class="std std-ref">error-common</span></a> describes how to report it.</p></li>
+<li><p>If you publish a paper using SPARTA results, send the citation (and
+any cool pictures or movies) to add to the Publications, Pictures,
+and Movies pages of the <a class="reference external" href="http://sparta.sandia.gov">SPARTA WWW    Site</a>, with links and attributions back
+to you.</p></li>
+<li><p>The tools sub-directory of the SPARTA distribution has various
+stand-alone codes for pre- and post-processing of SPARTA data. More
+details are given in <a class="reference internal" href="Section_tools.html#tools"><span class="std std-ref">Additional tools</span></a>. If you write
+a new tool that others will find useful, it can be added to the
+SPARTA distribution.</p></li>
+<li><p>SPARTA is designed to be easy to extend with new code for features
+like boundary conditions, collision or chemistry models, diagnostic
+computations, etc. <a class="reference internal" href="Section_modify.html#modify"><span class="std std-ref">Modifying &amp; extending SPARTA</span></a>  of the manual
+gives details. If you add a feature of general interest, it can be
+added to the SPARTA distribution.</p></li>
+<li><p>The Benchmark page of the <a class="reference external" href="http://sparta.sandia.gov">SPARTA WWW    Site</a> lists SPARTA performance on
+various platforms. The files needed to run the benchmarks are part of
+the SPARTA distribution. If your machine is sufficiently different
+from those listed, your timing data can be added to the page.</p></li>
+<li><p>Cash. Small denominations, unmarked bills preferred. Paper sack OK.
+Leave on desk. VISA also accepted. Chocolate chip cookies encouraged.</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="acknowledgments-and-citations">
+<span id="intro-acknowledgements"></span><h2><a class="toc-backref" href="#id6">1.5. Acknowledgments and citations</a><a class="headerlink" href="#acknowledgments-and-citations" title="Permalink to this headline">¶</a></h2>
+<p>SPARTA development has been funded by the <a class="reference external" href="http://www.doe.gov">US Department of Energy</a> (DOE).</p>
+<p>If you use SPARTA results in your published work, please cite the
+paper(s) listed under the <a class="reference external" href="http://sparta.sandia.gov/cite.html">Citing SPARTA link</a> of the SPARTA WWW page, and
+include a pointer to the <a class="reference external" href="http://sparta.sandia.gov">SPARTA WWW Site</a>
+(<a class="reference external" href="http://sparta.sandia.gov">http://sparta.sandia.gov</a>):</p>
+<p>The <a class="reference external" href="http://sparta.sandia.gov/papers.html">Publications link</a> on the
+SPARTA WWW page lists papers that have cited SPARTA. If your paper is
+not listed there, feel free to send us the info. If the simulations in
+your paper produced cool pictures or animations, we’ll be pleased to add
+them to the <a class="reference external" href="http://sparta.sandia.gov/pictures.html">Pictures</a> or
+<a class="reference external" href="http://sparta.sandia.gov/movies.html">Movies</a> pages of the SPARTA
+WWW site.</p>
+<p>The core group of SPARTA developers is at Sandia National Labs:</p>
+<ul class="simple">
+<li><p>Steve Plimpton, sjplimp at sandia.gov</p></li>
+<li><p>Michael Gallis, magalli at sandia.gov</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Section_start.html" class="btn btn-neutral float-right" title="2. Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="SPARTA Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

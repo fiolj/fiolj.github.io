@@ -1,0 +1,465 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. Packages &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Accelerating SPARTA performance" href="Section_accelerate.html" />
+    <link rel="prev" title="3. Commands" href="Section_commands.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fft-package">4.1. FFT package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#contents">4.1.1. Contents:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-or-un-install-with-make">4.1.2. Install or un-install with make:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-or-un-install-with-cmake">4.1.3. Install or un-install with CMake:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supporting-info">4.1.4. Supporting info:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#kokkos-package">4.2. KOKKOS package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#packages-package-kokkos-contents">4.2.1. Contents:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-or-un-install">4.2.2. Install or un-install:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#for-multicore-cpus-using-openmp">4.2.2.1. For multicore CPUs using OpenMP:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#for-intel-knls-using-openmp">4.2.2.2. For Intel KNLs using OpenMP:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#for-nvidia-gpus-using-cuda">4.2.2.3. For NVIDIA GPUs using CUDA:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#packages-package-kokkos-supporting">4.2.3. Supporting info:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>4. Packages</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Section_packages.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="packages">
+<span id="id1"></span><h1>4. Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h1>
+<p>This section gives an overview of the optional packages that extend
+SPARTA functionality with instructions on how to build SPARTA with each
+of them. Packages are groups of files that enable a specific set of
+features. For example, the KOKKOS package provides styles that can run
+on different hardware such as GPUs. You can see the list of all packages
+and “make” commands to manage them by typing “make package” from within
+the src directory of the SPARTA distribution  or “cmake -DSPARTA_LIST_PKGS”
+from within a build directory. <a class="reference internal" href="Section_start.html#start"><span class="std std-ref">Getting Started</span></a> gives general info on how to
+install and un-install packages as part of the SPARTA build process.</p>
+<p>Packages may require some additional code compiled located in the lib
+folder, or may require an external library to be downloaded, compiled,
+installed, and SPARTA configured to know about its location and
+additional compiler flags.</p>
+<p>Following the next two tables is a sub-section for each package. It
+lists authors (if applicable) and summarizes the package contents. It
+has specific instructions on how to install the package, including (if
+necessary) downloading or building any extra library it requires. It
+also gives links to documentation, example scripts, and pictures/movies
+(if available) that illustrate use of the package.</p>
+<p>NOTE: To see the complete list of commands a package adds to SPARTA,
+just look at the files in its src directory, e.g. “ls src/KOKKOS”. Files
+with names that start with fix, compute, etc correspond to commands with
+the same style names.</p>
+<p>In these two tables, the “Example” column is a sub-directory in the
+examples directory of the distribution which has an input script that
+uses the package. E.g. “fft” refers to the examples/fft directory; The
+“Library” column indicates whether an extra library is needed to build
+and use the package:</p>
+<ul class="simple">
+<li><p>dash = no library</p></li>
+<li><p>sys = system library: you likely have it on your machine</p></li>
+<li><p>int = internal library: provided with SPARTA, but you may need to
+build it</p></li>
+<li><p>ext = external library: you will need to download and install it on
+your machine</p></li>
+</ul>
+<hr class="docutils" />
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">SPARTA packages</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Doc page</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Library</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#packages-package-fft"><span class="std std-ref">package-fft</span></a></p></td>
+<td><p>fast Fourier transforms</p></td>
+<td><p><a class="reference internal" href="compute_fft_grid.html#command-compute-fft-grid"><span class="std std-ref">compute_style compute/fft/grid</span></a></p></td>
+<td><p>fft</p></td>
+<td><p>int or ext</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#packages-package-kokkos"><span class="std std-ref">package-kokkos</span></a></p></td>
+<td><p>Kokkos-enabled styles</p></td>
+<td><p><a class="reference internal" href="accelerate_kokkos.html#accelerate-kokkos"><span class="std std-ref">Section 5.3.3</span></a></p></td>
+<td><p><a class="reference external" href="http://sparta.sandia.gov/bench.html">Benchmarks</a></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="fft-package">
+<span id="packages-package-fft"></span><h2>4.1. FFT package<a class="headerlink" href="#fft-package" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="contents">
+<span id="packages-package-fft-contents"></span><h3>4.1.1. Contents:<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h3>
+<p>Apply Fast Fourier Transforms (FFTs) to simulation data. The FFT library
+is specified in the Makefile.machine using the FFT_INC, FFT_PATH, and
+FFT_LIB variables. Supported external FFT libraries that can be
+specified include FFTW2, FFTW3, and MKL.If no FFT library is specified
+in the Makefile, SPARTA will use the internal KISS FFT library that is
+included with SPARTA. See the see discussion in
+doc/Section_start.html#2_2 (step 6).</p>
+</div>
+<div class="section" id="install-or-un-install-with-make">
+<span id="packages-package-fft-install"></span><h3>4.1.2. Install or un-install with make:<a class="headerlink" href="#install-or-un-install-with-make" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make yes-fft
+make machine
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make no-fft
+make machine
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-or-un-install-with-cmake">
+<h3>4.1.3. Install or un-install with CMake:<a class="headerlink" href="#install-or-un-install-with-cmake" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
+cmake -C /path/to/sparta/cmake/presets/machine.cmake -DPKG_FFT<span class="o">=</span>ON /path/to/sparta/cmake
+make
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -C /path/to/sparta/cmake/presets/machine.cmake -DPKG_FFT<span class="o">=</span>OFF /path/to/sparta/cmake
+make
+</pre></div>
+</div>
+</div>
+<div class="section" id="supporting-info">
+<span id="packages-package-fft-supporting"></span><h3>4.1.4. Supporting info:<a class="headerlink" href="#supporting-info" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="compute_fft_grid.html#command-compute-fft-grid"><span class="std std-ref">compute fft/grid</span></a></p></li>
+<li><p>examples/fft</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="kokkos-package">
+<span id="packages-package-kokkos"></span><h2>4.2. KOKKOS package<a class="headerlink" href="#kokkos-package" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="packages-package-kokkos-contents">
+<span id="id2"></span><h3>4.2.1. Contents:<a class="headerlink" href="#packages-package-kokkos-contents" title="Permalink to this headline">¶</a></h3>
+<p>Styles adapted to compile using the Kokkos library which can convert
+them to OpenMP or CUDA code so that they run efficiently on multicore
+CPUs, KNLs, or GPUs. All the styles have a “kk” as a suffix in their
+style name. Section <a class="reference internal" href="accelerate_kokkos.html#accelerate-kokkos"><span class="std std-ref">5.3.3 KOKKOS package</span></a> gives details of
+what hardware and software is required on your system, and how to build
+and use this package. Its styles can be invoked at run time via the “-sf
+kk” or “-suffix kk” <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">Command-line options</span></a>.</p>
+<p>You must have a C++11 compatible compiler to use this package.</p>
+<p><strong>Authors:</strong> The KOKKOS package was created primarily by Stan Moore (Sandia), with contributions from other folks as well. It uses the open-source <a class="reference external" href="https://github.com/kokkos">Kokkos library</a> which was developed by Carter Edwards, Christian Trott, and others at Sandia, and which is included in the SPARTA distribution in lib/kokkos.</p>
+</div>
+<div class="section" id="install-or-un-install">
+<span id="packages-package-kokkos-install"></span><h3>4.2.2. Install or un-install:<a class="headerlink" href="#install-or-un-install" title="Permalink to this headline">¶</a></h3>
+<p>For the KOKKOS package, you have 3 choices when building. You can build with either CPU or KNL or GPU support.
+Each choice requires additional settings in your Makefile.machine or machine.cmake file for the KOKKOS_DEVICES and KOKKOS_ARCH settings. See the
+src/MAKE/OPTIONS/Makefile.kokkos* or cmake/presets/<em>kokkos</em>.cmake
+files for examples. For CMake, it’s best to start by copying
+cmake/presets/kokkos_cuda.cmake to cmake/presets/machine.cmake.</p>
+<div class="section" id="for-multicore-cpus-using-openmp">
+<h4>4.2.2.1. For multicore CPUs using OpenMP:<a class="headerlink" href="#for-multicore-cpus-using-openmp" title="Permalink to this headline">¶</a></h4>
+<p>Using Makefiles:</p>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">KOKKOS_DEVICES</span> <span class="o">=</span> OpenMP
+<span class="nv">KOKKOS_ARCH</span> <span class="o">=</span> HSW           <span class="c1"># HSW = Haswell, SNB = SandyBridge, BDW = Broadwell, etc</span>
+</pre></div>
+</div>
+<p>Using CMake:</p>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">-DKokkos_ENABLE_OPENMP</span><span class="o">=</span>ON
+<span class="nv">-DKokkos_ARCH_HSW</span><span class="o">=</span>ON
+</pre></div>
+</div>
+</div>
+<div class="section" id="for-intel-knls-using-openmp">
+<h4>4.2.2.2. For Intel KNLs using OpenMP:<a class="headerlink" href="#for-intel-knls-using-openmp" title="Permalink to this headline">¶</a></h4>
+<p>Using Makefiles:</p>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">KOKKOS_DEVICES</span> <span class="o">=</span> OpenMP
+<span class="nv">KOKKOS_ARCH</span> <span class="o">=</span> KNL
+</pre></div>
+</div>
+</div>
+<div class="section" id="for-nvidia-gpus-using-cuda">
+<h4>4.2.2.3. For NVIDIA GPUs using CUDA:<a class="headerlink" href="#for-nvidia-gpus-using-cuda" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">KOKKOS_DEVICES</span> <span class="o">=</span> Cuda
+<span class="nv">KOKKOS_ARCH</span> <span class="o">=</span> PASCAL60,POWER8     <span class="c1"># P100 hosted by an IBM Power8, etc</span>
+<span class="nv">KOKKOS_ARCH</span> <span class="o">=</span> KEPLER37,POWER8     <span class="c1"># K80 hosted by an IBM Power8, etc</span>
+</pre></div>
+</div>
+<p>Using CMake:</p>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">-DKokkos_ENABLE_CUDA</span><span class="o">=</span>ON
+<span class="nv">-DKokkos_ARCH_PASCAL60</span><span class="o">=</span>ON -DKokkos_ARCH_POWER8<span class="o">=</span>ON :pre
+</pre></div>
+</div>
+<p>For make with GPUs, the following 2 lines define a nvcc wrapper compiler, which will use nvcc for compiling CUDA files or use a C++ compiler for non-Kokkos, non-CUDA
+files.</p>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">KOKKOS_ABSOLUTE_PATH</span> <span class="o">=</span> <span class="k">$(</span>shell <span class="nb">cd</span> <span class="k">$(</span>KOKKOS_PATH<span class="k">)</span><span class="p">;</span> <span class="nb">pwd</span><span class="k">)</span>
+<span class="k">export </span><span class="nv">OMPI_CXX</span> <span class="o">=</span> <span class="k">$(</span>KOKKOS_ABSOLUTE_PATH<span class="k">)</span>/bin/nvcc_wrapper
+<span class="nv">CC</span> <span class="o">=</span>        mpicxx
+</pre></div>
+</div>
+<p>For CMake, copy cmake/presets/kokkos_cuda.cmake so OMPI_CXX and CC are set
+properly.</p>
+<p>Once you have an appropriate Makefile.machine or machine.cmake, you can
+install/un-install the package and build SPARTA in the usual manner.
+Note that you cannot build one executable to run on multiple hardware
+targets (CPU or KNL or GPU). You need to build SPARTA once for each
+hardware target, to produce a separate executable.</p>
+<p>Using make:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make yes-kokkos
+make machine
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make no-kokkos
+make machine
+</pre></div>
+</div>
+<p>Using CMake:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -C /path/to/sparta/cmake/presets/machine.cmake /path/to/sparta/cmake
+make
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -C /path/to/sparta/cmake/presets/machine.cmake -DPKG_KOKKOS<span class="o">=</span>OFF /path/to/sparta/cmake
+make
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="packages-package-kokkos-supporting">
+<span id="id3"></span><h3>4.2.3. Supporting info:<a class="headerlink" href="#packages-package-kokkos-supporting" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>src/KOKKOS: filenames -&gt; commands</p></li>
+<li><p>src/KOKKOS/README</p></li>
+<li><p>lib/kokkos/README</p></li>
+<li><p>the <cite>Accelerating SPARTA &lt;accelerate&gt;</cite> section</p></li>
+<li><p><cite>Section 5.3.3 &lt;accelerate-kokkos&gt;</cite></p></li>
+<li><p><cite>Section 2.6 -k on … &lt;start-command-line-options&gt;</cite></p></li>
+<li><p><cite>Section 2.6 -sf kk &lt;start-command-line-options&gt;</cite></p></li>
+<li><p><cite>Section 2.6 -pk kokkos &lt;start-command-line-options&gt;</cite></p></li>
+<li><p><cite>package kokkos &lt;command-package&gt;</cite></p></li>
+<li><p><a class="reference external" href="http://sparta.sandia.gov/bench.html">Benchmarks page</a> of web site</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Section_accelerate.html" class="btn btn-neutral float-right" title="5. Accelerating SPARTA performance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Section_commands.html" class="btn btn-neutral float-left" title="3. Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

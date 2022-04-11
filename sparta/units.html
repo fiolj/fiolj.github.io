@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>units command &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>units command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/units.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="units-command">
+<span id="command-units"></span><span id="index-0"></span><h1>units command<a class="headerlink" href="#units-command" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">units</span> <span class="no">style</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>style = <em>cgs</em> or <em>si</em></p></li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">units</span> <span class="no">cgs</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>This command sets the style of units used for a simulation. It
+determines the units of all quantities specified in the input script and
+various input files read by SPARTA, as well as the units of all
+quantities output to the screen, log file, dump files, and other output
+files. Typically, this command is used at the very beginning of an input
+script.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Internally, this command simply sets the numeric values of conversion factors used by SPARTA, e.g. the Boltzmann constant used to convert temperature to energy. It is up to you to insure that all input values used in the input script and other input files (surface data, species files, reaction files) contain numeric values consistent with the chosen units.</p>
+</div>
+<p>For style <em>cgs</em>, these are the units:</p>
+<ul class="simple">
+<li><p>mass = grams</p></li>
+<li><p>distance = centimeters</p></li>
+<li><p>area = cm^2</p></li>
+<li><p>volume = cm^3</p></li>
+<li><p>time = seconds</p></li>
+<li><p>energy = ergs</p></li>
+<li><p>velocity = centimeters/second</p></li>
+<li><p>acceleration = centimeters/second^2</p></li>
+<li><p>pressure = barye (dyne/cm^2 = 0.1 pascals)</p></li>
+<li><p>temperature = degrees K</p></li>
+</ul>
+<p>For style <em>si</em>, these are the units:</p>
+<ul class="simple">
+<li><p>mass = kilograms</p></li>
+<li><p>distance = meters</p></li>
+<li><p>area = m^2</p></li>
+<li><p>volume = m^3</p></li>
+<li><p>time = seconds</p></li>
+<li><p>energy = Joules</p></li>
+<li><p>velocity = meters/second</p></li>
+<li><p>acceleration = meters/second^2</p></li>
+<li><p>pressure = pascals (newton/meter^2)</p></li>
+<li><p>temperature = degrees K</p></li>
+</ul>
+<p>The units command also sets a default timestep size; see the
+<a class="reference internal" href="timestep.html#command-timestep"><span class="std std-ref">timestep command</span></a> to change this value.</p>
+<ul class="simple">
+<li><p>For style <em>cgs</em> this is dt = 1.0 sec.</p></li>
+<li><p>For style <em>si</em> this is dt = 1.0 sec.</p></li>
+</ul>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<p>This command must be used before the simulation box is defined by a <a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box command</span></a></p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<p>none</p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">units</span> <span class="no">si</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

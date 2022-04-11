@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>fix command &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>fix command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/fix.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fix-command">
+<span id="command-fix"></span><span id="index-0"></span><h1>fix command<a class="headerlink" href="#fix-command" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">ID style args</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ID</span></code> = user-assigned name for the fix</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">style</span></code> = one of a long list of possible style names (see below)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code> = arguments used by a particular style</p></li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">fix</span> <span class="no">1 grid/check 100 warn</span>
+<span class="nb">fix</span> <span class="no">1 ave/time all 100 5 1000 c_myTemp c_thermo_temp file temp.profile</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Set a fix that will be applied to the system. In SPARTA, a “fix” is an
+operation that is applied to the system during timestepping. Examples
+include adding particles via inlet boundary conditions or computing
+diagnostics. Code for new fixes can be added to SPARTA; see <a class="reference internal" href="Section_modify.html#modify"><span class="std std-ref">Section 10</span></a> of the manual for details.</p>
+<p>Fixes perform their operations at different stages of the timestep. If 2
+or more fixes operate at the same stage of the timestep, they are
+invoked in the order they were specified in the input script.</p>
+<p>The ID for a fix is used to identify the fix in other commands. Each fix
+ID must be unique; see an exception below. The ID can only contain
+alphanumeric characters and underscores. You can specify multiple fixes
+of the same style so long as they have different IDs. A fix can be
+deleted with the <a class="reference internal" href="unfix.html#command-unfix"><span class="std std-ref">unfix</span></a> command, after which its ID can
+be re-used.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <a class="reference internal" href="unfix.html#command-unfix"><span class="std std-ref">unfix</span></a> command is the only way to turn off a fix; simply specifying a new fix with the same style and a different ID will not turn off the first one.</p>
+<p>If you specify a new fix with the same ID and style as an existing fix, the old fix is deleted and the new one is created (presumably with new settings). This is the same as if an “unfix” command were first performed on the old fix, except that the new fix is kept in the same order relative to the existing fixes as the old one originally was.</p>
+</div>
+<p>Some fixes store an internal “state” which is written to binary restart
+files via the <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart</span></a> or
+<a class="reference internal" href="write_restart.html#command-write-restart"><span class="std std-ref">write_restart</span></a> commands. This allows the fix to
+continue on with its calculations in a restarted simulation. See the
+<a class="reference internal" href="read_restart.html#command-read-restart"><span class="std std-ref">read_restart</span></a> command for info on how to
+re-specify a fix in an input script that reads a restart file. See the
+doc pages for individual fixes for info on which ones can be restarted.</p>
+<hr class="docutils" />
+<p>Each fix style has its own doc page which describes its arguments and
+what it does, as listed below. Here is an alphabetic list of fix styles
+available in SPARTA:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="fix_adapt.html#command-fix-adapt"><span class="std std-ref">adapt</span></a> - on-the-fly grid adaptation</p></li>
+<li><p><a class="reference internal" href="fix_adapt.html#command-fix-adapt"><span class="std std-ref">adapt/kk</span></a> - Kokkos version of fix adapt</p></li>
+<li><p><a class="reference internal" href="fix_ambipolar.html#command-fix-ambipolar"><span class="std std-ref">ambipolar</span></a> - ambipolar approximation for
+ionized plasmas</p></li>
+<li><p><a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">ave/grid</span></a> - compute per grid cell
+time-averaged quantities</p></li>
+<li><p><a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">ave/grid/kk</span></a> - Kokkos version of fix ave/grid</p></li>
+<li><p><a class="reference internal" href="fix_ave_histo.html#command-fix-ave-histo"><span class="std std-ref">ave/histo</span></a> - compute/output time averaged
+histograms</p></li>
+<li><p><a class="reference internal" href="fix_ave_histo.html#command-fix-ave-histo"><span class="std std-ref">ave/histo/weight</span></a> - compute/output weighted
+histograms</p></li>
+<li><p><a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">ave/surf</span></a> - compute per surface element
+time-averaged quantities</p></li>
+<li><p><a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">ave/time</span></a> - compute/output global
+time-averaged quantities</p></li>
+<li><p><a class="reference internal" href="fix_balance.html#command-fix-balance"><span class="std std-ref">balance</span></a> - perform dynamic load-balancing</p></li>
+<li><p><a class="reference internal" href="fix_balance.html#command-fix-balance"><span class="std std-ref">balance/kk</span></a> - Kokkos version of fix balance</p></li>
+<li><p><a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">emit/face</span></a> - emit particles at global
+boundaries</p></li>
+<li><p><a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">emit/face/kk</span></a> - Kokkos version of fix
+emit/face</p></li>
+<li><p><a class="reference internal" href="fix_emit_face_file.html#command-fix-emit-face-file"><span class="std std-ref">emit/face/file</span></a> - emit particles at
+global boundaries using a distribution defined in a file</p></li>
+<li><p><a class="reference internal" href="fix_emit_surf.html#command-fix-emit-surf"><span class="std std-ref">emit/surf</span></a> - emit particles at surfaces</p></li>
+<li><p><a class="reference internal" href="fix_grid_check.html#command-fix-grid-check"><span class="std std-ref">grid/check</span></a> - check if particles are in the
+correct grid cell</p></li>
+<li><p><a class="reference internal" href="fix_grid_check.html#command-fix-grid-check"><span class="std std-ref">grid/check/kk</span></a> - Kokkos version of fix
+grid/check</p></li>
+<li><p><a class="reference internal" href="fix_move_surf.html#command-fix-move-surf"><span class="std std-ref">move/surf</span></a> - move surfaces dynamically during
+a simulation</p></li>
+<li><p><a class="reference internal" href="fix_move_surf.html#command-fix-move-surf"><span class="std std-ref">move/surf/kk</span></a> - Kokkos version of fix
+move/surf</p></li>
+<li><p><a class="reference internal" href="fix_print.html#command-fix-print"><span class="std std-ref">print</span></a> - print text and variables during a
+simulation</p></li>
+<li><p><a class="reference internal" href="fix_vibmode.html#command-fix-vibmode"><span class="std std-ref">vibmode</span></a> - discrete vibrational energy modes</p></li>
+</ul>
+<p>There are also additional accelerated compute styles included in the
+SPARTA distribution for faster performance on specific hardware. The
+list of these with links to the individual styles are given in the pair
+section of <a class="reference external" href="Section_commands.html#cmd_5">this page</a>.</p>
+<hr class="docutils" />
+<p>In addition to the operation they perform, some fixes also produce one
+of four styles of quantities: global, per-particle, per-grid, or
+per-surf. These can be used by other commands or output as described
+below. A global quantity is one or more system-wide values, e.g. the
+temperature of the system. A per-particle quantity is one or more values
+per particle, e.g. the kinetic energy of each particle. A per-grid
+quantity is one or more values per grid cell. A per-surf quantity is one
+or more values per surface element.</p>
+<p>Global, per-particle, per-grid, and per-surf quantities each come in two
+forms: a single scalar value or a vector of values. Additionaly, global
+quantities can also be a 2d array of values. The doc page for each fix
+describes the style and kind of values it produces, e.g. a per-particle
+vector. Some fixes can produce more than one form of a single style,
+e.g. a global scalar and a global vector.</p>
+<p>When a fix quantity is accessed, as in many of the output commands
+discussed below, it can be referenced via the following bracket
+notation, where ID is the ID of the fix:</p>
+<div class="docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>f_ID</p></td>
+<td><p>entire scalar, vector, or array</p></td>
+</tr>
+<tr class="row-even"><td><p>f_ID[I]</p></td>
+<td><p>one element of vector, one column of array</p></td>
+</tr>
+<tr class="row-odd"><td><p>f_ID[I][J]</p></td>
+<td><p>one element of array</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In other words, using one bracket reduces the dimension of the quantity
+once (vector -&gt; scalar, array -&gt; vector). Using two brackets reduces the
+dimension twice (array -&gt; scalar). Thus a command that uses scalar fix
+values as input can also process elements of a vector or array.</p>
+<p>Note that commands and <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variables</span></a> which use fix
+quantities typically do not allow for all kinds, e.g. a command may
+require a vector of values, not a scalar. This means there is no
+ambiguity about referring to a fix quantity as f_ID even if it produces,
+for example, both a scalar and vector. The doc pages for various
+commands explain the details.</p>
+<hr class="docutils" />
+<p>Any values generated by a fix can be used in several ways:</p>
+<ul class="simple">
+<li><p>Global values can be output via the
+<a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style</span></a> command. Or the values can be
+referenced in a <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable equal</span></a> or <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable    atom</span></a> command.</p></li>
+<li><p>Per-particle values can be output via the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump    particle</span></a> command. Or the per-particle values can be
+referenced in an <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">particle-style variable</span></a>.</p></li>
+<li><p>Per-grid values can be output via the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a>
+command. Or the per-grid values can be referenced in a <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">grid-style    variable</span></a>.</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="unfix.html#command-unfix"><span class="std std-ref">unfix command</span></a></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

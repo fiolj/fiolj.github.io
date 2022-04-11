@@ -3,8 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Crossroads
-==========
+============
+ Crossroads
+============
 
 ..
    .. toctree::
@@ -17,7 +18,24 @@ Python-related
 - `Curso de Python IB-2020 <https://fiolj.github.io/intro-python-IB/>`_
 - `Clases en formato pdf <data/ClasesdePython.pdf>`_
 
+Some python programs
+====================
+
+- `Biblio-py <http://fiolj.github.io/biblio-py/>`_ is a package to manage bibliography in BibTeX format
+- Documentación de un paquete `Simulador TOF <tof-simul/es/>`_  (spanish).
+- Documentation for an in-house `TOF-simulation <tof-simul/en>`_ package (english).
+
 Fortran-related
 ===============
 
 - `NumFor <https://numericfor.github.io/numfor/>`_ Numerical (modern) Fortran is a library to ease the use of modern fortran in scientific computations
+
+SPARTA Documentation
+====================
+
+Documentation for the Manual of `SPARTA <http://sparta.sandia.gov/>`_ program, formatted with `sphinx-doc <https://www.sphinx-doc.org>`__.
+
+- `Html Documentation <sparta/>`_ 
+- `PDF Version <data/sparta-manual.pdf>`_ 
+- `EPUB Version <data/sparta-manual.epub>`_ 
+

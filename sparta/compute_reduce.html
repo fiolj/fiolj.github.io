@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>compute reduce command &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>compute reduce command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/compute_reduce.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="compute-reduce-command">
+<span id="command-compute-reduce"></span><span id="index-0"></span><h1>compute reduce command<a class="headerlink" href="#compute-reduce-command" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">ID reduce mode input1 input2 ... keyword args ...</span>
+</pre></div>
+</div>
+<ul>
+<li><p>ID is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
+<li><p>reduce = style name of this compute command</p></li>
+<li><p>mode = <em>sum</em> or <em>min</em> or <em>max</em> or <em>ave</em> or <em>sumsq</em> or <em>avesq</em></p></li>
+<li><p>one or more inputs can be listed</p></li>
+<li><p>input = x, y, z, vx, vy, vz, ke, erot, evib, c_ID, c_ID[N], f_ID,
+f_ID[N], v_name</p>
+<ul class="simple">
+<li><p>x,y,z,vx,vy,vz = particle position or velocity component</p></li>
+<li><p>ke,erot,evib = particle energy component</p></li>
+<li><p>c_ID = per-particle or per-grid vector calculated by a compute with ID</p></li>
+<li><p>c_ID[I] = Ith column of per-particle or per-grid array calculated by a compute with ID, I can include wildcard (see below)</p></li>
+<li><p>f_ID = per-particle or per-grid or per-surf vector calculated by a fix with ID</p></li>
+<li><p>f_ID[I] = Ith column of per-particle or per-grid or per-surf array calculated by a fix with ID, I can include wildcard (see below)</p></li>
+<li><p>v_name = per-particle or per-grid vector calculated by a particle-style or grid-style variable with name</p></li>
+</ul>
+</li>
+<li><p>zero or more keyword/args pairs may be appended</p>
+<p>keyword = <code class="docutils literal notranslate"><span class="pre">replace</span></code></p>
+<ul class="simple">
+<li><p>replace args = vec1 vec2</p>
+<ul>
+<li><p>vec1 = reduced value from this input vector will be replaced</p></li>
+<li><p>vec2 = replace it with vec1[N] where N is index of max/min value from vec2</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 reduce sum c_grid[*]</span>
+<span class="nb">compute</span> <span class="no">2 reduce min f_ave v_myKE</span>
+<span class="nb">compute</span> <span class="no">3 reduce max c_mine[1] c_mine[2] c_temp replace 1 3 replace 2 3</span>
+</pre></div>
+</div>
+<p>These commands will include the average grid cell temperature, across
+all grid cells, in the stats output:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 temp</span>
+<span class="nb">compute</span> <span class="no">2 grid all all temp</span>
+<span class="nb">compute</span> <span class="no">3 reduce ave c_2[1]</span>
+<span class="nb">stats_style</span> <span class="no">step c_temp c_3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Define a calculation that “reduces” one or more vector inputs into
+scalar values, one per listed input. The inputs can be per-particle or
+per-grid or per-surf quantities; they cannot be global quantities.
+Particle attributes are per-particle quantities,
+<a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">computes</span></a> may generate per-particle or per-grid
+quantities, <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fixes</span></a> may generate any of the three kinds of
+quantities, and <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">particle-style or grid-style variables</span></a> generate per-particle or per-grid
+quantities. See the <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable command</span></a> and its special
+functions which can perform the same operations as the compute reduce
+command on global vectors.</p>
+<p>The reduction operation is specified by the <em>mode</em> setting. The <em>sum</em>
+option adds the values in the vector into a global total. The <em>min</em> or
+<em>max</em> options find the minimum or maximum value across all vector
+values. The <em>ave</em> setting adds the vector values into a global total,
+then divides by the number of values in the vector. The <em>sumsq</em> option
+sums the square of the values in the vector into a global total. The
+<em>avesq</em> setting does the same as <em>sumsq</em>, then divdes the sum of squares
+by the number of values. The last two options can be useful for
+calculating the variance of some quantity, e.g. variance = sumsq -
+ave^2.</p>
+<p>Each listed input is operated on independently.</p>
+<p>Each listed input can be a particle attribute or can be the result of a
+<a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> or <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> or the evaluation of a
+<a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a>.</p>
+<p>Note that for values from a compute or fix, the bracketed index I can be
+specified using a wildcard asterisk with the index to effectively
+specify multiple values. This takes the form “*” or “<em>n” or “n</em>” or
+“m*n”. If N = the size of the vector (for <em>mode</em> = scalar) or the number
+of columns in the array (for <em>mode</em> = vector), then an asterisk with no
+numeric values means all indices from 1 to N. A leading asterisk means
+all indices from 1 to n (inclusive). A trailing asterisk means all
+indices from n to N (inclusive). A middle asterisk means all indices
+from m to n (inclusive).</p>
+<p>Using a wildcard is the same as if the individual columns of the array
+had been listed one by one. E.g. these 2 compute reduce commands are
+equivalent, since the <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid</span></a> command
+creates a per-grid array with 3 columns:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">myGrid grid all all u v w</span>
+<span class="nb">compute</span> <span class="no">2 all reduce min c_myGrid[*]</span>
+<span class="nb">compute</span> <span class="no">2 all reduce min c_myGrid[1] c_myGrid[2] c_myGrid[3]</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>The particle attributes x,y,z,vx,vy,vz are position and velocity
+components. The ke,erot,evib attributes are for kinetic, rotational, and
+vibrational energy of particles.</p>
+<p>If a value begins with <code class="docutils literal notranslate"><span class="pre">c_</span></code>, a compute ID must follow which has been
+previously defined in the input script. Computes can generate
+per-particle or per-grid quantities. See the individual
+<a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> doc page for details. If no bracketed integer
+is appended, the vector calculated by the compute is used. If a
+bracketed integer is appended, the Ith column of the array calculated by
+the compute is used. Users can also write code for their own compute
+styles and <a class="reference internal" href="Section_modify.html#modify"><span class="std std-ref">add them to SPARTA</span></a>. See the
+discussion above for how I can be specified with a wildcard asterisk to
+effectively specify multiple values.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>A compute which generates per-surf quantities cannot be used as input. This is because its values have not yet been combined across processors to sum the contributions from all processors whose particles collide with the same surface element. The combining is performed by the <a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">fix ave/surf</span></a> command, at each of its <em>Nfreq</em> timesteps. Thus to use this compute on per-surf values, specify a fix ID for a <a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">fix ave/surf</span></a> and insure the fix outputs its values when they are needed.</p>
+</div>
+<p>If a value begins with <code class="docutils literal notranslate"><span class="pre">f_</span></code>, a fix ID must follow which has been
+previously defined in the input script. Fixes can generate per-particle
+or per-grid or per-surf quantities. See the individual
+<a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> doc page for details. Note that some fixes only
+produce their values on certain timesteps, which must be compatible with
+when this compute references the values, else an error results. If no
+bracketed integer is appended, the vector calculated by the fix is used.
+If a bracketed integer is appended, the Ith column of the array
+calculated by the fix is used. Users can also write code for their own
+fix style and <a class="reference internal" href="Section_modify.html#modify"><span class="std std-ref">add them to SPARTA</span></a>. See the
+discussion above for how I can be specified with a wildcard asterisk to
+effectively specify multiple values.</p>
+<p>If a value begins with <code class="docutils literal notranslate"><span class="pre">v_</span></code>, a variable name must follow which has been
+previously defined in the input script. It must be a <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">particle-style or grid-style variable</span></a>. Both styles define formulas
+which can reference stats keywords or invoke other computes, fixes, or
+variables when they are evaluated. Particle-style variables can also
+reference various per-particle attributes (position, velocity, etc). So
+these variables are a very general means of creating per-particle or
+per-grid quantities to reduce.</p>
+<hr class="docutils" />
+<p>If the <em>replace</em> keyword is used, two indices <em>vec1</em> and <em>vec2</em> are
+specified, where each index ranges from 1 to the # of input values. The
+replace keyword can only be used if the <em>mode</em> is <em>min</em> or <em>max</em>. It
+works as follows. A min/max is computed as usual on the <em>vec2</em> input
+vector. The index N of that value within <em>vec2</em> is also stored. Then,
+instead of performing a min/max on the <em>vec1</em> input vector, the stored
+index is used to select the Nth element of the <em>vec1</em> vector.</p>
+<p>Here is an example which prints out both the grid cell ID and number of
+particles for the grid cell with the maximum number of particles:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 property/grid id</span>
+<span class="nb">compute</span> <span class="no">2 grid all n</span>
+<span class="nb">compute</span> <span class="no">3 reduce max c_1 c_2[1] replace 1 2</span>
+<span class="nb">stats_style</span> <span class="no">step c_temp c_3[1] c_3[2]</span>
+</pre></div>
+</div>
+<p>The first two input values in the compute reduce command are vectors
+with the ID and particle count of each grid cell. Instead of taking the
+max of the ID vector, which does not yield useful information in this
+context, the <em>replace</em> keyword will extract the ID for the grid cell
+which has the maximum number of particles. This ID and the cell’s
+particle count will be printed with the statistical output.</p>
+<hr class="docutils" />
+<p>If a single input is specified this compute produces a global scalar
+value. If multiple inputs are specified, this compute produces a global
+vector of values, the length of which is equal to the number of inputs
+specified.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="output-info">
+<h2>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h2>
+<p>This compute calculates a global scalar if a single input value is
+specified or a global vector of length N where N is the number of
+inputs, and which can be accessed by indices 1 to N. These values can be
+used by any command that uses global scalar or vector values from a
+compute as input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Section 6.4</span></a> for
+an overview of SPARTA output options.</p>
+<p>The scalar or vector values will be in whatever <a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a>
+the quantities being reduced are in.</p>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute command</span></a>,
+<a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix command</span></a>,
+<a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable command</span></a></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9. Additional tools &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10. Modifying &amp; extending SPARTA" href="Section_modify.html" />
+    <link rel="prev" title="8. Performance &amp; scalability" href="Section_perf.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. Additional tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dump2cfg-tool">9.1. dump2cfg tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dump2xyz-tool">9.2. dump2xyz tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grid-refine-tool">9.3. grid_refine tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implicit-grid-tool">9.4. implicit_grid tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jagged-tools">9.5. jagged tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#log2txt-tool">9.6. log2txt tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logplot-tool">9.7. logplot tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#paraview-tools">9.8. paraview tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stl2surf-tool">9.9. stl2surf tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#surf-create-tool">9.10. surf_create tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#surf-transform-tool">9.11. surf_transform tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>9. Additional tools</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Section_tools.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="additional-tools">
+<span id="tools"></span><h1>9. Additional tools<a class="headerlink" href="#additional-tools" title="Permalink to this headline">¶</a></h1>
+<p>SPARTA is designed to be a computational kernel for performing DSMC computations. Additional pre- and post-processing steps are often necessary to setup and analyze a simulation. A few additional tools are provided with the SPARTA distribution in the tools directory and are described briefly below.</p>
+<p>Our group has also written and released a separate toolkit called <a class="reference external" href="http://pizza.sandia.gov">Pizza.py</a> which provides tools for doing setup, analysis, plotting, and visualization for SPARTA simulations.  Pizza.py is written in <a class="reference external" href="http://www.python.org">Python</a> and is available for download from <a class="reference external" href="http://pizza.sandia.gov">the Pizza.py web site</a>.</p>
+<p>Some of the Pizza.py tools relevant to SPARTA are as follows:</p>
+<ul class="simple">
+<li><p>dump - read, write, manipulate particle dump files</p></li>
+<li><p>gl - 3d interactive visualization via OpenGL of dump or surface files</p></li>
+<li><p>sdata - read, write, manipulate surface files</p></li>
+<li><p>olog - read log files and extract columns of data</p></li>
+<li><p>vcr - VCR-style GUI for 3d interactive OpenGL visualization of dump
+or surface files</p></li>
+</ul>
+<p>The dump, sdata, and olog tools are included in the SPARTA distribution in the tools/pizza directory, and are used by some of the scripts discussed below.</p>
+<p>This is the list of tools included in the tools directory of the SPARTA distribution. Each is described in more detail below.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#tools-dump2cfg"><span class="std std-ref">dump2cfg tool</span></a> - convert a particle dump file to CFG format</p></li>
+<li><p><a class="reference internal" href="#tools-dump2xyz"><span class="std std-ref">dump2xyz tool</span></a> - convert a particle dump file to XYZ format</p></li>
+<li><p><a class="reference internal" href="#tools-gridrefine"><span class="std std-ref">grid_refine</span></a> - refine a grid around a surface</p></li>
+<li><p><a class="reference internal" href="#tools-implicitgrid"><span class="std std-ref">implicit_grid</span></a> - create a random porous region with implicit surfaces</p></li>
+<li><p><a class="reference internal" href="#tools-jagged"><span class="std std-ref">jagged</span></a> - create jagged 2d/3d surfaces with explicit surfaces</p></li>
+<li><p><a class="reference internal" href="#tools-log2txt"><span class="std std-ref">log2txt</span></a> - extract columns of info from a log file</p></li>
+<li><p><a class="reference internal" href="#tools-logplot"><span class="std std-ref">logplot</span></a> - plot columns of info from a log file via GnuPlot</p></li>
+<li><p><a class="reference internal" href="#tools-paraview"><span class="std std-ref">paraview</span></a> - converters of SPARTA data to <a class="reference external" href="http://www.paraview.org">ParaView</a> format</p></li>
+<li><p><a class="reference internal" href="#tools-stl2surf"><span class="std std-ref">stl2surf</span></a> - convert an STL text file into a SPARTA surface file</p></li>
+<li><p><a class="reference internal" href="#tools-surfcreate"><span class="std std-ref">surf_create</span></a> - create a surface file with simple objects</p></li>
+<li><p><a class="reference internal" href="#tools-surftransform"><span class="std std-ref">surf_transform</span></a> - transform surface via tranlate/scale/rotate operations</p></li>
+</ul>
+<div class="section" id="dump2cfg-tool">
+<span id="tools-dump2cfg"></span><h2>9.1. dump2cfg tool<a class="headerlink" href="#dump2cfg-tool" title="Permalink to this headline">¶</a></h2>
+<p>This is a Python script that converts a SPARTA particle dump file into
+extended CFG format so that it can be visualized by the
+<a class="reference external" href="http://mt.seas.upenn.edu/Archive/Graphics/A">AtomEye</a> visualization
+program. AtomEye is a very fast particle visualizer, capable of
+interactive visualizations of millions of particles on a desktop
+machine. It is commonly used in the materials modeling community.</p>
+<p>See the header of the script for the syntax used to run it.</p>
+<p>This script uses one or more of the “Pizza.py” tools provided in the
+tools/pizza directory. See the tools/README file for info on how to set
+an environment variable so that the Pizza.py tool files can be found by
+Python, as well as instructions on various ways to run a Python script.</p>
+</div>
+<div class="section" id="dump2xyz-tool">
+<span id="tools-dump2xyz"></span><h2>9.2. dump2xyz tool<a class="headerlink" href="#dump2xyz-tool" title="Permalink to this headline">¶</a></h2>
+<p>This is a Python script that converts a SPARTA particle dump file into
+XYZ format so that it can be visualized by various visualization
+packages that read XYZ formatted files. An example is
+<a class="reference external" href="http://www.ks.uiuc.edu/Research/vmd">VMD</a> package, commonly used in
+the molecular dynamics modeling community.</p>
+<p>See the header of the script for the syntax used to run it.</p>
+<p>This script uses one or more of the “Pizza.py” tools provided in the
+tools/pizza directory. See the tools/README file for info on how to set
+an environment variable so that the Pizza.py tool files can be found by
+Python, as well as instructions on various ways to run a Python script.</p>
+</div>
+<div class="section" id="grid-refine-tool">
+<span id="tools-gridrefine"></span><h2>9.3. grid_refine tool<a class="headerlink" href="#grid-refine-tool" title="Permalink to this headline">¶</a></h2>
+<p>This is a Python script that creates a SPARTA grid file adapted around
+the lines or triangles in a SPARTA surface file. The resulting grid file
+can be read by the <a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid</span></a> command. The surface
+file can be read by the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command.</p>
+<p>See the header of the script for the various adaptivity options that are
+supported, and the syntax used to run it.</p>
+</div>
+<div class="section" id="implicit-grid-tool">
+<span id="tools-implicitgrid"></span><h2>9.4. implicit_grid tool<a class="headerlink" href="#implicit-grid-tool" title="Permalink to this headline">¶</a></h2>
+<p>This is a Python script which can be used to generate binary files
+representing porous media samples, as read by the
+<a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command. The output files contain
+randomized grid corner point values which induce implicit surfaces which
+can contain huge numbers of surface elements. They are useful for stress
+testing the implicit surface options in SPARTA, as selected by the
+<a class="reference internal" href="global.html#command-global"><span class="std std-ref">global surfs</span></a> command.</p>
+<p>See the header of the script for the syntax used to run it.</p>
+<p>The examples/implicit directory uses these files as input.</p>
+</div>
+<div class="section" id="jagged-tools">
+<span id="tools-jagged"></span><h2>9.5. jagged tools<a class="headerlink" href="#jagged-tools" title="Permalink to this headline">¶</a></h2>
+<p>These are 2 Python scripts (jagged2d.py and jagged3d.py) which can be
+used to generate SPARTA surface files in a pattern that can be very
+jagged. The surfaces can contain huge numbers of surface elements and be
+read by the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command. They are useful for
+stress testing the explict surface options in SPARTA, including
+distributed or non-distributed storage, as selected by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global surfs</span></a> command.</p>
+<p>See the header of the scripts for the syntax used to run them.</p>
+<p>The examples/jagged directory uses these files as input.</p>
+</div>
+<div class="section" id="log2txt-tool">
+<span id="tools-log2txt"></span><h2>9.6. log2txt tool<a class="headerlink" href="#log2txt-tool" title="Permalink to this headline">¶</a></h2>
+<p>This is a Python script that reads a SPARTA log file, extracts selected
+columns of statistical output, and writes them to a text file. It knows
+how to concatenate log file info across multiple successive runs. The
+columnar output can then be read by various plotting packages.</p>
+<p>See the header of the script for the syntax used to run it.</p>
+<p>This script uses one or more of the “Pizza.py” tools provided in the
+tools/pizza directory. See the tools/README file for info on how to set
+an environment variable so that the Pizza.py tool files can be found by
+Python, as well as instructions on various ways to run a Python script.</p>
+</div>
+<div class="section" id="logplot-tool">
+<span id="tools-logplot"></span><h2>9.7. logplot tool<a class="headerlink" href="#logplot-tool" title="Permalink to this headline">¶</a></h2>
+<p>This is a Python script that reads a SPARTA log file, extracts the
+selected columns of statistical output, and plots them via the GnuPlot
+program. It knows how to concatenate log file info across multiple
+successive runs.</p>
+<p>See the header of the script for the syntax used to run it. You must
+have GnuPlot installed on your system to use this script. If you can
+type “gnuplot” from the command line to start GnuPlot, it should work.
+If not (e.g. because you need a path name), then edit these 2 lines as
+needed in pizza/gnu.py:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">except</span><span class="p">:</span> <span class="n">PIZZA_GNUPLOT</span> <span class="o">=</span> <span class="s2">&quot;gnuplot&quot;</span>
+<span class="k">except</span><span class="p">:</span> <span class="n">PIZZA_GNUTERM</span> <span class="o">=</span> <span class="s2">&quot;x11&quot;</span>
+</pre></div>
+</div>
+<p>For example, the first could become “/home/smith/bin/gnuplot”. The
+second should only need changing if GnuPlot requires a different setting
+to plot to your screen.</p>
+<p>This script uses one or more of the “Pizza.py” tools provided in the
+tools/pizza directory. See the tools/README file for info on how to set
+an environment variable so that the Pizza.py tool files can be found by
+Python, as well as instructions on various ways to run a Python script.</p>
+</div>
+<div class="section" id="paraview-tools">
+<span id="tools-paraview"></span><h2>9.8. paraview tools<a class="headerlink" href="#paraview-tools" title="Permalink to this headline">¶</a></h2>
+<p>The tools/paraview directory has scripts which convert SPARTA grid and
+surface data (input and output) to ParaView format.</p>
+<p><a class="reference external" href="http://www.paraview.org">ParaView</a> is a popular, powerful,
+freely-available visualization package. You must have ParaView installed
+to use the Python scripts. See tools/paraview/README for more details.</p>
+<p>The scripts were developed by Tom Otahal (Sandia).</p>
+</div>
+<div class="section" id="stl2surf-tool">
+<span id="tools-stl2surf"></span><h2>9.9. stl2surf tool<a class="headerlink" href="#stl2surf-tool" title="Permalink to this headline">¶</a></h2>
+<p>This is a Python script that reads a stereolithography (STL) text file
+and converts it to a SPARTA surface file. STL files contain a collection
+of triangles and can be created by various mesh-generation programs. The
+format for SPARTA surface files is described on the
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command doc page.</p>
+<p>See the header of the script for the syntax used to run it, e.g.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">python</span> <span class="n">stl2surf</span><span class="o">.</span><span class="n">py</span> <span class="n">stlfile</span> <span class="n">surffile</span>
+</pre></div>
+</div>
+<p>The script also checks the triangulated object to see if it is
+“watertight” and issues a warning if it is not, since SPARTA will
+perform the same check. The <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command doc
+page explains what watertight means for 3d objects.</p>
+</div>
+<div class="section" id="surf-create-tool">
+<span id="tools-surfcreate"></span><h2>9.10. surf_create tool<a class="headerlink" href="#surf-create-tool" title="Permalink to this headline">¶</a></h2>
+<p>This is a Python script that creates a SPARTA surface file containing
+one or more simple objects whose surface is represented as triangules
+(3d) or line segments (2d). Such files can be read by the
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command. The 3d objects it supports are a
+sphere, box, and spikysphere (randomized radius at each point). The 2d
+objects it supports are a circle, rectangle, triangle, and spikycircly
+(randomized radius at each point).</p>
+<p>See the header of the script for the syntax used to run it.</p>
+</div>
+<div class="section" id="surf-transform-tool">
+<span id="tools-surftransform"></span><h2>9.11. surf_transform tool<a class="headerlink" href="#surf-transform-tool" title="Permalink to this headline">¶</a></h2>
+<p>This is a Python script that transforms a SPARTA surface file into a new
+surface file using various operations supported by the
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command. These operations include
+translation, scaling, rotation, and inversion (changing which side of
+the surface is inside vs outside).</p>
+<p>See the header of the script for the syntax used to run it.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Section_modify.html" class="btn btn-neutral float-right" title="10. Modifying &amp; extending SPARTA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Section_perf.html" class="btn btn-neutral float-left" title="8. Performance &amp; scalability" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

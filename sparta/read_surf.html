@@ -1,0 +1,690 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>read_surf command &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>read_surf command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/read_surf.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="read-surf-command">
+<span id="command-read-surf"></span><span id="index-0"></span><h1>read_surf command<a class="headerlink" href="#read-surf-command" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">read_surf</span> <span class="no">filename keyword args ...</span>
+</pre></div>
+</div>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">filename</span></code> = name of surface file</p></li>
+<li><p>zero or more keyword/args pairs may be appended</p>
+<p>keyword = <code class="docutils literal notranslate"><span class="pre">origin</span></code> or <code class="docutils literal notranslate"><span class="pre">trans</span></code> or <code class="docutils literal notranslate"><span class="pre">atrans</span></code> or <code class="docutils literal notranslate"><span class="pre">ftrans</span></code> or <code class="docutils literal notranslate"><span class="pre">scale</span></code> or
+<code class="docutils literal notranslate"><span class="pre">rotate</span></code> or <code class="docutils literal notranslate"><span class="pre">transparent</span></code> or <code class="docutils literal notranslate"><span class="pre">invert</span></code> or <code class="docutils literal notranslate"><span class="pre">clip</span></code> or <code class="docutils literal notranslate"><span class="pre">group</span></code> or
+<code class="docutils literal notranslate"><span class="pre">typeadd</span></code> or <code class="docutils literal notranslate"><span class="pre">particle</span></code> or <code class="docutils literal notranslate"><span class="pre">file</span></code></p>
+<dl class="simple">
+<dt>origin args = Ox Oy Oz</dt><dd><p>Ox,Oy,Oz = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">set origin of surface to this point (distance units)</span></a></p>
+</dd>
+<dt>trans args = Dx Dy Dz</dt><dd><p>Dx,Dy,Dz = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">translate origin by this displacement (distance units)</span></a></p>
+</dd>
+<dt>atrans args = Ax Ay Az</dt><dd><p>Ax,Ax,Az = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">translate origin to this absolute point (distance units)</span></a></p>
+</dd>
+<dt>ftrans args = Fx Fy Fz</dt><dd><p>Fx,Fy,Fz = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">translate origin to this fractional point in simulation box</span></a></p>
+</dd>
+<dt>scale args = Sx Sy Sz</dt><dd><p>Sx,Sy,Sz = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">scale surface by these factors around origin</span></a></p>
+</dd>
+<dt>rotate args = theta Rx Ry Rz</dt><dd><ul class="simple">
+<li><p>theta = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">rotate surface by this angle in counter-clockwise direction (degrees)</span></a></p></li>
+<li><p>Rx,Ry,Rz = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">rotate around vector starting at origin pointing in this direction</span></a></p></li>
+</ul>
+</dd>
+<dt>transparent args</dt><dd><p>args = <a class="reference internal" href="#read-surf-props"><span class="std std-ref">none</span></a></p>
+</dd>
+<dt>invert args</dt><dd><p>args = <a class="reference internal" href="#read-surf-props"><span class="std std-ref">none</span></a></p>
+</dd>
+<dt>clip args = none or fraction</dt><dd><p>fraction = <a class="reference internal" href="#read-surf-geometry"><span class="std std-ref">push points close to the box boundary to the boundary (optional)</span></a></p>
+</dd>
+<dt>group arg = group-ID</dt><dd><p>group-ID = <a class="reference internal" href="#read-surf-group"><span class="std std-ref">new or existing surface group to assign the surface elements to</span></a></p>
+</dd>
+<dt>typeadd arg = Noffset</dt><dd><p>Noffset = <a class="reference internal" href="#read-surf-group"><span class="std std-ref">add Noffset to the type value of each element</span></a></p>
+</dd>
+<dt>particle args = none or check or keep</dt><dd><ul class="simple">
+<li><p>none = <a class="reference internal" href="#read-surf-group"><span class="std std-ref">allow no particles in simulation when read surfs (default)</span></a></p></li>
+<li><p>check = <a class="reference internal" href="#read-surf-group"><span class="std std-ref">delete particles inside surfs or in cells intersected by surfs</span></a></p></li>
+<li><p>keep = <a class="reference internal" href="#read-surf-group"><span class="std std-ref">keep all particles</span></a></p></li>
+</ul>
+</dd>
+<dt>file args = <a class="reference internal" href="#read-surf-file"><span class="std std-ref">identical to those defined for the write_surf command</span></a></dt><dd><p>this keyword must be last</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">read_surf</span> <span class="no">surf.sphere</span>
+<span class="nb">read_surf</span> <span class="no">surf.sphere group sphere2 typeadd 1</span>
+<span class="nb">read_surf</span> <span class="no">surf.file trans 10 5 0 scale 3 3 3 invert clip</span>
+<span class="nb">read_surf</span> <span class="no">surf.file trans 10 5 0 scale 3 3 3 invert clip 1.0e-6</span>
+<span class="nb">read_surf</span> <span class="no">surf.file trans 10 5 0 scale 3 3 3 invert clip file tmp.surfs</span>
+<span class="nb">read_surf</span> <span class="no">surf.file trans 10 5 0 scale 3 3 3 invert clip file tmp.surfs.% points no nfile 32</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Read the geometry of a surface from the specified file. In SPARTA, a
+“surface” is a collection of surface elements that represent the
+surface(s) of one or more physical objects which will be embedded in the
+global simulation box. Surfaces can be explicit or implicit. This
+command reads explicit surfaces from a file containing a list of
+explicit surfaces. See the <a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf</span></a> command to
+read implicit surfaces from a different kind of file. See the <a class="reference internal" href="Section_howto.html#howto-implicit-surface"><span class="std std-ref">Howto 6.13</span></a> section of the manual for an
+explanation of explicit versus implicit surfaces as well as distributed
+versus non-distributed storage. You cannot mix explicit and implicit
+surfaces in the same simulation.</p>
+<p>Surface elements are triangles in 3d or line segments in 2d. Surface
+elements for each physical object are required to be a complete,
+connected set that tile the entire surface of the object. See the
+discussion of watertight objects below.</p>
+<p>Particles collide with surface elements as they advect. Each surface
+element is assigned to a collision model, specified by the
+<a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide command</span></a>  which affects how a
+particle bounces off the surface. Each surface element can optionally be
+assigned to a reaction model, specified by the
+<a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a> which determines if any surface
+chemistry occurs during a collision. Statistics for each surface element
+due to their interactions with particles can be tallied via the <a class="reference internal" href="compute_surf.html#command-compute-surf"><span class="std std-ref">compute surf command</span></a>, time-averaged via the <a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">fix ave/surf command</span></a>, and ouput via the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump surface</span></a> command.</p>
+<p>Surface elements can be assigned to surface groups via the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command. Surface group IDs are used by other
+commands to operate on selected sets of elements. This command has
+<em>group</em> and <em>typeadd</em> keywords which can be used to help assign
+different elements or different objects to different groups.</p>
+<p>Explicit surface elements can be stored in a distributed fashion (each
+processor only stores elements which overlap grid cells it owns or has a
+ghost cell copy of). Or each processor can store a copy of all surface
+elements (the default). See the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global surfs</span></a> command
+to change this setting.</p>
+<p>Note that the read_surf command can be used multiple times to read
+multiple objects from multiple files and add them to the simulation
+domain. The format of a surface file for explicit elements is discussed
+below. Optional keywords allow the vertices in the file to be
+translated, scaled, and rotated in various ways. This allows a single
+surface file, e.g. containing a unit sphere, to be used multiple times
+in a single simulation or in different simulations.</p>
+<p>The tools directory contains tools that can create surface files with
+simple geometric objects (spheres, blocks, etc). It also has tools that
+can convert surface files in other formats to the SPARTA format for
+explicit surfaces, e.g. for files created by a mesh-generation program.</p>
+<hr class="docutils" />
+<p>If all the surface elements are contained in a single file, the
+specified file can be a text file or a gzipped text file (detected by a
+.gz suffix).</p>
+<p>If a “%” character appears in the surface filename, SPARTA expects a set
+of multiple files to exist. The <a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf command</span></a>
+explains how such sets are created. Read_surf will first read a filename
+where “%” is replaced by “base”. This file tells SPARTA how many total
+surfaces and files are in the set (i.e. just the header information
+described below). The read_surf command then reads the additional files.
+For example, if the surface file was specified as save.% when it was
+written, then read_surf reads the files save.base, save.0, save.1, …
+save.P-1, where P is the number of processors that created the surface
+file.</p>
+<p>Note that P could be the total number of processors in the previous
+simulation, or some subset of those processors, if the <em>fileper</em> or
+<em>nfile</em> options were used when the surface file was written; see the
+<a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf command</span></a> for details. The processors in the current
+SPARTA simulation share the work of reading these files; each reads a
+roughly equal subset of the files. The number of processors which
+created the set can be different than the number of processors in the
+current SPARTA simulation. This can be a fast mode of input on
+parallel machines that support parallel I/O.</p>
+<div class="section" id="format-of-a-single-surface-file">
+<h3>Format of a single surface file<a class="headerlink" href="#format-of-a-single-surface-file" title="Permalink to this headline">¶</a></h3>
+<p>The remainder of this section describes the format of a single surface
+file, whether it is the only file or one of multiple files flagged with
+a processor number.</p>
+<p>A surface file for explicit surfaces has a header and a body. The header
+appears first. The first line of the header is always skipped; it
+typically contains a description of the file. Then lines are read one at
+a time. Lines can have a trailing comment starting with ‘#’ that is
+ignored. If the line is blank (only whitespace after comment is
+deleted), it is skipped. If the line contains a header keyword, the
+corresponding value is read from the line. If it doesn’t contain a
+header keyword, the line begins the body of the file.</p>
+<p>The body of the file contains one or more sections. The first line of a
+section has only a keyword. The next line is skipped. The remaining
+lines of the section contain values. The number of lines in a section
+depends on the section keyword as described below. Zero or more blank
+lines can be used between sections. Sections can appear in any order.</p>
+<p>The formatting of individual lines in the surface file (indentation,
+spacing between words and numbers) is not important except that header
+and section keywords must be capitalized as shown and can’t have extra
+white space between their words.</p>
+<p>These are the recognized header keywords. Header lines can come in any
+order. The value(s) are read from the beginning of the line. Thus the
+keyword <em>points</em> should be in a line like “1000 points”.</p>
+<ul class="simple">
+<li><p><em>files</em> = # of files in set (only for base file, see below)</p></li>
+<li><p><em>points</em> = # of points in surface (optional, see below)</p></li>
+<li><p><em>lines</em> = # of line segments in surface (only allowed for 2d)</p></li>
+<li><p><em>triangles</em> = # of triangles in surface (only allowed for 3d)</p></li>
+</ul>
+<dl>
+<dt>The <em>files</em> keyword</dt><dd><p>only appears in the “base” file for a set of multiple files indicated by the “%” character in the filename. It tells SPARTA how many additional files exist in the set. A “base” file has no additional sections, i.e. no body.</p>
+<p>The <em>points</em> keyword is optional (see below). For a set of multiple files, it cannot appear in the “base” file, but only in individual files in the set.</p>
+</dd>
+<dt>The <em>points</em>, <em>lines</em>, <em>triangles</em> keywords</dt><dd><p>refer to the number of points, lines, triangles in an individual file. Except in the case of a “base” file for a set of multiple files. In that case, the <em>lines</em> and <em>triangles</em> keywords give the number of lines or triangles in the entire set.</p>
+</dd>
+</dl>
+<p>These are the recognized section keywords for the body of the file.</p>
+<div class="section" id="points-lines-triangles">
+<h4><em>Points, Lines, Triangles</em><a class="headerlink" href="#points-lines-triangles" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>The <em>Points</em> section consists of N consecutive entries, where N = # of
+points, each of this form:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">index</span> <span class="no">x y z    (for 3d)</span>
+<span class="nb">index</span> <span class="no">x y      (for 2d)</span>
+</pre></div>
+</div>
+<p>The index value is ignored; it is only added to assist in examining the
+file. When lines and triangles reference point indices they are simply
+ordered from 1 to N, regardless of the actual value of the index in the
+file. <em>X,y,z</em> are the coordinates of the point in distance units. Note
+that for 2d simulations, <em>z</em> should be omitted.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Unless points are on the surface of the simulation box, they will be part of multiple lines or triangles. However, there is no requirement that each point appear exactly once in the <em>Points</em> list.
+For example, a point that is the common corner point of M triangles, could appear 1 or 2 or up to M times. However, if the same point appears multiple times in the <em>Points</em> list, the coordinates of all copies must be numerically identical, in order for SPARTA to verify the surface is a watertight object, as discussed below.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <em>points</em> keyword and <em>Points</em> section are not required. You must either use both or neither. As explained next, an optional format for the <em>Lines</em> or <em>Triangles</em> sections includes point coordinates directly with each line or triangle.</p>
+</div>
+</li>
+<li><p>The <em>Lines</em> section is only allowed for 2d simulations and consists of N
+entries, where N = # of lines. All entries must be in the same format,
+either A or B. If a Points section was included, use format A. If it was
+not, use format B.</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>line-ID (type) p1 p2               # format A
+line-ID (type) p1x p1y p2x p2y     # format B
+</pre></div>
+</div>
+<p>The line-ID is stored internally with the line. If the read_surf
+commmand is reading a single file, the line-IDs should be unique values
+from 1 to N where N is the number of lines specified in the header of
+the file. For a set of multiple files, each line in the collection of
+all files should have a unique ID, and the IDs should range from 1 to N,
+where N is the number of lines specified in the base file. SPARTA does
+not check line-IDs for uniqueness. Note that lines in an individual file
+(single or multiple) do not need to be listed by ID order; they can be
+in any order.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If the read_surf command is used when lines already exist, i.e. to add new lines, then each line-ID is incremented by Nprevious = the # of lines that already exist.</p>
+</div>
+<dl class="simple">
+<dt><em>Type</em></dt><dd><p>is an optional integer value which must be specified for all or none of the lines in the file. If used, it must be a positive integer value for each line. If not specified, the type of each line is set to 1. Line IDs and types can be used to assign lines to surface groups via the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command.</p>
+</dd>
+</dl>
+<p>For format A, <em>p1</em> and <em>p2</em> are the indices of the 2 end points of the
+line segment, as found in the Points section. Each is a value from 1 to
+the # of points, as described above. For format B, (p1x,p1y) and
+(p2x,p2y) are the (x,y) coordinates of the two points (1,2) in the line.</p>
+<p>The ordering of <em>p1</em>, <em>p2</em> is important as it defines the direction of
+the outward normal for the line segment when a particle collides with
+it. Molecules only collide with the “outer” edge of a line segment. This
+is defined by a right-hand rule. The outward normal N = (0,0,1) x
+(p2-p1). In other words, a unit z-direction vector is crossed into the
+vector from <em>p1</em> to <em>p2</em> to determine the normal.</p>
+</li>
+<li><p>The <em>Triangles</em> section is only allowed for 3d simulations and consists
+of N entries, where N = # of triangles. All entries must be in the same
+format, either A or B. If a Points section was included, use format A.
+If it was not, use format B.</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>tri-ID (type) p1 p2 p3                                  # format A
+tri-ID (type) p1x p1y p1z p2x p2y p2z p3x p3y p3z       # format B
+</pre></div>
+</div>
+<p>The tri-ID is stored internally with the line. If the read_surf commmand
+is reading a single file, the tri-IDs should be unique values from 1 to
+N where N is the number of triangles specified in the header of the
+file. For a set of multiple files, each triangle in the collection of
+all files should have a unique ID, and the IDs should range from 1 to N,
+where N is the number of triangles specified in the base file. SPARTA
+does not check tri-IDs for uniqueness. Note that triangles in an
+individual file (single or multiple) do not need to be listed by ID
+order; they can be in any order.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If the read_surf command is used when triangles already exist, i.e. to add new triangles, then each tri-ID is incremented by Nprevious = the # of triangles that already exist.</p>
+</div>
+<dl class="simple">
+<dt><em>Type</em></dt><dd><p>is an optional integer value which must be specified for all or none of the triangles in the file. If used, it must be a positive integer value for each triangle. If not specified, the type of each triangle is set to 1. Triangle IDs and types can be used to assign triangles to surface groups via the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command.</p>
+</dd>
+</dl>
+<p>For format A, <em>p1</em>, <em>p2</em>, and <em>p3</em> are the indices of the 3 corner
+points of the triangle, as found in the Points section. Each is a value
+from 1 to the # of points, as described above. For format B,
+(p1x,p1y,p1z), (p2x,p2y,p2z), and (p3x,p3y,p3z) are the (x,y,z)
+coordinates of the three corner points (1,2,3) of the triangle.</p>
+<p>The ordering of <em>p1</em>, <em>p2</em>, <em>p3</em> is important as it defines the
+direction of the outward normal for the triangle when a particle
+collides with it. Molecules only collide with the “outer” face of a
+triangle. This is defined by a right-hand rule. The outward normal N =
+(p2-p1) x (p3-p1). In other words, the edge from <em>p1</em> to <em>p2</em> is crossed
+into the edge from <em>p1</em> to <em>p3</em> to determine the normal.</p>
+</li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="optional-keywords">
+<h3>Optional keywords<a class="headerlink" href="#optional-keywords" title="Permalink to this headline">¶</a></h3>
+<p>The following optional keywords affect the geometry of the read-in
+surface elements. The geometric transformations they describe are
+performed in the order they are listed, which gives flexibility in how
+surfaces can be manipulated. Note that the order may be important; e.g.
+performing an <em>origin</em> operation followed by a <em>rotate</em> operation may
+not be the same as a <em>rotate</em> operation followed by an <em>origin</em>
+operation.</p>
+<p>Most of the keywords perform a geometric transformation on all the
+vertices in the surface file with respect to an origin point. By default
+the origin is (0.0,0.0,0.0), regardless of the position of individual
+vertices in the file.</p>
+<p id="read-surf-geometry">The <code class="docutils literal notranslate"><span class="pre">origin</span></code> keyword resets the origin to the specified <em>Ox,Oy,Oz</em>. This
+operation has no effect on the vertices.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">trans</span></code> keyword shifts or displaces the origin by the vector
+(Dx,Dy,Dz). It also displaces each vertex by (Dx,Dy,Dz).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">atrans</span></code> keyword resets the origin to an absolute point (Ax,Ay,Az)
+which implies a displacement (Dx,Dy,Dz) from the current origin. It also
+displaces each vertex by (Dx,Dy,Dz).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ftrans</span></code> keyword resets the origin to a fractional point (Fx,Fy,Fz).
+Fractional means that Fx = 0.0 is the lower edge/face in the x-dimension
+and Fx = 1.0 is the upper edge/face in the x-dimension, and similarly
+for Fy and Fz. This change of origin implies a displacement (Dx,Dy,Dz)
+from the current origin. This operation also displaces each vertex by
+(Dx,Dy,Dz).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">scale</span></code> keyword does not change the origin. It computes the
+displacement vector of each vertex from the origin (delx,dely,delz) and
+scales that vector by (Sx,Sy,Sz), so that the new vertex coordinate is
+(Ox + Sx*delx,Oy + Sy*dely,Oz + Sz*delz).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rotate</span></code> keyword does not change the origin. It rotates the
+coordinates of all vertices by an angle <em>theta</em> in a counter-clockwise
+direction, around the vector starting at the origin and pointing in the
+direction <em>Rx,Ry,Rz</em>. Any rotation can be represented by an appropriate
+choice of origin, <em>theta</em> and (Rx,Ry,Rz).</p>
+<p id="read-surf-props">The <code class="docutils literal notranslate"><span class="pre">transparent</span></code> keyword flags all the read in surface elements as transparent,
+meaning particles pass through them. This is useful for tallying flow
+statistics. The <a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide transparent</span></a> command
+must also be used to assign a transparent collision model to those surface
+elements. The <a class="reference internal" href="compute_surf.html#command-compute-surf"><span class="std std-ref">compute surf</span></a> will tally fluxes
+differently for transparent surf elements. The <a class="reference internal" href="Section_howto.html#howto-transparent-surface"><span class="std std-ref">Section
+6.15</span></a> doc page provides an overview of transparent
+surfaces. See those doc pages for details.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">invert</span></code> keyword does not change the origin or any vertex
+coordinates. It flips the direction of the outward surface normal of
+each surface element by changing the ordering of its vertices. Since
+particles only collide with the outer surface of a surface element, this
+is a mechanism for using a surface files containing a single sphere (for
+example) as either a sphere to embed in a flow field, or a spherical
+outer boundary containing the flow.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">clip</span></code> keyword does not change the origin. It truncates or “clips” a
+surface that extends outside the simulation box in the following manner.
+In 3d, each of the 6 clip planes represented by faces of the global
+simulation box are considered in turn. Any triangle that straddles the
+face (with points on both sides of the clip plane), is truncated at the
+plane. New points along the edges that cross the plane are created. A
+triangle may also become a trapezoid, in which case it turned into 2
+triangles. Then all the points on the side of the clip plane that is
+outside the box, are projected onto the clip plane. Finally, all
+triangles that lie in the clip plane are removed, as are any points that
+are unused after the triangle removal. After this operation is repeated
+for all 6 faces, the remaining surface is entirely inside the simulation
+box, though some of its triangles may include points on the faces of the
+simulation box. A similar operation is performed in 2d with the 4 clip
+edges represented by the edges of the global simulation box.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If a surface you clip crosses a periodic boundary, as specified by the <a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">boundary</span></a> command, then the clipping that takes place must be consistent on both the low and high end of the box (in the periodic dimension). This means any point on the boundary that is generated by the clip operation should be generated twice, once on the low side of the box and once on the high side. And those two points must be periodic images of each other, as implied by periodicity.
+If the surface you are reading does not clip in this manner, then SPARTA will likely generate an error about mis-matched or inconsistent cells when it attempts to mark all the grid cells and their corner points as inside vs outside the surface.</p>
+</div>
+<p>If you use the <code class="docutils literal notranslate"><span class="pre">clip</span></code> keyword, you should check the resulting statistics
+of the clipped surface printed out by this command, including the
+minimum size of line and triangle edge lengths. It is possible that very
+short lines or very small triangles will be created near the box surface
+due to the clipping operation, depending on the coordinates of the
+initial unclipped points.</p>
+<p>If this is the case, an optional <code class="docutils literal notranslate"><span class="pre">fraction</span></code> argument can be appended to
+the <code class="docutils literal notranslate"><span class="pre">clip</span></code> keyword. <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> is a unitless value which is converted to
+a distance <code class="docutils literal notranslate"><span class="pre">delta</span></code> in each dimension where delta = fraction * (boxhi -
+boxlo). If a point is nearer than delta to the lo or hi boundary in a
+dimension, the point is moved to be on the boundary, before the clipping
+operation takes place. This can prevent tiny surface elements from being
+created due to clipping. If <code class="docutils literal notranslate"><span class="pre">fraction</span></code> is not specified, the default
+value is 0.0, which means points are not moved. If specified, <code class="docutils literal notranslate"><span class="pre">fraction</span></code>
+must be a value between 0.0 and 0.5.</p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">clip</span></code> operation may delete some surface elements and
+create new ones. Likewise for the points that define the end points or
+corner points of surface element lines (2d) or triangles (3d). The
+resulting altered set of surface elements can be written out to a file
+by the <a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf</span></a> command, which can then be used
+an input to a new simulation or for post-processing and visualization.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When the <code class="docutils literal notranslate"><span class="pre">clip</span></code> operation deletes or adds surface elements, the line-IDs or tri-IDs will be renumbered to produce IDs that are consecutive values from 1 to the # of surface elements. The ID of a surface element that is unclipped may change due to this reordering.</p>
+</div>
+<hr class="docutils" />
+<p id="read-surf-group">The following optional keywords affect group and type settings for the
+read-in surface elements and output of the elements. Also how particles
+are treated when surface elements are added.</p>
+<p>Surface groups are collections of surface elements. Each surface element
+belongs to one or more surface groups; all elements belong to the “all”
+group, which is created by default. Surface group IDs are used by other
+commands to identify a group of suface elements to operate on. See the
+<a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command for more details.</p>
+<p>Every surface element also stores a <code class="docutils literal notranslate"><span class="pre">type</span></code> which is a positive integer.
+<code class="docutils literal notranslate"><span class="pre">Type</span></code> values are useful for flagging subsets of elements or different
+objects in the surface file. For example, a patch of triangles on a
+sphere. Or one sphere out of several that the file contains. Surface
+element types can be used to define surface groups.
+See the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group surf</span></a> command for details.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">group</span></code> keyword specifies an extra surface <code class="docutils literal notranslate"><span class="pre">group-ID</span></code> to assign all
+the read-in surface elements to. All the read-in elements are assigned
+to the “all” group and to <code class="docutils literal notranslate"><span class="pre">group-ID</span></code>. If <code class="docutils literal notranslate"><span class="pre">group-ID</span></code> does not exist, a
+new surface group is created. If it does exist the read-in surface
+elements are added to that group.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">typeadd</span></code> keyword defines an <code class="docutils literal notranslate"><span class="pre">Noffset</span></code> value which is added to the
+type of each read-in surface element. The default is Noffset = 0, which
+means the read-in type values are not altered. If type values are not
+included in the file, they default to 1 for every element, but can still
+be altered by the <code class="docutils literal notranslate"><span class="pre">typeadd</span></code> keyword.</p>
+<p>Note that use of the <code class="docutils literal notranslate"><span class="pre">group</span></code> and <code class="docutils literal notranslate"><span class="pre">typeadd</span></code> keywords allow the same
+surface file to be read multiple times (e.g. with different origins,
+tranlations, rotations, etc) to define multiple objects, and assign
+their surface elements to different groups or different type values.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">particle</span></code> keyword determines how particles in the simulation are
+affected by the new surface elements. If the setting is <code class="docutils literal notranslate"><span class="pre">none</span></code>, which is
+the default, then no particles can exist in the simulation. If the
+setting is <em>check</em>, then particles in grid cells that are inside the new
+watertight surface object(s) or in grid cells intersected by the new
+surface elements are deleted. This is to insure no particles will end up
+inside a surface object, which will typically generate errors when
+particles move. If the setting is <em>keep</em> then no particles are deleted.
+It is up to you to insure that no particles are inside surface
+object(s), else an error may occur later. This setting can be useful if
+a <a class="reference internal" href="remove_surf.html#command-remove-surf"><span class="std std-ref">remove_surf</span></a> was used to remove a surface
+object, and a new object is being read in, and you know the new object
+is smaller than the one it replaced. E.g. for a model of a shrinking or
+ablating object.</p>
+<p id="read-surf-file">If the <code class="docutils literal notranslate"><span class="pre">file</span></code> keyword is used, the surfaces will be written out to the
+specified <code class="docutils literal notranslate"><span class="pre">filename</span></code> immediately after they are read in. The arguments
+for this keyword are identical to those used for the
+<a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf</span></a> command. This includes a file name with
+optional “*” and “%” wildcard characters, as well as its optional
+keywords.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">file</span></code> keyword must be the last keyword specified with the read_isurf command. This is because all the remaining arguments are passed to the <a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf</span></a> command.</p>
+</div>
+<p>The format for the output file is the same as the one written by the
+<a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf</span></a> command, or read by this command. Note
+that it can be useful to write out a new surface file after reading one
+if clipping was performed; the new file will contain the surface element
+altered by clipping and will not contain any surface elements removed by
+clipping.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<p>This command can only be used after the simulation box is defined by the
+<a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a> command, and after a grid has been
+created by the <a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a> command. If particles
+already exist in the simulation, you must insure particles do not end up
+inside the added surfaces. See the <em>particle</em> keyword for options with
+regard to particles.</p>
+<p>To read gzipped surface files, you must compile SPARTA with the
+-DSPARTA_GZIP option - see <a class="reference internal" href="Section_start.html#start-steps-build-make"><span class="std std-ref">Section 2.2</span></a>
+of the manual for details.</p>
+<p>The <em>clip</em> keyword cannot be used when the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global surfs explicit/distributed</span></a> command has been used. This is
+because we have not yet figured out how to clip distributed surfaces.</p>
+<p>Every vertex in the final surface (after translation, rotation, scaling,
+etc) must be inside or on the surface of the global simulation box. Note
+that using the <em>clip</em> operation guarantees that this will be the case.</p>
+<p>The surface elements in a single surface file must represent a
+“watertight” surface. For a 2d simulation this means that every point is
+part of exactly 2 line segments. For a 3d simulation it means that every
+triangle edge is part of exactly 2 triangles. Exceptions to these rules
+allow for triangle edges (in 3d) that lie entirely in a global face of
+the simulation box, or for line points (in 2d) that are on a global edge
+of the simulation box. This can be the case after clipping, which allows
+for use of watertight surface object (e.g. a sphere) that is only
+partially inside the simulation box, but which when clipped to the box
+becomes non-watertight, e.g. half of a sphere.</p>
+<p>Note that this definition of watertight does not require that the
+surface elements in a file represent a single physical object; multiple
+objects (e.g. spheres) can be represented, provided each is watertight.</p>
+<p>Another restriction on surfaces is that they do not represent an object
+that is “infinitely thin”, so that two sides of the same object lie in
+the same plane (3d) or on the same line (2d). This will not generate an
+error when the surface file is read, assuming the watertight rule is
+followed. However when particles collide with the surface, errors will
+be generated if a particle hits the “inside” of a surface element before
+hitting the “outside” of another element. This can occur for infinitely
+thin surfaces due to numeric round-off.</p>
+<p>When running a simulation with multiple objects, read from one or more
+surface files, you should insure they do not touch or overlap with each
+other. SPARTA does not check for this, but it will typically lead to
+unphysical particle dynamics.</p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="read_isurf.html#command-read-isurf"><span class="std std-ref">read_isurf command</span></a>,
+<a class="reference internal" href="write_surf.html#command-write-surf"><span class="std std-ref">write_surf command</span></a></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<p>The default origin for the vertices in the surface file is (0,0,0). The
+defaults for group = all, type = no, toffset = 0, particle = none.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

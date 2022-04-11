@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>read_restart command &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>read_restart command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/read_restart.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="read-restart-command">
+<span id="command-read-restart"></span><span id="index-0"></span><h1>read_restart command<a class="headerlink" href="#read-restart-command" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">read_restart</span> <span class="no">file keyword args ...</span>
+</pre></div>
+</div>
+<ul>
+<li><p>file = name of binary restart file to read in</p></li>
+<li><p>zero or one keyword/args pair may be listed</p>
+<ul>
+<li><p>keywords = gridcut or balance</p>
+<ul>
+<li><p>gridcut arg = cutoff</p>
+<p>cutoff = acquire ghost cells up to this far away (distance units)</p>
+</li>
+<li><p>balance args = same as for balance_grid command</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">read_restart</span> <span class="no">save.10000</span>
+<span class="nb">read_restart</span> <span class="no">restart.*</span>
+<span class="nb">read_restart</span> <span class="no">flow.*.%</span>
+<span class="nb">read_restart</span> <span class="no">save.10000 gridcut -1.0</span>
+<span class="nb">read_restart</span> <span class="no">save.10000 balance rcb cell</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Read in a previously saved simulation from a restart file. This allows
+continuation of a previous run on the same or different number of
+processors. Information about what is stored in a restart file is given
+below. Basically this operation will re-create the simulation box with
+all its particles, the hierarchical grid used to track particles, and
+surface elements embedded in the grid, all with their attributes at the
+point in time the information was written to the restart file by a
+previous simluation.</p>
+<p>Although restart files are saved in binary format to allow exact
+regeneration of information, the random numbers used in the continued
+run will not be identical to those used if the run had been continued.
+Hence the new run will not be identical to the continued original run,
+but should be statistically similar.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Because restart files are binary, they may not be portable to other machines. SPARTA will print an error message if it cannot read a restart file for this reason.</p>
+</div>
+<p>If a restarted run is performed on the same number of processors as the
+original run, then the assignment of grid cells (and their particles) to
+processors will be the same as in the original simulation. If the
+processor count changes, then the assignment will necessarily be
+different. In particular, even if the original assignment was “clumped”,
+meaning each processor’s cells were geometrically compact, the new
+assignment will not be clumped; it will be “dispersed”. See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual for an explanation of
+clumped and dispersed grid cell assignments and their relative
+performance trade-offs.</p>
+<p>Note that the restart file contains the setting for the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global gridcut</span></a> command. If it is &gt;= 0.0 and the assignment of
+grid cells to processors is “dispersed” (as described in the preceeding
+paragraph), and there are surface elements defined in the restart file,
+an error will be triggered. This is because the read_restart command
+needs to mark all the grid cells as inside vs outside the defined
+surface and cannot do this without ghost cell information. As explained
+on the doc page for the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global gridcut</span></a> command, ghost
+cells cannot be setup with gridcut &gt;= 0.0 and “dispersed” grid cells.</p>
+<p>The solution is to use one of the two keywords listed above, either
+<em>gridcut</em> or <em>balance</em>. The former allows you to reset the grid cutoff
+to -1.0 so that ghost cells can be setup. Note however that this means
+each processor will own a copy of all grid cells (at least until you
+change it later), which may be undesirable or even impossible for large
+problems if it requires too much memory. The other solution is to use
+the <em>balance</em> keyword to trigger a re-balance of the grid cells to
+processors as soon as the read_restart command reads them in. The
+arguments for the <em>balance</em> keyword are identical to those for the
+<a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid</span></a> command. If you choose a balancing
+style that results in a “clumped” assignment, then ghost cells will be
+setup successfully.</p>
+<hr class="docutils" />
+<p>Similar to how restart files are written (see the
+<a class="reference internal" href="write_restart.html#command-write-restart"><span class="std std-ref">write_restart</span></a> and <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart</span></a>
+commands), the restart filename can contain two wild-card characters. If
+a “*” appears in the filename, the directory is searched for all
+filenames that match the pattern where “*” is replaced with a timestep
+value. The file with the largest timestep value is read in. Thus, this
+effectively means, read the latest restart file. It’s useful if you want
+your script to continue a run from where it left off. See the
+<a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command and its “upto” option for how to specify the
+run command so it doesn’t need to be changed either.</p>
+<p>If a “%” character appears in the restart filename, SPARTA expects a set
+of multiple files to exist. The <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart</span></a> and
+<a class="reference internal" href="write_restart.html#command-write-restart"><span class="std std-ref">write_restart</span></a> commands explain how such sets
+are created. Read_restart will first read a filename where “%” is
+replaced by “base”. This file tells SPARTA how many processors created
+the set and how many files are in it. Read_restart then reads the
+additional files. For example, if the restart file was specified as
+save.% when it was written, then read_restart reads the files save.base,
+save.0, save.1, … save.P-1, where P is the number of processors that
+created the restart file.</p>
+<p>Note that P could be the total number of processors in the previous
+simulation, or some subset of those processors, if the <em>fileper</em> or
+<em>nfile</em> options were used when the restart file was written; see the
+<a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart</span></a> and <a class="reference internal" href="write_restart.html#command-write-restart"><span class="std std-ref">write_restart</span></a>
+commands for details. The processors in the current SPARTA simulation
+share the work of reading these files; each reads a roughly equal subset
+of the files. The number of processors which created the set can be
+different than the number of processors in the current SPARTA
+simulation. This can be a fast mode of input on parallel machines that
+support parallel I/O.</p>
+<hr class="docutils" />
+<p>A restart file stores only the following information about a simulation,
+as specified by the associated commands:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a></p></li>
+<li><p><a class="reference internal" href="dimension.html#command-dimension"><span class="std std-ref">dimension</span></a></p></li>
+<li><p><a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">simulation box size</span></a> and <a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">boundary    conditions</span></a></p></li>
+<li><p><a class="reference internal" href="global.html#command-global"><span class="std std-ref">global settings</span></a></p></li>
+<li><p>particles with their individual attributes and custom attributes
+defined by fixes</p></li>
+<li><p><a class="reference internal" href="species.html#command-species"><span class="std std-ref">particle species info</span></a></p></li>
+<li><p><a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixtures</span></a></p></li>
+<li><p>geometry of the hierarchical grid that overlays the simulation domain
+as <a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">created</span></a> or <a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read from a    file</span></a></p></li>
+<li><p>geometry of all defined <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">surface elements</span></a></p></li>
+<li><p><a class="reference internal" href="group.html#command-group"><span class="std std-ref">group definitions</span></a> for grid cells and surface
+elements</p></li>
+<li><p>current timestep number</p></li>
+</ul>
+<p>No other information is stored in the restart file. Specifically,
+information about these simulation entities and their associated
+commands is NOT stored:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="seed.html#command-seed"><span class="std std-ref">random number seed</span></a></p></li>
+<li><p><a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">computes</span></a></p></li>
+<li><p><a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fixes</span></a></p></li>
+<li><p><a class="reference internal" href="collide.html#command-collide"><span class="std std-ref">collision model</span></a></p></li>
+<li><p><a class="reference internal" href="react.html#command-react"><span class="std std-ref">chemistry (reaction) model</span></a></p></li>
+<li><p><a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surface collision models</span></a></p></li>
+<li><p><a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surface reaction models</span></a></p></li>
+<li><p>assignment of surfaces/boundaries to surface models</p></li>
+<li><p><a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variables</span></a></p></li>
+<li><p><a class="reference internal" href="region.html#command-region"><span class="std std-ref">regions</span></a></p></li>
+<li><p>output options for <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats</span></a>,
+<a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump</span></a>, <a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart</span></a> files</p></li>
+<li><p><a class="reference internal" href="timestep.html#command-timestep"><span class="std std-ref">timestep size</span></a></p></li>
+</ul>
+<p>This means any information specified in the original input script by
+these commands needs to be re-specified in the restart input script,
+assuming the continued simulation needs the information.</p>
+<p>Also note that many commands can be used after a restart file is read,
+to override a setting that was stored in the restart file. For example,
+the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global</span></a> command can be used to reset the values of
+its specified keywords.</p>
+<p>In particular, take note of the following issues:</p>
+<p>The status of time-averaging fixes, such as <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time</span></a>, <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a>,
+<a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">fix ave/surf</span></a>, does not carry over into the
+restarted run. E.g. if the <em>ave running</em> option is used with those
+commands in the original script and again specified in the restart
+script, the running averaged quantities do not persist into the new run.</p>
+<p>The <a class="reference internal" href="surf_modify.html#command-surf-modify"><span class="std std-ref">surf_modify</span></a> command must be used in the
+restart script to assign surface collision models, specified by the
+<a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide</span></a> command, to all <a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">global boundaries</span></a> of type “s”, and to any surfaces contained
+in the restart file, as read in by the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a>
+command.</p>
+<p>If a collision model is specified in the restart script, and the
+<a class="reference internal" href="collide_modify.html#command-collide-modify"><span class="std std-ref">collide_modify vremax or remain</span></a> command is
+used to enable Vremax and fractional collision count to persist for many
+timesteps, no information about these quantities persists from the
+original simulation to the restarted simulation. The initial run in the
+restart script will re-initialize these data structures.</p>
+<p>If a fix is used which defines custom attributes of particles, the
+vectors or arrays for these attributes are stored in the restart file.
+See the <a class="reference internal" href="fix_ambipolar.html#command-fix-ambipolar"><span class="std std-ref">fix ambipolar command</span></a> as an example; it
+creates a custom vector called “ionambi” and a custom array called
+“velambi”. However, the restart script must specify the same fix before
+the first <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command it uses, so that the same custom
+attributes are re-created, otherwise the custom attribute info from the
+restart file will be deleted.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid command</span></a>,
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf command</span></a>,
+<a class="reference internal" href="write_restart.html#command-write-restart"><span class="std std-ref">write_restart command</span></a>,
+<a class="reference internal" href="restart.html#command-restart"><span class="std std-ref">restart command</span></a></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

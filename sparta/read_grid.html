@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>read_grid command &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>read_grid command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/read_grid.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="read-grid-command">
+<span id="command-read-grid"></span><span id="index-0"></span><h1>read_grid command<a class="headerlink" href="#read-grid-command" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">read_grid</span> <span class="no">filename</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>filename = name of grid file</p></li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">read_grid</span> <span class="no">grid.overlay</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Read in a grid description from a file, which will overlay the
+simulation domain defined by the <a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a>
+command. The grid can also be defined by the
+<a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid</span></a> command.</p>
+<p>The grid in SPARTA is hierarchical. The entire simulation box is a
+single parent grid cell at level 0. It is subdivided into Nx by Ny by Nz
+cells at level 1. Each of those cells can be a child cell (no further
+sub-division) or can be a parent cell which is further subdivided into
+Nx by Ny by Nz cells at level 2. This can recurse to as many levels as
+desired. Different cells can stop recursing at different levels. Each
+parent cell can define its own unique Nx, Ny, Nz values for subdivision.
+Note that a grid with a single level is simply a uniform grid with Nx by
+Ny by Nz cells in each dimension.</p>
+<p>In the current SPARTA implementation, all processors own a copy of all
+parent cells. Each child cell is owned by a unique processor. They are
+assigned by this command to processors in a round-robin fashion, as they
+are created at each level when the file is read. This is a “dispersed”
+assignment of child cells to each processor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual for an explanation of clumped and dispersed grid cell assignments and their relative performance trade-offs.
+The <a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid</span></a> command can be used after the grid is created, to assign child cells to processors in different ways.
+The “fix balance” command can be used to re-assign them in a load-balanced manner periodically during a running simulation.</p>
+</div>
+<hr class="docutils" />
+<p>The specified file can be a text file or a gzipped text file (detected
+by a .gz suffix).</p>
+<p>A grid file contains only a listing of parent cells. Child cells are
+inferred from the parent cell definitions.</p>
+<p>A grid file has a header and a body. The header appears first. The first
+line of the header is always skipped; it typically contains a
+description of the file. Then lines are read one at a time. Lines can
+have a trailing comment starting with ‘#’ that is ignored. If the line
+is blank (only whitespace after comment is deleted), it is skipped. If
+the line contains a header keyword, the corresponding value is read from
+the line. If it doesn’t contain a header keyword, the line begins the
+body of the file.</p>
+<p>The body of the file contains one or more sections. The first line of a
+section has only a keyword. The next line is skipped. The remaining
+lines of the section contain values. The number of lines in a section
+depends on the section keyword as described below. Zero or more blank
+lines can be used between sections. Sections can appear in any order.</p>
+<p>The formatting of individual lines in the grid file (indentation,
+spacing between words and numbers) is not important except that header
+and section keywords must be capitalized as shown and can’t have extra
+white space between their words.</p>
+<p>These are the recognized header keywords (only one for this file).
+Header lines can come in any order. The value(s) are read from the
+beginning of the line. Thus the keyword <em>parents</em> should be in a line
+like “1000 parents”.</p>
+<ul class="simple">
+<li><p><em>parents</em> = # of parent cells in file</p></li>
+</ul>
+<p>These are the recognized section keywords for the body of the file (only
+one for this file).</p>
+<ul class="simple">
+<li><p><em>Parents</em></p></li>
+</ul>
+<p>The <em>Parents</em> section consists of N consecutive entries, where N = # of
+parents, each of this form:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">index</span> <span class="no">parent-ID Nx Ny Nz</span>
+</pre></div>
+</div>
+<p>The index is ignored; it is only added to assist in examining the file.
+Typically, the indices should run consecutively from 1 to N.</p>
+<p>The parent-ID is a string of numbers (one per level) separated by
+dashes, e.g. 12-352-65, where level 1 is the coarsest grid overlaying
+the simulation domain, level 2 is the refined grid within a level 1
+cell, etc.</p>
+<p>The first number in the ID string is which level 1 cell (from 1 to N1)
+this parent cell descends from, the second number is which level 2 cell
+(from 1 to N2) this parent cell descends from, etc. The final number is
+which cell this cell is within its own parent.</p>
+<p>As an example, consider the parent ID 12-352-65. Assume the simulation
+box was partitioned with a 10x10x10 level 1 grid, or 1000 level 1 grid
+cells. These are numbered from 1 to 1000, with x varying fastest, then
+y, finally z. The parent cell with ID 12-352-65 is inside the 12th of
+those level 1 cells. If that cell were sub-divided into 8x6x10 cells,
+there would be 480 level 2 cells within the 12th level 1 cell. The
+parent cell with ID 12-352-65 is inside the 352nd of those level 2
+cells. Likewise it is within the 65th of the level 3 cells inside the
+352nd level 2 cell.</p>
+<p>The Nx, Ny, Nz values determine how the parent cell is sub-divided into
+Nx by Ny by Nz cells at the next level. Each of those cells could be a
+child cell or yet another parent cell. Nz must be specified as 1 for 2d
+grids.</p>
+<p>For example, this entry:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">index</span> <span class="no">12-352-65 2 2 2</span>
+</pre></div>
+</div>
+<p>means the parent cell 12-352-65 at level 3 is further sub-divided into
+2x2x2 level 4 cells. The IDs of the 8 new cells will be 12-352-65-1,
+12-352-65-2, …, 12-352-65-8.</p>
+<p>The lines in the <em>Parents</em> section must be ordered such that no parent
+cell is listed before its own parent cell appears. A simple way to
+insure this is to list the single level 0 cell first, all level 1 parent
+cells next, then level 2 parent cells, etc.</p>
+<p>The parent cell with ID = 0 is a special case. It can be thought of as
+the “root” cell, or the single level 0 cell, which represents the entire
+simulation domain. Its specification in the grid file defines the level
+1 grid that overlays the simulation domain. Thus the first line of the
+<em>Parents</em> section should be formatted something like this:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">1</span> <span class="no">0 10 10 20</span>
+</pre></div>
+</div>
+<p>which means the level 1 grid has 10x10x20 cells.</p>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<p>This command can only be used after the simulation box is defined by the
+<a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a> command.</p>
+<p>To read gzipped grid files, you must compile SPARTA with the
+-DSPARTA_GZIP option - see <a class="reference internal" href="Section_start.html#start-steps-build-make"><span class="std std-ref">Section 2.2</span></a>
+of the manual for details.</p>
+<p>The hierarchical grid used by SPARTA is encoded in a 32-bit or 64-bit
+integer ID. The precision is set by the -DSPARTA_BIG or -DSPARTA_SMALL
+or -DSPARTA_BIGBIG compiler switch, as described in <a class="reference external" href="Section_start.html#start2_2">Section 2.2</a>. The number of grid levels that can
+be used depends on the resolution of the grid at each level. For a
+minimal refinement of 2x2x2, a level uses 4 bits of the integer ID. Thus
+a maximum of 7 levels can be used for 32-bit IDs and 15 levels for
+64-bit IDs.</p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box command</span></a>,
+<a class="reference internal" href="create_grid.html#command-create-grid"><span class="std std-ref">create_grid command</span></a></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

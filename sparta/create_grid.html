@@ -1,0 +1,447 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>create_grid command &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>create_grid command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/create_grid.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="create-grid-command">
+<span id="command-create-grid"></span><span id="index-0"></span><h1>create_grid command<a class="headerlink" href="#create-grid-command" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">create_grid</span> <span class="no">Nx Ny Nz keyword args ...</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Nx,Ny,Nz = size of 1st-level grid in each dimension</p></li>
+<li><p>zero or more keywords/args pairs may be appended</p></li>
+<li><p>keyword = <em>level</em> or <em>region</em> or <em>stride</em> or <em>clump</em> or <em>block</em> or
+<em>random</em> or <em>inside</em></p>
+<ul>
+<li><p>level args = Nlevel Px Py Pz Cx Cy Cz</p>
+<ul>
+<li><p>Nlevel = level from 2 to M, must be in ascending order</p></li>
+<li><p>Px Py Pz = range of parent cells in each dimension in which to create child cells</p></li>
+<li><p>Cx Cy Cz = size of child grid in each dimension within parent cells</p></li>
+</ul>
+</li>
+<li><p>region args = Nlevel reg-ID Cx Cy Cz</p>
+<ul>
+<li><p>Nlevel = level from 2 to M, must be in ascending order</p></li>
+<li><p>reg-ID = ID of region which parent cells must be in to create child cells</p></li>
+<li><p>Cx Cy Cz = size of child grid in each dimension within parent cells</p></li>
+</ul>
+</li>
+<li><p>stride arg = xyz or xzy or yxz or yzx or zxy or zyx</p></li>
+<li><p>clump arg = xyz or xzy or yxz or yzx or zxy or zyx</p></li>
+<li><p>block args = Px Py Pz</p>
+<ul>
+<li><p>Px,Py,Pz = # of processors in each dimension</p></li>
+</ul>
+</li>
+<li><p>random args = none</p></li>
+<li><p>inside args = any or all</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">create_grid</span> <span class="no">10 10 10</span>
+<span class="nb">create_grid</span> <span class="no">10 10 10 block * * *</span>
+<span class="nb">create_grid</span> <span class="no">10 10 10 block 4 2 5</span>
+<span class="nb">create_grid</span> <span class="no">10 10 10 level 2 * * * 2 2 3</span>
+<span class="nb">create_grid</span> <span class="no">20 10 1 level 2 10*15 3*7 1 2 2 1</span>
+<span class="nb">create_grid</span> <span class="no">20 10 1 region 2 b2 2 2 1 region 3 b3 2 3 1 inside any</span>
+<span class="nb">create_grid</span> <span class="no">20 10 1 level 2 10*15 3*7 1 2 2 1 region 3 b3 2 3 1</span>
+<span class="nb">create_grid</span> <span class="no">8 8 10 level 2 5* * * 4 4 4 level 3 1 2*3 3* 2 2 1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Overlay a grid over the simulation domain defined by the
+<a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a> command. The grid can also be defined
+by the <a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid</span></a> command.</p>
+<p>The grid in SPARTA is hierarchical, as described in <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section
+howto</span></a>. The entire simulation box is a single parent grid cell at
+level 0. It is subdivided into Nx by Ny by Nz cells at level 1. Each of those
+cells can be a child cell (no further sub-division) or can be a parent cell
+which is further subdivided into Nx by Ny by Nz cells at level 2. This can
+recurse to as many levels as desired. Different cells can stop recursing at
+different levels. Each parent cell can define its own unique Nx, Ny, Nz values
+for subdivision.  Note that a grid with a single level is simply a uniform grid
+with Nx by Ny by Nz cells in each dimension.</p>
+<p>In the current SPARTA implementation, all processors own a copy of all
+parent cells. Each child cell is owned by a unique processor. The
+details of how child cells are assigned to processors by the various
+options of this command are described below. The cells assigned to each
+processor will either be “clumped” or “dispersed”.</p>
+<p>The <em>clump</em> and <em>block</em> keywords will produce clumped assignments of
+child cells to each processor. This means each processor’s cells will be
+geometrically compact. The <em>stride</em> and <em>random</em> keywords, as well as
+the round-robin assignment scheme for grids with multiple levels
+(described below), will produce dispersed assignments of child cells to
+each processor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual for an explanation of clumped and dispersed grid cell assignments and their relative performance trade-offs.
+The <a class="reference internal" href="balance_grid.html#command-balance-grid"><span class="std std-ref">balance_grid</span></a> command can be used after the grid is created, to assign child cells to processors in different ways. The “fix balance” command can be used to re-assign them in a load-balanced manner periodically during a running simulation.</p>
+</div>
+<hr class="docutils" />
+<p>A single-level grid is defined by specifying only the arguments <em>Nx</em>,
+<em>Ny</em>, <em>Nz</em>, with no additional <em>level</em> or <em>region</em> keywords. This will
+create a uniform Nx by Ny by Nz grid of child cells. For 2d simulations,
+<em>Nz</em> must equal 1.</p>
+<p>For single-level grids, one of the keywords <em>stride</em>, <em>clump</em>, <em>block</em>,
+or <em>random</em> can be used to determine which processors are assigned which
+cells in the grid. The <em>inside</em> keyword is ignored for single-level
+grids. If no keyword is used, the cells are assigned in round-robin
+fashion, so that each processor is assigned every Pth grid cell, where P
+= the number of processors. This is the same as “stride xyz” in the
+discussion below.</p>
+<p>The <em>stride</em> keyword means that every Pth cell is assigned to the same
+processor, where P is the number of processors. E.g. if there are 100
+cells and 10 processors, then the 1st processor (proc 0) will be
+assigned cells 1,11,21, …, 91. The 2nd processor (proc 1) will be
+assigned cells 2,12,22 …, 92. The 10th processor (proc 9) will be
+assigned cells 10,20,30, …, 100.</p>
+<p>The <em>clump</em> keyword means that the Pth clump of cells is assigned to the
+same processor, where P is the number of processors. E.g. if there are N
+= 100 cells and 10 processors, then the 1st processor (proc 0) will be
+assigned cells 1 to 10. The 2nd processor (proc 1) will be assigned
+cells 11 to 20. And The 10th processor (proc 9) will be assigned cells
+91 to 100.</p>
+<p>The argument for <em>stride</em> and <em>clump</em> determines how the N grid cells
+are ordered and is some permutation of the letters <em>x</em>, <em>y</em>, and <em>z</em>.
+Each of the N cells has 3 indices (I,J,K) to describe its location in
+the 3d grid. If the stride argument is yxz, then the cells will be
+ordered from 1 to N with the y dimension (J index) varying fastest, the
+x dimension next (I index), and the z dimension slowest (K index).</p>
+<p>The <em>block</em> keyword maps the P processors to a <em>Px</em> by <em>Py</em> by <em>Pz</em>
+logical grid that overlays the actual <em>Nx</em> by <em>Ny</em> by <em>Nz</em> grid. This
+effectively assigns a contiguous 3d sub-block of cells to each
+processor.</p>
+<p>Any of the <em>Px</em>, <em>Py</em>, <em>Pz</em> parameters can be specified with an asterisk
+“*”, in which case SPARTA will choose the number of processors in that
+dimension. It will do this based on the size and shape of the global
+grid so as to minimize the surface-to-volume ratio of each processor’s
+sub-block of cells.</p>
+<p>The product of Px, Py, Pz must equal P, the total # of processors SPARTA
+is running on. For a 2d simulation, Pz must equal 1. If multiple
+partitions are being used then P is the number of processors in this
+partition; see <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">Section 2.6</span></a> for an
+explanation of the -partition command-line switch.</p>
+<p>Note that if you run on a large, prime number of processors P, then a
+grid such as 1 x P x 1 will be required, which may incur extra
+communication costs.</p>
+<p>The <em>random</em> keyword means that each grid cell will be assigned randomly
+to one of the processors. Note that in this case different processors
+will typically not be assigned exactly the same number of cells.</p>
+<hr class="docutils" />
+<p>A hierarchical grid with more than one level can be defined using the
+<em>level</em> or <em>region</em> keywords one or more times with <em>Nlevel</em> in
+ascending order, starting with <em>Nlevel</em> = 2. At each level the <em>level</em>
+or <em>region</em> keyword can be used interchangeably. Child cells (at any
+level) are assigned to processors in round-robin fashion, so that each
+processor is assigned every Pth grid cell, where P = the number of
+processors.</p>
+<p>Note that the keywords <em>stride</em>, <em>clump</em>, <em>block</em>, or <em>random</em> cannot be
+used with a hierarchical grid. The keyword <em>inside</em> can be used, but it
+must come after all the <em>level</em> or <em>region</em> keywords.</p>
+<p>For the <em>level</em> keyword, the Px, Py, Pz arguments specify which cells in
+the previous level are flagged as parents and sub-divided to create
+cells at the new level. For example, if the level 1 grid is 100x100x100,
+then Px, Py, Pz for level 2 could select any contiguous range of cells
+from 1 to 100 in x, y, or z. If the level 2 grid is 4x4x2 within any
+level 1 cell (as set by Cx, Cy, Cz), then Px, Py, Pz for level 3 could
+select any contiguous range of cells from 1 to 4 in x, y and 1 to 2 in
+z.</p>
+<p>Each of the Px, Py, Pz arguments can be a single number or be specified
+with a wildcard asterisk, as in the examples above. For example, Px can
+be specified as “*” or “<em>n” or “n</em>” or “m*n”. If N = the number of grid
+cells in the x-direction in the previous level as defined by Nx (or Cx),
+then an asterisk with no numeric values means all cells with indices
+from 1 to N. A leading asterisk means all indices from 1 to n
+(inclusive). A trailing asterisk means all indices from n to N
+(inclusive). A middle asterisk means all indices from m to n
+(inclusive).</p>
+<p>The Cx, Cy, Cz arguments are the number of new cells (in each dimension)
+to partition each selected parent cell into. For 2d simulations, <em>Cz</em>
+must equal 1. Note that for each new level, only grid cells that exist
+in the previous level are partitioned further. E.g. level 3 cells are
+only added to level 2 cells that exist, since some level 1 cells may not
+have been partitioned into level 2 cells.</p>
+<p>This command creates a two-level grid:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">create_grid</span> <span class="no">10 10 10 level 2 * * * 2 2 3</span>
+</pre></div>
+</div>
+<p>The 1st level is 10x10x10. Each of the 1000 level 1 cells is further
+partitioned into 2x2x3 cells. This means the total number of level 2
+cells is 1000 * 12 = 12000. The resulting grid thus has 1001 parent
+cells (the simulation box plus the 1000 level 1 cells), and 12000 child
+cells.</p>
+<p>This command creates a 3-level grid:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">create_grid</span> <span class="no">8 8 10 level 2 5* * * 4 4 4 level 3 1 2*3 3* 2 2 1</span>
+</pre></div>
+</div>
+<p>The last example above creates a 3-level grid. The first level is
+8x8x10. The second level is 4x4x4 within each 1st level cell, but only
+half or 320 of the 640 level 1 cells are partitioned, namely those with
+x indices from 5 to 8. Those with x indices from 1 to 4 remain as level
+1 cells. Some of the level 2 cells are further partitioned into 2x2x1
+level 3 cells. For the 4x4x4 level 2 grid within 320 or the level 1
+cells, only the level 2 cells with x index = 1, y index = 2-3, and
+z-index = 3-4 are further partitioned into level 3 cells, which is just
+4 of the 64 level 2 cells.</p>
+<p>The resulting grid thus has 1601 parent cells: 1 for the simulation box,
+320 level 1 cells, and 1280 level 2 cells. It has 24640 child cells: 320
+level 1 cells, 19200 level 2 cells, and 5120 level 3 cells.</p>
+<p>For the <em>region</em> keyword, the subset of cells in the previous level
+which are flagged as parents and sub-divided is determined by which of
+them are in the geometric region specified by <em>reg-ID</em>.</p>
+<p>The <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command can define volumes for simple
+geometric objects such as a sphere or rectangular block. It can also
+define unions or intersections of simple objects or other union or
+intersection objects. by defining an appropriate region, a complex
+portion of the simulation domain can be refined to a new level.</p>
+<p>Each grid cell at the previous level is tested to see whether it is “in”
+the region. The <em>inside</em> keyword determines how this is done. If
+<em>inside</em> is set to <em>any</em> which is the default, then the grid cell is in
+the region if any of its corner points (4 in 2d, 8 in 3d) is in the
+region. If <em>inside</em> is set to <em>all</em>, then all 4 or 8 corner points must
+be in the region for the grid cell itself to be in the region. Note that
+the <em>side</em> option for the <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command can be used
+to define whether the inside or outside of the geometric region is
+considered to be “in” the region.</p>
+<p>If the grid cell is in the region, then it is refined using the Cx, Cy,
+Cz arguments in the same manner that the <em>level</em> keyword uses them.
+Examples for the use of the <em>region</em> keyword are given above.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<p>This command can only be used after the simulation box is defined by the
+<a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box</span></a> command.</p>
+<p>The hierarchical grid used by SPARTA is encoded in a 32-bit or 64-bit
+integer ID. The precision is set by the -DSPARTA_BIG or -DSPARTA_SMALL
+or -DSPARTA_BIGBIG compiler switch, as described in <a class="reference internal" href="Section_start.html#start-steps-build-make"><span class="std std-ref">Section 2.2</span></a>. The number of grid levels that can
+be used depends on the resolution of the grid at each level. For a
+minimal refinement of 2x2x2, a level uses 4 bits of the integer ID. Thus
+for this style of refinement a maximum of 7 levels can be used for
+32-bit IDs and 15 levels for 64-bit IDs.</p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="create_box.html#command-create-box"><span class="std std-ref">create_box command</span></a>,
+<a class="reference internal" href="read_grid.html#command-read-grid"><span class="std std-ref">read_grid command</span></a></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<p>The only keyword with a default setting is inside = any.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

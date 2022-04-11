@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SPARTA Documentation &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Introduction" href="Section_intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>SPARTA Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sparta-documentation">
+<span id="index"></span><h1>SPARTA Documentation<a class="headerlink" href="#sparta-documentation" title="Permalink to this headline">¶</a></h1>
+<p><strong>SPARTA</strong> stands for <strong>S</strong>tochastic <strong>P</strong>Arallel <strong>R</strong>arefied-gas <strong>T</strong>ime-accurate <strong>A</strong>nalyzer.</p>
+<p><strong>Version info</strong></p>
+<p>The SPARTA “version” is the date when it was released, such as 3 Mar
+2014. SPARTA is updated continuously. Whenever we fix a bug or add a
+feature, we release it immediately, and post a notice on <a class="reference external" href="http://sparta.sandia.gov/bug.html">this page of the WWW site</a>. Each dated copy of
+SPARTA contains all the features and bug-fixes up to and including that
+version date. The version date is printed to the screen and logfile
+every time you run SPARTA. It is also in the file src/version.h and in
+the SPARTA directory name created when you unpack a tarball, and at the
+top of the first page of the manual (this page).</p>
+<ul class="simple">
+<li><p>If you browse the HTML doc pages on the SPARTA WWW site, they always
+describe the most current version of SPARTA.</p></li>
+<li><p>If you browse the HTML doc pages included in your tarball, they
+describe the version you have.</p></li>
+<li><p>The PDF file on the WWW site or in the tarball is
+updated about once per month. This is because it is large, and we
+don’t want it to be part of very patch.</p></li>
+<li><p>At some point, there also will be a <span class="xref std std-ref">Developer.pdf</span>
+file in the doc directory, which describes the internal structure and
+algorithms of SPARTA. NOTE: as of 21 Apr 2015, this file is not yet
+available.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The source for this version of the manual is in the <a class="reference external" href="https://github.com/fiolj/sparta/tree/docs">docs branch of this fork</a>.</p></li>
+<li><p>The <a class="reference external" href="https://fiolj.github.io/data/sparta-manual.pdf">PDF</a> and <a class="reference external" href="https://fiolj.github.io/data/sparta-manual.epub">EPUB</a> files for this reformatted version are also available.</p></li>
+</ul>
+</div>
+<p>SPARTA is a Direct Simulation Monte Carlo (DSMC) simulator designed to
+run efficiently on parallel computers. It was developed at Sandia
+National Laboratories, a US Department of Energy facility, with funding
+from the DOE. It is an open-source code, distributed freely under the
+terms of the GNU Public License (GPL), or sometimes by request under the
+terms of the GNU Lesser General Public License (LGPL).</p>
+<p>The primary developers of SPARTA are <a class="reference external" href="http://www.sandia.gov/~sjplimp">Steve Plimpton</a>, and Michael Gallis who can
+be contacted at sjplimp,magalli at sandia.gov. The <a class="reference external" href="http://sparta.sandia.gov">SPARTA WWW Site</a> at <a class="reference external" href="http://sparta.sandia.gov">http://sparta.sandia.gov</a> has more
+information about the code and its uses.</p>
+<hr class="docutils" />
+<p>The SPARTA documentation is organized into the following sections. If
+you find errors or omissions in this manual or have suggestions for
+useful information to add, please send an email to the developers so we
+can improve the SPARTA documentation.</p>
+<p>Once you are familiar with SPARTA, you may want to bookmark <a class="reference internal" href="Section_commands.html#commands-individual"><span class="std std-ref">this page</span></a> since it gives quick access to
+documentation for all SPARTA commands.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Section_intro.html#what-is-sparta">1.1. What is SPARTA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_intro.html#sparta-features">1.2. SPARTA features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_intro.html#grids-and-surfaces-in-sparta">1.3. Grids and surfaces in SPARTA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_intro.html#open-source-distribution">1.4. Open source distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_intro.html#acknowledgments-and-citations">1.5. Acknowledgments and citations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Section_start.html#what-s-in-the-sparta-distribution">2.1. What’s in the SPARTA distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_start.html#making-sparta">2.2. Making SPARTA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_start.html#making-sparta-with-optional-packages">2.3. Making SPARTA with optional packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_start.html#building-sparta-as-a-library">2.4. Building SPARTA as a library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_start.html#running-sparta">2.5. Running SPARTA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_start.html#command-line-options">2.6. Command-line options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_start.html#sparta-screen-output">2.7. SPARTA screen output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Section_commands.html#sparta-input-script">3.1. SPARTA input script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_commands.html#parsing-rules">3.2. Parsing rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_commands.html#input-script-structure">3.3. Input script structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_commands.html#commands-listed-by-category">3.4. Commands listed by category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_commands.html#individual-commands">3.5. Individual commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Section_packages.html#fft-package">4.1. FFT package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_packages.html#kokkos-package">4.2. KOKKOS package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Section_accelerate.html#measuring-performance">5.1. Measuring performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_accelerate.html#packages-with-optimized-styles">5.2. Packages with optimized styles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Section_howto.html#d-simulations">6.1. 2d simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_howto.html#axisymmetric-simulations">6.2. Axisymmetric simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_howto.html#running-multiple-simulations-from-one-input-script">6.3. Running multiple simulations from one input script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_howto.html#output-from-sparta-stats-dumps-computes-fixes-variables">6.4. Output from SPARTA (stats, dumps, computes, fixes, variables)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_howto.html#visualizing-sparta-snapshots">6.5. Visualizing SPARTA snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_howto.html#library-interface-to-sparta">6.6. Library interface to SPARTA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_howto.html#coupling-sparta-to-other-codes">6.7. Coupling SPARTA to other codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_howto.html#details-of-grid-geometry-in-sparta">6.8. Details of grid geometry in SPARTA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_howto.html#details-of-surfaces-in-sparta">6.9. Details of surfaces in SPARTA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_howto.html#restarting-a-simulation">6.10. Restarting a simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_howto.html#using-the-ambipolar-approximation">6.11. Using the ambipolar approximation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_howto.html#using-multiple-vibrational-energy-levels">6.12. Using multiple vibrational energy levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_howto.html#surface-elements-explicit-implicit-distributed">6.13. Surface elements: explicit, implicit, distributed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_howto.html#implicit-surface-ablation">6.14. Implicit surface ablation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_howto.html#transparent-surface-elements">6.15. Transparent surface elements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Section_tools.html#dump2cfg-tool">9.1. dump2cfg tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_tools.html#dump2xyz-tool">9.2. dump2xyz tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_tools.html#grid-refine-tool">9.3. grid_refine tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_tools.html#implicit-grid-tool">9.4. implicit_grid tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_tools.html#jagged-tools">9.5. jagged tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_tools.html#log2txt-tool">9.6. log2txt tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_tools.html#logplot-tool">9.7. logplot tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_tools.html#paraview-tools">9.8. paraview tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_tools.html#stl2surf-tool">9.9. stl2surf tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_tools.html#surf-create-tool">9.10. surf_create tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_tools.html#surf-transform-tool">9.11. surf_transform tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Section_modify.html#compute-styles">10.1. Compute styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_modify.html#fix-styles">10.2. Fix styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_modify.html#region-styles">10.3. Region styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_modify.html#collision-styles">10.4. Collision styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_modify.html#surface-collision-styles">10.5. Surface collision styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_modify.html#chemistry-styles">10.6. Chemistry styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_modify.html#dump-styles">10.7. Dump styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_modify.html#input-script-commands">10.8. Input script commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Section_python.html#building-sparta-as-a-shared-library">11.1. Building SPARTA as a shared library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_python.html#installing-the-python-wrapper-into-python">11.2. Installing the Python wrapper into Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_python.html#extending-python-with-mpi-to-run-in-parallel">11.3. Extending Python with MPI to run in parallel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_python.html#testing-the-python-sparta-interface">11.4. Testing the Python-SPARTA interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_python.html#using-sparta-from-python">11.5. Using SPARTA from Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_python.html#example-python-scripts-that-use-sparta">11.6. Example Python scripts that use SPARTA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Section_errors.html#common-problems">12.1. Common problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_errors.html#reporting-bugs">12.2. Reporting bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_errors.html#error-warning-messages">12.3. Error &amp; warning messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Section_history.html#coming-attractions">13.1. Coming attractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_history.html#past-versions">13.2. Past versions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="command-index">
+<h2>Command Index<a class="headerlink" href="#command-index" title="Permalink to this headline">¶</a></h2>
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Command index</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Section_intro.html" class="btn btn-neutral float-right" title="1. Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

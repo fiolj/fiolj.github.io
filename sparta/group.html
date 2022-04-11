@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>group command &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>group command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/group.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="group-command">
+<span id="command-group"></span><span id="index-0"></span><h1>group command<a class="headerlink" href="#group-command" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">group</span> <span class="no">ID which style args</span>
+</pre></div>
+</div>
+<ul>
+<li><p>ID = user-defined name of the grid or surface group</p></li>
+<li><p>which = <em>grid</em> or <em>surf</em></p></li>
+<li><p>style options for which = grid: <em>region</em> or <em>subtract</em> or <em>union</em> or
+<em>intersect</em> or <em>clear</em></p></li>
+<li><p>style options for which = surf: <em>type</em> or <em>id</em> or <em>region</em> or
+<em>subtract</em> or <em>union</em> or <em>intersect</em> or <em>clear</em></p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span>type or id args
+  args = list of one or more surface element types or IDs
+    any entry in list can be a range formatted as A:B
+    A = starting index, B = ending index
+  args = logical value
+    logical = &quot;&lt;&quot; or &quot;&lt;=&quot; or &quot;&gt;&quot; or &quot;&gt;=&quot; or &quot;==&quot; or &quot;!=&quot;
+    value = a surface element type or ID
+  args = logical value1 value2
+    logical = &quot;&lt;&gt;&quot;
+    value1,value2 = surface element types or IDs
+region args = region-ID rflag
+  region-ID = ID of region which grid cell or surface element must be in
+  rflag = one or all or center
+    any = one (or more) corner points of grid cell or surface element in region
+    all = all corner points of grid cell or surface element in region
+    any = center point of grid cell or surface element in region
+subtract args = two or more group IDs
+union args = one or more group IDs
+intersect args = two or more group IDs
+clear = no args
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">group</span> <span class="no">sphere surf type 1 3</span>
+<span class="nb">group</span> <span class="no">sphere surf id 50 100:150</span>
+<span class="nb">group</span> <span class="no">sphere surf id &lt;= 1000</span>
+<span class="nb">group</span> <span class="no">sphere surf id &lt;&gt; 50 250</span>
+<span class="nb">group</span> <span class="no">patch grid region leftedge</span>
+<span class="nb">group</span> <span class="no">patch surf region cutout</span>
+<span class="nb">group</span> <span class="no">boundary surf subtract all a2 a3</span>
+<span class="nb">group</span> <span class="no">boundary grid union lower upper</span>
+<span class="nb">group</span> <span class="no">boundary surf union lower upper</span>
+<span class="nb">group</span> <span class="no">boundary surf intersect upper leftside</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Assign grid cells to grid groups or surface elements to surface groups.
+In SPARTA, a “grid group” is a collection of one or more grid cells. A
+“surface” group is a collection of one or more surface elements (line
+segements in 2d, triangles in 3d). Other commands take group IDs as
+arguments so that they act on a set of grid cells or surface elements.
+For example, see the <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid</span></a>, <a class="reference internal" href="compute_surf.html#command-compute-surf"><span class="std std-ref">compute surf</span></a>, <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a>, <a class="reference internal" href="fix_ave_surf.html#command-fix-ave-surf"><span class="std std-ref">fix ave/surf</span></a>, <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a>, or <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump surf</span></a> commands.</p>
+<p>An individual grid cell can belong to multiple grid groups. An
+individual surface element can belong to multiple surface groups. Each
+grid or surface group has a name which is specified as the <em>ID</em> in this
+command. Each grid group and surface group ID must be unique, though the
+same ID can be used for both a grid and surface group. IDs can only
+contain alphanumeric characters and underscores.</p>
+<p>If the specified group ID already exists, grid cells or surface elements
+are added to the group. Otherwise a new group is created. This means the
+group command can be used multiple times with the same group ID to
+incrementally add grid cells or surface elements to the group.</p>
+<p>A grid group with the ID <em>all</em> is pre-defined. All grid cells belong to
+this group. Likewise, a surface group with the ID <em>all</em> is pre-defined.
+All surface elements belong to this group.</p>
+<p>After this command has performed its grid cell or surface elements
+assignments, statistics about the group are printed to the screen, so
+that you can check if the command operated as you expect.</p>
+<p>Note that this command assigns all flavors of child grid cells to
+groups, which includes unsplit, cut, split, and sub cells. See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual gives details of how
+SPARTA defines child, unsplit, split, and sub cells.</p>
+<hr class="docutils" />
+<p>The following styles can be used for grid groups.</p>
+<p>The <em>region</em> style puts all grid cells in the region volume associated
+with the <em>region-ID</em> into the group. See the <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a>
+command for details on what kind of geometric regions can be defined.
+Note that the <em>side</em> option for the <a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command can
+be used to define whether the inside or outside of the geometric region
+is considered to be “in” the region.</p>
+<p>The <em>rflag</em> setting determines how a grid cell is judged to be in the
+region or not. For <em>rflag</em> = <em>one</em>, it is in the region if any of its
+corner points (4 for 2d, 8 for 3d) is in the region. For <em>rflag</em> =
+<em>all</em>, all its corner points must be in the region. For <em>rflag</em> =
+<em>center</em>, the center point of the grid cell must be in the region.</p>
+<hr class="docutils" />
+<p>The following styles can be used for surface groups.</p>
+<p>The <em>type</em> and <em>id</em> styles put all surface elements with the specified
+types or surface element IDs into the group. These two styles can use
+arguments specified in one of two formats.</p>
+<p>For surface elements, the “type” of each element is defined when the
+elements are read from a surface file, via the
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command. In the file, a positive integer
+type value can be optionally defined for each element (default = 1). The
+specified type values can also be incremented using the <em>typeadd</em>
+keyword of the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> commmand.</p>
+<p>For surface elements, the “ID” of each element is simply its index from
+1 to N, for all N surface elements that have been read in via the
+<a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf</span></a> command. The ordering of IDs is
+determined by the order the elements appear in the read-in surface file.
+If multiple files are read (or the same file multiple times), IDs
+increase monotonically each time new surface elements are added.</p>
+<p>The first format is a list of values (types or IDs). For example, the
+first command in the examples above puts all surface elements of type 1
+and 3 into the group named sphere. Each entry in the list can optionally
+be a colon-separated range A:B, as in the second axample above. A
+“range” is a series of values (types or IDs). The second example with
+100:150 adds all surface elements with IDs from 100 to 150 (inclusive)
+to the group named sphere, along with element 50 since it also appears
+in the list of values.</p>
+<p>The second format is a logical operator followed by one or two values
+(type or ID). The 7 valid logicals are listed above. All the logicals
+except “&lt;&gt;” take a single argument. The third example above adds all
+surface elements with IDs from 1 to 1000 to the group named sphere. The
+logical “&lt;&gt;” means “between” and takes 2 arguments. The fourth example
+above adds all surface elements IDs from 50 to 250 (inclusive) to the
+group named sphere.</p>
+<p>The <em>region</em> style puts all surface elements in the region volume
+associated with the <em>region-ID</em> into the group. See the
+<a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command for details on what kind of geometric
+regions can be defined. Note that the <em>side</em> option for the
+<a class="reference internal" href="region.html#command-region"><span class="std std-ref">region</span></a> command can be used to define whether the
+inside or outside of the geometric region is considered to be “in” the
+region.</p>
+<p>The <em>rflag</em> setting determines how a surface element is judged to be in
+the region or not. For <em>rflag</em> = <em>one</em>, it is in the region if any of
+its corner points (3 for triangle, 2 for line) is in the region. For
+<em>rflag</em> = <em>all</em>, all its corner points must be in the region. For
+<em>rflag</em> = <em>center</em>, the center point of the line segment or centroid
+point of the triangle must be in the region.</p>
+<hr class="docutils" />
+<p>The following styles can be used for either grid or surface groups.</p>
+<p>The <em>subtract</em> style takes a list of two or more existing group names as
+arguments. All grid cells or surface elements that belong to the 1st
+group, but not to any of the other groups are added to the specified
+group.</p>
+<p>The <em>union</em> style takes a list of one or more existing group names as
+arguments. All grid cells or surface elements that belong to any of the
+listed groups are added to the specified group.</p>
+<p>The <em>intersect</em> style takes a list of two or more existing group names
+as arguments. Grid cells or surface elements that belong to every one of
+the listed groups are added to the specified group.</p>
+<p>The <em>clear</em> style un-assigns all grid cells or surface elements that
+were assigned to that group. This is a way to empty a group before
+adding more grid cells or surface elements to it.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<p>No more than 32 grid groups and no more than 32 surface groups can be
+defined, including “all”.</p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump command</span></a>,
+<a class="reference internal" href="region.html#command-region"><span class="std std-ref">region command</span></a>,
+<a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid</span></a>
+<a class="reference internal" href="compute_surf.html#command-compute-surf"><span class="std std-ref">compute surf</span></a></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<p>All grid cells belong to the “all” grid group. All surface elements
+belong to the “all” surface group.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,967 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>14.114. variable command &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>14.114. variable command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/variable.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="variable-command">
+<span id="command-variable"></span><span id="index-0"></span><h1>variable command<a class="headerlink" href="#variable-command" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="syntax">
+<h1>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">name style args ...</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>name = name of variable to define</p></li>
+<li><p>style = <code class="docutils literal notranslate"><span class="pre">delete</span></code> or <code class="docutils literal notranslate"><span class="pre">index</span></code> or <code class="docutils literal notranslate"><span class="pre">loop</span></code> or <code class="docutils literal notranslate"><span class="pre">world</span></code> or <code class="docutils literal notranslate"><span class="pre">universe</span></code> or
+<code class="docutils literal notranslate"><span class="pre">uloop</span></code> or <code class="docutils literal notranslate"><span class="pre">string</span></code> or <code class="docutils literal notranslate"><span class="pre">format</span></code> or <code class="docutils literal notranslate"><span class="pre">getenv</span></code> or <code class="docutils literal notranslate"><span class="pre">file</span></code> or <code class="docutils literal notranslate"><span class="pre">internal</span></code>
+or <code class="docutils literal notranslate"><span class="pre">equal</span></code> or <code class="docutils literal notranslate"><span class="pre">particle</span></code> or <code class="docutils literal notranslate"><span class="pre">grid</span></code></p>
+<ul>
+<li><p>delete = no args</p></li>
+<li><p>index args = one or more strings</p></li>
+<li><p>loop args = N
+- N = integer size of loop, loop from 1 to N inclusive</p></li>
+<li><p>loop args = N pad
+- N = integer size of loop, loop from 1 to N inclusive
+- pad = all values will be same length, e.g. 001, 002, …, 100</p></li>
+<li><p>loop args = N1 N2
+-   N1,N2 = loop from N1 to N2 inclusive</p></li>
+<li><p>loop args = N1 N2 pad
+- N1,N2 = loop from N1 to N2 inclusive
+- pad = all values will be same length, e.g. 050, 051, …, 100</p></li>
+<li><p>world args = one string for each partition of processors</p></li>
+<li><p>universe args = one or more strings</p></li>
+<li><p>uloop args = N
+- N = integer size of loop</p></li>
+<li><p>uloop args = N pad
+- N = integer size of loop
+- pad = all values will be same length, e.g. 001, 002, …, 100</p></li>
+<li><p>string arg = one string</p></li>
+<li><p>format args = vname fstr
+- vname = name of equal-style variable to evaluate
+- fstr = C-style format string</p></li>
+<li><p>getenv arg = one string</p></li>
+<li><p>file arg = filename</p></li>
+<li><p>internal arg = numeric value</p></li>
+<li><p>equal or particle or grid args = one formula containing numbers, stats keywords, math operations, particle vectors, compute/fix/variable references</p>
+<ul>
+<li><p>numbers = 0.0, 100, -5.4, 2.8e-4, etc</p></li>
+<li><p>constants = PI</p></li>
+<li><p>stats keywords = step, np, vol, etc from stats_style</p></li>
+<li><p>math operators = (), -x, x+y, x-y, x*y, x/y, x^y, x%y,</p></li>
+<li><p>x==y, x!=y, xy, x&gt;=y, x&amp;&amp;y, x||y, !x</p></li>
+<li><p>math functions =</p>
+<ul>
+<li><p>sqrt(x), exp(x), ln(x), log(x), abs(x),</p></li>
+<li><p>sin(x), cos(x), tan(x), asin(x), acos(x), atan(x), atan2(y,x),</p></li>
+<li><p>random(x,y), normal(x,y), ceil(x), floor(x), round(x)</p></li>
+<li><p>ramp(x,y), stagger(x,y), logfreq(x,y,z), stride(x,y,z), vdisplace(x,y), swiggle(x,y,z), cwiggle(x,y,z)</p></li>
+</ul>
+</li>
+<li><p>special functions = sum(x), min(x), max(x), ave(x), trap(x), slope(x), next(x)</p></li>
+<li><p>particle vector = mass, type, x, y, z, vx, vy, vz</p></li>
+<li><p>compute references = c_ID, c_ID[i], c_ID[i][j]</p></li>
+<li><p>fix references = f_ID, f_ID[i], f_ID[i][j]</p></li>
+<li><p>surface collision model references = s_ID[i]</p></li>
+<li><p>surface reaction model references = r_ID[i]</p></li>
+<li><p>variable references = v_name</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">x index run1 run2 run3 run4 run5 run6 run7 run8</span>
+<span class="nb">variable</span> <span class="no">LoopVar loop $n</span>
+<span class="nb">variable</span> <span class="no">beta equal temp/3.0</span>
+<span class="nb">variable</span> <span class="no">beta equal &quot;temp / 3.0&quot;</span>
+<span class="nb">variable</span> <span class="no">b equal c_myTemp</span>
+<span class="nb">variable</span> <span class="no">b particle x*y/vol</span>
+<span class="nb">variable</span> <span class="no">foo string myfile</span>
+<span class="nb">variable</span> <span class="no">foo internal 3.5</span>
+<span class="nb">variable</span> <span class="no">f file values.txt</span>
+<span class="nb">variable</span> <span class="no">temp world 300.0 310.0 320.0 ${Tfinal}</span>
+<span class="nb">variable</span> <span class="no">x universe 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15</span>
+<span class="nb">variable</span> <span class="no">x uloop 15 pad</span>
+<span class="nb">variable</span> <span class="no">str format x %.6g</span>
+<span class="nb">variable</span> <span class="no">x delete</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>This command assigns one or more strings to a variable name for
+evaluation later in the input script or during a simulation.</p>
+<p>Variables can thus be useful in several contexts. A variable can be
+defined and then referenced elsewhere in an input script to become part
+of a new input command. For variable styles that store multiple strings,
+the <a class="reference internal" href="next.html#command-next"><span class="std std-ref">next</span></a> command can be used to increment which string
+is assigned to the variable. Variables of style <em>equal</em> store a formula
+which when evaluated produces a single numeric value which can be output
+either directly (see the <a class="reference internal" href="print.html#command-print"><span class="std std-ref">print</span></a>, <a class="reference internal" href="fix_print.html#command-fix-print"><span class="std std-ref">fix print</span></a>, and <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run every</span></a> commands) or as
+part of statistical output (see the <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style</span></a>
+command), or used as input to an averaging fix (see the <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time</span></a> command). Variables of style <em>particle</em>
+store a formula which when evaluated produces one numeric value per
+particle which can be output to a dump file (see the <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump particle</span></a> command). Variables of style <em>internal</em> are used
+by a few commands which set their value directly.</p>
+<p>In the discussion that follows, the “name” of the variable is the
+arbitrary string that is the 1st argument in the variable command. This
+name can only contain alphanumeric characters and underscores. The
+“string” is one or more of the subsequent arguments. The “string” can be
+simple text as in the 1st example above, it can contain other variables
+as in the 2nd example, or it can be a formula as in the 3rd example. The
+“value” is the numeric quantity resulting from evaluation of the string.
+Note that the same string can generate different values when it is
+evaluated at different times during a simulation.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When an input script line is encountered that defines a variable of style <em>equal</em> or <em>particle</em> or <em>grid</em> that contains a formula, the formula is NOT immediately evaluated and the result stored.  See the discussion below about “Immediate Evaluation of Variables” if you want to do this. This is also true of the <em>format</em> style variable since it evaluates another variable when it is invoked.</p>
+</div>
+<p>Variables of style <em>equal</em> and <em>particle</em> and <em>grid</em> can be used as
+inputs to various other commands which evaluate their formulas as
+needed, e.g. at different timesteps during a <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a>.</p>
+<p>Variables of style <em>internal</em> can be used in place of an equal-style
+variable, except by commands that set the value stored by the
+internal-style variable. Thus any command that states it can use an
+equal-style variable as an argument, can also use an internal-style
+variable. This means that when the command evaluates the variable, it
+will use the value set (internally) by another command.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When a variable command is encountered in the input script and the variable name has already been specified, the command is ignored. This means variables can NOT be re-defined in an input script (with 2 exceptions, read further). This is to allow an input script to be processed multiple times without resetting the variables; see the <a class="reference internal" href="jump.html#command-jump"><span class="std std-ref">jump</span></a> or <a class="reference internal" href="include.html#command-include"><span class="std std-ref">include</span></a> commands. It also means that using the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">command-line switch</span></a> -var will override a corresponding index variable setting in the input script.</p>
+</div>
+<p>There are two exceptions to this rule. First, variables of style
+<em>string</em>, <em>getenv</em>, <em>internal</em>, <em>equal</em>, and <em>particle</em> ARE redefined
+each time the command is encountered. This allows these style of
+variables to be redefined multiple times in an input script. In a loop,
+this means the formula associated with an <em>equal</em> or <em>particle</em> style
+variable can change if it contains a substitution for another variable,
+e.g. $x or v_x.</p>
+<p>Second, as described below, if a variable is iterated on to the end of
+its list of strings via the <a class="reference internal" href="next.html#command-next"><span class="std std-ref">next</span></a> command, it is removed
+from the list of active variables, and is thus available to be
+re-defined in a subsequent variable command. The <em>delete</em> style does the
+same thing.</p>
+<hr class="docutils" />
+<p><a class="reference internal" href="Section_commands.html#commands-parsing-rules"><span class="std std-ref">Section 3.2</span></a> of the manual explains how
+occurrences of a variable name in an input script line are replaced by
+the variable’s string. The variable name can be referenced as <code class="docutils literal notranslate"><span class="pre">$x</span></code> if the
+name “x” is a single character, or as <code class="docutils literal notranslate"><span class="pre">${LoopVar}</span></code> if the name “LoopVar”
+is one or more characters.</p>
+<p>As described below, for variable styles <em>index</em>, <em>loop</em>, <em>universe</em>, and
+<em>uloop</em>, which string is assigned to a variable can be incremented via
+the <a class="reference internal" href="next.html#command-next"><span class="std std-ref">next</span></a> command. When there are no more strings to
+assign, the variable is exhausted and a flag is set that causes the next
+<a class="reference internal" href="jump.html#command-jump"><span class="std std-ref">jump</span></a> command encountered in the input script to be
+skipped. This enables the construction of simple loops in the input
+script that are iterated over and then exited from.</p>
+<p>As explained above, an exhausted variable can be re-used in an input
+script. The <em>delete</em> style also removes the variable, the same as if it
+were exhausted, allowing it to be redefined later in the input script or
+when the input script is looped over. This can be useful when breaking
+out of a loop via the <a class="reference internal" href="if.html#command-if"><span class="std std-ref">if</span></a> and <a class="reference internal" href="jump.html#command-jump"><span class="std std-ref">jump</span></a> commands
+before the variable would become exhausted. For example,</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">label</span>      <span class="no">loop</span>
+<span class="nb">variable</span>    <span class="no">a loop 5</span>
+<span class="nb">print</span>       <span class="no">&quot;A = $a&quot;</span>
+<span class="nb">if</span>      <span class="no">&quot;$a &gt; 2&quot; then &quot;jump in.script break&quot;</span>
+<span class="nb">next</span>        <span class="no">a</span>
+<span class="nb">jump</span>        <span class="no">in.script loop</span>
+<span class="nb">label</span>       <span class="no">break</span>
+<span class="nb">variable</span>    <span class="no">a delete</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#styles-and-arguments" id="id2">Styles and arguments</a></p></li>
+<li><p><a class="reference internal" href="#formulas" id="id3">Formulas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#math-operators" id="id4">Math Operators</a></p></li>
+<li><p><a class="reference internal" href="#math-functions" id="id5">Math Functions</a></p></li>
+<li><p><a class="reference internal" href="#special-functions" id="id6">Special Functions</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#particle-vectors" id="id7">Particle Vectors</a></p></li>
+<li><p><a class="reference internal" href="#compute-references" id="id8">Compute References</a></p></li>
+<li><p><a class="reference internal" href="#fix-references" id="id9">Fix References</a></p></li>
+<li><p><a class="reference internal" href="#surface-collision-and-surface-reaction-model-references" id="id10">Surface Collision and Surface Reaction Model References</a></p></li>
+<li><p><a class="reference internal" href="#variable-references" id="id11">Variable References</a></p></li>
+<li><p><a class="reference internal" href="#variable-accuracy" id="id12">Variable Accuracy:</a></p></li>
+</ul>
+</div>
+<div class="section" id="styles-and-arguments">
+<h3><a class="toc-backref" href="#id2">Styles and arguments</a><a class="headerlink" href="#styles-and-arguments" title="Permalink to this headline">¶</a></h3>
+<p>This section describes how various variable styles are defined and what
+they store. Many of the styles store one or more strings. Note that a
+single string can contain spaces (multiple words), if it is enclosed in
+quotes in the variable command. When the variable is substituted for in
+another input script command, its returned string will then be
+interpreted as multiple arguments in the expanded command.</p>
+<dl>
+<dt>For the <em>index</em> style,</dt><dd><p>one or more strings are specified. Initially, the 1st string is assigned to the variable. Each time a <a class="reference internal" href="next.html#command-next"><span class="std std-ref">next</span></a> command is used with the variable name, the next string is assigned. All processors assign the same string to the variable.</p>
+</dd>
+<dt><em>Index</em> style variables</dt><dd><p>with a single string value can also be set by using the command-line switch -var; see <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">Section 2.6</span></a> of the manual for details.</p>
+</dd>
+<dt>The <em>loop</em> style</dt><dd><p>is identical to the <em>index</em> style except that the strings are the integers from 1 to N inclusive, if only one argument N is specified. This allows generation of a long list of runs (e.g. 1000) without having to list N strings in the input script. Initially, the string “1” is assigned to the variable. Each time a <a class="reference internal" href="next.html#command-next"><span class="std std-ref">next</span></a> command is used with the variable name, the next string (“2”, “3”, etc) is assigned. All processors assign the same string to the variable. The <em>loop</em> style can also be specified with two arguments N1 and N2. In this case the loop runs from N1 to N2 inclusive, and the string N1 is initially assigned to the variable. N1 &lt;= N2 and N2 &gt;= 0 is required.</p>
+</dd>
+<dt>For the <em>world</em> style,</dt><dd><p>one or more strings are specified. There must be one string for each processor partition or “world”. See <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">Section 2.6</span></a> of the manual for information on running SPARTA with multiple partitions via the “-partition” command-line switch. This variable command assigns one string to each world. All processors in the world are assigned the same string. The next command cannot be used with <em>equal</em> style variables, since there is only one value per world. This style of variable is useful when you wish to run different simulations on different partitions.</p>
+</dd>
+<dt>For the <em>universe</em> style,</dt><dd><p>one or more strings are specified. There must be at least as many strings as there are processor partitions or “worlds”. See <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">this page</span></a> for information on running SPARTA with multiple partitions via the “-partition” command-line switch. This variable command initially assigns one string to each world.
+When a <a class="reference internal" href="next.html#command-next"><span class="std std-ref">next</span></a> command is encountered using this variable, the first processor partition to encounter it, is assigned the next available string. This continues until all the variable strings are consumed. Thus, this command can be used to run 50 simulations on 8 processor partitions.
+The simulations will be run one after the other on whatever partition becomes available, until they are all finished. <em>Universe</em> style variables are incremented using the files “tmp.sparta.variable” and “tmp.sparta.variable.lock” which you will see in your directory during such a SPARTA run.</p>
+</dd>
+<dt>The <em>uloop</em> style</dt><dd><p>is identical to the <em>universe</em> style except that the strings are the integers from 1 to N. This allows generation of long list of runs (e.g. 1000) without having to list N strings in the input script.</p>
+</dd>
+<dt>For the <em>string</em> style,</dt><dd><p>a single string is assigned to the variable. The only difference between this and using the <em>index</em> style with a single string is that a variable with <em>string</em> style can be redefined. E.g. by another command later in the input script, or if the script is read again in a loop.</p>
+</dd>
+<dt>For the <em>format</em> style,</dt><dd><p>an equal-style variable is specified along with a C-style format string, e.g. “%f” or “%.10g”, which must be appropriate for formatting a double-precision floating-point value. This allows an equal-style variable to be formatted specifically for output as a string, e.g. by the <a class="reference internal" href="print.html#command-print"><span class="std std-ref">print</span></a> command, if the default format “%.15g” has too much precision.</p>
+</dd>
+<dt>For the <em>getenv</em> style,</dt><dd><p>a single string is assigned to the variable which should be the name of an environment variable. When the variable is evaluated, it returns the value of the environment variable, or an empty string if it not defined. This style of variable can be used to adapt the behavior of SPARTA input scripts via environment variable settings, or to retrieve information that has been previously stored with the <a class="reference internal" href="shell.html#command-shell"><span class="std std-ref">shell putenv</span></a> command. Note that because environment variable settings are stored by the operating systems, they persist beyond a <a class="reference internal" href="clear.html#command-clear"><span class="std std-ref">clear</span></a> command.</p>
+</dd>
+<dt>For the <em>file</em> style,</dt><dd><p>a filename is provided which contains a list of strings to assign to the variable, one per line. The strings can be numeric values if desired. See the discussion of the next() function below for equal-style variables, which will convert the string of a file-style variable into a numeric value in a formula.</p>
+</dd>
+<dt>When a file-style variable is defined,</dt><dd><p>the file is opened and the string on the first line is read and stored with the variable. This means the variable can then be evaluated as many times as desired and will return that string. There are two ways to cause the next string from the file to be read: use the <a class="reference internal" href="next.html#command-next"><span class="std std-ref">next</span></a> command or the next() function in an equal- or particle- or grid-style variable, as discussed below.</p>
+<p>The rules for formatting the file are as follows. A comment character “#” can be used anywhere on a line; text starting with the comment character is stripped. Blank lines are skipped. The first “word” of a non-blank line, delimited by white space, is the “string” assigned to the variable.</p>
+</dd>
+<dt>For the <em>internal</em> style</dt><dd><p>a numeric value is provided. This value will be assigned to the variable until a SPARTA command sets it to a new value.  There is currently only one command that requirew <em>internal</em> variables as inputs, because it resets them: <a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles</span></a>. As mentioned above, an internal-style variable can be used in place of an equal-style variable anywhere else in an input script, e.g. as an argument to another command that allows for equal-style variables.</p>
+</dd>
+</dl>
+<hr class="docutils" />
+<dl>
+<dt>For the <em>equal</em> and <em>particle</em> and <em>grid</em> styles,</dt><dd><p>a single string is specified which represents a formula that will be evaluated afresh each time the variable is used. If you want spaces in the string, enclose it in double quotes so the parser will treat it as a single argument. For <em>equal</em> style variables the formula computes a scalar quantity, which becomes the value of the variable whenever it is evaluated. For <em>particle</em> style variables the formula computes one quantity for each particle whenever it is evaluated. For <em>grid</em> style variables the formula computes one quantity for each grid cell whenever it is evaluated. A <em>grid</em> style variable computes quantites for all flavors of child grid cells in the simulation, which includes unsplit, cut, split, and sub cells. See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Details of grid geometry in SPARTA</span></a> of the manual gives details of how SPARTA defines child, unsplit, split, and sub cells.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>that <em>equal</em> and <em>particle</em> and <em>grid</em> variables can produce different values at different stages of the input script or at different times during a run. For example, if an <em>equal</em> variable is used in a <a class="reference internal" href="fix_print.html#command-fix-print"><span class="std std-ref">fix print</span></a> command, different values could be printed each timestep it was invoked. If you want a variable to be evaluated immediately, so that the result is stored by the variable instead of the string, see the section below on “Immediate Evaluation of Variables”.</p>
+</div>
+</dd>
+<dt>The next command</dt><dd><p>cannot be used with <em>equal</em> or <em>particle</em> or <em>grid</em> style variables, since there is only one string.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="formulas">
+<h3><a class="toc-backref" href="#id3">Formulas</a><a class="headerlink" href="#formulas" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The formula for an <em>equal</em> or <em>particle</em> or <em>grid</em> variable can contain a variety of quantities. The syntax for each kind of quantity is simple, but multiple quantities can be nested and combined in various ways to build up formulas of arbitrary complexity. For example, this is a valid (though strange) variable formula:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">x equal &quot;np + c_MyTemp / vol^(1/3)&quot;</span>
+</pre></div>
+</div>
+<p>Specifically, a formula can contain numbers, stats keywords, math
+operators, math functions, particle vectors, compute references, fix
+references, and references to other variables.</p>
+</div></blockquote>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Components of formulas</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Number</p></td>
+<td><p>0.2, 100, 1.0e20, -15.4, etc</p></td>
+</tr>
+<tr class="row-even"><td><p>Constant</p></td>
+<td><p>PI</p></td>
+</tr>
+<tr class="row-odd"><td><p>Stats keywords</p></td>
+<td><p>step, np, vol, etc</p></td>
+</tr>
+<tr class="row-even"><td><p>Math operators</p></td>
+<td><p>(), -x, x+y, x-y, x*y, x/y, x^y, x%y, x==y, x!=y, xy, x&gt;=y, x&amp;&amp;y, x||y, !x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Math functions</p></td>
+<td><p>sqrt(x), exp(x), ln(x), log(x), abs(x), sin(x), cos(x), tan(x), asin(x), acos(x), atan(x), atan2(y,x),</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>random(x,y,z), normal(x,y,z), ceil(x), floor(x), round(x), ramp(x,y),</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stagger(x,y), logfreq(x,y,z), stride(x,y,z), vdisplace(x,y), swiggle(x,y,z), cwiggle(x,y</p></td>
+</tr>
+<tr class="row-even"><td><p>Special functions</p></td>
+<td><p>sum(x), min(x), max(x), ave(x), trap(x), slope(x), next(x)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Particle vectors</p></td>
+<td><p>mass, type, x, y, z, vx, vy, vz</p></td>
+</tr>
+<tr class="row-even"><td><p>Compute references</p></td>
+<td><p>c_ID, c_ID[i], c_ID[i][j]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fix references</p></td>
+<td><p>f_ID, f_ID[i], f_ID[i][j]</p></td>
+</tr>
+<tr class="row-even"><td><p>Surface collision model referen</p></td>
+<td><p>es s_ID[i]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Surface reaction model referenc</p></td>
+<td><p>s  r_ID[i]</p></td>
+</tr>
+<tr class="row-even"><td><p>Other variables</p></td>
+<td><p>v_name</p></td>
+</tr>
+</tbody>
+</table>
+<p>Most of the formula elements produce a scalar value. A few produce a
+per-particle vector or per-grid vector of values. These are the particle
+vectors, compute references that represent a per-particle or per-grid
+vector, fix references that represent a per-particle or per-grid vector,
+and variables that are particle-style or grid-style variables. Math
+functions that operate on scalar values produce a scalar value; math
+function that operate on per-particle vectors do so element-by-element
+and produce a per-particle vector.</p>
+<p>A formula for equal-style variables cannot use any formula element that
+produces a per-particle or per-grid vector. A formula for a
+particle-style variable can use formula elements that produce either a
+scalar value or a per-particle vector, but not a per-grid vector.
+Likewise a particlgrid-style variable can use formula elements that
+produce either a scalar value or a per-grid vector, but not a
+per-particle vector.</p>
+<p>The stats keywords allowed in a formula are those defined by the
+<a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style custom</span></a> command. If a variable is
+evaluated directly in an input script (not during a run), then the
+values accessed by the stats keyword must be current. See the discussion
+below about “Variable Accuracy”.</p>
+<hr class="docutils" />
+<div class="section" id="math-operators">
+<span id="command-variable-math-operators"></span><h4><a class="toc-backref" href="#id4">Math Operators</a><a class="headerlink" href="#math-operators" title="Permalink to this headline">¶</a></h4>
+<p>Math operators are written in the usual way, where the “x” and “y” in
+the examples can themselves be arbitrarily complex formulas, as in the
+examples above. In this syntax, “x” and “y” can be scalar values or
+per-particle or per-grid vectors. For example, “vol/np” is the division
+of two scalars, where “vy+vz” is the element-by-element sum of two
+per-particle vectors of y and z velocities.</p>
+<p>Operators are evaluated left to right and have the usual C-style
+precedence: unary minus and unary logical NOT operator “!” have the
+highest precedence, exponentiation “^” is next; multiplication and
+division and the modulo operator “%” are next; addition and subtraction
+are next; the 4 relational operators “&lt;”, “&lt;=”, “&gt;”, and “&gt;=” are next;
+the two remaining relational operators “==” and “!=” are next; then the
+logical AND operator “&amp;&amp;”; and finally the logical OR operator “||” has
+the lowest precedence. Parenthesis can be used to group one or more
+portions of a formula and/or enforce a different order of evaluation
+than what would occur with the default precedence.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Because a unary minus is higher precedence than exponentiation, the formula “-2^2” will evaluate to 4, not -4. This convention is compatible with some programming languages, but not others. As mentioned, this behavior can be easily overridden with parenthesis; the formula “-(2^2)” will evaluate to -4.</p>
+</div>
+<p>The 6 relational operators return either a 1.0 or 0.0 depending on
+whether the relationship between x and y is TRUE or FALSE. For example
+the expression x&lt;10.0 in a particle-style variable formula will return
+1.0 for all particles whose x-coordinate is less than 10.0, and 0.0 for
+the others. The logical AND operator will return 1.0 if both its
+arguments are non-zero, else it returns 0.0. The logical OR operator
+will return 1.0 if either of its arguments is non-zero, else it returns
+0.0. The logical NOT operator returns 1.0 if its argument is 0.0, else
+it returns 0.0.</p>
+<p>These relational and logical operators can be used as a masking or
+selection operation in a formula. For example, the number of particles
+whose properties satifsy one or more criteria could be calculated by
+taking the returned per-particle vector of ones and zeroes and passing
+it to the <a class="reference internal" href="compute_reduce.html#command-compute-reduce"><span class="std std-ref">compute reduce</span></a> command.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="math-functions">
+<span id="command-variable-math-functions"></span><h4><a class="toc-backref" href="#id5">Math Functions</a><a class="headerlink" href="#math-functions" title="Permalink to this headline">¶</a></h4>
+<p>Math functions are specified as keywords followed by one or more
+parenthesized arguments “x”, “y”, “z”, each of which can themselves be
+arbitrarily complex formulas. In this syntax, the arguments can
+represent scalar values or per-particle or per-grid vectors. In the
+latter cases, the math operation is performed on each element of the
+vector. For example, “sqrt(np)” is the sqrt() of a scalar, where
+“sqrt(y*z)” yields a per-particle vector with each element being the
+sqrt() of the product of one particle’s y and z coordinates.</p>
+<p>Most of the math functions perform obvious operations. The <code class="docutils literal notranslate"><span class="pre">ln()</span></code> is the
+natural log; <code class="docutils literal notranslate"><span class="pre">log()</span></code> is the base 10 log.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">random(x,y)</span></code> function takes 2 arguments: x = lo and y = hi. It generates a uniform random number between lo and hi. The <code class="docutils literal notranslate"><span class="pre">normal(x,y)</span></code> function also takes 2 arguments: <span class="math notranslate nohighlight">\(x = \mu\)</span> and <span class="math notranslate nohighlight">\(y = \sigma\)</span>. It generates a Gaussian variate centered on mu with variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>. For equal-style variables, every processor uses the same random number seed so that they each generate the same sequence of random numbers. For particle-style or grid-style variables, a unique seed is created for each processor. This effectively generates a different random number for each particle or grid cell being looped over in the particle-style or grid-style variable.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Internally, there is just one random number generator for all equal-style variables and one for all particle-style and grid-style variables. If you define multiple variables (of each style) which use the random() or normal() math functions, then the internal random number generators will only be initialized once.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ceil()</span></code>, <code class="docutils literal notranslate"><span class="pre">floor()</span></code>, and <code class="docutils literal notranslate"><span class="pre">round()</span></code> functions are those in the C math
+library. Ceil() is the smallest integer not less than its argument.
+Floor() if the largest integer not greater than its argument. Round() is
+the nearest integer to its argument.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ramp(x,y)</span></code> function uses the current timestep to generate a value
+linearly intepolated between the specified x,y values over the course of
+a run, according to this formula:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">value</span> <span class="no">= x + (y-x) * (timestep-startstep) / (stopstep-startstep)</span>
+</pre></div>
+</div>
+<p>The run begins on startstep and ends on stopstep. Startstep and stopstep
+can span multiple runs, using the <em>start</em> and <em>stop</em> keywords of the
+<a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command. See the <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command for
+details of how to do this.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Currently, the run command does not currently support the start/stop keywords. In the formula above startstep = 0 and stopstep = the number of timesteps being performed by the run.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">stagger(x,y)</span></code> function uses the current timestep to generate a new
+timestep. X,y &gt; 0 and x &gt; y are required. The generated timesteps
+increase in a staggered fashion, as the sequence
+x,x+y,2x,2x+y,3x,3x+y,etc. For any current timestep, the next timestep
+in the sequence is returned. Thus if stagger(1000,100) is used in a
+variable by the <a class="reference internal" href="dump_modify.html#command-dump-modify"><span class="std std-ref">dump_modify every</span></a> command, it
+will generate the sequence of output timesteps:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>100,1000,1100,2000,2100,3000,etc
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">logfreq(x,y,z)</span></code> function uses the current timestep to generate a new timestep. X,y,z &gt; 0 and y &lt; z are required. The generated timesteps increase in a logarithmic fashion, as the sequence x,2x,3x,…y*x,z*x,2*z*x,3*z*x,…y*z*x,z*z*x,2*z*x*x,etc. For any current timestep, the next timestep in the sequence is returned. Thus if <code class="docutils literal notranslate"><span class="pre">logfreq(100,4,10)</span></code> is used in a variable by the <a class="reference internal" href="dump_modify.html#command-dump-modify"><span class="std std-ref">dump_modify every</span></a> command, it will generate the sequence of output timesteps:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>100,200,300,400,1000,2000,3000,4000,10000,20000,etc
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">stride(x,y,z)</span></code> function uses the current timestep to generate a new timestep. X,y &gt;= 0 and z &gt; 0 and x &lt;= y are required. The generated timesteps increase in increments of z, from x to y, I.e. it generates the sequece x,x+z,x+2z,…,y. If y-x is not a multiple of z, then similar to the way a for loop operates, the last value will be one that does not exceed y. For any current timestep, the next timestep in the sequence is returned. Thus if <code class="docutils literal notranslate"><span class="pre">stagger(1000,2000,100)</span></code> is used in a variable by the <a class="reference internal" href="dump_modify.html#command-dump-modify"><span class="std std-ref">dump_modify every</span></a> command, it will generate the sequence of output timesteps:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1000,1100,1200, ... ,1900,2000
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">vdisplace(x,y)</span></code> function takes 2 arguments: x = value0 and y = velocity, and uses the elapsed time to change the value by a linear displacement due to the applied velocity over the course of a run, according to this formula:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>value = value0 + velocity*(timestep-startstep)*dt
+</pre></div>
+</div>
+<p>where dt = the timestep size.</p>
+<p>The run begins on startstep. Startstep can span multiple runs, using the <em>start</em> keyword of the <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command. See the <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command for details of how to do this. Note that the <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style</span></a> keyword <em>elaplong</em> = timestep-startstep.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">swiggle(x,y,z)</span></code> and <code class="docutils literal notranslate"><span class="pre">cwiggle(x,y,z)</span></code> functions each take 3 arguments: x = value0, y = amplitude, z = period. They use the elapsed time to oscillate the value by a sin() or cos() function over the course of a run, according to one of these formulas, where omega = 2 PI / period:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>value = value0 + Amplitude * sin(omega*(timestep-startstep)*dt)
+value = value0 + Amplitude * (1 - cos(omega*(timestep-startstep)*dt))
+</pre></div>
+</div>
+<p>where dt = the timestep size.</p>
+<p>The run begins on startstep. Startstep can span multiple runs, using the <em>start</em> keyword of the <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command. See the <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a> command for details of how to do this. Note that the <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style</span></a> keyword <em>elaplong</em> = timestep-startstep.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="special-functions">
+<span id="command-variable-special-functions"></span><h4><a class="toc-backref" href="#id6">Special Functions</a><a class="headerlink" href="#special-functions" title="Permalink to this headline">¶</a></h4>
+<p>Special functions take specific kinds of arguments, meaning their
+arguments cannot be formulas themselves.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">sum(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">min(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">max(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">ave(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">trap(x)</span></code>, and <code class="docutils literal notranslate"><span class="pre">slope(x)</span></code> functions each take 1 argument which is of the form “c_ID” or “c_ID[N]” or “f_ID” or “f_ID[N]”. The first two are computes and the second two are fixes; the ID in the reference should be replaced by the ID of a compute or fix defined elsewhere in the input script. The compute or fix must produce either a global vector or array. If it produces a global vector, then the notation without “[N]” should be used. If it produces a global array, then the notation with “[N]” should be used, when N is an integer, to specify which column of the global array is being referenced.</p>
+<p>These functions operate on the global vector of inputs and reduce it to a single scalar value. This is analagous to the operation of the <a class="reference internal" href="compute_reduce.html#command-compute-reduce"><span class="std std-ref">compute reduce</span></a> command, which invokes the same functions on per-particle or per-grid vectors.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">sum()</span></code> function calculates the sum of all the vector elements. The <code class="docutils literal notranslate"><span class="pre">min()</span></code> and <code class="docutils literal notranslate"><span class="pre">max()</span></code> functions find the minimum and maximum element respectively. The <code class="docutils literal notranslate"><span class="pre">ave()</span></code> function is the same as <code class="docutils literal notranslate"><span class="pre">sum()</span></code> except that it divides the result by the length of the vector.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">trap()</span></code> function is the same as <code class="docutils literal notranslate"><span class="pre">sum()</span></code> except the first and last
+elements are multiplied by a weighting factor of 1/2 when performing the
+sum. This effectively implements an integration via the trapezoidal
+rule on the global vector of data. I.e. consider a set of points,
+equally spaced by 1 in their x coordinate: (1,V1), (2,V2), …, (N,VN),
+where the Vi are the values in the global vector of length N. The
+integral from 1 to N of these points is <code class="docutils literal notranslate"><span class="pre">trap()</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">slope()</span></code> function uses linear regression to fit a line to the set of
+points, equally spaced by 1 in their x coordinate: (1,V1), (2,V2), …,
+(N,VN), where the Vi are the values in the global vector of length N.
+The returned value is the slope of the line. If the line has a single
+point or is vertical, it returns 1.0e20.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">next(x)</span></code> function takes 1 argument which is a variable ID (not
+“v_foo”, just “foo”). It must be for a file-style
+variable. Each time the <code class="docutils literal notranslate"><span class="pre">next()</span></code> function is invoked (i.e. each time
+the equal-style or particle-style or grid-style variable is evaluated),
+the following steps occur.</p>
+<p>For file-style variables, the current string value stored by the
+file-style variable is converted to a numeric value and returned by the
+function. And the next string value in the file is read and stored. Note
+that if the line previously read from the file was not a numeric string,
+then it will typically evaluate to 0.0, which is likely not what you
+want.</p>
+<p>Since file-style variables read and store the first line of the file
+when they are defined in the input script, this is the value that will
+be returned the first time the <code class="docutils literal notranslate"><span class="pre">next()</span></code> function is invoked. If <code class="docutils literal notranslate"><span class="pre">next()</span></code> is
+invoked more times than there are lines in the file, the variable is
+deleted, similar to how the <a class="reference internal" href="next.html#command-next"><span class="std std-ref">next</span></a> command operates.</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="particle-vectors">
+<span id="command-variable-particle-vectors"></span><h3><a class="toc-backref" href="#id7">Particle Vectors</a><a class="headerlink" href="#particle-vectors" title="Permalink to this headline">¶</a></h3>
+<p>Particle vectors generate one value per particle, so that a reference
+like “vx” means the x-component of each particles’s velocity will be
+used when evaluating the variable.</p>
+<p>The meaning of the different particle vectors is self-explanatory.</p>
+<p>Particle vectors can only be used in <em>particle</em> style variables, not in
+<em>equal</em> or <em>grid</em> style varaibles.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="compute-references">
+<span id="command-variable-compute-references"></span><h3><a class="toc-backref" href="#id8">Compute References</a><a class="headerlink" href="#compute-references" title="Permalink to this headline">¶</a></h3>
+<p>Compute references access quantities calculated by a <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a>. The ID in the reference should be replaced by the ID of a compute defined elsewhere in the input script. As discussed in the doc page for the <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command, computes can produce global, per-particle, per-grid, or per-surf values.  Only global and per-particle and per-grid values can be used in a variable. Computes can also produce a scalar, vector, or array. An equal-style variable can only use scalar values, which means a global scalar, or an element of a global vector or array. Particle-style variables can use the same scalar values. They can also use per-particle vector values. A vector value can be a per-particle vector itself, or a column of an per-particle array.
+Grid-style variables can use the same scalar values. They can also use per-grid vector values. A vector value can be a per-grid vector itself, or a column of an per-grid array. See the doc pages for individual computes to see what kind of values they produce.</p>
+<p>Examples of different kinds of compute references are as follows. There is no ambiguity as to what a reference means, since computes only produce global or per-particle or per-grid quantities, never more than one kind of quantity.</p>
+<div class="docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 89%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>c_ID</p></td>
+<td><p>global scalar, or per-particle or per-grid vector</p></td>
+</tr>
+<tr class="row-even"><td><p>c_ID[I]</p></td>
+<td><p>Ith element of global vector, or Ith column from per-particle or per-grid array</p></td>
+</tr>
+<tr class="row-odd"><td><p>c_ID[I][J]</p></td>
+<td><p>I,J element of global array</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For I and J, integers can be specified or a variable name, specified as
+v_name, where name is the name of the variable, like x[v_myIndex]. The
+variable can be of any style expect particle-style. The variable is
+evaluated and the result is expected to be numeric and is cast to an
+integer (i.e. 3.4 becomes 3), to use an an index, which must be a value
+from 1 to N. Note that a “formula” cannot be used as the argument
+between the brackets, e.g. x[243+10] or x[v_myIndex+1] are not allowed.
+To do this a single variable can be defined that contains the needed
+formula.</p>
+<p>If a variable containing a compute is evaluated directly in an input script (not during a run), then the values accessed by the compute must be current. See the discussion below about “Variable Accuracy”.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="fix-references">
+<span id="command-variable-fix-references"></span><h3><a class="toc-backref" href="#id9">Fix References</a><a class="headerlink" href="#fix-references" title="Permalink to this headline">¶</a></h3>
+<p>Fix references access quantities calculated by a <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">fix</span></a>.
+The ID in the reference should be replaced by the ID of a fix defined
+elsewhere in the input script. As discussed in the doc page for the
+<a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a> command, fixes can produce global, per-particle,
+per-grid, or per-surf values. Only global and per-particle and per-grid
+values can be used in a variable. Fixes can also produce a scalar,
+vector, or array. An equal-style variable can only use scalar values,
+which means a global scalar, or an element of a global vector or array.
+Particle-style variables can use the same scalar values. They can also
+use per-particle vector values. A vector value can be a per-particle
+vector itself, or a column of an per-particle array. Grid-style
+variables can use the same scalar values. They can also use per-grid
+vector values. A vector value can be a per-grid vector itself, or a
+column of an per-grid array. See the doc pages for individual fixes to
+see what kind of values they produce.</p>
+<p>The different kinds of fix references are exactly the same as the
+compute references listed in the above table, where <code class="docutils literal notranslate"><span class="pre">c_</span></code> is replaced by
+<code class="docutils literal notranslate"><span class="pre">f_</span></code>. Again, there is no ambiguity as to what a reference means, since
+fixes only produce global or per-particle or per-grid quantities, never
+more than one kind of quantity.</p>
+<div class="docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 89%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>f_ID</p></td>
+<td><p>global scalar, or per-particle or per-grid vector</p></td>
+</tr>
+<tr class="row-even"><td><p>f_ID[I]</p></td>
+<td><p>Ith element of global vector, or Ith column from per-particle or per-grid array</p></td>
+</tr>
+<tr class="row-odd"><td><p>f_ID[I][J]</p></td>
+<td><p>I,J element of global array</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For I and J, integers can be specified or a variable name, specified as v_name, where name is the name of the variable. The rules for this syntax are the same as for the “Compute References” discussion above.</p>
+<p>If a variable containing a fix is evaluated directly in an input script (not during a run), then the values accessed by the fix should be current. See the discussion below about “Variable Accuracy”.</p>
+<p>Note that some fixes only generate quantities on certain timesteps. If a variable attempts to access the fix on non-allowed timesteps, an error is generated. For example, the <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time command</span></a> may only generate averaged quantities every 100 steps. See the doc pages for individual fix commands for details.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="surface-collision-and-surface-reaction-model-references">
+<span id="command-variable-surface-collision"></span><h3><a class="toc-backref" href="#id10">Surface Collision and Surface Reaction Model References</a><a class="headerlink" href="#surface-collision-and-surface-reaction-model-references" title="Permalink to this headline">¶</a></h3>
+<p>These references access quantities calculated by a <a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide command</span></a> or <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a>. The ID in the reference should be replaced by the ID of a surface collision or surface reaction model defined elsewhere in the input script. As discussed in the doc pages for the <a class="reference internal" href="surf_collide.html#command-surf-collide"><span class="std std-ref">surf_collide command</span></a> and <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a>, they produce global vectors, the elements of which can be accessed by equal-style or particle-style or grid-style variables, e.g.</p>
+<div class="docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 89%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>s_ID[I]</p></td>
+<td><p>Ith element of global vector for a surface collision model</p></td>
+</tr>
+<tr class="row-even"><td><p>r_ID[I]</p></td>
+<td><p>Ith element of global vector for a surface reaction model</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+</div>
+<div class="section" id="variable-references">
+<span id="command-variable-variable-references"></span><h3><a class="toc-backref" href="#id11">Variable References</a><a class="headerlink" href="#variable-references" title="Permalink to this headline">¶</a></h3>
+<p>Variable references access quantities stored or calculated by other
+variables, which will cause those variables to be evaluated. The name in
+the reference should be replaced by the name of a variable defined
+elsewhere in the input script.</p>
+<p>As discussed on this doc page, equal-style variables generate a global
+scalar numeric value; particle-style variables generate a per-particle
+vector of numeric values; grid-style variables generate a per-grid
+vector of numeric values; all other variables store a string. The
+formula for an equal-style variable can use any style of variable except
+a particle- or grid-style. The formula for a particle-style variable can
+use any style of variable except a grid-style. The formula for a
+grid-style variable can use any style of variable except a
+particle-style. If a string-storing variable is used, the string is
+converted to a numeric value. Note that this will typically produce a
+0.0 if the string is not a numeric string, which is likely not what you
+want. The formula for a particle-style variable can use any style of
+variable, including other particle-style variables.</p>
+<p>Examples of different kinds of variable references are as follows. There
+is no ambiguity as to what a reference means, since variables produce
+only a global scalar or a per-particle or per-grid vector, never more
+than one of these quantities.</p>
+<div class="docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 88%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>v_name</p></td>
+<td><p>scalar, or per-particle or per-grid vector</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p><strong>Immediate Evaluation of Variables:</strong></p>
+<p>There is a difference between referencing a variable with a leading <code class="docutils literal notranslate"><span class="pre">$</span></code>
+sign (e.g. <code class="docutils literal notranslate"><span class="pre">$x</span></code> or <code class="docutils literal notranslate"><span class="pre">${abc}</span></code>) versus with a leading <code class="docutils literal notranslate"><span class="pre">v_</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">v_x</span></code> or <code class="docutils literal notranslate"><span class="pre">v_abc</span></code>).
+The former can be used in any input script command, including a variable
+command. The input script parser evaluates the reference variable
+immediately and substitutes its value into the command. As explained in
+<a class="reference internal" href="Section_commands.html#commands-parsing-rules"><span class="std std-ref">Section commands 3.2</span></a> for “Parsing
+rules”, you can also use un-named “immediate” variables for this
+purpose. For example, a string like this <code class="docutils literal notranslate"><span class="pre">$((xlo+xhi)/2+sqrt(v_area))</span></code> in
+an input script command evaluates the string between the parenthesis as
+an equal-style variable formula.</p>
+<p>Referencing a variable with a leading <code class="docutils literal notranslate"><span class="pre">v_</span></code> is an optional or required
+kind of argument for some commands (e.g. the <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/spatial</span></a> or <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump custom</span></a> or
+<a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style</span></a> commands) if you wish it to evaluate
+a variable periodically during a run. It can also be used in a variable
+formula if you wish to reference a second variable. The second variable
+will be evaluated whenever the first variable is evaluated.</p>
+<p>As an example, suppose you use this command in your input script to
+define the variable “n” as</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">n equal np</span>
+</pre></div>
+</div>
+<p>before a run where the particle count changes. You might think this will
+assign the initial count to the variable “n”. That is not the case.
+Rather it assigns a formula which evaluates the count (using the
+stats_style keyword “np”) to the variable “n”. If you use the variable
+“n” in some other command like <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time</span></a> then
+the current particle count will be evaluated continuously during the
+run.</p>
+<p>If you want to store the initial particle count of the system, it can be
+done in this manner:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">n equal np</span>
+<span class="nb">variable</span> <span class="no">n0 equal $n</span>
+</pre></div>
+</div>
+<p>The second command will force “n” to be evaluated (yielding the initial
+count) and assign that value to the variable “n0”. Thus the command</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">stats_style</span> <span class="no">custom step v_n v_n0</span>
+</pre></div>
+</div>
+<p>would print out both the current and initial particle count periodically
+during the run.</p>
+<p>Also note that it is a mistake to enclose a variable formula in quotes
+if it contains variables preceeded by $ signs. For example,</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">variable</span> <span class="no">nratio equal &quot;${nfinal}/${n0}&quot;</span>
+</pre></div>
+</div>
+<p>This is because the quotes prevent variable substitution (see <a class="reference internal" href="Section_commands.html#commands-parsing-rules"><span class="std std-ref">Section
+2.2</span></a> of the manual on parsing input script commands),
+and thus an error will occur when the formula for “nratio” is evaluated later.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="variable-accuracy">
+<h3><a class="toc-backref" href="#id12">Variable Accuracy:</a><a class="headerlink" href="#variable-accuracy" title="Permalink to this headline">¶</a></h3>
+<p>Obviously, SPARTA attempts to evaluate variables containing formulas
+(<em>equal</em> and <em>particle</em> and <em>grid</em> style variables) accurately whenever
+the evaluation is performed. Depending on what is included in the
+formula, this may require invoking a <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a>, or
+accessing a value previously calculated by a compute, or accessing a
+value calculated and stored by a <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix</span></a>. If the compute is
+one that calculates certain properties of the system such as the
+pressure induced on a global boundary due to collisions, then these
+quantities need to be tallied during the timesteps on which the variable
+will need the values.</p>
+<p>SPARTA keeps track of all of this during a <a class="reference internal" href="run.html#command-run"><span class="std std-ref">run</span></a>. An error
+will be generated if you attempt to evaluate a variable on timesteps
+when it cannot produce accurate values. For example, if a <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style custom</span></a> command prints a variable which accesses
+values stored by a <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time</span></a> command and the
+timesteps on which stats output is generated are not multiples of the
+averaging frequency used in the fix command, then an error will occur.</p>
+<p>An input script can also request variables be evaluated before or after
+or in between runs, e.g. by including them in a <a class="reference internal" href="print.html#command-print"><span class="std std-ref">print</span></a>
+command. In this case, if a compute is needed to evaluate a variable
+(either directly or indirectly), SPARTA will not invoke the compute, but
+it will use a value previously calculated by the compute, and can do
+this only if it was invoked on the current timestep. Fixes will always
+provide a quantity needed by a variable, but the quantity may or may not
+be current. This leads to one of three kinds of behavior:</p>
+<ol class="arabic">
+<li><p>The variable may be evaluated accurately. If it contains references to a compute or fix, and these values were calculated on the last timestep of a preceeding run, then they will be accessed and used by the variable and the result will be accurate.</p></li>
+<li><p>SPARTA may not be able to evaluate the variable and will generate an error message stating so. For example, if the variable requires a quantity from a <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> that has not been invoked on the current timestep, SPARTA will generate an error. This means, for example, that such a variable cannot be evaluated before the first run has occurred. Likewise, in between runs, a variable containing a compute cannot be evaluated unless the compute was invoked on the last timestep of the preceding run, e.g. by stats output.</p>
+<p>One way to get around this problem is to perform a 0-timestep run before using the variable. For example, these commands</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">myTemp grid all temp</span>
+<span class="nb">variable</span> <span class="no">t equal c_myTemp1</span>
+<span class="nb">print</span> <span class="no">&quot;Initial temperature = $t&quot;</span>
+<span class="nb">run</span> <span class="no">1000</span>
+</pre></div>
+</div>
+<p>will generate an error if the run is the first run specified in the input script, because generating a value for the “t” variable requires a compute for calculating the temperature to be invoked.</p>
+<p>However, this sequence of commands would be fine:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">myTemp grid all temp</span>
+<span class="nb">variable</span> <span class="no">t equal c_myTemp1</span>
+<span class="nb">run</span> <span class="no">0</span>
+<span class="nb">print</span> <span class="no">&quot;Initial temperature = $t&quot;</span>
+<span class="nb">run</span> <span class="no">1000</span>
+</pre></div>
+</div>
+<p>The 0-timestep run initializes and invokes various computes, including the one for temperature, so that the value it stores is current and can be accessed by the variable “t” after the run has completed. Note that a 0-timestep run does not alter the state of the system, so it does not change the input state for the 1000-timestep run that follows. Also note that the 0-timestep run must actually use and invoke the compute in question (e.g. via <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats</span></a> or <a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump</span></a> output) in order for it to enable the compute to be used in a variable after the run. Thus if you are trying to print a variable that uses a compute you have defined, you can insure it is invoked on the last timestep of the preceding run by including it in stats output.</p>
+<p>Unlike computes, <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fixes</span></a> will never generate an error if their values are accessed by a variable in between runs. They always return some value to the variable. However, the value may not be what you expect if the fix has not yet calculated the quantity of interest or it is not current. For example, the <a class="reference internal" href="fix.html#command-fix"><span class="std std-ref">fix indent</span></a> command stores the force on the indenter. But this is not computed until a run is performed. Thus if a variable attempts to print this value before the first run, zeroes will be output. Again, performing a 0-timestep run before printing the variable has the desired effect.</p>
+</li>
+<li><p>The variable may be evaluated incorrectly. And SPARTA may have no way to detect this has occurred. Consider the following sequence of commands:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">myTemp grid all temp</span>
+<span class="nb">variable</span> <span class="no">t equal c_myTemp1</span>
+<span class="nb">run</span> <span class="no">1000</span>
+<span class="nb">create_particles</span> <span class="no">all n 10000</span>
+<span class="nb">print</span> <span class="no">&quot;Final temperature = $t&quot;</span>
+</pre></div>
+</div>
+<p>The first run is performed using the current set of particles. The temperature is evaluated on the final timestep and stored by the <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid</span></a> compute (when invoked by the <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style</span></a> command). Then new particles are added by the <a class="reference internal" href="create_particles.html#command-create-particles"><span class="std std-ref">create_particles</span></a> command, altering the temperature of the system. When the temperature is printed via the “t” variable, SPARTA will use the temperature value stored by the <a class="reference internal" href="compute_grid.html#command-compute-grid"><span class="std std-ref">compute grid command</span></a>, thinking it is current. There are many other commands which could alter the state of the system between runs, causing a variable to evaluate incorrectly.</p>
+<p>The solution to this issue is the same as for case (2) above, namely perform a 0-timestep run before the variable is evaluated to insure the system is up-to-date. For example, this sequence of commands would print a temperature that reflected the new particles:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">myTemp grid all temp</span>
+<span class="nb">variable</span> <span class="no">t equal c_myTemp1</span>
+<span class="nb">run</span> <span class="no">1000</span>
+<span class="nb">create_particles</span> <span class="no">all n 10000</span>
+<span class="nb">run</span> <span class="no">0</span>
+<span class="nb">print</span> <span class="no">&quot;Final temperature = $t&quot;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<p>All <em>universe</em>- and <em>uloop</em>-style variables defined in an input script
+must have the same number of values.</p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="next.html#command-next"><span class="std std-ref">next command</span></a>,
+<a class="reference internal" href="jump.html#command-jump"><span class="std std-ref">jump command</span></a>,
+<a class="reference internal" href="include.html#command-include"><span class="std std-ref">include command</span></a>,
+<a class="reference internal" href="fix_print.html#command-fix-print"><span class="std std-ref">fix print command</span></a>,
+<a class="reference internal" href="print.html#command-print"><span class="std std-ref">print command</span></a></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

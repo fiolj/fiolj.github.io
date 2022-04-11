@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>compute grid command &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>compute grid command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/compute_grid.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="index-0"></span><div class="section" id="compute-grid-command">
+<span id="command-compute-grid"></span><span id="index-1"></span><h1>compute grid command<a class="headerlink" href="#compute-grid-command" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="compute-grid-kk-command">
+<span id="command-compute-grid-compute-gridkk"></span><h1>compute grid/kk command<a class="headerlink" href="#compute-grid-kk-command" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">ID grid group-ID mix-ID value1 value2 ...</span>
+</pre></div>
+</div>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ID</span></code> is documented in <a class="reference internal" href="compute.html#command-compute"><span class="std std-ref">compute</span></a> command</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid</span></code> = style name of this compute command</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group-ID</span></code> = group ID for which grid cells to perform calculation on</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mix-ID</span></code> = mixture ID to perform calculation on</p></li>
+<li><p>one or more values can be appended:</p>
+<p>value = <code class="docutils literal notranslate"><span class="pre">n</span></code> or <code class="docutils literal notranslate"><span class="pre">nrho</span></code> or <code class="docutils literal notranslate"><span class="pre">nfrac</span></code> or <code class="docutils literal notranslate"><span class="pre">mass</span></code> or <code class="docutils literal notranslate"><span class="pre">massrho</span></code> or <code class="docutils literal notranslate"><span class="pre">massfrac</span></code> or <code class="docutils literal notranslate"><span class="pre">u</span></code> or <code class="docutils literal notranslate"><span class="pre">v</span></code> or <code class="docutils literal notranslate"><span class="pre">w</span></code> or <code class="docutils literal notranslate"><span class="pre">usq</span></code> or <code class="docutils literal notranslate"><span class="pre">vsq</span></code> or <code class="docutils literal notranslate"><span class="pre">wsq</span></code> of <code class="docutils literal notranslate"><span class="pre">ke</span></code> or <code class="docutils literal notranslate"><span class="pre">temp</span></code> or <code class="docutils literal notranslate"><span class="pre">erot</span></code> or <code class="docutils literal notranslate"><span class="pre">trot</span></code> or <code class="docutils literal notranslate"><span class="pre">evib</span></code> or <code class="docutils literal notranslate"><span class="pre">tvib</span></code> or <code class="docutils literal notranslate"><span class="pre">pxrho</span></code> or <code class="docutils literal notranslate"><span class="pre">pyrho</span></code> or <code class="docutils literal notranslate"><span class="pre">pzrho</span></code> or <code class="docutils literal notranslate"><span class="pre">kerho</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> = <a class="reference internal" href="#compute-grid-npart"><span class="std std-ref">particle count</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nrho</span></code> = <a class="reference internal" href="#compute-grid-npart"><span class="std std-ref">number density</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nfrac</span></code> = <a class="reference internal" href="#compute-grid-npart"><span class="std std-ref">number fraction</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mass</span></code> = <a class="reference internal" href="#compute-grid-mass"><span class="std std-ref">mass</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">massrho</span></code> = <a class="reference internal" href="#compute-grid-mass"><span class="std std-ref">mass density</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">massfrac</span></code> = <a class="reference internal" href="#compute-grid-mass"><span class="std std-ref">mass fraction</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">u</span></code> = <a class="reference internal" href="#compute-grid-veloc"><span class="std std-ref">x component of velocity</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code> = <a class="reference internal" href="#compute-grid-veloc"><span class="std std-ref">y component of velocity</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">w</span></code> = <a class="reference internal" href="#compute-grid-veloc"><span class="std std-ref">z component of velocity</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usq</span></code> = <a class="reference internal" href="#compute-grid-veloc"><span class="std std-ref">x component of velocity squared</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vsq</span></code> = <a class="reference internal" href="#compute-grid-veloc"><span class="std std-ref">y component of velocity squared</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wsq</span></code> = <a class="reference internal" href="#compute-grid-veloc"><span class="std std-ref">z component of velocity squared</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ke</span></code> = <a class="reference internal" href="#compute-grid-energy"><span class="std std-ref">kinetic energy</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temp</span></code> = <a class="reference internal" href="#compute-grid-energy"><span class="std std-ref">temperature</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">erot</span></code> = <a class="reference internal" href="#compute-grid-energy"><span class="std std-ref">rotational energy</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trot</span></code> = <a class="reference internal" href="#compute-grid-energy"><span class="std std-ref">rotational temperature</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">evib</span></code> = <a class="reference internal" href="#compute-grid-energy"><span class="std std-ref">vibrational energy</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tvib</span></code> = <a class="reference internal" href="#compute-grid-energy"><span class="std std-ref">vibrational temperature (classical definition)</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pxrho</span></code> = <a class="reference internal" href="#compute-grid-momentum"><span class="std std-ref">x component of momentum density</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pyrho</span></code> = <a class="reference internal" href="#compute-grid-momentum"><span class="std std-ref">y component of momentum density</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pzrho</span></code> = <a class="reference internal" href="#compute-grid-momentum"><span class="std std-ref">z component of momentum density</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kerho</span></code> = <a class="reference internal" href="#compute-grid-momentum"><span class="std std-ref">kinetic energy density</span></a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 grid all species n u v w usq vsq wsq</span>
+<span class="nb">compute</span> <span class="no">1 grid subset air n u v w</span>
+</pre></div>
+</div>
+<p>These commands will dump time averages for each species and each grid
+cell to a dump file every 1000 steps:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">compute</span> <span class="no">1 grid all species n u v w usq vsq wsq</span>
+<span class="nb">fix</span> <span class="no">1 ave/grid 10 100 1000 c_1[*]</span>
+<span class="nb">dump</span> <span class="no">1 grid all 1000 tmp.grid id f_1[*]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Define a computation that calculates one or more values for each grid
+cell in a grid cell group, based on the particles in the cell. The
+values are tallied separately for each group of species in the specified
+mixture, as described in the Ouput section below. See the
+<a class="reference internal" href="mixture.html#command-mixture"><span class="std std-ref">mixture</span></a> command for how a set of species can be
+partitioned into groups. Only grid cells in the grid group specified by
+<em>group-ID</em> are included in the calculations. See the <a class="reference internal" href="group.html#command-group"><span class="std std-ref">group grid</span></a> command for info on how grid cells can be assigned
+to grid groups.</p>
+<p>The results of this compute can be used by different commands in
+different ways. The values for a single timestep can be output by the
+<a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">dump grid</span></a> command.</p>
+<p>The values over many sampling timesteps can be averaged by the <a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid</span></a> command. It does its averaging as if the
+particles in the cell at each sampling timestep were combined together
+into one large set of particles to compute the formulas below.</p>
+<p>Note that for most of the values, this is a different form of averaging
+than taking the values produced by the formulas below for a single
+timestep, summing those values over the sampling timesteps, and then
+dividing by the number of sampling steps.</p>
+<p id="compute-grid-npart">The <code class="docutils literal notranslate"><span class="pre">n</span></code> value counts the number of particles in each group. When
+accumulated over multiple sampling steps, this value is normalized by
+the number of sampling steps.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">nrho</span></code> value computes the number density for the grid cell volume
+due to particles in each group:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Nrho</span> <span class="no">= fnum/volume * N</span>
+</pre></div>
+</div>
+<p>N is the number of particles (same as the <em>n</em> keyword), fnum is the
+real/simulated particle ratio set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global fnum</span></a>
+command, and volume is the flow volume of the grid cell. When
+accumulated over multiple sampling steps, this value is normalized by
+the number of sampling steps. Note that if particle weighting is enabled
+via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command, then the volume used in
+the formula is divided by the weight assigned to the grid cell.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">nfrac</span></code> value computes the number fraction of particles in each
+group:</p>
+<p>Nfrac = Ngroup / Ntotal</p>
+<p>Ngroup is the count of particles in the group and Ntotal is the total
+number of particles in all groups in the mixture. Note that this total
+is not (necessarily) all particles in the cell.</p>
+<p id="compute-grid-mass">The <code class="docutils literal notranslate"><span class="pre">mass</span></code> value computes the average mass of particles in each group:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Mass</span> <span class="no">= Sum_i (mass_i) / N</span>
+</pre></div>
+</div>
+<p>where Sum_i is a sum over particles in the group.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">massrho</span></code> value computes the mass density for the grid cell volume
+due to particles in each group:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Massrho</span> <span class="no">= fnum/volume * Sum_i (mass_i)</span>
+</pre></div>
+</div>
+<p>where Sum_i is a sum over particles in the group, fnum is the
+real/simulated particle ratio set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global fnum</span></a>
+command, and volume is the flow volume of the grid cell. When
+accumulated over multiple sampling steps, this value is normalized by
+the number of sampling steps. Note that if particle weighting is enabled
+via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command, then the volume used in
+the formula is divided by the weight assigned to the grid cell.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">massfrac</span></code> value computes the mass fraction of particles in each
+group:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Massfrac</span> <span class="no">= Sum_i (mass_i) / Masstotal</span>
+</pre></div>
+</div>
+<p>where Sum_i is a sum over particles in the group and Masstotal is the
+total mass of particles in all groups in the mixture. Note that this
+total is not (necessarily) the mass of all particles in the cell.</p>
+<p id="compute-grid-veloc">The <code class="docutils literal notranslate"><span class="pre">u</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">w</span></code> values compute the components of the mass-weighted
+average velocity of particles in each group:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">U</span> <span class="no">= Sum_i (mass_i Vx_i) / Sum_i (mass_i)</span>
+<span class="nb">V</span> <span class="no">= Sum_i (mass_i Vy_i) / Sum_i (mass_i)</span>
+<span class="nb">W</span> <span class="no">= Sum_i (mass_i Vz_i) / Sum_i (mass_i)</span>
+</pre></div>
+</div>
+<p>This is the same as the center-of-mass velocity of particles in each
+group.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">usq</span></code>, <code class="docutils literal notranslate"><span class="pre">vsq</span></code>, <code class="docutils literal notranslate"><span class="pre">wsq</span></code> values compute the average mass-weighted squared
+components of the velocity of particles in each group:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Usq</span> <span class="no">= Sum_i (mass_i Vx_i Vx_i) / Sum_i (mass_i)</span>
+<span class="nb">Vsq</span> <span class="no">= Sum_i (mass_i Vy_i Vy_i) / Sum_i (mass_i)</span>
+<span class="nb">Wsq</span> <span class="no">= Sum_i (mass_i Vz_i Vz_i) / Sum_i (mass_i)</span>
+</pre></div>
+</div>
+<p id="compute-grid-energy">The <code class="docutils literal notranslate"><span class="pre">ke</span></code> value computes the average kinetic energy of particles in each
+group:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Vsq</span> <span class="no">= Vx*Vx + Vy*Vy + Vz*Vz</span>
+<span class="nb">KE</span> <span class="no">= Sum_i (1/2 mass_i Vsq_i) / N</span>
+</pre></div>
+</div>
+<p>Note that this is different than the group’s contribution to the average
+kinetic energy of entire grid cells. That can be calculated by
+multiplying the <em>ke</em> quantity by the <em>n</em> quantity.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">temp</span></code> value first computes the average kinetic energy of particles
+in each group, as for the <em>ke</em> value. This is then converted to a
+temperature <em>T</em> by the following formula where <em>kB</em> is the Boltzmann
+factor:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Vsq</span> <span class="no">= Vx*Vx + Vy*Vy + Vz*Vz</span>
+<span class="nb">KE</span> <span class="no">= Sum_i (1/2 mass_i Vsq_i) / N</span>
+<span class="nb">T</span> <span class="no">= KE / (3/2 kB)</span>
+</pre></div>
+</div>
+<p>Note that this definition of temperature does not subtract out a net
+streaming velocity for particles in the grid cell, so it is not a
+thermal temperature when the particles have a non-zero streaming
+velocity. See the <a class="reference internal" href="compute_thermal_grid.html#command-compute-thermal-grid"><span class="std std-ref">compute thermal/grid</span></a>
+command to calculate thermal temperatures after subtracting out
+streaming components of velocity.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">erot</span></code> value computes the average rotational energy of particles in
+each group:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Erot</span> <span class="no">= Sum_i (erot_i) / N</span>
+</pre></div>
+</div>
+<p>Note that this is different than the group’s contribution to the average
+rotational energy of entire grid cells. That can be calculated by
+multiplying the <em>erot</em> quantity by the <em>n</em> quantity.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">trot</span></code> value computes a rotational temperature by the following
+formula where <em>kB</em> is the Boltzmann factor:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Trot</span> <span class="no">= (2/kB) Sum_i (erot_i) / Sum_i (dof_i)</span>
+</pre></div>
+</div>
+<p>Dof_i is the number of rotational degrees of freedom for particle i.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">evib</span></code> value computes the average vibrational energy of particles in
+each group:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Evib</span> <span class="no">= Sum_i (evib_i) / N</span>
+</pre></div>
+</div>
+<p>Note that this is different than the group’s contribution to the average
+vibrational energy of entire grid cells. That can be calculated by
+multiplying the <em>evib</em> quantity by the <em>n</em> quantity.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">tvib</span></code> value computes a classical definition of vibrational
+temperature, valid for continous distributions of vibrational energy, by
+the following formula where <em>kB</em> is the Boltzmann factor:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Tvib</span> <span class="no">= (2/kB) Sum_i (evib_i) / Sum_i (dof_i)</span>
+</pre></div>
+</div>
+<p>Dof_i is the number of vibrational degrees of freedom for particle i.</p>
+<p id="compute-grid-momentum">The <code class="docutils literal notranslate"><span class="pre">pxrho</span></code>, <code class="docutils literal notranslate"><span class="pre">pyrho</span></code>, <code class="docutils literal notranslate"><span class="pre">pzrho</span></code> values compute components of momentum
+density for the grid cell volume due to particles in each group:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Pxrho</span> <span class="no">= fnum/volume * Sum_i (mass_i * Vx_i)</span>
+<span class="nb">Pyrho</span> <span class="no">= fnum/volume * Sum_i (mass_i * Vy_i)</span>
+<span class="nb">Pzrho</span> <span class="no">= fnum/volume * Sum_i (mass_i * Vz_i)</span>
+</pre></div>
+</div>
+<p>where Sum_i is a sum over particles in the group, fnum is the
+real/simulated particle ratio set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global fnum</span></a>
+command, and volume is the flow volume of the grid cell. When
+accumulated over multiple sampling steps, this value is normalized by
+the number of sampling steps. Note that if particle weighting is enabled
+via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command, then the volume used in
+the formula is divided by the weight assigned to the grid cell.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">kerho</span></code> value computes the kinetic energy density for the grid cell
+volume due to particles in each group:</p>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">Vsq</span> <span class="no">= Vx*Vx + Vy*Vy + Vz*Vz</span>
+<span class="nb">KErho</span> <span class="no">= fnum/volume * Sum_i (mass_i * Vsq_i)</span>
+</pre></div>
+</div>
+<p>where Sum_i is a sum over particles in the group, fnum is the
+real/simulated particle ratio set by the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global fnum</span></a>
+command, and volume is the flow volume of the grid cell. When
+accumulated over multiple sampling steps, this value is normalized by
+the number of sampling steps. Note that if particle weighting is enabled
+via the <a class="reference internal" href="global.html#command-global"><span class="std std-ref">global weight</span></a> command, then the volume used in
+the formula is divided by the weight assigned to the grid cell.</p>
+<div class="section" id="output-info">
+<h3>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h3>
+<p>This compute calculates a per-grid array, with the number of columns
+equal to the number of values times the number of groups. The ordering
+of columns is first by values, then by groups. I.e. if the <em>n</em> and <em>u</em>
+values were specified as keywords, then the first two columns would be
+<em>n</em> and <em>u</em> for the first group, the 3rd and 4th columns would be <em>n</em>
+and <em>u</em> for the second group, etc.</p>
+<p>This compute performs calculations for all flavors of child grid cells
+in the simulation, which includes unsplit, cut, split, and sub cells.
+See <a class="reference internal" href="Section_howto.html#howto-grids"><span class="std std-ref">Section 6.8</span></a> of the manual gives
+details of how SPARTA defines child, unsplit, split, and sub cells. Note
+that cells inside closed surfaces contain no particles. These could be
+unsplit or cut cells (if they have zero flow volume). Both of these
+kinds of cells will compute a zero result for all their values.
+Likewise, split cells store no particles and will produce a zero result.
+This is because their sub-cells actually contain the particles that are
+geometrically inside the split cell.</p>
+<p>Grid cells not in the specified <em>group-ID</em> will output zeroes for all
+their values.</p>
+<p>The array can be accessed by any command that uses per-grid values from
+a compute as input. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Section 6.4</span></a> for
+an overview of SPARTA output options.</p>
+<p>The per-grid array values will be in the <a class="reference internal" href="units.html#command-units"><span class="std std-ref">units</span></a>
+appropriate to the individual values as described above. <em>N</em> is
+unitless. <em>Nrho</em> is in 1/distance^3 units for 3d simulations and
+1/distance^2 units for 2d simulations. <em>Mass</em> is in mass units.
+<em>Massrho</em> is in is in mass/distance^3 units for 3d simulations and
+mass/distance^2 units for 2d simulations. <em>U</em>, <em>v</em>, and <em>w</em> are in
+velocity units. <em>Usq</em>, <em>vsq</em>, and <em>wsq</em> are in velocity squared units.
+<em>Ke</em>, <em>erot</em>, and <em>evib</em> are in energy units. <em>Temp</em> and <em>trot</em> and
+<em>tvib</em> are in temperature units. <em>Pxrho</em>, <em>pyrho</em>, <em>pzrho</em> are in
+momentum/distance^3 units for 3d simulations and momentum/distance^2
+units for 2d simulations, where momentum is in units of mass*velocity.
+<em>Kerho</em> is in units of energy/distance^3 units for 3d simulations and
+energy/distance^2 units for 2d simulations.</p>
+<hr class="docutils" />
+<p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding
+style without the suffix. They have been optimized to run faster,
+depending on your available hardware, as discussed in the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual. The
+accelerated styles take the same arguments and should produce the same
+results, except for different random number, round-off and precision
+issues.</p>
+<p>These accelerated styles are part of the KOKKOS package. They are only
+enabled if SPARTA was built with that package. See the <a class="reference internal" href="Section_start.html#start-making-sparta"><span class="std std-ref">Making SPARTA</span></a> section for more info.</p>
+<p>You can specify the accelerated styles explicitly in your input script
+by including their suffix, or you can use the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-suffix command-line switch</span></a> when you invoke SPARTA, or you
+can use the <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix</span></a> command in your input script.</p>
+<p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the
+manual for more instructions on how to use the accelerated styles
+effectively.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="fix_ave_grid.html#command-fix-ave-grid"><span class="std std-ref">fix ave/grid command</span></a>,
+<a class="reference internal" href="dump.html#command-dump"><span class="std std-ref">command-dump grid</span></a>,
+<a class="reference internal" href="compute_thermal_grid.html#command-compute-thermal-grid"><span class="std std-ref">compute thermal/grid command</span></a></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,669 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>surf_collide command &mdash; SPARTA 6 Jul 2020 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygm_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPARTA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                6 Jul 2020  (build: 23/07/2020)
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Section_intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_start.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_packages.html">4. Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_accelerate.html">5. Accelerating SPARTA performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_howto.html">6. How-to discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_example.html">7. Example problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_perf.html">8. Performance &amp; scalability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_tools.html">9. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_modify.html">10. Modifying &amp; extending SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_python.html">11. Python interface to SPARTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_errors.html">12. Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Section_history.html">13. Future and history</a></li>
+</ul>
+
+            
+          
+  <a href= "genindex.html">Index</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARTA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>surf_collide command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/surf_collide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="surf-collide-command">
+<span id="command-surf-collide"></span><span id="index-0"></span><h1>surf_collide command<a class="headerlink" href="#surf-collide-command" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="syntax">
+<h2>Syntax:<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">surf_collide</span> <span class="no">ID style args keyword values ...</span>
+</pre></div>
+</div>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ID</span></code> = user-assigned name for the surface collision model</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">style</span></code> = <code class="docutils literal notranslate"><span class="pre">specular</span></code> or <code class="docutils literal notranslate"><span class="pre">diffuse</span></code> or <code class="docutils literal notranslate"><span class="pre">cll</span></code> or <code class="docutils literal notranslate"><span class="pre">impulsive</span></code> or <code class="docutils literal notranslate"><span class="pre">td</span></code> or
+<code class="docutils literal notranslate"><span class="pre">piston</span></code> or <code class="docutils literal notranslate"><span class="pre">transparent</span></code> or <code class="docutils literal notranslate"><span class="pre">vanish</span></code> or <code class="docutils literal notranslate"><span class="pre">specular/kk</span></code> or
+<code class="docutils literal notranslate"><span class="pre">diffuse/kk</span></code> or <code class="docutils literal notranslate"><span class="pre">piston/kk</span></code> or <code class="docutils literal notranslate"><span class="pre">vanish/kk</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code> = arguments for specific style</p>
+<dl class="simple">
+<dt>specular or specular/kk</dt><dd><p>args = none</p>
+</dd>
+<dt>diffuse or diffuse/kk args = Tsurf acc</dt><dd><ul class="simple">
+<li><p>Tsurf = temperature of surface (temperature units).
+Tsurf can be a variable (see below)</p></li>
+<li><p>acc = accommodation coefficient</p></li>
+</ul>
+</dd>
+<dt>cll args = Tsurf acc_n acc_t acc_rot acc_vib</dt><dd><ul class="simple">
+<li><p>Tsurf = temperature of surface (temperature units).
+Tsurf can be a variable (see below)</p></li>
+<li><p>acc_n = accommodation coefficient in the surface normal direction</p></li>
+<li><p>acc_t = accommodation coefficient in the surface tangential direction</p></li>
+<li><p>acc_rot = accommodation coefficient for the rotational modes</p></li>
+<li><p>acc_vib = accommodation coefficient for the vibrational modes</p></li>
+</ul>
+</dd>
+<dt>impulsive args = Tsurf model param1 param2 var theta_peak pol_pow azi_pow</dt><dd><ul class="simple">
+<li><p>Tsurf = temperature of surface (temperature units).
+Tsurf can be a variable (see below)</p></li>
+<li><p><strong>model</strong> can be softsphere or tempvar</p>
+<ul>
+<li><p>softsphere args = en_ratio eff_mass</p>
+<ul>
+<li><p>param1 = en_ratio = fraction of energy lost in the collision</p></li>
+<li><p>param2 = eff_mass = effective mass of the surface atom</p></li>
+</ul>
+</li>
+<li><p>tempvar args = a1 a0</p>
+<ul>
+<li><p>param1 = a1 = linear term in the variation with temperature</p></li>
+<li><p>param2 = a0 = constant term in the variation with temperature</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>var = variance of the scattered particle velocity distribution</p></li>
+<li><p>theta_peak = peak location of the polar angle distribution</p></li>
+<li><p>pol_pow = cosine power represeting the polar angular distribution</p></li>
+<li><p>azi_pow = cosine power represeting the azimuthal angular distribution</p></li>
+</ul>
+</dd>
+<dt>td arg = Tsurf</dt><dd><p>Tsurf = temperature of surface (temperature units).
+Tsurf can be a variable (see below)</p>
+</dd>
+<dt>piston or piston/kk args = Vwall</dt><dd><p>Vwall = velocity of boundary wall (velocity units)</p>
+</dd>
+<dt>transparent</dt><dd><p>args = none</p>
+</dd>
+<dt>vanish or vanish/kk</dt><dd><p>args = none</p>
+</dd>
+</dl>
+</li>
+<li><p>zero or more keyword/arg pairs may be appended</p>
+<p>keyword = <code class="docutils literal notranslate"><span class="pre">translate</span></code> or <code class="docutils literal notranslate"><span class="pre">rotate</span></code> or <code class="docutils literal notranslate"><span class="pre">partial</span></code></p>
+<p>values = values for specific keyword</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">translate</span></code> args = <a class="reference internal" href="#surf-collide-veloc"><span class="std std-ref">Vx Vy Vz</span></a></p>
+<ul>
+<li><p>Vx,Vy,Vz = translational velocity of surface (velocity units)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rotate</span></code> args = <a class="reference internal" href="#surf-collide-veloc"><span class="std std-ref">Pz Py Pz Wx Wy Wz</span></a></p>
+<ul>
+<li><p>Px,Py,Pz = point to rotate surface around (distance units)</p></li>
+<li><p>Wx,Wy,Wz = angular velocity of surface around point (radians/time)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">partial</span></code> args = <a class="reference internal" href="#surf-collide-veloc"><span class="std std-ref">eccen (only for cll style)</span></a></p>
+<ul>
+<li><p>eccen = eccentricity parameter</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">barrier</span></code> args = <a class="reference internal" href="#surf-collide-energy"><span class="std std-ref">bar_val (only for td style)</span></a></p>
+<ul>
+<li><p>bar_val = value of the desorption barrier in temperature units</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bond</span></code> args = <a class="reference internal" href="#surf-collide-energy"><span class="std std-ref">bond_trans bond_rot bond_vib (only for td style)</span></a></p>
+<ul>
+<li><p>bond_trans = amount of bond dissociation energy (in temperature units) going into translational mode</p></li>
+<li><p>bond_rot = amount of bond dissociation energy (in temperature units) going into rotational mode</p></li>
+<li><p>bond_vib = amount of bond dissociation energy (in temperature units) going into vibrational mode</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">init_energy</span></code> = <a class="reference internal" href="#surf-collide-energy"><span class="std std-ref">IE_trans IE_rot IE_vib (only for td style)</span></a></p>
+<ul>
+<li><p>IE_trans = fraction of initial translational energy going into translational mode</p></li>
+<li><p>IE_rot = fraction of initial translational energy going into rotational mode</p></li>
+<li><p>IE_vib = fraction of initial translational energy going into vibrational mode</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">step</span></code> args = <a class="reference internal" href="#surf-collide-energy"><span class="std std-ref">epsilon (only for impulsive style)</span></a></p>
+<ul>
+<li><p>epsilon = ratio of the height to the width of the step</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">double</span></code> args = <a class="reference internal" href="#surf-collide-energy"><span class="std std-ref">polar_pow_2 (only for impulsive style)</span></a></p>
+<ul>
+<li><p>polar_pow_2 = cosine power for the polar angular distribution between peak and surface</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">intenergy</span></code> args = <a class="reference internal" href="#surf-collide-energy"><span class="std std-ref">frac_rot frac_vib (only for impulsive style)</span></a></p>
+<ul>
+<li><p>frac_rot = fraction of lost translational energy going into the rotational mode</p></li>
+<li><p>frac_vib = fraction of lost translational energy going into the vibrational mode</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xorg.conf notranslate"><div class="highlight"><pre><span></span><span class="nb">surf_collide</span> <span class="no">1 specular</span>
+<span class="nb">surf_collide</span> <span class="no">1 transparent</span>
+<span class="nb">surf_collide</span> <span class="no">1 diffuse 273.15 0.9</span>
+<span class="nb">surf_collide</span> <span class="no">1 cll 273.15 0.8 0.8 0.5 0.1</span>
+<span class="nb">surf_collide</span> <span class="no">1 cll 273.15 1.0 1.0 0.1 0.1 partial 0.5</span>
+<span class="nb">surf_collide</span> <span class="no">1 impulsive 1000.0 softsphere 0.2 50 2000 60 5 75</span>
+<span class="nb">surf_collide</span> <span class="no">1 impulsive 1000.0 tempvar 3 500 2000 60 5 75</span>
+<span class="nb">surf_collide</span> <span class="no">1 impulsive 1000.0 softsphere 0.2 50 2000 60 5 75 double 10</span>
+<span class="nb">surf_collide</span> <span class="no">1 impulsive 1000.0 tempvar 3 500 2000 60 5 75 step 0.1</span>
+<span class="nb">surf_collide</span> <span class="no">heatwall diffuse v_ramp 0.8</span>
+<span class="nb">surf_collide</span> <span class="no">heatwall diffuse v_ramp 0.8 translate 5.0 0.0 0.0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Define a model for particle-surface collisions. One or more models can
+be defined and assigned to different surfaces or simulation box
+boundaries via the <a class="reference internal" href="surf_modify.html#command-surf-modify"><span class="std std-ref">surf_modify command</span></a> or
+<a class="reference internal" href="bound_modify.html#command-bound-modify"><span class="std std-ref">bound_modify command</span></a>. See <a class="reference internal" href="Section_howto.html#howto-surfaces"><span class="std std-ref">Details of surfaces in SPARTA</span></a> for more
+details of how SPARTA defines surfaces as collections of geometric
+elements, triangles in 3d and line segments in 2d. Chemical reactions
+can also be part of a particle-surface interaction model. See the
+<a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a> for details. All of the collision styles listed
+here support optional reactions, except the <em>vanish</em> style.</p>
+<p>The ID for a surface collision model is used to identify it in other
+commands. Each surface collision model ID must be unique. The ID can
+only contain alphanumeric characters and underscores.</p>
+<hr class="docutils" />
+<p>The <em>specular</em> style computes a simple specular reflection model. It
+requires no arguments. Specular reflection means that a particle
+reflects off a surface element with its incident velocity vector
+reversed with respect to the outward normal of the surface element. The
+particle’s speed is unchanged.</p>
+<hr class="docutils" />
+<p>The <em>diffuse</em> style computes a simple diffusive reflection model.</p>
+<p>The model has 2 parameters set by the <em>Tsurf</em> and <em>acc</em> arguments.
+<em>Tsurf</em> is the temperature of the surface. <em>Acc</em> is an accommodation
+coefficient from 0.0 to 1.0, which determines what fraction of surface
+collisions are diffusive. The rest are specular. Thus a setting of <em>acc</em>
+= 0.0 means all collisions are specular and a setting of <em>acc</em>
+= 1.0 means all collisions are diffusive.</p>
+<p>Note that setting <em>acc</em> = 0.0, is a way to perform surface reactions
+with specular reflection, via the <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a>, which
+cannot be done in conjunction with the <code class="docutils literal notranslate"><span class="pre">surf_collide</span></code> specular
+command. See the <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react command</span></a> doc page for details.</p>
+<p>Diffuse reflection emits the particle from the surface with no
+dependence on its incident velocity. A new velocity is assigned to the
+particle, sampled from a Gaussian distribution consistent with the
+surface temperature. The new velocity will have thermal components in
+the direction of the outward surface normal and the plane tangent to the
+surface given by:</p>
+<div class="math notranslate nohighlight">
+\[u =  \{-ln(R_f)\}^{1/2}/\beta\]</div>
+<p>The <em>Tsurf</em> value can be specified as an equal-style <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a>.  If the value is a variable, it should be specified as <code class="docutils literal notranslate"><span class="pre">v_name</span></code>, where name is the variable name. In this case, the variable will be evaluated each timestep, and its value used to determine the current surface temperature.</p>
+<p>Equal-style variables can specify formulas with various mathematical functions, and include <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style command</span></a> keywords for the simulation box parameters and timestep and elapsed time. Thus it is easy to specify a time-dependent temperature.</p>
+<hr class="docutils" />
+<p>The <em>cll</em> style computes the surface collision model proposed by
+Cercignani, Lampis and Lord. The model has 5 parameters set by the
+<em>Tsurf</em>, <em>acc_n</em>, <em>acc_t</em>, <em>acc_rot</em>, and <em>acc_vib</em> arguments. <em>Tsurf</em>
+is the temperature of the surface. <em>acc_n</em>, <em>acc_t</em>, <em>acc_rot</em>, and
+<em>acc_vib</em> are the accommodation coefficient for the surface normal
+direction, surface tangential directions, rotational energy mode, and
+vibrational energy mode respectively. The rotational and vibrational
+energy accommodation values must be specified even for an atomic
+species; however these values are simply ignored.</p>
+<p>The theoretical scattering kernel was proposed by Cercignani and Lampis
+<a class="reference internal" href="#cercignani71" id="id1"><span>[Cercignani71]</span></a>. In this original model, two
+accommodation coefficients for the normal and tangential directions are
+employed. Each of these quantities can take a value between 0 and 1.
+Specular reflection is achieved by using the values (0,0), while
+complete thermal accommodation with the surface and cosine angular
+distributions is obtained using (1,1). There is smooth variation of both
+the energy and angular distribution for values in between these limits
+leading to lobular distributions similar to those observed in
+experiments. The implementation details of this model within DSMC was
+given by Lord <a class="reference internal" href="#lord90" id="id2"><span>[Lord90]</span></a>, along with extension to rotational
+and vibrational modes with both continuous and discrete levels
+<a class="reference internal" href="#lord91" id="id3"><span>[Lord91]</span></a>.</p>
+<p>The <em>Tsurf</em> value can be specified as an equal-style <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a>. If the value is a variable, it should be specified as v_name, where name is the variable name. In this case, the variable will be evaluated each timestep, and its value used to determine the current surface temperature.</p>
+<p>Equal-style variables can specify formulas with various mathematical
+functions and include <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style command</span></a>
+keywords for the simulation box parameters and timestep and elapsed
+time. Thus, it is easy to specify a time-dependent temperature.</p>
+<hr class="docutils" />
+<p>The <em>td</em> style computes the thermal desorption surface collision model
+proposed by Swaminathan Gopalan <em>et al.</em> <a class="reference internal" href="#sg18" id="id4"><span>[SG18]</span></a>. The model has 1
+parameter set by <em>Tsurf</em> argument, which is the temperature of the
+surface. This is similar to <em>diffuse</em> style with an accommodation
+coefficient <em>acc</em> = 1.0.</p>
+<p>The particles are scattered thermally based on the Maxwell Boltzmann
+distribution conisstent with the surface temperture. The new velocity
+will have thermal components in the direction of the outward surface
+normal and the plane tangent to the surface given by:</p>
+<div class="math notranslate nohighlight">
+\[u =  \{-ln(R_f)\}^{1/2}/\beta\]</div>
+<p>The <em>Tsurf</em> value can be specified as an equal-style
+<a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a>. If the value is a variable, it should be
+specified as v_name, where name is the variable name. In this case, the
+variable will be evaluated each timestep, and its value used to
+determine the current surface temperature.</p>
+<p>Equal-style variables can specify formulas with various mathematical functions, and include <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style command</span></a> keywords for the simulation box parameters and timestep and elapsed time. Thus it is easy to specify a time-dependent temperature.</p>
+<hr class="docutils" />
+<p>The <em>impulsive</em> style computes the surface collision model proposed by Swaminathan Gopalan <em>et al.</em> <a class="reference internal" href="#sg18" id="id5"><span>[SG18]</span></a>. The model has 8 parameters.
+Within impulsive scattering, two different models are available, namely <em>softsphere</em> and <em>tempvar</em>. The <em>softsphere</em> argument uses the soft sphere model and has two parameters: <em>en_ratio</em> which represents the fraction of energy lost during the collision, and <em>eff_mass</em> specifying the effective mass of the surface atom.
+The <em>tempvar</em> argument directly provides the peak value of the scattered particle velocity distribution as a linear function of temperature. It has two parameters: the linear term <em>a1</em> and constant term <em>a0</em>.
+The other five parameters <em>Tsurf</em>, <em>var</em>, <em>pol_peak</em>, <em>pol_pow</em>, <em>azi_pow</em> are set for both the models. <em>Tsurf</em> is the surface temperature. <em>var</em> is the variance of the scattered particle velocity distribution.  <em>pol_peak</em> is the peak of the polar angle distribution. <em>pol_pow</em> and <em>azi_pow</em> are the cosine power representing the polar and azimuthal angle distribution respectively.</p>
+<p>The <em>impulsive</em> model is used to represent the scattering of particles having super or hyperthermal translational energies and very low internal energies, like in a beam. This type of scattering falls under the structural regime, whose scattering physics and distributions are very different from the thermal regime. The velocity distribution of the impulsive scattering model can be represented using a Gaussian distribution with a mean <span class="math notranslate nohighlight">\(u_{0}\)</span> and a variance <span class="math notranslate nohighlight">\(\alpha\)</span> following Rettner <a class="reference internal" href="#rettner94a" id="id6"><span>[Rettner94a]</span></a></p>
+<div class="math notranslate nohighlight">
+\[f_\text{impulsive}(u) \propto u^{2} \, \exp\left(-\frac{(u-u_0)^{2}}{2\alpha^2}\right)\]</div>
+<p>The variance parameter is directly specified by the user. The value of <span class="math notranslate nohighlight">\(u_{0}\)</span> can be provided directly using the <em>tempvar</em> model in which it is represented as a linear function of temperature. The linear term <em>a1</em> and constant term <em>a0</em> are given as inputs.</p>
+<div class="math notranslate nohighlight">
+\[\left\langle E_{f} \right\rangle = E_{i} \left(1 - \frac{2\mu}{\left(\mu+1\right)^{2}}\left[1 + \mu \sin^{2}\chi + \frac{E_\text{int}}{E_{i}}\left(\frac{\mu+1}{2\mu}\right) - \cos{\chi}\sqrt{1 - \mu^{2} \sin^{2}\chi - \frac{E_\text{int}}{E_{i}}\left(\mu+1\right)}\right]\right)\]</div>
+<p>The <span class="math notranslate nohighlight">\(u_{0}\)</span> parameter can also be specified by a more physical model such as the soft sphere scattering model <a class="reference internal" href="#alexander12" id="id7"><span>[Alexander12]</span></a>.  This model uses the parameters <em>en_ratio</em>, the fraction of energy lost in the collision and <em>eff_mass</em>, the effective mass of the surface atom to determine the average final energy and then the average final velocity <em>u0</em>. Within the soft sphere model, the average final velocity will vary as a function of the final polar angle.</p>
+<div class="math notranslate nohighlight">
+\[u_{0} =  a_{1} \cdot  T + a_{0}\]</div>
+<p>Both the polar and azimuthal angular distribution are lobular in nature and sharply peaked. These distributions can be represented using the cosine power law distribution <a class="reference internal" href="#glatzer97" id="id8"><span>[Glatzer97]</span></a>.
+The peak of the azimuthal distribution remains at zero, while the peak of the polar angle distribution is usually higher than the incident angle (away from the normal). Hence the peak location (theta_peak) and cosine power (n) of the polar angle distribution and the cosine power (m) of the azimuthal angular distribution are taken as input parameters.
+A factor of 2 is present in the azimuthal distribution to ensure the function remians positive within the range of the azimuthal angle: (-180, 180)</p>
+<div class="math notranslate nohighlight">
+\[N(\theta) \propto \cos^{n} \left( \theta-\theta_{\text{peak}} \right)\]</div>
+<div class="math notranslate nohighlight">
+\[N(\phi) \propto \cos^{m} \left(\frac{\phi}{2}\right)\]</div>
+<p>The internal (rotational and vibrational) energy of an incident molecule remains unchanged within the <em>impulsive</em> model unless the optional keyword <em>intenergy</em> is specified (see below).</p>
+<p>The <em>Tsurf</em> value can be specified as an equal-style <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable</span></a>. If the value is a variable, it should be specified as <code class="docutils literal notranslate"><span class="pre">v_name</span></code>, where name is the variable name. In this case, the variable will be evaluated each timestep, and its value used to determine the current surface temperature.</p>
+<p>Equal-style variables can specify formulas with various mathematical functions and include <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style command</span></a> keywords for the simulation box parameters and timestep and elapsed time. Thus, it is easy to specify a time-dependent temperature.</p>
+<hr class="docutils" />
+<p>The <em>piston</em> style models a subsonic pressure boundary condition. It can only be assigned to the simulation box boundaries via the <a class="reference internal" href="bound_modify.html#command-bound-modify"><span class="std std-ref">bound_modify command</span></a> or to surface elements which are parallel to one of the box boundaries (via the <a class="reference internal" href="surf_modify.html#command-surf-modify"><span class="std std-ref">surf_modify command</span></a>).</p>
+<p>It treats collisions of particles with the surface as if the surface were moving with specified velocity <em>Vwall</em> away from the incident particle. Thus the “collision” actually occurs later in the timestep and the reflected velocity is less than it would be for reflection from a stationary surface.
+This calculation is performed using equations 12.30 and 12.31 in <a class="reference internal" href="#bird94" id="id9"><span>[Bird94]</span></a> to compute the reflected velocity and final position of the particle. If the particle does not return within the timestep to a position inside the simulation box (for a boundary surface) or to the same side of the initial surface that it started from (for a surface element collision), the particle is deleted.  This effectively induces particles at the boundary to have a velocity distribution consistent with a subsonic pressure boundary condition, as explained in <a class="reference internal" href="#bird94" id="id10"><span>[Bird94]</span></a>.</p>
+<p><em>Vwall</em> should be chosen to correspond to a desired pressure condition for the density of particles in the system.</p>
+<p>NOTE: give more details on how to do this?</p>
+<p>Note that <em>Vwall</em> must always be input as a value &gt;= 0.0, meaning the surface is moving away from the incident particle. For example, in the z-dimension, if the upper box face is assigned <em>Vwall</em>, it is moving upward. Similarly if the lower box face is assigned <em>Vwall</em>, it is moving downward.</p>
+<hr class="docutils" />
+<p>The <em>transparent</em> style simply allows particles to pass through the surface without altering the particle properties.</p>
+<p>This is useful for tallying flow statistics. The surface elements must have been flagged as transparent when they were read in, via the <a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf command</span></a> and its transparent keyword. The <a class="reference internal" href="compute_surf.html#command-compute-surf"><span class="std std-ref">compute surf command</span></a> will tally fluxes differently for transparent surf elements. The <a class="reference internal" href="Section_howto.html#howto-transparent-surface"><span class="std std-ref">Transparent surface elements</span></a> doc page provides an overview of transparent surfaces. See those doc pages for details.</p>
+<hr class="docutils" />
+<p>The <em>vanish</em> style simply deletes any particle which hits the surface.</p>
+<p>This is useful if a surface is defined to be an inflow boundary on the simulation domain, e.g. using the <a class="reference internal" href="fix_emit_surf.html#command-fix-emit-surf"><span class="std std-ref">fix emit/surf command</span></a>. Using this surface collision model will also treat the surface as an outflow boundary. This is similar to using the <a class="reference internal" href="fix_emit_face.html#command-fix-emit-face"><span class="std std-ref">fix emit/face command</span></a> on a simulation box face while also setting the face to be an outflow boundary via the <a class="reference internal" href="boundary.html#command-boundary"><span class="std std-ref">boundary o</span></a> command.</p>
+<p>Note that the <a class="reference internal" href="surf_react.html#command-surf-react"><span class="std std-ref">surf_react global</span></a> command
+can also be used to delete particles hitting a surface, by setting the
+<em>pdelete</em> parameter to 1.0. Using a surf_collide vanish command is
+simpler.</p>
+<hr class="docutils" />
+<p id="surf-collide-veloc">The keyword <code class="docutils literal notranslate"><span class="pre">translate</span></code> can only be applied to the <em>diffuse</em> and <em>cll</em>
+style. It models the surface as if it were translating with a constant
+velocity, specified by the vector (Vx,Vy,Vz). This velocity is added
+to the final post-collisional velocity of each particle that collides
+with the surface.</p>
+<p>The keyword <code class="docutils literal notranslate"><span class="pre">rotate</span></code> can only be applied to the <em>diffuse</em> and <em>cll</em>
+style. It models the surface as if it were rotating with a constant
+angular velocity, specified by the vector W = (Wx,Wy,Wz), around the
+specified point P = (Px,Py,Pz). Note that W and P define the rotation
+axis. The magnitude of W defines the speed of rotation. I.e. if the
+length of W = 2*pi then the surface is rotating at one revolution per
+time unit, where time units are defined by the <a class="reference internal" href="units.html#command-units"><span class="std std-ref">units command</span></a>.</p>
+<p>When a particle collides with the surface at a point X = (x,y,z), the
+collision point has a velocity given by V = (Vx,Vy,Vz) = W cross
+(X-P).  This velocity is added to the final post-collisional velocity
+of the particle.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rotate</span></code> keyword can be used to treat a simulation box boundary as
+a rotating wall, e.g. the end cap of an axisymmetric cylinder. Or to
+model a rotating object consisting of surface elements, e.g. a
+sphere. In either case, the wall or surface elements themselves do not
+change position due to rotation. They are simply modeled as having a
+tangential velocity, as if the entire object were rotating.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For both the <code class="docutils literal notranslate"><span class="pre">translate</span></code> and <code class="docutils literal notranslate"><span class="pre">rotate</span></code> keywords the added velocity can only be tangential to the surface, with no normal component since the surface is not actually moving in the normal direction.
+SPARTA does not check that the specified translation or rotation produces a tangential velocity.
+However if does enforce the condition by subtracting off any component of the added velocity that is normal to the simulation box boundary or individual surface element.</p>
+</div>
+<p>The keyword <code class="docutils literal notranslate"><span class="pre">partial</span></code> can only be applied to the <em>cll</em> style. Within the
+CLL model, the energy and angular distribution are linked. Lord
+<a class="reference internal" href="#lord95" id="id11"><span>[Lord95]</span></a> proposed a way to decouple the energy
+accommodation from the angular distribution. This case of partially
+diffuse scattering with incomplete energy accommodation can be activated
+in SPARTA using the optional keyword <em>partial</em>. It requires an
+additional parameter eccentricity set by the <em>eccen</em> argument. For this
+case, the energy accommodation is calculated using the accommodation
+coefficients, but the angular distribution is computed using the
+additional parameter eccentricity. The <code class="docutils literal notranslate"><span class="pre">eccen</span></code> parameter can vary
+between 0 and 1. A value of 0 represents fully diffuse scattering and
+gives a cosine angular distribution. Increasing value of <em>eccen</em>
+presents more peaked and lobular distribution <a class="reference internal" href="#lord95" id="id12"><span>[Lord95]</span></a>.</p>
+<p id="surf-collide-energy">The keywords <code class="docutils literal notranslate"><span class="pre">barrier</span></code>, <code class="docutils literal notranslate"><span class="pre">bond</span></code>, and <code class="docutils literal notranslate"><span class="pre">initenergy</span></code> can only be applied to the <code class="docutils literal notranslate"><span class="pre">td</span></code> style. Due to the nature of the interaction between the products and the surface, the desorption of the products might have an energy barrier. For a surface desorption process, this desorption barrier exists only in the normal direction. Thus, only the products having enough energy (in the normal direction) to overcome the barrier will be able to desorb from the surface. This alters the velocity distribution of the observed products along the surface normal direction and thus leads to the distortion of the speed distribution <a class="reference internal" href="#goodman72" id="id13"><span>[Goodman72]</span></a>. The angular distributions, which represent the ratio of the normal to the tangential velocities, are also altered as a result of the desorption barrier.
+The angular distributions are peaked more towards the normal and are often described by a cosine power law distribution.</p>
+<div class="math notranslate nohighlight">
+\[T_\text{norm} = T_\text{surf}\left(1 + \frac{E_\text{barrier}}{k_{b}}\right).\]</div>
+<div class="math notranslate nohighlight">
+\[f(v) \propto v^{2} \exp\left(-\frac{mv^{2}}{2k_{b}}\left(\frac{\cos^{2}\theta}{T_\text{norm}} + \frac{\sin^{2}\theta}{T_{\text{surf}}}\right)\right)\]</div>
+<p>In addition to the desorption energy barrier, products formed through thermal mechanisms might have energies exceeding those corresponding to the bulk surface temperature. The energy of the local surface environment where the product formation occurs might be greater than the normal surface temperature due to the formation of local hot-spots <a class="reference internal" href="#rettner94b" id="id14"><span>[Rettner94b]</span></a>.</p>
+<p>These hot-spots might stem from the dissociation or bond energy of the intermediates or the products. The optional keyword <code class="docutils literal notranslate"><span class="pre">bond</span></code> can be used to account for this scenario. This requires three arguments: the amount of energy (in temperature units) going into the translational, rotational and vibrational mode.</p>
+<div class="math notranslate nohighlight">
+\[E_{prod} = k_{b}T_{s} + k_{b}\sigma_2\]</div>
+<p>The higher energy during desorption might also arise due to the energy deposited by high speed of the incoming gas-phase particles. Since the formation of the products is rapid, the product might form and desorb before this high energy dissipates from the local hot-spots <a class="reference internal" href="#beckerle90" id="id15"><span>[Beckerle90]</span></a>. In this case, although the products are in thermal equilibrium with the surroundings, the energies of the products might not depend only on the equilibrium surface temperature, but also on the incoming velocities of the particles. This can be used within SPARTA using the optional keyword <code class="docutils literal notranslate"><span class="pre">initenergy</span></code>. It requires 3 arguments: fraction of the initial translational energy going into the translational, rotational and vibrational modes.</p>
+<div class="math notranslate nohighlight">
+\[E_{prod} = k_{b}T_{s} + \sigma_1 E_{in}\]</div>
+<p>The keywords <code class="docutils literal notranslate"><span class="pre">step</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, and <code class="docutils literal notranslate"><span class="pre">intenergy</span></code> can only be applied to the <code class="docutils literal notranslate"><span class="pre">impulsive</span></code> style. In some cases, it is observed that the polar angular distribution on either side of the peak is different. Goodman <a class="reference internal" href="#goodman74" id="id16"><span>[Goodman74]</span></a> provided a physical reasoning for the observed faster decay rate in the polar angular distribution away from the normal with the surface assumed to consist of periodic steps of average height H and average periodicity L. The ratio of the height to periodicity is <em>epsilon</em> and the correction to the angular distribution is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f_{corr} = \begin{cases}
+1 - \epsilon \, \tan(\theta_{0}), &amp; \text{if } \tan(\theta_{0}) &lt; \epsilon^{-1} \\
+0, &amp; \text{otherwise}
+\end{cases}\end{split}\]</div>
+<p>This optional argument can be accessed using the keyword <code class="docutils literal notranslate"><span class="pre">step</span></code>, and <code class="docutils literal notranslate"><span class="pre">epsilon</span></code> parameter must be specified. Another optional argument to specify the angular distribution of the products is the <em>double</em> keyword. In this option, the angular distribution on either sides of the peak are represented by a different cosine power decay. It requires one argument <em>pol_pow_2</em>, which describes the distribution between the peak and the surface. The distribution between the surface normal and the peak is described using the parameter <em>pol_pow</em>.</p>
+<p>The keyword <code class="docutils literal notranslate"><span class="pre">intenergy</span></code> can be used to modify the internal energy of an incident molecule during collision. In the case of hyperthermal collision the energy from the translational mode is transfered to the internal modes. This keyword requires two input parameters <em>frac_rot</em> and <em>frac_vib</em>. These specify the fraction of the change in translational energy (difference between the final and initial) transferred to the rotational and vibrational mode respectively.</p>
+<div class="section" id="output-info">
+<h3>Output info:<a class="headerlink" href="#output-info" title="Permalink to this headline">¶</a></h3>
+<p>All the surface collide models calculate a global vector of length 2.  The values can be used by the <a class="reference internal" href="stats_style.html#command-stats-style"><span class="std std-ref">stats_style command</span></a> and by <a class="reference internal" href="variable.html#command-variable"><span class="std std-ref">variable command</span></a> that define formulas. The latter means they can be used by any command that uses a variable as input, e.g. the <a class="reference internal" href="fix_ave_time.html#command-fix-ave-time"><span class="std std-ref">fix ave/time command</span></a>. See <a class="reference internal" href="Section_howto.html#howto-output"><span class="std std-ref">Output from SPARTA (stats, dumps, computes, fixes, variables)</span></a> for an overview of SPARTA output options.</p>
+<p>The first element of the vector is the count of particles that hit surface elements assigned to this collision model during the current timestep. The second element is the cummulative count of particles that have hit surface elements since the current run began.</p>
+<hr class="docutils" />
+<p>Styles with a <em>kk</em> suffix are functionally the same as the corresponding style without the suffix. They have been optimized to run faster, depending on your available hardware, as discussed in the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual. The accelerated styles take the same arguments and should produce the same results, except for different random number, round-off and precision issues.</p>
+<p>These accelerated styles are part of the KOKKOS package. They are only enabled if SPARTA was built with that package. See the <a class="reference internal" href="Section_start.html#start-optional-packages"><span class="std std-ref">Making SPARTA</span></a> section for more info.</p>
+<p>You can specify the accelerated styles explicitly in your input script by including their suffix, or you can use the <a class="reference internal" href="Section_start.html#start-command-line-options"><span class="std std-ref">-suffix command-line switch</span></a> when you invoke SPARTA, or you can use the <a class="reference internal" href="suffix.html#command-suffix"><span class="std std-ref">suffix command</span></a> in your input script.</p>
+<p>See the <a class="reference internal" href="Section_accelerate.html#accelerate"><span class="std std-ref">Accelerating SPARTA</span></a> section of the manual for more instructions on how to use the accelerated styles effectively.</p>
+</div>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions:<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<p>The <em>translate</em> and <em>rotate</em> keywords cannot be used together.</p>
+<p>If specified with a <em>kk</em> suffix, this command can be used no more than twice in the same input script (active at the same time).</p>
+</div>
+<div class="section" id="related-commands">
+<h2>Related commands:<a class="headerlink" href="#related-commands" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="read_surf.html#command-read-surf"><span class="std std-ref">read_surf command</span></a>,
+<a class="reference internal" href="bound_modify.html#command-bound-modify"><span class="std std-ref">bound_modify command</span></a></p>
+</div>
+<div class="section" id="default">
+<h2>Default:<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="references">
+<h2>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<dl class="citation">
+<dt class="label" id="bird94"><span class="brackets">Bird94</span><span class="fn-backref">(<a href="#id9">1</a>,<a href="#id10">2</a>)</span></dt>
+<dd><ol class="upperalpha simple" start="7">
+<li><ol class="upperalpha simple">
+<li><p>Bird, Molecular Gas Dynamics and the Direct Simulation of Gas Flows, Clarendon Press, Oxford (1994).</p></li>
+</ol>
+</li>
+</ol>
+</dd>
+<dt class="label" id="cercignani71"><span class="brackets"><a class="fn-backref" href="#id1">Cercignani71</a></span></dt>
+<dd><p>Cercignani C, Lampis M, Kinetic models for gas-surface interactions, Transport theory and statistical physics, Jan (1971).</p>
+</dd>
+<dt class="label" id="lord90"><span class="brackets"><a class="fn-backref" href="#id2">Lord90</a></span></dt>
+<dd><ol class="upperalpha simple" start="18">
+<li><ol class="upperalpha simple" start="7">
+<li><p>Lord, presented at the 17th International Symposium on Rarefied Gas Dynamics, Germany, July (1990).</p></li>
+</ol>
+</li>
+</ol>
+</dd>
+<dt class="label" id="lord91"><span class="brackets"><a class="fn-backref" href="#id3">Lord91</a></span></dt>
+<dd><ol class="upperalpha simple" start="18">
+<li><ol class="upperalpha simple" start="7">
+<li><p>Lord, Some extensions of the Cercignani-Lampis gas-surface interaction model, Physics of Fluids A: Fluid Dynamics, Jan (1991).</p></li>
+</ol>
+</li>
+</ol>
+</dd>
+<dt class="label" id="sg18"><span class="brackets">SG18</span><span class="fn-backref">(<a href="#id4">1</a>,<a href="#id5">2</a>)</span></dt>
+<dd><ol class="upperalpha simple" start="11">
+<li><p>Swaminathan Gopalan, Development of a detailed surface chemistry framework in DSMC, AIAA Aerospace Sciences Meeting, Jan (2018).</p></li>
+</ol>
+</dd>
+<dt class="label" id="rettner94a"><span class="brackets"><a class="fn-backref" href="#id6">Rettner94a</a></span></dt>
+<dd><ol class="upperalpha simple" start="3">
+<li><ol class="upperalpha simple" start="20">
+<li><p>Rettner, Reaction of an H-atom beam with Cl/Au(111): Dynamics of concurrent EleyRideal and Langmuir-Hinshelwood mechanisms, Journal of Chemical Physics, (1994).</p></li>
+</ol>
+</li>
+</ol>
+</dd>
+<dt class="label" id="alexander12"><span class="brackets"><a class="fn-backref" href="#id7">Alexander12</a></span></dt>
+<dd><ol class="upperalpha simple" start="23">
+<li><ol class="upperalpha simple">
+<li><p>Alexander, <em>et al</em>, Kinematics and dynamics of atomic-beam scattering on liquid and self-assembled monolayer surfaces, Faraday discussions, (2012)</p></li>
+</ol>
+</li>
+</ol>
+</dd>
+<dt class="label" id="glatzer97"><span class="brackets"><a class="fn-backref" href="#id8">Glatzer97</a></span></dt>
+<dd><ol class="upperalpha simple" start="4">
+<li><p>Glatzer, <em>et al</em>, Rotationally excited NO molecules incident on a graphite surface: in- and out-of-plane angular distributions, Surface Science, (1997)</p></li>
+</ol>
+</dd>
+<dt class="label" id="lord95"><span class="brackets">Lord95</span><span class="fn-backref">(<a href="#id11">1</a>,<a href="#id12">2</a>)</span></dt>
+<dd><ol class="upperalpha simple" start="18">
+<li><ol class="upperalpha simple" start="7">
+<li><p>Lord, Some further extensions of the Cercignani-Lampis gas-surface interaction model, Physics of Fluids, May (1995).</p></li>
+</ol>
+</li>
+</ol>
+</dd>
+<dt class="label" id="goodman72"><span class="brackets"><a class="fn-backref" href="#id13">Goodman72</a></span></dt>
+<dd><ol class="upperalpha simple" start="6">
+<li><ol class="upperalpha simple" start="15">
+<li><p>Goodman, Simple model for the velocity distribution of molecules desorbed from surfaces following recombination of atoms, Surface Science, (1972).</p></li>
+</ol>
+</li>
+</ol>
+</dd>
+<dt class="label" id="rettner94b"><span class="brackets"><a class="fn-backref" href="#id14">Rettner94b</a></span></dt>
+<dd><ol class="upperalpha simple" start="3">
+<li><ol class="upperalpha simple" start="20">
+<li><p>Rettner and J. Lee, Dynamic displacement of o2 from pt (111): A new desorption mechanism, The Journal of chemical physics, (1994).</p></li>
+</ol>
+</li>
+</ol>
+</dd>
+<dt class="label" id="beckerle90"><span class="brackets"><a class="fn-backref" href="#id15">Beckerle90</a></span></dt>
+<dd><ol class="upperalpha simple" start="10">
+<li><p>Beckerle, A. Johnson, and S. Ceyer, Collision-induced desorption of physisorbed CH4 from Ni (111): Experiments and simulations, The Journal of Chemical Physics, (1990).</p></li>
+</ol>
+</dd>
+<dt class="label" id="goodman74"><span class="brackets"><a class="fn-backref" href="#id16">Goodman74</a></span></dt>
+<dd><ol class="upperalpha simple" start="6">
+<li><ol class="upperalpha simple" start="15">
+<li><p>Goodman, Determination of characteristic surface vibration temperatures by molecular beam scattering: Application to specular scattering in the H-LiF (001) system, Surface Science, (1974)</p></li>
+</ol>
+</li>
+</ol>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
